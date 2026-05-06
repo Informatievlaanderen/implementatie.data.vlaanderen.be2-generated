@@ -1,0 +1,100 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht> a rdfs:Class;
+  rdfs:label "Opdracht"@nl .
+
+<https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#beschrijving> a owl:DatatypeProperty;
+  rdfs:label "beschrijving"@nl;
+  rdfs:comment "Beschrijving van de Opdracht."@nl;
+  rdfs:domain <https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten>;
+  rdfs:range rdf:langString .
+
+<https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#dataleverancier> a owl:ObjectProperty;
+  rdfs:label "dataleverancier"@nl;
+  rdfs:comment "Verstrekker van data die bij de uitvoering van de Opdracht is geproduceerd."@nl;
+  rdfs:domain <https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten>;
+  rdfs:range dc:Agent .
+
+<https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#ligging> a owl:ObjectProperty;
+  rdfs:label "ligging"@nl;
+  rdfs:comment "Aanduiding van de locatie waar de Opdracht plaatsvindt."@nl;
+  rdfs:domain <https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten>;
+  rdfs:range prov:Location .
+
+<https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#opdrachtgever> a owl:ObjectProperty;
+  rdfs:label "opdrachtgever"@nl;
+  rdfs:comment "Agent die de opdracht heeft geïnitieerd."@nl;
+  rdfs:domain <https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten>;
+  rdfs:range dc:Agent .
+
+<https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#opdrachtnemer> a owl:ObjectProperty;
+  rdfs:label "opdrachtnemer"@nl;
+  rdfs:comment "Agent die de opdracht aan heeft genomen."@nl;
+  rdfs:domain <https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten>;
+  rdfs:range dc:Agent .
+
+<https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#referentie> a owl:DatatypeProperty;
+  rdfs:label "referentie"@nl;
+  rdfs:comment "Verwijzing naar bijkomende documentatie over de opdracht."@nl;
+  rdfs:domain <https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten>;
+  rdfs:range xsd:anyURI .
+
+<https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#resultaat> a owl:ObjectProperty;
+  rdfs:label "resultaat"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Typisch de Observaties die ihkv de opdracht plaatsvonden en/of de Monsters die tbv daarvan werden genomen of de Grondboringen of andere bemonsteringsactiviteiten die ihkv de Opdracht plaatsvonden."@nl;
+  rdfs:comment "Verwijzing naar een resultaat van de Opdracht."@nl;
+  rdfs:domain <https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten>;
+  rdfs:range rdfs:Resource .
+
+<https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#tijdstip> a owl:ObjectProperty;
+  rdfs:label "tijdstip"@nl;
+  rdfs:comment "Tijdstip waarop of periode waarin de Opdracht plaatsvindt."@nl;
+  rdfs:domain <https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten>;
+  rdfs:range <http://www.w3.org/2006/time#TemporalEntity> .
+
+dc:type a rdf:Property;
+  rdfs:label "type"@nl .
+
+<http://www.w3.org/ns/adms#identifier> a rdf:Property;
+  rdfs:label "identificator"@nl .
+
+<https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten> a owl:Ontology;
+  rdfs:label "grondverzet-opdrachten-imvoc"@en,
+    "grondverzet-opdrachten-imvoc"@nl;
+  dc:issued "TODO";
+  dc:license "https://creativecommons.org/publicdomain/zero/1.0/",
+    <https://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0>;
+  dc:mediator [
+    foaf:homepage <https://data.specs.org>;
+    foaf:mbox <mailto:info@data.specs.org>;
+    foaf:name "Data Specifications Organisation"
+  ];
+  rdfs:seeAlso <https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht>,
+    <http://www.w3.org/ns/adms#identifier>,
+    dc:type;
+  foaf:maker [
+    a foaf:Person;
+    schema:affiliation [foaf:name "Digitaal Vlaanderen"];
+    foaf:firstName "Bert";
+    foaf:lastName "Van Nuffelen"
+  ], [
+    a foaf:Person;
+    schema:affiliation [foaf:name "Digitaal Vlaanderen"];
+    foaf:firstName "Geert";
+    foaf:lastName "Thijs"
+  ] .

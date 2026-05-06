@@ -1,0 +1,134 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+rdf:langString a rdfs:Class;
+  rdfs:label "Geografische Naam"@nl .
+
+<http://www.w3.org/ns/locn#Address> a rdfs:Class;
+  rdfs:label "Adresvoorstelling"@nl .
+
+<http://www.w3.org/ns/locn#Geometry> a rdfs:Class;
+  rdfs:label "Geometrie"@nl .
+
+prov:Location a rdfs:Class;
+  rdfs:label "Locatie"@nl .
+
+<https://data.vlaanderen.be/ns/adres#Adres> a rdfs:Class;
+  rdfs:label "Belgisch Adres"@nl .
+
+<https://data.vlaanderen.be/ns/generiek#DirectePositie> a rdfs:Class;
+  rdfs:label "DirectePositie"@nl .
+
+<https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/locaties#RuimtelijkObject> a owl:Class;
+  rdfs:label "RuimtelijkObject"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Bvb een perceel, een gebouw, een Wegsegment etc."@nl;
+  rdfs:comment "Object met een geografische positie."@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/locaties>;
+  rdfs:subClassOf prov:Location .
+
+<http://www.opengis.net/ont/geosparql#asGML> a rdf:Property;
+  rdfs:label "gml"@nl .
+
+<http://www.opengis.net/ont/geosparql#asWKT> a rdf:Property;
+  rdfs:label "wkt"@nl .
+
+<http://www.w3.org/ns/locn#addressArea> a rdf:Property;
+  rdfs:label "adresgebied"@nl .
+
+<http://www.w3.org/ns/locn#adminUnitL1> a rdf:Property;
+  rdfs:label "administratieve eenheid niveau 1"@nl .
+
+<http://www.w3.org/ns/locn#adminUnitL2> a rdf:Property;
+  rdfs:label "administratieve eenheid niveau 2"@nl .
+
+<http://www.w3.org/ns/locn#fullAddress> a rdf:Property;
+  rdfs:label "volledig adres"@nl .
+
+<http://www.w3.org/ns/locn#locatorDesignator> a rdf:Property;
+  rdfs:label "locatieaanduiding"@nl .
+
+<http://www.w3.org/ns/locn#locatorName> a rdf:Property;
+  rdfs:label "locatienaam"@nl .
+
+<http://www.w3.org/ns/locn#poBox> a rdf:Property;
+  rdfs:label "postbus"@nl .
+
+<http://www.w3.org/ns/locn#postCode> a rdf:Property;
+  rdfs:label "postcode"@nl .
+
+<http://www.w3.org/ns/locn#postName> a rdf:Property;
+  rdfs:label "postnaam"@nl .
+
+<http://www.w3.org/ns/locn#thoroughfare> a rdf:Property;
+  rdfs:label "straatnaam"@nl .
+
+<https://data.vlaanderen.be/ns/adres#Adresvoorstelling.busnummer> a rdf:Property;
+  rdfs:label "busnummer"@nl .
+
+<https://data.vlaanderen.be/ns/adres#Adresvoorstelling.huisnummer> a rdf:Property;
+  rdfs:label "huisnummer"@nl .
+
+<https://data.vlaanderen.be/ns/adres#gemeentenaam> a rdf:Property;
+  rdfs:label "gemeentenaam"@nl .
+
+<https://data.vlaanderen.be/ns/adres#land> a rdf:Property;
+  rdfs:label "land"@nl .
+
+<https://data.vlaanderen.be/ns/adres#verwijstNaar> a rdf:Property;
+  rdfs:label "verwijstNaar"@nl .
+
+<https://data.vlaanderen.be/ns/generiek#DirectePositie.opmeting> a rdf:Property;
+  rdfs:label "opmeting"@nl .
+
+<https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/locaties> a owl:Ontology;
+  rdfs:label "grondverzet-locaties-imvoc"@en,
+    "grondverzet-locaties-imvoc"@nl;
+  dc:issued "TODO";
+  dc:license "https://creativecommons.org/publicdomain/zero/1.0/",
+    <https://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0>;
+  dc:mediator [
+    foaf:homepage <https://data.specs.org>;
+    foaf:mbox <mailto:info@data.specs.org>;
+    foaf:name "Data Specifications Organisation"
+  ];
+  rdfs:seeAlso rdf:langString,
+    <http://www.w3.org/ns/locn#Address>,
+    <http://www.w3.org/ns/locn#Geometry>,
+    prov:Location,
+    <https://data.vlaanderen.be/ns/adres#Adres>,
+    <https://data.vlaanderen.be/ns/generiek#DirectePositie>,
+    <https://data.vlaanderen.be/ns/generiek#DirectePositie.opmeting>,
+    <https://data.vlaanderen.be/ns/adres#verwijstNaar>,
+    <https://data.vlaanderen.be/ns/adres#land>,
+    <https://data.vlaanderen.be/ns/adres#gemeentenaam>,
+    <https://data.vlaanderen.be/ns/adres#Adresvoorstelling.huisnummer>,
+    <https://data.vlaanderen.be/ns/adres#Adresvoorstelling.busnummer>,
+    <http://www.w3.org/ns/locn#thoroughfare>,
+    <http://www.w3.org/ns/locn#postName>,
+    <http://www.w3.org/ns/locn#postCode>,
+    <http://www.w3.org/ns/locn#poBox>,
+    <http://www.w3.org/ns/locn#locatorName>,
+    <http://www.w3.org/ns/locn#locatorDesignator>,
+    <http://www.w3.org/ns/locn#fullAddress>,
+    <http://www.w3.org/ns/locn#adminUnitL2>,
+    <http://www.w3.org/ns/locn#adminUnitL1>,
+    <http://www.w3.org/ns/locn#addressArea>,
+    <http://www.opengis.net/ont/geosparql#asWKT>,
+    <http://www.opengis.net/ont/geosparql#asGML>;
+  foaf:maker [
+    a foaf:Person;
+    schema:affiliation [foaf:name "Digitaal Vlaanderen"];
+    foaf:firstName "Bert";
+    foaf:lastName "Van Nuffelen"
+  ], [
+    a foaf:Person;
+    schema:affiliation [foaf:name "Digitaal Vlaanderen"];
+    foaf:firstName "Geert";
+    foaf:lastName "Thijs"
+  ] .

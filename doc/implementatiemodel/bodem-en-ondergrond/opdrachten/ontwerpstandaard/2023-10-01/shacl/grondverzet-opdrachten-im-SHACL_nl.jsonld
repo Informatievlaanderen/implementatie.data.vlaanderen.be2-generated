@@ -1,0 +1,295 @@
+{
+  "@context": {
+    "@vocab": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01",
+    "qb": "http://purl.org/linked-data/cube#",
+    "qb:codeList": {
+      "@type": "@id"
+    },
+    "sh": "http://www.w3.org/ns/shacl#",
+    "sh:class": {
+      "@type": "@id"
+    },
+    "sh:datatype": {
+      "@type": "@id"
+    },
+    "sh:description": {
+      "@container": "@language"
+    },
+    "sh:maxCount": {
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "sh:minCount": {
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "sh:name": {
+      "@container": "@language"
+    },
+    "sh:path": {
+      "@type": "@id"
+    },
+    "sh:property": {
+      "@type": "@id"
+    },
+    "sh:targetClass": {
+      "@type": "@id"
+    },
+    "shapes": {
+      "@type": "@id"
+    },
+    "vl": "https://purl.eu/ns/shacl#"
+  },
+  "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01",
+  "shapes": [
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#AgentShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [],
+      "sh:targetClass": "http://purl.org/dc/terms/Agent"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#AnyShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [],
+      "sh:targetClass": "http://www.w3.org/2000/01/rdf-schema#Resource"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#OpdrachtTypeShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [],
+      "sh:targetClass": "http://www.w3.org/2004/02/skos/core#Concept"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#MomentShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [
+        {
+          "sh:datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "sh:description": {
+            "nl": "Positie in de tijd uitgedrukt dmv xsd:dateTime."
+          },
+          "sh:maxCount": "1",
+          "sh:minCount": "1",
+          "sh:name": {
+            "nl": "inXSDDateTime"
+          },
+          "sh:path": "http://www.w3.org/2006/time#inXSDDateTime"
+        }
+      ],
+      "sh:targetClass": "http://www.w3.org/2006/time#Instant"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#PeriodeShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [
+        {
+          "sh:class": "http://www.w3.org/2006/time#Instant",
+          "sh:description": {
+            "nl": "Einde ve TemporeleEntiteit."
+          },
+          "sh:maxCount": "1",
+          "sh:minCount": "1",
+          "sh:name": {
+            "nl": "tot"
+          },
+          "sh:path": "http://www.w3.org/2006/time#hasEnd"
+        },
+        {
+          "sh:class": "http://www.w3.org/2006/time#Instant",
+          "sh:description": {
+            "nl": "Start ve TemporeleEntiteit."
+          },
+          "sh:maxCount": "1",
+          "sh:minCount": "1",
+          "sh:name": {
+            "nl": "van"
+          },
+          "sh:path": "http://www.w3.org/2006/time#hasBeginning"
+        }
+      ],
+      "sh:targetClass": "http://www.w3.org/2006/time#ProperInterval"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#TemporeleEntiteitShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [],
+      "sh:targetClass": "http://www.w3.org/2006/time#TemporalEntity"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#IdentificatorShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [
+        {
+          "sh:description": {
+            "nl": "String gebruikt om het object uniek te identificeren."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "identificator"
+          },
+          "sh:path": "http://www.w3.org/2004/02/skos/core#notation"
+        },
+        {
+          "sh:class": "http://purl.org/dc/terms/Agent",
+          "sh:description": {
+            "nl": "Link naar de agent die de identificator heeft uitgegeven."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "toegekend door"
+          },
+          "sh:path": "http://purl.org/dc/terms/creator"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/2001/XMLSchema#string",
+          "sh:description": {
+            "nl": "Naam vd agent die de identificator heeft toegekend."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "toegekend door (String)"
+          },
+          "sh:path": "http://www.w3.org/ns/adms#schemaAgency"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+          "sh:description": {
+            "nl": "Tijdstip waarop de identificator werd uitgegeven."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "toegekend op"
+          },
+          "sh:path": "http://purl.org/dc/terms/issued"
+        }
+      ],
+      "sh:targetClass": "http://www.w3.org/ns/adms#Identifier"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#LocatieShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [],
+      "sh:targetClass": "http://www.w3.org/ns/prov#Location"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#OpdrachtShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [
+        {
+          "sh:datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+          "sh:description": {
+            "nl": "Beschrijving van de Opdracht."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "beschrijving"
+          },
+          "sh:path": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#beschrijving"
+        },
+        {
+          "sh:class": "http://purl.org/dc/terms/Agent",
+          "sh:description": {
+            "nl": "Verstrekker van data die bij de uitvoering van de Opdracht is geproduceerd."
+          },
+          "sh:name": {
+            "nl": "dataleverancier"
+          },
+          "sh:path": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#dataleverancier"
+        },
+        {
+          "sh:class": "http://www.w3.org/ns/adms#Identifier",
+          "sh:description": {
+            "nl": "Verwijzing naar de informatie die de Opdracht uniek identificeert."
+          },
+          "sh:name": {
+            "nl": "identificator"
+          },
+          "sh:path": "http://www.w3.org/ns/adms#identifier"
+        },
+        {
+          "sh:class": "http://www.w3.org/ns/prov#Location",
+          "sh:description": {
+            "nl": "Aanduiding van de locatie waar de Opdracht plaatsvindt."
+          },
+          "sh:name": {
+            "nl": "ligging"
+          },
+          "sh:path": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#ligging"
+        },
+        {
+          "sh:class": "http://purl.org/dc/terms/Agent",
+          "sh:description": {
+            "nl": "Agent die de opdracht heeft geïnitieerd."
+          },
+          "sh:maxCount": "1",
+          "sh:minCount": "1",
+          "sh:name": {
+            "nl": "opdrachtgever"
+          },
+          "sh:path": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#opdrachtgever"
+        },
+        {
+          "sh:class": "http://purl.org/dc/terms/Agent",
+          "sh:description": {
+            "nl": "Agent die de opdracht aan heeft genomen."
+          },
+          "sh:name": {
+            "nl": "opdrachtnemer"
+          },
+          "sh:path": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#opdrachtnemer"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/2001/XMLSchema#anyURI",
+          "sh:description": {
+            "nl": "Verwijzing naar bijkomende documentatie over de opdracht."
+          },
+          "sh:name": {
+            "nl": "referentie"
+          },
+          "sh:path": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#referentie"
+        },
+        {
+          "sh:class": "http://www.w3.org/2000/01/rdf-schema#Resource",
+          "sh:description": {
+            "nl": "Verwijzing naar een resultaat van de Opdracht."
+          },
+          "sh:name": {
+            "nl": "resultaat"
+          },
+          "sh:path": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#resultaat"
+        },
+        {
+          "sh:class": "http://www.w3.org/2006/time#TemporalEntity",
+          "sh:description": {
+            "nl": "Tijdstip waarop of periode waarin de Opdracht plaatsvindt."
+          },
+          "sh:minCount": "1",
+          "sh:name": {
+            "nl": "tijdstip"
+          },
+          "sh:path": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#tijdstip"
+        },
+        {
+          "sh:class": "http://www.w3.org/2004/02/skos/core#Concept",
+          "sh:description": {
+            "nl": "soort opdracht."
+          },
+          "sh:minCount": "1",
+          "sh:name": {
+            "nl": "type"
+          },
+          "sh:path": "http://purl.org/dc/terms/type"
+        }
+      ],
+      "sh:targetClass": "https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht"
+    }
+  ]
+}

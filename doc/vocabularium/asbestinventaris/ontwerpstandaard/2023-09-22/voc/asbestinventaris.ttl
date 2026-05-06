@@ -1,0 +1,246 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.vlaanderen.be/ns/gebouw#Gebouweenheid> a rdfs:Class;
+  rdfs:label "Gebouweenheid"@nl .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Afvalfiche> a owl:Class;
+  rdfs:label "Afvalfiche"@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:subClassOf <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Fiche> .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#aanleiding> a owl:DatatypeProperty;
+  rdfs:label "aanleiding"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range rdf:langString .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#aantalAsbestMaterialen> a owl:DatatypeProperty;
+  rdfs:label "aantal asbest materialen"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range xsd:integer .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#aantalBeperkingen> a owl:DatatypeProperty;
+  rdfs:label "aantal beperkingen"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range xsd:integer .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#aantalUitsluitingen> a owl:DatatypeProperty;
+  rdfs:label "aantal uitsluitingen"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range xsd:integer .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#actie> a owl:DatatypeProperty;
+  rdfs:label "actie"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Fiche>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range rdf:langString .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#analyserapport> a owl:ObjectProperty;
+  rdfs:label "analyse rapport"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Analyserapport> .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#asbestmateriaal> a owl:ObjectProperty,
+    owl:DatatypeProperty;
+  rdfs:label "asbestmateriaal"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris>,
+    <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Fiche>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestmateriaal>,
+    rdf:langString .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#asbestsoort> a owl:DatatypeProperty;
+  rdfs:label "asbestsoort"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Fiche>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range rdf:langString .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#attest> a owl:ObjectProperty;
+  rdfs:label "attest"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Attest> .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#attestNummer> a owl:DatatypeProperty;
+  rdfs:label "attest nummer"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range xsd:string .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#beschrijving> a owl:DatatypeProperty;
+  rdfs:label "beschrijving"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Fiche>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range rdf:langString .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#bindmiddel> a owl:DatatypeProperty;
+  rdfs:label "bindmiddel"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Fiche>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range rdf:langString .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#eenvoudigbereikbaar> a owl:DatatypeProperty;
+  rdfs:label "eenvoudig bereikbaar"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Fiche>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range xsd:boolean .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#gebondenheid> a owl:DatatypeProperty;
+  rdfs:label "gebondenheid"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Fiche>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range rdf:langString .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#geldigTot> a owl:DatatypeProperty;
+  rdfs:label "geldig tot"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range xsd:date .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#gemeenschappelijkDeel> a owl:ObjectProperty;
+  rdfs:label "gemeenschappelijk deel"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range <https://data.vlaanderen.be/ns/gebouw#Gebouweenheid> .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#id> a owl:ObjectProperty;
+  rdfs:label "id"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris>,
+    <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Attest>,
+    <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Fiche>,
+    <https://data.vlaanderen.be/ns/gebouw#Gebouweenheid>,
+    <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Analyserapport>,
+    <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#InventarisSummary>,
+    <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestmateriaal>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range rdfs:Resource .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#locatiebeschrijving> a owl:DatatypeProperty;
+  rdfs:label "locatie beschrijving"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range rdf:langString .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#mijlpaal> a owl:DatatypeProperty;
+  rdfs:label "mijlpaal"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Bronfiche>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range rdf:langString .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#omgeving> a owl:DatatypeProperty;
+  rdfs:label "omgeving"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Fiche>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range rdf:langString .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#primairedrager> a owl:DatatypeProperty;
+  rdfs:label "primaire drager"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Fiche>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range rdf:langString .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#resultaat> a owl:DatatypeProperty;
+  rdfs:label "resultaat"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range rdf:langString .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#risicobeoordeling> a owl:DatatypeProperty;
+  rdfs:label "risicobeoordeling"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Bronfiche>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range rdf:langString .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#uitgegevenOp> a owl:DatatypeProperty;
+  rdfs:label "uitgegeven op"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range xsd:date .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#vanToepassingOpGemeenschappelijkDeel> a owl:DatatypeProperty;
+  rdfs:label "van toepassing op gemeenschappelijk deel"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:range xsd:boolean .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#InventarisSummary> a owl:Class;
+  rdfs:label "Inventaris Summary"@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris> .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Analyserapport> a owl:Class;
+  rdfs:label "Analyserapport"@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris> .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestmateriaal> a owl:Class;
+  rdfs:label "Asbestmateriaal"@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris> .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Attest> a owl:Class;
+  rdfs:label "Attest"@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris> .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Bronfiche> a owl:Class;
+  rdfs:label "Bronfiche"@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris>;
+  rdfs:subClassOf <https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Fiche> .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Fiche> a owl:Class;
+  rdfs:label "Fiche"@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris> .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris#Asbestinventaris> a owl:Class;
+  rdfs:label "Asbestinventaris"@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/asbestinventaris> .
+
+<https://implementatie.data.vlaanderen.be/ns/asbestinventaris> a owl:Ontology;
+  rdfs:label "asbestinventaris"@en,
+    "asbestinventaris"@nl;
+  dc:contributor [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://medewerkerwebsiteurl>;
+      foaf:name "MedewerkerAffiliatie"
+    ];
+    foaf:firstName "MedewerkerVoornaam";
+    foaf:lastName "MedewerkerNaam";
+    foaf:mbox <mailto:medewerkervoornaam.medewerkernaam@medewerkerdomein>
+  ];
+  dc:issued "TODO";
+  dc:license "https://creativecommons.org/publicdomain/zero/1.0/",
+    <https://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0>;
+  dc:mediator [
+    foaf:homepage <https://data.specs.org>;
+    foaf:mbox <mailto:info@data.specs.org>;
+    foaf:name "Data Specifications Organisation"
+  ];
+  rdfs:seeAlso <https://data.vlaanderen.be/ns/gebouw#Gebouweenheid>;
+  <http://www.w3.org/2001/02pd/rec54#editor> [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://editorwebsiteurl>;
+      foaf:name "EditorAffiliatie"
+    ];
+    foaf:firstName "EditorVoornaam";
+    foaf:lastName "EditorNaam";
+    foaf:mbox <mailto:editorvoornaam.editornaam@editordomein>
+  ];
+  foaf:maker [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://auteurwebsiteurl>;
+      foaf:name "AuteurAffiliatie"
+    ];
+    foaf:firstName "AuteurVoornaam";
+    foaf:lastName "AuteurNaam";
+    foaf:mbox <mailto:auteurvoornaam.auteurnaam@auteurdomein>
+  ] .

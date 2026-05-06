@@ -1,0 +1,215 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix shacl: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01> <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01shapes> <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#AgentShape>,
+    <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#ContactInfoShape>,
+    <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#IdentificatorShape>,
+    <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#AdresvoorstellingShape>,
+    <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#OrganisatieShape>,
+    <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#PersoonShape>,
+    <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#GeregistreerdeOrganisatieShape>,
+    <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#GeregistreerdPersoonShape> .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#AdresvoorstellingShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:property [
+    shacl:datatype xsd:string;
+    shacl:description "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben."@nl;
+    shacl:maxCount 1;
+    shacl:name "busnummer"@nl;
+    shacl:path <https://vocab.belgif.be/ns/address#AddressRepresentation.boxNumber>
+  ], [
+    shacl:datatype rdf:langString;
+    shacl:description "Gemeentenaam van het adres."@nl;
+    shacl:maxCount 1;
+    shacl:name "gemeentenaam"@nl;
+    shacl:path <https://vocab.belgif.be/ns/address#municipalityName>
+  ], [
+    shacl:datatype xsd:string;
+    shacl:description "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen."@nl;
+    shacl:maxCount 1;
+    shacl:name "huisnummer"@nl;
+    shacl:path <https://vocab.belgif.be/ns/address#AddressRepresentation.houseNumber>
+  ], [
+    shacl:datatype rdf:langString;
+    shacl:description "Land waarin het adres gelegen is."@nl;
+    shacl:maxCount 1;
+    shacl:name "land"@nl;
+    shacl:path <https://vocab.belgif.be/ns/address#country>
+  ], [
+    shacl:datatype xsd:string;
+    shacl:description "Postbusnummer in een postkantoor."@nl;
+    shacl:maxCount 1;
+    shacl:name "postbus"@nl;
+    shacl:path <http://www.w3.org/ns/locn#poBox>
+  ], [
+    shacl:datatype xsd:string;
+    shacl:description "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "postcode"@nl;
+    shacl:path <http://www.w3.org/ns/locn#postCode>
+  ], [
+    shacl:datatype rdf:langString;
+    shacl:description "Straatnaam van het adres."@nl;
+    shacl:maxCount 1;
+    shacl:name "straatnaam"@nl;
+    shacl:path <http://www.w3.org/ns/locn#thoroughfare>
+  ], [
+    shacl:datatype rdf:langString;
+    shacl:description "Het complete adres in één string, al dan niet geformatteerd."@nl;
+    shacl:maxCount 1;
+    shacl:name "volledig Adres"@nl;
+    shacl:path <http://www.w3.org/ns/locn#fullAddress>
+  ];
+  shacl:targetClass <http://www.w3.org/ns/locn#Address> .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#AgentShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:targetClass dc:Agent .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#ContactInfoShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:property [
+    shacl:class <http://www.w3.org/ns/locn#Address>;
+    shacl:description "Adres dat men kan aanschrijven of bezoeken."@nl;
+    shacl:maxCount 1;
+    shacl:name "adres"@nl;
+    shacl:path <http://www.w3.org/ns/locn#address>
+  ], [
+    shacl:datatype xsd:string;
+    shacl:description "Email-adres waarnaar men kan mailen."@nl;
+    shacl:maxCount 1;
+    shacl:name "email"@nl;
+    shacl:path schema:email
+  ], [
+    shacl:datatype xsd:string;
+    shacl:description "Telefoonnummer waarop men kan bellen."@nl;
+    shacl:maxCount 1;
+    shacl:name "telefoon"@nl;
+    shacl:path schema:telephone
+  ], [
+    shacl:datatype xsd:anyURI;
+    shacl:description "Website waarnaar men kan surfen."@nl;
+    shacl:maxCount 1;
+    shacl:name "website"@nl;
+    shacl:path foaf:page
+  ];
+  shacl:targetClass schema:ContactPoint .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#GeregistreerdPersoonShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:property [
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificatiecode vd persoon ih register."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "registratie"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/persoon#registratie>
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon> .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#GeregistreerdeOrganisatieShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:property [
+    shacl:class skos:Concept;
+    shacl:description "Geeft aan of de rechtspersoonlijkheid van de geregistreerde organisatie deze is van een natuurlijk persoon of van een rechtspersoon. "@nl;
+    shacl:maxCount 1;
+    shacl:name "rechtspersoonlijkheid"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/organisatie#rechtspersoonlijkheid>
+  ], [
+    shacl:class skos:Concept;
+    shacl:description "Juridisch statuut van de geregistreerde organisatie."@nl;
+    shacl:maxCount 1;
+    shacl:name "rechtsvorm"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/organisatie#rechtsvorm>
+  ], [
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificator dat de organisatie verkreeg bij registratie."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "registratie"@nl;
+    shacl:path <http://www.w3.org/ns/regorg#registration>
+  ], [
+    shacl:datatype rdf:langString;
+    shacl:description "Wettelijk geregistreerde naam vd organisatie."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "wettelijke naam"@nl;
+    shacl:path <http://www.w3.org/ns/regorg#legalName>
+  ];
+  shacl:targetClass <http://www.w3.org/ns/regorg#RegisteredOrganization> .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#IdentificatorShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:property [
+    shacl:description "String gebruikt om het object uniek te identificeren."@nl;
+    shacl:maxCount 1;
+    shacl:name "identificator"@nl;
+    shacl:path skos:notation
+  ], [
+    shacl:class dc:Agent;
+    shacl:description "Link naar de agent die de identificator heeft uitgegeven."@nl;
+    shacl:maxCount 1;
+    shacl:name "toegekend door"@nl;
+    shacl:path dc:creator
+  ], [
+    shacl:datatype xsd:string;
+    shacl:description "Naam vd agent die de identificator heeft toegekend."@nl;
+    shacl:maxCount 1;
+    shacl:name "toegekend door (String)"@nl;
+    shacl:path <http://www.w3.org/ns/adms#schemaAgency>
+  ], [
+    shacl:datatype xsd:dateTime;
+    shacl:description "Tijdstip waarop de identificator werd uitgegeven."@nl;
+    shacl:maxCount 1;
+    shacl:name "toegekend op"@nl;
+    shacl:path dc:issued
+  ];
+  shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#OrganisatieShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:property [
+    shacl:class schema:ContactPoint;
+    shacl:description "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren."@nl;
+    shacl:name "contactinfo"@nl;
+    shacl:path schema:contactPoint
+  ], [
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee de organisatie bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ];
+  shacl:targetClass org:Organization .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01#PersoonShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:property [
+    shacl:datatype xsd:string;
+    shacl:description "Gedeelte van de volledige naam vd persoon ontvangen van de vorige generatie."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "achternaam"@nl;
+    shacl:path foaf:familyName
+  ], [
+    shacl:class schema:ContactPoint;
+    shacl:description "Informatie zoals email, telefoon... die toelaat de Persoon te contacteren."@nl;
+    shacl:maxCount 1;
+    shacl:name "contactinfo"@nl;
+    shacl:path schema:contactPoint
+  ], [
+    shacl:datatype xsd:string;
+    shacl:description "Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie."@nl;
+    shacl:minCount 1;
+    shacl:name "voornaam"@nl;
+    shacl:path foaf:givenName
+  ];
+  shacl:targetClass <http://www.w3.org/ns/person#Person> .

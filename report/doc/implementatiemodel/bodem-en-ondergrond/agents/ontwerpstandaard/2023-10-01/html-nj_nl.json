@@ -1,0 +1,1431 @@
+{
+  "metadata": {
+    "title": "Implementatiemodel Bodem en Ondergrond - Agents",
+    "uri": "http://fixme.com",
+    "issued": "2024-03-11",
+    "filename": "grondverzet-agents-im",
+    "navigation": {
+      "self": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01"
+    },
+    "license": "https://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0",
+    "documenttype": "ap",
+    "documentconfig": {},
+    "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+    "statuslabel": "Ontwerp Standaard",
+    "repositoryurl": "https://github.com/Informatievlaanderen/OSLOthema-IM-grondverzet/tree/b5baf223b572be024152ac9be023d5d44f3fad9b",
+    "changelogurl": "https://github.com/Informatievlaanderen/OSLOthema-IM-grondverzet/blob/b5baf223b572be024152ac9be023d5d44f3fad9b/CHANGELOG",
+    "feedbackurl": "https://github.com/Informatievlaanderen/OSLOthema-IM-grondverzet/issues",
+    "standaardregisterurl": "https://data.vlaanderen.be/standaarden/TODO/CORRECT-URL/index.html",
+    "usesVocs": [],
+    "usesAPs": []
+  },
+  "classes": [
+    {
+      "uri": "http://purl.org/dc/terms/Agent",
+      "name": "Agent",
+      "label": {
+        "nl": "Agent"
+      },
+      "sort": "Agent",
+      "description": {
+        "nl": "Iemand die of iets dat kan handelen of een effect kan teweeg brengen."
+      },
+      "usage": {},
+      "parents": [],
+      "rawTags": {
+        "ap-definition-nl": "Iemand die of iets dat kan handelen of een effect kan teweeg brengen.",
+        "label-nl": "Agent",
+        "uri": "http://purl.org/dc/terms/Agent",
+        "ap-usageNote": "Meer info over deze klasse in het <a href=\"https://implementatie.data.vlaanderen.be/doc/implementatiemodel/grondverzet/agents/\">IM-Agents."
+      },
+      "properties": []
+    },
+    {
+      "uri": "http://www.w3.org/ns/org#Organization",
+      "name": "Organisatie",
+      "label": {
+        "nl": "Organisatie"
+      },
+      "sort": "Organisatie",
+      "description": {
+        "nl": "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een organisatie heeft dikwijls een hiërarchische structuur."
+      },
+      "usage": {
+        "nl": " "
+      },
+      "parents": [
+        {
+          "label": "Agent",
+          "name": "Agent",
+          "package": "OSLO-Generiek",
+          "uri": "http://purl.org/dc/terms/Agent",
+          "scoped_uri": "#Agent"
+        }
+      ],
+      "rawTags": {
+        "ap-definition-nl": "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een organisatie heeft dikwijls een hiërarchische structuur.",
+        "ap-usageNote-nl": " ",
+        "label-nl": "Organisatie",
+        "uri": "http://www.w3.org/ns/org#Organization"
+      },
+      "properties": [
+        {
+          "uri": "http://www.w3.org/2004/02/skos/core#prefLabel",
+          "name": "voorkeursnaam",
+          "sort": "voorkeursnaam",
+          "label": {
+            "nl": "voorkeursnaam"
+          },
+          "description": {
+            "nl": "Naam waarmee de organisatie bij voorkeur wordt aangeduid."
+          },
+          "usage": {
+            "nl": " "
+          },
+          "domain": [
+            {
+              "EA-Name": "Organisatie",
+              "uri": "http://www.w3.org/ns/org#Organization"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "LangString",
+              "range_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+              "range_puri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+              "range_label": {
+                "nl": "LangString"
+              }
+            }
+          ],
+          "cardinality": "1",
+          "codelist_uri": "",
+          "rawTags": {
+            "ap-label-nl": "voorkeursnaam",
+            "ap-usageNote-nl": " ",
+            "uri": "http://www.w3.org/2004/02/skos/core#prefLabel",
+            "label-nl": "voorkeurslabel",
+            "ap-definition-nl": "Naam waarmee de organisatie bij voorkeur wordt aangeduid."
+          }
+        },
+        {
+          "uri": "http://schema.org/contactPoint",
+          "name": "contactinfo",
+          "sort": "contactinfo",
+          "label": {
+            "nl": "contactinfo"
+          },
+          "description": {
+            "nl": "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren."
+          },
+          "usage": {
+            "nl": " "
+          },
+          "domain": [
+            {
+              "EA-Name": "Organisatie",
+              "uri": "http://www.w3.org/ns/org#Organization"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "ContactInfo",
+              "range_uri": "http://schema.org/ContactPoint"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Contactinfo",
+              "range_puri": "http://schema.org/ContactPoint",
+              "range_label": {
+                "nl": "Contactinfo"
+              }
+            }
+          ],
+          "cardinality": "0..*",
+          "codelist_uri": "",
+          "rawTags": {
+            "ap-usageNote-nl": " ",
+            "label-nl": "contactpunt",
+            "ap-definition-nl": "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren.",
+            "uri": "http://schema.org/contactPoint",
+            "ap-label-nl": "contactinfo"
+          }
+        }
+      ]
+    },
+    {
+      "uri": "http://www.w3.org/ns/person#Person",
+      "name": "Persoon",
+      "label": {
+        "nl": "Persoon"
+      },
+      "sort": "Persoon",
+      "description": {
+        "nl": "Natuurlijk persoon."
+      },
+      "usage": {
+        "nl": "In de rechtspraak betreft het een persoon (in de wettelijke betekenis, ttz met eigen rechtspersoonlijkheid) van de menselijke soort, ttz een fysiek persoon. Tegenhanger is de rechtspersoon, een juridische constructie die een private of publieke organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bv ook schulden hebben, contracten afsluiten, aangeklaagd worden etc)."
+      },
+      "parents": [
+        {
+          "label": "Agent",
+          "name": "Agent",
+          "package": "OSLO-Generiek",
+          "uri": "http://purl.org/dc/terms/Agent",
+          "scoped_uri": "#Agent"
+        }
+      ],
+      "rawTags": {
+        "ap-definition-nl": "Natuurlijk persoon.",
+        "ap-usageNote-nl": "In de rechtspraak betreft het een persoon (in de wettelijke betekenis, ttz met eigen rechtspersoonlijkheid) van de menselijke soort, ttz een fysiek persoon. Tegenhanger is de rechtspersoon, een juridische constructie die een private of publieke organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bv ook schulden hebben, contracten afsluiten, aangeklaagd worden etc).",
+        "label-nl": "Persoon",
+        "uri": "http://www.w3.org/ns/person#Person"
+      },
+      "properties": [
+        {
+          "uri": "http://xmlns.com/foaf/0.1/givenName",
+          "name": "voornaam",
+          "sort": "voornaam",
+          "label": {
+            "nl": "voornaam"
+          },
+          "description": {
+            "nl": "Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie."
+          },
+          "usage": {
+            "nl": " "
+          },
+          "domain": [
+            {
+              "EA-Name": "Persoon",
+              "uri": "http://www.w3.org/ns/person#Person"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "String",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_label": {
+                "nl": "String"
+              }
+            }
+          ],
+          "cardinality": "1..*",
+          "codelist_uri": "",
+          "rawTags": {
+            "ap-label-nl": "voornaam",
+            "ap-usageNote-nl": " ",
+            "uri": "http://xmlns.com/foaf/0.1/givenName",
+            "label-nl": "gegeven naam",
+            "ap-definition-nl": "Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie."
+          }
+        },
+        {
+          "uri": "http://xmlns.com/foaf/0.1/familyName",
+          "name": "achternaam",
+          "sort": "achternaam",
+          "label": {
+            "nl": "achternaam"
+          },
+          "description": {
+            "nl": "Gedeelte van de volledige naam vd persoon ontvangen van de vorige generatie."
+          },
+          "usage": {
+            "nl": "Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt."
+          },
+          "domain": [
+            {
+              "EA-Name": "Persoon",
+              "uri": "http://www.w3.org/ns/person#Person"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "String",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_label": {
+                "nl": "String"
+              }
+            }
+          ],
+          "cardinality": "1",
+          "codelist_uri": "",
+          "rawTags": {
+            "ap-label-nl": "achternaam",
+            "ap-usageNote-nl": "Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
+            "uri": "http://xmlns.com/foaf/0.1/familyName",
+            "label-nl": "familienaam",
+            "ap-definition-nl": "Gedeelte van de volledige naam vd persoon ontvangen van de vorige generatie."
+          }
+        },
+        {
+          "uri": "http://schema.org/contactPoint",
+          "name": "contactinfo",
+          "sort": "contactinfo",
+          "label": {
+            "nl": "contactinfo"
+          },
+          "description": {
+            "nl": "Informatie zoals email, telefoon... die toelaat de Persoon te contacteren."
+          },
+          "usage": {
+            "nl": " "
+          },
+          "domain": [
+            {
+              "EA-Name": "Persoon",
+              "uri": "http://www.w3.org/ns/person#Person"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "ContactInfo",
+              "range_uri": "http://schema.org/ContactPoint"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Contactinfo",
+              "range_puri": "http://schema.org/ContactPoint",
+              "range_label": {
+                "nl": "Contactinfo"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "ap-definition-nl": "Informatie zoals email, telefoon... die toelaat de Persoon te contacteren.",
+            "ap-label-nl": "contactinfo",
+            "ap-usageNote-nl": " ",
+            "label-nl": "contactpunt",
+            "uri": "http://schema.org/contactPoint"
+          }
+        }
+      ]
+    },
+    {
+      "uri": "http://www.w3.org/ns/regorg#RegisteredOrganization",
+      "name": "GeregistreerdeOrganisatie",
+      "label": {
+        "nl": "Geregistreerde Organisatie"
+      },
+      "sort": "Geregistreerde Organisatie",
+      "description": {
+        "nl": "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een formele organisatie waarbij dit statuut ook op een andere manier verkregen kan zijn."
+      },
+      "usage": {
+        "nl": "In België moeten oa volgende organisaties zich registreren: vennootschap (nv,bvba etc),eenmanszaak,overheidsorgaan,stichting Bij registratie krijgt de organisatie een ondernemingsnummer en worden zijn gegevens ingevoerd in de KBO."
+      },
+      "parents": [
+        {
+          "label": "Formele Organisatie",
+          "name": "FormeleOrganisatie",
+          "package": "OSLO-Organisatie - Copy",
+          "uri": "http://www.w3.org/ns/org#FormalOrganization",
+          "scoped_uri": "http://www.w3.org/ns/org#FormalOrganization"
+        },
+        {
+          "label": "Organisatie",
+          "name": "Organisatie",
+          "package": "OSLO-Organisatie - Copy",
+          "uri": "http://www.w3.org/ns/org#Organization",
+          "scoped_uri": "#Organisatie"
+        }
+      ],
+      "rawTags": {
+        "ap-definition-nl": "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een formele organisatie waarbij dit statuut ook op een andere manier verkregen kan zijn.",
+        "ap-usageNote-nl": "In België moeten oa volgende organisaties zich registreren: vennootschap (nv,bvba etc),eenmanszaak,overheidsorgaan,stichting Bij registratie krijgt de organisatie een ondernemingsnummer en worden zijn gegevens ingevoerd in de KBO.",
+        "label-nl": "Geregistreerde Organisatie",
+        "uri": "http://www.w3.org/ns/regorg#RegisteredOrganization"
+      },
+      "properties": [
+        {
+          "uri": "https://data.vlaanderen.be/ns/organisatie#rechtsvorm",
+          "name": "rechtsvorm",
+          "sort": "rechtsvorm",
+          "label": {
+            "nl": "rechtsvorm"
+          },
+          "description": {
+            "nl": "Juridisch statuut van de geregistreerde organisatie."
+          },
+          "usage": {
+            "nl": "Stemt in de KBO overeen met rechtsvorm, bvb NV, VZW, Stad/Gemeente, OCMW etc."
+          },
+          "domain": [
+            {
+              "EA-Name": "GeregistreerdeOrganisatie",
+              "uri": "http://www.w3.org/ns/regorg#RegisteredOrganization"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Rechtsvormtype",
+              "range_uri": "http://www.w3.org/2004/02/skos/core#Concept"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Rechtsvormtype",
+              "range_puri": "http://www.w3.org/2004/02/skos/core#Concept",
+              "range_label": {
+                "nl": "Rechtsvormtype"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "ap-usageNote-nl": "Stemt in de KBO overeen met rechtsvorm, bvb NV, VZW, Stad/Gemeente, OCMW etc.",
+            "label-nl": "rechtsvorm",
+            "parentURI": "http://www.w3.org/ns/regorg#orgType",
+            "definition-nl": "Juridisch statuut van de Geregistreerde Organisatie.",
+            "usageNote-nl": "Bvb NV, VZW, Stad/Gemeente, OCMW etc.",
+            "ap-definition-nl": "Juridisch statuut van de geregistreerde organisatie."
+          }
+        },
+        {
+          "uri": "https://data.vlaanderen.be/ns/organisatie#rechtspersoonlijkheid",
+          "name": "rechtspersoonlijkheid",
+          "sort": "rechtspersoonlijkheid",
+          "label": {
+            "nl": "rechtspersoonlijkheid"
+          },
+          "description": {
+            "nl": "Geeft aan of de rechtspersoonlijkheid van de geregistreerde organisatie deze is van een natuurlijk persoon of van een rechtspersoon. "
+          },
+          "usage": {
+            "nl": "Een rechtspersoon is een juridische constructie die een organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bv ook schulden hebben, contracten afsluiten, aangeklaagd worden etc). Vb privaatrechterlijke rechtspersonen: vennootschappen, vzw's etc.; vb publiekrechterlijke rechtspersonen: steden, gemeenten etc. Een feitelijke vereniging is in principe geen rechtspersoon maar wordt als ze geregistreerd is id KBO toch als dusdanig geklasseerd."
+          },
+          "domain": [
+            {
+              "EA-Name": "GeregistreerdeOrganisatie",
+              "uri": "http://www.w3.org/ns/regorg#RegisteredOrganization"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Rechtspersoonlijkheidtype",
+              "range_uri": "http://www.w3.org/2004/02/skos/core#Concept"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2004/02/skos/core#Concept",
+              "range_puri": "http://www.w3.org/2004/02/skos/core#Concept",
+              "range_label": {
+                "nl": "Rechtspersoonlijkheidtype"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "ap-definition-nl": "Geeft aan of de rechtspersoonlijkheid van de geregistreerde organisatie deze is van een natuurlijk persoon of van een rechtspersoon. ",
+            "ap-usageNote-nl": "Een rechtspersoon is een juridische constructie die een organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bv ook schulden hebben, contracten afsluiten, aangeklaagd worden etc). Vb privaatrechterlijke rechtspersonen: vennootschappen, vzw's etc.; vb publiekrechterlijke rechtspersonen: steden, gemeenten etc. Een feitelijke vereniging is in principe geen rechtspersoon maar wordt als ze geregistreerd is id KBO toch als dusdanig geklasseerd.",
+            "label-nl": "rechtspersoonlijkheid",
+            "parentURI": "http://www.w3.org/ns/regorg#orgType",
+            "definition-nl": "Geeft aan of de rechtspersoonlijkheid van de Geregistreerde Organisatie deze is van een natuurlijk persoon of van een rechtspersoon. ",
+            "usageNote-nl": "Een rechtspersoon is een juridische constructie die een Organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bv ook schulden hebben, contracten afsluiten, aangeklaagd worden etc). Vb privaatrechterlijke rechtspersonen: vennootschappen, vzw's etc.; vb publiekrechterlijke rechtspersonen: steden, gemeenten etc. Een feitelijke vereniging is in principe geen rechtspersoon."
+          }
+        },
+        {
+          "uri": "http://www.w3.org/ns/regorg#registration",
+          "name": "registratie",
+          "sort": "registratie",
+          "label": {
+            "nl": "registratie"
+          },
+          "description": {
+            "nl": "Identificator dat de organisatie verkreeg bij registratie."
+          },
+          "usage": {
+            "nl": "In de KBO is dit het ondernemingsnummer."
+          },
+          "domain": [
+            {
+              "EA-Name": "GeregistreerdeOrganisatie",
+              "uri": "http://www.w3.org/ns/regorg#RegisteredOrganization"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Identificator",
+              "range_uri": "http://www.w3.org/ns/adms#Identifier"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Identificator",
+              "range_puri": "http://www.w3.org/ns/adms#Identifier",
+              "range_label": {
+                "nl": "Identificator"
+              }
+            }
+          ],
+          "cardinality": "1",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "registratie",
+            "ap-definition-nl": "Identificator dat de organisatie verkreeg bij registratie.",
+            "ap-usageNote-nl": "In de KBO is dit het ondernemingsnummer.",
+            "uri": "http://www.w3.org/ns/regorg#registration"
+          }
+        },
+        {
+          "uri": "http://www.w3.org/ns/regorg#legalName",
+          "name": "wettelijkeNaam",
+          "sort": "wettelijke naam",
+          "label": {
+            "nl": "wettelijke naam"
+          },
+          "description": {
+            "nl": "Wettelijk geregistreerde naam vd organisatie."
+          },
+          "usage": {
+            "nl": "Evt in verschillende talen."
+          },
+          "domain": [
+            {
+              "EA-Name": "GeregistreerdeOrganisatie",
+              "uri": "http://www.w3.org/ns/regorg#RegisteredOrganization"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "LangString",
+              "range_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+              "range_puri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+              "range_label": {
+                "nl": "LangString"
+              }
+            }
+          ],
+          "cardinality": "1",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "wettelijke naam",
+            "ap-definition-nl": "Wettelijk geregistreerde naam vd organisatie.",
+            "ap-usageNote-nl": "Evt in verschillende talen.",
+            "uri": "http://www.w3.org/ns/regorg#legalName"
+          }
+        }
+      ]
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+      "name": "GeregistreerdPersoon",
+      "label": {
+        "nl": "Geregistreerd Persoon"
+      },
+      "sort": "Geregistreerd Persoon",
+      "description": {
+        "nl": "Persoon waarvan de gegevens zijn ingeschreven in een register."
+      },
+      "usage": {
+        "nl": "Doorgaans is dit register een bevolkingsregister maar het kan bv ook een kiesregister zijn. De ingeschreven gegevens hebben betrekking op de identeit (vb naam en voornaam) en de Verblijfplaats vd persoon en op belangrijke levensgebeurtenissen zoals geboorte, huwelijk, overlijden etc. Deze gegevens worden typisch geregistreerd door de overheid, ze bieden de ingeschreven persoon wettelijke bescherming en laten de overheid toe om basisstatistieken op te stellen over zijn bevolking."
+      },
+      "parents": [
+        {
+          "label": "Persoon",
+          "name": "Persoon",
+          "package": "OSLO-Persoon",
+          "uri": "http://www.w3.org/ns/person#Person",
+          "scoped_uri": "#Persoon"
+        }
+      ],
+      "rawTags": {
+        "ap-definition-nl": "Persoon waarvan de gegevens zijn ingeschreven in een register.",
+        "ap-usageNote-nl": "Doorgaans is dit register een bevolkingsregister maar het kan bv ook een kiesregister zijn. De ingeschreven gegevens hebben betrekking op de identeit (vb naam en voornaam) en de Verblijfplaats vd persoon en op belangrijke levensgebeurtenissen zoals geboorte, huwelijk, overlijden etc. Deze gegevens worden typisch geregistreerd door de overheid, ze bieden de ingeschreven persoon wettelijke bescherming en laten de overheid toe om basisstatistieken op te stellen over zijn bevolking.",
+        "defintion-nl": "Persoon waarvan de gegevens zijn ingeschreven in een register.",
+        "label-nl": "Geregistreerd Persoon",
+        "usageNote-nl": "Doorgaans is dit register een bevolkingsregister maar het kan bv ook een kiesregister zijn. De ingeschreven gegevens hebben betrekking op de identeit (vb Naam en Voornaam) en de Verblijfplaats vd Persoon en op belangrijke levensgebeurtenissen zoals Geboorte, Huwelijk, Overlijden etc. Deze gegevens worden typisch geregistreerd door de overheid, ze bieden de ingeschreven Persoon wettelijke bescherming en laten de overheid toe om basisstatistieken op te stellen over zijn bevolking."
+      },
+      "properties": [
+        {
+          "uri": "https://data.vlaanderen.be/ns/persoon#registratie",
+          "name": "registratie",
+          "sort": "registratie",
+          "label": {
+            "nl": "registratie"
+          },
+          "description": {
+            "nl": "Identificatiecode vd persoon ih register."
+          },
+          "usage": {
+            "nl": " "
+          },
+          "domain": [
+            {
+              "EA-Name": "GeregistreerdPersoon",
+              "uri": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Identificator",
+              "range_uri": "http://www.w3.org/ns/adms#Identifier"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Identificator",
+              "range_puri": "http://www.w3.org/ns/adms#Identifier",
+              "range_label": {
+                "nl": "Identificator"
+              }
+            }
+          ],
+          "cardinality": "1",
+          "codelist_uri": "",
+          "rawTags": {
+            "ap-usageNote-nl": " ",
+            "definition-nl": "Identificatiecode vd persoon ih register.",
+            "label-nl": "registratie",
+            "parentURI": "http://www.w3.org/ns/adms#Identifier",
+            "ap-definition-nl": "Identificatiecode vd persoon ih register."
+          }
+        }
+      ]
+    }
+  ],
+  "properties": [],
+  "contributors": [
+    {
+      "role": "A",
+      "first_name": "Bert",
+      "last_name": "Van Nuffelen",
+      "affiliation": {
+        "name": "Digitaal Vlaanderen"
+      }
+    },
+    {
+      "role": "A",
+      "first_name": "Geert",
+      "last_name": "Thijs",
+      "affiliation": {
+        "name": "Digitaal Vlaanderen"
+      }
+    }
+  ],
+  "datatypes": [
+    {
+      "uri": "http://schema.org/ContactPoint",
+      "name": "Contactinfo",
+      "label": {
+        "nl": "Contactinfo"
+      },
+      "sort": "Contactinfo",
+      "description": {
+        "nl": "Informatie zoals email,telefoon,adres die toelaat om iemand of iets te contacteren."
+      },
+      "usage": {
+        "nl": "Bvb een persoon of organisatie of dienstverlening... Mogelijke vormen van contact: bellen,mailen etc."
+      },
+      "parents": [],
+      "rawTags": {
+        "ap-definition-nl": "Informatie zoals email,telefoon,adres die toelaat om iemand of iets te contacteren.",
+        "ap-label-nl": "Contactinfo",
+        "ap-usageNote-nl": "Bvb een persoon of organisatie of dienstverlening... Mogelijke vormen van contact: bellen,mailen etc.",
+        "label-nl": "Contactpunt",
+        "uri": "http://schema.org/ContactPoint"
+      },
+      "properties": [
+        {
+          "uri": "http://xmlns.com/foaf/0.1/page",
+          "name": "website",
+          "sort": "website",
+          "label": {
+            "nl": "website"
+          },
+          "description": {
+            "nl": "Website waarnaar men kan surfen."
+          },
+          "usage": {
+            "nl": " "
+          },
+          "domain": [
+            {
+              "EA-Name": "ContactInfo",
+              "uri": "http://schema.org/ContactPoint"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "URI",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#anyURI"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+              "range_puri": "http://www.w3.org/2001/XMLSchema#anyURI",
+              "range_label": {
+                "nl": "URI"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "ap-label-nl": "website",
+            "ap-definition-nl": "Website waarnaar men kan surfen.",
+            "ap-usageNote-nl": " ",
+            "label-nl": "pagina",
+            "uri": "http://xmlns.com/foaf/0.1/page"
+          }
+        },
+        {
+          "uri": "http://www.w3.org/ns/locn#address",
+          "name": "adres",
+          "sort": "adres",
+          "label": {
+            "nl": "adres"
+          },
+          "description": {
+            "nl": "Adres dat men kan aanschrijven of bezoeken."
+          },
+          "usage": {
+            "nl": " "
+          },
+          "domain": [
+            {
+              "EA-Name": "ContactInfo",
+              "uri": "http://schema.org/ContactPoint"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Adresvoorstelling",
+              "range_uri": "http://www.w3.org/ns/locn#Address"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Adres Voorstelling",
+              "range_puri": "http://www.w3.org/ns/locn#Address",
+              "range_label": {
+                "nl": "Adres Voorstelling"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "adres",
+            "uri": "http://www.w3.org/ns/locn#address",
+            "ap-usageNote-nl": " ",
+            "ap-definition-nl": "Adres dat men kan aanschrijven of bezoeken."
+          }
+        },
+        {
+          "uri": "http://schema.org/telephone",
+          "name": "telefoon",
+          "sort": "telefoon",
+          "label": {
+            "nl": "telefoon"
+          },
+          "description": {
+            "nl": "Telefoonnummer waarop men kan bellen."
+          },
+          "usage": {
+            "nl": " "
+          },
+          "domain": [
+            {
+              "EA-Name": "ContactInfo",
+              "uri": "http://schema.org/ContactPoint"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "String",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_label": {
+                "nl": "String"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "ap-definition-nl": "Telefoonnummer waarop men kan bellen.",
+            "ap-usageNote-nl": " ",
+            "label-nl": "telefoon",
+            "uri": "http://schema.org/telephone"
+          }
+        },
+        {
+          "uri": "http://schema.org/email",
+          "name": "email",
+          "sort": "email",
+          "label": {
+            "nl": "email"
+          },
+          "description": {
+            "nl": "Email-adres waarnaar men kan mailen."
+          },
+          "usage": {
+            "nl": " "
+          },
+          "domain": [
+            {
+              "EA-Name": "ContactInfo",
+              "uri": "http://schema.org/ContactPoint"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "String",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_label": {
+                "nl": "String"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "ap-definition-nl": "Email-adres waarnaar men kan mailen.",
+            "ap-usageNote-nl": " ",
+            "label-nl": "email",
+            "uri": "http://schema.org/email"
+          }
+        }
+      ]
+    },
+    {
+      "uri": "http://www.w3.org/ns/adms#Identifier",
+      "name": "Identificator",
+      "label": {
+        "nl": "Identificator"
+      },
+      "sort": "Identificator",
+      "description": {
+        "nl": "Informatie gebruikt om een object uniek te identificeren."
+      },
+      "usage": {
+        "nl": "Uitgangspunt hier is dat deze string door een organisatie wordt toegekend en dat dit gebeurt volgens een welbepaald systeem."
+      },
+      "parents": [],
+      "rawTags": {
+        "ap-definition-nl": "Informatie gebruikt om een object uniek te identificeren.",
+        "ap-usageNote-nl": "Uitgangspunt hier is dat deze string door een organisatie wordt toegekend en dat dit gebeurt volgens een welbepaald systeem.",
+        "label-nl": "Identificator",
+        "uri": "http://www.w3.org/ns/adms#Identifier"
+      },
+      "properties": [
+        {
+          "uri": "http://www.w3.org/ns/adms#schemaAgency",
+          "name": "toegekendDoor(string)",
+          "sort": "toegekend door (String)",
+          "label": {
+            "nl": "toegekend door (String)"
+          },
+          "description": {
+            "nl": "Naam vd agent die de identificator heeft toegekend."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Identificator",
+              "uri": "http://www.w3.org/ns/adms#Identifier"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "String",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_label": {
+                "nl": "String"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "uri": "http://www.w3.org/ns/adms#schemaAgency",
+            "label-nl": "toegekendDoorString",
+            "ap-label-nl": "toegekend door (String)",
+            "ap-definition-nl": "Naam vd agent die de identificator heeft toegekend."
+          }
+        },
+        {
+          "uri": "http://www.w3.org/2004/02/skos/core#notation",
+          "name": "identificator",
+          "sort": "identificator",
+          "label": {
+            "nl": "identificator"
+          },
+          "description": {
+            "nl": "String gebruikt om het object uniek te identificeren."
+          },
+          "usage": {
+            "nl": "Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator."
+          },
+          "domain": [
+            {
+              "EA-Name": "Identificator",
+              "uri": "http://www.w3.org/ns/adms#Identifier"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Literal",
+              "range_uri": "http://www.w3.org/2000/01/rdf-schema#Literal"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+              "range_puri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+              "range_label": {
+                "nl": "Literal"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "ap-label-nl": "identificator",
+            "uri": "http://www.w3.org/2004/02/skos/core#notation",
+            "ap-usageNote-nl": "Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator.",
+            "label-nl": "identificator",
+            "ap-definition-nl": "String gebruikt om het object uniek te identificeren."
+          }
+        },
+        {
+          "uri": "http://purl.org/dc/terms/issued",
+          "name": "toegekendOp",
+          "sort": "toegekend op",
+          "label": {
+            "nl": "toegekend op"
+          },
+          "description": {
+            "nl": "Tijdstip waarop de identificator werd uitgegeven."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Identificator",
+              "uri": "http://www.w3.org/ns/adms#Identifier"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "DateTime",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#dateTime"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+              "range_puri": "http://www.w3.org/2001/XMLSchema#dateTime",
+              "range_label": {
+                "nl": "DateTime"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "uri": "http://purl.org/dc/terms/issued",
+            "label-nl": "toegekendOp",
+            "ap-label-nl": "toegekend op",
+            "ap-definition-nl": "Tijdstip waarop de identificator werd uitgegeven."
+          }
+        },
+        {
+          "uri": "http://purl.org/dc/terms/creator",
+          "name": "toegekendDoor",
+          "sort": "toegekend door",
+          "label": {
+            "nl": "toegekend door"
+          },
+          "description": {
+            "nl": "Link naar de agent die de identificator heeft uitgegeven."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Identificator",
+              "uri": "http://www.w3.org/ns/adms#Identifier"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Agent",
+              "range_uri": "http://purl.org/dc/terms/Agent"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Agent",
+              "range_puri": "http://purl.org/dc/terms/Agent",
+              "range_label": {
+                "nl": "Agent"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "uri": "http://purl.org/dc/terms/creator",
+            "label-nl": "toegekendDoor",
+            "ap-label-nl": "toegekend door",
+            "ap-definition-nl": "Link naar de agent die de identificator heeft uitgegeven."
+          }
+        }
+      ]
+    },
+    {
+      "uri": "http://www.w3.org/ns/locn#Address",
+      "name": "AdresVoorstelling",
+      "label": {
+        "nl": "Adres Voorstelling"
+      },
+      "sort": "Adres Voorstelling",
+      "description": {},
+      "usage": {},
+      "parents": [],
+      "rawTags": {
+        "isCollection": "false",
+        "label-nl": "Adres Voorstelling",
+        "noPropertyType": "false",
+        "uri": "http://www.w3.org/ns/locn#Address"
+      },
+      "properties": [
+        {
+          "uri": "https://vocab.belgif.be/ns/address#municipalityName",
+          "name": "gemeentenaam",
+          "sort": "gemeentenaam",
+          "label": {
+            "nl": "gemeentenaam"
+          },
+          "description": {
+            "nl": "Gemeentenaam van het adres."
+          },
+          "usage": {
+            "nl": " "
+          },
+          "domain": [
+            {
+              "EA-Name": "Adresvoorstelling",
+              "uri": "http://www.w3.org/ns/locn#Address"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "LangString",
+              "range_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+              "range_puri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+              "range_label": {
+                "nl": "LangString"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "gemeentenaam",
+            "parentURI": "http://www.w3.org/ns/locn#postName",
+            "ap-definition-nl": "Gemeentenaam van het adres.",
+            "ap-usageNote-nl": " ",
+            "definition-en": "Municipal name from address.",
+            "label-en": "municipality name",
+            "ap-label-nl": "gemeentenaam",
+            "definition-nl": "Gemeentenaam van het adres.",
+            "uri": "https://vocab.belgif.be/ns/address#municipalityName"
+          }
+        },
+        {
+          "uri": "https://vocab.belgif.be/ns/address#country",
+          "name": "land",
+          "sort": "land",
+          "label": {
+            "nl": "land"
+          },
+          "description": {
+            "nl": "Land waarin het adres gelegen is."
+          },
+          "usage": {
+            "nl": " "
+          },
+          "domain": [
+            {
+              "EA-Name": "Adresvoorstelling",
+              "uri": "http://www.w3.org/ns/locn#Address"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "LangString",
+              "range_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+              "range_puri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+              "range_label": {
+                "nl": "LangString"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "parentURI": "http://www.w3.org/ns/locn#adminUnitL1",
+            "ap-definition-nl": "Land waarin het adres gelegen is.",
+            "ap-usageNote-nl": " ",
+            "label-nl": "land",
+            "definition-en": "Country in which the address is located.",
+            "label-en": "country",
+            "ap-label-nl": "land",
+            "definition-nl": "Land waarin het adres gelegen is.",
+            "uri": "https://vocab.belgif.be/ns/address#country"
+          }
+        },
+        {
+          "uri": "https://vocab.belgif.be/ns/address#AddressRepresentation.houseNumber",
+          "name": "huisnummer",
+          "sort": "huisnummer",
+          "label": {
+            "nl": "huisnummer"
+          },
+          "description": {
+            "nl": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen."
+          },
+          "usage": {
+            "nl": "Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen."
+          },
+          "domain": [
+            {
+              "EA-Name": "Adresvoorstelling",
+              "uri": "http://www.w3.org/ns/locn#Address"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "String",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_label": {
+                "nl": "String"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "parentURI": "http://www.w3.org/ns/locn#locatorDesignator",
+            "label-nl": "huisnummer",
+            "ap-definition-nl": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen.",
+            "ap-usageNote-nl": "Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen.",
+            "definition-en": "Alphanumeric code officially assigned to building units, moorings, pitches or plots.",
+            "label-en": "house number",
+            "usageNote-en": "Specialization of Address representation: location indication for Belgian addresses.",
+            "ap-label-nl": "huisnummer",
+            "definition-nl": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen.",
+            "uri": "https://vocab.belgif.be/ns/address#AddressRepresentation.houseNumber",
+            "usageNote-nl": "Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen."
+          }
+        },
+        {
+          "uri": "https://vocab.belgif.be/ns/address#AddressRepresentation.boxNumber",
+          "name": "busnummer",
+          "sort": "busnummer",
+          "label": {
+            "nl": "busnummer"
+          },
+          "description": {
+            "nl": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben."
+          },
+          "usage": {
+            "nl": "Specialisatie van Adresvoorstelling.locatieaanduiding tbv Belgische adressen."
+          },
+          "domain": [
+            {
+              "EA-Name": "Adresvoorstelling",
+              "uri": "http://www.w3.org/ns/locn#Address"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "String",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_label": {
+                "nl": "String"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "ap-usageNote-nl": "Specialisatie van Adresvoorstelling.locatieaanduiding tbv Belgische adressen.",
+            "label-nl": "busnummer",
+            "parentURI": "http://www.w3.org/ns/locn#locatorDesignator",
+            "ap-definition-nl": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben.",
+            "definition-en": "Officially assigned alphanumeric code added to the house number to distinguish multiple building units, pitches, moorings or plots that have the same house number.",
+            "label-en": "box number",
+            "usageNote-en": "Specialisation of Address Presentation:location indication for Belgian addresses.",
+            "ap-label-nl": "busnummer",
+            "definition-nl": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben.",
+            "uri": "https://vocab.belgif.be/ns/address#AddressRepresentation.boxNumber",
+            "usageNote-nl": "Specialisatie van Adresvoorstelling.locatieaanduiding tbv Belgische adressen."
+          }
+        },
+        {
+          "uri": "http://www.w3.org/ns/locn#thoroughfare",
+          "name": "straatnaam",
+          "sort": "straatnaam",
+          "label": {
+            "nl": "straatnaam"
+          },
+          "description": {
+            "nl": "Straatnaam van het adres."
+          },
+          "usage": {
+            "nl": " "
+          },
+          "domain": [
+            {
+              "EA-Name": "Adresvoorstelling",
+              "uri": "http://www.w3.org/ns/locn#Address"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "LangString",
+              "range_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+              "range_puri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+              "range_label": {
+                "nl": "LangString"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "straatnaam",
+            "uri": "http://www.w3.org/ns/locn#thoroughfare",
+            "ap-definition-nl": "Straatnaam van het adres.",
+            "ap-usageNote-nl": " ",
+            "definition-en": "Street name of address.",
+            "label-en": "street name",
+            "ap-label-nl": "straatnaam",
+            "definition-nl": "Straatnaam van het adres."
+          }
+        },
+        {
+          "uri": "http://www.w3.org/ns/locn#postCode",
+          "name": "postcode",
+          "sort": "postcode",
+          "label": {
+            "nl": "postcode"
+          },
+          "description": {
+            "nl": "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid."
+          },
+          "usage": {
+            "nl": " "
+          },
+          "domain": [
+            {
+              "EA-Name": "Adresvoorstelling",
+              "uri": "http://www.w3.org/ns/locn#Address"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "String",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_label": {
+                "nl": "String"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "postcode",
+            "uri": "http://www.w3.org/ns/locn#postCode",
+            "ap-definition-nl": "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid.",
+            "ap-usageNote-nl": " ",
+            "definition-en": "Code denoting the geographical area that groups addresses for postal purposes.",
+            "label-en": "postal code",
+            "ap-label-nl": "postcode",
+            "definition-nl": "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid."
+          }
+        },
+        {
+          "uri": "http://www.w3.org/ns/locn#poBox",
+          "name": "postbus",
+          "sort": "postbus",
+          "label": {
+            "nl": "postbus"
+          },
+          "description": {
+            "nl": "Postbusnummer in een postkantoor."
+          },
+          "usage": {
+            "nl": " "
+          },
+          "domain": [
+            {
+              "EA-Name": "Adresvoorstelling",
+              "uri": "http://www.w3.org/ns/locn#Address"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "String",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_label": {
+                "nl": "String"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "postbus",
+            "uri": "http://www.w3.org/ns/locn#poBox",
+            "ap-definition-nl": "Postbusnummer in een postkantoor.",
+            "ap-usageNote-nl": " ",
+            "definition-en": "PO Box number in a post office.",
+            "label-en": "PO box",
+            "ap-label-nl": "postbus",
+            "definition-nl": "Postbusnummer in een postkantoor."
+          }
+        },
+        {
+          "uri": "http://www.w3.org/ns/locn#fullAddress",
+          "name": "volledigAdres",
+          "sort": "volledig Adres",
+          "label": {
+            "nl": "volledig Adres"
+          },
+          "description": {
+            "nl": "Het complete adres in één string, al dan niet geformatteerd."
+          },
+          "usage": {
+            "nl": "Vermijdt fouten tgv het opsplitsen ve adres in zijn onderdelen. Geeft de voorgeschreven volgorde vd verschillende onderdelen weer."
+          },
+          "domain": [
+            {
+              "EA-Name": "Adresvoorstelling",
+              "uri": "http://www.w3.org/ns/locn#Address"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "LangString",
+              "range_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+              "range_puri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+              "range_label": {
+                "nl": "LangString"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "ap-definition-nl": "Het complete adres in één string, al dan niet geformatteerd.",
+            "ap-usageNote-nl": "Vermijdt fouten tgv het opsplitsen ve adres in zijn onderdelen. Geeft de voorgeschreven volgorde vd verschillende onderdelen weer.",
+            "uri": "http://www.w3.org/ns/locn#fullAddress",
+            "label-nl": "volledig Adres",
+            "definition-en": "The complete address in one string, formatted or not.",
+            "label-en": "full address",
+            "usageNote-en": "Avoids errors when splitting an address into its components. Displays the prescribed order of the different parts.",
+            "ap-label-nl": "volledig Adres",
+            "definition-nl": "Het complete adres in één string, al dan niet geformatteerd.",
+            "usageNote-nl": "Vermijdt fouten tgv het opsplitsen ve adres in zijn onderdelen. Geeft de voorgeschreven volgorde vd verschillende onderdelen weer."
+          }
+        }
+      ]
+    }
+  ],
+  "parents": [],
+  "documentroot": "/doc/implementatiemodel/bodem-en-ondergrond/agents/ontwerpstandaard/2023-10-01"
+}

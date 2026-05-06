@@ -1,0 +1,156 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shacl: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01> <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01shapes> <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#AgentShape>,
+    <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#AnyShape>,
+    <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#OpdrachtTypeShape>,
+    <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#MomentShape>,
+    <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#PeriodeShape>,
+    <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#TemporeleEntiteitShape>,
+    <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#IdentificatorShape>,
+    <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#LocatieShape>,
+    <https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#OpdrachtShape> .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#AgentShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:targetClass dc:Agent .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#AnyShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:targetClass rdfs:Resource .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#IdentificatorShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:property [
+    shacl:description "String gebruikt om het object uniek te identificeren."@nl;
+    shacl:maxCount 1;
+    shacl:name "identificator"@nl;
+    shacl:path skos:notation
+  ], [
+    shacl:class dc:Agent;
+    shacl:description "Link naar de agent die de identificator heeft uitgegeven."@nl;
+    shacl:maxCount 1;
+    shacl:name "toegekend door"@nl;
+    shacl:path dc:creator
+  ], [
+    shacl:datatype xsd:string;
+    shacl:description "Naam vd agent die de identificator heeft toegekend."@nl;
+    shacl:maxCount 1;
+    shacl:name "toegekend door (String)"@nl;
+    shacl:path <http://www.w3.org/ns/adms#schemaAgency>
+  ], [
+    shacl:datatype xsd:dateTime;
+    shacl:description "Tijdstip waarop de identificator werd uitgegeven."@nl;
+    shacl:maxCount 1;
+    shacl:name "toegekend op"@nl;
+    shacl:path dc:issued
+  ];
+  shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#LocatieShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:targetClass prov:Location .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#MomentShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:property [
+    shacl:datatype xsd:dateTime;
+    shacl:description "Positie in de tijd uitgedrukt dmv xsd:dateTime."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "inXSDDateTime"@nl;
+    shacl:path <http://www.w3.org/2006/time#inXSDDateTime>
+  ];
+  shacl:targetClass <http://www.w3.org/2006/time#Instant> .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#OpdrachtShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:property [
+    shacl:datatype rdf:langString;
+    shacl:description "Beschrijving van de Opdracht."@nl;
+    shacl:maxCount 1;
+    shacl:name "beschrijving"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#beschrijving>
+  ], [
+    shacl:class dc:Agent;
+    shacl:description "Verstrekker van data die bij de uitvoering van de Opdracht is geproduceerd."@nl;
+    shacl:name "dataleverancier"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#dataleverancier>
+  ], [
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Verwijzing naar de informatie die de Opdracht uniek identificeert."@nl;
+    shacl:name "identificator"@nl;
+    shacl:path <http://www.w3.org/ns/adms#identifier>
+  ], [
+    shacl:class prov:Location;
+    shacl:description "Aanduiding van de locatie waar de Opdracht plaatsvindt."@nl;
+    shacl:name "ligging"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#ligging>
+  ], [
+    shacl:class dc:Agent;
+    shacl:description "Agent die de opdracht heeft geïnitieerd."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "opdrachtgever"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#opdrachtgever>
+  ], [
+    shacl:class dc:Agent;
+    shacl:description "Agent die de opdracht aan heeft genomen."@nl;
+    shacl:name "opdrachtnemer"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#opdrachtnemer>
+  ], [
+    shacl:datatype xsd:anyURI;
+    shacl:description "Verwijzing naar bijkomende documentatie over de opdracht."@nl;
+    shacl:name "referentie"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#referentie>
+  ], [
+    shacl:class rdfs:Resource;
+    shacl:description "Verwijzing naar een resultaat van de Opdracht."@nl;
+    shacl:name "resultaat"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#resultaat>
+  ], [
+    shacl:class <http://www.w3.org/2006/time#TemporalEntity>;
+    shacl:description "Tijdstip waarop of periode waarin de Opdracht plaatsvindt."@nl;
+    shacl:minCount 1;
+    shacl:name "tijdstip"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#tijdstip>
+  ], [
+    shacl:class skos:Concept;
+    shacl:description "soort opdracht."@nl;
+    shacl:minCount 1;
+    shacl:name "type"@nl;
+    shacl:path dc:type
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht> .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#OpdrachtTypeShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:targetClass skos:Concept .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#PeriodeShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:property [
+    shacl:class <http://www.w3.org/2006/time#Instant>;
+    shacl:description "Einde ve TemporeleEntiteit."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "tot"@nl;
+    shacl:path <http://www.w3.org/2006/time#hasEnd>
+  ], [
+    shacl:class <http://www.w3.org/2006/time#Instant>;
+    shacl:description "Start ve TemporeleEntiteit."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "van"@nl;
+    shacl:path <http://www.w3.org/2006/time#hasBeginning>
+  ];
+  shacl:targetClass <http://www.w3.org/2006/time#ProperInterval> .
+
+<https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01#TemporeleEntiteitShape> a shacl:NodeShape;
+  shacl:closed false;
+  shacl:targetClass <http://www.w3.org/2006/time#TemporalEntity> .

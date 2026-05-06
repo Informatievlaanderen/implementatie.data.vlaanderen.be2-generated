@@ -1,0 +1,488 @@
+{
+  "dcterms:license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "dcterms:mediator": {
+    "foaf:homepage": "https://data.specs.org",
+    "foaf:mbox": "mailto:info@data.specs.org",
+    "foaf:name": "Data Specifications Organisation"
+  },
+  "@id": "https://vmsw.vlaanderen.be/ns/vmsw",
+  "@type": "http://www.w3.org/2002/07/owl#Ontology",
+  "label": {
+    "en": "voc-vmsw",
+    "nl": "voc-vmsw"
+  },
+  "authors": [],
+  "editors": [
+    {
+      "@type": "foaf:Person",
+      "foaf:firstName": "Nick",
+      "foaf:lastName": "De Decker"
+    },
+    {
+      "@type": "foaf:Person",
+      "foaf:firstName": "Maarten ",
+      "foaf:lastName": "De Muynck",
+      "foaf:mbox": "mailto:maarten.demuynck@vlaanderen.be"
+    },
+    {
+      "@type": "foaf:Person",
+      "foaf:firstName": "Bert",
+      "foaf:lastName": "Van Nuffelen"
+    }
+  ],
+  "contributors": [],
+  "license": "https://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0",
+  "issued": "TODO",
+  "navigation": {},
+  "publication-state": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+  "publication-date": "2023-03-27",
+  "classes": [
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#OrganisatieResource",
+      "@type": "http://www.w3.org/2002/07/owl#Class",
+      "label": {
+        "nl": "OrganisatieResource"
+      },
+      "definition": {
+        "nl": "Gegevens over een organisatie"
+      },
+      "parents": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning",
+      "@type": "http://www.w3.org/2002/07/owl#Class",
+      "label": {
+        "nl": "VMSW woning"
+      },
+      "parents": []
+    }
+  ],
+  "externals": [
+    {
+      "name": {
+        "nl": "VMSW Adres"
+      },
+      "@id": "http://www.w3.org/ns/locn#Address",
+      "@type": "rdfs:Class"
+    }
+  ],
+  "properties": [
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#adres",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": {
+        "nl": "adres"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "http://www.w3.org/ns/locn#Address"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#bebouwingsType",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "bebouwingsType"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#string"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#beheerder",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": {
+        "nl": "Beheerder"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#OrganisatieResource"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#bouwjaar",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "bouwjaar"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#integer"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#eigenaar",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "label": {
+        "nl": "Eigenaar"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#OrganisatieResource"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#gebouweenheidIds",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "gebouweenheidId"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#string"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#gemeenteNISCode",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "gemeente NIS code"
+      },
+      "definition": {
+        "nl": "NIS code van een gemeente"
+      },
+      "domain": [
+        "http://www.w3.org/ns/locn#Address"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#string"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#organisatieId",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "organisatieId"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#string"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#organisatieId",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "OrganisatieId"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#OrganisatieResource"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#string"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#organisatieType",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "OrganisatieType"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#OrganisatieResource"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#string"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#statistischeSector",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "statistischeSector"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#string"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#verhuringsStelsel",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "VerhuringsStelsel"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#string"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#vmswWoningId",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "vmswWoningId"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#string"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#wijk",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "wijk"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#string"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#woningStatus",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "WoningStatus"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#string"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#woningType",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "woningType"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#string"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#woonmaatschappijWoningCode",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "woonmaatschappijWoningCode"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#string"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#woonmaatschappijWoningGroepCode",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "woonmaatschappijWoningGroepCode"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#string"
+      ],
+      "generalization": []
+    },
+    {
+      "@id": "https://vmsw.vlaanderen.be/ns/vmsw#woonmaatschappijWoningId",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "label": {
+        "nl": "woonmaatschappijWoningId"
+      },
+      "domain": [
+        "https://vmsw.vlaanderen.be/ns/vmsw#VmswWoning"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#string"
+      ],
+      "generalization": []
+    }
+  ],
+  "externalproperties": [
+    {
+      "name": {
+        "nl": "postcode"
+      },
+      "@id": "http://www.w3.org/ns/locn#postCode",
+      "@type": "rdf:Property"
+    },
+    {
+      "name": {
+        "nl": "straatnaam"
+      },
+      "@id": "http://www.w3.org/ns/locn#thoroughfare",
+      "@type": "rdf:Property"
+    },
+    {
+      "name": {
+        "nl": "busnummer"
+      },
+      "@id": "https://data.vlaanderen.be/ns/adres#Adresvoorstelling.busnummer",
+      "@type": "rdf:Property"
+    },
+    {
+      "name": {
+        "nl": "huisnummer"
+      },
+      "@id": "https://data.vlaanderen.be/ns/adres#Adresvoorstelling.huisnummer",
+      "@type": "rdf:Property"
+    },
+    {
+      "name": {
+        "nl": "gemeentenaam"
+      },
+      "@id": "https://data.vlaanderen.be/ns/adres#gemeentenaam",
+      "@type": "rdf:Property"
+    }
+  ],
+  "@context": {
+    "vlaanderen": "http://data.vlaanderen.be/ns/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "void": "http://rdfs.org/ns/void#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "sdmx-dimension": "http://purl.org/linked-data/sdmx/2009/dimension#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "sdmx-attribute": "http://purl.org/linked-data/sdmx/2009/attribute#",
+    "qb": "http://purl.org/linked-data/cube#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "sdmx-concept": "http://purl.org/linked-data/sdmx/2009/concept#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "person": "http://www.w3.org/ns/person#",
+    "rec": "http://www.w3.org/2001/02pd/rec54#",
+    "vann": "http://purl.org/vocab/vann/",
+    "sh": "http://w3.org/ns/shacl#",
+    "label": {
+      "@id": "rdfs:label",
+      "@container": "@language"
+    },
+    "modified": {
+      "@id": "dcterms:modified",
+      "@type": "xsd:date"
+    },
+    "license": {
+      "@id": "dcterms:license",
+      "@type": "@id"
+    },
+    "issued": {
+      "@id": "dcterms:issued"
+    },
+    "authors": {
+      "@type": "person:Person",
+      "@id": "foaf:maker"
+    },
+    "editors": {
+      "@type": "person:Person",
+      "@id": "rec:editor"
+    },
+    "contributors": {
+      "@type": "person:Person",
+      "@id": "dcterms:contributor"
+    },
+    "affiliation": {
+      "@id": "http://schema.org/affiliation"
+    },
+    "classes": {
+      "@reverse": "rdfs:isDefinedBy"
+    },
+    "datatypes": {
+      "@reverse": "rdfs:isDefinedBy"
+    },
+    "name": {
+      "@id": "rdfs:label",
+      "@container": "@language"
+    },
+    "definition": {
+      "@id": "rdfs:comment",
+      "@container": "@language"
+    },
+    "properties": {
+      "@reverse": "rdfs:isDefinedBy"
+    },
+    "domain": {
+      "@id": "rdfs:domain",
+      "@type": "@id"
+    },
+    "range": {
+      "@id": "rdfs:range",
+      "@type": "@id"
+    },
+    "minCardinality": {
+      "@id": "sh:minCount"
+    },
+    "maxCardinality": {
+      "@id": "sh:maxCount"
+    },
+    "generalization": {
+      "@id": "rdfs:subPropertyOf",
+      "@type": "@id"
+    },
+    "externals": {
+      "@id": "rdfs:seeAlso"
+    },
+    "externalproperties": {
+      "@id": "rdfs:seeAlso"
+    },
+    "usage": {
+      "@id": "vann:usageNote",
+      "@container": "@language"
+    },
+    "parents": {
+      "@id": "rdfs:subClassOf",
+      "@type": "@id"
+    },
+    "foaf:homepage": {
+      "@id": "foaf:homepage",
+      "@type": "@id"
+    },
+    "foaf:mbox": {
+      "@id": "foaf:mbox",
+      "@type": "@id"
+    },
+    "equivalent": {
+      "@id": "owl:equivalentClass",
+      "@type": "@id"
+    }
+  }
+}

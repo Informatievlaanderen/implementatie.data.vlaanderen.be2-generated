@@ -1,0 +1,717 @@
+{
+  "metadata": {
+    "title": "Vocabularium Implementatiemodel Kruispuntmetingen",
+    "uri": "https://data.vlaanderen.be/ns/verkeersmetingen",
+    "issued": "2024-06-05",
+    "filename": "kruispuntmetingen-im-voc",
+    "navigation": {
+      "self": "https://implementatie.data.vlaanderen.be/doc/vocabularium/kruispuntmetingen/ontwerpstandaard/2024-06-17"
+    },
+    "license": "https://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0",
+    "documenttype": "voc",
+    "documentconfig": {},
+    "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+    "statuslabel": "Ontwerp Standaard",
+    "repositoryurl": "https://github.com/Informatievlaanderen/OSLOthema-im-verkeersmetingen/tree/a80d20bae84b7f6c2fbbf712a9567ee186899b6c",
+    "changelogurl": "https://github.com/Informatievlaanderen/OSLOthema-im-verkeersmetingen/blob/a80d20bae84b7f6c2fbbf712a9567ee186899b6c/CHANGELOG",
+    "feedbackurl": "https://github.com/Informatievlaanderen/OSLOthema-im-verkeersmetingen/issues",
+    "standaardregisterurl": "https://data.vlaanderen.be/standaarden/",
+    "usesVocs": [],
+    "usesAPs": []
+  },
+  "classes": [
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#Fietspad",
+      "name": "Fietspad",
+      "label": {
+        "nl": "Fietspad"
+      },
+      "sort": "Fietspad",
+      "description": {
+        "nl": "Deel van de wegbaan uitsluitend bedoeld voor fietsverkeer."
+      },
+      "usage": {
+        "nl": "Maakt geen deel uit vd rijbaan (deel van de wegbaan ingericht voor het verkeer van Voertuigen), bvb auto's mogen niet op een Fietspad rijden of stationeren. OPGELET: Niet te verwarren met fietssuggestiestroken (wel deel vd rijbaan) of met de zijstroken ve middenrijbaan (geen deel vd rijbaan maar waarop mag gereden worden door auto's om tegenliggers te ontwijken). Fietspaden kunnen aanliggend zijn aan de rijbaan of vrijliggend of zelfs een eigen wegbaan hebben (in dat laatste geval worden ze door een eigen Wegsegment voorgesteld)."
+      },
+      "equivalent": [],
+      "parents": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersdomeinobject",
+        "https://data.vlaanderen.be/ns/transportnetwerk#Transporteigenschap",
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Wegdeel"
+      ]
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#Rijstrook",
+      "name": "Rijstrook",
+      "label": {
+        "nl": "Rijstrook"
+      },
+      "sort": "Rijstrook",
+      "description": {
+        "nl": "In de langsrichting begrensd deel van de rijbaan, bedoeld om de verkeersstroom te geleiden in een bepaalde richting en met doorgaans de breedte van één Voertuig."
+      },
+      "usage": {
+        "nl": "Onder rijbaan verstaan we dat deel van de wegbaan ingericht om met een Voertuig over te rijden. Door de rijbaan op te splitsen krijgt men een meer gecontroleerde verkeersstroom, in de eerste plaats omdat de rijrichtingen of bvb doorgaand en afslaand verkeer gescheiden worden en ook door de breedte te beperken zodat er maar één Voertuig tegelijk doorkan. Rijstroken worden typisch afgebakend dmv wegmarkeringen, bvb een witte doorlopende of onderbroken streep. OPMERKING: Voetpaden of Fietspaden zijn geen Rijstroken aangezien ze niet bedoeld zijn om met een auto over te rijden en dus geen deel zijn van de rijbaan.\n"
+      },
+      "equivalent": [],
+      "parents": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersdomeinobject",
+        "https://data.vlaanderen.be/ns/transportnetwerk#Transporteigenschap",
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Wegdeel"
+      ]
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersbemonsteringsobject",
+      "name": "Verkeersbemonsteringsobject",
+      "label": {
+        "nl": "Verkeersbemonsteringsobject"
+      },
+      "sort": "Verkeersbemonsteringsobject",
+      "description": {
+        "nl": "Object dat representatief is voor het object waarvan men het Verkeerskenmerk meet."
+      },
+      "usage": {
+        "nl": "Van belang als men dit object niet rechtstreeks kan observeren. Bvb om de snelheid ve Voertuig te bepalen kan men moeilijk dat Voertuig gaan volgen, in plaats daarvan zet men een meetpunt op langs de weg om te zien hoe snel passerende Voertuigen rijden. Gelijkaardig voor bvb verkeersintensiteit: men telt in een meetpunt langs de weg doorkomsten van Voertuigen en gaat ervan uit dat dit cijfer representatief is voor  het Wegsegment (deel van de weg tussen twee opeenvolgende kruispunten). OPGELET: Deze klasse is abstract, ze mag niet geinstantieerd worden. Gebruik in de plaats de subklassen Verkeersmeetpunt of Verkeersmeettraject"
+      },
+      "equivalent": [],
+      "parents": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersobject",
+        "http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeature"
+      ]
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersdomeinobject",
+      "name": "Verkeersdomeinobject",
+      "label": {
+        "nl": "Verkeersdomeinobject"
+      },
+      "sort": "Verkeersdomeinobject",
+      "description": {
+        "nl": "Object uit het verkeersdomein waarvan men een Verkeerskenmerk meet."
+      },
+      "usage": {
+        "nl": "Hieronder verstaan we een real-world object uit het verkeer, ttz een Voertuig of Verkeersdeelnemer of een Wegsegment of gelijkaardig waarover verkeer plaatsvindt. Vallen hier niet onder: Verkeersbemonsteringsobjecten zoals Verkeersmeetpunten of Verkeersmeettrajecten, dat zijn de objecten die het Verkeersdomein bemonsteren. OPGELET: Deze klasse is abstract, ze mag maw niet geinstantieerd worden. Gebruik in de plaats subklassen zoal Wegsegment, Rijstrook, Voertuig etc."
+      },
+      "equivalent": [],
+      "parents": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersobject",
+        "http://def.isotc211.org/iso19156/2011GeneralFeatureInstance#GFI_DomainFeature"
+      ]
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeerskenmerk",
+      "name": "Verkeerskenmerk",
+      "label": {
+        "nl": "Verkeerskenmerk"
+      },
+      "sort": "Verkeerskenmerk",
+      "description": {
+        "nl": "Kenmerk van het Verkeersdomeinobject of het Verkeersbemonsteringsobject dat gemeten wordt en dat betrekking heeft op het verkeer over of langs dat object of op zijn deelname aan het verkeer."
+      },
+      "usage": {
+        "nl": "Bvb de gemiddelde snelheid van auto's langs een Meetpunt of de verkeersIntensiteit van fietsen op een Wegsegment bvb uitgedrukt in aantal voertuigen of de snelheid van een individueel Voertuig etc."
+      },
+      "equivalent": [],
+      "parents": [
+        "http://def.isotc211.org/iso19109/2005/GeneralFeatureModel#GF_PropertyType"
+      ]
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersmeettraject",
+      "name": "Verkeersmeettraject",
+      "label": {
+        "nl": "Verkeersmeettraject"
+      },
+      "sort": "Verkeersmeettraject",
+      "description": {
+        "nl": "Traject waarlangs men kenmerken van het voorbijkomend verkeer meet.."
+      },
+      "usage": {
+        "nl": "Dit is een afstand langs de weg waar bvb de snelheid van Voertuigen wordt gemeten (een zgn trajectcontrole) of waarvoor enig ander Verkeerskenmerk wordt vastgesteld dat op het bemonsterd Verkeerdomeinobject betrekking heeft."
+      },
+      "equivalent": [],
+      "parents": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersbemonsteringsobject",
+        "http://def.isotc211.org/iso19156/2011/SamplingCurve#SF_SamplingCurve"
+      ]
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersmeting",
+      "name": "Verkeersmeting",
+      "label": {
+        "nl": "Verkeersmeting"
+      },
+      "sort": "Verkeersmeting",
+      "description": {
+        "nl": "Het vaststellen van de waarde van een bepaald kenmerk van het verkeer op een bepaald tijdstip of tussen twee tijdstippen."
+      },
+      "usage": {
+        "nl": "Verkeer wordt gedefinieerd als de verplaatsing van objecten zoals personen, vracht, data etc over media zoals land, water, lucht, kabels. Verkeer kan betrekking hebben op objecten die zichzelf verplaatsen (al dan niet met een vervoermiddel) of objecten die vervoerd worden, maar ook op objecten waarover verkeer plaatsvindt. De meting kan het vaststellen van de waarde van een kenmerk van een individueel object tijdens zijn verplaatsing zijn (bvb zijn snelheid) of van een kenmerk van de infrastructuur waarover het verkeer zich beweegt (bv de verkeersintensiteit). Verkeersmetingen  zijn Observaties, maw op de waarde zit een zekere foutmarge door de gebruikte meettechniek.\n"
+      },
+      "equivalent": [],
+      "parents": [
+        "http://def.isotc211.org/iso19156/2011/Observation#OM_Observation"
+      ]
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersobject",
+      "name": "Verkeersobject",
+      "label": {
+        "nl": "Verkeersobject"
+      },
+      "sort": "Verkeersobject",
+      "description": {
+        "nl": "Object waarop of waarlangs zich verkeer voordoet of dat deel uitmaakt vh verkeer."
+      },
+      "usage": {
+        "nl": "OPGELET: Deze klasse is abstract, ze moet gespecialiseerd worden als Verkeersdomeinobject of als Verkeersbemonsteringsobject. Als Verkeersdomeinobject als de meting direct betrekking heeft op het object dat men wil observeren of als Verkeersbemonsteringsobject als de meting onrechtstreeks gebeurt (bvb via een Verkeersmeetpunt)."
+      },
+      "equivalent": [],
+      "parents": [
+        "http://def.isotc211.org/iso19156/2011/GeneralFeatureInstance#GFI_Feature"
+      ]
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeerssnelheidskenmerk",
+      "name": "Verkeerssnelheidsmetingkenmerk",
+      "label": {
+        "nl": "Verkeerssnelheidsmetingkenmerk"
+      },
+      "sort": "Verkeerssnelheidsmetingkenmerk",
+      "description": {
+        "nl": "Kenmerk van het Verkeersdomeinobject of het Verkeersbemonsteringsobject dat gemeten wordt en dat betrekking heeft op het verkeer over of langs dat object of op zijn deelname aan het verkeer."
+      },
+      "usage": {},
+      "equivalent": [],
+      "parents": []
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeerssnelheidsmeting",
+      "name": "Verkeerssnelheidsmeting",
+      "label": {
+        "nl": "Verkeerssnelheidsmeting"
+      },
+      "sort": "Verkeerssnelheidsmeting",
+      "description": {
+        "nl": "Het vaststellen van de snelheid van voertuigen op een bepaalde locatie op een bepaald tijdstip of gedurende een specifiek tijdsinterval."
+      },
+      "usage": {},
+      "equivalent": [],
+      "parents": []
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeerstelling",
+      "name": "Verkeerstelling",
+      "label": {
+        "nl": "Verkeerstelling"
+      },
+      "sort": "Verkeerstelling",
+      "description": {
+        "nl": "Het vaststellen van het aantal voertuigen op een bepaalde locatie op een bepaald tijdstip of gedurende een specifiek tijdsinterval."
+      },
+      "usage": {},
+      "equivalent": [],
+      "parents": []
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeerstellingskenmerk",
+      "name": "Verkeerstellingkenmerk",
+      "label": {
+        "nl": "Verkeerstellingkenmerk"
+      },
+      "sort": "Verkeerstellingkenmerk",
+      "description": {
+        "nl": "Kenmerk van het Verkeersdomeinobject of het Verkeersbemonsteringsobject dat gemeten wordt en dat betrekking heeft op het verkeer over of langs dat object of op zijn deelname aan het verkeer."
+      },
+      "usage": {},
+      "equivalent": [],
+      "parents": []
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#Voetpad",
+      "name": "Voetpad",
+      "label": {
+        "nl": "Voetpad"
+      },
+      "sort": "Voetpad",
+      "description": {
+        "nl": "Deel van de wegbaan bedoeld voor voetgangers."
+      },
+      "usage": {
+        "nl": "Is per defintie afgescheiden van de rijbaan, typisch via een boordsteen en verhoogde ligging."
+      },
+      "equivalent": [],
+      "parents": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersdomeinobject",
+        "https://data.vlaanderen.be/ns/transportnetwerk#Transporteigenschap",
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Wegdeel"
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#waardeverschaffer",
+      "name": "waardeverschaffer",
+      "label": {
+        "nl": "waardeverschaffer"
+      },
+      "sort": "waardeverschaffer",
+      "description": {
+        "nl": "Verwijzing naar een Verkeersmeting die op het geobserveerdObject plaatsvondt."
+      },
+      "usage": {
+        "nl": "Die meting verschaft ahw een waarde voor het Verkeerskenmerk dat van het Verkeersobject wordt gemeten."
+      },
+      "domain": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersobject"
+      ],
+      "range": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersmeting"
+      ],
+      "parents": [
+        "https://data.vlaanderen.be/ns/observaties-en-metingen#Object.waardeverschaffer"
+      ]
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#voertuigType",
+      "name": "voertuigtype",
+      "label": {
+        "nl": "voertuigType"
+      },
+      "sort": "voertuigType",
+      "description": {
+        "nl": "Soort Voertuig waarvan men het Verkeerskenmerk meet."
+      },
+      "usage": {
+        "nl": "Bvb \"Fiets\" als men enkel het aantal fietsen wil tellen in een Meetpunt. Enkel noodzakelijk voor Verkeersdomeinobjecten die zelf geen Voertuig zijn maar bvb een Wegsegment of Rijstrook etc."
+      },
+      "domain": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeerskenmerk"
+      ],
+      "range": [
+        "https://data.vlaanderen.be/ns/transportnetwerk#Voertuigtype"
+      ],
+      "parents": []
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#verkeersdeelnemerType",
+      "name": "verkeersdeelnemertype",
+      "label": {
+        "nl": "verkeersdeelnemertype"
+      },
+      "sort": "verkeersdeelnemertype",
+      "description": {
+        "nl": "Soort Verkeersdeelnemer waarvan men het Verkeerskenmerk meet."
+      },
+      "usage": {
+        "nl": "Bvb \"Voetganger\" als men enkel het aantal Voertgangers wil tellen in een Meetpunt. Enkel noodzakelijk voor Verkeersdomeinobjecten die zelf geen Verkeersdeelnemer zijn maar bvb een Wegsegment of Rijstrook etc."
+      },
+      "domain": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeerskenmerk"
+      ],
+      "range": [
+        "http://www.w3.org/2004/02/skos/core#Concept"
+      ],
+      "parents": []
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#tellingresultaat",
+      "name": "verkeerstelling.tellingresultaat",
+      "label": {
+        "nl": "Verkeerstelling.tellingresultaat"
+      },
+      "sort": "Verkeerstelling.tellingresultaat",
+      "description": {
+        "nl": "De waarde van het geobserveerdKenmerk als resultaat van de Verkeerstelling (aantal)."
+      },
+      "usage": {},
+      "domain": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeerstelling"
+      ],
+      "range": [
+        "http://www.w3.org/2001/XMLSchema#double"
+      ],
+      "parents": []
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#rijstrook",
+      "name": "rijstrook",
+      "label": {
+        "nl": "rijstrook"
+      },
+      "sort": "rijstrook",
+      "description": {
+        "nl": "Identificator van de Rijstrook."
+      },
+      "usage": {
+        "nl": "De identificator moet getypeerd worden bvb volgens het systeem dat werd gehanteerd om de Rijstroken te nummeren. Bvb het schema van DATEX II waar over de volledige breedte van de weg van links naar rechts wordt genummerd."
+      },
+      "domain": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Rijstrook"
+      ],
+      "range": [
+        "http://www.w3.org/ns/adms#Identifier"
+      ],
+      "parents": []
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#ligging",
+      "name": "ligging",
+      "label": {
+        "nl": "ligging"
+      },
+      "sort": "ligging",
+      "description": {
+        "nl": "Locatie van de Sensor."
+      },
+      "usage": {
+        "nl": "Bvb de coördinaten of het adres of een verwijzing naar een meetpunt of ander Bemonsteringsobject. Meerdere verschillende types van locaties kunnen worden opgegeven (bvb adres èn coördinaten). Als de Sensor een meetinstallatie is evt de verschillende meetpunten die worden omvat of een omschrijvende polygoon. OPGELET: De locatie van de Sensor is niet noodzakelijk de positie waar de Observatie gebeurt, die wordt in de eerste plaats gegeven door de ligging vh Bemonsteringsobject. Dit attribuut laat vooral toe om posities van Sensoren te beschrijven los vd metingen die er gebeuren."
+      },
+      "domain": [
+        "http://www.w3.org/ns/sosa/Sensor"
+      ],
+      "range": [
+        "http://www.w3.org/ns/prov#Location"
+      ],
+      "parents": []
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#kenmerktype",
+      "name": "verkeerstellingkenmerk.kenmerktype",
+      "label": {
+        "nl": "Verkeerstellingkenmerk.kenmerktype"
+      },
+      "sort": "Verkeerstellingkenmerk.kenmerktype",
+      "description": {
+        "nl": "Kenmerktype 'aantal' is het specifieke kenmerktype van de verkeerstelling"
+      },
+      "usage": {},
+      "domain": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeerstellingskenmerk"
+      ],
+      "range": [],
+      "parents": []
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#kenmerktype",
+      "name": "verkeerssnelheidsmetingkenmerk.kenmerktype",
+      "label": {
+        "nl": "Verkeerssnelheidsmetingkenmerk.kenmerktype"
+      },
+      "sort": "Verkeerssnelheidsmetingkenmerk.kenmerktype",
+      "description": {
+        "nl": "Kenmerktype 'snelheid' is het specifieke kenmerktype van de verkeerssnelheidsmeting"
+      },
+      "usage": {},
+      "domain": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeerssnelheidskenmerk"
+      ],
+      "range": [],
+      "parents": []
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#geobserveerdObject",
+      "name": "geobserveerdobject",
+      "label": {
+        "nl": "geobserveerdObject"
+      },
+      "sort": "geobserveerdObject",
+      "description": {
+        "nl": "Het Verkeersobject dat geobserveerd wordt."
+      },
+      "usage": {
+        "nl": "Dat kan het Verkeersdomeinobject zelf zijn of een proxy ervan, ttz een Verkeersbemonsteringsobject. OPMERKING: In dat laatste geval weet men soms pas na het observeren welk real-world Object men juist geobserveerd heeft. Bvb in een Verkeersmeetpunt weet men niet op voorhand welke de objecten zullen zijn waarvan men de snelheid wil vaststellen."
+      },
+      "domain": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersmeting"
+      ],
+      "range": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersobject"
+      ],
+      "parents": [
+        "http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.featureOfInterest"
+      ]
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#geobserveerdKenmerk",
+      "name": "verkeerstelling.geobserveerdkenmerk",
+      "label": {
+        "nl": "Verkeerstelling.geobserveerdKenmerk"
+      },
+      "sort": "Verkeerstelling.geobserveerdKenmerk",
+      "description": {
+        "nl": "Object dat door de Verkeerstelling wordt geobserveerd.\t"
+      },
+      "usage": {},
+      "domain": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeerstelling"
+      ],
+      "range": [],
+      "parents": []
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#geobserveerdKenmerk",
+      "name": "verkeerssnelheidsmeting.geobserveerdkenmerk",
+      "label": {
+        "nl": "Verkeerssnelheidsmeting.geobserveerdKenmerk"
+      },
+      "sort": "Verkeerssnelheidsmeting.geobserveerdKenmerk",
+      "description": {
+        "nl": "Object dat door de Verkeerssnelheidsmetingen wordt geobserveerd.\t"
+      },
+      "usage": {},
+      "domain": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeerssnelheidsmeting"
+      ],
+      "range": [],
+      "parents": []
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#bemonsterdObject",
+      "name": "bemonsterdobject",
+      "label": {
+        "nl": "bemonsterdObject"
+      },
+      "sort": "bemonsterdObject",
+      "description": {
+        "nl": "Verwijzing naar het Verkeersdomeinobject waarop de meting betrekking heeft en waarvoor het Verkeersbemonsteringsobject representatief is."
+      },
+      "usage": {
+        "nl": "Bvb het Voertuig of het Wegsegment waarvan men een Verkeerskenmerk bepaalt."
+      },
+      "domain": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersbemonsteringsobject"
+      ],
+      "range": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersdomeinobject"
+      ],
+      "parents": [
+        "http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeature.sampledFeature"
+      ]
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersmeettraject.netwerkreferentie",
+      "name": "netwerkreferentie",
+      "label": {
+        "nl": "netwerkReferentie"
+      },
+      "sort": "netwerkReferentie",
+      "description": {
+        "nl": "Referentie naar het Netwerkelement waarlangs het Verkeersmeettraject loopt of dat door dat traject bemonsterd wordt."
+      },
+      "usage": {
+        "nl": "Nuttig als men weet langs welk Wegsegment het traject loopt en aan welke kant van de weg en op welke afstand van het beginpunt. Alternatief voor of aanvulling op coördinaten. Ook noodzakelijk om aan te geven over welk Wegsegment en aan welke kant ervan de Voertuigen rijden waarvan men bvb de snelheid meet.\n"
+      },
+      "domain": [
+        "https://data.vlaanderen.be/ns/verkeersmetingen#Verkeersmeettraject"
+      ],
+      "range": [
+        "https://data.vlaanderen.be/ns/netwerk#Netwerkreferentie"
+      ],
+      "parents": []
+    }
+  ],
+  "contributors": [
+    {
+      "role": "E",
+      "first_name": "Van Ackere",
+      "last_name": "Samuel",
+      "affiliation": {}
+    },
+    {
+      "role": "E",
+      "first_name": "Thijs",
+      "last_name": "Geert",
+      "affiliation": {}
+    }
+  ],
+  "external_terms": [
+    {
+      "uri": "http://def.isotc211.org/iso19108/2006/TemporalObjects#TM_Instant",
+      "name": "Moment",
+      "label": {
+        "nl": "Moment"
+      },
+      "description": {},
+      "usage": {},
+      "sort": "Moment",
+      "indvl": false,
+      "inpackage": false,
+      "inscope": true,
+      "show": true
+    },
+    {
+      "uri": "http://def.isotc211.org/iso19108/2006/TemporalObjects#TM_Object",
+      "name": "Temporeleentiteit",
+      "label": {
+        "nl": "TemporeleEntiteit"
+      },
+      "description": {},
+      "usage": {},
+      "sort": "TemporeleEntiteit",
+      "indvl": false,
+      "inpackage": false,
+      "inscope": true,
+      "show": true
+    },
+    {
+      "uri": "http://def.isotc211.org/iso19115/2006/DataQualityInformation#DQ_Element",
+      "name": "Kwaliteitselement",
+      "label": {
+        "nl": "Kwaliteitselement"
+      },
+      "description": {},
+      "usage": {},
+      "sort": "Kwaliteitselement",
+      "indvl": false,
+      "inpackage": false,
+      "inscope": true,
+      "show": true
+    },
+    {
+      "uri": "http://www.w3.org/2004/02/skos/core#Concept",
+      "name": "Verkeerskenmerktype",
+      "label": {
+        "nl": "Verkeerskenmerktype"
+      },
+      "description": {},
+      "usage": {},
+      "sort": "Verkeerskenmerktype",
+      "indvl": false,
+      "inpackage": false,
+      "inscope": true,
+      "show": true
+    },
+    {
+      "uri": "http://www.w3.org/2004/02/skos/core#Concept",
+      "name": "Voertuigtype",
+      "label": {
+        "nl": "Voertuigtype"
+      },
+      "description": {},
+      "usage": {},
+      "sort": "Voertuigtype",
+      "indvl": false,
+      "inpackage": false,
+      "inscope": true,
+      "show": true
+    },
+    {
+      "uri": "http://www.w3.org/2004/02/skos/core#Concept",
+      "name": "Verkeersdeelnemertype",
+      "label": {
+        "nl": "Verkeersdeelnemertype"
+      },
+      "description": {},
+      "usage": {},
+      "sort": "Verkeersdeelnemertype",
+      "indvl": false,
+      "inpackage": false,
+      "inscope": true,
+      "show": true
+    },
+    {
+      "uri": "http://www.w3.org/2004/02/skos/core#Concept",
+      "name": "Rijstrooktype",
+      "label": {
+        "nl": "Rijstrooktype"
+      },
+      "description": {},
+      "usage": {},
+      "sort": "Rijstrooktype",
+      "indvl": false,
+      "inpackage": false,
+      "inscope": true,
+      "show": true
+    },
+    {
+      "uri": "http://www.w3.org/ns/prov#Location",
+      "name": "Locatie",
+      "label": {
+        "nl": "Locatie"
+      },
+      "description": {},
+      "usage": {},
+      "sort": "Locatie",
+      "indvl": false,
+      "inpackage": false,
+      "inscope": true,
+      "show": true
+    },
+    {
+      "uri": "https://def.isotc211.org/iso19156/2011/Observation#OM_Observation.phenomenonTime",
+      "name": "fenomeentijd",
+      "label": {
+        "nl": "fenomeenTijd"
+      },
+      "description": {},
+      "usage": {},
+      "sort": "fenomeenTijd",
+      "inscope": true,
+      "indvl": false,
+      "inpackage": false,
+      "show": true
+    },
+    {
+      "uri": "http://purl.org/dc/elements/1.1/type",
+      "name": "type",
+      "label": {
+        "nl": "type"
+      },
+      "description": {
+        "nl": "Type vh Verkeerskenmerk."
+      },
+      "usage": {},
+      "sort": "type",
+      "inscope": true,
+      "indvl": false,
+      "inpackage": false,
+      "show": true
+    },
+    {
+      "uri": "http://purl.org/dc/elements/1.1/type",
+      "name": "rijstrooktype",
+      "label": {
+        "nl": "rijstrooktype"
+      },
+      "description": {
+        "nl": "Aard vd Rijstrook."
+      },
+      "usage": {},
+      "sort": "rijstrooktype",
+      "inscope": true,
+      "indvl": false,
+      "inpackage": false,
+      "show": true
+    },
+    {
+      "uri": "http://def.isotc211.org/iso19156/2011/SamplingCurve#SF_SamplingCurve.shape",
+      "name": "geometrie",
+      "label": {
+        "nl": "geometrie"
+      },
+      "description": {},
+      "usage": {},
+      "sort": "geometrie",
+      "inscope": true,
+      "indvl": false,
+      "inpackage": false,
+      "show": true
+    },
+    {
+      "uri": "http://def.isotc211.org/iso19156/2011/Measurement#OM_Measurement.result",
+      "name": "resultaat",
+      "label": {
+        "nl": "resultaat"
+      },
+      "description": {},
+      "usage": {},
+      "sort": "resultaat",
+      "inscope": true,
+      "indvl": false,
+      "inpackage": false,
+      "show": true
+    }
+  ],
+  "documentroot": "/doc/vocabularium/kruispuntmetingen/ontwerpstandaard/2024-06-17"
+}

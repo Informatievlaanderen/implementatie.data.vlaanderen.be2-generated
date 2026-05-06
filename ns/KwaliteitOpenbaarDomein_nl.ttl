@@ -1,0 +1,317 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://def.isotc211.org/iso19157/2013/DataQualityResult#DQ_DescriptiveResult> a rdfs:Class;
+  rdfs:label "BeschrijvendResultaat"@nl .
+
+<http://def.isotc211.org/iso19157/2013/DataQualityResult#DQ_QuantitativeResult> a rdfs:Class;
+  rdfs:label "KwantitatiefResultaat"@nl .
+
+<https://data.vlaanderen.be/ns/kwaliteitopenbaardomein#KleurCodeKOD> a rdfs:Class;
+  rdfs:label "KleurCodeKOD"@nl .
+
+<https://data.vlaanderen.be/ns/kwaliteitopenbaardomein#ObservatieProcedureType> a rdfs:Class;
+  rdfs:label "ObservatieProcedureType"@nl .
+
+<https://data.vlaanderen.be/ns/kwaliteitopenbaardomein#TypeLaag> a rdfs:Class;
+  rdfs:label "TypeLaag"@nl .
+
+<https://data.vlaanderen.be/ns/kwaliteitopenbaardomein#TypeMarkering> a rdfs:Class;
+  rdfs:label "TypeMarkering"@nl .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#Conformiteitsresultaat> a owl:Class;
+  rdfs:label "Conformiteitsresultaat"@nl;
+  <http://purl.org/vocab/vann/usageNote> "http://def.isotc211.org/iso19157/2013/DataQualityResult#DQ_ConformanceResult"@nl;
+  rdfs:comment "Informatie over het resultaat van de evaluatie van de verkregen waarde(n) volgens een gespecifieerd conformiteitskwaliteitsniveau."@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen>;
+  rdfs:subClassOf <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsResultaat> .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KenmerkType> a owl:Class;
+  rdfs:label "KenmerkType"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Bv de weerkaatsing van licht op het baanoppervlak"@nl;
+  rdfs:comment "Het type kenmerk dat bij de observatie beoordeeld wordt."@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen> .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsKenmerk> a owl:Class;
+  rdfs:label "KwaliteitsKenmerk"@nl;
+  rdfs:comment "Kenmerk vh geobserveerdObject waarop de kwaliteitsbeoordeling is gebasseerd."@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen>;
+  rdfs:subClassOf <http://def.isotc211.org/iso19109/2005/GeneralFeatureModel#GF_PropertyType> .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsObservatie.uitgevoerdDoor> a owl:ObjectProperty;
+  rdfs:label "uitgevoerdDoor"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Dit kan bijvoorbeeld gaan over de machine learning toepassing die de observatie uitvoert"@nl;
+  rdfs:comment "Agent die de Observatie heeft uitgevoerd."@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsObservatie>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen>;
+  rdfs:range <http://fixme.com#Agent> .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsObservatieprocedure.parameter> a owl:ObjectProperty;
+  rdfs:label "parameter"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Bv een parameter die een aspect van de Observatieprocedure beschrijft (bv de maximale hoogte voor het nemen van een luchtfoto) of een noodzakelijke omgevingsparameter (bv zichtbaarheidsgraad waarbinnen een luchtfoto mag plaatsnemen)."@nl;
+  rdfs:comment "Willekeurig gegeven geassocieerd met de Observatieprocedure."@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsObservatieprocedure>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen>;
+  rdfs:range <http://def.isotc211.org/iso19156/2011/Observation#NamedValue> .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsObservatieprocedure.specificatie> a owl:DatatypeProperty;
+  rdfs:label "specificatie"@nl;
+  rdfs:comment "Verwijzing naar een document dat de Observatieprocedure beschrijft."@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsObservatieprocedure>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen>;
+  rdfs:range xsd:anyURI .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsSensor.versie> a owl:DatatypeProperty;
+  rdfs:label "versie"@nl;
+  <http://purl.org/vocab/vann/usageNote> "dit kan gaan over de versie van de machine learning toepassing"@nl;
+  rdfs:comment "De versie van de kwaliteitssensor"@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsSensor>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen>;
+  rdfs:range xsd:string .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#MarkeringKOD.kleurKOD> a owl:ObjectProperty;
+  rdfs:label "Kleur KOD"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Niet limitatieve lijst van mogelijke kleuren"@nl;
+  rdfs:comment "De kleur van de gebruikte markering."@nl;
+  rdfs:domain <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#MarkeringKOD>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen>;
+  rdfs:range <https://data.vlaanderen.be/ns/kwaliteitopenbaardomein#KleurCodeKOD> .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#OpenbaarDomeinObject> a owl:Class;
+  rdfs:label "OpenbaarDomeinObect"@nl;
+  rdfs:comment "Klasse die instanties van om het even welk type vertegenwoordigt die voorkomen op het openbaar domein."@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen>;
+  rdfs:subClassOf <http://def.isotc211.org/iso19156/2011/GeneralFeatureInstance#GFI_Feature>,
+    <http://def.isotc211.org/iso19156/2011GeneralFeatureInstance#GFI_DomainFeature> .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#lengte> a owl:ObjectProperty;
+  rdfs:label "lengte"@nl;
+  rdfs:comment "De lengte van de markering"@nl;
+  rdfs:domain <https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Markering>;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen>;
+  rdfs:range <https://wegenenverkeer.data.vlaanderen.be/ns/implementatieelement#KwantWrdInMeter> .
+
+<http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.observedProperty> a rdf:Property;
+  rdfs:label "geobserveerdKenmerk"@nl .
+
+<http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.parameter> a rdf:Property;
+  rdfs:label "parameter"@nl .
+
+<http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.phenomenonTime> a rdf:Property;
+  rdfs:label "fenomeentijd"@nl .
+
+<http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.validTime> a rdf:Property;
+  rdfs:label "geldigeTijd"@nl .
+
+<http://purl.org/cd/terms/type> a rdf:Property;
+  rdfs:label "type"@nl .
+
+dc:type a rdf:Property;
+  rdfs:label "type"@nl .
+
+<http://www.w3.org/ns/sosa/hasResult> a rdf:Property;
+  rdfs:label "resultaat"@nl .
+
+<http://www.w3.org/ns/sosa/madeBySensor> a rdf:Property;
+  rdfs:label "uitgevoerdMetSensor"@nl .
+
+<http://www.w3.org/ns/sosa/usedProcedure> a rdf:Property;
+  rdfs:label "gebruikteProcedure"@nl .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsObservatie> a owl:Class;
+  rdfs:label "Kwaliteitsobservatie"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Het gaat om schattingen van de waarde, maw op de waarde zit een zekere foutmarge. Bijvoorbeeld kleur. Dit is verschillend van waarden die zijn toegekend en dus geen schattingen zijn zoals naam of prijs."@nl;
+  rdfs:comment "Het vaststellen van de waarde van een bepaald kwaliteitskenmerk van een Object op een bepaald tijdstip of tussen twee tijdstippen."@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen>;
+  rdfs:subClassOf <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation> .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsObservatie.resultaat> a rdf:Property;
+  rdfs:label "resultaat"@nl .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsResultaat> a owl:Class;
+  rdfs:label "KwaliteitsResultaat"@nl;
+  rdfs:comment "Het resultaat van de evaluatie van de kwaliteit van de weg, materialisatie of markering."@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen>;
+  rdfs:subClassOf rdfs:Resource .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsSensor> a owl:Class;
+  rdfs:label "KwaliteitsSensor"@nl;
+  <http://purl.org/vocab/vann/usageNote> "De Machine Learning toepassing die van toepassing is om de kwaliteit in kaart te brengen."@nl;
+  rdfs:comment "De sensor die men gebruikt om de kwaliteitskenmerkern waar te nemen."@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen>;
+  rdfs:subClassOf <https://www.w3.org/ns/sosa/Sensor> .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#MarkeringKOD> a owl:Class;
+  rdfs:label "Markering KOD"@nl;
+  rdfs:comment "Abstracte als noemer voor de verschillende types van markeringen."@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen>;
+  rdfs:subClassOf <https://wegenenverkeer.data.vlaanderen.be/ns/abstracten#Markering> .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsObservatieprocedure> a owl:Class;
+  rdfs:label "Kwaliteitsobservatieprocedure"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Dit kan het specificatiedocument zijn met info over de ML software"@nl;
+  rdfs:comment "De procedure die gevolgd wordt om de observatie te doen"@nl;
+  rdfs:isDefinedBy <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen>;
+  rdfs:subClassOf <https://www.w3.org/TR/vocab-ssn/#SOSAProcedure> .
+
+<https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen> a owl:Ontology;
+  rdfs:label "KwaliteitOpenbaarDomein"@en,
+    "KwaliteitOpenbaarDomein"@nl;
+  dc:contributor [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://www.brugge.be/>;
+      foaf:name "Stad Brugge"
+    ];
+    foaf:firstName "Ide";
+    foaf:lastName "Vandenbroucke";
+    foaf:mbox <mailto:ide.vandenbroucke@brugge.be>
+  ], [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://www.brugge.be/>;
+      foaf:name "Stad Brugge"
+    ];
+    foaf:firstName "Tom";
+    foaf:lastName "Boi";
+    foaf:mbox <mailto:tom.boi@brugge.be>
+  ];
+  dc:issued "TODO";
+  dc:license "https://creativecommons.org/publicdomain/zero/1.0/",
+    <https://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0>;
+  dc:mediator [
+    foaf:homepage <https://data.specs.org>;
+    foaf:mbox <mailto:info@data.specs.org>;
+    foaf:name "Data Specifications Organisation"
+  ];
+  rdfs:seeAlso <http://def.isotc211.org/iso19157/2013/DataQualityResult#DQ_DescriptiveResult>,
+    <http://def.isotc211.org/iso19157/2013/DataQualityResult#DQ_QuantitativeResult>,
+    <https://data.vlaanderen.be/ns/kwaliteitopenbaardomein#KleurCodeKOD>,
+    <https://data.vlaanderen.be/ns/kwaliteitopenbaardomein#ObservatieProcedureType>,
+    <https://data.vlaanderen.be/ns/kwaliteitopenbaardomein#TypeLaag>,
+    <https://data.vlaanderen.be/ns/kwaliteitopenbaardomein#TypeMarkering>,
+    <https://implementatie.data.vlaanderen.be/ns/kwaliteit-wegen-en-wegmarkeringen#KwaliteitsObservatie.resultaat>,
+    <http://www.w3.org/ns/sosa/usedProcedure>,
+    <http://www.w3.org/ns/sosa/madeBySensor>,
+    <http://www.w3.org/ns/sosa/hasResult>,
+    dc:type,
+    <http://purl.org/cd/terms/type>,
+    <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.validTime>,
+    <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.phenomenonTime>,
+    <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.parameter>,
+    <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.observedProperty>;
+  <http://www.w3.org/2001/02pd/rec54#editor> [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://www.vlaanderen.be/digitaal-vlaanderen>;
+      foaf:name "Digitaal Vlaanderen"
+    ];
+    foaf:firstName "Lorenzo";
+    foaf:lastName "Vylders";
+    foaf:mbox <mailto:lorenzo.vylders@vlaanderen.be>
+  ], [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://www.vlaanderen.be/digitaal-vlaanderen>;
+      foaf:name "Digitaal Vlaanderen"
+    ];
+    foaf:firstName "Eveline";
+    foaf:lastName "Vlassenroot";
+    foaf:mbox <mailto:eveline.vlassenroot@vlaanderen.be>
+  ], [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://www.vlaanderen.be/digitaal-vlaanderen>;
+      foaf:name "Digitaal Vlaanderen"
+    ];
+    foaf:firstName "Laurens";
+    foaf:lastName "Vercauteren";
+    foaf:mbox <mailto:laurens.vercauteren@vlaanderen.be>
+  ], [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://www.vlaanderen.be/digitaal-vlaanderen>;
+      foaf:name "Digitaal Vlaanderen"
+    ];
+    foaf:firstName "Ziggy";
+    foaf:lastName "Vanlishout";
+    foaf:mbox <mailto:ziggy.vanlishout@vlaanderen.be>
+  ], [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://www.vlaanderen.be/digitaal-vlaanderen>;
+      foaf:name "Digitaal Vlaanderen"
+    ];
+    foaf:firstName "Liesbeth";
+    foaf:lastName "Van der Haegen";
+    foaf:mbox <mailto:liesbeth.vanderhaegen@vlaanderen.be>
+  ], [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://www.vlaanderen.be/digitaal-vlaanderen>;
+      foaf:name "Digitaal Vlaanderen"
+    ];
+    foaf:firstName "Arne";
+    foaf:lastName "Scheldeman";
+    foaf:mbox <mailto:arne.scheldeman@vlaanderen.be>
+  ], [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://www.vlaanderen.be/digitaal-vlaanderen>;
+      foaf:name "Digitaal Vlaanderen"
+    ];
+    foaf:firstName "Raf";
+    foaf:lastName "Buyle";
+    foaf:mbox <mailto:raf.buyle@vlaanderen.be>
+  ], [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://www.vlaanderen.be/digitaal-vlaanderen>;
+      foaf:name "Digitaal Vlaanderen"
+    ];
+    foaf:firstName "Veerle";
+    foaf:lastName "Beyaert";
+    foaf:mbox <mailto:veerle.beyaert@vlaanderen.be>
+  ];
+  foaf:maker [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://www.roeselare.be/>;
+      foaf:name "Stad Roeselare"
+    ];
+    foaf:firstName "Nico";
+    foaf:lastName "Scheldeman";
+    foaf:mbox <mailto:nico.scheldeman@roeselare.be>
+  ], [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://www.roeselare.be/>;
+      foaf:name "Stad Roeselare"
+    ];
+    foaf:firstName "Benny";
+    foaf:lastName "Meyns";
+    foaf:mbox <mailto:benny.meyns@roeselare.be>
+  ], [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://www.roeselare.be/>;
+      foaf:name "Stad Roeselare"
+    ];
+    foaf:firstName "Cantor";
+    foaf:lastName "Coene";
+    foaf:mbox <mailto:cantor.coene@roeselare.be>
+  ], [
+    a foaf:Person;
+    schema:affiliation [
+      foaf:homepage <https://www.roeselare.be/>;
+      foaf:name "Stad Roeselare"
+    ];
+    foaf:firstName "Steve";
+    foaf:lastName "Baete";
+    foaf:mbox <mailto:steve.baete@roeselare.be>
+  ] .

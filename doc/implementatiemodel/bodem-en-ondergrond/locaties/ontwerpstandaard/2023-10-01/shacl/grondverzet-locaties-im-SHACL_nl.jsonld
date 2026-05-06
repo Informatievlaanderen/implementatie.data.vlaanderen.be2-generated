@@ -1,0 +1,390 @@
+{
+  "@context": {
+    "@vocab": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/locaties/ontwerpstandaard/2023-10-01",
+    "qb": "http://purl.org/linked-data/cube#",
+    "qb:codeList": {
+      "@type": "@id"
+    },
+    "sh": "http://www.w3.org/ns/shacl#",
+    "sh:class": {
+      "@type": "@id"
+    },
+    "sh:datatype": {
+      "@type": "@id"
+    },
+    "sh:description": {
+      "@container": "@language"
+    },
+    "sh:maxCount": {
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "sh:minCount": {
+      "@type": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "sh:name": {
+      "@container": "@language"
+    },
+    "sh:path": {
+      "@type": "@id"
+    },
+    "sh:property": {
+      "@type": "@id"
+    },
+    "sh:targetClass": {
+      "@type": "@id"
+    },
+    "shapes": {
+      "@type": "@id"
+    },
+    "vl": "https://purl.eu/ns/shacl#"
+  },
+  "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/locaties/ontwerpstandaard/2023-10-01",
+  "shapes": [
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/locaties/ontwerpstandaard/2023-10-01#RuimtelijkObjectShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [],
+      "sh:targetClass": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/locaties#RuimtelijkObject"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/locaties/ontwerpstandaard/2023-10-01#PlaatsShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [
+        {
+          "sh:class": "http://www.w3.org/ns/locn#Geometry",
+          "sh:description": {
+            "nl": "Geometrie van de plaats of het gebied."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "geometrie"
+          },
+          "sh:path": "http://www.w3.org/ns/locn#geometry"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+          "sh:description": {
+            "nl": "Naam van de plaats of van het gebied."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "plaatsnaam"
+          },
+          "sh:path": "http://www.w3.org/2000/01/rdf-schema#label"
+        }
+      ],
+      "sh:targetClass": "http://purl.org/dc/terms/Location"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/locaties/ontwerpstandaard/2023-10-01#GeografischeNaamShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [],
+      "sh:targetClass": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/locaties/ontwerpstandaard/2023-10-01#OpmetingmethodeShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [],
+      "sh:targetClass": "http://www.w3.org/2004/02/skos/core#Concept"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/locaties/ontwerpstandaard/2023-10-01#AdresvoorstellingShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [
+        {
+          "sh:datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+          "sh:description": {
+            "nl": "Hoogste Administratieve eenheid vh adres, doorgaans een land."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "administratieve eenheid niveau 1"
+          },
+          "sh:path": "http://www.w3.org/ns/locn#adminUnitL1"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+          "sh:description": {
+            "nl": "De regio vh adres, doorgaans een provincie of deelstaat of gelijkaardig gebied dat typisch meerdere plaatsen omvat."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "administratieve eenheid niveau 2"
+          },
+          "sh:path": "http://www.w3.org/ns/locn#adminUnitL2"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+          "sh:description": {
+            "nl": "Naam ve geografisch gebied of plaats die een aantal adresseerbare objecten groepeert om deze te adresseren zonder dat het gebied of de plaats een administratieve eenheid is"
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "adresgebied"
+          },
+          "sh:path": "http://www.w3.org/ns/locn#addressArea"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/2001/XMLSchema#string",
+          "sh:description": {
+            "nl": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "busnummer"
+          },
+          "sh:path": "https://data.vlaanderen.be/ns/adres#Adresvoorstelling.busnummer"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+          "sh:description": {
+            "nl": "Gemeentenaam vh adres."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "gemeentenaam"
+          },
+          "sh:path": "https://data.vlaanderen.be/ns/adres#gemeentenaam"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/2001/XMLSchema#string",
+          "sh:description": {
+            "nl": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "huisnummer"
+          },
+          "sh:path": "https://data.vlaanderen.be/ns/adres#Adresvoorstelling.huisnummer"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+          "sh:description": {
+            "nl": "Land waarin het adres gelegen is."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "land"
+          },
+          "sh:path": "https://data.vlaanderen.be/ns/adres#land"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/2001/XMLSchema#string",
+          "sh:description": {
+            "nl": "Alfanumerieke code die de adreslocator uniek identificeert binnen de straat, administratieve eenheid etc."
+          },
+          "sh:name": {
+            "nl": "locatieaanduiding"
+          },
+          "sh:path": "http://www.w3.org/ns/locn#locatorDesignator"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+          "sh:description": {
+            "nl": "Naam of omschrijving vh het geografisch object dat de adreslocator aanduidt."
+          },
+          "sh:name": {
+            "nl": "locatienaam"
+          },
+          "sh:path": "http://www.w3.org/ns/locn#locatorName"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/2001/XMLSchema#string",
+          "sh:description": {
+            "nl": "Postbusnummer in een postkantoor."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "postbus"
+          },
+          "sh:path": "http://www.w3.org/ns/locn#poBox"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/2001/XMLSchema#string",
+          "sh:description": {
+            "nl": "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "postcode"
+          },
+          "sh:path": "http://www.w3.org/ns/locn#postCode"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+          "sh:description": {
+            "nl": "Naam waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "postnaam"
+          },
+          "sh:path": "http://www.w3.org/ns/locn#postName"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+          "sh:description": {
+            "nl": "Straatnaam vh adres."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "straatnaam"
+          },
+          "sh:path": "http://www.w3.org/ns/locn#thoroughfare"
+        },
+        {
+          "sh:class": "https://data.vlaanderen.be/ns/adres#Adres",
+          "sh:description": {
+            "nl": "Adres waarvan de adresvoorstelling is afgeleid."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "verwijstNaar"
+          },
+          "sh:path": "https://data.vlaanderen.be/ns/adres#verwijstNaar"
+        },
+        {
+          "sh:datatype": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+          "sh:description": {
+            "nl": "Het complete adres in één string, al dan niet geformatteerd."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "volledig adres"
+          },
+          "sh:path": "http://www.w3.org/ns/locn#fullAddress"
+        }
+      ],
+      "sh:targetClass": "http://www.w3.org/ns/locn#Address"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/locaties/ontwerpstandaard/2023-10-01#GeometrieShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [
+        {
+          "sh:description": {
+            "nl": "Geometrie uitgedrukt in gml-formaat."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "gml"
+          },
+          "sh:path": "http://www.opengis.net/ont/geosparql#asGML"
+        },
+        {
+          "sh:class": "https://data.vlaanderen.be/ns/generiek#Opmeting",
+          "sh:description": {
+            "nl": "De manier waarop de geometrie werd bepaald."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "opmeting"
+          },
+          "sh:path": "https://data.vlaanderen.be/ns/generiek#DirectePositie.opmeting"
+        },
+        {
+          "sh:description": {
+            "nl": "Geometrie uitgedrukt in wkt-formaat."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "wkt"
+          },
+          "sh:path": "http://www.opengis.net/ont/geosparql#asWKT"
+        }
+      ],
+      "sh:targetClass": "http://www.w3.org/ns/locn#Geometry"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/locaties/ontwerpstandaard/2023-10-01#LocatieShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [],
+      "sh:targetClass": "http://www.w3.org/ns/prov#Location"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/locaties/ontwerpstandaard/2023-10-01#AdresShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [],
+      "sh:targetClass": "https://data.vlaanderen.be/ns/adres#Adres"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/locaties/ontwerpstandaard/2023-10-01#DirectePositieShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [
+        {
+          "sh:description": {
+            "nl": "Directe positie uitgedrukt in gml-formaat."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "gml"
+          },
+          "sh:path": "http://www.opengis.net/ont/geosparql#asGML"
+        },
+        {
+          "sh:class": "https://data.vlaanderen.be/ns/generiek#Opmeting",
+          "sh:description": {
+            "nl": "De manier waarop de positie werd bepaald."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "opmeting"
+          },
+          "sh:path": "https://data.vlaanderen.be/ns/generiek#DirectePositie.opmeting"
+        },
+        {
+          "sh:description": {
+            "nl": "Directe positie uitgedrukt in wkt-formaat."
+          },
+          "sh:maxCount": "1",
+          "sh:name": {
+            "nl": "wkt"
+          },
+          "sh:path": "http://www.opengis.net/ont/geosparql#asWKT"
+        }
+      ],
+      "sh:targetClass": "https://data.vlaanderen.be/ns/generiek#DirectePositie"
+    },
+    {
+      "@id": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/locaties/ontwerpstandaard/2023-10-01#OpmetingShape",
+      "@type": "sh:NodeShape",
+      "sh:closed": false,
+      "sh:property": [
+        {
+          "sh:class": "http://www.w3.org/2004/02/skos/core#Concept",
+          "sh:description": {
+            "nl": "Aard van de gebruikte methode."
+          },
+          "sh:maxCount": "1",
+          "sh:minCount": "1",
+          "sh:name": {
+            "nl": "methode"
+          },
+          "sh:path": "https://data.vlaanderen.be/ns/generiek#Opmeting.methode"
+        },
+        {
+          "sh:class": "http://purl.org/dc/terms/Agent",
+          "sh:description": {
+            "nl": "Agent die de Opmeting heeft uitgevoerd."
+          },
+          "sh:maxCount": "1",
+          "sh:minCount": "1",
+          "sh:name": {
+            "nl": "uitgevoerdDoor"
+          },
+          "sh:path": "https://data.vlaanderen.be/ns/generiek#Opmeting.uitgevoerdDoor"
+        }
+      ],
+      "sh:targetClass": "https://data.vlaanderen.be/ns/generiek#Opmeting"
+    }
+  ]
+}

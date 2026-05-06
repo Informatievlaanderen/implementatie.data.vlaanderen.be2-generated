@@ -1,0 +1,1019 @@
+{
+  "metadata": {
+    "title": "Implementatiemodel Bodem en Ondergrond - Opdrachten",
+    "uri": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten",
+    "issued": "2024-03-11",
+    "baseURI": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#",
+    "filename": "grondverzet-opdrachten-im",
+    "navigation": {
+      "self": "https://implementatie.data.vlaanderen.be//doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01"
+    },
+    "license": "https://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0",
+    "documenttype": "ap",
+    "documentconfig": {},
+    "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+    "statuslabel": "Ontwerp Standaard",
+    "repositoryurl": "https://github.com/Informatievlaanderen/OSLOthema-IM-grondverzet/tree/b5baf223b572be024152ac9be023d5d44f3fad9b",
+    "changelogurl": "https://github.com/Informatievlaanderen/OSLOthema-IM-grondverzet/blob/b5baf223b572be024152ac9be023d5d44f3fad9b/CHANGELOG",
+    "feedbackurl": "https://github.com/Informatievlaanderen/OSLOthema-IM-grondverzet/issues",
+    "standaardregisterurl": "https://data.vlaanderen.be/standaarden/TODO/CORRECT-URL/index.html",
+    "usesVocs": [],
+    "usesAPs": []
+  },
+  "classes": [
+    {
+      "uri": "http://purl.org/dc/terms/Agent",
+      "name": "Agent",
+      "label": {
+        "nl": "Agent"
+      },
+      "sort": "Agent",
+      "description": {
+        "nl": "Iemand die of iets dat kan handelen of een effect kan teweeg brengen."
+      },
+      "usage": {},
+      "parents": [],
+      "rawTags": {
+        "ap-definition-nl": "Iemand die of iets dat kan handelen of een effect kan teweeg brengen.",
+        "label-nl": "Agent",
+        "uri": "http://purl.org/dc/terms/Agent",
+        "ap-usageNote": "Meer info over deze klasse in het <a href=\"https://implementatie.data.vlaanderen.be/doc/implementatiemodel/grondverzet/agents/\">IM-Agents."
+      },
+      "properties": []
+    },
+    {
+      "uri": "http://www.w3.org/2000/01/rdf-schema#Resource",
+      "name": "Any",
+      "label": {
+        "nl": "Any"
+      },
+      "sort": "Any",
+      "description": {
+        "nl": "Instanties van  om het even welk type."
+      },
+      "usage": {
+        "nl": "Te substitueren door een geschikte klasse of datatype."
+      },
+      "parents": [],
+      "rawTags": {
+        "ap-definition-nl": "Instanties van  om het even welk type.",
+        "ap-usageNote-nl": "Te substitueren door een geschikte klasse of datatype.",
+        "label-nl": "Any",
+        "uri": "http://www.w3.org/2000/01/rdf-schema#Resource",
+        "ap-label-nl": "Any"
+      },
+      "properties": []
+    },
+    {
+      "uri": "https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht",
+      "name": "Opdracht",
+      "label": {
+        "nl": "Opdracht"
+      },
+      "sort": "Opdracht",
+      "description": {
+        "nl": "Toegewezen taak."
+      },
+      "usage": {
+        "nl": "In deze context de taak om Observaties of Bemonsteringen uit te voeren."
+      },
+      "parents": [],
+      "rawTags": {
+        "definition-nl": "Toegewezen taak.",
+        "label-nl": "Opdracht",
+        "usageNote-nl": "In deze context de taak om Observaties of Bemonsteringen uit te voeren.",
+        "uri": "https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht"
+      },
+      "properties": [
+        {
+          "uri": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#tijdstip",
+          "name": "tijdstip",
+          "sort": "tijdstip",
+          "label": {
+            "nl": "tijdstip"
+          },
+          "description": {
+            "nl": "Tijdstip waarop of periode waarin de Opdracht plaatsvindt."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Opdracht",
+              "uri": "https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "TemporeleEntiteit",
+              "range_uri": "http://www.w3.org/2006/time#TemporalEntity"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#TemporeleEntiteit",
+              "range_puri": "http://www.w3.org/2006/time#TemporalEntity",
+              "range_label": {
+                "nl": "TemporeleEntiteit"
+              }
+            }
+          ],
+          "cardinality": "1..*",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "tijdstip",
+            "definition-nl": "Tijdstip waarop of periode waarin de Opdracht plaatsvindt."
+          }
+        },
+        {
+          "uri": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#resultaat",
+          "name": "resultaat",
+          "sort": "resultaat",
+          "label": {
+            "nl": "resultaat"
+          },
+          "description": {
+            "nl": "Verwijzing naar een resultaat van de Opdracht."
+          },
+          "usage": {
+            "nl": "Typisch de Observaties die ihkv de opdracht plaatsvonden en/of de Monsters die tbv daarvan werden genomen of de Grondboringen of andere bemonsteringsactiviteiten die ihkv de Opdracht plaatsvonden."
+          },
+          "domain": [
+            {
+              "EA-Name": "Opdracht",
+              "uri": "https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Any",
+              "range_uri": "http://www.w3.org/2000/01/rdf-schema#Resource"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Any",
+              "range_puri": "http://www.w3.org/2000/01/rdf-schema#Resource",
+              "range_label": {
+                "nl": "Any"
+              }
+            }
+          ],
+          "cardinality": "0..*",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "resultaat",
+            "definition-nl": "Verwijzing naar een resultaat van de Opdracht.",
+            "usageNote-nl": "Typisch de Observaties die ihkv de opdracht plaatsvonden en/of de Monsters die tbv daarvan werden genomen of de Grondboringen of andere bemonsteringsactiviteiten die ihkv de Opdracht plaatsvonden."
+          }
+        },
+        {
+          "uri": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#referentie",
+          "name": "referentie",
+          "sort": "referentie",
+          "label": {
+            "nl": "referentie"
+          },
+          "description": {
+            "nl": "Verwijzing naar bijkomende documentatie over de opdracht."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Opdracht",
+              "uri": "https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "URI",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#anyURI"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+              "range_puri": "http://www.w3.org/2001/XMLSchema#anyURI",
+              "range_label": {
+                "nl": "URI"
+              }
+            }
+          ],
+          "cardinality": "0..*",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "referentie",
+            "definition-nl": "Verwijzing naar bijkomende documentatie over de opdracht."
+          }
+        },
+        {
+          "uri": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#opdrachtnemer",
+          "name": "opdrachtnemer",
+          "sort": "opdrachtnemer",
+          "label": {
+            "nl": "opdrachtnemer"
+          },
+          "description": {
+            "nl": "Agent die de opdracht aan heeft genomen."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Opdracht",
+              "uri": "https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Agent",
+              "range_uri": "http://purl.org/dc/terms/Agent"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Agent",
+              "range_puri": "http://purl.org/dc/terms/Agent",
+              "range_label": {
+                "nl": "Agent"
+              }
+            }
+          ],
+          "cardinality": "0..*",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "opdrachtnemer",
+            "definition-nl": "Agent die de opdracht aan heeft genomen."
+          }
+        },
+        {
+          "uri": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#opdrachtgever",
+          "name": "opdrachtgever",
+          "sort": "opdrachtgever",
+          "label": {
+            "nl": "opdrachtgever"
+          },
+          "description": {
+            "nl": "Agent die de opdracht heeft geïnitieerd."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Opdracht",
+              "uri": "https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Agent",
+              "range_uri": "http://purl.org/dc/terms/Agent"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Agent",
+              "range_puri": "http://purl.org/dc/terms/Agent",
+              "range_label": {
+                "nl": "Agent"
+              }
+            }
+          ],
+          "cardinality": "1",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "opdrachtgever",
+            "definition-nl": "Agent die de opdracht heeft geïnitieerd."
+          }
+        },
+        {
+          "uri": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#ligging",
+          "name": "ligging",
+          "sort": "ligging",
+          "label": {
+            "nl": "ligging"
+          },
+          "description": {
+            "nl": "Aanduiding van de locatie waar de Opdracht plaatsvindt."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Opdracht",
+              "uri": "https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Locatie",
+              "range_uri": "http://www.w3.org/ns/prov#Location"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Locatie",
+              "range_puri": "http://www.w3.org/ns/prov#Location",
+              "range_label": {
+                "nl": "Locatie"
+              }
+            }
+          ],
+          "cardinality": "0..*",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "ligging",
+            "definition-nl": "Aanduiding van de locatie waar de Opdracht plaatsvindt."
+          }
+        },
+        {
+          "uri": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#dataleverancier",
+          "name": "dataleverancier",
+          "sort": "dataleverancier",
+          "label": {
+            "nl": "dataleverancier"
+          },
+          "description": {
+            "nl": "Verstrekker van data die bij de uitvoering van de Opdracht is geproduceerd."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Opdracht",
+              "uri": "https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Agent",
+              "range_uri": "http://purl.org/dc/terms/Agent"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Agent",
+              "range_puri": "http://purl.org/dc/terms/Agent",
+              "range_label": {
+                "nl": "Agent"
+              }
+            }
+          ],
+          "cardinality": "0..*",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "dataleverancier",
+            "definition-nl": "Verstrekker van data die bij de uitvoering van de Opdracht is geproduceerd."
+          }
+        },
+        {
+          "uri": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#beschrijving",
+          "name": "beschrijving",
+          "sort": "beschrijving",
+          "label": {
+            "nl": "beschrijving"
+          },
+          "description": {
+            "nl": "Beschrijving van de Opdracht."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Opdracht",
+              "uri": "https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "LangString",
+              "range_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+              "range_puri": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+              "range_label": {
+                "nl": "LangString"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "beschrijving",
+            "definition-nl": "Beschrijving van de Opdracht."
+          }
+        },
+        {
+          "uri": "http://www.w3.org/ns/adms#identifier",
+          "name": "identificator",
+          "sort": "identificator",
+          "label": {
+            "nl": "identificator"
+          },
+          "description": {
+            "nl": "Verwijzing naar de informatie die de Opdracht uniek identificeert."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Opdracht",
+              "uri": "https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Identificator",
+              "range_uri": "http://www.w3.org/ns/adms#Identifier"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Identificator",
+              "range_puri": "http://www.w3.org/ns/adms#Identifier",
+              "range_label": {
+                "nl": "Identificator"
+              }
+            }
+          ],
+          "cardinality": "0..*",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "identificator",
+            "definition-nl": "Verwijzing naar de informatie die de Opdracht uniek identificeert.",
+            "uri": "http://www.w3.org/ns/adms#identifier"
+          }
+        },
+        {
+          "uri": "http://purl.org/dc/terms/type",
+          "name": "type",
+          "sort": "type",
+          "label": {
+            "nl": "type"
+          },
+          "description": {
+            "nl": "soort opdracht."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Opdracht",
+              "uri": "https://data.vlaanderen.be/ns/bodem-en-ondergrond#Opdracht"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "OpdrachtType",
+              "range_uri": "http://www.w3.org/2004/02/skos/core#Concept"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#OpdrachtType",
+              "range_puri": "http://www.w3.org/2004/02/skos/core#Concept",
+              "range_label": {
+                "nl": "OpdrachtType"
+              }
+            }
+          ],
+          "cardinality": "1..*",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "type",
+            "definition-nl": "soort opdracht.",
+            "uri": "http://purl.org/dc/terms/type"
+          }
+        }
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "uri": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#tijdstip",
+      "name": {
+        "nl": "tijdstip",
+        "undefined": "tijdstip"
+      },
+      "description": {},
+      "domain": [
+        null
+      ],
+      "range": [
+        null
+      ],
+      "parents": []
+    },
+    {
+      "uri": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#resultaat",
+      "name": {
+        "nl": "resultaat",
+        "undefined": "resultaat"
+      },
+      "description": {},
+      "domain": [
+        null
+      ],
+      "range": [
+        null
+      ],
+      "parents": []
+    },
+    {
+      "uri": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#opdrachtnemer",
+      "name": {
+        "nl": "opdrachtnemer",
+        "undefined": "opdrachtnemer"
+      },
+      "description": {},
+      "domain": [
+        null
+      ],
+      "range": [
+        null
+      ],
+      "parents": []
+    },
+    {
+      "uri": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#opdrachtgever",
+      "name": {
+        "nl": "opdrachtgever",
+        "undefined": "opdrachtgever"
+      },
+      "description": {},
+      "domain": [
+        null
+      ],
+      "range": [
+        null
+      ],
+      "parents": []
+    },
+    {
+      "uri": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#ligging",
+      "name": {
+        "nl": "ligging",
+        "undefined": "ligging"
+      },
+      "description": {},
+      "domain": [
+        null
+      ],
+      "range": [
+        null
+      ],
+      "parents": []
+    },
+    {
+      "uri": "https://implementatie.data.vlaanderen.be/ns/bodem-en-ondergrond/opdrachten#dataleverancier",
+      "name": {
+        "nl": "dataleverancier",
+        "undefined": "dataleverancier"
+      },
+      "description": {},
+      "domain": [
+        null
+      ],
+      "range": [
+        null
+      ],
+      "parents": []
+    }
+  ],
+  "contributors": [
+    {
+      "role": "A",
+      "first_name": "Bert",
+      "last_name": "Van Nuffelen",
+      "affiliation": {
+        "name": "Digitaal Vlaanderen"
+      }
+    },
+    {
+      "role": "A",
+      "first_name": "Geert",
+      "last_name": "Thijs",
+      "affiliation": {
+        "name": "Digitaal Vlaanderen"
+      }
+    }
+  ],
+  "datatypes": [
+    {
+      "uri": "http://www.w3.org/2006/time#Instant",
+      "name": "Moment",
+      "label": {
+        "nl": "Moment"
+      },
+      "sort": "Moment",
+      "description": {
+        "nl": "Moment met omvang en duur nul."
+      },
+      "usage": {},
+      "parents": [
+        {
+          "label": "TemporeleEntiteit",
+          "name": "TemporeleEntiteit",
+          "package": "W3C-Time",
+          "uri": "http://www.w3.org/2006/time#TemporalEntity",
+          "scoped_uri": "#TemporeleEntiteit"
+        }
+      ],
+      "rawTags": {
+        "label-nl": "Moment",
+        "uri": "http://www.w3.org/2006/time#Instant",
+        "definition-nl": "Moment met omvang en duur nul."
+      },
+      "properties": [
+        {
+          "uri": "http://www.w3.org/2006/time#inXSDDateTime",
+          "name": "inxsddatetime",
+          "sort": "inXSDDateTime",
+          "label": {
+            "nl": "inXSDDateTime"
+          },
+          "description": {
+            "nl": "Positie in de tijd uitgedrukt dmv xsd:dateTime."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Moment",
+              "uri": "http://www.w3.org/2006/time#Instant"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "DateTime",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#dateTime"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+              "range_puri": "http://www.w3.org/2001/XMLSchema#dateTime",
+              "range_label": {
+                "nl": "DateTime"
+              }
+            }
+          ],
+          "cardinality": "1",
+          "codelist_uri": "",
+          "rawTags": {
+            "label-nl": "inXSDDateTime",
+            "uri": "http://www.w3.org/2006/time#inXSDDateTime",
+            "definition-nl": "Positie in de tijd uitgedrukt dmv xsd:dateTime."
+          }
+        }
+      ]
+    },
+    {
+      "uri": "http://www.w3.org/2006/time#ProperInterval",
+      "name": "Periode",
+      "label": {
+        "nl": "Periode"
+      },
+      "sort": "Periode",
+      "description": {
+        "nl": "TemporeleEntiteit waarvan de omvang en duurtijd verschilt van nul, ttz waarvoor de begin- en eindwaarde verschillend zijn."
+      },
+      "usage": {},
+      "parents": [
+        {
+          "label": "TemporeleEntiteit",
+          "name": "TemporeleEntiteit",
+          "package": "W3C-Time",
+          "uri": "http://www.w3.org/2006/time#TemporalEntity",
+          "scoped_uri": "#TemporeleEntiteit"
+        }
+      ],
+      "rawTags": {
+        "label-nl": "Periode",
+        "uri": "http://www.w3.org/2006/time#ProperInterval",
+        "definition-nl": "TemporeleEntiteit waarvan de omvang en duurtijd verschilt van nul, ttz waarvoor de begin- en eindwaarde verschillend zijn."
+      },
+      "properties": [
+        {
+          "uri": "http://www.w3.org/2006/time#hasEnd",
+          "name": "tot",
+          "sort": "tot",
+          "label": {
+            "nl": "tot"
+          },
+          "description": {
+            "nl": "Einde ve TemporeleEntiteit."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Periode",
+              "uri": "http://www.w3.org/2006/time#ProperInterval"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Moment",
+              "range_uri": "http://www.w3.org/2006/time#Instant"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Moment",
+              "range_puri": "http://www.w3.org/2006/time#Instant",
+              "range_label": {
+                "nl": "Moment"
+              }
+            }
+          ],
+          "cardinality": "1",
+          "codelist_uri": "",
+          "rawTags": {
+            "uri": "http://www.w3.org/2006/time#hasEnd",
+            "label-nl": "tot",
+            "definition-nl": "Einde ve TemporeleEntiteit."
+          }
+        },
+        {
+          "uri": "http://www.w3.org/2006/time#hasBeginning",
+          "name": "van",
+          "sort": "van",
+          "label": {
+            "nl": "van"
+          },
+          "description": {
+            "nl": "Start ve TemporeleEntiteit."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Periode",
+              "uri": "http://www.w3.org/2006/time#ProperInterval"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Moment",
+              "range_uri": "http://www.w3.org/2006/time#Instant"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Moment",
+              "range_puri": "http://www.w3.org/2006/time#Instant",
+              "range_label": {
+                "nl": "Moment"
+              }
+            }
+          ],
+          "cardinality": "1",
+          "codelist_uri": "",
+          "rawTags": {
+            "uri": "http://www.w3.org/2006/time#hasBeginning",
+            "label-nl": "van",
+            "definition-nl": "Start ve TemporeleEntiteit."
+          }
+        }
+      ]
+    },
+    {
+      "uri": "http://www.w3.org/2006/time#TemporalEntity",
+      "name": "Temporeleentiteit",
+      "label": {
+        "nl": "TemporeleEntiteit"
+      },
+      "sort": "TemporeleEntiteit",
+      "description": {
+        "nl": "Abstracte klasse voor temporele objecten."
+      },
+      "usage": {
+        "nl": "Die temporele objecten zijn temporele geometrische primitieven zoals Moment of Periode. Of het zijn composieten van temporele primitieven, bv om de geschiedenis van een fenomeen weer te geven (bv de opeenvolgende Periodes dat het fenomeen zich voordeed). Te gebruiken wanneer bvb beide temporele geometrische primitieven mogelijk zijn."
+      },
+      "parents": [],
+      "rawTags": {
+        "label-nl": "TemporeleEntiteit",
+        "ap-definition-nl": "Abstracte klasse voor temporele objecten.",
+        "uri": "http://www.w3.org/2006/time#TemporalEntity",
+        "ap-usageNote-nl": "Die temporele objecten zijn temporele geometrische primitieven zoals Moment of Periode. Of het zijn composieten van temporele primitieven, bv om de geschiedenis van een fenomeen weer te geven (bv de opeenvolgende Periodes dat het fenomeen zich voordeed). Te gebruiken wanneer bvb beide temporele geometrische primitieven mogelijk zijn.",
+        "ap-label-nl": "TemporeleEntiteit"
+      },
+      "properties": []
+    },
+    {
+      "uri": "http://www.w3.org/ns/adms#Identifier",
+      "name": "Identificator",
+      "label": {
+        "nl": "Identificator"
+      },
+      "sort": "Identificator",
+      "description": {
+        "nl": "Informatie gebruikt om een object uniek te identificeren."
+      },
+      "usage": {
+        "nl": "Uitgangspunt hier is dat deze string door een organisatie wordt toegekend en dat dit gebeurt volgens een welbepaald systeem."
+      },
+      "parents": [],
+      "rawTags": {
+        "ap-definition-nl": "Informatie gebruikt om een object uniek te identificeren.",
+        "ap-usageNote-nl": "Uitgangspunt hier is dat deze string door een organisatie wordt toegekend en dat dit gebeurt volgens een welbepaald systeem.",
+        "label-nl": "Identificator",
+        "uri": "http://www.w3.org/ns/adms#Identifier"
+      },
+      "properties": [
+        {
+          "uri": "http://www.w3.org/ns/adms#schemaAgency",
+          "name": "toegekendDoor(string)",
+          "sort": "toegekend door (String)",
+          "label": {
+            "nl": "toegekend door (String)"
+          },
+          "description": {
+            "nl": "Naam vd agent die de identificator heeft toegekend."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Identificator",
+              "uri": "http://www.w3.org/ns/adms#Identifier"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "String",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_puri": "http://www.w3.org/2001/XMLSchema#string",
+              "range_label": {
+                "nl": "String"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "uri": "http://www.w3.org/ns/adms#schemaAgency",
+            "label-nl": "toegekendDoorString",
+            "ap-label-nl": "toegekend door (String)",
+            "ap-definition-nl": "Naam vd agent die de identificator heeft toegekend."
+          }
+        },
+        {
+          "uri": "http://www.w3.org/2004/02/skos/core#notation",
+          "name": "identificator",
+          "sort": "identificator",
+          "label": {
+            "nl": "identificator"
+          },
+          "description": {
+            "nl": "String gebruikt om het object uniek te identificeren."
+          },
+          "usage": {
+            "nl": "Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator."
+          },
+          "domain": [
+            {
+              "EA-Name": "Identificator",
+              "uri": "http://www.w3.org/ns/adms#Identifier"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Literal",
+              "range_uri": "http://www.w3.org/2000/01/rdf-schema#Literal"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+              "range_puri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+              "range_label": {
+                "nl": "Literal"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "ap-label-nl": "identificator",
+            "uri": "http://www.w3.org/2004/02/skos/core#notation",
+            "ap-usageNote-nl": "Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator.",
+            "label-nl": "identificator",
+            "ap-definition-nl": "String gebruikt om het object uniek te identificeren."
+          }
+        },
+        {
+          "uri": "http://purl.org/dc/terms/issued",
+          "name": "toegekendOp",
+          "sort": "toegekend op",
+          "label": {
+            "nl": "toegekend op"
+          },
+          "description": {
+            "nl": "Tijdstip waarop de identificator werd uitgegeven."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Identificator",
+              "uri": "http://www.w3.org/ns/adms#Identifier"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "DateTime",
+              "range_uri": "http://www.w3.org/2001/XMLSchema#dateTime"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+              "range_puri": "http://www.w3.org/2001/XMLSchema#dateTime",
+              "range_label": {
+                "nl": "DateTime"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "uri": "http://purl.org/dc/terms/issued",
+            "label-nl": "toegekendOp",
+            "ap-label-nl": "toegekend op",
+            "ap-definition-nl": "Tijdstip waarop de identificator werd uitgegeven."
+          }
+        },
+        {
+          "uri": "http://purl.org/dc/terms/creator",
+          "name": "toegekendDoor",
+          "sort": "toegekend door",
+          "label": {
+            "nl": "toegekend door"
+          },
+          "description": {
+            "nl": "Link naar de agent die de identificator heeft uitgegeven."
+          },
+          "usage": {},
+          "domain": [
+            {
+              "EA-Name": "Identificator",
+              "uri": "http://www.w3.org/ns/adms#Identifier"
+            }
+          ],
+          "range": [
+            {
+              "range_label": "Agent",
+              "range_uri": "http://purl.org/dc/terms/Agent"
+            }
+          ],
+          "scopedrange": [
+            {
+              "range_uri": "#Agent",
+              "range_puri": "http://purl.org/dc/terms/Agent",
+              "range_label": {
+                "nl": "Agent"
+              }
+            }
+          ],
+          "cardinality": "0..1",
+          "codelist_uri": "",
+          "rawTags": {
+            "uri": "http://purl.org/dc/terms/creator",
+            "label-nl": "toegekendDoor",
+            "ap-label-nl": "toegekend door",
+            "ap-definition-nl": "Link naar de agent die de identificator heeft uitgegeven."
+          }
+        }
+      ]
+    },
+    {
+      "uri": "http://www.w3.org/ns/prov#Location",
+      "name": "Locatie",
+      "label": {
+        "nl": "Locatie"
+      },
+      "sort": "Locatie",
+      "description": {
+        "nl": "Aanduiding van een geografische positie, dmv coördinaten, een toponiem, een adreslabel, een verwijzing naar een plaats/regio of verwijzing naar een adres."
+      },
+      "usage": {
+        "nl": "Te gebruiken als de manier waarop de geografische positie wordt aangeduid pas zal worden vastgelegd bij implementatie. Is deze manier nu al gekend dan moet dit datatype gesubstitueerd worden door klassen of datatypes zoals Geometrie, GeografischeNaam, Adres etc. Meer info over deze klasse in het <a href=\"https://implementatie.data.vlaanderen.be/doc/implementatiemodel/grondverzet/locaties/\">IM-Agents."
+      },
+      "parents": [
+        {
+          "label": "Dekking",
+          "name": "Dekking",
+          "package": "DublinCore",
+          "uri": "https://data.vlaanderen.be/ns/sensoren-en-bemonstering#Dekking",
+          "scoped_uri": "https://data.vlaanderen.be/ns/sensoren-en-bemonstering#Dekking"
+        }
+      ],
+      "rawTags": {
+        "ap-definition-nl": "Aanduiding van een geografische positie, dmv coördinaten, een toponiem, een adreslabel, een verwijzing naar een plaats/regio of verwijzing naar een adres.",
+        "ap-usageNote-nl": "Te gebruiken als de manier waarop de geografische positie wordt aangeduid pas zal worden vastgelegd bij implementatie. Is deze manier nu al gekend dan moet dit datatype gesubstitueerd worden door klassen of datatypes zoals Geometrie, GeografischeNaam, Adres etc. Meer info over deze klasse in het <a href=\"https://implementatie.data.vlaanderen.be/doc/implementatiemodel/grondverzet/locaties/\">IM-Agents.",
+        "label-nl": "Locatie",
+        "uri": "http://www.w3.org/ns/prov#Location"
+      },
+      "properties": []
+    }
+  ],
+  "parents": [],
+  "documentroot": "/doc/implementatiemodel/bodem-en-ondergrond/opdrachten/ontwerpstandaard/2023-10-01"
+}
