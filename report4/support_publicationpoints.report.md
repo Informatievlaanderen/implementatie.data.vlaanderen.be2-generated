@@ -10,6 +10,6 @@
 #||#  
 Error: the following directories are unsupported
 [
-  "/tmp/generated/doc/implementatiemodel/verkeersmetingverzameling",
-  "/tmp/generated/doc/implementatiemodel/verkeersmetingen"
+  "/tmp/generated/doc/implementatiemodel/verkeersmetingen",
+  "/tmp/generated/doc/implementatiemodel/verkeersmetingverzameling"
 ]
