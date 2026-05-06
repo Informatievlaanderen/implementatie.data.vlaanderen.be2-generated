@@ -1,0 +1,114 @@
+{
+  "components": {
+    "schemas": {
+      "EnterYourTranslationHere": {
+        "description": "Enter your translation here",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.dev-vlaanderen.be//doc/implementatiemodel/magda/persoon/v0.0.2/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.dev-vlaanderen\\.be\\/id\\/EnterYourTranslationHere\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "EnterYourTranslationHere type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "EnterYourTranslationHere.enterYourTranslationHere": {
+            "description": "Enter your translation here",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.dev-vlaanderen\\.be\\/id\\/Enter your translation here\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "This is a inspirational OpenAPI Swagger publication",
+    "title": "OpenAPI Swagger publication",
+    "version": "1.0.0"
+  },
+  "openapi": "3.0.4",
+  "paths": {
+    "/id/EnterYourTranslationHere/{id}": {
+      "get": {
+        "description": "Enter your translation here",
+        "operationId": "EnterYourTranslationHereGET",
+        "parameters": [
+          {
+            "description": "Identificator van een EnterYourTranslationHere object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnterYourTranslationHere"
+                }
+              }
+            },
+            "description": "EnterYourTranslationHere object gevonden.",
+            "links": {
+              "Enter your translation hereGET": {
+                "description": "Het `@id` attribuut van de waarde van `EnterYourTranslationHere.enterYourTranslationHere` kan gebruikt worden om het gerefereerde object van het type `Enter your translation here` op te halen.",
+                "operationId": "Enter your translation hereGET",
+                "parameters": {
+                  "id": "$response.body#/EnterYourTranslationHere.enterYourTranslationHere/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een EnterYourTranslationHere object."
+          },
+          "404": {
+            "description": "EnterYourTranslationHere object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Enter your translation here",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "Basis URL",
+      "url": "https://implementatie.data.dev-vlaanderen.be/"
+    }
+  ]
+}
