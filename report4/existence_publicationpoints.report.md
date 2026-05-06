@@ -10,6 +10,8 @@ error: missing '/tmp/generated/ns/magda/persoon/index.html'
 #||#    + checking /home/circleci/project/config/test/verkeersmetingen-im.publication.json
 #||# 
 #||# Directory check
+error: missing '/tmp/generated/ns/vsds-verkeersmetingen/'
+error: missing '/tmp/generated/ns/vsds-verkeersmetingverzameling/'
 #||# 
 #||# index.html check
 error: missing '/tmp/generated/ns/vsds-verkeersmetingen//index.html'
