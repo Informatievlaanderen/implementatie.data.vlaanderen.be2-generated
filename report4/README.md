@@ -1,34 +1,64 @@
 | Execution | Existence | Support |
 | --- | --- | --- |
-| [commit 1d4cc23de2184891c0a96b0ad04ad4d0ab82a914](https://github.com/Informatievlaanderen/implementatie.data.vlaanderen.be2/commit/1d4cc23de2184891c0a96b0ad04ad4d0ab82a914) | [&#9729;](/report4/existence_publicationpoints.report.md)| [&#9728;](/report4/support_publicationpoints.report.md)|
+| [commit 74b1c12fdca923b3d61af6706af8e3631ca10417](https://github.com/Informatievlaanderen/implementatie.data.vlaanderen.be2/commit/74b1c12fdca923b3d61af6706af8e3631ca10417) | [&#9729;](/report4/existence_publicationpoints.report.md)| [&#9728;](/report4/support_publicationpoints.report.md)|
  
-### Legende
+# Calculate statistics
 
-<details>
+This repository holds a number of scripts to calculate the statistics of a generated repository.
 
-| Term | Betekenis |
-| --- | --- |
-| mrg | Merge translations to create for each language a single source of truth |
-| aut | Autotranslate the translation files, if active |
-| uml | Extraction of the data out of the UML |
-| rdf | RDF file generation |
-| issu | Open Issues |
-| trns | Translation files generation, based on existing translation files |
-| shcl | SHACL file generation |
-| web | Extract all data model for html rendering  |
-| rspc | Render html using specific RESPEC integration  |
-| stak | Validate and convert the stakeholders |
-| tag | Branchtag check |
-| val | Validate the jsonld |
-| ctx | JSON-LD Context file generation |
-| bundle | Resource bundling |
-| met | Extract metadata for html rendering |
-| html | Render html using generic nunjuncks |
-| swag | Swagger file generation |
+There are 2 Dockers defined in this:
 
-</details>
+1. A testing docker to evaluate the scripts locally
+2. A CircleCI docker that can be used to evaluate a repository
 
 
-| Specification | tag | uml | val | stak | trns | aut | mrg | web | met | html | rspc | ctx | rdf | shcl | swag | bundle | issu |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [implementatiemodel/magda/ persoon/v0.0.2](https://implementatie.data.dev-vlaanderen.be//doc/implementatiemodel/magda/persoon/v0.0.2) <br/> [&#9883;](/report4/doc/implementatiemodel/magda/persoon/v0.0.2) [&#9884;](https://implementatie.data.dev-vlaanderen.be//doc/implementatiemodel/magda/persoon/v0.0.2) | [&#9736;](/report4/doc/implementatiemodel/magda/persoon/v0.0.2/branchtag.report.md) | [&#9729;](/report4/doc/implementatiemodel/magda/persoon/v0.0.2/oslo-converter-ea.report.md) | [&#9728;](/report4/doc/implementatiemodel/magda/persoon/v0.0.2/jsonld-validation.report.md) | [&#9728;](/report4/doc/implementatiemodel/magda/persoon/v0.0.2/oslo-stakeholders-converter.report.md) | [&#9728;](/report4/doc/implementatiemodel/magda/persoon/v0.0.2/translate.report.md) |  | [&#9728;](/report4/doc/implementatiemodel/magda/persoon/v0.0.2/merge.report.md) | [&#9728;](/report4/doc/implementatiemodel/magda/persoon/v0.0.2/generator-webuniversum-json.report.md) | [&#9728;](/report4/doc/implementatiemodel/magda/persoon/v0.0.2/metadata.report.md) | [&#9728;](/report4/doc/implementatiemodel/magda/persoon/v0.0.2/generator-html.report.md) | [&#9728;](/report4/doc/implementatiemodel/magda/persoon/v0.0.2/generator-respec.report.md) | [&#9728;](/report4/doc/implementatiemodel/magda/persoon/v0.0.2/generator-jsonld-context.report.md) |  | [&#9728;](/report4/doc/implementatiemodel/magda/persoon/v0.0.2/generator-shacl.report.md) | [&#9728;](/report4/doc/implementatiemodel/magda/persoon/v0.0.2/generator-swagger.report.md) | [&#9736;](/report4/doc/implementatiemodel/magda/persoon/v0.0.2/bundle.report.md) | [  ](https://github.com/Informatievlaanderen/OSLOthema-persoon/issues) |
+# Deployment of CircleCI solution
+
+Let GENERATED be the source generated repository.
+For that repository a new repository STATISTICS has to be created.
+The objective is that the CircleCI that will be deployed in the GENERATED repository will store the resulting statistics on the STATISTICS repository.
+
+It also may be an option to use for STATISTICS a branch on the GENERATED.
+
+
+# the supported statistics
+
+
+Let NAMESPACE be the namespace on which the terms of GENERATED are published.
+
+
+1. the number of classes published in NAMESPACE 
+2. the number of properties publised in NAMESPACE 
+3. the number of classes using a different namespace as NAMESPACE (external terms)
+4. the number of properties using a different namespace as NAMESPACE (external terms)
+5. the total number of terms (sum of the above)
+6. the number of authors
+7. the number of editors
+8. the number of contributors
+9. the total number of participants (less of equal to the sum of the above)
+10. the organisations and their number of participants (grouped by their name)
+11. the total number of organisations contributing
+12. the number of specifications per status and per year / month (only for the aggregation)
+
+
+## considerations
+
+The statistics are calculated per specifications and as an aggregated statistic.
+The aggregated statistic is not equal to the mathematical sum of the numbers of each specification specific statistic.
+This is because there is an high overlap between the values between the specifications.
+The aggregated statistics are therefore substantially lower than the mathematical sum.
+
+The aggregated statistics also contain an overview per specification status.
+Each status provides the number of specifications in a year and then per month.
+This allows to picture a evolutionary figure.
+
+If there is interest this aggregation could be augemented with the references to the specifications.
+
+## limitations
+These scripts are designed to run upon a GENERATED repository. 
+For specifications that are listed in the standardsregisters outside this repository are not included in the overview.
+
+
+
+
+
