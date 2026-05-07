@@ -1,10 +1,10 @@
-#||# oslo-converter-ea for diagram OSLO-Persoon-IM
+#||# oslo-converter-ea for diagram 
 
 #||# -------------------------------------
 
-Error: Path does not refer to a valid file: OSLO-Persoon-MAGDA-IM.eap
+TypeError: file.startsWith is not a function
 
-    at fetchFileOrUrl (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/node_modules/@oslo-flanders/core/lib/utils/fetchFileOrUrl.js:18:15)
+    at fetchFileOrUrl (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/node_modules/@oslo-flanders/core/lib/utils/fetchFileOrUrl.js:11:14)
 
     at AccessDbFileReader.initDataRegistry (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/node_modules/@oslo-flanders/ea-uml-extractor/lib/AccessDbFileReader.js:21:56)
 
@@ -16,5 +16,9 @@ Error: Path does not refer to a valid file: OSLO-Persoon-MAGDA-IM.eap
 
 #||# -------------------------------------
 
-file persoon.jsonld does not exist
+parse error: Invalid numeric literal at line 2, column 0
+
+cp: missing destination file operand after '/tmp/.1'
+
+Try 'cp --help' for more information.
 
