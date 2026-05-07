@@ -126,99 +126,6 @@
         ],
         "type": "object"
       },
-      "AdministratieveEenheid": {
-        "description": "Bestuurlijke eenheid waar een lidstaat rechtsbevoegdheid heeft en/of uitoefent,in het kader van lokaal,regionaal of nationaal bestuur.",
-        "properties": {
-          "@context": {
-            "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/v0.0.5/context/persoon.jsonld"
-            ],
-            "format": "uri",
-            "type": "string"
-          },
-          "@id": {
-            "format": "uri",
-            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/AdministratieveEenheid\\/\\d",
-            "type": "string"
-          },
-          "@type": {
-            "description": "Lijst van object types (klasse)",
-            "items": {
-              "description": "AdministratieveEenheid type",
-              "type": "string"
-            },
-            "minItems": 1,
-            "type": "array"
-          },
-          "AdministratieveEenheid.identificator": {
-            "description": "Identificator van de AdministratieveEenheid.",
-            "properties": {
-              "@id": {
-                "format": "uri",
-                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Identificator\\/\\d",
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id"
-            ],
-            "type": "object"
-          },
-          "AdministratieveEenheid.land": {
-            "description": "Land waartoe de administratieveeenheid behoort.",
-            "properties": {
-              "@id": {
-                "format": "uri",
-                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Literal\\/\\d",
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id"
-            ],
-            "type": "object"
-          },
-          "AdministratieveEenheid.niveau": {
-            "description": "Het niveau van de AdministratieveEenheid in een administratieve hërarchie.",
-            "properties": {
-              "@id": {
-                "format": "uri",
-                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/AdministratieveEenheidniveau\\/\\d",
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id"
-            ],
-            "type": "object"
-          },
-          "AdministratieveEenheid.plaatsnaam": {
-            "description": "Naam van de plaats of van het gebied.",
-            "properties": {
-              "@language": {
-                "enum": [
-                  "nl"
-                ],
-                "type": "string"
-              },
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ],
-            "type": "object"
-          }
-        },
-        "required": [
-          "@context",
-          "@id",
-          "@type"
-        ],
-        "type": "object"
-      },
       "Afstamming": {
         "description": "Afstamming is de dalende lijn van bloedverwantschap tussen verschillende generaties.",
         "properties": {
@@ -2183,7 +2090,7 @@
         ],
         "type": "object"
       },
-      "VdipEnvelope": {
+      "VdipEnvelop": {
         "description": "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen.",
         "properties": {
           "@context": {
@@ -2195,19 +2102,19 @@
           },
           "@id": {
             "format": "uri",
-            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/VdipEnvelope\\/\\d",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/VdipEnvelop\\/\\d",
             "type": "string"
           },
           "@type": {
             "description": "Lijst van object types (klasse)",
             "items": {
-              "description": "VdipEnvelope type",
+              "description": "VdipEnvelop type",
               "type": "string"
             },
             "minItems": 1,
             "type": "array"
           },
-          "VdipEnvelope.payload": {
+          "VdipEnvelop.payload": {
             "description": "De data die overgedragen werd.",
             "properties": {
               "@id": {
@@ -2221,7 +2128,7 @@
             ],
             "type": "object"
           },
-          "VdipEnvelope.warning": {
+          "VdipEnvelop.warning": {
             "description": "Lijst van Probleemdetail items.",
             "items": {
               "description": "Foutmeldingen die opgetreden zijn bij het afleveren van de data. Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen.",
@@ -2245,7 +2152,7 @@
           "@context",
           "@id",
           "@type",
-          "VdipEnvelope.payload"
+          "VdipEnvelop.payload"
         ],
         "type": "object"
       },
@@ -2633,61 +2540,6 @@
           }
         },
         "summary": "Organisatie die het dossier van de persoon in het register beheert.",
-        "tags": [
-          "Externe datastandaarden"
-        ]
-      }
-    },
-    "/id/AdministratieveEenheid/{id}": {
-      "get": {
-        "description": "Bestuurlijke eenheid waar een lidstaat rechtsbevoegdheid heeft en/of uitoefent,in het kader van lokaal,regionaal of nationaal bestuur.",
-        "operationId": "AdministratieveEenheidGET",
-        "parameters": [
-          {
-            "description": "Identificator van een AdministratieveEenheid object.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/ld+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AdministratieveEenheid"
-                }
-              }
-            },
-            "description": "AdministratieveEenheid object gevonden.",
-            "links": {
-              "AdministratieveEenheidniveauGET": {
-                "description": "Het `@id` attribuut van de waarde van `AdministratieveEenheid.niveau` kan gebruikt worden om het gerefereerde object van het type `AdministratieveEenheidniveau` op te halen.",
-                "operationId": "AdministratieveEenheidniveauGET",
-                "parameters": {
-                  "id": "$response.body#/AdministratieveEenheid.niveau/@id"
-                }
-              },
-              "IdentificatorGET": {
-                "description": "Het `@id` attribuut van de waarde van `AdministratieveEenheid.identificator` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen.",
-                "operationId": "IdentificatorGET",
-                "parameters": {
-                  "id": "$response.body#/AdministratieveEenheid.identificator/@id"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Ontbrekende informatie bij het opvragen een AdministratieveEenheid object."
-          },
-          "404": {
-            "description": "AdministratieveEenheid object met gegeven ID niet gevonden."
-          }
-        },
-        "summary": "Bestuurlijke eenheid waar een lidstaat rechtsbevoegdheid heeft en/of uitoefent,in het kader van lokaal,regionaal of nationaal bestuur.",
         "tags": [
           "Externe datastandaarden"
         ]
@@ -4007,13 +3859,13 @@
         ]
       }
     },
-    "/id/VdipEnvelope/{id}": {
+    "/id/VdipEnvelop/{id}": {
       "get": {
         "description": "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen.",
-        "operationId": "VdipEnvelopeGET",
+        "operationId": "VdipEnvelopGET",
         "parameters": [
           {
-            "description": "Identificator van een VdipEnvelope object.",
+            "description": "Identificator van een VdipEnvelop object.",
             "in": "path",
             "name": "id",
             "required": true,
@@ -4027,33 +3879,33 @@
             "content": {
               "application/ld+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VdipEnvelope"
+                  "$ref": "#/components/schemas/VdipEnvelop"
                 }
               }
             },
-            "description": "VdipEnvelope object gevonden.",
+            "description": "VdipEnvelop object gevonden.",
             "links": {
               "GeregistreerdPersoonGET": {
-                "description": "Het `@id` attribuut van de waarde van `VdipEnvelope.payload` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdPersoon` op te halen.",
+                "description": "Het `@id` attribuut van de waarde van `VdipEnvelop.payload` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdPersoon` op te halen.",
                 "operationId": "GeregistreerdPersoonGET",
                 "parameters": {
-                  "id": "$response.body#/VdipEnvelope.payload/@id"
+                  "id": "$response.body#/VdipEnvelop.payload/@id"
                 }
               },
               "ProbleemdetailGET": {
-                "description": "Het `@id` attribuut van de waarde van `VdipEnvelope.warning` kan gebruikt worden om het gerefereerde object van het type `Probleemdetail` op te halen.",
+                "description": "Het `@id` attribuut van de waarde van `VdipEnvelop.warning` kan gebruikt worden om het gerefereerde object van het type `Probleemdetail` op te halen.",
                 "operationId": "ProbleemdetailGET",
                 "parameters": {
-                  "id": "$response.body#/VdipEnvelope.warning/@id"
+                  "id": "$response.body#/VdipEnvelop.warning/@id"
                 }
               }
             }
           },
           "400": {
-            "description": "Ontbrekende informatie bij het opvragen een VdipEnvelope object."
+            "description": "Ontbrekende informatie bij het opvragen een VdipEnvelop object."
           },
           "404": {
-            "description": "VdipEnvelope object met gegeven ID niet gevonden."
+            "description": "VdipEnvelop object met gegeven ID niet gevonden."
           }
         },
         "summary": "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen.",
