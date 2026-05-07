@@ -1,8 +1,8 @@
-INPUTTRANSLATIONFILE: /tmp/workspace/src/doc/implementatiemodel/magda/persoon/translation/persoon_nl.json
+INPUTTRANSLATIONFILE: /tmp/workspace/src/doc/implementatiemodel/magda/persoon/translation/_nl.json
 
-OUTPUTTRANSLATIONFILE: /tmp/workspace/report4/doc/implementatiemodel/magda/persoon/translation/persoon_nl.json
+OUTPUTTRANSLATIONFILE: /tmp/workspace/report4/doc/implementatiemodel/magda/persoon/translation/_nl.json
 
-TRANSLATIONFILE: persoon_nl.json
+TRANSLATIONFILE: _nl.json
 
 #||# translate for language nl  
 
@@ -12,11 +12,9 @@ TRANSLATIONFILE: persoon_nl.json
 
 #||# done  
 
-#||# start processing  
+SyntaxError: /tmp/workspace/report4/doc/implementatiemodel/magda/persoon/all-persoon.jsonld: Unexpected end of JSON input
 
-WARNING The entered language values are the same!  
+    at JSON.parse (<anonymous>)
 
-#||# Write complete  
-
-#||# the file was saved to: /tmp/workspace/report4/doc/implementatiemodel/magda/persoon/translation/persoon_nl.json  
+    at Object._readFile (/app/node_modules/jsonfile/index.js:25:16)
 
