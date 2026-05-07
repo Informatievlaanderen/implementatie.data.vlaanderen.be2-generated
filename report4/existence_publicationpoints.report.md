@@ -5,9 +5,6 @@
 #||# Directory check
 #||# 
 #||# index.html check
-error: missing '/tmp/generated/doc/implementatiemodel/magda/persoon/v0.0.5/index.html'
-error: missing '/tmp/generated/ns/magda/persoon/index.html'
-error: missing '/tmp/generated/ns/magda/persoon/v0.0.5/index.html'
 
 #||#    + checking /home/circleci/project/config/test/verkeersmetingen-im.publication.json
 #||# 

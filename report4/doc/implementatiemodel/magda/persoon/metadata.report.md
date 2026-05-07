@@ -6,9 +6,13 @@
 
 #||# done  
 
-SyntaxError: /tmp/workspace/report4/doc/implementatiemodel/magda/persoon/all-persoon.jsonld: Unexpected end of JSON input
+#||# start processing  
 
-    at JSON.parse (<anonymous>)
+#||# Checking Namespaces  
 
-    at Object._readFile (/app/node_modules/jsonfile/index.js:25:16)
+#||# Finished  
+
+#||# start writing  
+
+#||# The file has been saved to /tmp/workspace/report4/doc/implementatiemodel/magda/persoon/html/meta_persoon_nl.json  
 
