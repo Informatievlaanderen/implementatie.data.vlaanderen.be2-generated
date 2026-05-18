@@ -6,6 +6,8 @@
 #||#  
 #||#   + adding supporting /home/circleci/project/config/production/kwaliteitWegenEnWegmarkeringen.publication.json
 #||#  
+#||#   + adding supporting /home/circleci/project/config/production/persoon-magda-im.publication.json
+#||#  
 #||#   + adding supporting /home/circleci/project/config/production/verkeersmetingen-im.publication.json
 #||#  
 #||#   + adding supporting /home/circleci/project/config/production/vmsw.publication.json
