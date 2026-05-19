@@ -5,6 +5,7 @@
 #||# Directory check
 #||# 
 #||# index.html check
+error: missing '/tmp/generated/doc/implementatiemodel/vkbo/onderneming/v0.0.5/index.html'
 
 #||#    + checking /home/circleci/project/config/test/persoon-im.publication.json
 #||# 
