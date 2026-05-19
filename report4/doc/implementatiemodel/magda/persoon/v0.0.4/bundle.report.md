@@ -8,5 +8,3 @@ error: failed to fetch external source http://purl.org/vocab/bio/0.1/
 
 error: failed to fetch external source https://implementatie.data.vlaanderen.be/ns/magda/
 
-error: failed to fetch external source https://implementatie.data.vlaanderen.be/ns/magda/persoon
-
