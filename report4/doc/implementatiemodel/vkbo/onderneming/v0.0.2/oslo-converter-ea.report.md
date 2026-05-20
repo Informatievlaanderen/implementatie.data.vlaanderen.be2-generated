@@ -2,39 +2,39 @@
 
 #||# -------------------------------------
 
-2026-05-20T09:33:36.080Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:W3C-ORG:Veranderingsgebeurtenis:(Veranderingsgebeurtenis -> Organisatie))
+2026-05-20T10:09:12.093Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:W3C-ORG:Veranderingsgebeurtenis:(Veranderingsgebeurtenis -> Organisatie))
 
-2026-05-20T09:33:36.081Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:W3C-ORG:Veranderingsgebeurtenis:(Veranderingsgebeurtenis -> Organisatie))
+2026-05-20T10:09:12.095Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:W3C-ORG:Veranderingsgebeurtenis:(Veranderingsgebeurtenis -> Organisatie))
 
-2026-05-20T09:33:36.081Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:W3C-ORG:Organisatie:(Organisatie -> Veranderingsgebeurtenis))
+2026-05-20T10:09:12.095Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:W3C-ORG:Organisatie:(Organisatie -> Veranderingsgebeurtenis))
 
-2026-05-20T09:33:36.083Z info: Connector Model:OSLO-Organisatie:Afsluiting:(Afsluiting -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
+2026-05-20T10:09:12.096Z info: Connector Model:OSLO-Organisatie:Afsluiting:(Afsluiting -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
 
-2026-05-20T09:33:36.083Z info: Connector Model:OSLO-Organisatie:Doorhaling:(Doorhaling -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
+2026-05-20T10:09:12.097Z info: Connector Model:OSLO-Organisatie:Doorhaling:(Doorhaling -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
 
-2026-05-20T09:33:36.084Z info: Connector Model:W3C-ORG:Organisatie:(Organisatie -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
+2026-05-20T10:09:12.097Z info: Connector Model:W3C-ORG:Organisatie:(Organisatie -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
 
-2026-05-20T09:33:36.084Z info: Connector Model:OSLO-Organisatie:Stopzetting:(Stopzetting -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
+2026-05-20T10:09:12.098Z info: Connector Model:OSLO-Organisatie:Stopzetting:(Stopzetting -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
 
-2026-05-20T09:33:36.084Z info: Connector Model:W3C-ORG:FormeleOrganisatie:(FormeleOrganisatie -> Organisatie) is not an association with a source role. Ignoring this connector.
+2026-05-20T10:09:12.098Z info: Connector Model:W3C-ORG:FormeleOrganisatie:(FormeleOrganisatie -> Organisatie) is not an association with a source role. Ignoring this connector.
 
-2026-05-20T09:33:36.084Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> FormeleOrganisatie) is not an association with a source role. Ignoring this connector.
+2026-05-20T10:09:12.098Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> FormeleOrganisatie) is not an association with a source role. Ignoring this connector.
 
-2026-05-20T09:33:36.084Z info: Connector Model:DCTerms:Plaats:(Plaats -> Locatie) is not an association with a source role. Ignoring this connector.
+2026-05-20T10:09:12.098Z info: Connector Model:DCTerms:Plaats:(Plaats -> Locatie) is not an association with a source role. Ignoring this connector.
 
-2026-05-20T09:33:36.084Z info: Connector Model:W3C-LOCN:Adresvoorstelling:(Adresvoorstelling -> Locatie) is not an association with a source role. Ignoring this connector.
+2026-05-20T10:09:12.098Z info: Connector Model:W3C-LOCN:Adresvoorstelling:(Adresvoorstelling -> Locatie) is not an association with a source role. Ignoring this connector.
 
-2026-05-20T09:33:36.085Z info: Connector Model:W3C-Time:Moment:(Moment -> TemporeleEntiteit) is not an association with a source role. Ignoring this connector.
+2026-05-20T10:09:12.098Z info: Connector Model:W3C-Time:Moment:(Moment -> TemporeleEntiteit) is not an association with a source role. Ignoring this connector.
 
-2026-05-20T09:33:36.085Z info: Connector Model:W3C-Time:Periode:(Periode -> TemporeleEntiteit) is not an association with a source role. Ignoring this connector.
+2026-05-20T10:09:12.098Z info: Connector Model:W3C-Time:Periode:(Periode -> TemporeleEntiteit) is not an association with a source role. Ignoring this connector.
 
-2026-05-20T09:33:36.085Z info: Connector Model:EU-M8G:Oprichting:(Oprichting -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
+2026-05-20T10:09:12.098Z info: Connector Model:EU-M8G:Oprichting:(Oprichting -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
 
-2026-05-20T09:33:36.085Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+2026-05-20T10:09:12.099Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
-2026-05-20T09:33:36.086Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Belgif). Using fallback URI (http://todo.com/) instead.
+2026-05-20T10:09:12.099Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Belgif). Using fallback URI (http://todo.com/) instead.
 
-2026-05-20T09:33:36.096Z warn: [ConverterHandler]: Entity with path Model:OSLO-Organisatie:Doorhaling:tijd has already a value for ap-label-nl in language nl, but will be overwritten.
+2026-05-20T10:09:12.110Z warn: [ConverterHandler]: Entity with path Model:OSLO-Organisatie:Doorhaling:tijd has already a value for ap-label-nl in language nl, but will be overwritten.
 
 #||# -------------------------------------
 
