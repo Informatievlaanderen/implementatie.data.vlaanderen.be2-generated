@@ -2,29 +2,23 @@
 
 #||# -------------------------------------  
 
-Template render error: (/tmp/workspace/report4/doc/implementatiemodel/vkbo/onderneming/v0.0.5/templates/organisatie-vkbo-impl.j2)
+Error reading or parsing config file: Error: Path does not refer to a valid file: /tmp/workspace/report4/html/doc/implementatiemodel/vkbo/onderneming/v0.0.5/html/int_organisatie_nl.json
 
-  Template render error: (/tmp/workspace/report4/doc/implementatiemodel/vkbo/onderneming/v0.0.5/templates/organisatie-vkbo-impl.j2)
+    at fetchFileOrUrl (/usr/local/lib/node_modules/@oslo-flanders/html-generator/node_modules/@oslo-flanders/core/lib/utils/fetchFileOrUrl.js:18:15)
 
-  Error: template not found: impl2.j2
+    at HtmlGenerationService.readConfigFile (/usr/local/lib/node_modules/@oslo-flanders/html-generator/lib/HtmlGenerationService.js:130:60)
 
-    at Object._prettifyError (/usr/local/lib/node_modules/@oslo-flanders/html-generator/node_modules/nunjucks/src/lib.js:32:11)
+    at HtmlGenerationService.run (/usr/local/lib/node_modules/@oslo-flanders/html-generator/lib/HtmlGenerationService.js:94:18)
 
-    at /usr/local/lib/node_modules/@oslo-flanders/html-generator/node_modules/nunjucks/src/environment.js:464:19
+    at /usr/local/lib/node_modules/@oslo-flanders/html-generator/node_modules/@oslo-flanders/core/lib/interfaces/AppRunner.js:37:33
 
-    at Template.root [as rootRenderFunc] (eval at _compile (/usr/local/lib/node_modules/@oslo-flanders/html-generator/node_modules/nunjucks/src/environment.js:527:18), <anonymous>:31:3)
+Error: Path does not refer to a valid file: /tmp/workspace/report4/html/doc/implementatiemodel/vkbo/onderneming/v0.0.5/html/int_organisatie_nl.json
 
-    at Template.render (/usr/local/lib/node_modules/@oslo-flanders/html-generator/node_modules/nunjucks/src/environment.js:454:10)
+    at fetchFileOrUrl (/usr/local/lib/node_modules/@oslo-flanders/html-generator/node_modules/@oslo-flanders/core/lib/utils/fetchFileOrUrl.js:18:15)
 
-    at /usr/local/lib/node_modules/@oslo-flanders/html-generator/node_modules/nunjucks/src/environment.js:301:27
+    at HtmlGenerationService.readConfigFile (/usr/local/lib/node_modules/@oslo-flanders/html-generator/lib/HtmlGenerationService.js:130:60)
 
-    at createTemplate (/usr/local/lib/node_modules/@oslo-flanders/html-generator/node_modules/nunjucks/src/environment.js:254:9)
+    at HtmlGenerationService.run (/usr/local/lib/node_modules/@oslo-flanders/html-generator/lib/HtmlGenerationService.js:94:18)
 
-    at handle (/usr/local/lib/node_modules/@oslo-flanders/html-generator/node_modules/nunjucks/src/environment.js:265:11)
-
-    at /usr/local/lib/node_modules/@oslo-flanders/html-generator/node_modules/nunjucks/src/environment.js:276:9
-
-    at next (/usr/local/lib/node_modules/@oslo-flanders/html-generator/node_modules/nunjucks/src/lib.js:258:7)
-
-    at Object.asyncIter (/usr/local/lib/node_modules/@oslo-flanders/html-generator/node_modules/nunjucks/src/lib.js:263:3)
+    at /usr/local/lib/node_modules/@oslo-flanders/html-generator/node_modules/@oslo-flanders/core/lib/interfaces/AppRunner.js:37:33
 
