@@ -11,17 +11,9 @@
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#GeregistreerdeorganisatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#VeranderingsgebeurtenisShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#VestigingShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#Activiteittype-nacebel2025Shape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#RechtsvormtypeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#StopzettingShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#RechtstoestandtypeShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#OrganisatiestatusShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#StopzettingtypeShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#RechtspersoonlijkheidtypeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#OprichtingShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#DoorhalingShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#DoorhalingstypeShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#RedendoorhalingShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#BelgischAdresShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#LangstringShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#IdentificatorShape>,
@@ -33,14 +25,9 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#DatetimeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#ContactinfoShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#PeriodeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#GeografischepositieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#PuntShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#TemporeleentiteitShape> .
-
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#Activiteittype-nacebel2025Shape> a shacl:NodeShape;
-  rdfs:label "Activiteittype-NACEBEL2025"@nl;
-  rdfs:comment "Type activiteit die door een Organisatie wordt uitgeoefend volgens NACEBEL 2025."@nl;
-  shacl:closed false;
-  shacl:targetClass skos:Concept .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#AdresvoorstellingShape> a shacl:NodeShape;
   rdfs:label "Adresvoorstelling"@nl;
@@ -307,12 +294,22 @@
   ];
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/organisatie#Doorhaling> .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#DoorhalingstypeShape> a shacl:NodeShape;
-  rdfs:label "Doorhalingstype"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: ambstbehalve, adres."@nl;
-  rdfs:comment "Soort van doorhaling van een Organisatie in een register."@nl;
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#GeografischepositieShape> a shacl:NodeShape;
+  rdfs:label "GeografischePositie"@nl;
+  rdfs:comment "Geografische positie aangegeven door middel van een punt."@nl;
   shacl:closed false;
-  shacl:targetClass skos:Concept .
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "geometrie"@nl;
+    rdfs:comment "De cartografische coöordinaten van het punt."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#Geografischepositie.Geometrie>;
+    shacl:class <http://www.opengis.net/ont/sf#Point>;
+    shacl:description "De cartografische coöordinaten van het punt."@nl;
+    shacl:maxCount "1";
+    shacl:name "geometrie"@nl;
+    shacl:path <http://www.w3.org/ns/locn#geometry>
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/generiek#GeografischePositie> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#GeometrieShape> a shacl:NodeShape;
   rdfs:label "Geometrie"@nl;
@@ -554,12 +551,6 @@
   shacl:closed false;
   shacl:targetClass <http://data.europa.eu/m8g/FoundationEvent> .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#OrganisatiestatusShape> a shacl:NodeShape;
-  rdfs:label "OrganisatieStatus"@nl;
-  rdfs:comment "Toestand van een Organisatie."@nl;
-  shacl:closed false;
-  shacl:targetClass skos:Concept .
-
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#PeriodeShape> a shacl:NodeShape;
   rdfs:label "Periode"@nl;
   rdfs:comment "Temporele Entiteit waarvan de omvang en duurtijd verschilt van nul, dit wil zeggen, waarvoor de begin- en eindtijd verschillend zijn."@nl;
@@ -593,34 +584,6 @@
   shacl:closed false;
   shacl:targetClass <http://www.opengis.net/ont/sf#Point> .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#RechtspersoonlijkheidtypeShape> a shacl:NodeShape;
-  rdfs:label "Rechtspersoonlijkheidtype"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bijvoorbeeld venootschappen) moeten die van rechtswege toegekend krijgen."@nl;
-  rdfs:comment "Aard van de rechtspersoonlijkheid."@nl;
-  shacl:closed false;
-  shacl:targetClass skos:Concept .
-
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#RechtstoestandtypeShape> a shacl:NodeShape;
-  rdfs:label "Rechtstoestandtype"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Stemt in de KBO overeen met rechtstoestand, bijvoorbeeld normale toestand, gerechtelijk akkoord, opening faillissement, etc."@nl;
-  rdfs:comment "Status van een GeregistreerdeOrganisatie."@nl;
-  shacl:closed false;
-  shacl:targetClass skos:Concept .
-
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#RechtsvormtypeShape> a shacl:NodeShape;
-  rdfs:label "Rechtsvormtype"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Stemt in de KBO overeen met rechtsvorm, bijvoorbeeld: NV, VZW, Stad/Gemeente, OCMW, etc."@nl;
-  rdfs:comment "Juridisch statuut van een GeregistreerdeOrganisatie."@nl;
-  shacl:closed false;
-  shacl:targetClass skos:Concept .
-
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#RedendoorhalingShape> a shacl:NodeShape;
-  rdfs:label "RedenDoorhaling"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: geen neerlegging van de jaarrekening."@nl;
-  rdfs:comment "Reden van de doorhaling in het register."@nl;
-  shacl:closed false;
-  shacl:targetClass skos:Concept .
-
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#StopzettingShape> a shacl:NodeShape;
   rdfs:label "Stopzetting"@nl;
   rdfs:comment "Gebeurtenis waarbij een Organisatie is stopgezet."@nl;
@@ -638,13 +601,6 @@
     shacl:path <https://data.vlaanderen.be/ns/organisatie#redenStopzetting>
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/organisatie#Stopzetting> .
-
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#StopzettingtypeShape> a shacl:NodeShape;
-  rdfs:label "StopzettingType"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: pensionering, faillissement, etc."@nl;
-  rdfs:comment "Reden waarom een Organisatie is stopgezet."@nl;
-  shacl:closed false;
-  shacl:targetClass skos:Concept .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#StringShape> a shacl:NodeShape;
   rdfs:label "String";
