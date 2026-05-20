@@ -1,0 +1,4171 @@
+{
+  "components": {
+    "schemas": {
+      "AangegevenAdres": {
+        "description": "Adres dat door een persoon wordt opgegeven als hoofdverblijplaats.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/AangegevenAdres\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "AangegevenAdres type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "AangegevenAdres.verblijfsadres": {
+            "description": "Adres van de Verblijfplaats.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Adresvoorstelling\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "AdministratiefBeheerder": {
+        "description": "Organisatie die het dossier van de persoon in het register beheert.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/AdministratiefBeheerder\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "AdministratiefBeheerder type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "AdministratiefBeheerder.identificator": {
+            "description": "Unieke code waarmee de Organisatie kan worden aangeduid.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Identificator\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "AdministratiefBeheerder.type": {
+            "description": "Aard van de AdministratiefBeheerder.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/AdministratiefBeheerdertype\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "AdministratiefBeheerder.voorkeursnaam": {
+            "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
+            "properties": {
+              "@language": {
+                "enum": [
+                  "nl"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "Afstamming": {
+        "description": "Afstamming is de dalende lijn van bloedverwantschap tussen verschillende generaties.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Afstamming\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Afstamming type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Afstamming.afstammingstype": {
+            "description": "Aard van de afstamming. Bijvoorbeeld: geadopteerd, kind uit huwelijk, erkend door de vader, etc.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Afstammingstype\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Afstamming.datumVanAfstamming": {
+            "description": "De datum waarop de afstamming wordt vastgesteld.",
+            "properties": {
+              "@type": {
+                "enum": [
+                  "Date"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "format": "date",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ],
+            "type": "object"
+          },
+          "Afstamming.metPersoon": {
+            "description": "De persoon waarmee de persoon een relatie heeft.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoon\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Afstamming.vanPersoon": {
+            "description": "Persoon die een persoonsrelatie heeft.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoon\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type",
+          "Afstamming.vanPersoon",
+          "Afstamming.metPersoon",
+          "Afstamming.vanPersoon",
+          "Afstamming.metPersoon"
+        ],
+        "type": "object"
+      },
+      "Agent": {
+        "description": "Iemand die of iets dat kan handelen of een effect kan teweeg brengen.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Agent\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Agent type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "BelgischAdres": {
+        "description": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/BelgischAdres\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "BelgischAdres type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "BurgerlijkeStaat": {
+        "description": "Burgerrechtelijke toestand van een Persoon.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/BurgerlijkeStaat\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "BurgerlijkeStaat type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "BurgerlijkeStaat.type": {
+            "description": "Aard van de Burgerlijke Staat.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/BurgerlijkeStaatType\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "Domicilie": {
+        "description": "Hoofdverblijfplaats van een Persoon.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Domicilie\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Domicilie type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Domicilie.verblijfsadres": {
+            "description": "Adres van de Verblijfplaats.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Adresvoorstelling\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "FormeleOrganisatie": {
+        "description": "Een erkende Organisatie,erkend in brede zin of  meer specifiek in juridische zin met bijbehorende rechten en plichten.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/FormeleOrganisatie\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "FormeleOrganisatie type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "Geboorte": {
+        "description": "Het ter wereld komen van een Persoon.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Geboorte\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Geboorte type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Geboorte.datum": {
+            "description": "Datum waarop de gebeurtenis plaatsvond.",
+            "properties": {
+              "@type": {
+                "enum": [
+                  "Date"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "format": "date",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ],
+            "type": "object"
+          },
+          "Geboorte.plaats": {
+            "description": "Plaats waar de gebeurtenis plaatsvond. Gemeente of stad.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Plaats\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "GeregistreerdPersoon": {
+        "description": "Persoon waarvan de gegevens zijn ingeschreven in een register.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/GeregistreerdPersoon\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "GeregistreerdPersoon type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "GeregistreerdPersoon.achternaam": {
+            "description": "Lijst van String items.",
+            "items": {
+              "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@value"
+              ],
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          },
+          "GeregistreerdPersoon.beheerder": {
+            "description": "Verwijzing naar de Adminstratiefbeheerder van het dossier van de persoon.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/AdministratiefBeheerder\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "GeregistreerdPersoon.bron": {
+            "description": "Verantwoordelijke voor het aanmaken van de gegevens.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Organisatie\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "GeregistreerdPersoon.contactinfo": {
+            "description": "Informatie zoals email, telefoon, ... die toelaat de Persoon te contacteren.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Contactinfo\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "GeregistreerdPersoon.creatiedatum": {
+            "description": "Datum waarop de gegevens zijn ingevoerd.",
+            "properties": {
+              "@type": {
+                "enum": [
+                  "Date"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "format": "date",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ],
+            "type": "object"
+          },
+          "GeregistreerdPersoon.dossierstatus": {
+            "description": "Toestand van het dossier van de Registratie. In het Rijksregister gebruikt wanneer de inschrijving in het register niet meer geldig is, bijvoorbeeld: omdat de persoon uit het register is geschrapt of een eerdere registratie werd geannuleerd of de persoon is overleden, etc.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Dossierstatus\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "GeregistreerdPersoon.geslacht": {
+            "description": "De uiting van een Persoon's indentiteit, expressie en sociale rol. Het geslacht van een Persoon is sterk afhankelijk van de manier waarop dit gedefinieerd is, dit kan op basis van de biologische kenmerken maar ook op basis van gender, genderindentiteit, genderexpressie, etc. Voor meer informatie zie <a href=\"https://www.vlaanderen.be/dienst-diversiteitsbeleid/begrippen-rond-gender-en-seksuele-diversiteit\">Begrippen rond gender- en seksuele diversiteit</a>.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Geslacht\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "GeregistreerdPersoon.heeftBurgerlijkeStaat": {
+            "description": "Burgerlijke Staat van de Persoon.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/BurgerlijkeStaat\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "GeregistreerdPersoon.heeftGeboorte": {
+            "description": "Verwijst naar de geboortegebeurtenis van de Persoon. Bevat vaak de geboortegevens van de Persoon.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Geboorte\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "GeregistreerdPersoon.heeftInwonerschap": {
+            "description": "Lijst van Inwonerschap items.",
+            "items": {
+              "description": "Inwonerschap van de persoon.",
+              "properties": {
+                "@id": {
+                  "format": "uri",
+                  "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Inwonerschap\\/\\d",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ],
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          },
+          "GeregistreerdPersoon.heeftOverlijden": {
+            "description": "Verwijst naar de overlijdensgebeurtenis van de Persoon. Bevat vaak de overlijdensgegevens van de Persoon.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Overlijden\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "GeregistreerdPersoon.heeftPersoonsrelatie": {
+            "description": "Lijst van Persoonsrelatie items.",
+            "items": {
+              "description": "Persoonsrelatie van de persoon.",
+              "properties": {
+                "@id": {
+                  "format": "uri",
+                  "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoonsrelatie\\/\\d",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ],
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          },
+          "GeregistreerdPersoon.isHoofdVan": {
+            "description": "Persoon die standaard het Gezin vertegenwoordigt.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Gezin\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "GeregistreerdPersoon.isLidVan": {
+            "description": "Lijst van Gezin items.",
+            "items": {
+              "description": "Persoon die tot een Gezin behoort.",
+              "properties": {
+                "@id": {
+                  "format": "uri",
+                  "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Gezin\\/\\d",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ],
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          },
+          "GeregistreerdPersoon.modificatiedatum": {
+            "description": "Datum waarop de gegevens werden bijgewerkt.",
+            "properties": {
+              "@type": {
+                "enum": [
+                  "Date"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "format": "date",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ],
+            "type": "object"
+          },
+          "GeregistreerdPersoon.redenAfwezigheid": {
+            "description": "Reden waarom de Persoon afwezig is.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/RedenAfwezigheid\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "GeregistreerdPersoon.registratie": {
+            "description": "Identificatiecode van de persoon in het register.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Identificator\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "GeregistreerdPersoon.voornaam": {
+            "description": "Lijst van String items.",
+            "items": {
+              "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@value"
+              ],
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          },
+          "GeregistreerdPersoon.vorigeRegistratie": {
+            "description": "Het referentiedossier van de persoon die de vorige registratie bevat. Enkel van toepassing indien er een referentiedossier bestaat volgens IT002.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Identificator\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "Gezin": {
+        "description": "Samenwerkingsvorm die een herkenbare sociale eenheid vormt (bijvoorbeeld ten gevolge van een huwelijk), met al dan niet verwante personen die duurzame banden hebben en elkaar onderling steun en verzorging verlenen.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Gezin\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Gezin type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Gezin.gezinsadres": {
+            "description": "Verblijfplaats van het Gezin. Vaak een criterium om te bepalen of personen deel uitmaken van eenzelfde Gezin.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Adresvoorstelling\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Gezin.gezinshoofd": {
+            "description": "De standaard vertegenwoordiger van het Gezin.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoon\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Gezin.gezinslid": {
+            "description": "Lijst van Persoon items.",
+            "items": {
+              "description": "Personen waaruit het gezin bestaat.",
+              "properties": {
+                "@id": {
+                  "format": "uri",
+                  "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoon\\/\\d",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ],
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          },
+          "Gezin.woonvorm": {
+            "description": "Het soort vorm waarin het gezin woont volgens IT141.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Woonvormtype\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "Gezinsrelatie": {
+        "description": "Relatie tussen leden van eenzelfde gezin.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Gezinsrelatie\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Gezinsrelatie type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Gezinsrelatie.gezinsrelatietype": {
+            "description": "Aard van de relatie. Wordt typisch bepaald ten opzichte van het gezinshoofd. Bijvoorbeeld als de vader gezinshoofd en een gezinslid is zoon, dan zou als de grootvader gezinshoofd zou zijn datzelfde gezinslid kleinzoon.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Gezinsrelatietype\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Gezinsrelatie.metPersoon": {
+            "description": "De persoon waarmee de persoon een relatie heeft.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoon\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Gezinsrelatie.vanPersoon": {
+            "description": "Persoon die een persoonsrelatie heeft.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoon\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type",
+          "Gezinsrelatie.vanPersoon",
+          "Gezinsrelatie.metPersoon",
+          "Gezinsrelatie.vanPersoon",
+          "Gezinsrelatie.metPersoon"
+        ],
+        "type": "object"
+      },
+      "Huwelijk": {
+        "description": "Een door burgerlijk of religieus recht geregelde samenlevingsvorm van twee personen.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Huwelijk\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Huwelijk type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Huwelijk.metPersoon": {
+            "description": "De persoon waarmee de persoon een relatie heeft.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoon\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Huwelijk.plaats": {
+            "description": "Plaats waar de gebeurtenis plaatsvond. Gemeente of stad.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Plaats\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Huwelijk.vanPersoon": {
+            "description": "Persoon die een persoonsrelatie heeft.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoon\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type",
+          "Huwelijk.vanPersoon",
+          "Huwelijk.metPersoon",
+          "Huwelijk.vanPersoon",
+          "Huwelijk.metPersoon"
+        ],
+        "type": "object"
+      },
+      "Inwonerschap": {
+        "description": "Het feit dat een Persoon verblijf houdt in een plaats of land.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Inwonerschap\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Inwonerschap type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Inwonerschap.heeftVerblijfplaats": {
+            "description": "Lijst van Verblijfplaats items.",
+            "items": {
+              "description": "Plaats waar een persoon verblijft.",
+              "properties": {
+                "@id": {
+                  "format": "uri",
+                  "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Verblijfplaats\\/\\d",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ],
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          },
+          "Inwonerschap.jurisdictie": {
+            "description": "Jurisdictie waarbinnen het inwonerschap (van een persoon) is gedefineerd.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Jurisdictie\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Inwonerschap.persoon": {
+            "description": "De persoon waarvan het inwonerschap binnen de opgegeven Jurisdictie valt.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoon\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type",
+          "Inwonerschap.persoon",
+          "Inwonerschap.jurisdictie"
+        ],
+        "type": "object"
+      },
+      "Jurisdictie": {
+        "description": "Het gebied waarover de rechtsmacht van een overheid zich uitstrekt.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Jurisdictie\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Jurisdictie type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Jurisdictie.plaats": {
+            "description": "Ruimtelijk gebied of benoemde plaats waarmee de Jurisdictie samenvalt. Typisch een land.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Plaats\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "LocatiePeriodeOfJurisdictie": {
+        "description": "Een Locatie, Periode of Jurisdictie.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/LocatiePeriodeOfJurisdictie\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "LocatiePeriodeOfJurisdictie type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "Organisatie": {
+        "description": "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Organisatie\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Organisatie type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Organisatie.identificator": {
+            "description": "Unieke code waarmee de Organisatie kan worden aangeduid.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Identificator\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Organisatie.voorkeursnaam": {
+            "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
+            "properties": {
+              "@language": {
+                "enum": [
+                  "nl"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "Overlijden": {
+        "description": "Het doodgaan van een Persoon.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Overlijden\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Overlijden type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Overlijden.datum": {
+            "description": "Datum waarop de gebeurtenis plaatsvond.",
+            "properties": {
+              "@type": {
+                "enum": [
+                  "Date"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "format": "date",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ],
+            "type": "object"
+          },
+          "Overlijden.plaats": {
+            "description": "Plaats waar de gebeurtenis plaatsvond. Gemeente of stad.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Plaats\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "Persoon": {
+        "description": "Natuurlijk persoon.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoon\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Persoon type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Persoon.achternaam": {
+            "description": "Lijst van String items.",
+            "items": {
+              "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@value"
+              ],
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          },
+          "Persoon.bron": {
+            "description": "Verantwoordelijke voor het aanmaken van de gegevens.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Organisatie\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Persoon.contactinfo": {
+            "description": "Informatie zoals email, telefoon, ... die toelaat de Persoon te contacteren.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Contactinfo\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Persoon.creatiedatum": {
+            "description": "Datum waarop de gegevens zijn ingevoerd.",
+            "properties": {
+              "@type": {
+                "enum": [
+                  "Date"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "format": "date",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ],
+            "type": "object"
+          },
+          "Persoon.geslacht": {
+            "description": "De uiting van een Persoon's indentiteit, expressie en sociale rol. Het geslacht van een Persoon is sterk afhankelijk van de manier waarop dit gedefinieerd is, dit kan op basis van de biologische kenmerken maar ook op basis van gender, genderindentiteit, genderexpressie, etc. Voor meer informatie zie <a href=\"https://www.vlaanderen.be/dienst-diversiteitsbeleid/begrippen-rond-gender-en-seksuele-diversiteit\">Begrippen rond gender- en seksuele diversiteit</a>.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Geslacht\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Persoon.heeftBurgerlijkeStaat": {
+            "description": "Burgerlijke Staat van de Persoon.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/BurgerlijkeStaat\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Persoon.heeftGeboorte": {
+            "description": "Verwijst naar de geboortegebeurtenis van de Persoon. Bevat vaak de geboortegevens van de Persoon.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Geboorte\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Persoon.heeftInwonerschap": {
+            "description": "Lijst van Inwonerschap items.",
+            "items": {
+              "description": "Inwonerschap van de persoon.",
+              "properties": {
+                "@id": {
+                  "format": "uri",
+                  "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Inwonerschap\\/\\d",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ],
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          },
+          "Persoon.heeftOverlijden": {
+            "description": "Verwijst naar de overlijdensgebeurtenis van de Persoon. Bevat vaak de overlijdensgegevens van de Persoon.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Overlijden\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Persoon.heeftPersoonsrelatie": {
+            "description": "Lijst van Persoonsrelatie items.",
+            "items": {
+              "description": "Persoonsrelatie van de persoon.",
+              "properties": {
+                "@id": {
+                  "format": "uri",
+                  "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoonsrelatie\\/\\d",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ],
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          },
+          "Persoon.isHoofdVan": {
+            "description": "Persoon die standaard het Gezin vertegenwoordigt.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Gezin\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Persoon.isLidVan": {
+            "description": "Lijst van Gezin items.",
+            "items": {
+              "description": "Persoon die tot een Gezin behoort.",
+              "properties": {
+                "@id": {
+                  "format": "uri",
+                  "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Gezin\\/\\d",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ],
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          },
+          "Persoon.modificatiedatum": {
+            "description": "Datum waarop de gegevens werden bijgewerkt.",
+            "properties": {
+              "@type": {
+                "enum": [
+                  "Date"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "format": "date",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ],
+            "type": "object"
+          },
+          "Persoon.voornaam": {
+            "description": "Lijst van String items.",
+            "items": {
+              "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@value"
+              ],
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "Persoonsgebeurtenis": {
+        "description": "Belangrijke gebeurtenis in het leven van een Persoon.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoonsgebeurtenis\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Persoonsgebeurtenis type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Persoonsgebeurtenis.datum": {
+            "description": "Datum waarop de gebeurtenis plaatsvond.",
+            "properties": {
+              "@type": {
+                "enum": [
+                  "Date"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "format": "date",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ],
+            "type": "object"
+          },
+          "Persoonsgebeurtenis.plaats": {
+            "description": "Plaats waar de gebeurtenis plaatsvond. Gemeente of stad.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Plaats\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "Persoonsrelatie": {
+        "description": "Relatie tussen twee of meer personen.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoonsrelatie\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Persoonsrelatie type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Persoonsrelatie.metPersoon": {
+            "description": "De persoon waarmee de persoon een relatie heeft.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoon\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Persoonsrelatie.vanPersoon": {
+            "description": "Persoon die een persoonsrelatie heeft.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoon\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type",
+          "Persoonsrelatie.vanPersoon",
+          "Persoonsrelatie.metPersoon"
+        ],
+        "type": "object"
+      },
+      "Plaats": {
+        "description": "Een ruimtelijk gebied of benoemde plaats.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Plaats\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Plaats type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Plaats.land": {
+            "description": "Land waartoe de administratieveeenheid behoort.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Literal\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Plaats.plaatsnaam": {
+            "description": "Naam van de plaats of van het gebied.",
+            "properties": {
+              "@language": {
+                "enum": [
+                  "nl"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "Postadres": {
+        "description": "Postadres van de verblijfplaats van een persoon.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Postadres\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Postadres type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Postadres.verblijfsadres": {
+            "description": "Adres van de Verblijfplaats.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Adresvoorstelling\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "Probleemdetail": {
+        "description": "Meer gedetailleerde beschrijving van de fout in een HTTP response.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Probleemdetail\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Probleemdetail type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Probleemdetail.detail": {
+            "description": "Mensleesbare beschrijving van de fout.",
+            "properties": {
+              "@language": {
+                "enum": [
+                  "nl"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ],
+            "type": "object"
+          },
+          "Probleemdetail.instantie": {
+            "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Probleemdetail.status": {
+            "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\".",
+            "properties": {
+              "@type": {
+                "enum": [
+                  "Integer"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "format": "int64",
+                "type": "number"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ],
+            "type": "object"
+          },
+          "Probleemdetail.titel": {
+            "description": "Korte mensleesbare beschrijving van de fout.",
+            "properties": {
+              "@language": {
+                "enum": [
+                  "nl"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ],
+            "type": "object"
+          },
+          "Probleemdetail.type": {
+            "description": "Aard van de fout.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type",
+          "Probleemdetail.type",
+          "Probleemdetail.titel"
+        ],
+        "type": "object"
+      },
+      "Referentieadres": {
+        "description": "Adres van een andere persoon of rechtspersoon voor personen zonder vaste verblijfplaats.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Referentieadres\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Referentieadres type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Referentieadres.verblijfsadres": {
+            "description": "Adres van de Verblijfplaats.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Adresvoorstelling\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "Samenwonen": {
+        "description": "Regeling waarbij twee personen die niet getrouwd zijn samenleven.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Samenwonen\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Samenwonen type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Samenwonen.metPersoon": {
+            "description": "De persoon waarmee de persoon een relatie heeft.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoon\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Samenwonen.plaats": {
+            "description": "Plaats waar de gebeurtenis plaatsvond. Gemeente of stad.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Plaats\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Samenwonen.vanPersoon": {
+            "description": "Persoon die een persoonsrelatie heeft.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Persoon\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type",
+          "Samenwonen.vanPersoon",
+          "Samenwonen.metPersoon",
+          "Samenwonen.vanPersoon",
+          "Samenwonen.metPersoon"
+        ],
+        "type": "object"
+      },
+      "VdipEnvelop": {
+        "description": "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/VdipEnvelop\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "VdipEnvelop type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "VdipEnvelop.data": {
+            "description": "De data die overgedragen werd.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/GeregistreerdPersoon\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "VdipEnvelop.warning": {
+            "description": "Lijst van Probleemdetail items.",
+            "items": {
+              "description": "Foutmeldingen die opgetreden zijn bij het afleveren van de data. Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen.",
+              "properties": {
+                "@id": {
+                  "format": "uri",
+                  "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Probleemdetail\\/\\d",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ],
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type",
+          "VdipEnvelop.data"
+        ],
+        "type": "object"
+      },
+      "Verblijfplaats": {
+        "description": "Plaats waar een Persoon al dan niet tijdelijk woont of logeert.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Verblijfplaats\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Verblijfplaats type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Verblijfplaats.verblijfsadres": {
+            "description": "Adres van de Verblijfplaats.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Adresvoorstelling\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "VerblijfplaatsBuitenland": {
+        "description": "Verblijplaats in het buitenland.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/VerblijfplaatsBuitenland\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "VerblijfplaatsBuitenland type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "VerblijfplaatsBuitenland.verblijfsadres": {
+            "description": "Adres van de Verblijfplaats.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Adresvoorstelling\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "VerblijfplaatsBuitenlandDomicilie": {
+        "description": "Hoofdverblijplaats in het buitenland.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/VerblijfplaatsBuitenlandDomicilie\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "VerblijfplaatsBuitenlandDomicilie type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "VerblijfplaatsBuitenlandDomicilie.verblijfsadres": {
+            "description": "Adres van de Verblijfplaats.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Adresvoorstelling\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "Versie": {
+        "description": "Entiteit gedurende een bepaalde periode in de databank.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Versie\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "Versie type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "Versie.bron": {
+            "description": "Verantwoordelijke voor het aanmaken van de gegevens.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Organisatie\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Versie.creatiedatum": {
+            "description": "Datum waarop de gegevens zijn ingevoerd.",
+            "properties": {
+              "@type": {
+                "enum": [
+                  "Date"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "format": "date",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ],
+            "type": "object"
+          },
+          "Versie.modificatiedatum": {
+            "description": "Datum waarop de gegevens werden bijgewerkt.",
+            "properties": {
+              "@type": {
+                "enum": [
+                  "Date"
+                ],
+                "type": "string"
+              },
+              "@value": {
+                "format": "date",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      },
+      "WettelijkVerblijf": {
+        "description": "Juridisch vastgelegde verblijplaats.",
+        "properties": {
+          "@context": {
+            "enum": [
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/magda/persoon/dummy/context/persoon.jsonld"
+            ],
+            "format": "uri",
+            "type": "string"
+          },
+          "@id": {
+            "format": "uri",
+            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/WettelijkVerblijf\\/\\d",
+            "type": "string"
+          },
+          "@type": {
+            "description": "Lijst van object types (klasse)",
+            "items": {
+              "description": "WettelijkVerblijf type",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "WettelijkVerblijf.verblijfsadres": {
+            "description": "Adres van de Verblijfplaats.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Adresvoorstelling\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "@context",
+          "@id",
+          "@type"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "This is a inspirational OpenAPI Swagger publication",
+    "title": "OpenAPI Swagger publication",
+    "version": "1.0.0"
+  },
+  "openapi": "3.0.4",
+  "paths": {
+    "/id/AangegevenAdres/{id}": {
+      "get": {
+        "description": "Adres dat door een persoon wordt opgegeven als hoofdverblijplaats.",
+        "operationId": "AangegevenAdresGET",
+        "parameters": [
+          {
+            "description": "Identificator van een AangegevenAdres object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AangegevenAdres"
+                }
+              }
+            },
+            "description": "AangegevenAdres object gevonden.",
+            "links": {
+              "AdresvoorstellingGET": {
+                "description": "Het `@id` attribuut van de waarde van `AangegevenAdres.verblijfsadres` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen.",
+                "operationId": "AdresvoorstellingGET",
+                "parameters": {
+                  "id": "$response.body#/AangegevenAdres.verblijfsadres/@id"
+                }
+              },
+              "Belgisch AdresGET": {
+                "description": "Het `@id` attribuut van de waarde van `AangegevenAdres.verblijfsadres` kan gebruikt worden om het gerefereerde object van het type `Belgisch Adres` op te halen.",
+                "operationId": "Belgisch AdresGET",
+                "parameters": {
+                  "id": "$response.body#/AangegevenAdres.verblijfsadres/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een AangegevenAdres object."
+          },
+          "404": {
+            "description": "AangegevenAdres object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Adres dat door een persoon wordt opgegeven als hoofdverblijplaats.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/AdministratiefBeheerder/{id}": {
+      "get": {
+        "description": "Organisatie die het dossier van de persoon in het register beheert.",
+        "operationId": "AdministratiefBeheerderGET",
+        "parameters": [
+          {
+            "description": "Identificator van een AdministratiefBeheerder object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdministratiefBeheerder"
+                }
+              }
+            },
+            "description": "AdministratiefBeheerder object gevonden.",
+            "links": {
+              "AdministratiefBeheerdertypeGET": {
+                "description": "Het `@id` attribuut van de waarde van `AdministratiefBeheerder.type` kan gebruikt worden om het gerefereerde object van het type `AdministratiefBeheerdertype` op te halen.",
+                "operationId": "AdministratiefBeheerdertypeGET",
+                "parameters": {
+                  "id": "$response.body#/AdministratiefBeheerder.type/@id"
+                }
+              },
+              "IdentificatorGET": {
+                "description": "Het `@id` attribuut van de waarde van `AdministratiefBeheerder.identificator` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen.",
+                "operationId": "IdentificatorGET",
+                "parameters": {
+                  "id": "$response.body#/AdministratiefBeheerder.identificator/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een AdministratiefBeheerder object."
+          },
+          "404": {
+            "description": "AdministratiefBeheerder object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Organisatie die het dossier van de persoon in het register beheert.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Afstamming/{id}": {
+      "get": {
+        "description": "Afstamming is de dalende lijn van bloedverwantschap tussen verschillende generaties.",
+        "operationId": "AfstammingGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Afstamming object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Afstamming"
+                }
+              }
+            },
+            "description": "Afstamming object gevonden.",
+            "links": {
+              "AfstammingstypeGET": {
+                "description": "Het `@id` attribuut van de waarde van `Afstamming.afstammingstype` kan gebruikt worden om het gerefereerde object van het type `Afstammingstype` op te halen.",
+                "operationId": "AfstammingstypeGET",
+                "parameters": {
+                  "id": "$response.body#/Afstamming.afstammingstype/@id"
+                }
+              },
+              "PersoonGET": {
+                "description": "Het `@id` attribuut van de waarde van `Afstamming.metPersoon` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen.",
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "id": "$response.body#/Afstamming.metPersoon/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Afstamming object."
+          },
+          "404": {
+            "description": "Afstamming object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Afstamming is de dalende lijn van bloedverwantschap tussen verschillende generaties.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Agent/{id}": {
+      "get": {
+        "description": "Iemand die of iets dat kan handelen of een effect kan teweeg brengen.",
+        "operationId": "AgentGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Agent object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Agent"
+                }
+              }
+            },
+            "description": "Agent object gevonden.",
+            "links": {}
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Agent object."
+          },
+          "404": {
+            "description": "Agent object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Iemand die of iets dat kan handelen of een effect kan teweeg brengen.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/BelgischAdres/{id}": {
+      "get": {
+        "description": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode.",
+        "operationId": "BelgischAdresGET",
+        "parameters": [
+          {
+            "description": "Identificator van een BelgischAdres object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BelgischAdres"
+                }
+              }
+            },
+            "description": "BelgischAdres object gevonden.",
+            "links": {}
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een BelgischAdres object."
+          },
+          "404": {
+            "description": "BelgischAdres object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/BurgerlijkeStaat/{id}": {
+      "get": {
+        "description": "Burgerrechtelijke toestand van een Persoon.",
+        "operationId": "BurgerlijkeStaatGET",
+        "parameters": [
+          {
+            "description": "Identificator van een BurgerlijkeStaat object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BurgerlijkeStaat"
+                }
+              }
+            },
+            "description": "BurgerlijkeStaat object gevonden.",
+            "links": {
+              "BurgerlijkeStaatTypeGET": {
+                "description": "Het `@id` attribuut van de waarde van `BurgerlijkeStaat.type` kan gebruikt worden om het gerefereerde object van het type `BurgerlijkeStaatType` op te halen.",
+                "operationId": "BurgerlijkeStaatTypeGET",
+                "parameters": {
+                  "id": "$response.body#/BurgerlijkeStaat.type/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een BurgerlijkeStaat object."
+          },
+          "404": {
+            "description": "BurgerlijkeStaat object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Burgerrechtelijke toestand van een Persoon.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Domicilie/{id}": {
+      "get": {
+        "description": "Hoofdverblijfplaats van een Persoon.",
+        "operationId": "DomicilieGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Domicilie object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Domicilie"
+                }
+              }
+            },
+            "description": "Domicilie object gevonden.",
+            "links": {
+              "AdresvoorstellingGET": {
+                "description": "Het `@id` attribuut van de waarde van `Domicilie.verblijfsadres` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen.",
+                "operationId": "AdresvoorstellingGET",
+                "parameters": {
+                  "id": "$response.body#/Domicilie.verblijfsadres/@id"
+                }
+              },
+              "Belgisch AdresGET": {
+                "description": "Het `@id` attribuut van de waarde van `Domicilie.verblijfsadres` kan gebruikt worden om het gerefereerde object van het type `Belgisch Adres` op te halen.",
+                "operationId": "Belgisch AdresGET",
+                "parameters": {
+                  "id": "$response.body#/Domicilie.verblijfsadres/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Domicilie object."
+          },
+          "404": {
+            "description": "Domicilie object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Hoofdverblijfplaats van een Persoon.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/FormeleOrganisatie/{id}": {
+      "get": {
+        "description": "Een erkende Organisatie,erkend in brede zin of  meer specifiek in juridische zin met bijbehorende rechten en plichten.",
+        "operationId": "FormeleOrganisatieGET",
+        "parameters": [
+          {
+            "description": "Identificator van een FormeleOrganisatie object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormeleOrganisatie"
+                }
+              }
+            },
+            "description": "FormeleOrganisatie object gevonden.",
+            "links": {}
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een FormeleOrganisatie object."
+          },
+          "404": {
+            "description": "FormeleOrganisatie object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Een erkende Organisatie,erkend in brede zin of  meer specifiek in juridische zin met bijbehorende rechten en plichten.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Geboorte/{id}": {
+      "get": {
+        "description": "Het ter wereld komen van een Persoon.",
+        "operationId": "GeboorteGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Geboorte object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Geboorte"
+                }
+              }
+            },
+            "description": "Geboorte object gevonden.",
+            "links": {
+              "PlaatsGET": {
+                "description": "Het `@id` attribuut van de waarde van `Geboorte.plaats` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen.",
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "id": "$response.body#/Geboorte.plaats/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Geboorte object."
+          },
+          "404": {
+            "description": "Geboorte object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Het ter wereld komen van een Persoon.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/GeregistreerdPersoon/{id}": {
+      "get": {
+        "description": "Persoon waarvan de gegevens zijn ingeschreven in een register.",
+        "operationId": "GeregistreerdPersoonGET",
+        "parameters": [
+          {
+            "description": "Identificator van een GeregistreerdPersoon object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeregistreerdPersoon"
+                }
+              }
+            },
+            "description": "GeregistreerdPersoon object gevonden.",
+            "links": {
+              "AdministratiefBeheerderGET": {
+                "description": "Het `@id` attribuut van de waarde van `GeregistreerdPersoon.beheerder` kan gebruikt worden om het gerefereerde object van het type `AdministratiefBeheerder` op te halen.",
+                "operationId": "AdministratiefBeheerderGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.beheerder/@id"
+                }
+              },
+              "BurgerlijkeStaatGET": {
+                "description": "Het `@id` attribuut van de waarde van `GeregistreerdPersoon.heeftBurgerlijkeStaat` kan gebruikt worden om het gerefereerde object van het type `BurgerlijkeStaat` op te halen.",
+                "operationId": "BurgerlijkeStaatGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.heeftBurgerlijkeStaat/@id"
+                }
+              },
+              "ContactinfoGET": {
+                "description": "Het `@id` attribuut van de waarde van `GeregistreerdPersoon.contactinfo` kan gebruikt worden om het gerefereerde object van het type `Contactinfo` op te halen.",
+                "operationId": "ContactinfoGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.contactinfo/@id"
+                }
+              },
+              "DossierstatusGET": {
+                "description": "Het `@id` attribuut van de waarde van `GeregistreerdPersoon.dossierstatus` kan gebruikt worden om het gerefereerde object van het type `Dossierstatus` op te halen.",
+                "operationId": "DossierstatusGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.dossierstatus/@id"
+                }
+              },
+              "GeboorteGET": {
+                "description": "Het `@id` attribuut van de waarde van `GeregistreerdPersoon.heeftGeboorte` kan gebruikt worden om het gerefereerde object van het type `Geboorte` op te halen.",
+                "operationId": "GeboorteGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.heeftGeboorte/@id"
+                }
+              },
+              "GeslachtGET": {
+                "description": "Het `@id` attribuut van de waarde van `GeregistreerdPersoon.geslacht` kan gebruikt worden om het gerefereerde object van het type `Geslacht` op te halen.",
+                "operationId": "GeslachtGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.geslacht/@id"
+                }
+              },
+              "GezinGET": {
+                "description": "Het `@id` attribuut van de waarde van `GeregistreerdPersoon.isLidVan` kan gebruikt worden om het gerefereerde object van het type `Gezin` op te halen.",
+                "operationId": "GezinGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.isLidVan/@id"
+                }
+              },
+              "IdentificatorGET": {
+                "description": "Het `@id` attribuut van de waarde van `GeregistreerdPersoon.vorigeRegistratie` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen.",
+                "operationId": "IdentificatorGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.vorigeRegistratie/@id"
+                }
+              },
+              "InwonerschapGET": {
+                "description": "Het `@id` attribuut van de waarde van `GeregistreerdPersoon.heeftInwonerschap` kan gebruikt worden om het gerefereerde object van het type `Inwonerschap` op te halen.",
+                "operationId": "InwonerschapGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.heeftInwonerschap/@id"
+                }
+              },
+              "OrganisatieGET": {
+                "description": "Het `@id` attribuut van de waarde van `GeregistreerdPersoon.bron` kan gebruikt worden om het gerefereerde object van het type `Organisatie` op te halen.",
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.bron/@id"
+                }
+              },
+              "OverlijdenGET": {
+                "description": "Het `@id` attribuut van de waarde van `GeregistreerdPersoon.heeftOverlijden` kan gebruikt worden om het gerefereerde object van het type `Overlijden` op te halen.",
+                "operationId": "OverlijdenGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.heeftOverlijden/@id"
+                }
+              },
+              "PersoonsrelatieGET": {
+                "description": "Het `@id` attribuut van de waarde van `GeregistreerdPersoon.heeftPersoonsrelatie` kan gebruikt worden om het gerefereerde object van het type `Persoonsrelatie` op te halen.",
+                "operationId": "PersoonsrelatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.heeftPersoonsrelatie/@id"
+                }
+              },
+              "RedenAfwezigheidGET": {
+                "description": "Het `@id` attribuut van de waarde van `GeregistreerdPersoon.redenAfwezigheid` kan gebruikt worden om het gerefereerde object van het type `RedenAfwezigheid` op te halen.",
+                "operationId": "RedenAfwezigheidGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.redenAfwezigheid/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een GeregistreerdPersoon object."
+          },
+          "404": {
+            "description": "GeregistreerdPersoon object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Persoon waarvan de gegevens zijn ingeschreven in een register.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Gezin/{id}": {
+      "get": {
+        "description": "Samenwerkingsvorm die een herkenbare sociale eenheid vormt (bijvoorbeeld ten gevolge van een huwelijk), met al dan niet verwante personen die duurzame banden hebben en elkaar onderling steun en verzorging verlenen.",
+        "operationId": "GezinGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Gezin object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Gezin"
+                }
+              }
+            },
+            "description": "Gezin object gevonden.",
+            "links": {
+              "AdresvoorstellingGET": {
+                "description": "Het `@id` attribuut van de waarde van `Gezin.gezinsadres` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen.",
+                "operationId": "AdresvoorstellingGET",
+                "parameters": {
+                  "id": "$response.body#/Gezin.gezinsadres/@id"
+                }
+              },
+              "PersoonGET": {
+                "description": "Het `@id` attribuut van de waarde van `Gezin.gezinslid` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen.",
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "id": "$response.body#/Gezin.gezinslid/@id"
+                }
+              },
+              "WoonvormtypeGET": {
+                "description": "Het `@id` attribuut van de waarde van `Gezin.woonvorm` kan gebruikt worden om het gerefereerde object van het type `Woonvormtype` op te halen.",
+                "operationId": "WoonvormtypeGET",
+                "parameters": {
+                  "id": "$response.body#/Gezin.woonvorm/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Gezin object."
+          },
+          "404": {
+            "description": "Gezin object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Samenwerkingsvorm die een herkenbare sociale eenheid vormt (bijvoorbeeld ten gevolge van een huwelijk), met al dan niet verwante personen die duurzame banden hebben en elkaar onderling steun en verzorging verlenen.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Gezinsrelatie/{id}": {
+      "get": {
+        "description": "Relatie tussen leden van eenzelfde gezin.",
+        "operationId": "GezinsrelatieGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Gezinsrelatie object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Gezinsrelatie"
+                }
+              }
+            },
+            "description": "Gezinsrelatie object gevonden.",
+            "links": {
+              "GezinsrelatietypeGET": {
+                "description": "Het `@id` attribuut van de waarde van `Gezinsrelatie.gezinsrelatietype` kan gebruikt worden om het gerefereerde object van het type `Gezinsrelatietype` op te halen.",
+                "operationId": "GezinsrelatietypeGET",
+                "parameters": {
+                  "id": "$response.body#/Gezinsrelatie.gezinsrelatietype/@id"
+                }
+              },
+              "PersoonGET": {
+                "description": "Het `@id` attribuut van de waarde van `Gezinsrelatie.metPersoon` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen.",
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "id": "$response.body#/Gezinsrelatie.metPersoon/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Gezinsrelatie object."
+          },
+          "404": {
+            "description": "Gezinsrelatie object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Relatie tussen leden van eenzelfde gezin.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Huwelijk/{id}": {
+      "get": {
+        "description": "Een door burgerlijk of religieus recht geregelde samenlevingsvorm van twee personen.",
+        "operationId": "HuwelijkGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Huwelijk object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Huwelijk"
+                }
+              }
+            },
+            "description": "Huwelijk object gevonden.",
+            "links": {
+              "PersoonGET": {
+                "description": "Het `@id` attribuut van de waarde van `Huwelijk.metPersoon` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen.",
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "id": "$response.body#/Huwelijk.metPersoon/@id"
+                }
+              },
+              "PlaatsGET": {
+                "description": "Het `@id` attribuut van de waarde van `Huwelijk.plaats` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen.",
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "id": "$response.body#/Huwelijk.plaats/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Huwelijk object."
+          },
+          "404": {
+            "description": "Huwelijk object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Een door burgerlijk of religieus recht geregelde samenlevingsvorm van twee personen.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Inwonerschap/{id}": {
+      "get": {
+        "description": "Het feit dat een Persoon verblijf houdt in een plaats of land.",
+        "operationId": "InwonerschapGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Inwonerschap object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Inwonerschap"
+                }
+              }
+            },
+            "description": "Inwonerschap object gevonden.",
+            "links": {
+              "JurisdictieGET": {
+                "description": "Het `@id` attribuut van de waarde van `Inwonerschap.jurisdictie` kan gebruikt worden om het gerefereerde object van het type `Jurisdictie` op te halen.",
+                "operationId": "JurisdictieGET",
+                "parameters": {
+                  "id": "$response.body#/Inwonerschap.jurisdictie/@id"
+                }
+              },
+              "PersoonGET": {
+                "description": "Het `@id` attribuut van de waarde van `Inwonerschap.persoon` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen.",
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "id": "$response.body#/Inwonerschap.persoon/@id"
+                }
+              },
+              "VerblijfplaatsGET": {
+                "description": "Het `@id` attribuut van de waarde van `Inwonerschap.heeftVerblijfplaats` kan gebruikt worden om het gerefereerde object van het type `Verblijfplaats` op te halen.",
+                "operationId": "VerblijfplaatsGET",
+                "parameters": {
+                  "id": "$response.body#/Inwonerschap.heeftVerblijfplaats/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Inwonerschap object."
+          },
+          "404": {
+            "description": "Inwonerschap object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Het feit dat een Persoon verblijf houdt in een plaats of land.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Jurisdictie/{id}": {
+      "get": {
+        "description": "Het gebied waarover de rechtsmacht van een overheid zich uitstrekt.",
+        "operationId": "JurisdictieGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Jurisdictie object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Jurisdictie"
+                }
+              }
+            },
+            "description": "Jurisdictie object gevonden.",
+            "links": {
+              "PlaatsGET": {
+                "description": "Het `@id` attribuut van de waarde van `Jurisdictie.plaats` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen.",
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "id": "$response.body#/Jurisdictie.plaats/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Jurisdictie object."
+          },
+          "404": {
+            "description": "Jurisdictie object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Het gebied waarover de rechtsmacht van een overheid zich uitstrekt.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/LocatiePeriodeOfJurisdictie/{id}": {
+      "get": {
+        "description": "Een Locatie, Periode of Jurisdictie.",
+        "operationId": "LocatiePeriodeOfJurisdictieGET",
+        "parameters": [
+          {
+            "description": "Identificator van een LocatiePeriodeOfJurisdictie object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocatiePeriodeOfJurisdictie"
+                }
+              }
+            },
+            "description": "LocatiePeriodeOfJurisdictie object gevonden.",
+            "links": {}
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een LocatiePeriodeOfJurisdictie object."
+          },
+          "404": {
+            "description": "LocatiePeriodeOfJurisdictie object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Een Locatie, Periode of Jurisdictie.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Organisatie/{id}": {
+      "get": {
+        "description": "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur.",
+        "operationId": "OrganisatieGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Organisatie object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Organisatie"
+                }
+              }
+            },
+            "description": "Organisatie object gevonden.",
+            "links": {
+              "IdentificatorGET": {
+                "description": "Het `@id` attribuut van de waarde van `Organisatie.identificator` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen.",
+                "operationId": "IdentificatorGET",
+                "parameters": {
+                  "id": "$response.body#/Organisatie.identificator/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Organisatie object."
+          },
+          "404": {
+            "description": "Organisatie object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Overlijden/{id}": {
+      "get": {
+        "description": "Het doodgaan van een Persoon.",
+        "operationId": "OverlijdenGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Overlijden object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Overlijden"
+                }
+              }
+            },
+            "description": "Overlijden object gevonden.",
+            "links": {
+              "PlaatsGET": {
+                "description": "Het `@id` attribuut van de waarde van `Overlijden.plaats` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen.",
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "id": "$response.body#/Overlijden.plaats/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Overlijden object."
+          },
+          "404": {
+            "description": "Overlijden object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Het doodgaan van een Persoon.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Persoon/{id}": {
+      "get": {
+        "description": "Natuurlijk persoon.",
+        "operationId": "PersoonGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Persoon object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Persoon"
+                }
+              }
+            },
+            "description": "Persoon object gevonden.",
+            "links": {
+              "BurgerlijkeStaatGET": {
+                "description": "Het `@id` attribuut van de waarde van `Persoon.heeftBurgerlijkeStaat` kan gebruikt worden om het gerefereerde object van het type `BurgerlijkeStaat` op te halen.",
+                "operationId": "BurgerlijkeStaatGET",
+                "parameters": {
+                  "id": "$response.body#/Persoon.heeftBurgerlijkeStaat/@id"
+                }
+              },
+              "ContactinfoGET": {
+                "description": "Het `@id` attribuut van de waarde van `Persoon.contactinfo` kan gebruikt worden om het gerefereerde object van het type `Contactinfo` op te halen.",
+                "operationId": "ContactinfoGET",
+                "parameters": {
+                  "id": "$response.body#/Persoon.contactinfo/@id"
+                }
+              },
+              "GeboorteGET": {
+                "description": "Het `@id` attribuut van de waarde van `Persoon.heeftGeboorte` kan gebruikt worden om het gerefereerde object van het type `Geboorte` op te halen.",
+                "operationId": "GeboorteGET",
+                "parameters": {
+                  "id": "$response.body#/Persoon.heeftGeboorte/@id"
+                }
+              },
+              "GeslachtGET": {
+                "description": "Het `@id` attribuut van de waarde van `Persoon.geslacht` kan gebruikt worden om het gerefereerde object van het type `Geslacht` op te halen.",
+                "operationId": "GeslachtGET",
+                "parameters": {
+                  "id": "$response.body#/Persoon.geslacht/@id"
+                }
+              },
+              "GezinGET": {
+                "description": "Het `@id` attribuut van de waarde van `Persoon.isLidVan` kan gebruikt worden om het gerefereerde object van het type `Gezin` op te halen.",
+                "operationId": "GezinGET",
+                "parameters": {
+                  "id": "$response.body#/Persoon.isLidVan/@id"
+                }
+              },
+              "InwonerschapGET": {
+                "description": "Het `@id` attribuut van de waarde van `Persoon.heeftInwonerschap` kan gebruikt worden om het gerefereerde object van het type `Inwonerschap` op te halen.",
+                "operationId": "InwonerschapGET",
+                "parameters": {
+                  "id": "$response.body#/Persoon.heeftInwonerschap/@id"
+                }
+              },
+              "OrganisatieGET": {
+                "description": "Het `@id` attribuut van de waarde van `Persoon.bron` kan gebruikt worden om het gerefereerde object van het type `Organisatie` op te halen.",
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/Persoon.bron/@id"
+                }
+              },
+              "OverlijdenGET": {
+                "description": "Het `@id` attribuut van de waarde van `Persoon.heeftOverlijden` kan gebruikt worden om het gerefereerde object van het type `Overlijden` op te halen.",
+                "operationId": "OverlijdenGET",
+                "parameters": {
+                  "id": "$response.body#/Persoon.heeftOverlijden/@id"
+                }
+              },
+              "PersoonsrelatieGET": {
+                "description": "Het `@id` attribuut van de waarde van `Persoon.heeftPersoonsrelatie` kan gebruikt worden om het gerefereerde object van het type `Persoonsrelatie` op te halen.",
+                "operationId": "PersoonsrelatieGET",
+                "parameters": {
+                  "id": "$response.body#/Persoon.heeftPersoonsrelatie/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Persoon object."
+          },
+          "404": {
+            "description": "Persoon object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Natuurlijk persoon.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Persoonsgebeurtenis/{id}": {
+      "get": {
+        "description": "Belangrijke gebeurtenis in het leven van een Persoon.",
+        "operationId": "PersoonsgebeurtenisGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Persoonsgebeurtenis object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Persoonsgebeurtenis"
+                }
+              }
+            },
+            "description": "Persoonsgebeurtenis object gevonden.",
+            "links": {
+              "PlaatsGET": {
+                "description": "Het `@id` attribuut van de waarde van `Persoonsgebeurtenis.plaats` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen.",
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "id": "$response.body#/Persoonsgebeurtenis.plaats/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Persoonsgebeurtenis object."
+          },
+          "404": {
+            "description": "Persoonsgebeurtenis object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Belangrijke gebeurtenis in het leven van een Persoon.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Persoonsrelatie/{id}": {
+      "get": {
+        "description": "Relatie tussen twee of meer personen.",
+        "operationId": "PersoonsrelatieGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Persoonsrelatie object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Persoonsrelatie"
+                }
+              }
+            },
+            "description": "Persoonsrelatie object gevonden.",
+            "links": {
+              "PersoonGET": {
+                "description": "Het `@id` attribuut van de waarde van `Persoonsrelatie.metPersoon` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen.",
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "id": "$response.body#/Persoonsrelatie.metPersoon/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Persoonsrelatie object."
+          },
+          "404": {
+            "description": "Persoonsrelatie object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Relatie tussen twee of meer personen.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Plaats/{id}": {
+      "get": {
+        "description": "Een ruimtelijk gebied of benoemde plaats.",
+        "operationId": "PlaatsGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Plaats object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Plaats"
+                }
+              }
+            },
+            "description": "Plaats object gevonden.",
+            "links": {}
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Plaats object."
+          },
+          "404": {
+            "description": "Plaats object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Een ruimtelijk gebied of benoemde plaats.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Postadres/{id}": {
+      "get": {
+        "description": "Postadres van de verblijfplaats van een persoon.",
+        "operationId": "PostadresGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Postadres object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Postadres"
+                }
+              }
+            },
+            "description": "Postadres object gevonden.",
+            "links": {
+              "AdresvoorstellingGET": {
+                "description": "Het `@id` attribuut van de waarde van `Postadres.verblijfsadres` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen.",
+                "operationId": "AdresvoorstellingGET",
+                "parameters": {
+                  "id": "$response.body#/Postadres.verblijfsadres/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Postadres object."
+          },
+          "404": {
+            "description": "Postadres object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Postadres van de verblijfplaats van een persoon.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Probleemdetail/{id}": {
+      "get": {
+        "description": "Meer gedetailleerde beschrijving van de fout in een HTTP response.",
+        "operationId": "ProbleemdetailGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Probleemdetail object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "description": "Probleemdetail object gevonden.",
+            "links": {}
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Probleemdetail object."
+          },
+          "404": {
+            "description": "Probleemdetail object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Meer gedetailleerde beschrijving van de fout in een HTTP response.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Referentieadres/{id}": {
+      "get": {
+        "description": "Adres van een andere persoon of rechtspersoon voor personen zonder vaste verblijfplaats.",
+        "operationId": "ReferentieadresGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Referentieadres object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Referentieadres"
+                }
+              }
+            },
+            "description": "Referentieadres object gevonden.",
+            "links": {
+              "AdresvoorstellingGET": {
+                "description": "Het `@id` attribuut van de waarde van `Referentieadres.verblijfsadres` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen.",
+                "operationId": "AdresvoorstellingGET",
+                "parameters": {
+                  "id": "$response.body#/Referentieadres.verblijfsadres/@id"
+                }
+              },
+              "Belgisch AdresGET": {
+                "description": "Het `@id` attribuut van de waarde van `Referentieadres.verblijfsadres` kan gebruikt worden om het gerefereerde object van het type `Belgisch Adres` op te halen.",
+                "operationId": "Belgisch AdresGET",
+                "parameters": {
+                  "id": "$response.body#/Referentieadres.verblijfsadres/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Referentieadres object."
+          },
+          "404": {
+            "description": "Referentieadres object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Adres van een andere persoon of rechtspersoon voor personen zonder vaste verblijfplaats.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Samenwonen/{id}": {
+      "get": {
+        "description": "Regeling waarbij twee personen die niet getrouwd zijn samenleven.",
+        "operationId": "SamenwonenGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Samenwonen object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Samenwonen"
+                }
+              }
+            },
+            "description": "Samenwonen object gevonden.",
+            "links": {
+              "PersoonGET": {
+                "description": "Het `@id` attribuut van de waarde van `Samenwonen.metPersoon` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen.",
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "id": "$response.body#/Samenwonen.metPersoon/@id"
+                }
+              },
+              "PlaatsGET": {
+                "description": "Het `@id` attribuut van de waarde van `Samenwonen.plaats` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen.",
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "id": "$response.body#/Samenwonen.plaats/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Samenwonen object."
+          },
+          "404": {
+            "description": "Samenwonen object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Regeling waarbij twee personen die niet getrouwd zijn samenleven.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/VdipEnvelop/{id}": {
+      "get": {
+        "description": "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen.",
+        "operationId": "VdipEnvelopGET",
+        "parameters": [
+          {
+            "description": "Identificator van een VdipEnvelop object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VdipEnvelop"
+                }
+              }
+            },
+            "description": "VdipEnvelop object gevonden.",
+            "links": {
+              "GeregistreerdPersoonGET": {
+                "description": "Het `@id` attribuut van de waarde van `VdipEnvelop.data` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdPersoon` op te halen.",
+                "operationId": "GeregistreerdPersoonGET",
+                "parameters": {
+                  "id": "$response.body#/VdipEnvelop.data/@id"
+                }
+              },
+              "ProbleemdetailGET": {
+                "description": "Het `@id` attribuut van de waarde van `VdipEnvelop.warning` kan gebruikt worden om het gerefereerde object van het type `Probleemdetail` op te halen.",
+                "operationId": "ProbleemdetailGET",
+                "parameters": {
+                  "id": "$response.body#/VdipEnvelop.warning/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een VdipEnvelop object."
+          },
+          "404": {
+            "description": "VdipEnvelop object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Verblijfplaats/{id}": {
+      "get": {
+        "description": "Plaats waar een Persoon al dan niet tijdelijk woont of logeert.",
+        "operationId": "VerblijfplaatsGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Verblijfplaats object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Verblijfplaats"
+                }
+              }
+            },
+            "description": "Verblijfplaats object gevonden.",
+            "links": {
+              "AdresvoorstellingGET": {
+                "description": "Het `@id` attribuut van de waarde van `Verblijfplaats.verblijfsadres` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen.",
+                "operationId": "AdresvoorstellingGET",
+                "parameters": {
+                  "id": "$response.body#/Verblijfplaats.verblijfsadres/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Verblijfplaats object."
+          },
+          "404": {
+            "description": "Verblijfplaats object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Plaats waar een Persoon al dan niet tijdelijk woont of logeert.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/VerblijfplaatsBuitenland/{id}": {
+      "get": {
+        "description": "Verblijplaats in het buitenland.",
+        "operationId": "VerblijfplaatsBuitenlandGET",
+        "parameters": [
+          {
+            "description": "Identificator van een VerblijfplaatsBuitenland object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerblijfplaatsBuitenland"
+                }
+              }
+            },
+            "description": "VerblijfplaatsBuitenland object gevonden.",
+            "links": {
+              "AdresvoorstellingGET": {
+                "description": "Het `@id` attribuut van de waarde van `VerblijfplaatsBuitenland.verblijfsadres` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen.",
+                "operationId": "AdresvoorstellingGET",
+                "parameters": {
+                  "id": "$response.body#/VerblijfplaatsBuitenland.verblijfsadres/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een VerblijfplaatsBuitenland object."
+          },
+          "404": {
+            "description": "VerblijfplaatsBuitenland object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Verblijplaats in het buitenland.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/VerblijfplaatsBuitenlandDomicilie/{id}": {
+      "get": {
+        "description": "Hoofdverblijplaats in het buitenland.",
+        "operationId": "VerblijfplaatsBuitenlandDomicilieGET",
+        "parameters": [
+          {
+            "description": "Identificator van een VerblijfplaatsBuitenlandDomicilie object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerblijfplaatsBuitenlandDomicilie"
+                }
+              }
+            },
+            "description": "VerblijfplaatsBuitenlandDomicilie object gevonden.",
+            "links": {
+              "AdresvoorstellingGET": {
+                "description": "Het `@id` attribuut van de waarde van `VerblijfplaatsBuitenlandDomicilie.verblijfsadres` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen.",
+                "operationId": "AdresvoorstellingGET",
+                "parameters": {
+                  "id": "$response.body#/VerblijfplaatsBuitenlandDomicilie.verblijfsadres/@id"
+                }
+              },
+              "Belgisch AdresGET": {
+                "description": "Het `@id` attribuut van de waarde van `VerblijfplaatsBuitenlandDomicilie.verblijfsadres` kan gebruikt worden om het gerefereerde object van het type `Belgisch Adres` op te halen.",
+                "operationId": "Belgisch AdresGET",
+                "parameters": {
+                  "id": "$response.body#/VerblijfplaatsBuitenlandDomicilie.verblijfsadres/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een VerblijfplaatsBuitenlandDomicilie object."
+          },
+          "404": {
+            "description": "VerblijfplaatsBuitenlandDomicilie object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Hoofdverblijplaats in het buitenland.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/Versie/{id}": {
+      "get": {
+        "description": "Entiteit gedurende een bepaalde periode in de databank.",
+        "operationId": "VersieGET",
+        "parameters": [
+          {
+            "description": "Identificator van een Versie object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Versie"
+                }
+              }
+            },
+            "description": "Versie object gevonden.",
+            "links": {
+              "OrganisatieGET": {
+                "description": "Het `@id` attribuut van de waarde van `Versie.bron` kan gebruikt worden om het gerefereerde object van het type `Organisatie` op te halen.",
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/Versie.bron/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een Versie object."
+          },
+          "404": {
+            "description": "Versie object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Entiteit gedurende een bepaalde periode in de databank.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    },
+    "/id/WettelijkVerblijf/{id}": {
+      "get": {
+        "description": "Juridisch vastgelegde verblijplaats.",
+        "operationId": "WettelijkVerblijfGET",
+        "parameters": [
+          {
+            "description": "Identificator van een WettelijkVerblijf object.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WettelijkVerblijf"
+                }
+              }
+            },
+            "description": "WettelijkVerblijf object gevonden.",
+            "links": {
+              "AdresvoorstellingGET": {
+                "description": "Het `@id` attribuut van de waarde van `WettelijkVerblijf.verblijfsadres` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen.",
+                "operationId": "AdresvoorstellingGET",
+                "parameters": {
+                  "id": "$response.body#/WettelijkVerblijf.verblijfsadres/@id"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Ontbrekende informatie bij het opvragen een WettelijkVerblijf object."
+          },
+          "404": {
+            "description": "WettelijkVerblijf object met gegeven ID niet gevonden."
+          }
+        },
+        "summary": "Juridisch vastgelegde verblijplaats.",
+        "tags": [
+          "Externe datastandaarden"
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "Basis URL",
+      "url": "https://implementatie.data.test-vlaanderen.be/"
+    }
+  ]
+}
