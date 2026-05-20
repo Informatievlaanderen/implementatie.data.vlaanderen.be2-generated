@@ -29,7 +29,7 @@
           "applicationProfileLabel": {
             "nl": "identificator"
           },
-          "applicationProfileUsageNote": {
+          "applicationProfileDefinition": {
             "nl": "Identificator van het Adres."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
@@ -117,37 +117,7 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
       "properties": [
         {
-          "id": "http://purl.org/dc/terms/type",
-          "vocabularyLabel": {
-            "nl": "doorhalingstype"
-          },
-          "applicationProfileLabel": {
-            "nl": "doorhalingstype"
-          },
-          "vocabularyDefinition": {
-            "nl": "Reden waarom de Organisatie is geschrapt."
-          },
-          "applicationProfileDefinition": {
-            "nl": "Reden waarom de Organisatie is geschrapt."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/organisatie#Doorhaling",
-          "range": {
-            "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "Doorhalingstype"
-            },
-            "applicationProfileLabel": {
-              "nl": "Doorhalingstype"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1"
-        },
-        {
-          "id": "https://data.vlaanderen.be/ns/organisatie#reden",
+          "id": "http://purl.org/dc/terms/provenance",
           "vocabularyLabel": {
             "nl": "reden"
           },
@@ -157,7 +127,7 @@
           "applicationProfileUsageNote": {
             "nl": "Bijvoorbeeld: geen neerlegging van de jaarrekening."
           },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
           "domain": "https://implementatie.data.vlaanderen.be/ns/organisatie#Doorhaling",
           "range": {
@@ -199,6 +169,36 @@
             }
           },
           "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/type",
+          "vocabularyLabel": {
+            "nl": "type"
+          },
+          "applicationProfileLabel": {
+            "nl": "type"
+          },
+          "vocabularyDefinition": {
+            "nl": "Reden waarom de Organisatie is geschrapt."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Reden waarom de Organisatie is geschrapt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/organisatie#Doorhaling",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Doorhalingstype"
+            },
+            "applicationProfileLabel": {
+              "nl": "Doorhalingstype"
+            }
+          },
+          "minCount": "0",
           "maxCount": "1"
         }
       ]
@@ -344,6 +344,9 @@
           },
           "applicationProfileLabel": {
             "nl": "doorhaling"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De schrapping van een entiteit binnen het KBO."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
@@ -825,12 +828,15 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
       "properties": [
         {
-          "id": "http://www.w3.org/ns/org#datumStart",
+          "id": "http://purl.org/dc/terms/created",
           "vocabularyLabel": {
-            "nl": "datumStart"
+            "nl": "datumOprichting"
           },
           "applicationProfileLabel": {
-            "nl": "datumStart"
+            "nl": "datumOprichting"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Datum waarop de Vestiging opgericht werd."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
@@ -849,12 +855,15 @@
           "maxCount": "1"
         },
         {
-          "id": "http://www.w3.org/ns/org#datumStopzetting",
+          "id": "https://schema.org/endDate",
           "vocabularyLabel": {
             "nl": "datumStopzetting"
           },
           "applicationProfileLabel": {
             "nl": "datumStopzetting"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Datum waarop de vestiging werd stopgezet."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
@@ -879,6 +888,9 @@
           },
           "applicationProfileLabel": {
             "nl": "doorhaling"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De schrapping van een entiteit binnen het KBO."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
@@ -905,7 +917,7 @@
             "nl": "registratie"
           },
           "applicationProfileDefinition": {
-            "nl": "Identificator dat de organisatie verkreeg bij registratie."
+            "nl": "Identificator dat de vestiging verkreeg bij registratie."
           },
           "applicationProfileUsageNote": {
             "nl": "In de KBO is dit het ondernemingsnummer."
@@ -2097,34 +2109,6 @@
       "minCount": "0",
       "maxCount": "1",
       "codelist": "https://economie.fgov.be/sites/default/files/Files/Entreprises/KBO/KBO-codes-legal.xlsx"
-    },
-    {
-      "id": "https://data.vlaanderen.be/ns/organisatie#reden",
-      "vocabularyLabel": {
-        "nl": "reden"
-      },
-      "applicationProfileLabel": {
-        "nl": "reden"
-      },
-      "applicationProfileUsageNote": {
-        "nl": "Bijvoorbeeld: geen neerlegging van de jaarrekening."
-      },
-      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
-      "domain": "https://implementatie.data.vlaanderen.be/ns/organisatie#Doorhaling",
-      "range": {
-        "id": "http://www.w3.org/2004/02/skos/core#Concept",
-        "listedInDocument": false,
-        "vocabularyLabel": {
-          "nl": "RedenDoorhaling"
-        },
-        "applicationProfileLabel": {
-          "nl": "RedenDoorhaling"
-        }
-      },
-      "minCount": "1",
-      "maxCount": "1",
-      "codelist": "https://economie.fgov.be/sites/default/files/Files/Entreprises/KBO/KBO-codes-strike-out.xls"
     },
     {
       "id": "https://data.vlaanderen.be/ns/organisatie#redenStopzetting",

@@ -198,9 +198,10 @@
   shacl:property [
     a shacl:PropertyShape;
     rdfs:label "identificator"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Identificator van het Adres."@nl;
+    rdfs:comment "Identificator van het Adres."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#BelgischAdres.Identificator>;
     shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificator van het Adres."@nl;
     shacl:maxCount "1";
     shacl:minCount "1";
     shacl:name "identificator"@nl;
@@ -274,24 +275,24 @@
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
-    rdfs:label "doorhalingstype"@nl;
+    rdfs:label "type"@nl;
     rdfs:comment "Reden waarom de Organisatie is geschrapt."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#Doorhaling.Doorhalingstype>;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#Doorhaling.Type>;
     shacl:class skos:Concept;
     shacl:description "Reden waarom de Organisatie is geschrapt."@nl;
     shacl:maxCount "1";
-    shacl:name "doorhalingstype"@nl;
+    shacl:name "type"@nl;
     shacl:path dc:type
   ], [
     a shacl:PropertyShape;
-    rdfs:label "reden";
+    rdfs:label "reden"@nl;
     <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: geen neerlegging van de jaarrekening."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#Doorhaling.Reden>;
     shacl:class skos:Concept;
     shacl:maxCount "1";
     shacl:minCount "1";
-    shacl:name "reden";
-    shacl:path <https://data.vlaanderen.be/ns/organisatie#reden>
+    shacl:name "reden"@nl;
+    shacl:path dc:provenance
   ], [
     a shacl:PropertyShape;
     rdfs:label "tijd"@nl;
@@ -469,10 +470,12 @@
     shacl:path <http://www.w3.org/ns/regorg#orgStatus>
   ], [
     a shacl:PropertyShape;
-    rdfs:label "doorhaling";
+    rdfs:label "doorhaling"@nl;
+    rdfs:comment "De schrapping van een entiteit binnen het KBO."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#Geregistreerdeorganisatie.Doorhaling>;
     shacl:class <https://implementatie.data.vlaanderen.be/ns/organisatie#Doorhaling>;
-    shacl:name "doorhaling";
+    shacl:description "De schrapping van een entiteit binnen het KBO."@nl;
+    shacl:name "doorhaling"@nl;
     shacl:path prov:wasInvalidatedBy
   ], [
     a shacl:PropertyShape;
@@ -657,21 +660,25 @@
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
-    rdfs:label "datumStart";
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#Vestiging.Datumstart>;
+    rdfs:label "datumOprichting"@nl;
+    rdfs:comment "Datum waarop de Vestiging opgericht werd."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#Vestiging.Datumoprichting>;
     shacl:datatype xsd:date;
+    shacl:description "Datum waarop de Vestiging opgericht werd."@nl;
     shacl:maxCount "1";
     shacl:minCount "1";
-    shacl:name "datumStart";
-    shacl:path org:datumStart
+    shacl:name "datumOprichting"@nl;
+    shacl:path dc:created
   ], [
     a shacl:PropertyShape;
-    rdfs:label "datumStopzetting";
+    rdfs:label "datumStopzetting"@nl;
+    rdfs:comment "Datum waarop de vestiging werd stopgezet."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#Vestiging.Datumstopzetting>;
     shacl:datatype xsd:date;
+    shacl:description "Datum waarop de vestiging werd stopgezet."@nl;
     shacl:maxCount "1";
-    shacl:name "datumStopzetting";
-    shacl:path org:datumStopzetting
+    shacl:name "datumStopzetting"@nl;
+    shacl:path schemas:endDate
   ], [
     a shacl:PropertyShape;
     rdfs:label "vestigingsadres"@nl;
@@ -685,19 +692,21 @@
     shacl:path org:siteAddress
   ], [
     a shacl:PropertyShape;
-    rdfs:label "doorhaling";
+    rdfs:label "doorhaling"@nl;
+    rdfs:comment "De schrapping van een entiteit binnen het KBO."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#Vestiging.Doorhaling>;
     shacl:class <https://implementatie.data.vlaanderen.be/ns/organisatie#Doorhaling>;
-    shacl:name "doorhaling";
+    shacl:description "De schrapping van een entiteit binnen het KBO."@nl;
+    shacl:name "doorhaling"@nl;
     shacl:path prov:wasInvalidatedBy
   ], [
     a shacl:PropertyShape;
     rdfs:label "registratie"@nl;
     <http://purl.org/vocab/vann/usageNote> "In de KBO is dit het ondernemingsnummer."@nl;
-    rdfs:comment "Identificator dat de organisatie verkreeg bij registratie."@nl;
+    rdfs:comment "Identificator dat de vestiging verkreeg bij registratie."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v0.0.5#Vestiging.Registratie>;
     shacl:class <http://www.w3.org/ns/adms#Identifier>;
-    shacl:description "Identificator dat de organisatie verkreeg bij registratie."@nl;
+    shacl:description "Identificator dat de vestiging verkreeg bij registratie."@nl;
     shacl:maxCount "1";
     shacl:minCount "1";
     shacl:name "registratie"@nl;

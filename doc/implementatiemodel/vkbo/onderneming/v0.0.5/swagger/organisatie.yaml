@@ -26,7 +26,7 @@
             "type": "array"
           },
           "BelgischAdres.identificator": {
-            "description": "undefined Identificator van het Adres.",
+            "description": "Identificator van het Adres.",
             "properties": {
               "@id": {
                 "format": "uri",
@@ -87,20 +87,6 @@
             "minItems": 1,
             "type": "array"
           },
-          "Doorhaling.doorhalingstype": {
-            "description": "Reden waarom de Organisatie is geschrapt.",
-            "properties": {
-              "@id": {
-                "format": "uri",
-                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Doorhalingstype\\/\\d",
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id"
-            ],
-            "type": "object"
-          },
           "Doorhaling.reden": {
             "description": "undefined Bijvoorbeeld: geen neerlegging van de jaarrekening.",
             "properties": {
@@ -121,6 +107,20 @@
               "@id": {
                 "format": "uri",
                 "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Periode\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "Doorhaling.type": {
+            "description": "Reden waarom de Organisatie is geschrapt.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Doorhalingstype\\/\\d",
                 "type": "string"
               }
             },
@@ -223,7 +223,7 @@
           "GeregistreerdeOrganisatie.doorhaling": {
             "description": "Lijst van Doorhaling items.",
             "items": {
-              "description": "undefined",
+              "description": "De schrapping van een entiteit binnen het KBO.",
               "properties": {
                 "@id": {
                   "format": "uri",
@@ -600,8 +600,8 @@
             "minItems": 1,
             "type": "array"
           },
-          "Vestiging.datumStart": {
-            "description": "undefined",
+          "Vestiging.datumOprichting": {
+            "description": "Datum waarop de Vestiging opgericht werd.",
             "properties": {
               "@type": {
                 "enum": [
@@ -621,7 +621,7 @@
             "type": "object"
           },
           "Vestiging.datumStopzetting": {
-            "description": "undefined",
+            "description": "Datum waarop de vestiging werd stopgezet.",
             "properties": {
               "@type": {
                 "enum": [
@@ -643,7 +643,7 @@
           "Vestiging.doorhaling": {
             "description": "Lijst van Doorhaling items.",
             "items": {
-              "description": "undefined",
+              "description": "De schrapping van een entiteit binnen het KBO.",
               "properties": {
                 "@id": {
                   "format": "uri",
@@ -660,7 +660,7 @@
             "type": "array"
           },
           "Vestiging.registratie": {
-            "description": "Identificator dat de organisatie verkreeg bij registratie. In de KBO is dit het ondernemingsnummer.",
+            "description": "Identificator dat de vestiging verkreeg bij registratie. In de KBO is dit het ondernemingsnummer.",
             "properties": {
               "@id": {
                 "format": "uri",
@@ -706,7 +706,7 @@
           "@context",
           "@id",
           "@type",
-          "Vestiging.datumStart",
+          "Vestiging.datumOprichting",
           "Vestiging.registratie",
           "Vestiging.vestigingVan"
         ],
@@ -803,10 +803,10 @@
             "description": "Doorhaling object gevonden.",
             "links": {
               "DoorhalingstypeGET": {
-                "description": "Het `@id` attribuut van de waarde van `Doorhaling.doorhalingstype` kan gebruikt worden om het gerefereerde object van het type `Doorhalingstype` op te halen.",
+                "description": "Het `@id` attribuut van de waarde van `Doorhaling.type` kan gebruikt worden om het gerefereerde object van het type `Doorhalingstype` op te halen.",
                 "operationId": "DoorhalingstypeGET",
                 "parameters": {
-                  "id": "$response.body#/Doorhaling.doorhalingstype/@id"
+                  "id": "$response.body#/Doorhaling.type/@id"
                 }
               },
               "PeriodeGET": {
