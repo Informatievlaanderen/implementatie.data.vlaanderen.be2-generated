@@ -38,13 +38,28 @@
               "@id"
             ],
             "type": "object"
+          },
+          "BelgischAdres.positie": {
+            "description": "Positie van een karakeristiek punt dat de positie van het adres vertegenwoordigt volgens een bepaalde specificatie en inclusief informatie over de herkomst van de positie. Moet een punt zijn.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/GeografischePositie\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
           }
         },
         "required": [
           "@context",
           "@id",
           "@type",
-          "BelgischAdres.identificator"
+          "BelgischAdres.identificator",
+          "BelgischAdres.positie"
         ],
         "type": "object"
       },
@@ -732,6 +747,13 @@
             },
             "description": "BelgischAdres object gevonden.",
             "links": {
+              "GeografischePositieGET": {
+                "description": "Het `@id` attribuut van de waarde van `BelgischAdres.positie` kan gebruikt worden om het gerefereerde object van het type `GeografischePositie` op te halen.",
+                "operationId": "GeografischePositieGET",
+                "parameters": {
+                  "id": "$response.body#/BelgischAdres.positie/@id"
+                }
+              },
               "IdentificatorGET": {
                 "description": "Het `@id` attribuut van de waarde van `BelgischAdres.identificator` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen.",
                 "operationId": "IdentificatorGET",
