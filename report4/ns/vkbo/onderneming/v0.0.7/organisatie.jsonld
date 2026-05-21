@@ -1,0 +1,3401 @@
+{
+  "@context": {
+    "oslo": "https://implementatie.data.vlaanderen.be/ns/oslo-toolchain#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rec": "http://www.w3.org/2001/02pd/rec54#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "adms": "http://www.w3.org/ns/adms#",
+    "schema": "https://schema.org/",
+    "packages": "@included",
+    "classes": "@included",
+    "datatypes": "@included",
+    "attributes": "@included",
+    "referencedEntities": "@included",
+    "redefinedAttributes": "@included",
+    "subsettedAttributes": "@included",
+    "enumerations": "@included",
+    "abstractClasses": "@included",
+    "rootClasses": "@included",
+    "baseURI": {
+      "@id": "oslo:baseURI",
+      "@type": "@id"
+    },
+    "vocDefinition": {
+      "@id": "oslo:vocDefinition",
+      "@container": "@set"
+    },
+    "apDefinition": {
+      "@id": "oslo:apDefinition",
+      "@container": "@set"
+    },
+    "vocLabel": {
+      "@id": "oslo:vocLabel",
+      "@container": "@set"
+    },
+    "apLabel": {
+      "@id": "oslo:apLabel",
+      "@container": "@set"
+    },
+    "diagramLabel": {
+      "@id": "oslo:diagramLabel"
+    },
+    "scope": {
+      "@id": "oslo:scope",
+      "@type": "@id"
+    },
+    "vocUsageNote": {
+      "@id": "oslo:vocUsageNote",
+      "@container": "@set"
+    },
+    "apUsageNote": {
+      "@id": "oslo:apUsageNote",
+      "@container": "@set"
+    },
+    "domain": {
+      "@id": "rdfs:domain",
+      "@container": "@set"
+    },
+    "range": {
+      "@id": "rdfs:range"
+    },
+    "minCount": {
+      "@id": "sh:minCount"
+    },
+    "maxCount": {
+      "@id": "sh:maxCount"
+    },
+    "parent": {
+      "@id": "rdfs:subClassOf",
+      "@type": "owl:Class"
+    },
+    "generatedAtTime": {
+      "@id": "prov:generatedAtTime"
+    },
+    "Package": "oslo:Package",
+    "Class": {
+      "@id": "owl:Class"
+    },
+    "AbstractClass": {
+      "@id": "oslo:AbstractClass"
+    },
+    "RootClass": {
+      "@id": "oslo:RootClass"
+    },
+    "DatatypeProperty": {
+      "@id": "owl:DatatypeProperty"
+    },
+    "ObjectProperty": {
+      "@id": "owl:ObjectProperty"
+    },
+    "authors": {
+      "@type": "foaf:Person",
+      "@id": "foaf:maker"
+    },
+    "editors": {
+      "@type": "foaf:Person",
+      "@id": "rec:editor"
+    },
+    "contributors": {
+      "@type": "foaf:Person",
+      "@id": "dcterms:contributor"
+    },
+    "affiliation": {
+      "@id": "schema:affiliation"
+    },
+    "assignedURI": {
+      "@id": "oslo:assignedURI",
+      "@type": "@id"
+    },
+    "Datatype": {
+      "@id": "rdfs:Datatype"
+    },
+    "Enumeration": {
+      "@id": "skos:Concept"
+    },
+    "codelist": {
+      "@id": "oslo:codelist",
+      "@type": "@id"
+    },
+    "status": {
+      "@id": "adms:status",
+      "@type": "@id"
+    },
+    "extensions": {
+      "@id": "oslo:extensions",
+      "@container": "@set"
+    },
+    "parentAttribute": {
+      "@id": "oslo:parentAttribute",
+      "@type": "@id"
+    },
+    "childAttribute": {
+      "@id": "oslo:childAttribute",
+      "@type": "@id"
+    }
+  },
+  "@id": "https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming/v0.0.7",
+  "generatedAtTime": "2026-05-21T11:36:47.983Z",
+  "packages": [
+    {
+      "@id": "urn:oslo-toolchain:30e3a52208bb8970e21fbd44b051561829dddb96b86269f2171dc84316ac04c9",
+      "@type": "Package",
+      "assignedURI": "https://data.vlaanderen.be/ns/organisatie",
+      "baseURI": "https://data.vlaanderen.be/ns/organisatie#",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    }
+  ],
+  "classes": [
+    {
+      "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263",
+      "@type": "Class",
+      "assignedURI": "http://www.w3.org/ns/regorg#RegisteredOrganization",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "GeregistreerdeOrganisatie"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "GeregistreerdeOrganisatie"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "In België moeten onder andere volgende Organisaties zich registreren: vennootschap (NV, BV, etc), eenmanszaak, overheidsorgaan, stichting, … Bij registratie krijgt de Organisatie een ondernemingsnummer en worden zijn gegevens ingevoerd in de Kruispuntbank van Ondernemingen (KBO)."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "parent": [
+        {
+          "@id": "urn:oslo-toolchain:1a5d11580fc42d42bf464c4a73a9970b630c125bb102c959b57ef346f7f9e14e"
+        },
+        {
+          "@id": "urn:oslo-toolchain:30cd267a114f5e5ffcc2b721a095bfd65677597b1265558eff8264522941e679"
+        },
+        {
+          "@id": "urn:oslo-toolchain:f4d4156ba67eefb9002e9a692d143bfedf6be8564bd99cf76a99a0bb90e0a67b"
+        }
+      ],
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:ad8cc46e035270088a084c621cca5b959f4a176ac6ad4cd8f91d02a0ac735d43",
+      "@type": "Class",
+      "assignedURI": "http://www.w3.org/ns/org#ChangeEvent",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Veranderingsgebeurtenis"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Veranderingsgebeurtenis"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Gebeurtenis waardoor een Organisatie een belangrijke wijziging ondergaat zoals een fusie of een herstructurering."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Is bedoeld voor situaties waarbij de de resulterende Organisatie zodanig verschilt van de oorspronkelijke dat ze beschouwd kan worden als een nieuwe Organisatie."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:8efe4d2e55ae333e5eea4a43336168a028c18fa467255b54c301a5b0f436a3b9",
+      "@type": "Class",
+      "assignedURI": "http://www.w3.org/ns/org#Site",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Vestiging"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Vestiging"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Een kantoor of ander pand waar een Organisatie gevestigd is. Organisaties kunnen over meerdere Vestigingen verspreid zijn en Vestigingen kunnen op meerdere locaties slaan."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Meestal zal de Vestiging een fysieke locatie zijn. Niet-fysieke locaties worden echter niet uitgesloten, bijvoorbeeld een virtueel kantoor met bijbehorend postnummer en telefonische receptie."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:927f615c93b465ec2d4a2c7a5c970a23a043ea82b35223989a37b54c66cd097d",
+      "@type": "Class",
+      "assignedURI": "https://data.vlaanderen.be/ns/organisatie#Stopzetting",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "Stopzetting"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Stopzetting"
+        }
+      ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Gebeurtenis waarbij een Organisatie is stopgezet."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "parent": [
+        {
+          "@id": "urn:oslo-toolchain:ad8cc46e035270088a084c621cca5b959f4a176ac6ad4cd8f91d02a0ac735d43"
+        }
+      ],
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:2b1d54a5c109cfed716d5857a68d7b8cd04f2183f00d68c3746e5fafbca63d12",
+      "@type": "Class",
+      "assignedURI": "http://data.europa.eu/m8g/FoundationEvent",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Oprichting"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Oprichting"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Gebeurtenis waarbij een Organisatie is opgericht."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "parent": [
+        {
+          "@id": "urn:oslo-toolchain:ad8cc46e035270088a084c621cca5b959f4a176ac6ad4cd8f91d02a0ac735d43"
+        }
+      ],
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:a5a8d09f842d48391b8e0c7e86d21b085ee8d80fa1da911cfc19993c5f198a90",
+      "@type": "Class",
+      "assignedURI": "https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming/Doorhaling",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "Doorhaling"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Doorhaling"
+        }
+      ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Gebeurtenis waarbij een Organisatie is geschrapt in het KBO."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPublicationEnvironment",
+      "parent": [
+        {
+          "@id": "urn:oslo-toolchain:efacad245ea79b62969da0daf0ade5e865d83c070c9882cbbfe3914cb195edbb"
+        }
+      ],
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:c360f6e7a943fff2f650cb85bb3b1641ec92d572f58f34ef25f0c4b7d1a5c215",
+      "@type": "Class",
+      "assignedURI": "https://data.vlaanderen.be/ns/adres#Adres",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "Belgisch Adres"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Adres"
+        }
+      ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Informatie die toelaat om in België op een gestructureerde en unieke manier te verwijzen naar een \"gebouweenheid\", \"gebouw\", een “ligplaats”, een “standplaats” of een “perceel” op basis van de naam van de “gemeente, de “straatnaam” en het “huisnummer” eventueel aangevuld met een “busnummer” en met een “postcode”."
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid,een ligplaats,een standplaats of een perceel op basis van een gemeentenaam,een straatnaam,een huisnummer en eventueel een busnummer en een postcode."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "De definitie heeft betrekking op Belgische adressen. In andere landen kan een adres eventueel verwijzen naar andere geografisch objecten (niet gebouweenheid of perceel) of bestaan uit andere aanduidingen (verschillend van huisnummer en busnummer) of uit andere componenten dan straatnaam, gemeentenaam of postcode. Alternatieve adresaanduidingen dan huisnummer of busnummer (bv ingangaanduiding, trapaanduiding, verdiepaanduiding...) of een gebouwnaam of kamernaam ed zijn mogelijk dmv een associatie met adresuitbreiding. Uitwisseling van buitenlandse adressen moet gebeuren mbv het object adresvoorstelling."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    }
+  ],
+  "attributes": [
+    {
+      "@id": "urn:oslo-toolchain:fd9d96cffc5ac20d6720ae10655589b556b5b2578d2c10f5b6708015a84a9338",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/ns/regorg#legalName",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "wettelijke naam"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "wettelijkeNaam"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Wettelijk geregistreerde naam vd organisatie."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Evt in verschillende talen."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:1727880001"
+      },
+      "minCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:9e39690bb149d34a9728f1b4c1b75b8dec1564ec0ff9d355f47dfeb3077a35e0",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/2004/02/skos/core#notation",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "notatie"
+        }
+      ],
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "identificator"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "identificator"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "String gebruikt om het object uniek te identificeren."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:d283a98068ef27c6f8f21c12a9a48f82a28484ff00a297b39be62f8333bc43ff"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:2049156247"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:1d5827bde74ab568722338a51d210a13494c3bb73555e50d7b577990ded8e7af",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://purl.org/dc/terms/issued",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "uitgegeven"
+        }
+      ],
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "toegekendOp"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "toegekendOp"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Tijdstip waarop de identificator werd uitgegeven."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:d283a98068ef27c6f8f21c12a9a48f82a28484ff00a297b39be62f8333bc43ff"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:474715019"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:9a22a50a665ab9d8bdea28d5b487ad95086746bbaed8635f6827bbaafdeb16cd",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://purl.org/dc/terms/date",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "datum"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "datum"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Datum waarop de Veranderingsgebeurtenis plaatsvond."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Zie Time and date & Recurring and partial dates van <a href=\"https://www.w3.org/TR/rdf11-concepts/#h2_section-Datatypes\"> XSD Datatypes</a>."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:ad8cc46e035270088a084c621cca5b959f4a176ac6ad4cd8f91d02a0ac735d43"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:474715019"
+      },
+      "minCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:0f011509e388c273c5e0904516b57043b486ab0ad6cb40e7ab92b8b8b0e238e7",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "voorkeursnaam"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "^voorkeursnaam"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:1727880001"
+      },
+      "minCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:114c71cc21da4d2403d5a7ca04e9ab9a3d4eed7d6fb4d6a49c5d3825402ef26e",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/2004/02/skos/core#altLabel",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "alternatieveNaam"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "^alternatieveNaam"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Andere naam waaronder de Organisatie bekend is."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Bijvoorbeeld: commerciële naam, informele naam, etc."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:1727880001"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "*",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:42680944cedc7e21703971a6a234cb91e1292c9d1e6777ef9066612ef2bdac6a",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.opengis.net/ont/geosparql#asGML",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "gml"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "gml"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Geometrie uitgedrukt in GML-formaat."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik http://www.opengis.net/ont/geosparql#gmlLiteral als datatype."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:263ecd9d893e50c5ed8ca245bfa5c9af4606ebeb745a6773127191a16341095a"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:2049156247"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:3bd1a7433ee23df19d44c5244b1c120695416a3f47212a2b82b1936433538caf",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.opengis.net/ont/geosparql#asWKT",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "wkt"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "wkt"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Geometrie uitgedrukt in WKT-formaat."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruik http://www.opengis.net/ont/geosparql#wktLiteral als datatype."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:263ecd9d893e50c5ed8ca245bfa5c9af4606ebeb745a6773127191a16341095a"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:2049156247"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:0d288e4cd816d03f23c2a0b38e1f68a1f8c93e8386d011cf8dab0308100abec6",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/ns/locn#adminUnitL1",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "administratieve eenheid niveau 1"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "administratieveEenheidNiveau1"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Hoogste Administratieve eenheid van het adres, doorgaans een land."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:1727880001"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:7cb9d5e69c763037979dda879753e297273ae7d7135c4637d1d3b06fdbf41380",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/ns/locn#adminUnitL2",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "administratieve eenheid niveau 2"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "administratieveEenheidNiveau2"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "De regio van het adres, doorgaans een provincie of deelstaat of gelijkaardig gebied dat typisch meerdere plaatsen omvat."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:1727880001"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:23e762275141498a346dea5c06ef44c8883c1b624460551eb768a4bf70924262",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/ns/locn#addressArea",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "adresgebied"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "adresgebied"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Naam van een geografisch gebied of plaats die een aantal adresseerbare objecten groepeert om deze te adresseren zonder dat het gebied of de plaats een administratieve eenheid is."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Bvb de naam van het gehucht waarin het adres ligt."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:1727880001"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:e50c595df6443c30f83d025bc1411360f72a42e20e5a55084236cd9e09044fda",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "https://data.vlaanderen.be/ns/adres#busnummer",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "busnummer"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "busnummer"
+        }
+      ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben."
+        }
+      ],
+      "vocUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:487667944"
+      },
+      "parent": {
+        "@id": "http://www.w3.org/ns/locn#locatorDesignator"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:9250e1b3b8f81c90e369e8bc52e845ef27c518d95c6489cf9571a86f55774e76",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "https://data.vlaanderen.be/ns/adres#Gemeentenaam",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "gemeentenaam"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "gemeentenaam"
+        }
+      ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Gemeentenaam van het adres."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:1727880001"
+      },
+      "parent": {
+        "@id": "http://www.w3.org/ns/locn#postName"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:e4b0bcb57f41504480b94d740b68fb984cef611e8e8b0bab2a8fb8e5073660f8",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/2000/01/rdf-schema#label",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "huisnummer"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "huisnummer"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:487667944"
+      },
+      "parent": {
+        "@id": "http://www.w3.org/ns/locn#locatorDesignator"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:0317192831cdecda697ae38bbd1512ebe1b7f63b3a880e5ce6cc1646672e9335",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "https://data.vlaanderen.be/ns/adres#land",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "land"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "land"
+        }
+      ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Land waarin het adres gelegen is."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:1727880001"
+      },
+      "parent": {
+        "@id": "http://www.w3.org/ns/locn#adminUnitL1"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:602078a04b1c7a05e1882dbbfd3a3aff980ef3a1cf06f8978088c35cfaf76d11",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/ns/locn#locatorDesignator",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "locatieaanduiding"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "locatieaanduiding"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Alfanumerieke code die de adreslocator uniek identificeert binnen de straat, administratieve eenheid etc."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:487667944"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "*",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:774d03efce61dd38a0396e252fc94ebdb0c18a67f95af545266a90a036eaf88e",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/ns/locn#locatorName",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "locatienaam"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "locatienaam"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Naam of omschrijving van het het geografisch object dat de adreslocator aanduidt."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:1727880001"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "*",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:3e203627895e721b6f623adc894c11dcc3b778af48cfc7b47bedaaac7ff34bb3",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/ns/locn#poBox",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "postbus"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "postbus"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Postbusnummer in een postkantoor."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:487667944"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:e72dcb1029508b5ba2fdd4f0dcce33e93e73893f03fd2dec89b6bf1d4c18f22d",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/ns/locn#postCode",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "postcode"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "postcode"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:487667944"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:d355e05dc0aedac28a1a553044e3ca89780df9187f1322006874cd6b1add38b5",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/ns/locn#postName",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "postnaam"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "postnaam"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Naam waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:1727880001"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:e9bfde1336d6288da88af4d0ab02d74242d28b7fcb98249ab5723075d37ebcb6",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/ns/locn#thoroughfare",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "straatnaam"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "straatnaam"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Straatnaam van het adres."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:1727880001"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:081eee64572a496c46a7c0e4330f10686d8281b2b081cfdf351f286aa091522d",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/ns/locn#fullAddress",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "volledigAdres"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "volledigAdres"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Het complete adres in één string, al dan niet geformatteerd."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Vermijdt fouten ten gevolge van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:1727880001"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:762c8749a0b863902eaa022a330c17659e7025b91376562676e2373593e15357",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://www.w3.org/2006/time#inXSDDate",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "inXSDdatum"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "inXSDDate"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Positie in de tijd uitgedrukt door middel van xsd:date."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:39b3f546caa4d79d43c369e1c79ae01b2480c3d1c25dcd9048fb6d02175c45e7"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:499715870"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:de44d3d17b9d192298ffc92d73d15eb5c442fffaf9a6256cf36efd8b6359050e",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "https://schema.org/email",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "email"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "email"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Email-adres waarnaar men kan mailen."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:07007c84ed11ec5e456c9feb96ee57c6039a44e6f959cfe1e19e0273bb73e303"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:487667944"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:6aa53675f4eabb8e738a9c75195181ee36ac660a324d186cf6ec8a8d69ce60bf",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "https://schema.org/telephone",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "telefoon"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "telefoon"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Telefoonnummer waarop men kan bellen."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:07007c84ed11ec5e456c9feb96ee57c6039a44e6f959cfe1e19e0273bb73e303"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:487667944"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:e6ef6fddb50f6a05d34bece4cd76bed79e5a5f10a5c325d5e7a93e48ffa0492f",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://purl.org/dc/terms/created",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "datumOprichting"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "datumOprichting"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Datum waarop de Vestiging opgericht werd."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:8efe4d2e55ae333e5eea4a43336168a028c18fa467255b54c301a5b0f436a3b9"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:474715019"
+      },
+      "minCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:e7e967fd4b01c74bb33f66ca27f1a4ab31eee3382e7047c784c15fdc2a141e33",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "https://schema.org/endDate",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "datumStopzetting"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "datumStopzetting"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Datum waarop de vestiging werd stopgezet."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:8efe4d2e55ae333e5eea4a43336168a028c18fa467255b54c301a5b0f436a3b9"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:474715019"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:44cb29ffc30607cd3593b51abbd9525025325d8a755300a5603cc909bd68eba0",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "https://data.vlaanderen.be/ns/organisatie#rechtspersoonlijkheid",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "rechtspersoonlijkheid"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "rechtspersoonlijkheid"
+        }
+      ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Geeft aan of de rechtspersoonlijkheid van de GeregistreerdeOrganisatie deze is van een natuurlijk persoon of van een rechtspersoon."
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Aard van de rechtspersoonlijkheid."
+        }
+      ],
+      "vocUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Een rechtspersoon is een juridische constructie die een organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bijvoorbeeld ook schulden hebben, contracten afsluiten, aangeklaagd worden, etc.). Voorbeelden privaatrechterlijke rechtspersonen: vennootschappen, vzw's, etc.; Voorbeelden publiekrechterlijke rechtspersonen: steden, gemeenten etc. Een feitelijke vereniging is in principe geen rechtspersoon maar wordt als ze geregistreerd is in KBO toch als dusdanig geklasseerd."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bvb venootschappen) moeten die van rechtswege toegekend krijgen."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:97d1d61c51ade5f969667d48474359c58da5d0db71c26053e9a8741a9ec3a790"
+      },
+      "parent": {
+        "@id": "http://www.w3.org/ns/regorg#orgType"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "codelist": "https://data.vlaanderen.be/id/conceptscheme/TypeOfEnterprise",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:a1219c2417af486088a11bd9ed471a059db7d9154eae7c63e66feec893230d2b",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "https://data.vlaanderen.be/ns/organisatie#rechtstoestand",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "rechtstoestand"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "rechtstoestand"
+        }
+      ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Rechtstoestand waarin de GeregistreerdeOrganisatie zich bevindt."
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Status van een GeregistreerdeOrganisatie."
+        }
+      ],
+      "vocUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Stemt in de KBO overeen met de rechtstoestand van de Organisatie, bijvoorbeeld normale toestand, gerechtelijk akkoord, opening faillissement etc."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:618dbd647f6f01e3dc0a6c17ec380c6b49d950f287e8236b4ae9558d0432281b"
+      },
+      "parent": {
+        "@id": "http://www.w3.org/ns/regorg#orgStatus"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "codelist": "https://data.vlaanderen.be/id/conceptscheme/JuridicalSituation",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:7c6d126cc34ecf935ba2e943b12dd03a3f4ccd355edd8dfdcf865e1e74a15f65",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "https://data.vlaanderen.be/ns/organisatie#rechtsvorm",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "rechtsvorm"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "rechtsvorm"
+        }
+      ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Juridisch statuut van de geregistreerde organisatie."
+        }
+      ],
+      "vocUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Stemt in de KBO overeen met rechtsvorm, bvb NV, VZW, Stad/Gemeente, OCMW etc."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:865a150807d8b564abfb58355bad18462cdbea169650a80b5ed23b70052c3be3"
+      },
+      "parent": {
+        "@id": "http://www.w3.org/ns/regorg#orgType"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "codelist": "https://data.vlaanderen.be/id/conceptscheme/JuridicalForm",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:198d3aae75ab6c1da4b296174c8d63243b460591dc303f6c6dcf209f79b1839b",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/ns/regorg#registration",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "registratie"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "registratie"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Identificator dat de organisatie verkreeg bij registratie."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "In de KBO is dit het ondernemingsnummer."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:d283a98068ef27c6f8f21c12a9a48f82a28484ff00a297b39be62f8333bc43ff"
+      },
+      "minCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:72107fdf016a1d895be2eba8f12dcc6273a3824a0182bde5ecc7b8d8c0e1a5d9",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://purl.org/dc/terms/creator",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "maker"
+        }
+      ],
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "toegekendDoor"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "toegekendDoor"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Link naar de agent die de identificator heeft uitgegeven."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:d283a98068ef27c6f8f21c12a9a48f82a28484ff00a297b39be62f8333bc43ff"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:efa684849f990ecc6958e6b72d4b19a69647231a0e0679289a2965f695f9a88e"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:361480e48143c63af3ef9ee8c1013816f3073400a2abd8cfba3f7141c73bc45a",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/ns/adms#identifier",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "identificator"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "identificator"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Identificator van het Adres."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:c360f6e7a943fff2f650cb85bb3b1641ec92d572f58f34ef25f0c4b7d1a5c215"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:d283a98068ef27c6f8f21c12a9a48f82a28484ff00a297b39be62f8333bc43ff"
+      },
+      "minCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:ae7806a6493f959ced4cd1911b2b458778a62e75a5c8a6dce5681c9181ecb4b6",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/ns/regorg#orgActivity",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "activiteit"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "^activiteit"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Type activiteit die door de Organisatie wordt uitgeoefend."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Specialisatie van het attribuut classificatie (naast type & status)."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:ce33ec648a87f979a480adf0ae9432094ae55ebc747c4407068be3c8c356887f"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "codelist": "http://vocab.belgif.be/auth/nace2025/",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:6a744ae3176e36f079b22cc80125747fce2e3996e4f3aae086ff0537e750cb51",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "https://schema.org/contactPoint",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "contactinfo"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "^contactinfo"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:07007c84ed11ec5e456c9feb96ee57c6039a44e6f959cfe1e19e0273bb73e303"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "*",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:654a26d3785616cc137deabcc1cf52e95577a7b5aa1ae488df3af731372174cf",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/ns/regorg#orgStatus",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "status"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "^status"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Toestand van de Organisatie."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Specialisatie van classificatie (naast type & activiteit)."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:d9a7ec207eb527cf4d84edf60323ee291e43b256c6f64baf3d01aedf52508aec"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "*",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "codelist": "https://data.vlaanderen.be/id/conceptscheme/EnterpriseStatus",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:4e901cb5c1f6b6cda6892364f8401f8eda76d6f3af476b9e0be7c8504aa041d4",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://purl.org/dc/terms/type",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "type"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "^type"
+        }
+      ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Het soort doorhaling."
+        }
+      ],
+      "vocUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Bijvoorbeeld: doorhaling van het vestigingsadres, van de onderneming, etc."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:a5a8d09f842d48391b8e0c7e86d21b085ee8d80fa1da911cfc19993c5f198a90"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:aa36a7655ee4ed3d51e6d1a7efba4da85b765e444dd3d195a0d08e00f59e80ae"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "codelist": "https://data.vlaanderen.be/id/conceptscheme/TypeOfStrikeOut",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:0ff25f143b2fc4952d7dbdb356f107536eaa376aabd03922801638b1a9789c94",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://purl.org/dc/terms/provenance",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "reden"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "reden"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "De reden van de doorhaling."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Bijvoorbeeld: geen neerlegging van de jaarrekening."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:a5a8d09f842d48391b8e0c7e86d21b085ee8d80fa1da911cfc19993c5f198a90"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:0ab037757b50061d05926881457fc42191d2c9331191c56da99db822e745794f"
+      },
+      "minCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "codelist": "https://data.vlaanderen.be/id/conceptscheme/StrikeOutReason",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:9d4d7fc3eda06a813e9423261c388b8fe956159beb883a4503e881b5213280c2",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "https://data.vlaanderen.be/ns/adres#positie",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "positie"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "positie"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Positie van een karakeristiek punt dat de positie van het adres vertegenwoordigt volgens een bepaalde specificatie en inclusief informatie over de herkomst van de positie."
+        }
+      ],
+      "vocUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Moet een punt zijn."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Moet een punt zijn."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:c360f6e7a943fff2f650cb85bb3b1641ec92d572f58f34ef25f0c4b7d1a5c215"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:39a0907ce6060ecfa67429be0d9e429d2e35ad95d7673b8ed43d92a6c1dbbb25"
+      },
+      "parent": {
+        "@id": "http://www.w3.org/ns/locn#geometry"
+      },
+      "minCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:7ee49278c674f184736f3b17c1ad78b7b37d7dd4be2235401aecd0821f0dadc3",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/ns/prov#wasInvalidatedBy",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "doorhaling"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "doorhaling"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "De schrapping van een entiteit binnen het KBO."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:a5a8d09f842d48391b8e0c7e86d21b085ee8d80fa1da911cfc19993c5f198a90"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "*",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:9ef720eaeadd4e3a975fac3bdcc3352903c03f0f9277ba043db55c74e67ab42f",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/ns/prov#time",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "tijd"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "^tijd"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Refereert naar de periode van tijd waarin de Doorhaling van kracht is."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:a5a8d09f842d48391b8e0c7e86d21b085ee8d80fa1da911cfc19993c5f198a90"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:801183c01ebb834c90cfa2d3b31608697f9960c930091111c696c38e53e86444"
+      },
+      "minCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:f82068c850d415c1522a98eb2d9ace33d398da76101ca66aca4c40990f3808cb",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/ns/org#siteAddress",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "vestigingsadres"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "vestigingsAdres"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Adres van de Vestiging."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Kan email, telefoon en ook adres zijn (in welk geval ook niet-fysieke adressen mogelijk zijn)."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:8efe4d2e55ae333e5eea4a43336168a028c18fa467255b54c301a5b0f436a3b9"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:07007c84ed11ec5e456c9feb96ee57c6039a44e6f959cfe1e19e0273bb73e303"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:379e62b8890f26b318e4be99cb6e5947908c4328a9cce9cba709829a5f45f25c",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/ns/prov#wasInvalidatedBy",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "doorhaling"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "doorhaling"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "De schrapping van een entiteit binnen het KBO."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:8efe4d2e55ae333e5eea4a43336168a028c18fa467255b54c301a5b0f436a3b9"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:a5a8d09f842d48391b8e0c7e86d21b085ee8d80fa1da911cfc19993c5f198a90"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "*",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:b197a3f597fb8fcc6a37f6df50bb3fa2705c4da9a395452d36dd4c654ce8ec66",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "https://data.vlaanderen.be/ns/organisatie#redenStopzetting",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "redenStopzetting"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "redenStopzetting"
+        }
+      ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Reden waarom de Organisatie is stopgezet."
+        }
+      ],
+      "vocUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Bijvoorbeeld pensionering, faillissement, etc."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:927f615c93b465ec2d4a2c7a5c970a23a043ea82b35223989a37b54c66cd097d"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:6f44b2d4df6292ad65ee38f07919f7007331358271efd0ce6a005cc645b652c5"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "codelist": "https://economie.fgov.be/sites/default/files/Files/Entreprises/KBO/KBO-codes-legal.xlsx",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:9fc86c0f6c4d7e14d66d6cc22ecc275efb739325a6b4706a66fdb535a4026891",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/ns/regorg#registration",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "registratie"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "registratie"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Identificator dat de vestiging verkreeg bij registratie."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "In de KBO is dit het ondernemingsnummer."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:8efe4d2e55ae333e5eea4a43336168a028c18fa467255b54c301a5b0f436a3b9"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:d283a98068ef27c6f8f21c12a9a48f82a28484ff00a297b39be62f8333bc43ff"
+      },
+      "minCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:fde99bc915ef9a18c0985488351ffa432f08b7bd8c8c865fa84b521c5310cd94",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/ns/locn#geometry",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "geometrie"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "geometrie"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "De cartografische coöordinaten van het punt."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:39a0907ce6060ecfa67429be0d9e429d2e35ad95d7673b8ed43d92a6c1dbbb25"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:1d00c231f810784cf17ad14c33a0c448243a25fe3f2147dbd03eb63471e3be7e"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:5b782dfde3f73e6246d05439471fe63ac562c010aa72920f61209181107f0e21",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/2006/time#hasEnd",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "tot"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "^tot"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Einde van een TemporeleEntiteit."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:801183c01ebb834c90cfa2d3b31608697f9960c930091111c696c38e53e86444"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:39b3f546caa4d79d43c369e1c79ae01b2480c3d1c25dcd9048fb6d02175c45e7"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:b36fc8eaeb264d201f7539366b257cb958a99f489c6c63fa0f3dae280bd230d3",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/2006/time#hasBeginning",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "van"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "^van"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Start van een TemporeleEntiteit."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:801183c01ebb834c90cfa2d3b31608697f9960c930091111c696c38e53e86444"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:39b3f546caa4d79d43c369e1c79ae01b2480c3d1c25dcd9048fb6d02175c45e7"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:8cd3bf89769aacd82d2046c67a009e9e7872199e77aa5fd0bd4ac500a4292af8",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/ns/locn#address",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "adres"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "adres"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Adres dat men kan aanschrijven of bezoeken."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:07007c84ed11ec5e456c9feb96ee57c6039a44e6f959cfe1e19e0273bb73e303"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:8af1b50aa86b6b4210f12ef2818677221ac0fdc68df737413a089a1d2d606883",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "https://data.vlaanderen.be/ns/adres#verwijstNaar",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "verwijstNaar"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "verwijstNaar"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Adres waarvan de adresvoorstelling is afgeleid."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Dit kan enkel voor Belgische adressen aangezien onder adres een Belgisch adres wordt verstaan."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:c360f6e7a943fff2f650cb85bb3b1641ec92d572f58f34ef25f0c4b7d1a5c215"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:038710791a5ceb5e6fdc7d2bb8cf7ce7d5ef64016715f9906357f8992246e524",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/ns/org#siteOf",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "vestigingVan"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "vestigingVan"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Organisatie waartoe de Vestiging behoort."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:8efe4d2e55ae333e5eea4a43336168a028c18fa467255b54c301a5b0f436a3b9"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263"
+      },
+      "minCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:5fe639e88a96a52832e8f07439d1b87df04df5ccff5a587dd1b4d0a764ba0078",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/ns/org#hasRegisteredSite",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "heeftGeregistreerdeVestiging"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "^heeftGeregistreerdeVestiging"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Verwijst naar de wettelijk geregistreerde Vestiging van de Organisatie. Is voor een FormeleOrganisatie doorgaans verplicht."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "In België verplicht voor een GeregistreerdeOrganisatie en geregistreerd in de KBO."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:8efe4d2e55ae333e5eea4a43336168a028c18fa467255b54c301a5b0f436a3b9"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "*",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:297ed63fc962621f234b01bd90f891bf8a129e56e49eb5039f483b209a2badeb",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/ns/org#changedBy",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "isVeranderdDoor"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "^isVeranderdDoor"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Verwijst naar het Veranderingsmoment dat deze Organisatie heeft veranderd."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Als het Veranderingsmoment bijvoorbeeld een Stopzetting is hield de Organisatie daarna op met bestaan. Merk op dat deze relatie zinloos is als het Veranderingsmoment een Oprichting is (de Organisatie bestond nog niet en kan dus niet veranderd zijn ten gevolge van de Oprichting)."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:ad8cc46e035270088a084c621cca5b959f4a176ac6ad4cd8f91d02a0ac735d43"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "*",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    }
+  ],
+  "datatypes": [
+    {
+      "@id": "urn:oslo-toolchain:1d00c231f810784cf17ad14c33a0c448243a25fe3f2147dbd03eb63471e3be7e",
+      "@type": "Datatype",
+      "assignedURI": "http://www.opengis.net/ont/sf#Point",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "Punt"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Punt"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Een 0-dimensioneel geometrisch object dat een bepaalde locatie in een coördinaatruimte voorstelt. Heeft een x-coördinaat en een y-coördinaat. Kan ook een z-coördinaat (hoogte) en een m-coördinaat (afstand langs een curve) hebben."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "parent": [
+        {
+          "@id": "urn:oslo-toolchain:263ecd9d893e50c5ed8ca245bfa5c9af4606ebeb745a6773127191a16341095a"
+        }
+      ],
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:263ecd9d893e50c5ed8ca245bfa5c9af4606ebeb745a6773127191a16341095a",
+      "@type": "Datatype",
+      "assignedURI": "http://www.w3.org/ns/locn#Geometry",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Geometrie"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Geometrie"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Vorm- en positiekenmerken van een object."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Beschrijft deze kenmerken door middel van punten, lijnen, polygonen en coördinaten."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:39a0907ce6060ecfa67429be0d9e429d2e35ad95d7673b8ed43d92a6c1dbbb25",
+      "@type": "Datatype",
+      "assignedURI": "https://data.vlaanderen.be/ns/generiek#GeografischePositie",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "GeografischePositie"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "GeografischePositie"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Geografische positie aangegeven door middel van een punt."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:d283a98068ef27c6f8f21c12a9a48f82a28484ff00a297b39be62f8333bc43ff",
+      "@type": "Datatype",
+      "assignedURI": "http://www.w3.org/ns/adms#Identifier",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Identificator"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Identificator"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Informatie gebruikt om een object uniek te identificeren."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Uitgangspunt hier is dat deze string door een organisatie wordt toegekend en dat dit gebeurt volgens een welbepaald systeem."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365",
+      "@type": "Datatype",
+      "assignedURI": "http://www.w3.org/ns/locn#Address",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Adresvoorstelling"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Adresvoorstelling"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Meer leesbare voorstelling met enkel de basisgegevens van het adres, bedoeld voor het gebruik van een adres als attribuut van een ander object."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Bijvoorbeeld als attribuut van een persoon of gebouw, ... De adresvoorstelling heeft niet enkel betrekking op Belgische adressen, ze kan gebruikt worden om buitenlandse adressen weer te geven (waar mogelijk andere adresaanduidingen dan huisnummer of busnummer worden gebruikt of waar adrescomponenten zoals adresgebieden voorkomen)."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "parent": [
+        {
+          "@id": "urn:oslo-toolchain:95220e9a69753d8e1ae6ebd7b7eb54b49f5d3eddd8c2ae16e01a1bae54bbb3c1"
+        }
+      ],
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:62d845d5034ffa251aa752c3748579451b12e8d3401d721e6c1e98e198be2fb4",
+      "@type": "Datatype",
+      "assignedURI": "http://www.w3.org/2006/time#TemporalEntity",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "TemporeleEntiteit"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "TemporeleEntiteit"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Abstracte klasse voor temporele objecten."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "TemporeleEntiteiten zijn temporele geometrische primitieven zoals Moment of Periode. Dit datatype is abstract, gebruik één van de subklassen."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:39b3f546caa4d79d43c369e1c79ae01b2480c3d1c25dcd9048fb6d02175c45e7",
+      "@type": "Datatype",
+      "assignedURI": "http://www.w3.org/2006/time#Instant",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Moment"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Moment"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Moment met omvang en duur nul."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "parent": [
+        {
+          "@id": "urn:oslo-toolchain:62d845d5034ffa251aa752c3748579451b12e8d3401d721e6c1e98e198be2fb4"
+        }
+      ],
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:801183c01ebb834c90cfa2d3b31608697f9960c930091111c696c38e53e86444",
+      "@type": "Datatype",
+      "assignedURI": "http://www.w3.org/2006/time#ProperInterval",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Periode"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Periode"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Temporele Entiteit waarvan de omvang en duurtijd verschilt van nul, dit wil zeggen, waarvoor de begin- en eindtijd verschillend zijn."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "parent": [
+        {
+          "@id": "urn:oslo-toolchain:62d845d5034ffa251aa752c3748579451b12e8d3401d721e6c1e98e198be2fb4"
+        }
+      ],
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:07007c84ed11ec5e456c9feb96ee57c6039a44e6f959cfe1e19e0273bb73e303",
+      "@type": "Datatype",
+      "assignedURI": "https://schema.org/ContactPoint",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Contactinfo"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Contactinfo"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Informatie zoals email, telefoon, adres die toelaat om iemand of iets te contacteren."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Bijvoorbeeld: een persoon of organisatie of dienstverlening... Mogelijke vormen van contact: bellen, mailen, etc."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:1727880001",
+      "@type": "Datatype",
+      "assignedURI": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+      "diagramLabel": [
+        {
+          "@value": "LangString"
+        }
+      ],
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:2049156247",
+      "@type": "Datatype",
+      "assignedURI": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "diagramLabel": [
+        {
+          "@value": "Literal"
+        }
+      ],
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:474715019",
+      "@type": "Datatype",
+      "assignedURI": "http://www.w3.org/2001/XMLSchema#date",
+      "diagramLabel": [
+        {
+          "@value": "Date"
+        }
+      ],
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:487667944",
+      "@type": "Datatype",
+      "assignedURI": "http://www.w3.org/2001/XMLSchema#string",
+      "diagramLabel": [
+        {
+          "@value": "String"
+        }
+      ],
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:499715870",
+      "@type": "Datatype",
+      "assignedURI": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "diagramLabel": [
+        {
+          "@value": "DateTime"
+        }
+      ],
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    }
+  ],
+  "referencedEntities": [
+    {
+      "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    {
+      "@id": "urn:oslo-toolchain:1a5d11580fc42d42bf464c4a73a9970b630c125bb102c959b57ef346f7f9e14e",
+      "assignedURI": "http://www.w3.org/ns/org#Organization",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Organisatie"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Organisatie"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:30cd267a114f5e5ffcc2b721a095bfd65677597b1265558eff8264522941e679",
+      "assignedURI": "http://www.w3.org/ns/org#FormalOrganization",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "FormeleOrganisatie"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "FormeleOrganisatie"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Een erkende Organisatie, erkend in brede zin of  meer specifiek in juridische zin met bijbehorende rechten en plichten."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Bijvoorbeeld een bedrijf, een vzw, een overheidsorgaan, een kerkgemeenschap."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:f4d4156ba67eefb9002e9a692d143bfedf6be8564bd99cf76a99a0bb90e0a67b",
+      "assignedURI": "http://xmlns.com/foaf/0.1/Agent",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Agent"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Agent"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Een agent zoals een Persoon, groep, software of fysiek artifact."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Te vervangen door een niet-abstracte klasse."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:56c7f1acdf28d38b6c07d1050d78678e52dfe41db55209053758c6fc89c0b365",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#DataType"
+    },
+    {
+      "@id": "urn:oslo-toolchain:95220e9a69753d8e1ae6ebd7b7eb54b49f5d3eddd8c2ae16e01a1bae54bbb3c1",
+      "assignedURI": "http://www.w3.org/ns/prov#Location",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "Locatie"
+        }
+      ],
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Locatie"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Locatie"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Een locatie kan een identificeerbare geografische locatie zijn (ISO 19112), maar deze locatie kan ook een niet-geografische locatie zijn, zoals een directory, rij of kolom. Als zodanig zijn er talloze manieren waarop locatie kan worden uitgedrukt."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Te gebruiken als de manier waarop de geografische positie wordt aangeduid pas zal worden vastgelegd bij implementatie. Is deze manier nu al gekend dan moet direct gewerkt worden met Geometrie, GeografischeNaam, Adres, etc."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:a5a8d09f842d48391b8e0c7e86d21b085ee8d80fa1da911cfc19993c5f198a90",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    {
+      "@id": "urn:oslo-toolchain:efacad245ea79b62969da0daf0ade5e865d83c070c9882cbbfe3914cb195edbb",
+      "assignedURI": "http://www.w3.org/ns/prov#Activity",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Activiteit"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Activiteit"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Een Activiteit is een gebeurtenis die plaatsvindt over een bepaalde periode en gebeurd door interactie van of met Entiteiten."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Te vervangen door een niet-abstracte klasse."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:97d1d61c51ade5f969667d48474359c58da5d0db71c26053e9a8741a9ec3a790",
+      "assignedURI": "http://www.w3.org/2004/02/skos/core#Concept",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Rechtspersoonlijkheidtype"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Rechtspersoonlijkheidtype"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Aard van de rechtspersoonlijkheid."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bijvoorbeeld venootschappen) moeten die van rechtswege toegekend krijgen."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:618dbd647f6f01e3dc0a6c17ec380c6b49d950f287e8236b4ae9558d0432281b",
+      "assignedURI": "http://www.w3.org/2004/02/skos/core#Concept",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Rechtstoestandtype"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Rechtstoestandtype"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Status van een GeregistreerdeOrganisatie."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Stemt in de KBO overeen met rechtstoestand, bijvoorbeeld normale toestand, gerechtelijk akkoord, opening faillissement, etc."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:865a150807d8b564abfb58355bad18462cdbea169650a80b5ed23b70052c3be3",
+      "assignedURI": "http://www.w3.org/2004/02/skos/core#Concept",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Rechtsvormtype"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Rechtsvormtype"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Juridisch statuut van een GeregistreerdeOrganisatie."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Stemt in de KBO overeen met rechtsvorm, bijvoorbeeld: NV, VZW, Stad/Gemeente, OCMW, etc."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:efa684849f990ecc6958e6b72d4b19a69647231a0e0679289a2965f695f9a88e",
+      "assignedURI": "http://purl.org/dc/terms/Agent",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Agent"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Agent"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Iemand die of iets dat kan handelen of een effect kan teweeg brengen."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Te vervangen door een niet-abstracte klasse."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:ce33ec648a87f979a480adf0ae9432094ae55ebc747c4407068be3c8c356887f",
+      "assignedURI": "http://www.w3.org/2004/02/skos/core#Concept",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Activiteittype"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Activiteittype"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Type activiteit die door een Organisatie wordt uitgeoefend."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:d9a7ec207eb527cf4d84edf60323ee291e43b256c6f64baf3d01aedf52508aec",
+      "assignedURI": "http://www.w3.org/2004/02/skos/core#Concept",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "OrganisatieStatus"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "OrganisatieStatus"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Toestand van een Organisatie."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:aa36a7655ee4ed3d51e6d1a7efba4da85b765e444dd3d195a0d08e00f59e80ae",
+      "assignedURI": "http://www.w3.org/2004/02/skos/core#Concept",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Doorhalingstype"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Doorhalingstype"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Soort van doorhaling van een Organisatie in een register."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Bijvoorbeeld: ambstbehalve, adres."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:0ab037757b50061d05926881457fc42191d2c9331191c56da99db822e745794f",
+      "assignedURI": "http://www.w3.org/2004/02/skos/core#Concept",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "RedenDoorhaling"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "RedenDoorhaling"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Reden van de doorhaling in het register."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Bijvoorbeeld: geen neerlegging van de jaarrekening."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:6f44b2d4df6292ad65ee38f07919f7007331358271efd0ce6a005cc645b652c5",
+      "assignedURI": "http://www.w3.org/2004/02/skos/core#Concept",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "StopzettingType"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "StopzettingType"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Reden waarom een Organisatie is stopgezet."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Bijvoorbeeld: pensionering, faillissement, etc."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    }
+  ],
+  "redefinedAttributes": [],
+  "subsettedAttributes": [
+    {
+      "@id": "urn:oslo-toolchain:0028f25b38c7cb08dc2e1168a439bc5c869c83e653affea8ca7630aa633901fd",
+      "@type": "https://implementatie.data.vlaanderen.be/ns/oslo-toolchain#SubsettedAttribute",
+      "parentAttribute": {
+        "@id": "urn:oslo-toolchain:66fe4faaed7fae90fc63d0f3c4ff4755cdfb5e627c83bcc07f98bbf0d4eaca7f"
+      },
+      "childAttribute": {
+        "@id": "urn:oslo-toolchain:7c6d126cc34ecf935ba2e943b12dd03a3f4ccd355edd8dfdcf865e1e74a15f65"
+      }
+    },
+    {
+      "@id": "urn:oslo-toolchain:bd3cf20a0204771e910ecfabd03cb89a7b39141b820efa0e5675ce92441799b9",
+      "@type": "https://implementatie.data.vlaanderen.be/ns/oslo-toolchain#SubsettedAttribute",
+      "parentAttribute": {
+        "@id": "urn:oslo-toolchain:654a26d3785616cc137deabcc1cf52e95577a7b5aa1ae488df3af731372174cf"
+      },
+      "childAttribute": {
+        "@id": "urn:oslo-toolchain:a1219c2417af486088a11bd9ed471a059db7d9154eae7c63e66feec893230d2b"
+      }
+    },
+    {
+      "@id": "urn:oslo-toolchain:6258253493bcbd79fbea1e87aee069135f868ce2cdb34f24b8bc1ed6f8f2077b",
+      "@type": "https://implementatie.data.vlaanderen.be/ns/oslo-toolchain#SubsettedAttribute",
+      "parentAttribute": {
+        "@id": "urn:oslo-toolchain:66fe4faaed7fae90fc63d0f3c4ff4755cdfb5e627c83bcc07f98bbf0d4eaca7f"
+      },
+      "childAttribute": {
+        "@id": "urn:oslo-toolchain:44cb29ffc30607cd3593b51abbd9525025325d8a755300a5603cc909bd68eba0"
+      }
+    }
+  ],
+  "abstractClasses": [
+    {
+      "@id": "urn:oslo-toolchain:ad8cc46e035270088a084c621cca5b959f4a176ac6ad4cd8f91d02a0ac735d43",
+      "@type": "AbstractClass"
+    }
+  ],
+  "rootClasses": [
+    {
+      "@id": "urn:oslo-toolchain:95720ce982042b7641adcf5dc9f8ac1e7919d33b5ab85f710369d76164bfd263",
+      "@type": "RootClass"
+    },
+    {
+      "@id": "urn:oslo-toolchain:8efe4d2e55ae333e5eea4a43336168a028c18fa467255b54c301a5b0f436a3b9",
+      "@type": "RootClass"
+    }
+  ],
+  "enumerations": []
+}

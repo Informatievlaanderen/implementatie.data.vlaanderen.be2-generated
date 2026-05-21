@@ -31,6 +31,7 @@ error: missing '/tmp/generated/ns/bodem-en-ondergrond/agents//index.html'
 #||# Directory check
 #||# 
 #||# index.html check
+error: missing '/tmp/generated/ns/vkbo/onderneming/v0.0.6/index.html'
 
 #||#    + checking /home/circleci/project/config/production/persoon-magda-im.publication.json
 #||# 
