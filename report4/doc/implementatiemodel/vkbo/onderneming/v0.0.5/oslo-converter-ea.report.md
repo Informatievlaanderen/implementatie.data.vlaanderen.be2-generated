@@ -2,21 +2,21 @@
 
 #||# -------------------------------------
 
-2026-05-21T12:37:33.728Z info: Connector Model:W3C-LOCN:Adresvoorstelling:(Adresvoorstelling -> Adres) is not an association with a source role. Ignoring this connector.
+2026-05-21T13:00:43.685Z info: Connector Model:W3C-LOCN:Adresvoorstelling:(Adresvoorstelling -> Adres) is not an association with a source role. Ignoring this connector.
 
-2026-05-21T12:37:33.731Z info: Connector Model:SF:Punt:(Punt -> Geometrie) is not an association with a source role. Ignoring this connector.
+2026-05-21T13:00:43.688Z info: Connector Model:SF:Punt:(Punt -> Geometrie) is not an association with a source role. Ignoring this connector.
 
-2026-05-21T12:37:33.731Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
+2026-05-21T13:00:43.688Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
 
-2026-05-21T12:37:33.731Z info: Connector Model:OSLO-Organisatie:Stopzetting:(Stopzetting -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
+2026-05-21T13:00:43.689Z info: Connector Model:OSLO-Organisatie:Stopzetting:(Stopzetting -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
 
-2026-05-21T12:37:33.731Z info: Connector Model:W3C-Time:Moment:(Moment -> TemporeleEntiteit) is not an association with a source role. Ignoring this connector.
+2026-05-21T13:00:43.689Z info: Connector Model:W3C-Time:Moment:(Moment -> TemporeleEntiteit) is not an association with a source role. Ignoring this connector.
 
-2026-05-21T12:37:33.731Z info: Connector Model:W3C-Time:Periode:(Periode -> TemporeleEntiteit) is not an association with a source role. Ignoring this connector.
+2026-05-21T13:00:43.689Z info: Connector Model:W3C-Time:Periode:(Periode -> TemporeleEntiteit) is not an association with a source role. Ignoring this connector.
 
-2026-05-21T12:37:33.731Z info: Connector Model:EU-M8G:Oprichting:(Oprichting -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
+2026-05-21T13:00:43.689Z info: Connector Model:EU-M8G:Oprichting:(Oprichting -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
 
-2026-05-21T12:37:33.732Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+2026-05-21T13:00:43.690Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
 #||# -------------------------------------
 
