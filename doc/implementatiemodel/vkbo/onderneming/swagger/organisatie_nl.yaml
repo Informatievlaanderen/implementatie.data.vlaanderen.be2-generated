@@ -1,44 +1,12 @@
 {
   "components": {
     "schemas": {
-      "Activiteittype_NACEBEL2025": {
-        "description": "Type activiteit die door een Organisatie wordt uitgeoefend volgens NACEBEL 2025.",
-        "properties": {
-          "@context": {
-            "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.5/context/organisatie.jsonld"
-            ],
-            "format": "uri",
-            "type": "string"
-          },
-          "@id": {
-            "format": "uri",
-            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Activiteittype_NACEBEL2025\\/\\d",
-            "type": "string"
-          },
-          "@type": {
-            "description": "Lijst van object types (klasse)",
-            "items": {
-              "description": "Activiteittype_NACEBEL2025 type",
-              "type": "string"
-            },
-            "minItems": 1,
-            "type": "array"
-          }
-        },
-        "required": [
-          "@context",
-          "@id",
-          "@type"
-        ],
-        "type": "object"
-      },
       "BelgischAdres": {
         "description": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid,een ligplaats,een standplaats of een perceel op basis van een gemeentenaam,een straatnaam,een huisnummer en eventueel een busnummer en een postcode.",
         "properties": {
           "@context": {
             "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.5/context/organisatie.jsonld"
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.6/context/organisatie.jsonld"
             ],
             "format": "uri",
             "type": "string"
@@ -58,11 +26,25 @@
             "type": "array"
           },
           "BelgischAdres.identificator": {
-            "description": "undefined Identificator van het Adres.",
+            "description": "Identificator van het Adres.",
             "properties": {
               "@id": {
                 "format": "uri",
                 "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Identificator\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
+          },
+          "BelgischAdres.positie": {
+            "description": "Positie van een karakeristiek punt dat de positie van het adres vertegenwoordigt volgens een bepaalde specificatie en inclusief informatie over de herkomst van de positie. Moet een punt zijn.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/GeografischePositie\\/\\d",
                 "type": "string"
               }
             },
@@ -76,7 +58,8 @@
           "@context",
           "@id",
           "@type",
-          "BelgischAdres.identificator"
+          "BelgischAdres.identificator",
+          "BelgischAdres.positie"
         ],
         "type": "object"
       },
@@ -85,7 +68,7 @@
         "properties": {
           "@context": {
             "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.5/context/organisatie.jsonld"
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.6/context/organisatie.jsonld"
             ],
             "format": "uri",
             "type": "string"
@@ -104,22 +87,8 @@
             "minItems": 1,
             "type": "array"
           },
-          "Doorhaling.doorhalingstype": {
-            "description": "Reden waarom de Organisatie is geschrapt.",
-            "properties": {
-              "@id": {
-                "format": "uri",
-                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Doorhalingstype\\/\\d",
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id"
-            ],
-            "type": "object"
-          },
           "Doorhaling.reden": {
-            "description": "undefined Bijvoorbeeld: geen neerlegging van de jaarrekening.",
+            "description": "De reden van de doorhaling. Bijvoorbeeld: geen neerlegging van de jaarrekening.",
             "properties": {
               "@id": {
                 "format": "uri",
@@ -145,6 +114,20 @@
               "@id"
             ],
             "type": "object"
+          },
+          "Doorhaling.type": {
+            "description": "Het soort doorhaling. Bijvoorbeeld: doorhaling van het vestigingsadres, van de onderneming, etc.",
+            "properties": {
+              "@id": {
+                "format": "uri",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Doorhalingstype\\/\\d",
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ],
+            "type": "object"
           }
         },
         "required": [
@@ -156,44 +139,12 @@
         ],
         "type": "object"
       },
-      "Doorhalingstype": {
-        "description": "Soort van doorhaling van een Organisatie in een register.",
-        "properties": {
-          "@context": {
-            "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.5/context/organisatie.jsonld"
-            ],
-            "format": "uri",
-            "type": "string"
-          },
-          "@id": {
-            "format": "uri",
-            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Doorhalingstype\\/\\d",
-            "type": "string"
-          },
-          "@type": {
-            "description": "Lijst van object types (klasse)",
-            "items": {
-              "description": "Doorhalingstype type",
-              "type": "string"
-            },
-            "minItems": 1,
-            "type": "array"
-          }
-        },
-        "required": [
-          "@context",
-          "@id",
-          "@type"
-        ],
-        "type": "object"
-      },
       "GeregistreerdeOrganisatie": {
         "description": "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn.",
         "properties": {
           "@context": {
             "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.5/context/organisatie.jsonld"
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.6/context/organisatie.jsonld"
             ],
             "format": "uri",
             "type": "string"
@@ -213,11 +164,11 @@
             "type": "array"
           },
           "GeregistreerdeOrganisatie.activiteit": {
-            "description": "Type activiteit die door de organisatie wordt uitgeoefend. Specialisatie van het attribuut classificatie (naast type & status).",
+            "description": "Type activiteit die door de Organisatie wordt uitgeoefend. Specialisatie van het attribuut classificatie (naast type & status).",
             "properties": {
               "@id": {
                 "format": "uri",
-                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Activiteittype_NACEBEL2025\\/\\d",
+                "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Activiteittype\\/\\d",
                 "type": "string"
               }
             },
@@ -272,7 +223,7 @@
           "GeregistreerdeOrganisatie.doorhaling": {
             "description": "Lijst van Doorhaling items.",
             "items": {
-              "description": "undefined",
+              "description": "De schrapping van een entiteit binnen het KBO.",
               "properties": {
                 "@id": {
                   "format": "uri",
@@ -455,7 +406,7 @@
         "properties": {
           "@context": {
             "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.5/context/organisatie.jsonld"
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.6/context/organisatie.jsonld"
             ],
             "format": "uri",
             "type": "string"
@@ -504,172 +455,12 @@
         ],
         "type": "object"
       },
-      "OrganisatieStatus": {
-        "description": "Toestand van een Organisatie.",
-        "properties": {
-          "@context": {
-            "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.5/context/organisatie.jsonld"
-            ],
-            "format": "uri",
-            "type": "string"
-          },
-          "@id": {
-            "format": "uri",
-            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/OrganisatieStatus\\/\\d",
-            "type": "string"
-          },
-          "@type": {
-            "description": "Lijst van object types (klasse)",
-            "items": {
-              "description": "OrganisatieStatus type",
-              "type": "string"
-            },
-            "minItems": 1,
-            "type": "array"
-          }
-        },
-        "required": [
-          "@context",
-          "@id",
-          "@type"
-        ],
-        "type": "object"
-      },
-      "Rechtspersoonlijkheidtype": {
-        "description": "Aard van de rechtspersoonlijkheid.",
-        "properties": {
-          "@context": {
-            "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.5/context/organisatie.jsonld"
-            ],
-            "format": "uri",
-            "type": "string"
-          },
-          "@id": {
-            "format": "uri",
-            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Rechtspersoonlijkheidtype\\/\\d",
-            "type": "string"
-          },
-          "@type": {
-            "description": "Lijst van object types (klasse)",
-            "items": {
-              "description": "Rechtspersoonlijkheidtype type",
-              "type": "string"
-            },
-            "minItems": 1,
-            "type": "array"
-          }
-        },
-        "required": [
-          "@context",
-          "@id",
-          "@type"
-        ],
-        "type": "object"
-      },
-      "Rechtstoestandtype": {
-        "description": "Status van een GeregistreerdeOrganisatie.",
-        "properties": {
-          "@context": {
-            "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.5/context/organisatie.jsonld"
-            ],
-            "format": "uri",
-            "type": "string"
-          },
-          "@id": {
-            "format": "uri",
-            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Rechtstoestandtype\\/\\d",
-            "type": "string"
-          },
-          "@type": {
-            "description": "Lijst van object types (klasse)",
-            "items": {
-              "description": "Rechtstoestandtype type",
-              "type": "string"
-            },
-            "minItems": 1,
-            "type": "array"
-          }
-        },
-        "required": [
-          "@context",
-          "@id",
-          "@type"
-        ],
-        "type": "object"
-      },
-      "Rechtsvormtype": {
-        "description": "Juridisch statuut van een GeregistreerdeOrganisatie.",
-        "properties": {
-          "@context": {
-            "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.5/context/organisatie.jsonld"
-            ],
-            "format": "uri",
-            "type": "string"
-          },
-          "@id": {
-            "format": "uri",
-            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/Rechtsvormtype\\/\\d",
-            "type": "string"
-          },
-          "@type": {
-            "description": "Lijst van object types (klasse)",
-            "items": {
-              "description": "Rechtsvormtype type",
-              "type": "string"
-            },
-            "minItems": 1,
-            "type": "array"
-          }
-        },
-        "required": [
-          "@context",
-          "@id",
-          "@type"
-        ],
-        "type": "object"
-      },
-      "RedenDoorhaling": {
-        "description": "Reden van de doorhaling in het register.",
-        "properties": {
-          "@context": {
-            "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.5/context/organisatie.jsonld"
-            ],
-            "format": "uri",
-            "type": "string"
-          },
-          "@id": {
-            "format": "uri",
-            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/RedenDoorhaling\\/\\d",
-            "type": "string"
-          },
-          "@type": {
-            "description": "Lijst van object types (klasse)",
-            "items": {
-              "description": "RedenDoorhaling type",
-              "type": "string"
-            },
-            "minItems": 1,
-            "type": "array"
-          }
-        },
-        "required": [
-          "@context",
-          "@id",
-          "@type"
-        ],
-        "type": "object"
-      },
       "Stopzetting": {
         "description": "Gebeurtenis waarbij een Organisatie is stopgezet.",
         "properties": {
           "@context": {
             "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.5/context/organisatie.jsonld"
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.6/context/organisatie.jsonld"
             ],
             "format": "uri",
             "type": "string"
@@ -732,44 +523,12 @@
         ],
         "type": "object"
       },
-      "StopzettingType": {
-        "description": "Reden waarom een Organisatie is stopgezet.",
-        "properties": {
-          "@context": {
-            "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.5/context/organisatie.jsonld"
-            ],
-            "format": "uri",
-            "type": "string"
-          },
-          "@id": {
-            "format": "uri",
-            "pattern": "^https:\\/\\/implementatie\\.data\\.test-vlaanderen\\.be\\/id\\/StopzettingType\\/\\d",
-            "type": "string"
-          },
-          "@type": {
-            "description": "Lijst van object types (klasse)",
-            "items": {
-              "description": "StopzettingType type",
-              "type": "string"
-            },
-            "minItems": 1,
-            "type": "array"
-          }
-        },
-        "required": [
-          "@context",
-          "@id",
-          "@type"
-        ],
-        "type": "object"
-      },
       "Veranderingsgebeurtenis": {
         "description": "Gebeurtenis waardoor een Organisatie een belangrijke wijziging ondergaat zoals een fusie of een herstructurering.",
         "properties": {
           "@context": {
             "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.5/context/organisatie.jsonld"
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.6/context/organisatie.jsonld"
             ],
             "format": "uri",
             "type": "string"
@@ -822,7 +581,7 @@
         "properties": {
           "@context": {
             "enum": [
-              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.5/context/organisatie.jsonld"
+              "https://implementatie.data.test-vlaanderen.be//doc/implementatiemodel/vkbo/onderneming/v0.0.6/context/organisatie.jsonld"
             ],
             "format": "uri",
             "type": "string"
@@ -841,8 +600,8 @@
             "minItems": 1,
             "type": "array"
           },
-          "Vestiging.datumStart": {
-            "description": "undefined",
+          "Vestiging.datumOprichting": {
+            "description": "Datum waarop de Vestiging opgericht werd.",
             "properties": {
               "@type": {
                 "enum": [
@@ -862,7 +621,7 @@
             "type": "object"
           },
           "Vestiging.datumStopzetting": {
-            "description": "undefined",
+            "description": "Datum waarop de vestiging werd stopgezet.",
             "properties": {
               "@type": {
                 "enum": [
@@ -884,7 +643,7 @@
           "Vestiging.doorhaling": {
             "description": "Lijst van Doorhaling items.",
             "items": {
-              "description": "undefined",
+              "description": "De schrapping van een entiteit binnen het KBO.",
               "properties": {
                 "@id": {
                   "format": "uri",
@@ -901,7 +660,7 @@
             "type": "array"
           },
           "Vestiging.registratie": {
-            "description": "Identificator dat de organisatie verkreeg bij registratie. In de KBO is dit het ondernemingsnummer.",
+            "description": "Identificator dat de vestiging verkreeg bij registratie. In de KBO is dit het ondernemingsnummer.",
             "properties": {
               "@id": {
                 "format": "uri",
@@ -947,7 +706,7 @@
           "@context",
           "@id",
           "@type",
-          "Vestiging.datumStart",
+          "Vestiging.datumOprichting",
           "Vestiging.registratie",
           "Vestiging.vestigingVan"
         ],
@@ -962,46 +721,6 @@
   },
   "openapi": "3.0.4",
   "paths": {
-    "/id/Activiteittype_NACEBEL2025/{id}": {
-      "get": {
-        "description": "Type activiteit die door een Organisatie wordt uitgeoefend volgens NACEBEL 2025.",
-        "operationId": "Activiteittype_NACEBEL2025GET",
-        "parameters": [
-          {
-            "description": "Identificator van een Activiteittype_NACEBEL2025 object.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/ld+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Activiteittype_NACEBEL2025"
-                }
-              }
-            },
-            "description": "Activiteittype_NACEBEL2025 object gevonden.",
-            "links": {}
-          },
-          "400": {
-            "description": "Ontbrekende informatie bij het opvragen een Activiteittype_NACEBEL2025 object."
-          },
-          "404": {
-            "description": "Activiteittype_NACEBEL2025 object met gegeven ID niet gevonden."
-          }
-        },
-        "summary": "Type activiteit die door een Organisatie wordt uitgeoefend volgens NACEBEL 2025.",
-        "tags": [
-          "Externe datastandaarden"
-        ]
-      }
-    },
     "/id/BelgischAdres/{id}": {
       "get": {
         "description": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid,een ligplaats,een standplaats of een perceel op basis van een gemeentenaam,een straatnaam,een huisnummer en eventueel een busnummer en een postcode.",
@@ -1028,6 +747,13 @@
             },
             "description": "BelgischAdres object gevonden.",
             "links": {
+              "GeografischePositieGET": {
+                "description": "Het `@id` attribuut van de waarde van `BelgischAdres.positie` kan gebruikt worden om het gerefereerde object van het type `GeografischePositie` op te halen.",
+                "operationId": "GeografischePositieGET",
+                "parameters": {
+                  "id": "$response.body#/BelgischAdres.positie/@id"
+                }
+              },
               "IdentificatorGET": {
                 "description": "Het `@id` attribuut van de waarde van `BelgischAdres.identificator` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen.",
                 "operationId": "IdentificatorGET",
@@ -1077,10 +803,10 @@
             "description": "Doorhaling object gevonden.",
             "links": {
               "DoorhalingstypeGET": {
-                "description": "Het `@id` attribuut van de waarde van `Doorhaling.doorhalingstype` kan gebruikt worden om het gerefereerde object van het type `Doorhalingstype` op te halen.",
+                "description": "Het `@id` attribuut van de waarde van `Doorhaling.type` kan gebruikt worden om het gerefereerde object van het type `Doorhalingstype` op te halen.",
                 "operationId": "DoorhalingstypeGET",
                 "parameters": {
-                  "id": "$response.body#/Doorhaling.doorhalingstype/@id"
+                  "id": "$response.body#/Doorhaling.type/@id"
                 }
               },
               "PeriodeGET": {
@@ -1112,46 +838,6 @@
         ]
       }
     },
-    "/id/Doorhalingstype/{id}": {
-      "get": {
-        "description": "Soort van doorhaling van een Organisatie in een register.",
-        "operationId": "DoorhalingstypeGET",
-        "parameters": [
-          {
-            "description": "Identificator van een Doorhalingstype object.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/ld+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Doorhalingstype"
-                }
-              }
-            },
-            "description": "Doorhalingstype object gevonden.",
-            "links": {}
-          },
-          "400": {
-            "description": "Ontbrekende informatie bij het opvragen een Doorhalingstype object."
-          },
-          "404": {
-            "description": "Doorhalingstype object met gegeven ID niet gevonden."
-          }
-        },
-        "summary": "Soort van doorhaling van een Organisatie in een register.",
-        "tags": [
-          "Externe datastandaarden"
-        ]
-      }
-    },
     "/id/GeregistreerdeOrganisatie/{id}": {
       "get": {
         "description": "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn.",
@@ -1178,9 +864,9 @@
             },
             "description": "GeregistreerdeOrganisatie object gevonden.",
             "links": {
-              "Activiteittype_NACEBEL2025GET": {
-                "description": "Het `@id` attribuut van de waarde van `GeregistreerdeOrganisatie.activiteit` kan gebruikt worden om het gerefereerde object van het type `Activiteittype_NACEBEL2025` op te halen.",
-                "operationId": "Activiteittype_NACEBEL2025GET",
+              "ActiviteittypeGET": {
+                "description": "Het `@id` attribuut van de waarde van `GeregistreerdeOrganisatie.activiteit` kan gebruikt worden om het gerefereerde object van het type `Activiteittype` op te halen.",
+                "operationId": "ActiviteittypeGET",
                 "parameters": {
                   "id": "$response.body#/GeregistreerdeOrganisatie.activiteit/@id"
                 }
@@ -1303,206 +989,6 @@
         ]
       }
     },
-    "/id/OrganisatieStatus/{id}": {
-      "get": {
-        "description": "Toestand van een Organisatie.",
-        "operationId": "OrganisatieStatusGET",
-        "parameters": [
-          {
-            "description": "Identificator van een OrganisatieStatus object.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/ld+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/OrganisatieStatus"
-                }
-              }
-            },
-            "description": "OrganisatieStatus object gevonden.",
-            "links": {}
-          },
-          "400": {
-            "description": "Ontbrekende informatie bij het opvragen een OrganisatieStatus object."
-          },
-          "404": {
-            "description": "OrganisatieStatus object met gegeven ID niet gevonden."
-          }
-        },
-        "summary": "Toestand van een Organisatie.",
-        "tags": [
-          "Externe datastandaarden"
-        ]
-      }
-    },
-    "/id/Rechtspersoonlijkheidtype/{id}": {
-      "get": {
-        "description": "Aard van de rechtspersoonlijkheid.",
-        "operationId": "RechtspersoonlijkheidtypeGET",
-        "parameters": [
-          {
-            "description": "Identificator van een Rechtspersoonlijkheidtype object.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/ld+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
-                }
-              }
-            },
-            "description": "Rechtspersoonlijkheidtype object gevonden.",
-            "links": {}
-          },
-          "400": {
-            "description": "Ontbrekende informatie bij het opvragen een Rechtspersoonlijkheidtype object."
-          },
-          "404": {
-            "description": "Rechtspersoonlijkheidtype object met gegeven ID niet gevonden."
-          }
-        },
-        "summary": "Aard van de rechtspersoonlijkheid.",
-        "tags": [
-          "Externe datastandaarden"
-        ]
-      }
-    },
-    "/id/Rechtstoestandtype/{id}": {
-      "get": {
-        "description": "Status van een GeregistreerdeOrganisatie.",
-        "operationId": "RechtstoestandtypeGET",
-        "parameters": [
-          {
-            "description": "Identificator van een Rechtstoestandtype object.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/ld+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Rechtstoestandtype"
-                }
-              }
-            },
-            "description": "Rechtstoestandtype object gevonden.",
-            "links": {}
-          },
-          "400": {
-            "description": "Ontbrekende informatie bij het opvragen een Rechtstoestandtype object."
-          },
-          "404": {
-            "description": "Rechtstoestandtype object met gegeven ID niet gevonden."
-          }
-        },
-        "summary": "Status van een GeregistreerdeOrganisatie.",
-        "tags": [
-          "Externe datastandaarden"
-        ]
-      }
-    },
-    "/id/Rechtsvormtype/{id}": {
-      "get": {
-        "description": "Juridisch statuut van een GeregistreerdeOrganisatie.",
-        "operationId": "RechtsvormtypeGET",
-        "parameters": [
-          {
-            "description": "Identificator van een Rechtsvormtype object.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/ld+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Rechtsvormtype"
-                }
-              }
-            },
-            "description": "Rechtsvormtype object gevonden.",
-            "links": {}
-          },
-          "400": {
-            "description": "Ontbrekende informatie bij het opvragen een Rechtsvormtype object."
-          },
-          "404": {
-            "description": "Rechtsvormtype object met gegeven ID niet gevonden."
-          }
-        },
-        "summary": "Juridisch statuut van een GeregistreerdeOrganisatie.",
-        "tags": [
-          "Externe datastandaarden"
-        ]
-      }
-    },
-    "/id/RedenDoorhaling/{id}": {
-      "get": {
-        "description": "Reden van de doorhaling in het register.",
-        "operationId": "RedenDoorhalingGET",
-        "parameters": [
-          {
-            "description": "Identificator van een RedenDoorhaling object.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/ld+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RedenDoorhaling"
-                }
-              }
-            },
-            "description": "RedenDoorhaling object gevonden.",
-            "links": {}
-          },
-          "400": {
-            "description": "Ontbrekende informatie bij het opvragen een RedenDoorhaling object."
-          },
-          "404": {
-            "description": "RedenDoorhaling object met gegeven ID niet gevonden."
-          }
-        },
-        "summary": "Reden van de doorhaling in het register.",
-        "tags": [
-          "Externe datastandaarden"
-        ]
-      }
-    },
     "/id/Stopzetting/{id}": {
       "get": {
         "description": "Gebeurtenis waarbij een Organisatie is stopgezet.",
@@ -1546,46 +1032,6 @@
           }
         },
         "summary": "Gebeurtenis waarbij een Organisatie is stopgezet.",
-        "tags": [
-          "Externe datastandaarden"
-        ]
-      }
-    },
-    "/id/StopzettingType/{id}": {
-      "get": {
-        "description": "Reden waarom een Organisatie is stopgezet.",
-        "operationId": "StopzettingTypeGET",
-        "parameters": [
-          {
-            "description": "Identificator van een StopzettingType object.",
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "content": {
-              "application/ld+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/StopzettingType"
-                }
-              }
-            },
-            "description": "StopzettingType object gevonden.",
-            "links": {}
-          },
-          "400": {
-            "description": "Ontbrekende informatie bij het opvragen een StopzettingType object."
-          },
-          "404": {
-            "description": "StopzettingType object met gegeven ID niet gevonden."
-          }
-        },
-        "summary": "Reden waarom een Organisatie is stopgezet.",
         "tags": [
           "Externe datastandaarden"
         ]

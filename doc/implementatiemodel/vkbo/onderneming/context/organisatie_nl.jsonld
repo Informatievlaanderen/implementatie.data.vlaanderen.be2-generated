@@ -1,6 +1,5 @@
 {
   "@context": {
-    "Activiteittype_NACEBEL2025": "http://www.w3.org/2004/02/skos/core#Concept",
     "Adresvoorstelling": "http://www.w3.org/ns/locn#Address",
     "BelgischAdres": "https://data.vlaanderen.be/ns/adres#Adres",
     "BelgischAdres.identificator": {
@@ -11,7 +10,7 @@
     "Date": "http://www.w3.org/2001/XMLSchema#date",
     "DateTime": "http://www.w3.org/2001/XMLSchema#dateTime",
     "Doorhaling": "https://implementatie.data.vlaanderen.be/ns/organisatie#Doorhaling",
-    "Doorhalingstype": "http://www.w3.org/2004/02/skos/core#Concept",
+    "GeografischePositie": "https://data.vlaanderen.be/ns/generiek#GeografischePositie",
     "Geometrie": "http://www.w3.org/ns/locn#Geometry",
     "GeregistreerdeOrganisatie": "http://www.w3.org/ns/regorg#RegisteredOrganization",
     "Identificator": "http://www.w3.org/ns/adms#Identifier",
@@ -23,15 +22,9 @@
     "Literal": "http://www.w3.org/2000/01/rdf-schema#Literal",
     "Moment": "http://www.w3.org/2006/time#Instant",
     "Oprichting": "http://data.europa.eu/m8g/FoundationEvent",
-    "OrganisatieStatus": "http://www.w3.org/2004/02/skos/core#Concept",
     "Periode": "http://www.w3.org/2006/time#ProperInterval",
     "Punt": "http://www.opengis.net/ont/sf#Point",
-    "Rechtspersoonlijkheidtype": "http://www.w3.org/2004/02/skos/core#Concept",
-    "Rechtstoestandtype": "http://www.w3.org/2004/02/skos/core#Concept",
-    "Rechtsvormtype": "http://www.w3.org/2004/02/skos/core#Concept",
-    "RedenDoorhaling": "http://www.w3.org/2004/02/skos/core#Concept",
     "Stopzetting": "https://data.vlaanderen.be/ns/organisatie#Stopzetting",
-    "StopzettingType": "http://www.w3.org/2004/02/skos/core#Concept",
     "String": "http://www.w3.org/2001/XMLSchema#string",
     "TemporeleEntiteit": "http://www.w3.org/2006/time#TemporalEntity",
     "Veranderingsgebeurtenis": "http://www.w3.org/ns/org#ChangeEvent",
@@ -74,21 +67,17 @@
       "@id": "http://purl.org/dc/terms/date",
       "@type": "http://www.w3.org/2001/XMLSchema#date"
     },
-    "datumStart": {
-      "@id": "http://www.w3.org/ns/org#datumStart",
+    "datumOprichting": {
+      "@id": "http://purl.org/dc/terms/created",
       "@type": "http://www.w3.org/2001/XMLSchema#date"
     },
     "datumStopzetting": {
-      "@id": "http://www.w3.org/ns/org#datumStopzetting",
+      "@id": "https://schema.org/endDate",
       "@type": "http://www.w3.org/2001/XMLSchema#date"
     },
     "doorhaling": {
       "@container": "@set",
       "@id": "http://www.w3.org/ns/prov#wasInvalidatedBy",
-      "@type": "@id"
-    },
-    "doorhalingstype": {
-      "@id": "http://purl.org/dc/terms/type",
       "@type": "@id"
     },
     "email": {
@@ -98,6 +87,10 @@
     "gemeentenaam": {
       "@id": "https://data.vlaanderen.be/ns/adres#Gemeentenaam",
       "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "geometrie": {
+      "@id": "http://www.w3.org/ns/locn#geometry",
+      "@type": "@id"
     },
     "gml": {
       "@id": "http://www.opengis.net/ont/geosparql#asGML",
@@ -135,6 +128,10 @@
       "@id": "http://www.w3.org/ns/locn#locatorName",
       "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
     },
+    "positie": {
+      "@id": "https://data.vlaanderen.be/ns/adres#positie",
+      "@type": "@id"
+    },
     "postbus": {
       "@id": "http://www.w3.org/ns/locn#poBox",
       "@type": "http://www.w3.org/2001/XMLSchema#string"
@@ -160,7 +157,7 @@
       "@type": "@id"
     },
     "reden": {
-      "@id": "https://data.vlaanderen.be/ns/organisatie#reden",
+      "@id": "http://purl.org/dc/terms/provenance",
       "@type": "@id"
     },
     "redenStopzetting": {
@@ -198,6 +195,10 @@
     },
     "tot": {
       "@id": "http://www.w3.org/2006/time#hasEnd",
+      "@type": "@id"
+    },
+    "type": {
+      "@id": "http://purl.org/dc/terms/type",
       "@type": "@id"
     },
     "van": {
