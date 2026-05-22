@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Doorhaling URI is nu correct.
+- Links naar codelijsten in specificatie correct gezet.
+
+### Added
+- Codelijsten bevatten een major versie v1.
 
 ## [0.0.6] - 2026-05-21
 
