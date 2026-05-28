@@ -10,8 +10,12 @@ error: missing '/tmp/generated/ns/vkbo/onderneming/v0.0.6/index.html'
 #||#    + checking /home/circleci/project/config/test/persoon-im.publication.json
 #||# 
 #||# Directory check
+error: missing '/tmp/generated/doc/implementatiemodel/magda/persoon/v0.1.0'
+error: missing '/tmp/generated/ns/magda/persoon/v0.1.0'
 #||# 
 #||# index.html check
+error: missing '/tmp/generated/doc/implementatiemodel/magda/persoon/v0.1.0/index.html'
+error: missing '/tmp/generated/ns/magda/persoon/v0.1.0/index.html'
 
 #||#    + checking /home/circleci/project/config/test/verkeersmetingen-im.publication.json
 #||# 
