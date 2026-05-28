@@ -1,0 +1,58 @@
+{
+  "title": "Huwelijk",
+  "type": "object",
+  "description": "Een door burgerlijk of religieus recht geregelde samenlevingsvorm van twee personen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Huwelijk)",
+      "pattern": "^Huwelijk$"
+    },
+    "plaats": {
+      "$ref": "#/components/schemas/Plaats"
+    },
+    "vanPersoon": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    },
+    "metPersoon": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type",
+    "vanPersoon",
+    "metPersoon"
+  ]
+}
