@@ -1,0 +1,36 @@
+{
+  "title": "VdipEnvelope",
+  "type": "object",
+  "description": "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse VdipEnvelope)",
+      "pattern": "^VdipEnvelope$"
+    },
+    "errors": {
+      "type": "array",
+      "description": "Lijst van Probleemdetail items.",
+      "items": {
+        "$ref": "#/components/schemas/Probleemdetail"
+      },
+      "minItems": 1
+    },
+    "payload": {
+      "$ref": "#/components/schemas/GeregistreerdPersoon"
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/\\/doc\\/implementatiemodel\\/magda\\/persoon\\/v0.0.2\\/context\\/persoon.jsonld$"
+    }
+  },
+  "required": [
+    "@type",
+    "payload"
+  ]
+}

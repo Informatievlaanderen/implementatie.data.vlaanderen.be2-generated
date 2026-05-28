@@ -1,0 +1,71 @@
+{
+  "title": "AdministratieveEenheid",
+  "type": "object",
+  "description": "Bestuurlijke eenheid waar een lidstaat rechtsbevoegdheid heeft en/of uitoefent,in het kader van lokaal,regionaal of nationaal bestuur.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse AdministratieveEenheid)",
+      "pattern": "^AdministratieveEenheid$"
+    },
+    "land": {
+      "type": "object",
+      "description": "Land waartoe de administratieveeenheid behoort.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "niveau": {
+      "$ref": "#/components/schemas/AdministratieveEenheidniveau"
+    },
+    "plaatsnaam": {
+      "type": "object",
+      "description": "Naam van de plaats of van het gebied.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        },
+        "@language": {
+          "type": "string",
+          "pattern": "^nl$"
+        }
+      },
+      "required": [
+        "@value",
+        "@language"
+      ]
+    },
+    "plaats": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Plaats"
+        },
+        {
+          "$ref": "#/components/schemas/AdministratieveEenheid"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Plaats": "#/components/schemas/Plaats",
+          "AdministratieveEenheid": "#/components/schemas/AdministratieveEenheid"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}
