@@ -1,12 +1,26 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "Components of MAGDA Persoon REST API",
-    "description": "Persoondiensten omsloten volgens REST en OSLO.",
-    "version": "0.0.5"
+    "title": "Components of MAGDA geefPersoon REST",
+    "description": "MAGDA OSLO-conforme REST API voor geefPersoon (MVP)",
+    "version": "0.1.1"
   },
   "components": {
     "schemas": {
+      "DomicilieStatus": {
+        "title": "DomicilieStatus",
+        "type": "object",
+        "description": "Enumeratie van DomicilieStatus",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
       "Afstammingstype": {
         "title": "Afstammingstype",
         "type": "object",
@@ -340,6 +354,23 @@
           "gezinsrelatietype": {
             "$ref": "#/components/schemas/Gezinsrelatietype"
           },
+          "vanPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          },
           "metPersoon": {
             "oneOf": [
               {
@@ -360,6 +391,7 @@
         },
         "required": [
           "@type",
+          "vanPersoon",
           "metPersoon"
         ]
       },
@@ -500,6 +532,23 @@
           "plaats": {
             "$ref": "#/components/schemas/Plaats"
           },
+          "vanPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          },
           "metPersoon": {
             "oneOf": [
               {
@@ -520,6 +569,7 @@
         },
         "required": [
           "@type",
+          "vanPersoon",
           "metPersoon"
         ]
       },
@@ -727,7 +777,7 @@
           "@context": {
             "type": "string",
             "description": "URI of the JSON-LD versioned context file for this response.",
-            "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/doc\\/implementatiemodel\\/magda\\/persoon\\/v0.0.5\\/context\\/persoon.jsonld$"
+            "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/\\/doc\\/implementatiemodel\\/magda\\/persoon\\/v0.1.1\\/context\\/persoon.jsonld$"
           }
         },
         "required": [
@@ -748,6 +798,23 @@
             "type": "string",
             "description": "Object type (klasse Inwonerschap)",
             "pattern": "^Inwonerschap$"
+          },
+          "persoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
           },
           "jurisdictie": {
             "$ref": "#/components/schemas/Jurisdictie"
@@ -785,6 +852,7 @@
         },
         "required": [
           "@type",
+          "persoon",
           "jurisdictie"
         ]
       },
@@ -804,6 +872,23 @@
           },
           "plaats": {
             "$ref": "#/components/schemas/Plaats"
+          },
+          "vanPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
           },
           "metPersoon": {
             "oneOf": [
@@ -825,6 +910,7 @@
         },
         "required": [
           "@type",
+          "vanPersoon",
           "metPersoon"
         ]
       },
@@ -855,7 +941,12 @@
             "$ref": "#/components/schemas/RedenAfwezigheid"
           },
           "beheerder": {
-            "$ref": "#/components/schemas/AdministratiefBeheerder"
+            "type": "array",
+            "description": "Lijst van AdministratiefBeheerder items.",
+            "items": {
+              "$ref": "#/components/schemas/AdministratiefBeheerder"
+            },
+            "minItems": 1
           },
           "voornaam": {
             "type": "array",
@@ -996,7 +1087,8 @@
           }
         },
         "required": [
-          "@type"
+          "@type",
+          "registratie"
         ]
       },
       "Domicilie": {
@@ -1015,6 +1107,12 @@
           },
           "verblijfsadres": {
             "$ref": "#/components/schemas/Adresvoorstelling"
+          },
+          "status": {
+            "$ref": "#/components/schemas/DomicilieStatus"
+          },
+          "nietMededeelbaar": {
+            "$ref": "#/components/schemas/NietMededeelbaar"
           }
         },
         "required": [
@@ -1056,6 +1154,23 @@
           "afstammingstype": {
             "$ref": "#/components/schemas/Afstammingstype"
           },
+          "vanPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          },
           "metPersoon": {
             "oneOf": [
               {
@@ -1076,6 +1191,7 @@
         },
         "required": [
           "@type",
+          "vanPersoon",
           "metPersoon"
         ]
       },
@@ -1095,6 +1211,12 @@
           },
           "verblijfsadres": {
             "$ref": "#/components/schemas/Adresvoorstelling"
+          },
+          "status": {
+            "$ref": "#/components/schemas/DomicilieStatus"
+          },
+          "nietMededeelbaar": {
+            "$ref": "#/components/schemas/NietMededeelbaar"
           }
         },
         "required": [
@@ -1305,6 +1427,12 @@
           },
           "verblijfsadres": {
             "$ref": "#/components/schemas/Adresvoorstelling"
+          },
+          "status": {
+            "$ref": "#/components/schemas/DomicilieStatus"
+          },
+          "nietMededeelbaar": {
+            "$ref": "#/components/schemas/NietMededeelbaar"
           }
         },
         "required": [
@@ -1327,6 +1455,12 @@
           },
           "verblijfsadres": {
             "$ref": "#/components/schemas/Adresvoorstelling"
+          },
+          "status": {
+            "$ref": "#/components/schemas/DomicilieStatus"
+          },
+          "nietMededeelbaar": {
+            "$ref": "#/components/schemas/NietMededeelbaar"
           }
         },
         "required": [
@@ -1893,6 +2027,13 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gezinsrelatietype` op te halen."
       },
+      "Gezinsrelatie.vanPersoon": {
+        "operationId": "GezinsrelatieGET",
+        "parameters": {
+          "id": "$response.body#/Gezinsrelatie.vanPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
       "Gezinsrelatie.metPersoon": {
         "operationId": "GezinsrelatieGET",
         "parameters": {
@@ -1927,6 +2068,13 @@
           "id": "$response.body#/Huwelijk.plaats/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen."
+      },
+      "Huwelijk.vanPersoon": {
+        "operationId": "HuwelijkGET",
+        "parameters": {
+          "id": "$response.body#/Huwelijk.vanPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
       },
       "Huwelijk.metPersoon": {
         "operationId": "HuwelijkGET",
@@ -1983,6 +2131,13 @@
           "id": "$response.body#/Samenwonen.plaats/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen."
+      },
+      "Samenwonen.vanPersoon": {
+        "operationId": "SamenwonenGET",
+        "parameters": {
+          "id": "$response.body#/Samenwonen.vanPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
       },
       "Samenwonen.metPersoon": {
         "operationId": "SamenwonenGET",
@@ -2103,12 +2258,33 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen."
       },
+      "Domicilie.status": {
+        "operationId": "DomicilieGET",
+        "parameters": {
+          "id": "$response.body#/Domicilie.status/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `DomicilieStatus` op te halen."
+      },
+      "Domicilie.nietMededeelbaar": {
+        "operationId": "DomicilieGET",
+        "parameters": {
+          "id": "$response.body#/Domicilie.nietMededeelbaar/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `NietMededeelbaar` op te halen."
+      },
       "Afstamming.afstammingstype": {
         "operationId": "AfstammingGET",
         "parameters": {
           "id": "$response.body#/Afstamming.afstammingstype/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Afstammingstype` op te halen."
+      },
+      "Afstamming.vanPersoon": {
+        "operationId": "AfstammingGET",
+        "parameters": {
+          "id": "$response.body#/Afstamming.vanPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
       },
       "Afstamming.metPersoon": {
         "operationId": "AfstammingGET",
@@ -2123,6 +2299,20 @@
           "id": "$response.body#/AangegevenAdres.verblijfsadres/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen."
+      },
+      "AangegevenAdres.status": {
+        "operationId": "AangegevenAdresGET",
+        "parameters": {
+          "id": "$response.body#/AangegevenAdres.status/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `DomicilieStatus` op te halen."
+      },
+      "AangegevenAdres.nietMededeelbaar": {
+        "operationId": "AangegevenAdresGET",
+        "parameters": {
+          "id": "$response.body#/AangegevenAdres.nietMededeelbaar/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `NietMededeelbaar` op te halen."
       },
       "Jurisdictie.plaats": {
         "operationId": "JurisdictieGET",
@@ -2187,12 +2377,40 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen."
       },
+      "Referentieadres.status": {
+        "operationId": "ReferentieadresGET",
+        "parameters": {
+          "id": "$response.body#/Referentieadres.status/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `DomicilieStatus` op te halen."
+      },
+      "Referentieadres.nietMededeelbaar": {
+        "operationId": "ReferentieadresGET",
+        "parameters": {
+          "id": "$response.body#/Referentieadres.nietMededeelbaar/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `NietMededeelbaar` op te halen."
+      },
       "VerblijfplaatsBuitenlandDomicilie.verblijfsadres": {
         "operationId": "VerblijfplaatsBuitenlandDomicilieGET",
         "parameters": {
           "id": "$response.body#/VerblijfplaatsBuitenlandDomicilie.verblijfsadres/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen."
+      },
+      "VerblijfplaatsBuitenlandDomicilie.status": {
+        "operationId": "VerblijfplaatsBuitenlandDomicilieGET",
+        "parameters": {
+          "id": "$response.body#/VerblijfplaatsBuitenlandDomicilie.status/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `DomicilieStatus` op te halen."
+      },
+      "VerblijfplaatsBuitenlandDomicilie.nietMededeelbaar": {
+        "operationId": "VerblijfplaatsBuitenlandDomicilieGET",
+        "parameters": {
+          "id": "$response.body#/VerblijfplaatsBuitenlandDomicilie.nietMededeelbaar/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `NietMededeelbaar` op te halen."
       },
       "VerblijfplaatsBuitenland.verblijfsadres": {
         "operationId": "VerblijfplaatsBuitenlandGET",
