@@ -1,5 +1,13 @@
 #||# checking publication points in directory /home/circleci/project/config/test
 #||# 
+#||#    + checking /home/circleci/project/config/test/landbouwgebruiksperceel-im.publication.json
+#||# 
+#||# Directory check
+error: missing '/tmp/generated/doc/implementatiemodel/lv/landbouwgebruikersperceel'
+#||# 
+#||# index.html check
+error: missing '/tmp/generated/doc/implementatiemodel/lv/landbouwgebruikersperceel/index.html'
+
 #||#    + checking /home/circleci/project/config/test/organisatie-vkbo-im.publication.json
 #||# 
 #||# Directory check
