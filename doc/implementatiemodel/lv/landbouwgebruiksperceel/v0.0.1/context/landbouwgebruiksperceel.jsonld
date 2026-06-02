@@ -1,158 +1,303 @@
 {
   "@context": {
-    "Activiteittype": "http://www.w3.org/2004/02/skos/core#Concept",
-    "Adresvoorstelling": "http://www.w3.org/ns/locn#Address",
-    "Agent": "http://xmlns.com/foaf/0.1/Agent",
-    "Contactpunt": "https://schema.org/ContactPoint",
-    "Exploitatie": "http://todo.com/Exploitatie",
-    "Exploitatiebeslag": "http://todo.com/Explotatiebeslag",
-    "Gebruiksperceel": "http://todo.com/Gebruiksperceel",
-    "Gebruiksperceel.identificator": {
-      "@id": "http://www.w3.org/ns/adms#identifier",
-      "@type": "@id"
+    "Activiteittype": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
-    "GeregistreerdPersoon": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
-    "GeregistreerdPersoon.registratie": {
-      "@id": "https://data.vlaanderen.be/ns/persoon#registratie",
-      "@type": "@id"
+    "Adresvoorstelling": {
+      "@context": {
+        "busnummer": {
+          "@id": "https://data.vlaanderen.be/ns/adres#busnummer",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "gemeentenaam": {
+          "@id": "https://data.vlaanderen.be/ns/adres#Gemeentenaam",
+          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        },
+        "huisnummer": {
+          "@id": "http://www.w3.org/2000/01/rdf-schema#label",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "land": {
+          "@id": "https://data.vlaanderen.be/ns/adres#land",
+          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        },
+        "postbus": {
+          "@id": "http://www.w3.org/ns/locn#poBox",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "postcode": {
+          "@id": "http://www.w3.org/ns/locn#postCode",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "straatnaam": {
+          "@id": "http://www.w3.org/ns/locn#thoroughfare",
+          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        },
+        "volledigAdres": {
+          "@id": "http://www.w3.org/ns/locn#fullAddress",
+          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        }
+      },
+      "@id": "http://www.w3.org/ns/locn#Address"
     },
-    "GeregistreerdeOrganisatie": "http://www.w3.org/ns/regorg#RegisteredOrganization",
-    "GeregistreerdeOrganisatie.registratie": {
-      "@container": "@set",
-      "@id": "http://www.w3.org/ns/regorg#registration",
-      "@type": "@id"
+    "Agent": {
+      "@context": {
+        "exploitatie": {
+          "@container": "@set",
+          "@id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#exploitatie",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#Exploitatie"
+        },
+        "identificator": {
+          "@id": "http://www.w3.org/ns/adms#identifier",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        }
+      },
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
     },
-    "Identificator": "http://www.w3.org/ns/adms#Identifier",
-    "Identificator.identificator": {
-      "@id": "http://www.w3.org/2004/02/skos/core#notation",
-      "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "Contactpunt": {
+      "@context": {
+        "adres": {
+          "@id": "http://www.w3.org/ns/locn#address",
+          "@type": "http://www.w3.org/ns/locn#Address"
+        },
+        "email": {
+          "@id": "https://schema.org/email",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "telefoon": {
+          "@container": "@set",
+          "@id": "https://schema.org/telephone",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      },
+      "@id": "https://schema.org/ContactPoint"
     },
-    "LandbouwActiviteit-V1": "http://www.w3.org/2004/02/skos/core#Concept",
-    "LangString": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
-    "Literal": "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "Organisatie": "http://www.w3.org/ns/org#Organization",
-    "Persoon": "http://www.w3.org/ns/person#Person",
-    "Rechtspersoonlijkheidtype-V1": "http://www.w3.org/2004/02/skos/core#Concept",
-    "Rechtsvormtype-V1": "http://www.w3.org/2004/02/skos/core#Concept",
-    "String": "http://www.w3.org/2001/XMLSchema#string",
-    "achternaam": {
-      "@id": "http://xmlns.com/foaf/0.1/familyName",
-      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    "Exploitatie": {
+      "@context": {
+        "beslag": {
+          "@container": "@set",
+          "@id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#beslag",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#Explotatiebeslag"
+        },
+        "exploitant": {
+          "@id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#exploitant",
+          "@type": "http://xmlns.com/foaf/0.1/Agent"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#Exploitatie"
     },
-    "activiteit": {
-      "@container": "@set",
-      "@id": "http://todo.com/activiteit",
-      "@type": "@id"
+    "Exploitatiebeslag": {
+      "@context": {
+        "perceel": {
+          "@container": "@set",
+          "@id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#perceel",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#Gebruiksperceel"
+        },
+        "uri": {
+          "@id": "http://www.w3.org/ns/prov#time",
+          "@type": "http://todo.com/Periode"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#Explotatiebeslag"
     },
-    "adres": {
-      "@id": "http://www.w3.org/ns/locn#address",
-      "@type": "@id"
+    "Gebruiksperceel": {
+      "@context": {
+        "identificator": {
+          "@id": "http://www.w3.org/ns/adms#identifier",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#Gebruiksperceel"
     },
-    "alternatieveNaam": {
-      "@container": "@set",
-      "@id": "http://purl.org/dc/terms/alternative",
-      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    "GeregistreerdPersoon": {
+      "@context": {
+        "achternaam": {
+          "@id": "http://xmlns.com/foaf/0.1/familyName",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "alternatieveNaam": {
+          "@container": "@set",
+          "@id": "http://purl.org/dc/terms/alternative",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "contactinfo": {
+          "@id": "https://schema.org/contactPoint",
+          "@type": "https://schema.org/ContactPoint"
+        },
+        "exploitatie": {
+          "@container": "@set",
+          "@id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#exploitatie",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#Exploitatie"
+        },
+        "heeftOverlijden": {
+          "@id": "https://data.vlaanderen.be/ns/persoon#heeftOverlijden",
+          "@type": "https://data.vlaanderen.be/ns/persoon#Overlijden"
+        },
+        "identificator": {
+          "@id": "http://www.w3.org/ns/adms#identifier",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        },
+        "registratie": {
+          "@id": "https://data.vlaanderen.be/ns/persoon#registratie",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        },
+        "voornaam": {
+          "@container": "@set",
+          "@id": "http://xmlns.com/foaf/0.1/givenName",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      },
+      "@id": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon"
     },
-    "beslag": {
-      "@container": "@set",
-      "@id": "http://todo.com/beslag",
-      "@type": "@id"
+    "GeregistreerdeOrganisatie": {
+      "@context": {
+        "activiteit": {
+          "@container": "@set",
+          "@id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#activiteit",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "contactinfo": {
+          "@container": "@set",
+          "@id": "https://schema.org/contactPoint",
+          "@type": "https://schema.org/ContactPoint"
+        },
+        "exploitatie": {
+          "@container": "@set",
+          "@id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#exploitatie",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#Exploitatie"
+        },
+        "identificator": {
+          "@id": "http://www.w3.org/ns/adms#identifier",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        },
+        "rechtspersoonlijkheid": {
+          "@id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#rechtspersoonlijkheid",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "rechtsvorm": {
+          "@id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#rechtsvorm",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "registratie": {
+          "@container": "@set",
+          "@id": "http://www.w3.org/ns/regorg#registration",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        },
+        "status": {
+          "@id": "http://www.w3.org/ns/regorg#orgStatus",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "voorkeursnaam": {
+          "@id": "http://www.w3.org/2004/02/skos/core#prefLabel",
+          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        }
+      },
+      "@id": "http://www.w3.org/ns/regorg#RegisteredOrganization"
     },
-    "busnummer": {
-      "@id": "https://data.vlaanderen.be/ns/adres#busnummer",
-      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    "Identificator": {
+      "@context": {
+        "identificator": {
+          "@id": "http://www.w3.org/2004/02/skos/core#notation",
+          "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+        },
+        "toegekendDoor": {
+          "@id": "http://purl.org/dc/terms/creator",
+          "@type": "http://xmlns.com/foaf/0.1/Agent"
+        }
+      },
+      "@id": "http://www.w3.org/ns/adms#Identifier"
     },
-    "contactinfo": {
-      "@id": "https://schema.org/contactPoint",
-      "@type": "@id"
+    "LandbouwActiviteit-V1": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
-    "email": {
-      "@id": "https://schema.org/email",
-      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    "LangString": {
+      "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
     },
-    "exploitant": {
-      "@id": "http://todo.com/exploitant",
-      "@type": "@id"
+    "Literal": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
     },
-    "exploitatie": {
-      "@container": "@set",
-      "@id": "http://todo.com/exploitatie",
-      "@type": "@id"
+    "Organisatie": {
+      "@context": {
+        "activiteit": {
+          "@container": "@set",
+          "@id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#activiteit",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "contactinfo": {
+          "@container": "@set",
+          "@id": "https://schema.org/contactPoint",
+          "@type": "https://schema.org/ContactPoint"
+        },
+        "exploitatie": {
+          "@container": "@set",
+          "@id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#exploitatie",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#Exploitatie"
+        },
+        "identificator": {
+          "@id": "http://www.w3.org/ns/adms#identifier",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        },
+        "status": {
+          "@id": "http://www.w3.org/ns/regorg#orgStatus",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "voorkeursnaam": {
+          "@id": "http://www.w3.org/2004/02/skos/core#prefLabel",
+          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        }
+      },
+      "@id": "http://www.w3.org/ns/org#Organization"
     },
-    "gemeentenaam": {
-      "@id": "https://data.vlaanderen.be/ns/adres#Gemeentenaam",
-      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    "OrganisatieStatus": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
-    "huisnummer": {
-      "@id": "http://www.w3.org/2000/01/rdf-schema#label",
-      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    "Overlijden": {
+      "@id": "https://data.vlaanderen.be/ns/persoon#Overlijden"
     },
-    "identificator": {
-      "@id": "http://www.w3.org/ns/adms#identifier",
-      "@type": "@id"
+    "Persoon": {
+      "@context": {
+        "achternaam": {
+          "@id": "http://xmlns.com/foaf/0.1/familyName",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "alternatieveNaam": {
+          "@container": "@set",
+          "@id": "http://purl.org/dc/terms/alternative",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "contactinfo": {
+          "@id": "https://schema.org/contactPoint",
+          "@type": "https://schema.org/ContactPoint"
+        },
+        "exploitatie": {
+          "@container": "@set",
+          "@id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#exploitatie",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#Exploitatie"
+        },
+        "heeftOverlijden": {
+          "@id": "https://data.vlaanderen.be/ns/persoon#heeftOverlijden",
+          "@type": "https://data.vlaanderen.be/ns/persoon#Overlijden"
+        },
+        "identificator": {
+          "@id": "http://www.w3.org/ns/adms#identifier",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        },
+        "voornaam": {
+          "@container": "@set",
+          "@id": "http://xmlns.com/foaf/0.1/givenName",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      },
+      "@id": "http://www.w3.org/ns/person#Person"
     },
-    "land": {
-      "@id": "https://data.vlaanderen.be/ns/adres#land",
-      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    "Rechtspersoonlijkheidtype-V1": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
-    "overlijdensdatum": {
-      "@id": "http://todo.com/overlijdensdatum",
-      "@type": "@id"
+    "Rechtsvormtype-V1": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
-    "perceel": {
-      "@container": "@set",
-      "@id": "http://todo.com/perceel",
-      "@type": "@id"
-    },
-    "postbus": {
-      "@id": "http://www.w3.org/ns/locn#poBox",
-      "@type": "http://www.w3.org/2001/XMLSchema#string"
-    },
-    "postcode": {
-      "@id": "http://www.w3.org/ns/locn#postCode",
-      "@type": "http://www.w3.org/2001/XMLSchema#string"
-    },
-    "rechtspersoonlijkheid": {
-      "@id": "http://todo.com/rechtspersoonlijkheid",
-      "@type": "@id"
-    },
-    "rechtsvorm": {
-      "@id": "http://todo.com/rechtsvorm",
-      "@type": "@id"
-    },
-    "status": {
-      "@id": "http://www.w3.org/ns/regorg#orgStatus",
-      "@type": "@id"
-    },
-    "straatnaam": {
-      "@id": "http://www.w3.org/ns/locn#thoroughfare",
-      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    },
-    "telefoon": {
-      "@container": "@set",
-      "@id": "https://schema.org/telephone",
-      "@type": "http://www.w3.org/2001/XMLSchema#string"
-    },
-    "toegekendDoor": {
-      "@id": "http://purl.org/dc/terms/creator",
-      "@type": "@id"
-    },
-    "uri": {
-      "@id": "http://www.w3.org/ns/prov#time",
-      "@type": "@id"
-    },
-    "volledigAdres": {
-      "@id": "http://www.w3.org/ns/locn#fullAddress",
-      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    },
-    "voorkeursnaam": {
-      "@id": "http://www.w3.org/2004/02/skos/core#prefLabel",
-      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    },
-    "voornaam": {
-      "@container": "@set",
-      "@id": "http://xmlns.com/foaf/0.1/givenName",
-      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    "String": {
+      "@id": "http://www.w3.org/2001/XMLSchema#string"
     }
   }
 }

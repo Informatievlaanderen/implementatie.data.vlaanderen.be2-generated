@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "OpenAPI",
-    "description": "This",
-    "version": "1.0.0"
+    "title": "MAGDA geefPersoon REST",
+    "description": "MAGDA OSLO-conforme REST API voor geefPersoon (MVP)",
+    "version": "0.1.1"
   },
   "servers": [
     {
@@ -317,15 +317,20 @@
       "OrganisatieStatus": {
         "title": "OrganisatieStatus",
         "type": "object",
-        "description": "Enumeratie van OrganisatieStatus",
+        "description": "Toestand van een Organisatie.",
         "properties": {
           "@id": {
             "type": "string",
             "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse OrganisatieStatus)",
+            "pattern": "^OrganisatieStatus$"
           }
         },
         "required": [
-          "@id"
+          "@type"
         ]
       },
       "Organisatie": {
@@ -477,8 +482,8 @@
           "contactinfo": {
             "$ref": "#/components/schemas/Contactpunt"
           },
-          "overlijdensdatum": {
-            "$ref": "#/components/schemas/DateTime"
+          "heeftOverlijden": {
+            "$ref": "#/components/schemas/Overlijden"
           },
           "identificator": {
             "$ref": "#/components/schemas/Identificator"
@@ -494,7 +499,6 @@
         },
         "required": [
           "@type",
-          "overlijdensdatum",
           "identificator"
         ]
       },
@@ -564,8 +568,8 @@
           "contactinfo": {
             "$ref": "#/components/schemas/Contactpunt"
           },
-          "overlijdensdatum": {
-            "$ref": "#/components/schemas/DateTime"
+          "heeftOverlijden": {
+            "$ref": "#/components/schemas/Overlijden"
           },
           "identificator": {
             "$ref": "#/components/schemas/Identificator"
@@ -582,7 +586,6 @@
         "required": [
           "@type",
           "registratie",
-          "overlijdensdatum",
           "identificator"
         ]
       },
@@ -789,6 +792,25 @@
         "required": [
           "@type",
           "uri"
+        ]
+      },
+      "Overlijden": {
+        "title": "Overlijden",
+        "type": "object",
+        "description": "Het doodgaan van een Persoon.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Overlijden)",
+            "pattern": "^Overlijden$"
+          }
+        },
+        "required": [
+          "@type"
         ]
       },
       "Identificator": {

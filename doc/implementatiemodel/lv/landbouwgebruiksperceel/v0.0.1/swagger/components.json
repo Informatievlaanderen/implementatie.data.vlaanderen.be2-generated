@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "Components of OpenAPI",
-    "description": "This",
-    "version": "1.0.0"
+    "title": "Components of MAGDA geefPersoon REST",
+    "description": "MAGDA OSLO-conforme REST API voor geefPersoon (MVP)",
+    "version": "0.1.1"
   },
   "components": {
     "schemas": {
@@ -100,15 +100,20 @@
       "OrganisatieStatus": {
         "title": "OrganisatieStatus",
         "type": "object",
-        "description": "Enumeratie van OrganisatieStatus",
+        "description": "Toestand van een Organisatie.",
         "properties": {
           "@id": {
             "type": "string",
             "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse OrganisatieStatus)",
+            "pattern": "^OrganisatieStatus$"
           }
         },
         "required": [
-          "@id"
+          "@type"
         ]
       },
       "Organisatie": {
@@ -260,8 +265,8 @@
           "contactinfo": {
             "$ref": "#/components/schemas/Contactpunt"
           },
-          "overlijdensdatum": {
-            "$ref": "#/components/schemas/DateTime"
+          "heeftOverlijden": {
+            "$ref": "#/components/schemas/Overlijden"
           },
           "identificator": {
             "$ref": "#/components/schemas/Identificator"
@@ -277,7 +282,6 @@
         },
         "required": [
           "@type",
-          "overlijdensdatum",
           "identificator"
         ]
       },
@@ -347,8 +351,8 @@
           "contactinfo": {
             "$ref": "#/components/schemas/Contactpunt"
           },
-          "overlijdensdatum": {
-            "$ref": "#/components/schemas/DateTime"
+          "heeftOverlijden": {
+            "$ref": "#/components/schemas/Overlijden"
           },
           "identificator": {
             "$ref": "#/components/schemas/Identificator"
@@ -365,7 +369,6 @@
         "required": [
           "@type",
           "registratie",
-          "overlijdensdatum",
           "identificator"
         ]
       },
@@ -572,6 +575,25 @@
         "required": [
           "@type",
           "uri"
+        ]
+      },
+      "Overlijden": {
+        "title": "Overlijden",
+        "type": "object",
+        "description": "Het doodgaan van een Persoon.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Overlijden)",
+            "pattern": "^Overlijden$"
+          }
+        },
+        "required": [
+          "@type"
         ]
       },
       "Identificator": {
@@ -852,12 +874,12 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactpunt` op te halen."
       },
-      "Persoon.overlijdensdatum": {
+      "Persoon.heeftOverlijden": {
         "operationId": "PersoonGET",
         "parameters": {
-          "id": "$response.body#/Persoon.overlijdensdatum/@id"
+          "id": "$response.body#/Persoon.heeftOverlijden/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `DateTime` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Overlijden` op te halen."
       },
       "Persoon.identificator": {
         "operationId": "PersoonGET",
@@ -887,12 +909,12 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactpunt` op te halen."
       },
-      "GeregistreerdPersoon.overlijdensdatum": {
+      "GeregistreerdPersoon.heeftOverlijden": {
         "operationId": "GeregistreerdPersoonGET",
         "parameters": {
-          "id": "$response.body#/GeregistreerdPersoon.overlijdensdatum/@id"
+          "id": "$response.body#/GeregistreerdPersoon.heeftOverlijden/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `DateTime` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Overlijden` op te halen."
       },
       "GeregistreerdPersoon.identificator": {
         "operationId": "GeregistreerdPersoonGET",
