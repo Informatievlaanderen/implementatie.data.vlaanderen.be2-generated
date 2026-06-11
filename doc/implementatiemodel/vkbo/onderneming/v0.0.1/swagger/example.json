@@ -1,0 +1,3186 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "OpenAPI",
+    "description": "This",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://implementatie.data.test-vlaanderen.be/",
+      "description": "Basis URL"
+    }
+  ],
+  "paths": {
+    "/id/GeregistreerdeOrganisatie/{id}": {
+      "get": {
+        "summary": "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn.",
+        "description": "In België moeten onder andere volgende Organisaties zich registreren: vennootschap (NV, BV, etc), eenmanszaak, overheidsorgaan, stichting, … Bij registratie krijgt de Organisatie een ondernemingsnummer en worden zijn gegevens ingevoerd in de Kruispuntbank van Ondernemingen (KBO).",
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een GeregistreerdeOrganisatie object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "GeregistreerdeOrganisatie object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+                }
+              }
+            },
+            "links": {
+              "GeregistreerdeOrganisatie.rechtspersoonlijkheid": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.rechtspersoonlijkheid/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Rechtspersoonlijkheidtype` op te halen."
+              },
+              "GeregistreerdeOrganisatie.rechtstoestand": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.rechtstoestand/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Rechtstoestandtype` op te halen."
+              },
+              "GeregistreerdeOrganisatie.rechtsvorm": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.rechtsvorm/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Rechtsvormtype` op te halen."
+              },
+              "GeregistreerdeOrganisatie.registratie": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.registratie/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+              },
+              "GeregistreerdeOrganisatie.activiteit": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.activiteit/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `NACEBEL2025` op te halen."
+              },
+              "GeregistreerdeOrganisatie.contactinfo": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.contactinfo/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactpunt` op te halen."
+              },
+              "GeregistreerdeOrganisatie.status": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.status/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `OrganisatieStatus` op te halen."
+              },
+              "GeregistreerdeOrganisatie.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.type/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `OrganisatieType` op te halen."
+              },
+              "GeregistreerdeOrganisatie.isVeranderdDoor": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.isVeranderdDoor/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Veranderingsgebeurtenis` op te halen."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/id/FormeleOrganisatie/{id}": {
+      "get": {
+        "summary": "Een erkende Organisatie, erkend in brede zin of  meer specifiek in juridische zin met bijbehorende rechten en plichten.",
+        "description": "Bijvoorbeeld een bedrijf, een vzw, een overheidsorgaan, een kerkgemeenschap.",
+        "operationId": "FormeleOrganisatieGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een FormeleOrganisatie object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "FormeleOrganisatie object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FormeleOrganisatie"
+                }
+              }
+            },
+            "links": {
+              "FormeleOrganisatie.activiteit": {
+                "operationId": "FormeleOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/FormeleOrganisatie.activiteit/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `NACEBEL2025` op te halen."
+              },
+              "FormeleOrganisatie.contactinfo": {
+                "operationId": "FormeleOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/FormeleOrganisatie.contactinfo/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactpunt` op te halen."
+              },
+              "FormeleOrganisatie.status": {
+                "operationId": "FormeleOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/FormeleOrganisatie.status/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `OrganisatieStatus` op te halen."
+              },
+              "FormeleOrganisatie.type": {
+                "operationId": "FormeleOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/FormeleOrganisatie.type/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `OrganisatieType` op te halen."
+              },
+              "FormeleOrganisatie.isVeranderdDoor": {
+                "operationId": "FormeleOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/FormeleOrganisatie.isVeranderdDoor/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Veranderingsgebeurtenis` op te halen."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FormeleOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FormeleOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FormeleOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FormeleOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FormeleOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FormeleOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FormeleOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FormeleOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FormeleOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/id/Organisatie/{id}": {
+      "get": {
+        "summary": "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur.",
+        "operationId": "OrganisatieGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een Organisatie object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Organisatie object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Organisatie"
+                }
+              }
+            },
+            "links": {
+              "Organisatie.activiteit": {
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/Organisatie.activiteit/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `NACEBEL2025` op te halen."
+              },
+              "Organisatie.contactinfo": {
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/Organisatie.contactinfo/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactpunt` op te halen."
+              },
+              "Organisatie.status": {
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/Organisatie.status/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `OrganisatieStatus` op te halen."
+              },
+              "Organisatie.type": {
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/Organisatie.type/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `OrganisatieType` op te halen."
+              },
+              "Organisatie.isVeranderdDoor": {
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/Organisatie.isVeranderdDoor/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Veranderingsgebeurtenis` op te halen."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/id/Veranderingsgebeurtenis/{id}": {
+      "get": {
+        "summary": "Gebeurtenis waardoor een Organisatie een belangrijke wijziging ondergaat zoals een fusie of een herstructurering.",
+        "description": "Is bedoeld voor situaties waarbij de de resulterende Organisatie zodanig verschilt van de oorspronkelijke dat ze beschouwd kan worden als een nieuwe Organisatie.",
+        "operationId": "VeranderingsgebeurtenisGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een Veranderingsgebeurtenis object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Veranderingsgebeurtenis object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Veranderingsgebeurtenis"
+                }
+              }
+            },
+            "links": {}
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "VeranderingsgebeurtenisGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "VeranderingsgebeurtenisGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "VeranderingsgebeurtenisGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "VeranderingsgebeurtenisGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "VeranderingsgebeurtenisGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "VeranderingsgebeurtenisGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "VeranderingsgebeurtenisGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "VeranderingsgebeurtenisGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "VeranderingsgebeurtenisGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/id/Stopzetting/{id}": {
+      "get": {
+        "summary": "Gebeurtenis waarbij een Organisatie is stopgezet.",
+        "operationId": "StopzettingGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een Stopzetting object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Stopzetting object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Stopzetting"
+                }
+              }
+            },
+            "links": {
+              "Stopzetting.redenStopzetting": {
+                "operationId": "StopzettingGET",
+                "parameters": {
+                  "id": "$response.body#/Stopzetting.redenStopzetting/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `StopzettingType` op te halen."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "StopzettingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "StopzettingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "StopzettingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "StopzettingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "StopzettingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "StopzettingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "StopzettingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "StopzettingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "StopzettingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/id/Plaats/{id}": {
+      "get": {
+        "summary": "Een ruimtelijk gebied of benoemde plaats.",
+        "operationId": "PlaatsGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een Plaats object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Plaats object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Plaats"
+                }
+              }
+            },
+            "links": {
+              "Plaats.geometrie": {
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "id": "$response.body#/Plaats.geometrie/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Geometrie` op te halen."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PlaatsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/id/Oprichting/{id}": {
+      "get": {
+        "summary": "Gebeurtenis waarbij een Organisatie is opgericht.",
+        "operationId": "OprichtingGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een Oprichting object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Oprichting object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Oprichting"
+                }
+              }
+            },
+            "links": {}
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OprichtingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OprichtingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OprichtingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OprichtingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OprichtingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OprichtingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OprichtingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OprichtingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "OprichtingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/id/Afsluiting/{id}": {
+      "get": {
+        "summary": "Gebeurtenis waarbij een Organisatie wordt afgesloten en geen verdere activiteit zal uitvoeren",
+        "description": "Na afsluiting kan er een stopzetting plaatsvinden.",
+        "operationId": "AfsluitingGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een Afsluiting object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Afsluiting object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Afsluiting"
+                }
+              }
+            },
+            "links": {}
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AfsluitingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AfsluitingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AfsluitingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AfsluitingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AfsluitingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AfsluitingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AfsluitingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AfsluitingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AfsluitingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/id/Doorhaling/{id}": {
+      "get": {
+        "summary": "Gebeurtenis waarbij een Organisatie is geschrapt in het KBO.",
+        "operationId": "DoorhalingGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een Doorhaling object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Doorhaling object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Doorhaling"
+                }
+              }
+            },
+            "links": {
+              "Doorhaling.doorhalingstype": {
+                "operationId": "DoorhalingGET",
+                "parameters": {
+                  "id": "$response.body#/Doorhaling.doorhalingstype/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Doorhalingstype` op te halen."
+              },
+              "Doorhaling.redenDoorhaling": {
+                "operationId": "DoorhalingGET",
+                "parameters": {
+                  "id": "$response.body#/Doorhaling.redenDoorhaling/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `RedenDoorhaling` op te halen."
+              },
+              "Doorhaling.tijd": {
+                "operationId": "DoorhalingGET",
+                "parameters": {
+                  "id": "$response.body#/Doorhaling.tijd/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Periode` op te halen."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "DoorhalingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "DoorhalingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "DoorhalingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "DoorhalingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "DoorhalingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "DoorhalingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "DoorhalingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "DoorhalingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "DoorhalingGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Rechtspersoonlijkheidtype": {
+        "title": "Rechtspersoonlijkheidtype",
+        "type": "object",
+        "description": "Enumeratie van Rechtspersoonlijkheidtype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Rechtstoestandtype": {
+        "title": "Rechtstoestandtype",
+        "type": "object",
+        "description": "Enumeratie van Rechtstoestandtype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Rechtsvormtype": {
+        "title": "Rechtsvormtype",
+        "type": "object",
+        "description": "Enumeratie van Rechtsvormtype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "NACEBEL2025": {
+        "title": "NACEBEL2025",
+        "type": "object",
+        "description": "Enumeratie van NACEBEL2025",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "OrganisatieStatus": {
+        "title": "OrganisatieStatus",
+        "type": "object",
+        "description": "Enumeratie van OrganisatieStatus",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "OrganisatieType": {
+        "title": "OrganisatieType",
+        "type": "object",
+        "description": "Enumeratie van OrganisatieType",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Doorhalingstype": {
+        "title": "Doorhalingstype",
+        "type": "object",
+        "description": "Enumeratie van Doorhalingstype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "RedenDoorhaling": {
+        "title": "RedenDoorhaling",
+        "type": "object",
+        "description": "Enumeratie van RedenDoorhaling",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "StopzettingType": {
+        "title": "StopzettingType",
+        "type": "object",
+        "description": "Enumeratie van StopzettingType",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "GeregistreerdeOrganisatie": {
+        "title": "GeregistreerdeOrganisatie",
+        "type": "object",
+        "description": "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse GeregistreerdeOrganisatie)",
+            "pattern": "^GeregistreerdeOrganisatie$"
+          },
+          "wettelijkeNaam": {
+            "type": "object",
+            "description": "Wettelijk geregistreerde naam vd organisatie. Evt in verschillende talen.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "rechtspersoonlijkheid": {
+            "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
+          },
+          "rechtstoestand": {
+            "$ref": "#/components/schemas/Rechtstoestandtype"
+          },
+          "rechtsvorm": {
+            "$ref": "#/components/schemas/Rechtsvormtype"
+          },
+          "registratie": {
+            "$ref": "#/components/schemas/Identificator"
+          },
+          "voorkeursnaam": {
+            "type": "object",
+            "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "alternatieveNaam": {
+            "type": "array",
+            "description": "Lijst van LangString items.",
+            "items": {
+              "type": "object",
+              "description": "Andere naam waaronder de Organisatie bekend is. Bijvoorbeeld: commerciële naam, informele naam, etc.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                },
+                "@language": {
+                  "type": "string",
+                  "pattern": "^nl$"
+                }
+              },
+              "required": [
+                "@value",
+                "@language"
+              ]
+            },
+            "minItems": 1
+          },
+          "activiteit": {
+            "$ref": "#/components/schemas/NACEBEL2025"
+          },
+          "contactinfo": {
+            "type": "array",
+            "description": "Lijst van Contactpunt items.",
+            "items": {
+              "$ref": "#/components/schemas/Contactpunt"
+            },
+            "minItems": 1
+          },
+          "status": {
+            "type": "array",
+            "description": "Lijst van OrganisatieStatus items.",
+            "items": {
+              "$ref": "#/components/schemas/OrganisatieStatus"
+            },
+            "minItems": 1
+          },
+          "type": {
+            "type": "array",
+            "description": "Lijst van OrganisatieType items.",
+            "items": {
+              "$ref": "#/components/schemas/OrganisatieType"
+            },
+            "minItems": 1
+          },
+          "isVeranderdDoor": {
+            "type": "array",
+            "description": "Lijst van Veranderingsgebeurtenis items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Stopzetting"
+                },
+                {
+                  "$ref": "#/components/schemas/Oprichting"
+                },
+                {
+                  "$ref": "#/components/schemas/Afsluiting"
+                },
+                {
+                  "$ref": "#/components/schemas/Doorhaling"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Stopzetting": "#/components/schemas/Stopzetting",
+                  "Oprichting": "#/components/schemas/Oprichting",
+                  "Afsluiting": "#/components/schemas/Afsluiting",
+                  "Doorhaling": "#/components/schemas/Doorhaling"
+                }
+              }
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type",
+          "wettelijkeNaam",
+          "registratie",
+          "voorkeursnaam"
+        ]
+      },
+      "FormeleOrganisatie": {
+        "title": "FormeleOrganisatie",
+        "type": "object",
+        "description": "Een erkende Organisatie, erkend in brede zin of  meer specifiek in juridische zin met bijbehorende rechten en plichten.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse FormeleOrganisatie)",
+            "pattern": "^FormeleOrganisatie$"
+          },
+          "voorkeursnaam": {
+            "type": "object",
+            "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "alternatieveNaam": {
+            "type": "array",
+            "description": "Lijst van LangString items.",
+            "items": {
+              "type": "object",
+              "description": "Andere naam waaronder de Organisatie bekend is. Bijvoorbeeld: commerciële naam, informele naam, etc.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                },
+                "@language": {
+                  "type": "string",
+                  "pattern": "^nl$"
+                }
+              },
+              "required": [
+                "@value",
+                "@language"
+              ]
+            },
+            "minItems": 1
+          },
+          "activiteit": {
+            "$ref": "#/components/schemas/NACEBEL2025"
+          },
+          "contactinfo": {
+            "type": "array",
+            "description": "Lijst van Contactpunt items.",
+            "items": {
+              "$ref": "#/components/schemas/Contactpunt"
+            },
+            "minItems": 1
+          },
+          "status": {
+            "type": "array",
+            "description": "Lijst van OrganisatieStatus items.",
+            "items": {
+              "$ref": "#/components/schemas/OrganisatieStatus"
+            },
+            "minItems": 1
+          },
+          "type": {
+            "type": "array",
+            "description": "Lijst van OrganisatieType items.",
+            "items": {
+              "$ref": "#/components/schemas/OrganisatieType"
+            },
+            "minItems": 1
+          },
+          "isVeranderdDoor": {
+            "type": "array",
+            "description": "Lijst van Veranderingsgebeurtenis items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Stopzetting"
+                },
+                {
+                  "$ref": "#/components/schemas/Oprichting"
+                },
+                {
+                  "$ref": "#/components/schemas/Afsluiting"
+                },
+                {
+                  "$ref": "#/components/schemas/Doorhaling"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Stopzetting": "#/components/schemas/Stopzetting",
+                  "Oprichting": "#/components/schemas/Oprichting",
+                  "Afsluiting": "#/components/schemas/Afsluiting",
+                  "Doorhaling": "#/components/schemas/Doorhaling"
+                }
+              }
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type",
+          "voorkeursnaam"
+        ]
+      },
+      "Organisatie": {
+        "title": "Organisatie",
+        "type": "object",
+        "description": "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Organisatie)",
+            "pattern": "^Organisatie$"
+          },
+          "voorkeursnaam": {
+            "type": "object",
+            "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "alternatieveNaam": {
+            "type": "array",
+            "description": "Lijst van LangString items.",
+            "items": {
+              "type": "object",
+              "description": "Andere naam waaronder de Organisatie bekend is. Bijvoorbeeld: commerciële naam, informele naam, etc.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                },
+                "@language": {
+                  "type": "string",
+                  "pattern": "^nl$"
+                }
+              },
+              "required": [
+                "@value",
+                "@language"
+              ]
+            },
+            "minItems": 1
+          },
+          "activiteit": {
+            "$ref": "#/components/schemas/NACEBEL2025"
+          },
+          "contactinfo": {
+            "type": "array",
+            "description": "Lijst van Contactpunt items.",
+            "items": {
+              "$ref": "#/components/schemas/Contactpunt"
+            },
+            "minItems": 1
+          },
+          "status": {
+            "type": "array",
+            "description": "Lijst van OrganisatieStatus items.",
+            "items": {
+              "$ref": "#/components/schemas/OrganisatieStatus"
+            },
+            "minItems": 1
+          },
+          "type": {
+            "type": "array",
+            "description": "Lijst van OrganisatieType items.",
+            "items": {
+              "$ref": "#/components/schemas/OrganisatieType"
+            },
+            "minItems": 1
+          },
+          "isVeranderdDoor": {
+            "type": "array",
+            "description": "Lijst van Veranderingsgebeurtenis items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Stopzetting"
+                },
+                {
+                  "$ref": "#/components/schemas/Oprichting"
+                },
+                {
+                  "$ref": "#/components/schemas/Afsluiting"
+                },
+                {
+                  "$ref": "#/components/schemas/Doorhaling"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Stopzetting": "#/components/schemas/Stopzetting",
+                  "Oprichting": "#/components/schemas/Oprichting",
+                  "Afsluiting": "#/components/schemas/Afsluiting",
+                  "Doorhaling": "#/components/schemas/Doorhaling"
+                }
+              }
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type",
+          "voorkeursnaam"
+        ]
+      },
+      "Stopzetting": {
+        "title": "Stopzetting",
+        "type": "object",
+        "description": "Gebeurtenis waarbij een Organisatie is stopgezet.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Stopzetting)",
+            "pattern": "^Stopzetting$"
+          },
+          "redenStopzetting": {
+            "$ref": "#/components/schemas/StopzettingType"
+          },
+          "datum": {
+            "type": "object",
+            "description": "Datum waarop de Veranderingsgebeurtenis plaatsvond. Zie Time and date & Recurring and partial dates van <a href=\"https://www.w3.org/TR/rdf11-concepts/#h2_section-Datatypes\"> XSD Datatypes</a>.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "datum"
+        ]
+      },
+      "Plaats": {
+        "title": "Plaats",
+        "type": "object",
+        "description": "Een ruimtelijk gebied of benoemde plaats.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Plaats)",
+            "pattern": "^Plaats$"
+          },
+          "geometrie": {
+            "$ref": "#/components/schemas/Geometrie"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Oprichting": {
+        "title": "Oprichting",
+        "type": "object",
+        "description": "Gebeurtenis waarbij een Organisatie is opgericht.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Oprichting)",
+            "pattern": "^Oprichting$"
+          },
+          "datum": {
+            "type": "object",
+            "description": "Datum waarop de Veranderingsgebeurtenis plaatsvond. Zie Time and date & Recurring and partial dates van <a href=\"https://www.w3.org/TR/rdf11-concepts/#h2_section-Datatypes\"> XSD Datatypes</a>.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "datum"
+        ]
+      },
+      "Afsluiting": {
+        "title": "Afsluiting",
+        "type": "object",
+        "description": "Gebeurtenis waarbij een Organisatie wordt afgesloten en geen verdere activiteit zal uitvoeren",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Afsluiting)",
+            "pattern": "^Afsluiting$"
+          },
+          "datum": {
+            "type": "object",
+            "description": "Datum waarop de Veranderingsgebeurtenis plaatsvond. Zie Time and date & Recurring and partial dates van <a href=\"https://www.w3.org/TR/rdf11-concepts/#h2_section-Datatypes\"> XSD Datatypes</a>.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "datum"
+        ]
+      },
+      "Doorhaling": {
+        "title": "Doorhaling",
+        "type": "object",
+        "description": "Gebeurtenis waarbij een Organisatie is geschrapt in het KBO.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Doorhaling)",
+            "pattern": "^Doorhaling$"
+          },
+          "doorhalingstype": {
+            "$ref": "#/components/schemas/Doorhalingstype"
+          },
+          "redenDoorhaling": {
+            "$ref": "#/components/schemas/RedenDoorhaling"
+          },
+          "tijd": {
+            "$ref": "#/components/schemas/Periode"
+          },
+          "datum": {
+            "type": "object",
+            "description": "Datum waarop de Veranderingsgebeurtenis plaatsvond. Zie Time and date & Recurring and partial dates van <a href=\"https://www.w3.org/TR/rdf11-concepts/#h2_section-Datatypes\"> XSD Datatypes</a>.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "redenDoorhaling",
+          "tijd",
+          "datum"
+        ]
+      },
+      "Locatie": {
+        "title": "Locatie",
+        "type": "object",
+        "description": "Een locatie kan een identificeerbare geografische locatie zijn (ISO 19112), maar deze locatie kan ook een niet-geografische locatie zijn, zoals een directory, rij of kolom. Als zodanig zijn er talloze manieren waarop locatie kan worden uitgedrukt.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Locatie)",
+            "pattern": "^Locatie$"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Identificator": {
+        "title": "Identificator",
+        "type": "object",
+        "description": "Informatie gebruikt om een object uniek te identificeren.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Identificator)",
+            "pattern": "^Identificator$"
+          },
+          "identificator": {
+            "type": "object",
+            "description": "String gebruikt om het object uniek te identificeren. Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "toegekendOp": {
+            "type": "object",
+            "description": "Tijdstip waarop de identificator werd uitgegeven.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "toegekendDoor": {
+            "$ref": "#/components/schemas/Agent"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Geometrie": {
+        "title": "Geometrie",
+        "type": "object",
+        "description": "Vorm- en positiekenmerken van een object.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Geometrie)",
+            "pattern": "^Geometrie$"
+          },
+          "gml": {
+            "type": "object",
+            "description": "Geometrie uitgedrukt in GML-formaat. Gebruik http://www.opengis.net/ont/geosparql#gmlLiteral als datatype.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "wkt": {
+            "type": "object",
+            "description": "Geometrie uitgedrukt in WKT-formaat. Gebruik http://www.opengis.net/ont/geosparql#wktLiteral als datatype.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Adresvoorstelling": {
+        "title": "Adresvoorstelling",
+        "type": "object",
+        "description": "Meer leesbare voorstelling met enkel de basisgegevens van het adres, bedoeld voor het gebruik van een adres als attribuut van een ander object.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Adresvoorstelling)",
+            "pattern": "^Adresvoorstelling$"
+          },
+          "administratieveEenheidNiveau1": {
+            "type": "object",
+            "description": "Hoogste Administratieve eenheid van het adres, doorgaans een land.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "administratieveEenheidNiveau2": {
+            "type": "object",
+            "description": "De regio van het adres, doorgaans een provincie of deelstaat of gelijkaardig gebied dat typisch meerdere plaatsen omvat.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "adresgebied": {
+            "type": "object",
+            "description": "Naam van een geografisch gebied of plaats die een aantal adresseerbare objecten groepeert om deze te adresseren zonder dat het gebied of de plaats een administratieve eenheid is. Bvb de naam van het gehucht waarin het adres ligt.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "busnummer": {
+            "type": "object",
+            "description": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben. Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "gemeentenaam": {
+            "type": "object",
+            "description": "Gemeentenaam van het adres.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "huisnummer": {
+            "type": "object",
+            "description": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen. Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "land": {
+            "type": "object",
+            "description": "Land waarin het adres gelegen is.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "locatieaanduiding": {
+            "type": "array",
+            "description": "Lijst van String items.",
+            "items": {
+              "type": "object",
+              "description": "Alfanumerieke code die de adreslocator uniek identificeert binnen de straat, administratieve eenheid etc.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@value"
+              ]
+            },
+            "minItems": 1
+          },
+          "locatienaam": {
+            "type": "array",
+            "description": "Lijst van LangString items.",
+            "items": {
+              "type": "object",
+              "description": "Naam of omschrijving van het het geografisch object dat de adreslocator aanduidt.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                },
+                "@language": {
+                  "type": "string",
+                  "pattern": "^nl$"
+                }
+              },
+              "required": [
+                "@value",
+                "@language"
+              ]
+            },
+            "minItems": 1
+          },
+          "postbus": {
+            "type": "object",
+            "description": "Postbusnummer in een postkantoor.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "postcode": {
+            "type": "object",
+            "description": "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "postnaam": {
+            "type": "object",
+            "description": "Naam waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "straatnaam": {
+            "type": "object",
+            "description": "Straatnaam van het adres.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "volledigAdres": {
+            "type": "object",
+            "description": "Het complete adres in één string, al dan niet geformatteerd. Vermijdt fouten ten gevolge van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Moment": {
+        "title": "Moment",
+        "type": "object",
+        "description": "Moment met omvang en duur nul.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Moment)",
+            "pattern": "^Moment$"
+          },
+          "inXSDdatum": {
+            "type": "object",
+            "description": "Positie in de tijd uitgedrukt door middel van xsd:date.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^DateTime$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Contactpunt": {
+        "title": "Contactpunt",
+        "type": "object",
+        "description": "Informatie zoals email, telefoon, adres die toelaat om iemand of iets te contacteren.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Contactpunt)",
+            "pattern": "^Contactpunt$"
+          },
+          "email": {
+            "type": "object",
+            "description": "Email-adres waarnaar men kan mailen.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "telefoon": {
+            "type": "object",
+            "description": "Telefoonnummer waarop men kan bellen.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "plaats": {
+            "$ref": "#/components/schemas/Plaats"
+          },
+          "adres": {
+            "$ref": "#/components/schemas/Adresvoorstelling"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Periode": {
+        "title": "Periode",
+        "type": "object",
+        "description": "Temporele Entiteit waarvan de omvang en duurtijd verschilt van nul, dit wil zeggen, waarvoor de begin- en eindtijd verschillend zijn.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Periode)",
+            "pattern": "^Periode$"
+          },
+          "tot": {
+            "$ref": "#/components/schemas/Moment"
+          },
+          "van": {
+            "$ref": "#/components/schemas/Moment"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "TemporeleEntiteit": {
+        "title": "TemporeleEntiteit",
+        "type": "object",
+        "description": "Abstracte klasse voor temporele objecten.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse TemporeleEntiteit)",
+            "pattern": "^TemporeleEntiteit$"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      }
+    }
+  }
+}

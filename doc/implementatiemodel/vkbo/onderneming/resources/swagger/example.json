@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "OpenAPI Swagger publication",
-    "description": "This is a inspirational OpenAPI Swagger publication",
+    "title": "OpenAPI",
+    "description": "This",
     "version": "1.0.0"
   },
   "servers": [
@@ -39,6 +39,20 @@
               }
             },
             "links": {
+              "GeregistreerdeOrganisatie.omvang": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.omvang/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `RSZ/NNSO-Personeelsklasse` op te halen."
+              },
+              "GeregistreerdeOrganisatie.isBeïNvloedDoor": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.isBeïNvloedDoor/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Doorhaling` op te halen."
+              },
               "GeregistreerdeOrganisatie.rechtspersoonlijkheid": {
                 "operationId": "GeregistreerdeOrganisatieGET",
                 "parameters": {
@@ -87,13 +101,6 @@
                   "id": "$response.body#/GeregistreerdeOrganisatie.status/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `OrganisatieStatus` op te halen."
-              },
-              "GeregistreerdeOrganisatie.doorhaling": {
-                "operationId": "GeregistreerdeOrganisatieGET",
-                "parameters": {
-                  "id": "$response.body#/GeregistreerdeOrganisatie.doorhaling/@id"
-                },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Doorhaling` op te halen."
               },
               "GeregistreerdeOrganisatie.heeftGeregistreerdeVestiging": {
                 "operationId": "GeregistreerdeOrganisatieGET",
@@ -319,10 +326,10 @@
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactinfo` op te halen."
               },
-              "Vestiging.doorhaling": {
+              "Vestiging.isBeïNvloedDoor": {
                 "operationId": "VestigingGET",
                 "parameters": {
-                  "id": "$response.body#/Vestiging.doorhaling/@id"
+                  "id": "$response.body#/Vestiging.isBeïNvloedDoor/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Doorhaling` op te halen."
               },
@@ -519,6 +526,20 @@
   },
   "components": {
     "schemas": {
+      "RSZ/NNSO-Personeelsklasse": {
+        "title": "RSZ/NNSO-Personeelsklasse",
+        "type": "object",
+        "description": "Enumeratie van RSZ/NNSO-Personeelsklasse",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
       "Rechtspersoonlijkheidtype": {
         "title": "Rechtspersoonlijkheidtype",
         "type": "object",
@@ -701,6 +722,17 @@
             },
             "minItems": 1
           },
+          "omvang": {
+            "$ref": "#/components/schemas/RSZ/NNSO-Personeelsklasse"
+          },
+          "isBeïNvloedDoor": {
+            "type": "array",
+            "description": "Lijst van Doorhaling items.",
+            "items": {
+              "$ref": "#/components/schemas/Doorhaling"
+            },
+            "minItems": 1
+          },
           "rechtspersoonlijkheid": {
             "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
           },
@@ -729,14 +761,6 @@
             "description": "Lijst van OrganisatieStatus items.",
             "items": {
               "$ref": "#/components/schemas/OrganisatieStatus"
-            },
-            "minItems": 1
-          },
-          "doorhaling": {
-            "type": "array",
-            "description": "Lijst van Doorhaling items.",
-            "items": {
-              "$ref": "#/components/schemas/Doorhaling"
             },
             "minItems": 1
           },
@@ -773,7 +797,7 @@
           "@context": {
             "type": "string",
             "description": "URI of the JSON-LD versioned context file for this response.",
-            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v0.0.7\\/context\\/onderneming.jsonld$"
+            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v1.0.0\\/context\\/onderneming.jsonld$"
           }
         },
         "required": [
@@ -836,7 +860,7 @@
           "vestigingsadres": {
             "$ref": "#/components/schemas/Contactinfo"
           },
-          "doorhaling": {
+          "isBeïNvloedDoor": {
             "type": "array",
             "description": "Lijst van Doorhaling items.",
             "items": {
@@ -853,7 +877,7 @@
           "@context": {
             "type": "string",
             "description": "URI of the JSON-LD versioned context file for this response.",
-            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v0.0.7\\/context\\/onderneming.jsonld$"
+            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v1.0.0\\/context\\/onderneming.jsonld$"
           }
         },
         "required": [

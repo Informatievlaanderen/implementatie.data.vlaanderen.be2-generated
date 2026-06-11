@@ -1,0 +1,140 @@
+{
+  "title": "FormeleOrganisatie",
+  "type": "object",
+  "description": "Een erkende Organisatie, erkend in brede zin of  meer specifiek in juridische zin met bijbehorende rechten en plichten.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse FormeleOrganisatie)",
+      "pattern": "^FormeleOrganisatie$"
+    },
+    "voorkeursnaam": {
+      "type": "object",
+      "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        },
+        "@language": {
+          "type": "string",
+          "pattern": "^nl$"
+        }
+      },
+      "required": [
+        "@value",
+        "@language"
+      ]
+    },
+    "alternatieveNaam": {
+      "type": "array",
+      "description": "Lijst van LangString items.",
+      "items": {
+        "type": "object",
+        "description": "Andere naam waaronder de Organisatie bekend is. Bijvoorbeeld: commerciële naam, informele naam, etc.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "minItems": 1
+    },
+    "activiteit": {
+      "$ref": "#/components/schemas/NACEBEL2025"
+    },
+    "contactinfo": {
+      "type": "array",
+      "description": "Lijst van Contactpunt items.",
+      "items": {
+        "$ref": "#/components/schemas/Contactpunt"
+      },
+      "minItems": 1
+    },
+    "status": {
+      "type": "array",
+      "description": "Lijst van OrganisatieStatus items.",
+      "items": {
+        "$ref": "#/components/schemas/OrganisatieStatus"
+      },
+      "minItems": 1
+    },
+    "type": {
+      "type": "array",
+      "description": "Lijst van OrganisatieType items.",
+      "items": {
+        "$ref": "#/components/schemas/OrganisatieType"
+      },
+      "minItems": 1
+    },
+    "heeftVestiging": {
+      "type": "array",
+      "description": "Lijst van Vestiging items.",
+      "items": {
+        "$ref": "#/components/schemas/Vestiging"
+      },
+      "minItems": 1
+    },
+    "heeftGeregistreerdeVestiging": {
+      "type": "array",
+      "description": "Lijst van Vestiging items.",
+      "items": {
+        "$ref": "#/components/schemas/Vestiging"
+      },
+      "minItems": 1
+    },
+    "heeftPrimaireVestiging": {
+      "type": "array",
+      "description": "Lijst van Vestiging items.",
+      "items": {
+        "$ref": "#/components/schemas/Vestiging"
+      },
+      "minItems": 1
+    },
+    "isVeranderdDoor": {
+      "type": "array",
+      "description": "Lijst van Veranderingsgebeurtenis items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Stopzetting"
+          },
+          {
+            "$ref": "#/components/schemas/Oprichting"
+          },
+          {
+            "$ref": "#/components/schemas/Afsluiting"
+          },
+          {
+            "$ref": "#/components/schemas/Doorhaling"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Stopzetting": "#/components/schemas/Stopzetting",
+            "Oprichting": "#/components/schemas/Oprichting",
+            "Afsluiting": "#/components/schemas/Afsluiting",
+            "Doorhaling": "#/components/schemas/Doorhaling"
+          }
+        }
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "voorkeursnaam"
+  ]
+}

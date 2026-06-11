@@ -1,0 +1,80 @@
+{
+  "title": "Vestiging",
+  "type": "object",
+  "description": "Een kantoor of ander pand waar een Organisatie gevestigd is. Organisaties kunnen over meerdere Vestigingen verspreid zijn en Vestigingen kunnen op meerdere locaties slaan.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Vestiging)",
+      "pattern": "^Vestiging$"
+    },
+    "datumOprichting": {
+      "type": "object",
+      "description": "Datum waarop de Vestiging opgericht werd.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Date$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "datumStopzetting": {
+      "type": "object",
+      "description": "Datum waarop de vestiging werd stopgezet.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Date$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "vestigingsadres": {
+      "$ref": "#/components/schemas/Contactinfo"
+    },
+    "doorhaling": {
+      "type": "array",
+      "description": "Lijst van Doorhaling items.",
+      "items": {
+        "$ref": "#/components/schemas/Doorhaling"
+      },
+      "minItems": 1
+    },
+    "registratie": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "vestigingVan": {
+      "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v0.0.6\\/context\\/organisatie.jsonld$"
+    }
+  },
+  "required": [
+    "@type",
+    "datumOprichting",
+    "registratie",
+    "vestigingVan"
+  ]
+}

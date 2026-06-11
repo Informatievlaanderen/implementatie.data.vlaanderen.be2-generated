@@ -1,0 +1,38 @@
+{
+  "title": "Afsluiting",
+  "type": "object",
+  "description": "Gebeurtenis waarbij een Organisatie wordt afgesloten en geen verdere activiteit zal uitvoeren.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Afsluiting)",
+      "pattern": "^Afsluiting$"
+    },
+    "datum": {
+      "type": "object",
+      "description": "Datum waarop de Veranderingsgebeurtenis plaatsvond. Zie Time and date & Recurring and partial dates van <a href=\"https://www.w3.org/TR/rdf11-concepts/#h2_section-Datatypes\"> XSD Datatypes</a>.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Date$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    }
+  },
+  "required": [
+    "@type",
+    "datum"
+  ]
+}
