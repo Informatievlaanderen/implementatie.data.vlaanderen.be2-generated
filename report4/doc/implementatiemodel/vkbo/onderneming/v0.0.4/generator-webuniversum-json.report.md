@@ -2,17 +2,17 @@
 
 #||# -------------------------------------  
 
-2026-06-12T12:07:43.669Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/regorg#orgType which acts as a parent. Using original URI as fallback.
+2026-06-12T12:36:07.277Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/regorg#orgType which acts as a parent. Using original URI as fallback.
 
-2026-06-12T12:07:43.671Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/regorg#orgStatus which acts as a parent. Using original URI as fallback.
+2026-06-12T12:36:07.279Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/regorg#orgStatus which acts as a parent. Using original URI as fallback.
 
-2026-06-12T12:07:43.671Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/regorg#orgType which acts as a parent. Using original URI as fallback.
+2026-06-12T12:36:07.279Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/regorg#orgType which acts as a parent. Using original URI as fallback.
 
-2026-06-12T12:07:43.678Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/locn#locatorDesignator which acts as a parent. Using original URI as fallback.
+2026-06-12T12:36:07.287Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/locn#locatorDesignator which acts as a parent. Using original URI as fallback.
 
-2026-06-12T12:07:43.678Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/locn#postName which acts as a parent. Using original URI as fallback.
+2026-06-12T12:36:07.287Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/locn#postName which acts as a parent. Using original URI as fallback.
 
-2026-06-12T12:07:43.679Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/locn#locatorDesignator which acts as a parent. Using original URI as fallback.
+2026-06-12T12:36:07.288Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/locn#locatorDesignator which acts as a parent. Using original URI as fallback.
 
-2026-06-12T12:07:43.679Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/locn#adminUnitL1 which acts as a parent. Using original URI as fallback.
+2026-06-12T12:36:07.288Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/locn#adminUnitL1 which acts as a parent. Using original URI as fallback.
 
