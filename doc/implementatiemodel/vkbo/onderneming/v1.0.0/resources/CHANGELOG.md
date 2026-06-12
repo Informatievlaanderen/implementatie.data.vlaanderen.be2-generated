@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-06-11
+
+Eerste stabiele release van het implementatiemodel VKBO Onderneming.
+
+### Added
+- Personeelsklasse die de omvang van de onderneming aangeeft.
+- Link naar de publieke jaarrekeningen bij de Nationale Bank voorzien. XBRL voorzien indien er meer informatie beschikbaar komt over de jaarrekeningen.
+
+### Changed
+- Doorhaling is generieker opgelost waardoor alle soorten activiteiten de onderneming en vestiging kunnen beïnvloeden.
+- Codelijsten zijn nu allemaal in het Nederlands.
+
 ## [0.0.7] - 2026-05-22
 
 ### Fixed
