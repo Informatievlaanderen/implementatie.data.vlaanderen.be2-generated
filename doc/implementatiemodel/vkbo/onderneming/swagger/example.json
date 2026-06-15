@@ -100,7 +100,7 @@
                 "parameters": {
                   "id": "$response.body#/GeregistreerdeOrganisatie.omvang/@id"
                 },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Omvangklasse-V1` op te halen."
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Omvangklasse` op te halen."
               },
               "GeregistreerdeOrganisatie.wordtGerefereerdIn": {
                 "operationId": "GeregistreerdeOrganisatieGET",
@@ -645,10 +645,24 @@
           "@id"
         ]
       },
-      "Omvangklasse-V1": {
-        "title": "Omvangklasse-V1",
+      "Omvangklasse": {
+        "title": "Omvangklasse",
         "type": "object",
-        "description": "Enumeratie van Omvangklasse-V1",
+        "description": "Enumeratie van Omvangklasse",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "RapportType": {
+        "title": "RapportType",
+        "type": "object",
+        "description": "Enumeratie van RapportType",
         "properties": {
           "@id": {
             "type": "string",
@@ -673,12 +687,16 @@
             "description": "Object type (klasse FinancieelRapport)",
             "pattern": "^FinancieelRapport$"
           },
+          "type": {
+            "$ref": "#/components/schemas/RapportType"
+          },
           "gaatOver": {
             "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
           }
         },
         "required": [
           "@type",
+          "type",
           "gaatOver"
         ]
       },
@@ -806,7 +824,7 @@
             "minItems": 1
           },
           "omvang": {
-            "$ref": "#/components/schemas/Omvangklasse-V1"
+            "$ref": "#/components/schemas/Omvangklasse"
           },
           "wordtGerefereerdIn": {
             "$ref": "#/components/schemas/FinancieelRapport"
