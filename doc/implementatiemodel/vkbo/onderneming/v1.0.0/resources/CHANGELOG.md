@@ -19,6 +19,9 @@ Eerste stabiele release van het implementatiemodel VKBO Onderneming.
 - Doorhaling is generieker opgelost waardoor alle soorten activiteiten de onderneming en vestiging kunnen beïnvloeden.
 - Codelijsten zijn nu allemaal in het Nederlands.
 
+### Fixed
+- Typo in registratie definitie.
+
 ## [0.0.7] - 2026-05-22
 
 ### Fixed
