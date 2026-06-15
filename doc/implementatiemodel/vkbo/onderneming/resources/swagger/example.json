@@ -39,20 +39,6 @@
               }
             },
             "links": {
-              "GeregistreerdeOrganisatie.omvang": {
-                "operationId": "GeregistreerdeOrganisatieGET",
-                "parameters": {
-                  "id": "$response.body#/GeregistreerdeOrganisatie.omvang/@id"
-                },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `RSZ/NNSO-Personeelsklasse` op te halen."
-              },
-              "GeregistreerdeOrganisatie.isBeïNvloedDoor": {
-                "operationId": "GeregistreerdeOrganisatieGET",
-                "parameters": {
-                  "id": "$response.body#/GeregistreerdeOrganisatie.isBeïNvloedDoor/@id"
-                },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Doorhaling` op te halen."
-              },
               "GeregistreerdeOrganisatie.rechtspersoonlijkheid": {
                 "operationId": "GeregistreerdeOrganisatieGET",
                 "parameters": {
@@ -101,6 +87,27 @@
                   "id": "$response.body#/GeregistreerdeOrganisatie.status/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `OrganisatieStatus` op te halen."
+              },
+              "GeregistreerdeOrganisatie.isBeinvloedDoor": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.isBeinvloedDoor/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Activiteit` op te halen."
+              },
+              "GeregistreerdeOrganisatie.omvang": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.omvang/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Omvangklasse-V1` op te halen."
+              },
+              "GeregistreerdeOrganisatie.wordtGerefereerdIn": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.wordtGerefereerdIn/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `FinancieelRapport` op te halen."
               },
               "GeregistreerdeOrganisatie.heeftGeregistreerdeVestiging": {
                 "operationId": "GeregistreerdeOrganisatieGET",
@@ -326,12 +333,12 @@
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactinfo` op te halen."
               },
-              "Vestiging.isBeïNvloedDoor": {
+              "Vestiging.isBeinvloedDoor": {
                 "operationId": "VestigingGET",
                 "parameters": {
-                  "id": "$response.body#/Vestiging.isBeïNvloedDoor/@id"
+                  "id": "$response.body#/Vestiging.isBeinvloedDoor/@id"
                 },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Doorhaling` op te halen."
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Activiteit` op te halen."
               },
               "Vestiging.registratie": {
                 "operationId": "VestigingGET",
@@ -526,20 +533,6 @@
   },
   "components": {
     "schemas": {
-      "RSZ/NNSO-Personeelsklasse": {
-        "title": "RSZ/NNSO-Personeelsklasse",
-        "type": "object",
-        "description": "Enumeratie van RSZ/NNSO-Personeelsklasse",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
       "Rechtspersoonlijkheidtype": {
         "title": "Rechtspersoonlijkheidtype",
         "type": "object",
@@ -652,6 +645,43 @@
           "@id"
         ]
       },
+      "Omvangklasse-V1": {
+        "title": "Omvangklasse-V1",
+        "type": "object",
+        "description": "Enumeratie van Omvangklasse-V1",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "FinancieelRapport": {
+        "title": "FinancieelRapport",
+        "type": "object",
+        "description": "Rapport over de financiële toestand of economische positie van een Organisatie.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse FinancieelRapport)",
+            "pattern": "^FinancieelRapport$"
+          },
+          "gaatOver": {
+            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+          }
+        },
+        "required": [
+          "@type",
+          "gaatOver"
+        ]
+      },
       "GeregistreerdeOrganisatie": {
         "title": "GeregistreerdeOrganisatie",
         "type": "object",
@@ -722,17 +752,6 @@
             },
             "minItems": 1
           },
-          "omvang": {
-            "$ref": "#/components/schemas/RSZ/NNSO-Personeelsklasse"
-          },
-          "isBeïNvloedDoor": {
-            "type": "array",
-            "description": "Lijst van Doorhaling items.",
-            "items": {
-              "$ref": "#/components/schemas/Doorhaling"
-            },
-            "minItems": 1
-          },
           "rechtspersoonlijkheid": {
             "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
           },
@@ -763,6 +782,34 @@
               "$ref": "#/components/schemas/OrganisatieStatus"
             },
             "minItems": 1
+          },
+          "isBeinvloedDoor": {
+            "type": "array",
+            "description": "Lijst van Activiteit items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Activiteit"
+                },
+                {
+                  "$ref": "#/components/schemas/Doorhaling"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Activiteit": "#/components/schemas/Activiteit",
+                  "Doorhaling": "#/components/schemas/Doorhaling"
+                }
+              }
+            },
+            "minItems": 1
+          },
+          "omvang": {
+            "$ref": "#/components/schemas/Omvangklasse-V1"
+          },
+          "wordtGerefereerdIn": {
+            "$ref": "#/components/schemas/FinancieelRapport"
           },
           "heeftGeregistreerdeVestiging": {
             "type": "array",
@@ -860,11 +907,25 @@
           "vestigingsadres": {
             "$ref": "#/components/schemas/Contactinfo"
           },
-          "isBeïNvloedDoor": {
+          "isBeinvloedDoor": {
             "type": "array",
-            "description": "Lijst van Doorhaling items.",
+            "description": "Lijst van Activiteit items.",
             "items": {
-              "$ref": "#/components/schemas/Doorhaling"
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Activiteit"
+                },
+                {
+                  "$ref": "#/components/schemas/Doorhaling"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Activiteit": "#/components/schemas/Activiteit",
+                  "Doorhaling": "#/components/schemas/Doorhaling"
+                }
+              }
             },
             "minItems": 1
           },
@@ -926,6 +987,25 @@
         "required": [
           "@type",
           "datum"
+        ]
+      },
+      "Activiteit": {
+        "title": "Activiteit",
+        "type": "object",
+        "description": "Een Activiteit is een gebeurtenis die plaatsvindt over een bepaalde periode en gebeurd door interactie van of met Entiteiten.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Activiteit)",
+            "pattern": "^Activiteit$"
+          }
+        },
+        "required": [
+          "@type"
         ]
       },
       "Oprichting": {

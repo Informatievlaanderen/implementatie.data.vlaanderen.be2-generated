@@ -2,17 +2,21 @@
 
 #||# -------------------------------------  
 
-2026-06-12T12:36:13.563Z info: Loaded 50 URI prefixes into whitelist
+2026-06-15T09:41:21.466Z info: Loaded 50 URI prefixes into whitelist
 
-2026-06-12T12:36:13.685Z warn: Labels must only contain alphabetical characters: 'RSZ/NNSO-personeelsklasse' for subject: [urn:oslo-toolchain:7d0518cf5ea78e6e4bcec40e9dee624a9f43f636170619e23140be9571a289ed](all-onderneming.jsonld#L3146)
+2026-06-15T09:41:21.603Z warn: Found sentence without a '.': 'Grootte van een organisatie uitgedrukt door middel van een bereik' for subject: [urn:oslo-toolchain:74c12a0a2ede6b2af34c6acf9f955c6cf542c8588855fe85504796d8a2fb190c](all-onderneming.jsonld#L3540)
 
-2026-06-12T12:36:13.691Z info: Validation successful! All assigned URIs are whitelisted.
+2026-06-15T09:41:21.604Z warn: Labels must only contain alphabetical characters: 'Omvangklasse-v1' for subject: [urn:oslo-toolchain:74c12a0a2ede6b2af34c6acf9f955c6cf542c8588855fe85504796d8a2fb190c](all-onderneming.jsonld#L3540)
 
-2026-06-12T12:36:13.691Z info: Validation successful! All sentences seem to be valid, no spelling mistakes found.
+2026-06-15T09:41:21.608Z error: Found missing class or attribute (Resource): [urn:oslo-toolchain:4842f50f60e07dd0cf376158a4e474e5cdce07e15353211c98cc558bb3d555d1](all-onderneming.jsonld#L3140)
 
-2026-06-12T12:36:13.691Z info: Validation found 1 labels with spelling mistakes.
+2026-06-15T09:41:21.609Z info: Validation successful! All assigned URIs are whitelisted.
 
-2026-06-12T12:36:13.691Z info: Validation successful! All base URIs seem to be valid.
+2026-06-15T09:41:21.609Z info: Validation found 1 sentences with spelling mistakes.
 
-2026-06-12T12:36:13.691Z info: Validation successful! All referenced classes and attributes seem to be included.
+2026-06-15T09:41:21.609Z info: Validation found 1 labels with spelling mistakes.
+
+2026-06-15T09:41:21.609Z info: Validation successful! All base URIs seem to be valid.
+
+2026-06-15T09:41:21.609Z info: Validation found 1 missing referenced classes or attributes.
 

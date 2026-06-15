@@ -51,11 +51,25 @@
     "vestigingsadres": {
       "$ref": "#/components/schemas/Contactinfo"
     },
-    "isBeïNvloedDoor": {
+    "isBeinvloedDoor": {
       "type": "array",
-      "description": "Lijst van Doorhaling items.",
+      "description": "Lijst van Activiteit items.",
       "items": {
-        "$ref": "#/components/schemas/Doorhaling"
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Activiteit"
+          },
+          {
+            "$ref": "#/components/schemas/Doorhaling"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Activiteit": "#/components/schemas/Activiteit",
+            "Doorhaling": "#/components/schemas/Doorhaling"
+          }
+        }
       },
       "minItems": 1
     },

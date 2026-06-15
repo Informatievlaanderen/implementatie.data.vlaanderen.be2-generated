@@ -68,17 +68,6 @@
       },
       "minItems": 1
     },
-    "omvang": {
-      "$ref": "#/components/schemas/RSZ/NNSO-Personeelsklasse"
-    },
-    "isBeïNvloedDoor": {
-      "type": "array",
-      "description": "Lijst van Doorhaling items.",
-      "items": {
-        "$ref": "#/components/schemas/Doorhaling"
-      },
-      "minItems": 1
-    },
     "rechtspersoonlijkheid": {
       "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
     },
@@ -109,6 +98,34 @@
         "$ref": "#/components/schemas/OrganisatieStatus"
       },
       "minItems": 1
+    },
+    "isBeinvloedDoor": {
+      "type": "array",
+      "description": "Lijst van Activiteit items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Activiteit"
+          },
+          {
+            "$ref": "#/components/schemas/Doorhaling"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Activiteit": "#/components/schemas/Activiteit",
+            "Doorhaling": "#/components/schemas/Doorhaling"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "omvang": {
+      "$ref": "#/components/schemas/Omvangklasse-V1"
+    },
+    "wordtGerefereerdIn": {
+      "$ref": "#/components/schemas/FinancieelRapport"
     },
     "heeftGeregistreerdeVestiging": {
       "type": "array",

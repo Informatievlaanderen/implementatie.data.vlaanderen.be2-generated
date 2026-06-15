@@ -2,7 +2,7 @@
 
 #||# -------------------------------------  
 
-Error: Child (urn:oslo-toolchain:8d04abe9737184b2845e6ca17ba9cb4a390b329a558a7b70d73e8f540c54f571) or parent (urn:oslo-toolchain:016453da764f1a65a3fc2511b51d436849774c3dbd9cb3732fce18468155ca9e) domain is missing!
+Error: Child (urn:oslo-toolchain:1976d27e1753400071ec0bf72dd581c7f35fc792bd650ba55a46efe48285de78) or parent (urn:oslo-toolchain:25266d36f6729c2a2b113b8fa8809bb8b3ac50a647c454b1b813f1616c079bb8) domain is missing!
 
     at ShaclTemplateGenerationService.handleRedefinedProperties (/usr/local/lib/node_modules/@oslo-flanders/shacl-template-generator/lib/ShaclTemplateGenerationService.js:165:23)
 

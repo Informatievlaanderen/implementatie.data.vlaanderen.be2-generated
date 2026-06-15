@@ -2,6 +2,34 @@
   "baseURI": "https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming#",
   "classes": [
     {
+      "id": "http://www.w3.org/ns/prov#Activity",
+      "vocabularyLabel": {
+        "nl": "Activiteit"
+      },
+      "applicationProfileLabel": {
+        "nl": "Activiteit"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een Activiteit is een gebeurtenis die plaatsvindt over een bepaalde periode en gebeurd door interactie van of met Entiteiten."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Te vervangen door een niet-abstracte klasse."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/2000/01/rdf-schema#Resource",
+          "vocabularyLabel": {
+            "nl": "Resource"
+          },
+          "applicationProfileLabel": {
+            "nl": "Resource"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
       "id": "https://data.vlaanderen.be/ns/adres#Adres",
       "vocabularyLabel": {
         "nl": "Belgisch Adres"
@@ -214,6 +242,69 @@
       ]
     },
     {
+      "id": "https://data.vlaanderen.be/ns/financiele-rapportering#FinancieelRapport",
+      "vocabularyLabel": {
+        "nl": "FinancieelRapport"
+      },
+      "applicationProfileLabel": {
+        "nl": "FinancieelRapport"
+      },
+      "vocabularyDefinition": {
+        "nl": "Rapport over de financiële toestand of economische positie van een Organisatie."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Rapport over de financiële toestand of economische positie van een Organisatie."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Concreet gebeurt dit door het opsommen van waarden (de zogenaamde Feiten) die indicatief zijn voor deze toestand of positie."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Concreet gebeurt dit door het opsommen van waarden (de zogenaamde Feiten) die indicatief zijn voor deze toestand of positie."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/2000/01/rdf-schema#Resource",
+          "vocabularyLabel": {
+            "nl": "Resource"
+          },
+          "applicationProfileLabel": {
+            "nl": "Resource"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/financiele-rapportering#FinancieelRapport.gaatOver",
+          "vocabularyLabel": {
+            "nl": "gaatOver"
+          },
+          "applicationProfileLabel": {
+            "nl": "gaatOver"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Organisatrie waarop het FinancieelRapport betrekking heeft."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://data.vlaanderen.be/ns/financiele-rapportering#FinancieelRapport",
+          "range": {
+            "id": "http://www.w3.org/ns/regorg#RegisteredOrganization",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "GeregistreerdeOrganisatie"
+            },
+            "applicationProfileLabel": {
+              "nl": "GeregistreerdeOrganisatie"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
       "id": "http://www.w3.org/ns/regorg#RegisteredOrganization",
       "vocabularyLabel": {
         "nl": "GeregistreerdeOrganisatie"
@@ -383,7 +474,7 @@
             "nl": "isBeïnvloedDoor"
           },
           "applicationProfileLabel": {
-            "nl": "isBeïnvloedDoor"
+            "nl": "isBeinvloedDoor"
           },
           "applicationProfileDefinition": {
             "nl": "De schrapping van een entiteit binnen het KBO."
@@ -392,13 +483,13 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
           "domain": "http://www.w3.org/ns/regorg#RegisteredOrganization",
           "range": {
-            "id": "https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming#Doorhaling",
+            "id": "http://www.w3.org/ns/prov#Activity",
             "listedInDocument": true,
             "vocabularyLabel": {
-              "nl": "Doorhaling"
+              "nl": "Activiteit"
             },
             "applicationProfileLabel": {
-              "nl": "Doorhaling"
+              "nl": "Activiteit"
             }
           },
           "minCount": "0",
@@ -446,7 +537,7 @@
             "nl": "Grootte van de Organisatie."
           },
           "applicationProfileUsageNote": {
-            "nl": "In deze context uitgedrukt dmv een bereik volgens een indeling in klassen, bvb RSZ/NNSO personeelsklasse 6 (100-199 werknemers)."
+            "nl": "In deze context uitgedrukt door middel van een bereik volgens een indeling in klassen, bijvoorbeeld: RSZ personeelsklasse 6 (100-199 werknemers)."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
@@ -455,14 +546,15 @@
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
             "listedInDocument": false,
             "vocabularyLabel": {
-              "nl": "RSZ/NSSO-personeelsklasse"
+              "nl": "Omvangklasse-v1"
             },
             "applicationProfileLabel": {
-              "nl": "RSZ/NNSO-personeelsklasse"
+              "nl": "Omvangklasse-v1"
             }
           },
           "minCount": "0",
-          "maxCount": "1"
+          "maxCount": "1",
+          "codelist": "https://data.vlaanderen.be/id/conceptscheme/RSZ-Personeelsklasse/v1"
         },
         {
           "id": "https://data.vlaanderen.be/ns/organisatie#rechtspersoonlijkheid",
@@ -707,6 +799,33 @@
           },
           "minCount": "1",
           "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/isReferencedBy",
+          "vocabularyLabel": {
+            "nl": "^wordtGerefereerdIn"
+          },
+          "applicationProfileLabel": {
+            "nl": "wordtGerefereerdIn"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Resource waarin naar de GeregistreerdeOrganisatie wordt verwezen."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/regorg#RegisteredOrganization",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/financiele-rapportering#FinancieelRapport",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "FinancieelRapport"
+            },
+            "applicationProfileLabel": {
+              "nl": "FinancieelRapport"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
         }
       ]
     },
@@ -928,7 +1047,7 @@
             "nl": "isBeïnvloedDoor"
           },
           "applicationProfileLabel": {
-            "nl": "isBeïnvloedDoor"
+            "nl": "isBeinvloedDoor"
           },
           "applicationProfileDefinition": {
             "nl": "De schrapping van een entiteit binnen het KBO."
@@ -937,13 +1056,13 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
           "domain": "http://www.w3.org/ns/org#Site",
           "range": {
-            "id": "https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming#Doorhaling",
+            "id": "http://www.w3.org/ns/prov#Activity",
             "listedInDocument": true,
             "vocabularyLabel": {
-              "nl": "Doorhaling"
+              "nl": "Activiteit"
             },
             "applicationProfileLabel": {
-              "nl": "Doorhaling"
+              "nl": "Activiteit"
             }
           },
           "minCount": "0",
