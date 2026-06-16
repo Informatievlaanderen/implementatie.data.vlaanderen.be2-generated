@@ -2,25 +2,15 @@
 
 #||# -------------------------------------  
 
-node:internal/modules/cjs/loader:1205
+2026-06-16T09:10:01.094Z info: Loaded 50 URI prefixes into whitelist
 
-    throw new ERR_REQUIRE_ESM(filename, true);
+2026-06-16T09:10:01.187Z info: Validation successful! All assigned URIs are whitelisted.
 
-    ^
+2026-06-16T09:10:01.187Z info: Validation successful! All sentences seem to be valid, no spelling mistakes found.
 
+2026-06-16T09:10:01.187Z info: Validation successful! All labels seem to be valid, no spelling mistakes found.
 
+2026-06-16T09:10:01.187Z info: Validation successful! All base URIs seem to be valid.
 
-Error [ERR_REQUIRE_ESM]: require() of ES Module /usr/local/lib/node_modules/@oslo-flanders/jsonld-validator/node_modules/yargs/index.mjs not supported.
-
-Instead change the require of /usr/local/lib/node_modules/@oslo-flanders/jsonld-validator/node_modules/yargs/index.mjs to a dynamic import() which is available in all CommonJS modules.
-
-    at Object.<anonymous> (/usr/local/lib/node_modules/@oslo-flanders/jsonld-validator/node_modules/@oslo-flanders/core/lib/interfaces/AppRunner.js:10:33) {
-
-  code: 'ERR_REQUIRE_ESM'
-
-}
-
-
-
-Node.js v20.15.1
+2026-06-16T09:10:01.187Z info: Validation successful! All referenced classes and attributes seem to be included.
 
