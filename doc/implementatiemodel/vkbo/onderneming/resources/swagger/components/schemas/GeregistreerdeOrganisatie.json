@@ -125,7 +125,21 @@
       "$ref": "#/components/schemas/Omvangklasse"
     },
     "wordtGerefereerdIn": {
-      "$ref": "#/components/schemas/FinancieelRapport"
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Resource"
+        },
+        {
+          "$ref": "#/components/schemas/FinancieelRapport"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Resource": "#/components/schemas/Resource",
+          "FinancieelRapport": "#/components/schemas/FinancieelRapport"
+        }
+      }
     },
     "heeftGeregistreerdeVestiging": {
       "type": "array",
