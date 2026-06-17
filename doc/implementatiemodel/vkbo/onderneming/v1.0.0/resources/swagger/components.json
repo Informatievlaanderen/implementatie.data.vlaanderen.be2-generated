@@ -174,29 +174,6 @@
           "gaatOver"
         ]
       },
-      "Resource": {
-        "title": "Resource",
-        "type": "object",
-        "description": "Klasse van objecten van om het even welk type.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "description": "Object type (klasse Resource)",
-            "pattern": "^Resource$"
-          },
-          "gaatOver": {
-            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
-          }
-        },
-        "required": [
-          "@type",
-          "gaatOver"
-        ]
-      },
       "GeregistreerdeOrganisatie": {
         "title": "GeregistreerdeOrganisatie",
         "type": "object",
@@ -324,21 +301,7 @@
             "$ref": "#/components/schemas/Omvangklasse"
           },
           "wordtGerefereerdIn": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Resource"
-              },
-              {
-                "$ref": "#/components/schemas/FinancieelRapport"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Resource": "#/components/schemas/Resource",
-                "FinancieelRapport": "#/components/schemas/FinancieelRapport"
-              }
-            }
+            "$ref": "#/components/schemas/FinancieelRapport"
           },
           "heeftGeregistreerdeVestiging": {
             "type": "array",
@@ -531,21 +494,10 @@
             "type": "string",
             "description": "Object type (klasse Activiteit)",
             "pattern": "^Activiteit$"
-          },
-          "type": {
-            "$ref": "#/components/schemas/Doorhalingstype"
-          },
-          "tijd": {
-            "$ref": "#/components/schemas/Periode"
-          },
-          "gaatOver": {
-            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
           }
         },
         "required": [
-          "@type",
-          "tijd",
-          "gaatOver"
+          "@type"
         ]
       },
       "Oprichting": {
@@ -600,24 +552,20 @@
             "description": "Object type (klasse Doorhaling)",
             "pattern": "^Doorhaling$"
           },
-          "reden": {
-            "$ref": "#/components/schemas/RedenDoorhaling"
-          },
           "type": {
             "$ref": "#/components/schemas/Doorhalingstype"
           },
+          "reden": {
+            "$ref": "#/components/schemas/RedenDoorhaling"
+          },
           "tijd": {
             "$ref": "#/components/schemas/Periode"
-          },
-          "gaatOver": {
-            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
           }
         },
         "required": [
           "@type",
           "reden",
-          "tijd",
-          "gaatOver"
+          "tijd"
         ]
       },
       "BelgischAdres": {
@@ -663,7 +611,7 @@
           },
           "identificator": {
             "type": "object",
-            "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
+            "description": "String gebruikt om het object uniek te identificeren. Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator.",
             "properties": {
               "@value": {
                 "type": "string"
@@ -1195,13 +1143,6 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdeOrganisatie` op te halen."
       },
-      "Resource.gaatOver": {
-        "operationId": "ResourceGET",
-        "parameters": {
-          "id": "$response.body#/Resource.gaatOver/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdeOrganisatie` op te halen."
-      },
       "GeregistreerdeOrganisatie.rechtspersoonlijkheid": {
         "operationId": "GeregistreerdeOrganisatieGET",
         "parameters": {
@@ -1270,7 +1211,7 @@
         "parameters": {
           "id": "$response.body#/GeregistreerdeOrganisatie.wordtGerefereerdIn/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Resource` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `FinancieelRapport` op te halen."
       },
       "GeregistreerdeOrganisatie.heeftGeregistreerdeVestiging": {
         "operationId": "GeregistreerdeOrganisatieGET",
@@ -1321,26 +1262,12 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `StopzettingType` op te halen."
       },
-      "Activiteit.type": {
-        "operationId": "ActiviteitGET",
+      "Doorhaling.type": {
+        "operationId": "DoorhalingGET",
         "parameters": {
-          "id": "$response.body#/Activiteit.type/@id"
+          "id": "$response.body#/Doorhaling.type/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Doorhalingstype` op te halen."
-      },
-      "Activiteit.tijd": {
-        "operationId": "ActiviteitGET",
-        "parameters": {
-          "id": "$response.body#/Activiteit.tijd/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Periode` op te halen."
-      },
-      "Activiteit.gaatOver": {
-        "operationId": "ActiviteitGET",
-        "parameters": {
-          "id": "$response.body#/Activiteit.gaatOver/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdeOrganisatie` op te halen."
       },
       "Doorhaling.reden": {
         "operationId": "DoorhalingGET",
@@ -1349,26 +1276,12 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `RedenDoorhaling` op te halen."
       },
-      "Doorhaling.type": {
-        "operationId": "DoorhalingGET",
-        "parameters": {
-          "id": "$response.body#/Doorhaling.type/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Doorhalingstype` op te halen."
-      },
       "Doorhaling.tijd": {
         "operationId": "DoorhalingGET",
         "parameters": {
           "id": "$response.body#/Doorhaling.tijd/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Periode` op te halen."
-      },
-      "Doorhaling.gaatOver": {
-        "operationId": "DoorhalingGET",
-        "parameters": {
-          "id": "$response.body#/Doorhaling.gaatOver/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdeOrganisatie` op te halen."
       },
       "BelgischAdres.identificator": {
         "operationId": "BelgischAdresGET",
