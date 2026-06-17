@@ -2,4 +2,7 @@
 #||# 
 #||#   + adding supporting /home/circleci/project/config/dev/persoon-im.publication.json
 #||#  
-#||#  All directories are supported
+Error: the following directories are unsupported
+[
+  "/tmp/generated/doc/implementatiemodel/magda"
+]

@@ -1,0 +1,40 @@
+{
+  "title": "Overlijden",
+  "type": "object",
+  "description": "Het doodgaan van een Persoon.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Overlijden)",
+      "pattern": "^Overlijden$"
+    },
+    "datum": {
+      "type": "object",
+      "description": "Datum waarop de gebeurtenis plaatsvond.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Date$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "plaats": {
+      "$ref": "#/components/schemas/Plaats"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}
