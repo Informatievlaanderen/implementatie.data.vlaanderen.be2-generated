@@ -107,7 +107,7 @@
                 "parameters": {
                   "id": "$response.body#/GeregistreerdeOrganisatie.wordtGerefereerdIn/@id"
                 },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Resource` op te halen."
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `FinancieelRapport` op te halen."
               },
               "GeregistreerdeOrganisatie.heeftGeregistreerdeVestiging": {
                 "operationId": "GeregistreerdeOrganisatieGET",
@@ -827,21 +827,7 @@
             "$ref": "#/components/schemas/Omvangklasse"
           },
           "wordtGerefereerdIn": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Resource"
-              },
-              {
-                "$ref": "#/components/schemas/FinancieelRapport"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Resource": "#/components/schemas/Resource",
-                "FinancieelRapport": "#/components/schemas/FinancieelRapport"
-              }
-            }
+            "$ref": "#/components/schemas/FinancieelRapport"
           },
           "heeftGeregistreerdeVestiging": {
             "type": "array",
@@ -1034,21 +1020,10 @@
             "type": "string",
             "description": "Object type (klasse Activiteit)",
             "pattern": "^Activiteit$"
-          },
-          "type": {
-            "$ref": "#/components/schemas/Doorhalingstype"
-          },
-          "tijd": {
-            "$ref": "#/components/schemas/Periode"
-          },
-          "gaatOver": {
-            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
           }
         },
         "required": [
-          "@type",
-          "tijd",
-          "gaatOver"
+          "@type"
         ]
       },
       "Oprichting": {
@@ -1103,24 +1078,20 @@
             "description": "Object type (klasse Doorhaling)",
             "pattern": "^Doorhaling$"
           },
-          "reden": {
-            "$ref": "#/components/schemas/RedenDoorhaling"
-          },
           "type": {
             "$ref": "#/components/schemas/Doorhalingstype"
           },
+          "reden": {
+            "$ref": "#/components/schemas/RedenDoorhaling"
+          },
           "tijd": {
             "$ref": "#/components/schemas/Periode"
-          },
-          "gaatOver": {
-            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
           }
         },
         "required": [
           "@type",
           "reden",
-          "tijd",
-          "gaatOver"
+          "tijd"
         ]
       },
       "BelgischAdres": {
@@ -1166,7 +1137,7 @@
           },
           "identificator": {
             "type": "object",
-            "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
+            "description": "String gebruikt om het object uniek te identificeren. Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator.",
             "properties": {
               "@value": {
                 "type": "string"

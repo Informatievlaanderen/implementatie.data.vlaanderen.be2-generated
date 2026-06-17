@@ -14,6 +14,7 @@ error: missing '/tmp/generated/doc/implementatiemodel/lv/landbouwgebruikersperce
 #||# 
 #||# index.html check
 error: missing '/tmp/generated/ns/vkbo/onderneming/v0.0.6/index.html'
+error: missing '/tmp/generated/doc/vocabularium/vkbo/onderneming/v0.0.6/index.html'
 
 #||#    + checking /home/circleci/project/config/test/persoon-im.publication.json
 #||# 
