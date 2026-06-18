@@ -27,7 +27,36 @@
         }
       ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "http://www.w3.org/ns/prov#time",
+          "vocabularyLabel": {
+            "nl": "tijd"
+          },
+          "applicationProfileLabel": {
+            "nl": "tijd"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Refereert naar de periode van tijd waarin de Doorhaling van kracht is."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/prov#Activity",
+          "range": {
+            "id": "http://www.w3.org/2006/time#ProperInterval",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Periode"
+            },
+            "applicationProfileLabel": {
+              "nl": "Periode"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
     },
     {
       "id": "https://data.vlaanderen.be/ns/adres#Adres",
@@ -171,36 +200,9 @@
               "nl": "RedenDoorhaling"
             }
           },
-          "minCount": "1",
+          "minCount": "0",
           "maxCount": "1",
           "codelist": "https://data.vlaanderen.be/id/conceptscheme/RedenDoorhaling/v1"
-        },
-        {
-          "id": "http://www.w3.org/ns/prov#time",
-          "vocabularyLabel": {
-            "nl": "^tijd"
-          },
-          "applicationProfileLabel": {
-            "nl": "tijd"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Refereert naar de periode van tijd waarin de Doorhaling van kracht is."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming#Doorhaling",
-          "range": {
-            "id": "http://www.w3.org/2006/time#ProperInterval",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "Periode"
-            },
-            "applicationProfileLabel": {
-              "nl": "Periode"
-            }
-          },
-          "minCount": "1",
-          "maxCount": "1"
         },
         {
           "id": "http://purl.org/dc/terms/type",
@@ -235,7 +237,7 @@
               "nl": "Doorhalingstype"
             }
           },
-          "minCount": "0",
+          "minCount": "1",
           "maxCount": "1",
           "codelist": "https://data.vlaanderen.be/id/conceptscheme/Doorhalingstype/v1"
         }
@@ -275,33 +277,6 @@
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
       "properties": [
-        {
-          "id": "https://data.vlaanderen.be/ns/financiele-rapportering#FinancieelRapport.gaatOver",
-          "vocabularyLabel": {
-            "nl": "gaatOver"
-          },
-          "applicationProfileLabel": {
-            "nl": "gaatOver"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Organisatrie waarop het FinancieelRapport betrekking heeft."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
-          "domain": "https://data.vlaanderen.be/ns/financiele-rapportering#FinancieelRapport",
-          "range": {
-            "id": "http://www.w3.org/ns/regorg#RegisteredOrganization",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "GeregistreerdeOrganisatie"
-            },
-            "applicationProfileLabel": {
-              "nl": "GeregistreerdeOrganisatie"
-            }
-          },
-          "minCount": "1",
-          "maxCount": "1"
-        },
         {
           "id": "http://purl.org/dc/elements/1.1/type",
           "vocabularyLabel": {
@@ -577,13 +552,13 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
           "domain": "http://www.w3.org/ns/regorg#RegisteredOrganization",
           "range": {
-            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "id": "http://www.w3.org/2001/XMLSchema#AnyType",
             "listedInDocument": false,
             "vocabularyLabel": {
-              "nl": "Omvangklasse-v1"
+              "nl": "anyType"
             },
             "applicationProfileLabel": {
-              "nl": "Omvangklasse"
+              "nl": "anyType"
             }
           },
           "minCount": "0",
@@ -849,13 +824,13 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
           "domain": "http://www.w3.org/ns/regorg#RegisteredOrganization",
           "range": {
-            "id": "https://data.vlaanderen.be/ns/financiele-rapportering#FinancieelRapport",
-            "listedInDocument": true,
+            "id": "http://www.w3.org/2000/01/rdf-schema#Resource",
+            "listedInDocument": false,
             "vocabularyLabel": {
-              "nl": "FinancieelRapport"
+              "nl": "Resource"
             },
             "applicationProfileLabel": {
-              "nl": "FinancieelRapport"
+              "nl": "Resource"
             }
           },
           "minCount": "0",
@@ -1926,7 +1901,7 @@
             "nl": "String gebruikt om het object uniek te identificeren."
           },
           "applicationProfileUsageNote": {
-            "nl": "Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator."
+            "nl": "Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",

@@ -100,14 +100,14 @@
                 "parameters": {
                   "id": "$response.body#/GeregistreerdeOrganisatie.omvang/@id"
                 },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Omvangklasse` op te halen."
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyType` op te halen."
               },
               "GeregistreerdeOrganisatie.wordtGerefereerdIn": {
                 "operationId": "GeregistreerdeOrganisatieGET",
                 "parameters": {
                   "id": "$response.body#/GeregistreerdeOrganisatie.wordtGerefereerdIn/@id"
                 },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `FinancieelRapport` op te halen."
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Resource` op te halen."
               },
               "GeregistreerdeOrganisatie.heeftGeregistreerdeVestiging": {
                 "operationId": "GeregistreerdeOrganisatieGET",
@@ -645,20 +645,6 @@
           "@id"
         ]
       },
-      "Omvangklasse": {
-        "title": "Omvangklasse",
-        "type": "object",
-        "description": "Enumeratie van Omvangklasse",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
       "RapportType": {
         "title": "RapportType",
         "type": "object",
@@ -824,10 +810,24 @@
             "minItems": 1
           },
           "omvang": {
-            "$ref": "#/components/schemas/Omvangklasse"
+            "$ref": "#/components/schemas/AnyType"
           },
           "wordtGerefereerdIn": {
-            "$ref": "#/components/schemas/FinancieelRapport"
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Resource"
+              },
+              {
+                "$ref": "#/components/schemas/FinancieelRapport"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Resource": "#/components/schemas/Resource",
+                "FinancieelRapport": "#/components/schemas/FinancieelRapport"
+              }
+            }
           },
           "heeftGeregistreerdeVestiging": {
             "type": "array",
@@ -1020,10 +1020,18 @@
             "type": "string",
             "description": "Object type (klasse Activiteit)",
             "pattern": "^Activiteit$"
+          },
+          "tijd": {
+            "$ref": "#/components/schemas/Periode"
+          },
+          "gaatOver": {
+            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
           }
         },
         "required": [
-          "@type"
+          "@type",
+          "tijd",
+          "gaatOver"
         ]
       },
       "Oprichting": {
@@ -1086,12 +1094,16 @@
           },
           "tijd": {
             "$ref": "#/components/schemas/Periode"
+          },
+          "gaatOver": {
+            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
           }
         },
         "required": [
           "@type",
-          "reden",
-          "tijd"
+          "type",
+          "tijd",
+          "gaatOver"
         ]
       },
       "BelgischAdres": {
@@ -1137,7 +1149,7 @@
           },
           "identificator": {
             "type": "object",
-            "description": "String gebruikt om het object uniek te identificeren. Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator.",
+            "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
             "properties": {
               "@value": {
                 "type": "string"
