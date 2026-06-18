@@ -2,5 +2,5 @@
 
 #||# -------------------------------------  
 
-2026-06-18T10:33:20.469Z warn: Unable to find the description for subject "[urn:oslo-toolchain:adb321d45b33830ea647e2daf4e307a94e65696144f73120a34ba2b5b66456f4](all-organisatie.jsonld#L1970)".
+2026-06-18T12:01:31.099Z warn: Unable to find the description for subject "[urn:oslo-toolchain:adb321d45b33830ea647e2daf4e307a94e65696144f73120a34ba2b5b66456f4](all-organisatie.jsonld#L1970)".
 
