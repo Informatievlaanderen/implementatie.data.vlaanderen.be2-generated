@@ -686,6 +686,67 @@
           "gaatOver"
         ]
       },
+      "Resource": {
+        "title": "Resource",
+        "type": "object",
+        "description": "Klasse van objecten van om het even welk type.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Resource)",
+            "pattern": "^Resource$"
+          },
+          "gaatOver": {
+            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+          }
+        },
+        "required": [
+          "@type",
+          "gaatOver"
+        ]
+      },
+      "FormeleOrganisatie": {
+        "title": "FormeleOrganisatie",
+        "type": "object",
+        "description": "Een erkende Organisatie,erkend in brede zin of  meer specifiek in juridische zin met bijbehorende rechten en plichten.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse FormeleOrganisatie)",
+            "pattern": "^FormeleOrganisatie$"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Organisatie": {
+        "title": "Organisatie",
+        "type": "object",
+        "description": "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Organisatie)",
+            "pattern": "^Organisatie$"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
       "GeregistreerdeOrganisatie": {
         "title": "GeregistreerdeOrganisatie",
         "type": "object",
@@ -1537,16 +1598,21 @@
             ]
           },
           "telefoon": {
-            "type": "object",
-            "description": "Telefoonnummer waarop men kan bellen.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
+            "type": "array",
+            "description": "Lijst van Literal items.",
+            "items": {
+              "type": "object",
+              "description": "Telefoonnummer waarop men kan bellen.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@value"
+              ]
             },
-            "required": [
-              "@value"
-            ]
+            "minItems": 1
           },
           "adres": {
             "$ref": "#/components/schemas/Adresvoorstelling"
@@ -1640,6 +1706,25 @@
             "required": [
               "@value"
             ]
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Waarde": {
+        "title": "Waarde",
+        "type": "object",
+        "description": "Een waarde die zowel numeriek als een classificatie kan zijn.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Waarde)",
+            "pattern": "^Waarde$"
           }
         },
         "required": [

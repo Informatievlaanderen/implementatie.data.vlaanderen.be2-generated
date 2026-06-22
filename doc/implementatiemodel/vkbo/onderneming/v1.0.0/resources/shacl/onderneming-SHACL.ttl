@@ -1,5 +1,6 @@
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix dc11: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -11,6 +12,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#FinancieelRapportShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#ResourceShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#AgentShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#FormeleOrganisatieShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#OrganisatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#GeregistreerdeOrganisatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#VeranderingsgebeurtenisShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#VestigingShape>,
@@ -31,6 +36,7 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#GeografischePositieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#PeriodeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#PuntShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#WaardeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#TemporeleEntiteitShape> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#ActiviteitShape> a shacl:NodeShape;
@@ -214,6 +220,13 @@
   ];
   shacl:targetClass <http://www.w3.org/ns/locn#Address> .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#AgentShape> a shacl:NodeShape;
+  rdfs:label "Agent"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Te vervangen door een niet-abstracte klasse."@nl;
+  rdfs:comment "Een agent zoals een Persoon,groep,software of fysiek artifact."@nl;
+  shacl:closed false;
+  shacl:targetClass foaf:Agent .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#BelgischAdresShape> a shacl:NodeShape;
   rdfs:label "Belgisch Adres"@nl;
   <http://purl.org/vocab/vann/usageNote> "De definitie heeft betrekking op Belgische adressen. In andere landen kan een adres eventueel verwijzen naar andere geografisch objecten (niet gebouweenheid of perceel) of bestaan uit andere aanduidingen (verschillend van huisnummer en busnummer) of uit andere componenten dan straatnaam, gemeentenaam of postcode. Alternatieve adresaanduidingen dan huisnummer of busnummer (bv ingangaanduiding, trapaanduiding, verdiepaanduiding...) of een gebouwnaam of kamernaam ed zijn mogelijk dmv een associatie met adresuitbreiding. Uitwisseling van buitenlandse adressen moet gebeuren mbv het object adresvoorstelling."@nl;
@@ -259,17 +272,16 @@
     shacl:description "Email-adres waarnaar men kan mailen."@nl;
     shacl:maxCount 1;
     shacl:name "email"@nl;
-    shacl:path schemas:email
+    shacl:path vcard:hasEmail
   ], [
     a shacl:PropertyShape;
     rdfs:label "telefoon"@nl;
     rdfs:comment "Telefoonnummer waarop men kan bellen."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#Contactinfo.Telefoon>;
-    shacl:datatype xsd:string;
     shacl:description "Telefoonnummer waarop men kan bellen."@nl;
-    shacl:maxCount 1;
     shacl:name "telefoon"@nl;
-    shacl:path schemas:telephone
+    shacl:nodeKind shacl:Literal;
+    shacl:path vcard:hasTelephone
   ], [
     a shacl:PropertyShape;
     rdfs:label "adres"@nl;
@@ -279,9 +291,9 @@
     shacl:description "Adres dat men kan aanschrijven of bezoeken."@nl;
     shacl:maxCount 1;
     shacl:name "adres"@nl;
-    shacl:path <http://www.w3.org/ns/locn#address>
+    shacl:path vcard:hasAddress
   ];
-  shacl:targetClass schemas:ContactPoint .
+  shacl:targetClass vcard:Kind .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#DateShape> a shacl:NodeShape;
   rdfs:label "Date";
@@ -342,6 +354,13 @@
     shacl:path dc11:type
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/financiele-rapportering#FinancieelRapport> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#FormeleOrganisatieShape> a shacl:NodeShape;
+  rdfs:label "FormeleOrganisatie"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld een bedrijf,een vzw,een overheidsorgaan,een kerkgemeenschap."@nl;
+  rdfs:comment "Een erkende Organisatie,erkend in brede zin of  meer specifiek in juridische zin met bijbehorende rechten en plichten."@nl;
+  shacl:closed false;
+  shacl:targetClass org:FormalOrganization .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#GeografischePositieShape> a shacl:NodeShape;
   rdfs:label "GeografischePositie"@nl;
@@ -493,7 +512,7 @@
     shacl:class vcard:Kind;
     shacl:description "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren."@nl;
     shacl:name "contactinfo"@nl;
-    shacl:path schemas:contactPoint
+    shacl:path <http://data.europa.eu/m8g/contactPoint>
   ], [
     a shacl:PropertyShape;
     rdfs:label "status"@nl;
@@ -623,6 +642,12 @@
   shacl:closed false;
   shacl:targetClass <http://data.europa.eu/m8g/FoundationEvent> .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#OrganisatieShape> a shacl:NodeShape;
+  rdfs:label "Organisatie"@nl;
+  rdfs:comment "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur."@nl;
+  shacl:closed false;
+  shacl:targetClass org:Organization .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#PeriodeShape> a shacl:NodeShape;
   rdfs:label "Periode"@nl;
   rdfs:comment "Temporele Entiteit waarvan de omvang en duurtijd verschilt van nul, dit wil zeggen, waarvoor de begin- en eindtijd verschillend zijn."@nl;
@@ -655,6 +680,26 @@
   rdfs:comment "Een 0-dimensioneel geometrisch object dat een bepaalde locatie in een coördinaatruimte voorstelt. Heeft een x-coördinaat en een y-coördinaat. Kan ook een z-coördinaat (hoogte) en een m-coördinaat (afstand langs een curve) hebben."@nl;
   shacl:closed false;
   shacl:targetClass <http://www.opengis.net/ont/sf#Point> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#ResourceShape> a shacl:NodeShape;
+  rdfs:label "Resource"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Alle klassen zijn hier in principe subklasse van. In deze context moet men deze klasse altijd substitueren door de gewenste klasse of datatype."@nl;
+  rdfs:comment "Klasse van objecten van om het even welk type."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "gaatOver"@nl;
+    rdfs:comment "Organisatrie waarop het FinancieelRapport betrekking heeft."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#Resource.GaatOver>;
+    shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>;
+    shacl:description "Organisatrie waarop het FinancieelRapport betrekking heeft."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "gaatOver"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/financiele-rapportering#FinancieelRapport.gaatOver>
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/financiele-rapportering#FinancieelRapport>,
+    rdfs:Resource .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#StopzettingShape> a shacl:NodeShape;
   rdfs:label "Stopzetting"@nl;
@@ -782,15 +827,9 @@
   ];
   shacl:targetClass org:Site .
 
- [
-    a shacl:PropertyShape;
-    rdfs:label "gaatOver"@nl;
-    rdfs:comment "Organisatrie waarop het FinancieelRapport betrekking heeft."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#Resource.GaatOver>;
-    shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>;
-    shacl:description "Organisatrie waarop het FinancieelRapport betrekking heeft."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "gaatOver"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/financiele-rapportering#FinancieelRapport.gaatOver>
-  ] .
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#WaardeShape> a shacl:NodeShape;
+  rdfs:label "Waarde"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Te vervangen door een specifieke klasse, datatype, of codelijst."@nl;
+  rdfs:comment "Een waarde die zowel numeriek als een classificatie kan zijn."@nl;
+  shacl:closed false;
+  shacl:targetClass xsd:Waarde .

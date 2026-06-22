@@ -2,12 +2,13 @@
   "@context": {
     "Activiteit": "http://www.w3.org/ns/prov#Activity",
     "Adresvoorstelling": "http://www.w3.org/ns/locn#Address",
+    "Agent": "http://xmlns.com/foaf/0.1/Agent",
     "BelgischAdres": "https://data.vlaanderen.be/ns/adres#Adres",
     "BelgischAdres.identificator": {
       "@id": "http://www.w3.org/ns/adms#identifier",
       "@type": "@id"
     },
-    "Contactinfo": "https://schema.org/ContactPoint",
+    "Contactinfo": "http://www.w3.org/2006/vcard/ns#Kind",
     "Date": "http://www.w3.org/2001/XMLSchema#date",
     "DateTime": "http://www.w3.org/2001/XMLSchema#dateTime",
     "Doorhaling": "https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming#Doorhaling",
@@ -20,6 +21,7 @@
       "@id": "http://purl.org/dc/elements/1.1/type",
       "@type": "@id"
     },
+    "FormeleOrganisatie": "http://www.w3.org/ns/org#FormalOrganization",
     "GeografischePositie": "https://data.vlaanderen.be/ns/generiek#GeografischePositie",
     "Geometrie": "http://www.w3.org/ns/locn#Geometry",
     "GeregistreerdeOrganisatie": "http://www.w3.org/ns/regorg#RegisteredOrganization",
@@ -32,13 +34,16 @@
     "Literal": "http://www.w3.org/2000/01/rdf-schema#Literal",
     "Moment": "http://www.w3.org/2006/time#Instant",
     "Oprichting": "http://data.europa.eu/m8g/FoundationEvent",
+    "Organisatie": "http://www.w3.org/ns/org#Organization",
     "Periode": "http://www.w3.org/2006/time#ProperInterval",
     "Punt": "http://www.opengis.net/ont/sf#Point",
+    "Resource": "http://www.w3.org/2000/01/rdf-schema#Resource",
     "Stopzetting": "https://data.vlaanderen.be/ns/organisatie#Stopzetting",
     "String": "http://www.w3.org/2001/XMLSchema#string",
     "TemporeleEntiteit": "http://www.w3.org/2006/time#TemporalEntity",
     "Veranderingsgebeurtenis": "http://www.w3.org/ns/org#ChangeEvent",
     "Vestiging": "http://www.w3.org/ns/org#Site",
+    "Waarde": "http://www.w3.org/2001/XMLSchema#Waarde",
     "activiteit": {
       "@id": "http://www.w3.org/ns/regorg#orgActivity",
       "@type": "@id"
@@ -52,7 +57,7 @@
       "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
     },
     "adres": {
-      "@id": "http://www.w3.org/ns/locn#address",
+      "@id": "http://www.w3.org/2006/vcard/ns#hasAddress",
       "@type": "@id"
     },
     "adresgebied": {
@@ -70,7 +75,7 @@
     },
     "contactinfo": {
       "@container": "@set",
-      "@id": "https://schema.org/contactPoint",
+      "@id": "http://data.europa.eu/m8g/contactPoint",
       "@type": "@id"
     },
     "datum": {
@@ -86,7 +91,7 @@
       "@type": "http://www.w3.org/2001/XMLSchema#date"
     },
     "email": {
-      "@id": "https://schema.org/email",
+      "@id": "http://www.w3.org/2006/vcard/ns#hasEmail",
       "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
     "gaatOver": {
@@ -196,8 +201,9 @@
       "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
     },
     "telefoon": {
-      "@id": "https://schema.org/telephone",
-      "@type": "http://www.w3.org/2001/XMLSchema#string"
+      "@container": "@set",
+      "@id": "http://www.w3.org/2006/vcard/ns#hasTelephone",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
     },
     "tijd": {
       "@id": "http://www.w3.org/ns/prov#time",

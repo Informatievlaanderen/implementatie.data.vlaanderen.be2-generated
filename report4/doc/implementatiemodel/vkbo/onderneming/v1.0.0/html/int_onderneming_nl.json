@@ -59,6 +59,23 @@
       ]
     },
     {
+      "id": "http://xmlns.com/foaf/0.1/Agent",
+      "vocabularyLabel": {
+        "nl": "Agent"
+      },
+      "applicationProfileLabel": {
+        "nl": "Agent"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een agent zoals een Persoon,groep,software of fysiek artifact."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Te vervangen door een niet-abstracte klasse."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
       "id": "https://data.vlaanderen.be/ns/adres#Adres",
       "vocabularyLabel": {
         "nl": "Belgisch Adres"
@@ -314,6 +331,23 @@
       ]
     },
     {
+      "id": "http://www.w3.org/ns/org#FormalOrganization",
+      "vocabularyLabel": {
+        "nl": "FormeleOrganisatie"
+      },
+      "applicationProfileLabel": {
+        "nl": "FormeleOrganisatie"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een erkende Organisatie,erkend in brede zin of  meer specifiek in juridische zin met bijbehorende rechten en plichten."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Bijvoorbeeld een bedrijf,een vzw,een overheidsorgaan,een kerkgemeenschap."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
       "id": "http://www.w3.org/ns/regorg#RegisteredOrganization",
       "vocabularyLabel": {
         "nl": "GeregistreerdeOrganisatie"
@@ -421,7 +455,7 @@
           "maxCount": "*"
         },
         {
-          "id": "https://schema.org/contactPoint",
+          "id": "http://data.europa.eu/m8g/contactPoint",
           "vocabularyLabel": {
             "nl": "^contactinfo"
           },
@@ -436,7 +470,7 @@
           "domain": "http://www.w3.org/ns/regorg#RegisteredOrganization",
           "range": {
             "id": "http://www.w3.org/2006/vcard/ns#Kind",
-            "listedInDocument": false,
+            "listedInDocument": true,
             "vocabularyLabel": {
               "nl": "Contactinfo"
             },
@@ -553,7 +587,7 @@
           "domain": "http://www.w3.org/ns/regorg#RegisteredOrganization",
           "range": {
             "id": "http://www.w3.org/2001/XMLSchema#Waarde",
-            "listedInDocument": false,
+            "listedInDocument": true,
             "vocabularyLabel": {
               "nl": "Waarde"
             },
@@ -825,7 +859,7 @@
           "domain": "http://www.w3.org/ns/regorg#RegisteredOrganization",
           "range": {
             "id": "http://www.w3.org/2000/01/rdf-schema#Resource",
-            "listedInDocument": false,
+            "listedInDocument": true,
             "vocabularyLabel": {
               "nl": "Resource"
             },
@@ -862,6 +896,66 @@
       ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "id": "http://www.w3.org/ns/org#Organization",
+      "vocabularyLabel": {
+        "nl": "Organisatie"
+      },
+      "applicationProfileLabel": {
+        "nl": "Organisatie"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "id": "http://www.w3.org/2000/01/rdf-schema#Resource",
+      "vocabularyLabel": {
+        "nl": "Resource"
+      },
+      "applicationProfileLabel": {
+        "nl": "Resource"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Klasse van objecten van om het even welk type."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Alle klassen zijn hier in principe subklasse van. In deze context moet men deze klasse altijd substitueren door de gewenste klasse of datatype."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/financiele-rapportering#FinancieelRapport.gaatOver",
+          "vocabularyLabel": {
+            "nl": "gaatOver"
+          },
+          "applicationProfileLabel": {
+            "nl": "gaatOver"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Organisatrie waarop het FinancieelRapport betrekking heeft."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/2000/01/rdf-schema#Resource",
+          "range": {
+            "id": "http://www.w3.org/ns/regorg#RegisteredOrganization",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "GeregistreerdeOrganisatie"
+            },
+            "applicationProfileLabel": {
+              "nl": "GeregistreerdeOrganisatie"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
     },
     {
       "id": "https://data.vlaanderen.be/ns/organisatie#Stopzetting",
@@ -1126,7 +1220,7 @@
           "domain": "http://www.w3.org/ns/org#Site",
           "range": {
             "id": "http://www.w3.org/2006/vcard/ns#Kind",
-            "listedInDocument": false,
+            "listedInDocument": true,
             "vocabularyLabel": {
               "nl": "Contactinfo"
             },
@@ -1651,7 +1745,7 @@
       ]
     },
     {
-      "id": "https://schema.org/ContactPoint",
+      "id": "http://www.w3.org/2006/vcard/ns#Kind",
       "vocabularyLabel": {
         "nl": "Contactinfo"
       },
@@ -1668,7 +1762,7 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
       "properties": [
         {
-          "id": "http://www.w3.org/ns/locn#address",
+          "id": "http://www.w3.org/2006/vcard/ns#hasAddress",
           "vocabularyLabel": {
             "nl": "adres"
           },
@@ -1680,7 +1774,7 @@
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
-          "domain": "https://schema.org/ContactPoint",
+          "domain": "http://www.w3.org/2006/vcard/ns#Kind",
           "range": {
             "id": "http://www.w3.org/ns/locn#Address",
             "listedInDocument": true,
@@ -1695,7 +1789,7 @@
           "maxCount": "1"
         },
         {
-          "id": "https://schema.org/email",
+          "id": "http://www.w3.org/2006/vcard/ns#hasEmail",
           "vocabularyLabel": {
             "nl": "email"
           },
@@ -1707,7 +1801,7 @@
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
-          "domain": "https://schema.org/ContactPoint",
+          "domain": "http://www.w3.org/2006/vcard/ns#Kind",
           "range": {
             "id": "http://www.w3.org/2001/XMLSchema#string",
             "listedInDocument": false,
@@ -1722,7 +1816,7 @@
           "maxCount": "1"
         },
         {
-          "id": "https://schema.org/telephone",
+          "id": "http://www.w3.org/2006/vcard/ns#hasTelephone",
           "vocabularyLabel": {
             "nl": "telefoon"
           },
@@ -1734,19 +1828,19 @@
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
-          "domain": "https://schema.org/ContactPoint",
+          "domain": "http://www.w3.org/2006/vcard/ns#Kind",
           "range": {
-            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "id": "http://www.w3.org/2000/01/rdf-schema#Literal",
             "listedInDocument": false,
             "vocabularyLabel": {
-              "nl": "String"
+              "nl": "Literal"
             },
             "applicationProfileLabel": {
-              "nl": "String"
+              "nl": "Literal"
             }
           },
           "minCount": "0",
-          "maxCount": "1"
+          "maxCount": "*"
         }
       ]
     },
@@ -2148,6 +2242,23 @@
       },
       "applicationProfileUsageNote": {
         "nl": "TemporeleEntiteiten zijn temporele geometrische primitieven zoals Moment of Periode. Dit datatype is abstract, gebruik één van de subklassen."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "id": "http://www.w3.org/2001/XMLSchema#Waarde",
+      "vocabularyLabel": {
+        "nl": "Waarde"
+      },
+      "applicationProfileLabel": {
+        "nl": "Waarde"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een waarde die zowel numeriek als een classificatie kan zijn."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Te vervangen door een specifieke klasse, datatype, of codelijst."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
