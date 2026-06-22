@@ -328,16 +328,12 @@
             "items": {
               "oneOf": [
                 {
-                  "$ref": "#/components/schemas/Activiteit"
-                },
-                {
                   "$ref": "#/components/schemas/Doorhaling"
                 }
               ],
               "discriminator": {
                 "propertyName": "@type",
                 "mapping": {
-                  "Activiteit": "#/components/schemas/Activiteit",
                   "Doorhaling": "#/components/schemas/Doorhaling"
                 }
               }
@@ -466,16 +462,12 @@
             "items": {
               "oneOf": [
                 {
-                  "$ref": "#/components/schemas/Activiteit"
-                },
-                {
                   "$ref": "#/components/schemas/Doorhaling"
                 }
               ],
               "discriminator": {
                 "propertyName": "@type",
                 "mapping": {
-                  "Activiteit": "#/components/schemas/Activiteit",
                   "Doorhaling": "#/components/schemas/Doorhaling"
                 }
               }
@@ -540,33 +532,6 @@
         "required": [
           "@type",
           "datum"
-        ]
-      },
-      "Activiteit": {
-        "title": "Activiteit",
-        "type": "object",
-        "description": "Een Activiteit is een gebeurtenis die plaatsvindt over een bepaalde periode en gebeurd door interactie van of met Entiteiten.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "description": "Object type (klasse Activiteit)",
-            "pattern": "^Activiteit$"
-          },
-          "tijd": {
-            "$ref": "#/components/schemas/Periode"
-          },
-          "gaatOver": {
-            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
-          }
-        },
-        "required": [
-          "@type",
-          "tijd",
-          "gaatOver"
         ]
       },
       "Oprichting": {
@@ -1365,20 +1330,6 @@
           "id": "$response.body#/Stopzetting.redenStopzetting/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `StopzettingType` op te halen."
-      },
-      "Activiteit.tijd": {
-        "operationId": "ActiviteitGET",
-        "parameters": {
-          "id": "$response.body#/Activiteit.tijd/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Periode` op te halen."
-      },
-      "Activiteit.gaatOver": {
-        "operationId": "ActiviteitGET",
-        "parameters": {
-          "id": "$response.body#/Activiteit.gaatOver/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdeOrganisatie` op te halen."
       },
       "Doorhaling.type": {
         "operationId": "DoorhalingGET",
