@@ -1,0 +1,36 @@
+{
+  "title": "Gemeente",
+  "type": "object",
+  "description": "Officiële administratieve zone van het Belgisch grondgebied. De gemeente is het kleinste administratieve deel van het Belgisch grondgebied waarvan de grenzen enkel door de wetgever kunnen worden gewijzigd.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Gemeente)",
+      "pattern": "^Gemeente$"
+    },
+    "isVersieVan": {
+      "$ref": "#/components/schemas/Gemeente"
+    },
+    "creatie": {
+      "$ref": "#/components/schemas/Creatie"
+    },
+    "identificator": {
+      "type": "array",
+      "description": "Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "isVersieVan",
+    "creatie",
+    "identificator"
+  ]
+}

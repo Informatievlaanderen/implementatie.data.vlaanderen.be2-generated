@@ -1,0 +1,49 @@
+{
+  "title": "Adresuitbreiding",
+  "type": "object",
+  "description": "Bijkomende gegevens mbt het adres.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Adresuitbreiding)",
+      "pattern": "^Adresuitbreiding$"
+    },
+    "volledigAdres": {
+      "type": "array",
+      "description": "Lijst van LangString items.",
+      "items": {
+        "type": "object",
+        "description": "Het complete adres in één string, al dan niet geformatteerd. Vermijdt fouten tgv het opsplitsen ve adres in zijn onderdelen. Geeft de voorgeschreven volgorde vd verschillende onderdelen weer.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "minItems": 1
+    },
+    "adreslocator": {
+      "type": "array",
+      "description": "Lijst van Adreslocator items.",
+      "items": {
+        "$ref": "#/components/schemas/Adreslocator"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

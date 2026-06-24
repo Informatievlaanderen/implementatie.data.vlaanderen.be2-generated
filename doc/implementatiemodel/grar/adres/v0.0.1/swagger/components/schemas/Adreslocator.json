@@ -1,0 +1,39 @@
+{
+  "title": "Adreslocator",
+  "type": "object",
+  "description": "Menselijk leesbare aanduiding of naam die een gebruiker of applicatie toelaat om het adres te onderscheiden van naburige adressen in de straat, de administratieve eenheid etc waarin het adres ligt.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Adreslocator)",
+      "pattern": "^Adreslocator$"
+    },
+    "aanduiding": {
+      "type": "array",
+      "description": "Lijst van Locatieaanduiding items.",
+      "items": {
+        "$ref": "#/components/schemas/Locatieaanduiding"
+      },
+      "minItems": 1
+    },
+    "naam": {
+      "type": "array",
+      "description": "Lijst van Locatienaam items.",
+      "items": {
+        "$ref": "#/components/schemas/Locatienaam"
+      },
+      "minItems": 1
+    },
+    "niveau": {
+      "$ref": "#/components/schemas/Locatorniveauwaarde"
+    }
+  },
+  "required": [
+    "@type",
+    "niveau"
+  ]
+}

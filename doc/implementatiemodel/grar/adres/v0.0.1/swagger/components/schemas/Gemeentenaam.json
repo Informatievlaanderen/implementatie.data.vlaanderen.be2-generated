@@ -1,0 +1,55 @@
+{
+  "title": "Gemeentenaam",
+  "type": "object",
+  "description": "Adrescomponent die verwijst naar de naam ve gemeente, ttz het kleinste administratieve deel van het Belgisch grondgebied waarvan de grenzen enkel door de wetgever kunnen worden gewijzigd.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Gemeentenaam)",
+      "pattern": "^Gemeentenaam$"
+    },
+    "gemeentenaam": {
+      "type": "array",
+      "description": "Lijst van GeografischeNaam items.",
+      "items": {
+        "type": "object",
+        "description": "Naam vd gemeente.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "minItems": 1
+    },
+    "isAfgeleidVan": {
+      "$ref": "#/components/schemas/Gemeente"
+    },
+    "identificator": {
+      "type": "array",
+      "description": "Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "gemeentenaam",
+    "isAfgeleidVan",
+    "identificator"
+  ]
+}

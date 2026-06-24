@@ -1,0 +1,136 @@
+{
+  "title": "BelgischAdres",
+  "type": "object",
+  "description": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse BelgischAdres)",
+      "pattern": "^BelgischAdres$"
+    },
+    "busnummer": {
+      "type": "object",
+      "description": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "huisnummer": {
+      "type": "object",
+      "description": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "officieelToegekend": {
+      "type": "object",
+      "description": "Geeft aan of het adres officieel door de adresbeheerder is toegekend. Een adres is niet-officieel wanneer het bestaan ervan niet gekend was vanuit de administratieve procedures, maar pas nadat nadat het feitelijk is vastgesteld op het terrein.",
+      "properties": {
+        "@value": {
+          "type": "boolean"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Boolean$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "positie": {
+      "$ref": "#/components/schemas/GeografischePositie"
+    },
+    "status": {
+      "$ref": "#/components/schemas/Statuswaarde"
+    },
+    "creatie": {
+      "$ref": "#/components/schemas/Creatie"
+    },
+    "isVersieVan": {
+      "$ref": "#/components/schemas/BelgischAdres"
+    },
+    "isVerrijktMet": {
+      "$ref": "#/components/schemas/Adresuitbreiding"
+    },
+    "heeftGemeentenaam": {
+      "$ref": "#/components/schemas/Gemeentenaam"
+    },
+    "toegeschrevenAan": {
+      "$ref": "#/components/schemas/Gemeente"
+    },
+    "heeftStraatnaam": {
+      "$ref": "#/components/schemas/Straatnaam"
+    },
+    "heeftPostinfo": {
+      "$ref": "#/components/schemas/Postinfo"
+    },
+    "isToegekendAan": {
+      "type": "array",
+      "description": "Lijst van AdresseerbaarObject items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Ligplaats"
+          },
+          {
+            "$ref": "#/components/schemas/Standplaats"
+          },
+          {
+            "$ref": "#/components/schemas/Gebouweenheid"
+          },
+          {
+            "$ref": "#/components/schemas/Perceel"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Ligplaats": "#/components/schemas/Ligplaats",
+            "Standplaats": "#/components/schemas/Standplaats",
+            "Gebouweenheid": "#/components/schemas/Gebouweenheid",
+            "Perceel": "#/components/schemas/Perceel"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "identificator": {
+      "type": "array",
+      "description": "Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "huisnummer",
+    "officieelToegekend",
+    "positie",
+    "status",
+    "creatie",
+    "isVersieVan",
+    "heeftGemeentenaam",
+    "toegeschrevenAan",
+    "heeftStraatnaam",
+    "heeftPostinfo",
+    "identificator"
+  ]
+}

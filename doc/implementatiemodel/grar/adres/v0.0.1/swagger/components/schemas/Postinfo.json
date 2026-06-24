@@ -1,0 +1,71 @@
+{
+  "title": "Postinfo",
+  "type": "object",
+  "description": "Adrescomponent die verwijst naar informatie toegekend door de aanbieder van de universele postdienst voor de identificatie van een groepering van adressen in een geografisch gebied voor postale doeleinden.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Postinfo)",
+      "pattern": "^Postinfo$"
+    },
+    "postcode": {
+      "type": "object",
+      "description": "Code waarmee het geografisch gebied dat de adressen voor postale doeleinden groepeert aanduidt.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "postnaam": {
+      "type": "array",
+      "description": "Lijst van GeografischeNaam items.",
+      "items": {
+        "type": "object",
+        "description": "Naam waarmee het geografisch gebied dat de adressen voor postale doeleinden groepeert kan worden aangeduid. Typisch de namen van vroegere gemeenten waarmee het gebied samenvalt.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "minItems": 1
+    },
+    "creatie": {
+      "$ref": "#/components/schemas/Creatie"
+    },
+    "isVersieVan": {
+      "$ref": "#/components/schemas/Postinfo"
+    },
+    "identificator": {
+      "type": "array",
+      "description": "Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "postcode",
+    "creatie",
+    "isVersieVan",
+    "identificator"
+  ]
+}

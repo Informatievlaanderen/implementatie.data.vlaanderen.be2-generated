@@ -1,0 +1,41 @@
+{
+  "title": "Creatie",
+  "type": "object",
+  "description": "Het voltooien vd productie ve nieuwe entiteit dmv een activiteit.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Creatie)",
+      "pattern": "^Creatie$"
+    },
+    "tijdstip": {
+      "type": "object",
+      "description": "Tijdstip waarop de creatie vd entiteit plaatsvond.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^DateTime$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "herkomstactiviteit": {
+      "$ref": "#/components/schemas/Herkomstactiviteit"
+    }
+  },
+  "required": [
+    "@type",
+    "tijdstip"
+  ]
+}

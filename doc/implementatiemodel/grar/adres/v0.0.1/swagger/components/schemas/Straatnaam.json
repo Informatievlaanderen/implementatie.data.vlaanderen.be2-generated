@@ -1,0 +1,79 @@
+{
+  "title": "Straatnaam",
+  "type": "object",
+  "description": "Adrescomponent met de naam die officieel werd toegekend aan een straat (baan, doorgang, plein) of aan een gehucht en waaraan adressen kunnen zijn gekoppeld.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Straatnaam)",
+      "pattern": "^Straatnaam$"
+    },
+    "homoniemToevoeging": {
+      "type": "object",
+      "description": "Toevoeging om dubbele straatnamen (straatnamen met dezelfde naam maar andere ligging in de gemeente en eigen adressen) van elkaar te onderscheiden.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "straatnaam": {
+      "type": "array",
+      "description": "Lijst van GeografischeNaam items.",
+      "items": {
+        "type": "object",
+        "description": "Naam vd straat.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "minItems": 1
+    },
+    "status": {
+      "$ref": "#/components/schemas/Statuswaarde"
+    },
+    "isVersieVan": {
+      "$ref": "#/components/schemas/Straatnaam"
+    },
+    "creatie": {
+      "$ref": "#/components/schemas/Creatie"
+    },
+    "isToegekendDoor": {
+      "$ref": "#/components/schemas/Gemeente"
+    },
+    "identificator": {
+      "type": "array",
+      "description": "Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "straatnaam",
+    "status",
+    "isVersieVan",
+    "creatie",
+    "isToegekendDoor",
+    "identificator"
+  ]
+}

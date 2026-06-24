@@ -1,0 +1,29 @@
+{
+  "title": "Herkomstactiviteit",
+  "type": "object",
+  "description": "Iets waarmee men actief is gedurende een bepaalde periode op een entiteit.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Herkomstactiviteit)",
+      "pattern": "^Herkomstactiviteit$"
+    },
+    "operator": {
+      "$ref": "#/components/schemas/Herkomstagent"
+    },
+    "applicatie": {
+      "$ref": "#/components/schemas/Herkomstentiteit"
+    },
+    "bewerking": {
+      "$ref": "#/components/schemas/Bewerkingstype"
+    }
+  },
+  "required": [
+    "@type",
+    "bewerking"
+  ]
+}

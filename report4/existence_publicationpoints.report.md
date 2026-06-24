@@ -3,15 +3,8 @@
 #||#    + checking /home/circleci/project/config/test/grar-adres-im.publication.json
 #||# 
 #||# Directory check
-error: missing '/tmp/generated/doc/implementatiemodel/grar/adres'
-error: missing '/tmp/generated/doc/implementatiemodel/grar/adres/v0.0.1'
-error: missing '/tmp/generated/ns/grar/adres'
-error: missing '/tmp/generated/doc/vocabularium/grar/adres'
-error: missing '/tmp/generated/doc/vocabularium/grar/adres/v0.0.1'
 #||# 
 #||# index.html check
-error: missing '/tmp/generated/doc/implementatiemodel/grar/adres/index.html'
-error: missing '/tmp/generated/doc/implementatiemodel/grar/adres/v0.0.1/index.html'
 error: missing '/tmp/generated/ns/grar/adres/index.html'
 error: missing '/tmp/generated/doc/vocabularium/grar/adres/index.html'
 error: missing '/tmp/generated/doc/vocabularium/grar/adres/v0.0.1/index.html'

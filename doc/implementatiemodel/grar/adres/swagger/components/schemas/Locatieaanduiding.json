@@ -1,0 +1,36 @@
+{
+  "title": "Locatieaanduiding",
+  "type": "object",
+  "description": "Alfanumerieke code die een adreslocator uniek identificeert binnen de straat, administratieve eenheid etc.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Locatieaanduiding)",
+      "pattern": "^Locatieaanduiding$"
+    },
+    "aanduiding": {
+      "type": "object",
+      "description": "Alfanumerieke code waarmee het identificerend deel van een adreslocator wordt aangeduid.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "type": {
+      "$ref": "#/components/schemas/Locatieaanduidingtype"
+    }
+  },
+  "required": [
+    "@type",
+    "aanduiding",
+    "type"
+  ]
+}
