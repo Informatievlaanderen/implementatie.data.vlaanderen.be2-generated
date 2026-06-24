@@ -1,5 +1,7 @@
 #||# checking publication points in directory /home/circleci/project/config/test
 #||# 
+#||#   + adding supporting /home/circleci/project/config/test/grar-adres-im.publication.json
+#||#  
 #||#   + adding supporting /home/circleci/project/config/test/landbouwgebruiksperceel-im.publication.json
 #||#  
 #||#   + adding supporting /home/circleci/project/config/test/organisatie-vkbo-im.publication.json
