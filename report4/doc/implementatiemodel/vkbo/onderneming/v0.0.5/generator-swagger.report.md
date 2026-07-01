@@ -2,5 +2,3 @@
 
 #||#  -------------------------------------  
 
-OpenAPI Swagger publication
-

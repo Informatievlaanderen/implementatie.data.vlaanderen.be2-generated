@@ -25,16 +25,21 @@
       ]
     },
     "telefoon": {
-      "type": "object",
-      "description": "Telefoonnummer waarop men kan bellen.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
+      "type": "array",
+      "description": "Lijst van Literal items.",
+      "items": {
+        "type": "object",
+        "description": "Telefoonnummer waarop men kan bellen. Gebruik W3C VCard TelephoneType als datatype om het soort telefoonnummer aan te duiden.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
       },
-      "required": [
-        "@value"
-      ]
+      "minItems": 1
     },
     "adres": {
       "$ref": "#/components/schemas/Adresvoorstelling"

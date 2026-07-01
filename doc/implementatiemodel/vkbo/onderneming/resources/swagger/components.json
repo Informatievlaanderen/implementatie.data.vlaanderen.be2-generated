@@ -119,6 +119,108 @@
           "@id"
         ]
       },
+      "RapportType": {
+        "title": "RapportType",
+        "type": "object",
+        "description": "Enumeratie van RapportType",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "FinancieelRapport": {
+        "title": "FinancieelRapport",
+        "type": "object",
+        "description": "Rapport over de financiële toestand of economische positie van een Organisatie.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse FinancieelRapport)",
+            "pattern": "^FinancieelRapport$"
+          },
+          "type": {
+            "$ref": "#/components/schemas/RapportType"
+          },
+          "gaatOver": {
+            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+          }
+        },
+        "required": [
+          "@type",
+          "type",
+          "gaatOver"
+        ]
+      },
+      "Resource": {
+        "title": "Resource",
+        "type": "object",
+        "description": "Klasse van objecten van om het even welk type.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Resource)",
+            "pattern": "^Resource$"
+          },
+          "gaatOver": {
+            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+          }
+        },
+        "required": [
+          "@type",
+          "gaatOver"
+        ]
+      },
+      "FormeleOrganisatie": {
+        "title": "FormeleOrganisatie",
+        "type": "object",
+        "description": "Een erkende Organisatie, erkend in brede zin of  meer specifiek in juridische zin met bijbehorende rechten en plichten.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse FormeleOrganisatie)",
+            "pattern": "^FormeleOrganisatie$"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Organisatie": {
+        "title": "Organisatie",
+        "type": "object",
+        "description": "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Organisatie)",
+            "pattern": "^Organisatie$"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
       "GeregistreerdeOrganisatie": {
         "title": "GeregistreerdeOrganisatie",
         "type": "object",
@@ -220,13 +322,43 @@
             },
             "minItems": 1
           },
-          "doorhaling": {
+          "isBeinvloedDoor": {
             "type": "array",
-            "description": "Lijst van Doorhaling items.",
+            "description": "Lijst van Activiteit items.",
             "items": {
-              "$ref": "#/components/schemas/Doorhaling"
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Doorhaling"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Doorhaling": "#/components/schemas/Doorhaling"
+                }
+              }
             },
             "minItems": 1
+          },
+          "omvang": {
+            "$ref": "#/components/schemas/Waarde"
+          },
+          "wordtGerefereerdIn": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Resource"
+              },
+              {
+                "$ref": "#/components/schemas/FinancieelRapport"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Resource": "#/components/schemas/Resource",
+                "FinancieelRapport": "#/components/schemas/FinancieelRapport"
+              }
+            }
           },
           "heeftGeregistreerdeVestiging": {
             "type": "array",
@@ -261,7 +393,7 @@
           "@context": {
             "type": "string",
             "description": "URI of the JSON-LD versioned context file for this response.",
-            "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v0.0.7\\/context\\/onderneming.jsonld$"
+            "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v1.0.0\\/context\\/onderneming.jsonld$"
           }
         },
         "required": [
@@ -324,11 +456,21 @@
           "vestigingsadres": {
             "$ref": "#/components/schemas/Contactinfo"
           },
-          "doorhaling": {
+          "isBeinvloedDoor": {
             "type": "array",
-            "description": "Lijst van Doorhaling items.",
+            "description": "Lijst van Activiteit items.",
             "items": {
-              "$ref": "#/components/schemas/Doorhaling"
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Doorhaling"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Doorhaling": "#/components/schemas/Doorhaling"
+                }
+              }
             },
             "minItems": 1
           },
@@ -341,7 +483,7 @@
           "@context": {
             "type": "string",
             "description": "URI of the JSON-LD versioned context file for this response.",
-            "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v0.0.7\\/context\\/onderneming.jsonld$"
+            "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v1.0.0\\/context\\/onderneming.jsonld$"
           }
         },
         "required": [
@@ -452,18 +594,22 @@
           },
           "tijd": {
             "$ref": "#/components/schemas/Periode"
+          },
+          "gaatOver": {
+            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
           }
         },
         "required": [
           "@type",
-          "reden",
-          "tijd"
+          "type",
+          "tijd",
+          "gaatOver"
         ]
       },
       "BelgischAdres": {
         "title": "BelgischAdres",
         "type": "object",
-        "description": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid,een ligplaats,een standplaats of een perceel op basis van een gemeentenaam,een straatnaam,een huisnummer en eventueel een busnummer en een postcode.",
+        "description": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats, of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer, eventueel een busnummer, en een postcode.",
         "properties": {
           "@id": {
             "type": "string",
@@ -503,7 +649,7 @@
           },
           "identificator": {
             "type": "object",
-            "description": "String gebruikt om het object uniek te identificeren. Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator.",
+            "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
             "properties": {
               "@value": {
                 "type": "string"
@@ -678,7 +824,7 @@
           },
           "huisnummer": {
             "type": "object",
-            "description": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen. Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen.",
+            "description": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen. Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen.",
             "properties": {
               "@value": {
                 "type": "string"
@@ -847,11 +993,11 @@
             "properties": {
               "@value": {
                 "type": "string",
-                "format": "date-time"
+                "format": "date"
               },
               "@type": {
                 "type": "string",
-                "pattern": "^DateTime$"
+                "pattern": "^Date$"
               }
             },
             "required": [
@@ -891,16 +1037,21 @@
             ]
           },
           "telefoon": {
-            "type": "object",
-            "description": "Telefoonnummer waarop men kan bellen.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
+            "type": "array",
+            "description": "Lijst van Literal items.",
+            "items": {
+              "type": "object",
+              "description": "Telefoonnummer waarop men kan bellen. Gebruik W3C VCard TelephoneType als datatype om het soort telefoonnummer aan te duiden.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@value"
+              ]
             },
-            "required": [
-              "@value"
-            ]
+            "minItems": 1
           },
           "adres": {
             "$ref": "#/components/schemas/Adresvoorstelling"
@@ -1000,6 +1151,25 @@
           "@type"
         ]
       },
+      "Waarde": {
+        "title": "Waarde",
+        "type": "object",
+        "description": "Een waarde die zowel numeriek als een classificatie kan zijn.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Waarde)",
+            "pattern": "^Waarde$"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
       "TemporeleEntiteit": {
         "title": "TemporeleEntiteit",
         "type": "object",
@@ -1021,6 +1191,27 @@
       }
     },
     "links": {
+      "FinancieelRapport.type": {
+        "operationId": "FinancieelRapportGET",
+        "parameters": {
+          "id": "$response.body#/FinancieelRapport.type/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `RapportType` op te halen."
+      },
+      "FinancieelRapport.gaatOver": {
+        "operationId": "FinancieelRapportGET",
+        "parameters": {
+          "id": "$response.body#/FinancieelRapport.gaatOver/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdeOrganisatie` op te halen."
+      },
+      "Resource.gaatOver": {
+        "operationId": "ResourceGET",
+        "parameters": {
+          "id": "$response.body#/Resource.gaatOver/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdeOrganisatie` op te halen."
+      },
       "GeregistreerdeOrganisatie.rechtspersoonlijkheid": {
         "operationId": "GeregistreerdeOrganisatieGET",
         "parameters": {
@@ -1070,12 +1261,26 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `OrganisatieStatus` op te halen."
       },
-      "GeregistreerdeOrganisatie.doorhaling": {
+      "GeregistreerdeOrganisatie.isBeinvloedDoor": {
         "operationId": "GeregistreerdeOrganisatieGET",
         "parameters": {
-          "id": "$response.body#/GeregistreerdeOrganisatie.doorhaling/@id"
+          "id": "$response.body#/GeregistreerdeOrganisatie.isBeinvloedDoor/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Doorhaling` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Activiteit` op te halen."
+      },
+      "GeregistreerdeOrganisatie.omvang": {
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdeOrganisatie.omvang/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Waarde` op te halen."
+      },
+      "GeregistreerdeOrganisatie.wordtGerefereerdIn": {
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdeOrganisatie.wordtGerefereerdIn/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Resource` op te halen."
       },
       "GeregistreerdeOrganisatie.heeftGeregistreerdeVestiging": {
         "operationId": "GeregistreerdeOrganisatieGET",
@@ -1098,12 +1303,12 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactinfo` op te halen."
       },
-      "Vestiging.doorhaling": {
+      "Vestiging.isBeinvloedDoor": {
         "operationId": "VestigingGET",
         "parameters": {
-          "id": "$response.body#/Vestiging.doorhaling/@id"
+          "id": "$response.body#/Vestiging.isBeinvloedDoor/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Doorhaling` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Activiteit` op te halen."
       },
       "Vestiging.registratie": {
         "operationId": "VestigingGET",
@@ -1146,6 +1351,13 @@
           "id": "$response.body#/Doorhaling.tijd/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Periode` op te halen."
+      },
+      "Doorhaling.gaatOver": {
+        "operationId": "DoorhalingGET",
+        "parameters": {
+          "id": "$response.body#/Doorhaling.gaatOver/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdeOrganisatie` op te halen."
       },
       "BelgischAdres.identificator": {
         "operationId": "BelgischAdresGET",

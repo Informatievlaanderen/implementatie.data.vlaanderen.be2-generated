@@ -51,11 +51,21 @@
     "vestigingsadres": {
       "$ref": "#/components/schemas/Contactinfo"
     },
-    "doorhaling": {
+    "isBeinvloedDoor": {
       "type": "array",
-      "description": "Lijst van Doorhaling items.",
+      "description": "Lijst van Activiteit items.",
       "items": {
-        "$ref": "#/components/schemas/Doorhaling"
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Doorhaling"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Doorhaling": "#/components/schemas/Doorhaling"
+          }
+        }
       },
       "minItems": 1
     },
@@ -68,7 +78,7 @@
     "@context": {
       "type": "string",
       "description": "URI of the JSON-LD versioned context file for this response.",
-      "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v0.0.7\\/context\\/onderneming.jsonld$"
+      "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v1.0.0\\/context\\/onderneming.jsonld$"
     }
   },
   "required": [

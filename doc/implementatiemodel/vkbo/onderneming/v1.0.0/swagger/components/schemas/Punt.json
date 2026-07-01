@@ -1,0 +1,43 @@
+{
+  "title": "Punt",
+  "type": "object",
+  "description": "Een 0-dimensioneel geometrisch object dat een bepaalde locatie in een coördinaatruimte voorstelt. Heeft een x-coördinaat en een y-coördinaat. Kan ook een z-coördinaat (hoogte) en een m-coördinaat (afstand langs een curve) hebben.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Punt)",
+      "pattern": "^Punt$"
+    },
+    "gml": {
+      "type": "object",
+      "description": "Geometrie uitgedrukt in GML-formaat. Gebruik http://www.opengis.net/ont/geosparql#gmlLiteral als datatype.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "wkt": {
+      "type": "object",
+      "description": "Geometrie uitgedrukt in WKT-formaat. Gebruik http://www.opengis.net/ont/geosparql#wktLiteral als datatype.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

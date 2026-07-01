@@ -1,0 +1,1166 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Components of OpenAPI",
+    "description": "This",
+    "version": "1.0.0"
+  },
+  "components": {
+    "schemas": {
+      "Rechtspersoonlijkheidtype": {
+        "title": "Rechtspersoonlijkheidtype",
+        "type": "object",
+        "description": "Enumeratie van Rechtspersoonlijkheidtype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Rechtstoestandtype": {
+        "title": "Rechtstoestandtype",
+        "type": "object",
+        "description": "Enumeratie van Rechtstoestandtype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Rechtsvormtype": {
+        "title": "Rechtsvormtype",
+        "type": "object",
+        "description": "Enumeratie van Rechtsvormtype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Activiteittype": {
+        "title": "Activiteittype",
+        "type": "object",
+        "description": "Enumeratie van Activiteittype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "OrganisatieStatus": {
+        "title": "OrganisatieStatus",
+        "type": "object",
+        "description": "Enumeratie van OrganisatieStatus",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Doorhalingstype": {
+        "title": "Doorhalingstype",
+        "type": "object",
+        "description": "Enumeratie van Doorhalingstype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "RedenDoorhaling": {
+        "title": "RedenDoorhaling",
+        "type": "object",
+        "description": "Enumeratie van RedenDoorhaling",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "StopzettingType": {
+        "title": "StopzettingType",
+        "type": "object",
+        "description": "Enumeratie van StopzettingType",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "GeregistreerdeOrganisatie": {
+        "title": "GeregistreerdeOrganisatie",
+        "type": "object",
+        "description": "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse GeregistreerdeOrganisatie)",
+            "pattern": "^GeregistreerdeOrganisatie$"
+          },
+          "wettelijkeNaam": {
+            "type": "object",
+            "description": "Wettelijk geregistreerde naam vd organisatie. Evt in verschillende talen.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "voorkeursnaam": {
+            "type": "object",
+            "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "alternatieveNaam": {
+            "type": "array",
+            "description": "Lijst van LangString items.",
+            "items": {
+              "type": "object",
+              "description": "Andere naam waaronder de Organisatie bekend is. Bijvoorbeeld: commerciële naam, informele naam, etc.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                },
+                "@language": {
+                  "type": "string",
+                  "pattern": "^nl$"
+                }
+              },
+              "required": [
+                "@value",
+                "@language"
+              ]
+            },
+            "minItems": 1
+          },
+          "rechtspersoonlijkheid": {
+            "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
+          },
+          "rechtstoestand": {
+            "$ref": "#/components/schemas/Rechtstoestandtype"
+          },
+          "rechtsvorm": {
+            "$ref": "#/components/schemas/Rechtsvormtype"
+          },
+          "registratie": {
+            "$ref": "#/components/schemas/Identificator"
+          },
+          "activiteit": {
+            "$ref": "#/components/schemas/Activiteittype"
+          },
+          "contactinfo": {
+            "type": "array",
+            "description": "Lijst van Contactinfo items.",
+            "items": {
+              "$ref": "#/components/schemas/Contactinfo"
+            },
+            "minItems": 1
+          },
+          "status": {
+            "type": "array",
+            "description": "Lijst van OrganisatieStatus items.",
+            "items": {
+              "$ref": "#/components/schemas/OrganisatieStatus"
+            },
+            "minItems": 1
+          },
+          "doorhaling": {
+            "type": "array",
+            "description": "Lijst van Doorhaling items.",
+            "items": {
+              "$ref": "#/components/schemas/Doorhaling"
+            },
+            "minItems": 1
+          },
+          "heeftGeregistreerdeVestiging": {
+            "type": "array",
+            "description": "Lijst van Vestiging items.",
+            "items": {
+              "$ref": "#/components/schemas/Vestiging"
+            },
+            "minItems": 1
+          },
+          "isVeranderdDoor": {
+            "type": "array",
+            "description": "Lijst van Veranderingsgebeurtenis items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Stopzetting"
+                },
+                {
+                  "$ref": "#/components/schemas/Oprichting"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Stopzetting": "#/components/schemas/Stopzetting",
+                  "Oprichting": "#/components/schemas/Oprichting"
+                }
+              }
+            },
+            "minItems": 1
+          },
+          "@context": {
+            "type": "string",
+            "description": "URI of the JSON-LD versioned context file for this response.",
+            "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v0.0.5\\/context\\/organisatie.jsonld$"
+          }
+        },
+        "required": [
+          "@type",
+          "wettelijkeNaam",
+          "voorkeursnaam",
+          "registratie"
+        ]
+      },
+      "Vestiging": {
+        "title": "Vestiging",
+        "type": "object",
+        "description": "Een kantoor of ander pand waar een Organisatie gevestigd is. Organisaties kunnen over meerdere Vestigingen verspreid zijn en Vestigingen kunnen op meerdere locaties slaan.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Vestiging)",
+            "pattern": "^Vestiging$"
+          },
+          "datumOprichting": {
+            "type": "object",
+            "description": "Datum waarop de Vestiging opgericht werd.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "datumStopzetting": {
+            "type": "object",
+            "description": "Datum waarop de vestiging werd stopgezet.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "vestigingsadres": {
+            "$ref": "#/components/schemas/Contactinfo"
+          },
+          "doorhaling": {
+            "type": "array",
+            "description": "Lijst van Doorhaling items.",
+            "items": {
+              "$ref": "#/components/schemas/Doorhaling"
+            },
+            "minItems": 1
+          },
+          "registratie": {
+            "$ref": "#/components/schemas/Identificator"
+          },
+          "vestigingVan": {
+            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+          },
+          "@context": {
+            "type": "string",
+            "description": "URI of the JSON-LD versioned context file for this response.",
+            "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v0.0.5\\/context\\/organisatie.jsonld$"
+          }
+        },
+        "required": [
+          "@type",
+          "datumOprichting",
+          "registratie",
+          "vestigingVan"
+        ]
+      },
+      "Stopzetting": {
+        "title": "Stopzetting",
+        "type": "object",
+        "description": "Gebeurtenis waarbij een Organisatie is stopgezet.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Stopzetting)",
+            "pattern": "^Stopzetting$"
+          },
+          "redenStopzetting": {
+            "$ref": "#/components/schemas/StopzettingType"
+          },
+          "datum": {
+            "type": "object",
+            "description": "Datum waarop de Veranderingsgebeurtenis plaatsvond. Zie Time and date & Recurring and partial dates van <a href=\"https://www.w3.org/TR/rdf11-concepts/#h2_section-Datatypes\"> XSD Datatypes</a>.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "datum"
+        ]
+      },
+      "Oprichting": {
+        "title": "Oprichting",
+        "type": "object",
+        "description": "Gebeurtenis waarbij een Organisatie is opgericht.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Oprichting)",
+            "pattern": "^Oprichting$"
+          },
+          "datum": {
+            "type": "object",
+            "description": "Datum waarop de Veranderingsgebeurtenis plaatsvond. Zie Time and date & Recurring and partial dates van <a href=\"https://www.w3.org/TR/rdf11-concepts/#h2_section-Datatypes\"> XSD Datatypes</a>.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "datum"
+        ]
+      },
+      "Doorhaling": {
+        "title": "Doorhaling",
+        "type": "object",
+        "description": "Gebeurtenis waarbij een Organisatie is geschrapt in het KBO.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Doorhaling)",
+            "pattern": "^Doorhaling$"
+          },
+          "type": {
+            "$ref": "#/components/schemas/Doorhalingstype"
+          },
+          "reden": {
+            "$ref": "#/components/schemas/RedenDoorhaling"
+          },
+          "tijd": {
+            "$ref": "#/components/schemas/Periode"
+          }
+        },
+        "required": [
+          "@type",
+          "reden",
+          "tijd"
+        ]
+      },
+      "BelgischAdres": {
+        "title": "BelgischAdres",
+        "type": "object",
+        "description": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid,een ligplaats,een standplaats of een perceel op basis van een gemeentenaam,een straatnaam,een huisnummer en eventueel een busnummer en een postcode.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse BelgischAdres)",
+            "pattern": "^BelgischAdres$"
+          },
+          "identificator": {
+            "$ref": "#/components/schemas/Identificator"
+          },
+          "positie": {
+            "$ref": "#/components/schemas/GeografischePositie"
+          }
+        },
+        "required": [
+          "@type",
+          "identificator",
+          "positie"
+        ]
+      },
+      "Identificator": {
+        "title": "Identificator",
+        "type": "object",
+        "description": "Informatie gebruikt om een object uniek te identificeren.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Identificator)",
+            "pattern": "^Identificator$"
+          },
+          "identificator": {
+            "type": "object",
+            "description": "String gebruikt om het object uniek te identificeren. Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "toegekendOp": {
+            "type": "object",
+            "description": "Tijdstip waarop de identificator werd uitgegeven.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "toegekendDoor": {
+            "$ref": "#/components/schemas/Agent"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Geometrie": {
+        "title": "Geometrie",
+        "type": "object",
+        "description": "Vorm- en positiekenmerken van een object.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Geometrie)",
+            "pattern": "^Geometrie$"
+          },
+          "gml": {
+            "type": "object",
+            "description": "Geometrie uitgedrukt in GML-formaat. Gebruik http://www.opengis.net/ont/geosparql#gmlLiteral als datatype.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "wkt": {
+            "type": "object",
+            "description": "Geometrie uitgedrukt in WKT-formaat. Gebruik http://www.opengis.net/ont/geosparql#wktLiteral als datatype.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Adresvoorstelling": {
+        "title": "Adresvoorstelling",
+        "type": "object",
+        "description": "Meer leesbare voorstelling met enkel de basisgegevens van het adres, bedoeld voor het gebruik van een adres als attribuut van een ander object.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Adresvoorstelling)",
+            "pattern": "^Adresvoorstelling$"
+          },
+          "administratieveEenheidNiveau1": {
+            "type": "object",
+            "description": "Hoogste Administratieve eenheid van het adres, doorgaans een land.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "administratieveEenheidNiveau2": {
+            "type": "object",
+            "description": "De regio van het adres, doorgaans een provincie of deelstaat of gelijkaardig gebied dat typisch meerdere plaatsen omvat.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "adresgebied": {
+            "type": "object",
+            "description": "Naam van een geografisch gebied of plaats die een aantal adresseerbare objecten groepeert om deze te adresseren zonder dat het gebied of de plaats een administratieve eenheid is. Bvb de naam van het gehucht waarin het adres ligt.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "busnummer": {
+            "type": "object",
+            "description": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben. Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "gemeentenaam": {
+            "type": "object",
+            "description": "Gemeentenaam van het adres.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "huisnummer": {
+            "type": "object",
+            "description": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen. Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "land": {
+            "type": "object",
+            "description": "Land waarin het adres gelegen is.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "locatieaanduiding": {
+            "type": "array",
+            "description": "Lijst van String items.",
+            "items": {
+              "type": "object",
+              "description": "Alfanumerieke code die de adreslocator uniek identificeert binnen de straat, administratieve eenheid etc.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@value"
+              ]
+            },
+            "minItems": 1
+          },
+          "locatienaam": {
+            "type": "array",
+            "description": "Lijst van LangString items.",
+            "items": {
+              "type": "object",
+              "description": "Naam of omschrijving van het het geografisch object dat de adreslocator aanduidt.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                },
+                "@language": {
+                  "type": "string",
+                  "pattern": "^nl$"
+                }
+              },
+              "required": [
+                "@value",
+                "@language"
+              ]
+            },
+            "minItems": 1
+          },
+          "postbus": {
+            "type": "object",
+            "description": "Postbusnummer in een postkantoor.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "postcode": {
+            "type": "object",
+            "description": "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "postnaam": {
+            "type": "object",
+            "description": "Naam waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "straatnaam": {
+            "type": "object",
+            "description": "Straatnaam van het adres.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "volledigAdres": {
+            "type": "object",
+            "description": "Het complete adres in één string, al dan niet geformatteerd. Vermijdt fouten ten gevolge van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "verwijstNaar": {
+            "$ref": "#/components/schemas/BelgischAdres"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Moment": {
+        "title": "Moment",
+        "type": "object",
+        "description": "Moment met omvang en duur nul.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Moment)",
+            "pattern": "^Moment$"
+          },
+          "inXSDdatum": {
+            "type": "object",
+            "description": "Positie in de tijd uitgedrukt door middel van xsd:date.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^DateTime$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Contactinfo": {
+        "title": "Contactinfo",
+        "type": "object",
+        "description": "Informatie zoals email, telefoon, adres die toelaat om iemand of iets te contacteren.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Contactinfo)",
+            "pattern": "^Contactinfo$"
+          },
+          "email": {
+            "type": "object",
+            "description": "Email-adres waarnaar men kan mailen.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "telefoon": {
+            "type": "object",
+            "description": "Telefoonnummer waarop men kan bellen.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "adres": {
+            "$ref": "#/components/schemas/Adresvoorstelling"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "GeografischePositie": {
+        "title": "GeografischePositie",
+        "type": "object",
+        "description": "Geografische positie aangegeven door middel van een punt.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse GeografischePositie)",
+            "pattern": "^GeografischePositie$"
+          },
+          "geometrie": {
+            "$ref": "#/components/schemas/Punt"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Periode": {
+        "title": "Periode",
+        "type": "object",
+        "description": "Temporele Entiteit waarvan de omvang en duurtijd verschilt van nul, dit wil zeggen, waarvoor de begin- en eindtijd verschillend zijn.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Periode)",
+            "pattern": "^Periode$"
+          },
+          "tot": {
+            "$ref": "#/components/schemas/Moment"
+          },
+          "van": {
+            "$ref": "#/components/schemas/Moment"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Punt": {
+        "title": "Punt",
+        "type": "object",
+        "description": "Een 0-dimensioneel geometrisch object dat een bepaalde locatie in een coördinaatruimte voorstelt. Heeft een x-coördinaat en een y-coördinaat. Kan ook een z-coördinaat (hoogte) en een m-coördinaat (afstand langs een curve) hebben.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Punt)",
+            "pattern": "^Punt$"
+          },
+          "gml": {
+            "type": "object",
+            "description": "Geometrie uitgedrukt in GML-formaat. Gebruik http://www.opengis.net/ont/geosparql#gmlLiteral als datatype.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "wkt": {
+            "type": "object",
+            "description": "Geometrie uitgedrukt in WKT-formaat. Gebruik http://www.opengis.net/ont/geosparql#wktLiteral als datatype.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "TemporeleEntiteit": {
+        "title": "TemporeleEntiteit",
+        "type": "object",
+        "description": "Abstracte klasse voor temporele objecten.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse TemporeleEntiteit)",
+            "pattern": "^TemporeleEntiteit$"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      }
+    },
+    "links": {
+      "GeregistreerdeOrganisatie.rechtspersoonlijkheid": {
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdeOrganisatie.rechtspersoonlijkheid/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Rechtspersoonlijkheidtype` op te halen."
+      },
+      "GeregistreerdeOrganisatie.rechtstoestand": {
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdeOrganisatie.rechtstoestand/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Rechtstoestandtype` op te halen."
+      },
+      "GeregistreerdeOrganisatie.rechtsvorm": {
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdeOrganisatie.rechtsvorm/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Rechtsvormtype` op te halen."
+      },
+      "GeregistreerdeOrganisatie.registratie": {
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdeOrganisatie.registratie/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "GeregistreerdeOrganisatie.activiteit": {
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdeOrganisatie.activiteit/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Activiteittype` op te halen."
+      },
+      "GeregistreerdeOrganisatie.contactinfo": {
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdeOrganisatie.contactinfo/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactinfo` op te halen."
+      },
+      "GeregistreerdeOrganisatie.status": {
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdeOrganisatie.status/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `OrganisatieStatus` op te halen."
+      },
+      "GeregistreerdeOrganisatie.doorhaling": {
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdeOrganisatie.doorhaling/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Doorhaling` op te halen."
+      },
+      "GeregistreerdeOrganisatie.heeftGeregistreerdeVestiging": {
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdeOrganisatie.heeftGeregistreerdeVestiging/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Vestiging` op te halen."
+      },
+      "GeregistreerdeOrganisatie.isVeranderdDoor": {
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdeOrganisatie.isVeranderdDoor/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Veranderingsgebeurtenis` op te halen."
+      },
+      "Vestiging.vestigingsadres": {
+        "operationId": "VestigingGET",
+        "parameters": {
+          "id": "$response.body#/Vestiging.vestigingsadres/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactinfo` op te halen."
+      },
+      "Vestiging.doorhaling": {
+        "operationId": "VestigingGET",
+        "parameters": {
+          "id": "$response.body#/Vestiging.doorhaling/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Doorhaling` op te halen."
+      },
+      "Vestiging.registratie": {
+        "operationId": "VestigingGET",
+        "parameters": {
+          "id": "$response.body#/Vestiging.registratie/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "Vestiging.vestigingVan": {
+        "operationId": "VestigingGET",
+        "parameters": {
+          "id": "$response.body#/Vestiging.vestigingVan/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdeOrganisatie` op te halen."
+      },
+      "Stopzetting.redenStopzetting": {
+        "operationId": "StopzettingGET",
+        "parameters": {
+          "id": "$response.body#/Stopzetting.redenStopzetting/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `StopzettingType` op te halen."
+      },
+      "Doorhaling.type": {
+        "operationId": "DoorhalingGET",
+        "parameters": {
+          "id": "$response.body#/Doorhaling.type/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Doorhalingstype` op te halen."
+      },
+      "Doorhaling.reden": {
+        "operationId": "DoorhalingGET",
+        "parameters": {
+          "id": "$response.body#/Doorhaling.reden/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `RedenDoorhaling` op te halen."
+      },
+      "Doorhaling.tijd": {
+        "operationId": "DoorhalingGET",
+        "parameters": {
+          "id": "$response.body#/Doorhaling.tijd/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Periode` op te halen."
+      },
+      "BelgischAdres.identificator": {
+        "operationId": "BelgischAdresGET",
+        "parameters": {
+          "id": "$response.body#/BelgischAdres.identificator/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "BelgischAdres.positie": {
+        "operationId": "BelgischAdresGET",
+        "parameters": {
+          "id": "$response.body#/BelgischAdres.positie/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeografischePositie` op te halen."
+      }
+    }
+  }
+}
