@@ -1,0 +1,34 @@
+{
+  "title": "VoorlopigeInschrijving",
+  "type": "object",
+  "description": "De Persoon is voorlopig ingeschreven in het bevolkingsregister wanneer deze Persoon zich gevestigd heeft in een woning waar permanente bewoning niet toegelaten is.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse VoorlopigeInschrijving)",
+      "pattern": "^VoorlopigeInschrijving$"
+    },
+    "geldigheid": {
+      "$ref": "#/components/schemas/Periode"
+    },
+    "procedure": {
+      "$ref": "#/components/schemas/ProcedureType"
+    },
+    "verblijfsadres": {
+      "$ref": "#/components/schemas/Adresvoorstelling"
+    },
+    "status": {
+      "$ref": "#/components/schemas/DomicilieStatus"
+    },
+    "nietMededeelbaar": {
+      "$ref": "#/components/schemas/NietMededeelbaar"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

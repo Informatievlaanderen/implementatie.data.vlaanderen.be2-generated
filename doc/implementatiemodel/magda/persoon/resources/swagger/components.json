@@ -3,7 +3,7 @@
   "info": {
     "title": "Components of MAGDA geefPersoon REST",
     "description": "MAGDA OSLO-conforme REST API voor geefPersoon (MVP)",
-    "version": "0.1.1"
+    "version": "0.2.0"
   },
   "components": {
     "schemas": {
@@ -39,6 +39,34 @@
         "title": "Geslacht",
         "type": "object",
         "description": "Enumeratie van Geslacht",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "ProcedureType": {
+        "title": "ProcedureType",
+        "type": "object",
+        "description": "Enumeratie van ProcedureType",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Situatie": {
+        "title": "Situatie",
+        "type": "object",
+        "description": "Enumeratie van Situatie",
         "properties": {
           "@id": {
             "type": "string",
@@ -163,6 +191,18 @@
               ]
             },
             "minItems": 1
+          },
+          "gebruikteVoornaam": {
+            "type": "object",
+            "description": "Belangrijkste van de voornamen van een Persoon. Bijvoorbeeld: 'Maria Josephine Louis' waarvan 'Maria' de belangrijkste voornaam is.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
           },
           "achternaam": {
             "type": "array",
@@ -777,12 +817,70 @@
           "@context": {
             "type": "string",
             "description": "URI of the JSON-LD versioned context file for this response.",
-            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/magda\\/persoon\\/v0.1.1\\/context\\/persoon.jsonld$"
+            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/magda\\/persoon\\/v0.2.0\\/context\\/persoon.jsonld$"
           }
         },
         "required": [
           "@type",
           "data"
+        ]
+      },
+      "NietMededeelbaar": {
+        "title": "NietMededeelbaar",
+        "type": "object",
+        "description": "Data die vertrouwelijk is en daardoor niet mag meegedeeld worden.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse NietMededeelbaar)",
+            "pattern": "^NietMededeelbaar$"
+          },
+          "sinds": {
+            "type": "object",
+            "description": "Datum wanneer de beslissing genomen is dat de informatie vertrouwelijk is.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "beschrijving": {
+            "type": "object",
+            "description": "De opgegeven reden die bij een procedure mogelijks hoort.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "periode": {
+            "$ref": "#/components/schemas/Periode"
+          }
+        },
+        "required": [
+          "@type",
+          "beschrijving"
         ]
       },
       "Inwonerschap": {
@@ -964,6 +1062,18 @@
               ]
             },
             "minItems": 1
+          },
+          "gebruikteVoornaam": {
+            "type": "object",
+            "description": "Belangrijkste van de voornamen van een Persoon. Bijvoorbeeld: 'Maria Josephine Louis' waarvan 'Maria' de belangrijkste voornaam is.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
           },
           "achternaam": {
             "type": "array",
@@ -1198,7 +1308,7 @@
       "AangegevenAdres": {
         "title": "AangegevenAdres",
         "type": "object",
-        "description": "Adres dat door een persoon wordt opgegeven als hoofdverblijplaats.",
+        "description": "Adres dat door een persoon wordt opgegeven als hoofdverblijfplaats.",
         "properties": {
           "@id": {
             "type": "string",
@@ -1208,6 +1318,68 @@
             "type": "string",
             "description": "Object type (klasse AangegevenAdres)",
             "pattern": "^AangegevenAdres$"
+          },
+          "verblijfsadres": {
+            "$ref": "#/components/schemas/Adresvoorstelling"
+          },
+          "status": {
+            "$ref": "#/components/schemas/DomicilieStatus"
+          },
+          "nietMededeelbaar": {
+            "$ref": "#/components/schemas/NietMededeelbaar"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "VoorlopigeInschrijving": {
+        "title": "VoorlopigeInschrijving",
+        "type": "object",
+        "description": "De Persoon is voorlopig ingeschreven in het bevolkingsregister wanneer deze Persoon zich gevestigd heeft in een woning waar permanente bewoning niet toegelaten is.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse VoorlopigeInschrijving)",
+            "pattern": "^VoorlopigeInschrijving$"
+          },
+          "geldigheid": {
+            "$ref": "#/components/schemas/Periode"
+          },
+          "procedure": {
+            "$ref": "#/components/schemas/ProcedureType"
+          },
+          "verblijfsadres": {
+            "$ref": "#/components/schemas/Adresvoorstelling"
+          },
+          "status": {
+            "$ref": "#/components/schemas/DomicilieStatus"
+          },
+          "nietMededeelbaar": {
+            "$ref": "#/components/schemas/NietMededeelbaar"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Contactadres": {
+        "title": "Contactadres",
+        "type": "object",
+        "description": "Het domicillie adres voor personen die in het BIS, RAD of RAN register geregistreerd zijn bij KSZ.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Contactadres)",
+            "pattern": "^Contactadres$"
           },
           "verblijfsadres": {
             "$ref": "#/components/schemas/Adresvoorstelling"
@@ -1425,18 +1597,55 @@
             "description": "Object type (klasse Referentieadres)",
             "pattern": "^Referentieadres$"
           },
-          "verblijfsadres": {
-            "$ref": "#/components/schemas/Adresvoorstelling"
+          "einddatum": {
+            "type": "object",
+            "description": "Datum waarop het Referentieadres eindigt. Enkel verplicht bij Situatie 'Beroepsredenen' (0022).",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "reden": {
+            "type": "object",
+            "description": "Geeft de reden weer waarom het referentieadres werd toegekend.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
           },
           "status": {
             "$ref": "#/components/schemas/DomicilieStatus"
+          },
+          "verblijfsadres": {
+            "$ref": "#/components/schemas/Adresvoorstelling"
           },
           "nietMededeelbaar": {
             "$ref": "#/components/schemas/NietMededeelbaar"
           }
         },
         "required": [
-          "@type"
+          "@type",
+          "reden",
+          "status"
         ]
       },
       "VerblijfplaatsBuitenlandDomicilie": {
@@ -1862,35 +2071,6 @@
             "description": "Object type (klasse Contactinfo)",
             "pattern": "^Contactinfo$"
           },
-          "aanschrijfvorm": {
-            "type": "object",
-            "description": "Titel waarmee iemand wordt aangeschreven of aangesproken of waarmee naar iemand wordt verwezen. Bijvoorbeeld: De heer/Mevrouw, Excellentie, Dokter, ...",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
-          },
-          "naam": {
-            "type": "object",
-            "description": "Naam van bijvoorbeeld de persoon die men kan contacteren.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
-          },
           "email": {
             "type": "object",
             "description": "Email-adres waarnaar men kan mailen.",
@@ -1905,7 +2085,7 @@
           },
           "faxnummer": {
             "type": "object",
-            "description": "Faxnummer waarnaar men kan faxen.",
+            "description": "Faxnummer waarnaar men kan faxen. Gebruik W3C VCard Fax als datatype om het telefoonnummer aan te duiden als faxnummer.",
             "properties": {
               "@value": {
                 "type": "string"
@@ -1916,32 +2096,102 @@
             ]
           },
           "telefoon": {
+            "type": "array",
+            "description": "Lijst van Literal items.",
+            "items": {
+              "type": "object",
+              "description": "Telefoonnummer waarop men kan bellen. Gebruik W3C VCard TelephoneType als datatype om het soort telefoonnummer aan te duiden.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@value"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Moment": {
+        "title": "Moment",
+        "type": "object",
+        "description": "Moment met omvang en duur nul.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Moment)",
+            "pattern": "^Moment$"
+          },
+          "inXSDdatumTijd": {
             "type": "object",
-            "description": "Telefoonnummer waarop men kan bellen.",
+            "description": "Positie in de tijd uitgedrukt door middel van xsd:dateTime.",
             "properties": {
               "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
-          },
-          "website": {
-            "type": "object",
-            "description": "Website waarnaar men kan surfen.",
-            "properties": {
-              "@id": {
                 "type": "string",
-                "format": "uri"
+                "format": "date-time"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^DateTime$"
               }
             },
             "required": [
-              "@id"
+              "@value",
+              "@type"
             ]
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Periode": {
+        "title": "Periode",
+        "type": "object",
+        "description": "Temporele Entiteit waarvan de omvang en duurtijd verschilt van nul, dit wil zeggen, waarvoor de begin- en eindtijd verschillend zijn.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
           },
-          "adres": {
-            "$ref": "#/components/schemas/Adresvoorstelling"
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Periode)",
+            "pattern": "^Periode$"
+          },
+          "tot": {
+            "$ref": "#/components/schemas/Moment"
+          },
+          "van": {
+            "$ref": "#/components/schemas/Moment"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "TemporeleEntiteit": {
+        "title": "TemporeleEntiteit",
+        "type": "object",
+        "description": "Abstracte klasse voor temporele objecten.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse TemporeleEntiteit)",
+            "pattern": "^TemporeleEntiteit$"
           }
         },
         "required": [
@@ -2103,6 +2353,13 @@
           "id": "$response.body#/VdipEnvelop.data/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdPersoon` op te halen."
+      },
+      "NietMededeelbaar.periode": {
+        "operationId": "NietMededeelbaarGET",
+        "parameters": {
+          "id": "$response.body#/NietMededeelbaar.periode/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Periode` op te halen."
       },
       "Inwonerschap.persoon": {
         "operationId": "InwonerschapGET",
@@ -2314,6 +2571,62 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `NietMededeelbaar` op te halen."
       },
+      "VoorlopigeInschrijving.geldigheid": {
+        "operationId": "VoorlopigeInschrijvingGET",
+        "parameters": {
+          "id": "$response.body#/VoorlopigeInschrijving.geldigheid/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Periode` op te halen."
+      },
+      "VoorlopigeInschrijving.procedure": {
+        "operationId": "VoorlopigeInschrijvingGET",
+        "parameters": {
+          "id": "$response.body#/VoorlopigeInschrijving.procedure/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `ProcedureType` op te halen."
+      },
+      "VoorlopigeInschrijving.verblijfsadres": {
+        "operationId": "VoorlopigeInschrijvingGET",
+        "parameters": {
+          "id": "$response.body#/VoorlopigeInschrijving.verblijfsadres/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen."
+      },
+      "VoorlopigeInschrijving.status": {
+        "operationId": "VoorlopigeInschrijvingGET",
+        "parameters": {
+          "id": "$response.body#/VoorlopigeInschrijving.status/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `DomicilieStatus` op te halen."
+      },
+      "VoorlopigeInschrijving.nietMededeelbaar": {
+        "operationId": "VoorlopigeInschrijvingGET",
+        "parameters": {
+          "id": "$response.body#/VoorlopigeInschrijving.nietMededeelbaar/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `NietMededeelbaar` op te halen."
+      },
+      "Contactadres.verblijfsadres": {
+        "operationId": "ContactadresGET",
+        "parameters": {
+          "id": "$response.body#/Contactadres.verblijfsadres/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen."
+      },
+      "Contactadres.status": {
+        "operationId": "ContactadresGET",
+        "parameters": {
+          "id": "$response.body#/Contactadres.status/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `DomicilieStatus` op te halen."
+      },
+      "Contactadres.nietMededeelbaar": {
+        "operationId": "ContactadresGET",
+        "parameters": {
+          "id": "$response.body#/Contactadres.nietMededeelbaar/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `NietMededeelbaar` op te halen."
+      },
       "Jurisdictie.plaats": {
         "operationId": "JurisdictieGET",
         "parameters": {
@@ -2370,19 +2683,19 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen."
       },
-      "Referentieadres.verblijfsadres": {
-        "operationId": "ReferentieadresGET",
-        "parameters": {
-          "id": "$response.body#/Referentieadres.verblijfsadres/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen."
-      },
       "Referentieadres.status": {
         "operationId": "ReferentieadresGET",
         "parameters": {
           "id": "$response.body#/Referentieadres.status/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `DomicilieStatus` op te halen."
+      },
+      "Referentieadres.verblijfsadres": {
+        "operationId": "ReferentieadresGET",
+        "parameters": {
+          "id": "$response.body#/Referentieadres.verblijfsadres/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen."
       },
       "Referentieadres.nietMededeelbaar": {
         "operationId": "ReferentieadresGET",

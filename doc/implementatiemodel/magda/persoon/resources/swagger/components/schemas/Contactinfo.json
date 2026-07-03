@@ -12,35 +12,6 @@
       "description": "Object type (klasse Contactinfo)",
       "pattern": "^Contactinfo$"
     },
-    "aanschrijfvorm": {
-      "type": "object",
-      "description": "Titel waarmee iemand wordt aangeschreven of aangesproken of waarmee naar iemand wordt verwezen. Bijvoorbeeld: De heer/Mevrouw, Excellentie, Dokter, ...",
-      "properties": {
-        "@value": {
-          "type": "string"
-        },
-        "@language": {
-          "type": "string",
-          "pattern": "^nl$"
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
-    },
-    "naam": {
-      "type": "object",
-      "description": "Naam van bijvoorbeeld de persoon die men kan contacteren.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@value"
-      ]
-    },
     "email": {
       "type": "object",
       "description": "Email-adres waarnaar men kan mailen.",
@@ -55,7 +26,7 @@
     },
     "faxnummer": {
       "type": "object",
-      "description": "Faxnummer waarnaar men kan faxen.",
+      "description": "Faxnummer waarnaar men kan faxen. Gebruik W3C VCard Fax als datatype om het telefoonnummer aan te duiden als faxnummer.",
       "properties": {
         "@value": {
           "type": "string"
@@ -66,32 +37,21 @@
       ]
     },
     "telefoon": {
-      "type": "object",
-      "description": "Telefoonnummer waarop men kan bellen.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
+      "type": "array",
+      "description": "Lijst van Literal items.",
+      "items": {
+        "type": "object",
+        "description": "Telefoonnummer waarop men kan bellen. Gebruik W3C VCard TelephoneType als datatype om het soort telefoonnummer aan te duiden.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
       },
-      "required": [
-        "@value"
-      ]
-    },
-    "website": {
-      "type": "object",
-      "description": "Website waarnaar men kan surfen.",
-      "properties": {
-        "@id": {
-          "type": "string",
-          "format": "uri"
-        }
-      },
-      "required": [
-        "@id"
-      ]
-    },
-    "adres": {
-      "$ref": "#/components/schemas/Adresvoorstelling"
+      "minItems": 1
     }
   },
   "required": [
