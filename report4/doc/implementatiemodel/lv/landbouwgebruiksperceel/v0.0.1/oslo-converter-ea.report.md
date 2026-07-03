@@ -2,67 +2,67 @@
 
 #||# -------------------------------------
 
-2026-06-02T12:30:28.453Z info: Connector Model:Landbouwgebruiksperceel:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Organisatie) is not an association with a source role. Ignoring this connector.
+2026-07-03T11:09:36.359Z info: Connector Model:Landbouwgebruiksperceel:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Organisatie) is not an association with a source role. Ignoring this connector.
 
-2026-06-02T12:30:28.456Z info: Connector Model:Landbouwgebruiksperceel:GeregistreerdPersoon:(GeregistreerdPersoon -> Persoon) is not an association with a source role. Ignoring this connector.
+2026-07-03T11:09:36.361Z info: Connector Model:Landbouwgebruiksperceel:GeregistreerdPersoon:(GeregistreerdPersoon -> Persoon) is not an association with a source role. Ignoring this connector.
 
-2026-06-02T12:30:28.456Z info: Connector Model:Landbouwgebruiksperceel:Persoon:(Persoon -> Agent) is not an association with a source role. Ignoring this connector.
+2026-07-03T11:09:36.361Z info: Connector Model:Landbouwgebruiksperceel:Persoon:(Persoon -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-06-02T12:30:28.456Z info: Connector Model:Landbouwgebruiksperceel:Organisatie:(Organisatie -> Agent) is not an association with a source role. Ignoring this connector.
+2026-07-03T11:09:36.361Z info: Connector Model:Landbouwgebruiksperceel:Organisatie:(Organisatie -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-06-02T12:30:28.457Z info: Connector Model:Landbouwgebruiksperceel:Exploitatie:(Exploitatie -> Explotatiebeslag) is not an association with a source role. Ignoring this connector.
+2026-07-03T11:09:36.361Z info: Connector Model:Landbouwgebruiksperceel:Exploitatie:(Exploitatie -> Explotatiebeslag) is not an association with a source role. Ignoring this connector.
 
-2026-06-02T12:30:28.458Z info: Connector Model:Landbouwgebruiksperceel:Explotatiebeslag:(Explotatiebeslag -> Gebruiksperceel) is not an association with a source role. Ignoring this connector.
+2026-07-03T11:09:36.362Z info: Connector Model:Landbouwgebruiksperceel:Explotatiebeslag:(Explotatiebeslag -> Gebruiksperceel) is not an association with a source role. Ignoring this connector.
 
-2026-06-02T12:30:28.458Z info: Connector Model:Belgif-Auth:Activiteittype-NACEBEL2025:(Activiteittype-NACEBEL2025 -> Activiteittype-v1) is not an association with a source role. Ignoring this connector.
+2026-07-03T11:09:36.362Z info: Connector Model:Belgif-Auth:Activiteittype-NACEBEL2025:(Activiteittype-NACEBEL2025 -> Activiteittype-v1) is not an association with a source role. Ignoring this connector.
 
-2026-06-02T12:30:28.458Z info: Connector Model:Landbouwgebruiksperceel:LandbouwActiviteit-v1:(LandbouwActiviteit-v1 -> Activiteittype-v1) is not an association with a source role. Ignoring this connector.
+2026-07-03T11:09:36.362Z info: Connector Model:Landbouwgebruiksperceel:LandbouwActiviteit-v1:(LandbouwActiviteit-v1 -> Activiteittype-v1) is not an association with a source role. Ignoring this connector.
 
-2026-06-02T12:30:28.459Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (OSLO-Template:GNSS-DCAT-AP). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.362Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (OSLO-Template:GNSS-DCAT-AP). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.459Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (OSLO-Template:EU-IT6). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.363Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (OSLO-Template:EU-IT6). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.460Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (OSLO-Template:W3C-DQV). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.363Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (OSLO-Template:W3C-DQV). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.460Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (OSLO-Template:IFC-BIM). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.363Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (OSLO-Template:IFC-BIM). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.460Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (OSLO-Template:OSLO-Template). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.363Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (OSLO-Template:OSLO-Template). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.460Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.363Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.461Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:W3C-Person). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.363Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:W3C-Person). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.461Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:dcterms). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.363Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:dcterms). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.461Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:W3C-Time). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.363Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:W3C-Time). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.461Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:LV). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.363Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:LV). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.461Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:REGORG). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.363Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:REGORG). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.461Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.367Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.462Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Template). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.367Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Template). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.462Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Template:OSLO-Codelijst). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.367Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Template:OSLO-Codelijst). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.462Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Template:W3C-Person). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.367Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Template:W3C-Person). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.462Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:ORG). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.368Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:ORG). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.462Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:INSPIRE-LandCover). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.368Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:INSPIRE-LandCover). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.462Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:LADM). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.368Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Landbouwperceel:LADM). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.462Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:VKBO). Using fallback URI (http://todo.com/) instead.
+2026-07-03T11:09:36.368Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:VKBO). Using fallback URI (http://todo.com/) instead.
 
-2026-06-02T12:30:28.468Z warn: [ConnectorConverterHandler]: Connector (exploitant) does not have a package tag defined. Trying to determine the correct base URI based on the source and destination objects their package.
+2026-07-03T11:09:36.371Z warn: [ConnectorConverterHandler]: Connector (exploitant) does not have a package tag defined. Trying to determine the correct base URI based on the source and destination objects their package.
 
-2026-06-02T12:30:28.469Z warn: [ConnectorConverterHandler]: Connector (exploitatie) does not have a package tag defined. Trying to determine the correct base URI based on the source and destination objects their package.
+2026-07-03T11:09:36.371Z warn: [ConnectorConverterHandler]: Connector (exploitatie) does not have a package tag defined. Trying to determine the correct base URI based on the source and destination objects their package.
 
-2026-06-02T12:30:28.469Z warn: [ConnectorConverterHandler]: Connector (beslag) does not have a package tag defined. Trying to determine the correct base URI based on the source and destination objects their package.
+2026-07-03T11:09:36.371Z warn: [ConnectorConverterHandler]: Connector (beslag) does not have a package tag defined. Trying to determine the correct base URI based on the source and destination objects their package.
 
-2026-06-02T12:30:28.469Z warn: [ConnectorConverterHandler]: Connector (perceel) does not have a package tag defined. Trying to determine the correct base URI based on the source and destination objects their package.
+2026-07-03T11:09:36.371Z warn: [ConnectorConverterHandler]: Connector (perceel) does not have a package tag defined. Trying to determine the correct base URI based on the source and destination objects their package.
 
 #||# -------------------------------------
 

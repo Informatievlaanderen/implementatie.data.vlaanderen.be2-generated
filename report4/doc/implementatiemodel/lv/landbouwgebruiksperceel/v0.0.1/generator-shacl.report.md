@@ -2,13 +2,7 @@
 
 #||# -------------------------------------  
 
-Error: Unable to find the domain for subject "[urn:oslo-toolchain:e1636113d490800f6d2014df631fcdfb774a490af16261707c0dfcb6a5c1a1e8](all-landbouwgebruiksperceel.jsonld#L156)".
+2026-07-03T11:10:28.964Z warn: Unable to find the description for subject "[urn:oslo-toolchain:6bdeabe4bab5026b72239115dd2f82e10551f57557b037256a50bbb9bff4c58d](all-landbouwgebruiksperceel.jsonld#L1678)".
 
-    at ShaclTemplateGenerationService.createSubjectToShapeIdMap (/usr/local/lib/node_modules/@oslo-flanders/shacl-template-generator/lib/ShaclTemplateGenerationService.js:126:31)
-
-    at ShaclTemplateGenerationService.run (/usr/local/lib/node_modules/@oslo-flanders/shacl-template-generator/lib/ShaclTemplateGenerationService.js:48:42)
-
-    at /usr/local/lib/node_modules/@oslo-flanders/shacl-template-generator/node_modules/@oslo-flanders/core/lib/interfaces/AppRunner.js:37:33
-
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2026-07-03T11:10:28.966Z warn: Unable to find the description for subject "[urn:oslo-toolchain:1a48c4dad2120558bfd3f2f8d7d42abc7a6a66134c7ac3699b6c71680514fabc](all-landbouwgebruiksperceel.jsonld#L1704)".
 
