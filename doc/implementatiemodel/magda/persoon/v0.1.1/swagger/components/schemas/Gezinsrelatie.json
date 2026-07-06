@@ -15,23 +15,6 @@
     "gezinsrelatietype": {
       "$ref": "#/components/schemas/Gezinsrelatietype"
     },
-    "vanPersoon": {
-      "oneOf": [
-        {
-          "$ref": "#/components/schemas/Persoon"
-        },
-        {
-          "$ref": "#/components/schemas/GeregistreerdPersoon"
-        }
-      ],
-      "discriminator": {
-        "propertyName": "@type",
-        "mapping": {
-          "Persoon": "#/components/schemas/Persoon",
-          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-        }
-      }
-    },
     "metPersoon": {
       "oneOf": [
         {
@@ -52,7 +35,6 @@
   },
   "required": [
     "@type",
-    "vanPersoon",
     "metPersoon"
   ]
 }
