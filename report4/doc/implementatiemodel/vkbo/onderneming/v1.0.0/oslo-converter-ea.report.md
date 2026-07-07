@@ -2,25 +2,25 @@
 
 #||# -------------------------------------
 
-2026-07-07T17:22:32.908Z info: Connector Model:XBRL:FinancieelRapport:(FinancieelRapport -> Resource) is not an association with a source role. Ignoring this connector.
+2026-07-07T17:37:38.084Z info: Connector Model:XBRL:FinancieelRapport:(FinancieelRapport -> Resource) is not an association with a source role. Ignoring this connector.
 
-2026-07-07T17:22:32.909Z info: Connector Model:W3C-LOCN:Adresvoorstelling:(Adresvoorstelling -> Adres) is not an association with a source role. Ignoring this connector.
+2026-07-07T17:37:38.085Z info: Connector Model:W3C-LOCN:Adresvoorstelling:(Adresvoorstelling -> Adres) is not an association with a source role. Ignoring this connector.
 
-2026-07-07T17:22:32.910Z info: Connector Model:OSLO-Organisatie-IM:Doorhaling:(Doorhaling -> Activiteit) is not an association with a source role. Ignoring this connector.
+2026-07-07T17:37:38.085Z info: Connector Model:OSLO-Organisatie-IM:Doorhaling:(Doorhaling -> Activiteit) is not an association with a source role. Ignoring this connector.
 
-2026-07-07T17:22:32.910Z info: Connector Model:SF:Punt:(Punt -> Geometrie) is not an association with a source role. Ignoring this connector.
+2026-07-07T17:37:38.086Z info: Connector Model:SF:Punt:(Punt -> Geometrie) is not an association with a source role. Ignoring this connector.
 
-2026-07-07T17:22:32.910Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
+2026-07-07T17:37:38.086Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
 
-2026-07-07T17:22:32.910Z info: Connector Model:OSLO-Organisatie:Stopzetting:(Stopzetting -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
+2026-07-07T17:37:38.086Z info: Connector Model:OSLO-Organisatie:Stopzetting:(Stopzetting -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
 
-2026-07-07T17:22:32.910Z info: Connector Model:W3C-Time:Moment:(Moment -> TemporeleEntiteit) is not an association with a source role. Ignoring this connector.
+2026-07-07T17:37:38.086Z info: Connector Model:W3C-Time:Moment:(Moment -> TemporeleEntiteit) is not an association with a source role. Ignoring this connector.
 
-2026-07-07T17:22:32.910Z info: Connector Model:W3C-Time:Periode:(Periode -> TemporeleEntiteit) is not an association with a source role. Ignoring this connector.
+2026-07-07T17:37:38.086Z info: Connector Model:W3C-Time:Periode:(Periode -> TemporeleEntiteit) is not an association with a source role. Ignoring this connector.
 
-2026-07-07T17:22:32.910Z info: Connector Model:EU-M8G:Oprichting:(Oprichting -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
+2026-07-07T17:37:38.086Z info: Connector Model:EU-M8G:Oprichting:(Oprichting -> Veranderingsgebeurtenis) is not an association with a source role. Ignoring this connector.
 
-2026-07-07T17:22:32.911Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+2026-07-07T17:37:38.087Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
 #||# -------------------------------------
 
