@@ -7,7 +7,6 @@
 @prefix schemas: <https://schema.org/> .
 @prefix shacl: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#FinancieelRapportShape>,
@@ -270,7 +269,7 @@
     shacl:description "Email-adres waarnaar men kan mailen."@nl;
     shacl:maxCount 1;
     shacl:name "email"@nl;
-    shacl:path vcard:hasEmail
+    shacl:path schemas:email
   ], [
     a shacl:PropertyShape;
     rdfs:label "telefoon"@nl;
@@ -280,7 +279,7 @@
     shacl:description "Telefoonnummer waarop men kan bellen."@nl;
     shacl:name "telefoon"@nl;
     shacl:nodeKind shacl:Literal;
-    shacl:path vcard:hasTelephone
+    shacl:path schemas:email
   ], [
     a shacl:PropertyShape;
     rdfs:label "adres"@nl;
@@ -290,9 +289,9 @@
     shacl:description "Adres dat men kan aanschrijven of bezoeken."@nl;
     shacl:maxCount 1;
     shacl:name "adres"@nl;
-    shacl:path vcard:hasAddress
+    shacl:path <http://www.w3.org/ns/locn#address>
   ];
-  shacl:targetClass vcard:Kind .
+  shacl:targetClass schemas:ContactPoint .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#DateShape> a shacl:NodeShape;
   rdfs:label "Date";
@@ -503,7 +502,7 @@
     rdfs:label "contactinfo"@nl;
     rdfs:comment "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#GeregistreerdeOrganisatie.Contactinfo>;
-    shacl:class vcard:Kind;
+    shacl:class schemas:ContactPoint;
     shacl:description "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren."@nl;
     shacl:name "contactinfo"@nl;
     shacl:path <http://data.europa.eu/m8g/contactPoint>
@@ -781,7 +780,7 @@
     <http://purl.org/vocab/vann/usageNote> "Kan email, telefoon en ook adres zijn (in welk geval ook niet-fysieke adressen mogelijk zijn)."@nl;
     rdfs:comment "Adres van de Vestiging."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vkbo/onderneming/v1.0.0#Vestiging.Vestigingsadres>;
-    shacl:class vcard:Kind;
+    shacl:class schemas:ContactPoint;
     shacl:description "Adres van de Vestiging."@nl;
     shacl:maxCount 1;
     shacl:name "vestigingsadres"@nl;
