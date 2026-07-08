@@ -5,9 +5,6 @@
 #||# Directory check
 #||# 
 #||# index.html check
-error: missing '/tmp/generated/ns/grar/adres/index.html'
-error: missing '/tmp/generated/doc/vocabularium/grar/adres/index.html'
-error: missing '/tmp/generated/doc/vocabularium/grar/adres/v0.0.1/index.html'
 
 #||#    + checking /home/circleci/project/config/test/landbouwgebruiksperceel-im.publication.json
 #||# 
