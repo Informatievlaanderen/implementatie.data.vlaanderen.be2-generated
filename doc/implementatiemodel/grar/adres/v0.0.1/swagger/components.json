@@ -1237,10 +1237,14 @@
           },
           "applicatie": {
             "$ref": "#/components/schemas/Herkomstentiteit"
+          },
+          "bewerking": {
+            "$ref": "#/components/schemas/Bewerkingstype"
           }
         },
         "required": [
-          "@type"
+          "@type",
+          "bewerking"
         ]
       },
       "AnyURI": {
@@ -1459,6 +1463,13 @@
           "id": "$response.body#/BelgischAdres.identificator/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "DataEnvelop.data": {
+        "operationId": "DataEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/DataEnvelop.data/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
       },
       "DataEnvelop.volgende": {
         "operationId": "DataEnvelopGET",

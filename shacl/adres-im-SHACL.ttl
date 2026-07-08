@@ -307,6 +307,15 @@
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
+    rdfs:label "data"@nl;
+    rdfs:comment "De collectie data die de envelop bevat."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DataEnvelop.Data>;
+    shacl:description "De collectie data die de envelop bevat."@nl;
+    shacl:name "data"@nl;
+    shacl:or ([shacl:class prov:Entity] [shacl:class <https://data.vlaanderen.be/ns/adres#Ligplaats>] [shacl:class <https://data.vlaanderen.be/ns/adres#Postinfo>] [shacl:class <https://data.vlaanderen.be/ns/adres#Straatnaam>] [shacl:class <https://data.vlaanderen.be/ns/adres#Standplaats>] [shacl:class <https://data.vlaanderen.be/ns/gebouw#Gebouweenheid>] [shacl:class <https://data.vlaanderen.be/ns/generiek#Gemeente>] [shacl:class <https://data.vlaanderen.be/ns/perceel#RuimtelijkeEenheid>] [shacl:class <https://data.vlaanderen.be/ns/adres#Adres>]);
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#data>
+  ], [
+    a shacl:PropertyShape;
     rdfs:label "volgende"@nl;
     rdfs:comment "De URL waar de volgende pagina objecten kan gevonden worden."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DataEnvelop.Volgende>;
@@ -577,6 +586,18 @@
     shacl:name "applicatie"@nl;
     shacl:or ([shacl:class prov:Entity] [shacl:class <https://data.vlaanderen.be/ns/adres#Ligplaats>] [shacl:class <https://data.vlaanderen.be/ns/adres#Postinfo>] [shacl:class <https://data.vlaanderen.be/ns/adres#Straatnaam>] [shacl:class <https://data.vlaanderen.be/ns/adres#Standplaats>] [shacl:class <https://data.vlaanderen.be/ns/gebouw#Gebouweenheid>] [shacl:class <https://data.vlaanderen.be/ns/generiek#Gemeente>] [shacl:class <https://data.vlaanderen.be/ns/perceel#RuimtelijkeEenheid>] [shacl:class <https://data.vlaanderen.be/ns/adres#Adres>]);
     shacl:path prov:used
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "bewerking"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bvb \"correctie\" als de entiteit een record is en bvb gegenereerd werd om het voorgaand record ve object te verbeteren."@nl;
+    rdfs:comment "Aard vd bewerking die ihkv de activiteit op de entiteit is uitgevoerd."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Herkomstactiviteit.Bewerking>;
+    shacl:description "Aard vd bewerking die ihkv de activiteit op de entiteit is uitgevoerd."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "bewerking"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path <http://todo.com/bewerking>
   ];
   shacl:targetClass prov:Activity .
 
