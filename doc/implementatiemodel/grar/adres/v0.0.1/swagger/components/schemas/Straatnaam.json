@@ -29,7 +29,7 @@
       "description": "Lijst van GeografischeNaam items.",
       "items": {
         "type": "object",
-        "description": "Naam vd straat.",
+        "description": "Naam van de straat.",
         "properties": {
           "@value": {
             "type": "string"
@@ -50,7 +50,17 @@
       "$ref": "#/components/schemas/Statuswaarde"
     },
     "detail": {
-      "$ref": "#/components/schemas/AnyURI"
+      "type": "object",
+      "description": "Een bron dat additionele info over het object bevat.",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "@id"
+      ]
     },
     "isToegekendDoor": {
       "$ref": "#/components/schemas/Gemeente"

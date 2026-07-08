@@ -1,7 +1,7 @@
 {
   "title": "Referentie",
   "type": "object",
-  "description": "TODO",
+  "description": "Een referentie naar aditionele informatie.",
   "properties": {
     "@id": {
       "type": "string",
@@ -13,7 +13,17 @@
       "pattern": "^Referentie$"
     },
     "detail": {
-      "$ref": "#/components/schemas/AnyURI"
+      "type": "object",
+      "description": "Een bron dat additionele info over het object bevat.",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "@id"
+      ]
     }
   },
   "required": [

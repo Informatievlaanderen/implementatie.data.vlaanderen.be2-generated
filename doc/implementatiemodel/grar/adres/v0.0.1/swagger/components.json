@@ -231,7 +231,17 @@
             "$ref": "#/components/schemas/Statuswaarde"
           },
           "detail": {
-            "$ref": "#/components/schemas/AnyURI"
+            "type": "object",
+            "description": "Een bron dat additionele info over het object bevat.",
+            "properties": {
+              "@id": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
           "isToegekendAan": {
             "$ref": "#/components/schemas/Gemeente"
@@ -280,7 +290,7 @@
             "description": "Lijst van GeografischeNaam items.",
             "items": {
               "type": "object",
-              "description": "Naam vd straat.",
+              "description": "Naam van de straat.",
               "properties": {
                 "@value": {
                   "type": "string"
@@ -301,7 +311,17 @@
             "$ref": "#/components/schemas/Statuswaarde"
           },
           "detail": {
-            "$ref": "#/components/schemas/AnyURI"
+            "type": "object",
+            "description": "Een bron dat additionele info over het object bevat.",
+            "properties": {
+              "@id": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
           "isToegekendDoor": {
             "$ref": "#/components/schemas/Gemeente"
@@ -427,14 +447,6 @@
               ]
             },
             "minItems": 1
-          },
-          "adreslocator": {
-            "type": "array",
-            "description": "Lijst van Adreslocator items.",
-            "items": {
-              "$ref": "#/components/schemas/Adreslocator"
-            },
-            "minItems": 1
           }
         },
         "required": [
@@ -517,7 +529,17 @@
             "minItems": 1
           },
           "detail": {
-            "$ref": "#/components/schemas/AnyURI"
+            "type": "object",
+            "description": "Een bron dat additionele info over het object bevat.",
+            "properties": {
+              "@id": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
           "status": {
             "$ref": "#/components/schemas/Statuswaarde"
@@ -632,7 +654,7 @@
           "heeftGemeentenaam": {
             "$ref": "#/components/schemas/Gemeentenaam"
           },
-          "toegeschrevenAan": {
+          "isToegekendDoor": {
             "$ref": "#/components/schemas/Gemeente"
           },
           "heeftStraatnaam": {
@@ -690,7 +712,7 @@
       "DataEnvelop": {
         "title": "DataEnvelop",
         "type": "object",
-        "description": "TODO",
+        "description": "De collectie van de uitgewisselde data en zijn metadata elementen.",
         "properties": {
           "@id": {
             "type": "string",
@@ -702,7 +724,17 @@
             "pattern": "^DataEnvelop$"
           },
           "volgende": {
-            "$ref": "#/components/schemas/AnyURI"
+            "type": "object",
+            "description": "De URL waar de volgende pagina objecten kan gevonden worden.",
+            "properties": {
+              "@id": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           },
           "_links": {
             "$ref": "#/components/schemas/Links"
@@ -715,7 +747,7 @@
       "Referentie": {
         "title": "Referentie",
         "type": "object",
-        "description": "TODO",
+        "description": "Een referentie naar aditionele informatie.",
         "properties": {
           "@id": {
             "type": "string",
@@ -727,7 +759,17 @@
             "pattern": "^Referentie$"
           },
           "detail": {
-            "$ref": "#/components/schemas/AnyURI"
+            "type": "object",
+            "description": "Een bron dat additionele info over het object bevat.",
+            "properties": {
+              "@id": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           }
         },
         "required": [
@@ -753,7 +795,17 @@
             "type": "array",
             "description": "Lijst van AnyURI items.",
             "items": {
-              "$ref": "#/components/schemas/AnyURI"
+              "type": "object",
+              "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde postinfo.",
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "@id"
+              ]
             },
             "minItems": 1
           },
@@ -761,7 +813,17 @@
             "type": "array",
             "description": "Lijst van AnyURI items.",
             "items": {
-              "$ref": "#/components/schemas/AnyURI"
+              "type": "object",
+              "description": "Een verwijzing naar een locatie waar info kan gevonden worden over zichzelf.",
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "@id"
+              ]
             },
             "minItems": 1
           },
@@ -769,7 +831,17 @@
             "type": "array",
             "description": "Lijst van AnyURI items.",
             "items": {
-              "$ref": "#/components/schemas/AnyURI"
+              "type": "object",
+              "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouweenheden.",
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "@id"
+              ]
             },
             "minItems": 1
           },
@@ -777,7 +849,17 @@
             "type": "array",
             "description": "Lijst van AnyURI items.",
             "items": {
-              "$ref": "#/components/schemas/AnyURI"
+              "type": "object",
+              "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde percelen.",
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "@id"
+              ]
             },
             "minItems": 1
           },
@@ -785,7 +867,17 @@
             "type": "array",
             "description": "Lijst van AnyURI items.",
             "items": {
-              "$ref": "#/components/schemas/AnyURI"
+              "type": "object",
+              "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde straatnamen.",
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "@id"
+              ]
             },
             "minItems": 1
           },
@@ -793,7 +885,17 @@
             "type": "array",
             "description": "Lijst van AnyURI items.",
             "items": {
-              "$ref": "#/components/schemas/AnyURI"
+              "type": "object",
+              "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde adresse,n.",
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "@id"
+              ]
             },
             "minItems": 1
           }
@@ -1033,7 +1135,7 @@
               "@value"
             ]
           },
-          "versie-Identificator": {
+          "versieIdentificator": {
             "type": "object",
             "description": "Identificator van de specifieke versie van een object.",
             "properties": {
@@ -1095,47 +1197,6 @@
           "@type"
         ]
       },
-      "Creatie": {
-        "title": "Creatie",
-        "type": "object",
-        "description": "Het voltooien vd productie ve nieuwe entiteit dmv een activiteit.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "description": "Object type (klasse Creatie)",
-            "pattern": "^Creatie$"
-          },
-          "tijdstip": {
-            "type": "object",
-            "description": "Tijdstip waarop de creatie vd entiteit plaatsvond.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^DateTime$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
-          },
-          "herkomstactiviteit": {
-            "$ref": "#/components/schemas/Herkomstactiviteit"
-          }
-        },
-        "required": [
-          "@type",
-          "tijdstip"
-        ]
-      },
       "Punt": {
         "title": "Punt",
         "type": "object",
@@ -1178,93 +1239,6 @@
         "required": [
           "@type"
         ]
-      },
-      "Adreslocator": {
-        "title": "Adreslocator",
-        "type": "object",
-        "description": "Menselijk leesbare aanduiding of naam die een gebruiker of applicatie toelaat om het adres te onderscheiden van naburige adressen in de straat, de administratieve eenheid etc waarin het adres ligt.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "description": "Object type (klasse Adreslocator)",
-            "pattern": "^Adreslocator$"
-          },
-          "aanduiding": {
-            "type": "array",
-            "description": "Lijst van Locatieaanduiding items.",
-            "items": {
-              "$ref": "#/components/schemas/Locatieaanduiding"
-            },
-            "minItems": 1
-          },
-          "naam": {
-            "type": "array",
-            "description": "Lijst van Locatienaam items.",
-            "items": {
-              "$ref": "#/components/schemas/Locatienaam"
-            },
-            "minItems": 1
-          },
-          "niveau": {
-            "$ref": "#/components/schemas/Locatorniveauwaarde"
-          }
-        },
-        "required": [
-          "@type",
-          "niveau"
-        ]
-      },
-      "Herkomstactiviteit": {
-        "title": "Herkomstactiviteit",
-        "type": "object",
-        "description": "Iets waarmee men actief is gedurende een bepaalde periode op een entiteit.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "description": "Object type (klasse Herkomstactiviteit)",
-            "pattern": "^Herkomstactiviteit$"
-          },
-          "operator": {
-            "$ref": "#/components/schemas/Herkomstagent"
-          },
-          "applicatie": {
-            "$ref": "#/components/schemas/Herkomstentiteit"
-          },
-          "bewerking": {
-            "$ref": "#/components/schemas/Bewerkingstype"
-          }
-        },
-        "required": [
-          "@type",
-          "bewerking"
-        ]
-      },
-      "AnyURI": {
-        "title": "AnyURI",
-        "type": "object",
-        "description": "Het AnyURI datatype representeert een Unieke Resource Identificator Referentie, URI.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "description": "Object type (klasse AnyURI)",
-            "pattern": "^AnyURI$"
-          }
-        },
-        "required": [
-          "@type"
-        ]
       }
     },
     "links": {
@@ -1281,13 +1255,6 @@
           "id": "$response.body#/Postinfo.status/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Statuswaarde` op te halen."
-      },
-      "Postinfo.detail": {
-        "operationId": "PostinfoGET",
-        "parameters": {
-          "id": "$response.body#/Postinfo.detail/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
       },
       "Postinfo.isToegekendAan": {
         "operationId": "PostinfoGET",
@@ -1309,13 +1276,6 @@
           "id": "$response.body#/Straatnaam.status/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Statuswaarde` op te halen."
-      },
-      "Straatnaam.detail": {
-        "operationId": "StraatnaamGET",
-        "parameters": {
-          "id": "$response.body#/Straatnaam.detail/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
       },
       "Straatnaam.isToegekendDoor": {
         "operationId": "StraatnaamGET",
@@ -1345,26 +1305,12 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
       },
-      "Adresuitbreiding.adreslocator": {
-        "operationId": "AdresuitbreidingGET",
-        "parameters": {
-          "id": "$response.body#/Adresuitbreiding.adreslocator/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adreslocator` op te halen."
-      },
       "Gebouweenheid.identificator": {
         "operationId": "GebouweenheidGET",
         "parameters": {
           "id": "$response.body#/Gebouweenheid.identificator/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
-      },
-      "Gemeente.detail": {
-        "operationId": "GemeenteGET",
-        "parameters": {
-          "id": "$response.body#/Gemeente.detail/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
       },
       "Gemeente.status": {
         "operationId": "GemeenteGET",
@@ -1422,10 +1368,10 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gemeentenaam` op te halen."
       },
-      "BelgischAdres.toegeschrevenAan": {
+      "BelgischAdres.isToegekendDoor": {
         "operationId": "BelgischAdresGET",
         "parameters": {
-          "id": "$response.body#/BelgischAdres.toegeschrevenAan/@id"
+          "id": "$response.body#/BelgischAdres.isToegekendDoor/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gemeente` op te halen."
       },
@@ -1471,68 +1417,12 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
       },
-      "DataEnvelop.volgende": {
-        "operationId": "DataEnvelopGET",
-        "parameters": {
-          "id": "$response.body#/DataEnvelop.volgende/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
-      },
       "DataEnvelop._links": {
         "operationId": "DataEnvelopGET",
         "parameters": {
           "id": "$response.body#/DataEnvelop._links/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Links` op te halen."
-      },
-      "Referentie.detail": {
-        "operationId": "ReferentieGET",
-        "parameters": {
-          "id": "$response.body#/Referentie.detail/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
-      },
-      "Links.detailPostinfo": {
-        "operationId": "LinksGET",
-        "parameters": {
-          "id": "$response.body#/Links.detailPostinfo/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
-      },
-      "Links.detailSelf": {
-        "operationId": "LinksGET",
-        "parameters": {
-          "id": "$response.body#/Links.detailSelf/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
-      },
-      "Links.detailGebouweenheden": {
-        "operationId": "LinksGET",
-        "parameters": {
-          "id": "$response.body#/Links.detailGebouweenheden/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
-      },
-      "Links.detailPercelen": {
-        "operationId": "LinksGET",
-        "parameters": {
-          "id": "$response.body#/Links.detailPercelen/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
-      },
-      "Links.detailStraatnamen": {
-        "operationId": "LinksGET",
-        "parameters": {
-          "id": "$response.body#/Links.detailStraatnamen/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
-      },
-      "Links.detailAdressen": {
-        "operationId": "LinksGET",
-        "parameters": {
-          "id": "$response.body#/Links.detailAdressen/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
       }
     }
   }

@@ -1,34 +1,10 @@
 {
   "@context": {
-    "Adreslocator": {
-      "@context": {
-        "aanduiding": {
-          "@container": "@set",
-          "@id": "https://data.vlaanderen.be/ns/adres#aanduiding",
-          "@type": "https://data.vlaanderen.be/ns/adres#Locatieaanduiding"
-        },
-        "naam": {
-          "@container": "@set",
-          "@id": "https://data.vlaanderen.be/ns/adres#naam",
-          "@type": "https://data.vlaanderen.be/ns/adres#Locatienaam"
-        },
-        "niveau": {
-          "@id": "https://data.vlaanderen.be/ns/adres#niveau",
-          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
-        }
-      },
-      "@id": "https://data.vlaanderen.be/ns/adres#Adreslocator"
-    },
     "AdresseerbaarObject": {
       "@id": "https://data.vlaanderen.be/ns/adres#AdresseerbaarObject"
     },
     "Adresuitbreiding": {
       "@context": {
-        "adreslocator": {
-          "@container": "@set",
-          "@id": "https://data.vlaanderen.be/ns/adres#adreslocator",
-          "@type": "https://data.vlaanderen.be/ns/adres#Adreslocator"
-        },
         "volledigAdres": {
           "@container": "@set",
           "@id": "https://data.vlaanderen.be/ns/adres#volledigAdres",
@@ -41,7 +17,7 @@
       "@id": "http://purl.org/dc/terms/Agent"
     },
     "AnyURI": {
-      "@id": "https://www.w3.org/2001/XMLSchema#anyURI"
+      "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
     },
     "BelgischAdres": {
       "@context": {
@@ -74,6 +50,10 @@
           "@id": "http://www.w3.org/ns/adms#identifier",
           "@type": "http://www.w3.org/ns/adms#Identifier"
         },
+        "isToegekendDoor": {
+          "@id": "http://www.w3.org/ns/prov#wasAttributedTo",
+          "@type": "https://data.vlaanderen.be/ns/generiek#Gemeente"
+        },
         "isVerrijktMet": {
           "@id": "https://data.vlaanderen.be/ns/adres#isVerrijktMet",
           "@type": "https://data.vlaanderen.be/ns/adres#Adresuitbreiding"
@@ -94,10 +74,6 @@
         "status": {
           "@id": "https://data.vlaanderen.be/ns/adres#Adres.status",
           "@type": "http://www.w3.org/2004/02/skos/core#Concept"
-        },
-        "toegeschrevenAan": {
-          "@id": "http://www.w3.org/ns/prov#wasAttributedTo",
-          "@type": "https://data.vlaanderen.be/ns/generiek#Gemeente"
         }
       },
       "@id": "https://data.vlaanderen.be/ns/adres#Adres"
@@ -107,19 +83,6 @@
     },
     "Boolean": {
       "@id": "http://www.w3.org/2001/XMLSchema#boolean"
-    },
-    "Creatie": {
-      "@context": {
-        "herkomstactiviteit": {
-          "@id": "http://www.w3.org/ns/prov#activity",
-          "@type": "http://www.w3.org/ns/prov#Activity"
-        },
-        "tijdstip": {
-          "@id": "http://www.w3.org/ns/prov#atTime",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        }
-      },
-      "@id": "http://www.w3.org/ns/prov#Generation"
     },
     "DataEnvelop": {
       "@context": {
@@ -133,8 +96,8 @@
           "@type": "http://www.w3.org/ns/prov#Entity"
         },
         "volgende": {
-          "@id": "https://www.w3.org/ns/adms#next",
-          "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+          "@id": "http://www.w3.org/ns/adms#next",
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         }
       },
       "@id": "https://implementatie.data.vlaanderen.be/ns/adres#DataEnvelop"
@@ -156,7 +119,7 @@
       "@context": {
         "detail": {
           "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-          "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         },
         "faciliteitenTaal": {
           "@container": "@set",
@@ -251,29 +214,12 @@
           "@id": "https://data.vlaanderen.be/ns/generiek#naamruimte",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
-        "versie-Identificator": {
+        "versieIdentificator": {
           "@id": "https://data.vlaanderen.be/ns/generiek#versieIdentificator",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         }
       },
       "@id": "https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator"
-    },
-    "Herkomstactiviteit": {
-      "@context": {
-        "applicatie": {
-          "@id": "http://www.w3.org/ns/prov#used",
-          "@type": "http://www.w3.org/ns/prov#Entity"
-        },
-        "bewerking": {
-          "@id": "http://todo.com/bewerking",
-          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
-        },
-        "operator": {
-          "@id": "http://www.w3.org/ns/prov#wasAssociatedWith",
-          "@type": "http://www.w3.org/ns/prov#Agent"
-        }
-      },
-      "@id": "http://www.w3.org/ns/prov#Activity"
     },
     "Identificator": {
       "@context": {
@@ -286,8 +232,8 @@
           "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
         },
         "toegekendDoor": {
-          "@id": "http://www.w3.org/ns/adms#schemaAgency",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
+          "@id": "http://purl.org/dc/terms/creator",
+          "@type": "http://purl.org/dc/terms/Agent"
         },
         "toegekendOp": {
           "@id": "http://purl.org/dc/terms/issued",
@@ -314,32 +260,32 @@
         "detailAdressen": {
           "@container": "@set",
           "@id": "https://implementatie.data.vlaanderen.be/ns/adres#adressen",
-          "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         },
         "detailGebouweenheden": {
           "@container": "@set",
           "@id": "https://implementatie.data.vlaanderen.be/ns/adres#gebouweenheden",
-          "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         },
         "detailPercelen": {
           "@container": "@set",
           "@id": "https://implementatie.data.vlaanderen.be/ns/adres#percelen",
-          "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         },
         "detailPostinfo": {
           "@container": "@set",
           "@id": "https://implementatie.data.vlaanderen.be/ns/adres#postinfo",
-          "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         },
         "detailSelf": {
           "@container": "@set",
           "@id": "https://implementatie.data.vlaanderen.be/ns/adres#self",
-          "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         },
         "detailStraatnamen": {
           "@container": "@set",
           "@id": "https://implementatie.data.vlaanderen.be/ns/adres#straatnamen",
-          "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         }
       },
       "@id": "https://implementatie.data.vlaanderen.be/ns/adres#Links"
@@ -407,7 +353,7 @@
       "@context": {
         "detail": {
           "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-          "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         },
         "identificator": {
           "@container": "@set",
@@ -455,7 +401,7 @@
       "@context": {
         "detail": {
           "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-          "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         }
       },
       "@id": "https://implementatie.data.vlaanderen.be/ns/adres#Referentie"
@@ -477,7 +423,7 @@
       "@context": {
         "detail": {
           "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-          "@type": "https://www.w3.org/2001/XMLSchema#anyURI"
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         },
         "homoniemToevoeging": {
           "@id": "https://data.vlaanderen.be/ns/adres#homoniemToevoeging",

@@ -33,10 +33,7 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DateTimeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GestructureerdeIdentificatorShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GeometrieShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#CreatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PuntShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdreslocatorShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#HerkomstactiviteitShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AnyURIShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LocatienaamtypeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LocatieaanduidingtypeShape>,
@@ -45,43 +42,6 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GeometrieMethodeWaardeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GeometriSpecificatieWaardeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BewerkingstypeShape> .
-
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdreslocatorShape> a shacl:NodeShape;
-  rdfs:label "Adreslocator"@nl;
-  rdfs:comment "Menselijk leesbare aanduiding of naam die een gebruiker of applicatie toelaat om het adres te onderscheiden van naburige adressen in de straat, de administratieve eenheid etc waarin het adres ligt."@nl;
-  shacl:closed false;
-  shacl:property [
-    a shacl:PropertyShape;
-    rdfs:label "aanduiding"@nl;
-    rdfs:comment "Alfanumerieke code die de locator uniek identificeert binnen de straat, administratieve eenheid etc."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adreslocator.Aanduiding>;
-    shacl:class <https://data.vlaanderen.be/ns/adres#Locatieaanduiding>;
-    shacl:description "Alfanumerieke code die de locator uniek identificeert binnen de straat, administratieve eenheid etc."@nl;
-    shacl:name "aanduiding"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/adres#aanduiding>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "naam"@nl;
-    rdfs:comment "Naam of omschrijving van het het geografisch object dat de locator aanduidt."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adreslocator.Naam>;
-    shacl:class <https://data.vlaanderen.be/ns/adres#Locatienaam>;
-    shacl:description "Naam of omschrijving van het het geografisch object dat de locator aanduidt."@nl;
-    shacl:name "naam"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/adres#naam>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "niveau"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Waarbij het niveau staat voor de geografische granulariteit van de locator: zo verwijzen locators van het type huisnummer doorgaans naar het gebouw terwijl busnummers naar een deel van het gebouw verwijzen."@nl;
-    rdfs:comment "Het niveau waarnaar de locator verwijst."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adreslocator.Niveau>;
-    shacl:description "Het niveau waarnaar de locator verwijst."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "niveau"@nl;
-    shacl:nodeKind shacl:BlankNodeOrIRI;
-    shacl:path <https://data.vlaanderen.be/ns/adres#niveau>
-  ];
-  shacl:targetClass <https://data.vlaanderen.be/ns/adres#Adreslocator> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresseerbaarObjectShape> a shacl:NodeShape;
   rdfs:label "AdresseerbaarObject"@nl;
@@ -109,22 +69,11 @@
     shacl:description "Het complete adres in één string, al dan niet geformatteerd."@nl;
     shacl:name "volledigAdres"@nl;
     shacl:path <https://data.vlaanderen.be/ns/adres#volledigAdres>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "adreslocator"@nl;
-    <http://purl.org/vocab/vann/usageNote> ""@nl;
-    rdfs:comment "Bijkomende adreslocator."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adresuitbreiding.Adreslocator>;
-    shacl:class <https://data.vlaanderen.be/ns/adres#Adreslocator>;
-    shacl:description "Bijkomende adreslocator."@nl;
-    shacl:name "adreslocator"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/adres#adreslocator>
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/adres#Adresuitbreiding> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AgentShape> a shacl:NodeShape;
   rdfs:label "Agent"@nl;
-  <http://purl.org/vocab/vann/usageNote> ""@nl;
   rdfs:comment "Iemand die of iets dat kan handelen of een effect kan teweeg brengen."@nl;
   shacl:closed false;
   shacl:targetClass dc:Agent .
@@ -133,7 +82,7 @@
   rdfs:label "AnyURI"@nl;
   rdfs:comment "Het AnyURI datatype representeert een Unieke Resource Identificator Referentie, URI."@nl;
   shacl:closed false;
-  shacl:targetClass <https://www.w3.org/2001/XMLSchema#anyURI> .
+  shacl:targetClass xsd:anyURI .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdresShape> a shacl:NodeShape;
   rdfs:label "BelgischAdres"@nl;
@@ -214,14 +163,14 @@
     shacl:path <https://data.vlaanderen.be/ns/adres#heeftGemeentenaam>
   ], [
     a shacl:PropertyShape;
-    rdfs:label "toegeschrevenAan"@nl;
+    rdfs:label "isToegekendDoor"@nl;
     <http://purl.org/vocab/vann/usageNote> "In België is dit de gemeente."@nl;
     rdfs:comment "Agent die het adres heeft toegekend."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.ToegeschrevenAan>;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.IsToegekendDoor>;
     shacl:class <https://data.vlaanderen.be/ns/generiek#Gemeente>;
     shacl:description "Agent die het adres heeft toegekend."@nl;
     shacl:maxCount 1;
-    shacl:name "toegeschrevenAan"@nl;
+    shacl:name "isToegekendDoor"@nl;
     shacl:path prov:wasAttributedTo
   ], [
     a shacl:PropertyShape;
@@ -270,40 +219,9 @@
   shacl:closed false;
   shacl:targetClass xsd:boolean .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#CreatieShape> a shacl:NodeShape;
-  rdfs:label "Creatie"@nl;
-  <http://purl.org/vocab/vann/usageNote> "De entiteit bestond niet voorafgaand aan de creatie en is daarna beschikbaar voor gebruik."@nl;
-  rdfs:comment "Het voltooien vd productie ve nieuwe entiteit dmv een activiteit."@nl;
-  shacl:closed false;
-  shacl:property [
-    a shacl:PropertyShape;
-    rdfs:label "tijdstip"@nl;
-    <http://purl.org/vocab/vann/usageNote> ""@nl;
-    rdfs:comment "Tijdstip waarop de creatie vd entiteit plaatsvond."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Creatie.Tijdstip>;
-    shacl:datatype xsd:dateTime;
-    shacl:description "Tijdstip waarop de creatie vd entiteit plaatsvond."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "tijdstip"@nl;
-    shacl:path prov:atTime
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "herkomstactiviteit"@nl;
-    <http://purl.org/vocab/vann/usageNote> ""@nl;
-    rdfs:comment "Activiteit die tot de creatie vd entiteit heeft geleid."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Creatie.Herkomstactiviteit>;
-    shacl:class prov:Activity;
-    shacl:description "Activiteit die tot de creatie vd entiteit heeft geleid."@nl;
-    shacl:maxCount 1;
-    shacl:name "herkomstactiviteit"@nl;
-    shacl:path prov:activity
-  ];
-  shacl:targetClass prov:Generation .
-
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DataEnvelopShape> a shacl:NodeShape;
   rdfs:label "DataEnvelop"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
@@ -319,11 +237,11 @@
     rdfs:label "volgende"@nl;
     rdfs:comment "De URL waar de volgende pagina objecten kan gevonden worden."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DataEnvelop.Volgende>;
-    shacl:class <https://www.w3.org/2001/XMLSchema#anyURI>;
+    shacl:class xsd:anyURI;
     shacl:description "De URL waar de volgende pagina objecten kan gevonden worden."@nl;
     shacl:maxCount 1;
     shacl:name "volgende"@nl;
-    shacl:path <https://www.w3.org/ns/adms#next>
+    shacl:path <http://www.w3.org/ns/adms#next>
   ], [
     a shacl:PropertyShape;
     rdfs:label "_links"@nl;
@@ -375,7 +293,7 @@
     rdfs:label "detail"@nl;
     rdfs:comment "Een bron dat additionele info over het object bevat."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Gemeente.Detail>;
-    shacl:class <https://www.w3.org/2001/XMLSchema#anyURI>;
+    shacl:class xsd:anyURI;
     shacl:description "Een bron dat additionele info over het object bevat."@nl;
     shacl:maxCount 1;
     shacl:name "detail"@nl;
@@ -437,7 +355,7 @@
   shacl:targetClass rdf:langString .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GeografischePositieShape> a shacl:NodeShape;
-  rdfs:label "Geografische Positie"@nl;
+  rdfs:label "GeografischePositie"@nl;
   rdfs:comment "Geografische positie aangegeven door middel van een punt."@nl;
   shacl:closed false;
   shacl:property [
@@ -525,14 +443,14 @@
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
-    rdfs:label "lokale identificator"@nl;
+    rdfs:label "lokaleIdentificator"@nl;
     rdfs:comment "String gebruikt om het object uniek te identificeren binnen de naamruimte."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GestructureerdeIdentificator.LokaleIdentificator>;
     shacl:datatype xsd:string;
     shacl:description "String gebruikt om het object uniek te identificeren binnen de naamruimte."@nl;
     shacl:maxCount 1;
     shacl:minCount 1;
-    shacl:name "lokale identificator"@nl;
+    shacl:name "lokaleIdentificator"@nl;
     shacl:path <https://data.vlaanderen.be/ns/generiek#lokaleIdentificator>
   ], [
     a shacl:PropertyShape;
@@ -548,58 +466,16 @@
     shacl:path <https://data.vlaanderen.be/ns/generiek#naamruimte>
   ], [
     a shacl:PropertyShape;
-    rdfs:label "versie-identificator"@nl;
+    rdfs:label "versieIdentificator"@nl;
     rdfs:comment "Identificator van de specifieke versie van een object."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GestructureerdeIdentificator.Versie-Identificator>;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GestructureerdeIdentificator.VersieIdentificator>;
     shacl:datatype xsd:string;
     shacl:description "Identificator van de specifieke versie van een object."@nl;
     shacl:maxCount 1;
-    shacl:name "versie-identificator"@nl;
+    shacl:name "versieIdentificator"@nl;
     shacl:path <https://data.vlaanderen.be/ns/generiek#versieIdentificator>
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator> .
-
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#HerkomstactiviteitShape> a shacl:NodeShape;
-  rdfs:label "Herkomstactiviteit"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld consumptie,verwerking,transformatie,wijziging,verplaatsing,gebruik,creatie..."@nl;
-  rdfs:comment "Iets waarmee men actief is gedurende een bepaalde periode op een entiteit."@nl;
-  shacl:closed false;
-  shacl:property [
-    a shacl:PropertyShape;
-    rdfs:label "operator"@nl;
-    <http://purl.org/vocab/vann/usageNote> ""@nl;
-    rdfs:comment "Geeft aan welke agent verantwoordelijk was voor de activiteit en meer bepaald verantwoordelijk was voor het uitvoeren vd activiteit."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Herkomstactiviteit.Operator>;
-    shacl:class prov:Agent;
-    shacl:description "Geeft aan welke agent verantwoordelijk was voor de activiteit en meer bepaald verantwoordelijk was voor het uitvoeren vd activiteit."@nl;
-    shacl:maxCount 1;
-    shacl:name "operator"@nl;
-    shacl:path prov:wasAssociatedWith
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "applicatie"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Bvb de softwareapplicatie waarmee een activiteit (bvb creatie ve entiteit) wordt uitgevoerd. Niet te verwarren met de entiteit waarop de activiteit wordt uitgevoerd."@nl;
-    rdfs:comment "Gebruik ve entiteit door een activiteit."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Herkomstactiviteit.Applicatie>;
-    shacl:description "Gebruik ve entiteit door een activiteit."@nl;
-    shacl:maxCount 1;
-    shacl:name "applicatie"@nl;
-    shacl:or ([shacl:class prov:Entity] [shacl:class <https://data.vlaanderen.be/ns/adres#Ligplaats>] [shacl:class <https://data.vlaanderen.be/ns/adres#Postinfo>] [shacl:class <https://data.vlaanderen.be/ns/adres#Straatnaam>] [shacl:class <https://data.vlaanderen.be/ns/adres#Standplaats>] [shacl:class <https://data.vlaanderen.be/ns/gebouw#Gebouweenheid>] [shacl:class <https://data.vlaanderen.be/ns/generiek#Gemeente>] [shacl:class <https://data.vlaanderen.be/ns/perceel#RuimtelijkeEenheid>] [shacl:class <https://data.vlaanderen.be/ns/adres#Adres>]);
-    shacl:path prov:used
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "bewerking"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Bvb \"correctie\" als de entiteit een record is en bvb gegenereerd werd om het voorgaand record ve object te verbeteren."@nl;
-    rdfs:comment "Aard vd bewerking die ihkv de activiteit op de entiteit is uitgevoerd."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Herkomstactiviteit.Bewerking>;
-    shacl:description "Aard vd bewerking die ihkv de activiteit op de entiteit is uitgevoerd."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "bewerking"@nl;
-    shacl:nodeKind shacl:BlankNodeOrIRI;
-    shacl:path <http://todo.com/bewerking>
-  ];
-  shacl:targetClass prov:Activity .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#IdentificatorShape> a shacl:NodeShape;
   rdfs:label "Identificator"@nl;
@@ -638,23 +514,23 @@
     shacl:path dc:issued
   ], [
     a shacl:PropertyShape;
-    rdfs:label "gestructureerde identificator"@nl;
+    rdfs:label "gestructureerdeIdentificator"@nl;
     rdfs:comment "Identificator van het object opgesplitst in zijn onderdelen."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Identificator.GestructureerdeIdentificator>;
     shacl:class <https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator>;
     shacl:description "Identificator van het object opgesplitst in zijn onderdelen."@nl;
     shacl:maxCount 1;
-    shacl:name "gestructureerde identificator"@nl;
+    shacl:name "gestructureerdeIdentificator"@nl;
     shacl:path <https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator>
   ], [
     a shacl:PropertyShape;
-    rdfs:label "toegekend door"@nl;
+    rdfs:label "toegekendDoor"@nl;
     rdfs:comment "Link naar de agent die de identificator heeft uitgegeven."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Identificator.ToegekendDoor>;
     shacl:class dc:Agent;
     shacl:description "Link naar de agent die de identificator heeft uitgegeven."@nl;
     shacl:maxCount 1;
-    shacl:name "toegekend door"@nl;
+    shacl:name "toegekendDoor"@nl;
     shacl:path dc:creator
   ];
   shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
@@ -680,7 +556,7 @@
     rdfs:label "detailPostinfo"@nl;
     rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde postinfo."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Links.DetailPostinfo>;
-    shacl:class <https://www.w3.org/2001/XMLSchema#anyURI>;
+    shacl:class xsd:anyURI;
     shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde postinfo."@nl;
     shacl:name "detailPostinfo"@nl;
     shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#postinfo>
@@ -689,7 +565,7 @@
     rdfs:label "detailSelf"@nl;
     rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over zichzelf."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Links.DetailSelf>;
-    shacl:class <https://www.w3.org/2001/XMLSchema#anyURI>;
+    shacl:class xsd:anyURI;
     shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over zichzelf."@nl;
     shacl:name "detailSelf"@nl;
     shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#self>
@@ -698,7 +574,7 @@
     rdfs:label "detailGebouweenheden"@nl;
     rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouweenheden."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Links.DetailGebouweenheden>;
-    shacl:class <https://www.w3.org/2001/XMLSchema#anyURI>;
+    shacl:class xsd:anyURI;
     shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouweenheden."@nl;
     shacl:name "detailGebouweenheden"@nl;
     shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#gebouweenheden>
@@ -707,7 +583,7 @@
     rdfs:label "detailPercelen"@nl;
     rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde percelen."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Links.DetailPercelen>;
-    shacl:class <https://www.w3.org/2001/XMLSchema#anyURI>;
+    shacl:class xsd:anyURI;
     shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde percelen."@nl;
     shacl:name "detailPercelen"@nl;
     shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#percelen>
@@ -716,7 +592,7 @@
     rdfs:label "detailStraatnamen"@nl;
     rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde straatnamen."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Links.DetailStraatnamen>;
-    shacl:class <https://www.w3.org/2001/XMLSchema#anyURI>;
+    shacl:class xsd:anyURI;
     shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde straatnamen."@nl;
     shacl:name "detailStraatnamen"@nl;
     shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#straatnamen>
@@ -725,7 +601,7 @@
     rdfs:label "detailAdressen"@nl;
     rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde adresse,n."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Links.DetailAdressen>;
-    shacl:class <https://www.w3.org/2001/XMLSchema#anyURI>;
+    shacl:class xsd:anyURI;
     shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde adresse,n."@nl;
     shacl:name "detailAdressen"@nl;
     shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#adressen>
@@ -863,7 +739,7 @@
     rdfs:label "detail"@nl;
     rdfs:comment "Een bron dat additionele info over het object bevat."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Postinfo.Detail>;
-    shacl:class <https://www.w3.org/2001/XMLSchema#anyURI>;
+    shacl:class xsd:anyURI;
     shacl:description "Een bron dat additionele info over het object bevat."@nl;
     shacl:maxCount 1;
     shacl:name "detail"@nl;
@@ -889,14 +765,14 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#ReferentieShape> a shacl:NodeShape;
   rdfs:label "Referentie"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "Een referentie naar aditionele informatie."@nl;
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
     rdfs:label "detail"@nl;
     rdfs:comment "Een bron dat additionele info over het object bevat."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Referentie.Detail>;
-    shacl:class <https://www.w3.org/2001/XMLSchema#anyURI>;
+    shacl:class xsd:anyURI;
     shacl:description "Een bron dat additionele info over het object bevat."@nl;
     shacl:maxCount 1;
     shacl:minCount 1;
@@ -918,23 +794,21 @@
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
-    rdfs:label "homoniem toevoeging"@nl;
-    <http://purl.org/vocab/vann/usageNote> ""@nl;
+    rdfs:label "homoniemToevoeging"@nl;
     rdfs:comment "Toevoeging om dubbele straatnamen (straatnamen met dezelfde naam maar andere ligging in de gemeente en eigen adressen) van elkaar te onderscheiden."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Straatnaam.HomoniemToevoeging>;
     shacl:datatype xsd:string;
     shacl:description "Toevoeging om dubbele straatnamen (straatnamen met dezelfde naam maar andere ligging in de gemeente en eigen adressen) van elkaar te onderscheiden."@nl;
     shacl:maxCount 1;
-    shacl:name "homoniem toevoeging"@nl;
+    shacl:name "homoniemToevoeging"@nl;
     shacl:path <https://data.vlaanderen.be/ns/adres#homoniemToevoeging>
   ], [
     a shacl:PropertyShape;
     rdfs:label "straatnaam"@nl;
-    <http://purl.org/vocab/vann/usageNote> ""@nl;
-    rdfs:comment "Naam vd straat."@nl;
+    rdfs:comment "Naam van de straat."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Straatnaam.Straatnaam>;
     shacl:datatype rdf:langString;
-    shacl:description "Naam vd straat."@nl;
+    shacl:description "Naam van de straat."@nl;
     shacl:minCount 1;
     shacl:name "straatnaam"@nl;
     shacl:path rdfs:label
@@ -953,7 +827,7 @@
     rdfs:label "detail"@nl;
     rdfs:comment "Een bron dat additionele info over het object bevat."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Straatnaam.Detail>;
-    shacl:class <https://www.w3.org/2001/XMLSchema#anyURI>;
+    shacl:class xsd:anyURI;
     shacl:description "Een bron dat additionele info over het object bevat."@nl;
     shacl:maxCount 1;
     shacl:name "detail"@nl;

@@ -48,36 +48,6 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
       "properties": [
         {
-          "id": "https://data.vlaanderen.be/ns/adres#adreslocator",
-          "vocabularyLabel": {
-            "nl": "adreslocator"
-          },
-          "applicationProfileLabel": {
-            "nl": "adreslocator"
-          },
-          "vocabularyDefinition": {
-            "nl": "Bijkomende adreslocator."
-          },
-          "applicationProfileDefinition": {
-            "nl": "Bijkomende adreslocator."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
-          "domain": "https://data.vlaanderen.be/ns/adres#Adresuitbreiding",
-          "range": {
-            "id": "https://data.vlaanderen.be/ns/adres#Adreslocator",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "Adreslocator"
-            },
-            "applicationProfileLabel": {
-              "nl": "Adreslocator"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "*"
-        },
-        {
           "id": "https://data.vlaanderen.be/ns/adres#volledigAdres",
           "vocabularyLabel": {
             "nl": "volledigAdres"
@@ -377,6 +347,36 @@
           "maxCount": "*"
         },
         {
+          "id": "http://www.w3.org/ns/prov#wasAttributedTo",
+          "vocabularyLabel": {
+            "nl": "isToegekendDoor"
+          },
+          "applicationProfileLabel": {
+            "nl": "isToegekendDoor"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Agent die het adres heeft toegekend."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "In België is dit de gemeente."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
+          "domain": "https://data.vlaanderen.be/ns/adres#Adres",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/generiek#Gemeente",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Gemeente"
+            },
+            "applicationProfileLabel": {
+              "nl": "Gemeente"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
           "id": "https://data.vlaanderen.be/ns/adres#isVerrijktMet",
           "vocabularyLabel": {
             "nl": "isVerrijktMet"
@@ -474,10 +474,10 @@
             "id": "https://data.vlaanderen.be/ns/generiek#GeografischePositie",
             "listedInDocument": true,
             "vocabularyLabel": {
-              "nl": "Geografische Positie"
+              "nl": "GeografischePositie"
             },
             "applicationProfileLabel": {
-              "nl": "Geografische Positie"
+              "nl": "GeografischePositie"
             }
           },
           "minCount": "0",
@@ -513,36 +513,6 @@
           "minCount": "0",
           "maxCount": "1",
           "codelist": "http://inspire.ec.europa.eu/codelist/StatusValue"
-        },
-        {
-          "id": "http://www.w3.org/ns/prov#wasAttributedTo",
-          "vocabularyLabel": {
-            "nl": "isToegekendDoor"
-          },
-          "applicationProfileLabel": {
-            "nl": "toegeschrevenAan"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Agent die het adres heeft toegekend."
-          },
-          "applicationProfileUsageNote": {
-            "nl": "In België is dit de gemeente."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
-          "domain": "https://data.vlaanderen.be/ns/adres#Adres",
-          "range": {
-            "id": "https://data.vlaanderen.be/ns/generiek#Gemeente",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "Gemeente"
-            },
-            "applicationProfileLabel": {
-              "nl": "Gemeente"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1"
         }
       ]
     },
@@ -569,10 +539,10 @@
         "nl": "DataEnvelop"
       },
       "vocabularyDefinition": {
-        "nl": "TODO"
+        "nl": "De collectie van de uitgewisselde data en zijn metadata elementen."
       },
       "applicationProfileDefinition": {
-        "nl": "TODO"
+        "nl": "De collectie van de uitgewisselde data en zijn metadata elementen."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
@@ -638,7 +608,7 @@
           "maxCount": "*"
         },
         {
-          "id": "https://www.w3.org/ns/adms#next",
+          "id": "http://www.w3.org/ns/adms#next",
           "vocabularyLabel": {
             "nl": "volgende"
           },
@@ -652,8 +622,8 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
           "domain": "https://implementatie.data.vlaanderen.be/ns/adres#DataEnvelop",
           "range": {
-            "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-            "listedInDocument": true,
+            "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "AnyURI"
             },
@@ -746,8 +716,8 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
           "domain": "https://data.vlaanderen.be/ns/generiek#Gemeente",
           "range": {
-            "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-            "listedInDocument": true,
+            "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "AnyURI"
             },
@@ -1060,8 +1030,8 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
           "domain": "https://implementatie.data.vlaanderen.be/ns/adres#Links",
           "range": {
-            "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-            "listedInDocument": true,
+            "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "AnyURI"
             },
@@ -1090,8 +1060,8 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
           "domain": "https://implementatie.data.vlaanderen.be/ns/adres#Links",
           "range": {
-            "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-            "listedInDocument": true,
+            "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "AnyURI"
             },
@@ -1120,8 +1090,8 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
           "domain": "https://implementatie.data.vlaanderen.be/ns/adres#Links",
           "range": {
-            "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-            "listedInDocument": true,
+            "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "AnyURI"
             },
@@ -1150,8 +1120,8 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
           "domain": "https://implementatie.data.vlaanderen.be/ns/adres#Links",
           "range": {
-            "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-            "listedInDocument": true,
+            "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "AnyURI"
             },
@@ -1180,8 +1150,8 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
           "domain": "https://implementatie.data.vlaanderen.be/ns/adres#Links",
           "range": {
-            "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-            "listedInDocument": true,
+            "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "AnyURI"
             },
@@ -1210,8 +1180,8 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
           "domain": "https://implementatie.data.vlaanderen.be/ns/adres#Links",
           "range": {
-            "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-            "listedInDocument": true,
+            "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "AnyURI"
             },
@@ -1398,8 +1368,8 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
           "domain": "https://data.vlaanderen.be/ns/adres#Postinfo",
           "range": {
-            "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-            "listedInDocument": true,
+            "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "AnyURI"
             },
@@ -1575,10 +1545,10 @@
         "nl": "Referentie"
       },
       "vocabularyDefinition": {
-        "nl": "TODO"
+        "nl": "Een referentie naar aditionele informatie."
       },
       "applicationProfileDefinition": {
-        "nl": "TODO"
+        "nl": "Een referentie naar aditionele informatie."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
@@ -1598,8 +1568,8 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
           "domain": "https://implementatie.data.vlaanderen.be/ns/adres#Referentie",
           "range": {
-            "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-            "listedInDocument": true,
+            "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "AnyURI"
             },
@@ -1712,8 +1682,8 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
           "domain": "https://data.vlaanderen.be/ns/adres#Straatnaam",
           "range": {
-            "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-            "listedInDocument": true,
+            "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "AnyURI"
             },
@@ -1727,10 +1697,10 @@
         {
           "id": "https://data.vlaanderen.be/ns/adres#homoniemToevoeging",
           "vocabularyLabel": {
-            "nl": "homoniem toevoeging"
+            "nl": "homoniemToevoeging"
           },
           "applicationProfileLabel": {
-            "nl": "homoniem toevoeging"
+            "nl": "homoniemToevoeging"
           },
           "vocabularyDefinition": {
             "nl": "Toevoeging om dubbele straatnamen (straatnamen met dezelfde naam maar andere ligging in de gemeente en eigen adressen) van elkaar te onderscheiden."
@@ -1824,7 +1794,7 @@
             "nl": "straatnaam"
           },
           "applicationProfileDefinition": {
-            "nl": "Naam vd straat."
+            "nl": "Naam van de straat."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
@@ -1847,123 +1817,7 @@
   ],
   "dataTypes": [
     {
-      "id": "https://data.vlaanderen.be/ns/adres#Adreslocator",
-      "vocabularyLabel": {
-        "nl": "Adreslocator"
-      },
-      "applicationProfileLabel": {
-        "nl": "Adreslocator"
-      },
-      "vocabularyDefinition": {
-        "nl": "Menselijk leesbare aanduiding of naam die een gebruiker of applicatie toelaat om het adres te onderscheiden van naburige adressen in de straat, de administratieve eenheid etc waarin het adres ligt."
-      },
-      "applicationProfileDefinition": {
-        "nl": "Menselijk leesbare aanduiding of naam die een gebruiker of applicatie toelaat om het adres te onderscheiden van naburige adressen in de straat, de administratieve eenheid etc waarin het adres ligt."
-      },
-      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
-      "properties": [
-        {
-          "id": "https://data.vlaanderen.be/ns/adres#aanduiding",
-          "vocabularyLabel": {
-            "nl": "aanduiding"
-          },
-          "applicationProfileLabel": {
-            "nl": "aanduiding"
-          },
-          "vocabularyDefinition": {
-            "nl": "Alfanumerieke code die de locator uniek identificeert binnen de straat, administratieve eenheid etc."
-          },
-          "applicationProfileDefinition": {
-            "nl": "Alfanumerieke code die de locator uniek identificeert binnen de straat, administratieve eenheid etc."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
-          "domain": "https://data.vlaanderen.be/ns/adres#Adreslocator",
-          "range": {
-            "id": "https://data.vlaanderen.be/ns/adres#Locatieaanduiding",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "Locatieaanduiding"
-            },
-            "applicationProfileLabel": {
-              "nl": "Locatieaanduiding"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "*"
-        },
-        {
-          "id": "https://data.vlaanderen.be/ns/adres#naam",
-          "vocabularyLabel": {
-            "nl": "label"
-          },
-          "applicationProfileLabel": {
-            "nl": "naam"
-          },
-          "vocabularyDefinition": {
-            "nl": "Naam of omschrijving van het het geografisch object dat de locator aanduidt."
-          },
-          "applicationProfileDefinition": {
-            "nl": "Naam of omschrijving van het het geografisch object dat de locator aanduidt."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
-          "domain": "https://data.vlaanderen.be/ns/adres#Adreslocator",
-          "range": {
-            "id": "https://data.vlaanderen.be/ns/adres#Locatienaam",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "Locatienaam"
-            },
-            "applicationProfileLabel": {
-              "nl": "Locatienaam"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "*"
-        },
-        {
-          "id": "https://data.vlaanderen.be/ns/adres#niveau",
-          "vocabularyLabel": {
-            "nl": "niveau"
-          },
-          "applicationProfileLabel": {
-            "nl": "niveau"
-          },
-          "vocabularyDefinition": {
-            "nl": "Het niveau waarnaar de locator verwijst."
-          },
-          "applicationProfileDefinition": {
-            "nl": "Het niveau waarnaar de locator verwijst."
-          },
-          "vocabularyUsageNote": {
-            "nl": "Waarbij het niveau staat voor de geografische granulariteit van de locator: zo verwijzen locators van het type huisnummer doorgaans naar het gebouw terwijl busnummers naar een deel van het gebouw verwijzen."
-          },
-          "applicationProfileUsageNote": {
-            "nl": "Waarbij het niveau staat voor de geografische granulariteit van de locator: zo verwijzen locators van het type huisnummer doorgaans naar het gebouw terwijl busnummers naar een deel van het gebouw verwijzen."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
-          "domain": "https://data.vlaanderen.be/ns/adres#Adreslocator",
-          "range": {
-            "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "Locatorniveauwaarde"
-            },
-            "applicationProfileLabel": {
-              "nl": "Locatorniveauwaarde"
-            }
-          },
-          "minCount": "1",
-          "maxCount": "1",
-          "codelist": "http://inspire.ec.europa.eu/codelist/LocatorLevelValue"
-        }
-      ]
-    },
-    {
-      "id": "https://www.w3.org/2001/XMLSchema#anyURI",
+      "id": "http://www.w3.org/2001/XMLSchema#anyURI",
       "vocabularyLabel": {
         "nl": "AnyURI"
       },
@@ -1980,85 +1834,26 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard"
     },
     {
-      "id": "http://www.w3.org/ns/prov#Generation",
+      "id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
       "vocabularyLabel": {
-        "nl": "Creatie"
+        "nl": "GeografischeNaam"
       },
       "applicationProfileLabel": {
-        "nl": "Creatie"
+        "nl": "GeografischeNaam"
       },
       "applicationProfileDefinition": {
-        "nl": "Het voltooien vd productie ve nieuwe entiteit dmv een activiteit."
-      },
-      "applicationProfileUsageNote": {
-        "nl": "De entiteit bestond niet voorafgaand aan de creatie en is daarna beschikbaar voor gebruik."
+        "nl": "Benaming toegekend aan of gebruikt voor een geografisch object."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
-      "properties": [
-        {
-          "id": "http://www.w3.org/ns/prov#activity",
-          "vocabularyLabel": {
-            "nl": "activiteit"
-          },
-          "applicationProfileLabel": {
-            "nl": "herkomstactiviteit"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Activiteit die tot de creatie vd entiteit heeft geleid."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
-          "domain": "http://www.w3.org/ns/prov#Generation",
-          "range": {
-            "id": "http://www.w3.org/ns/prov#Activity",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "Activiteit"
-            },
-            "applicationProfileLabel": {
-              "nl": "Herkomstactiviteit"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1"
-        },
-        {
-          "id": "http://www.w3.org/ns/prov#atTime",
-          "vocabularyLabel": {
-            "nl": "tijdstip"
-          },
-          "applicationProfileLabel": {
-            "nl": "tijdstip"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Tijdstip waarop de creatie vd entiteit plaatsvond."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
-          "domain": "http://www.w3.org/ns/prov#Generation",
-          "range": {
-            "id": "http://www.w3.org/2001/XMLSchema#dateTime",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "DateTime"
-            },
-            "applicationProfileLabel": {
-              "nl": "DateTime"
-            }
-          },
-          "minCount": "1",
-          "maxCount": "1"
-        }
-      ]
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard"
     },
     {
       "id": "https://data.vlaanderen.be/ns/generiek#GeografischePositie",
       "vocabularyLabel": {
-        "nl": "Geografische Positie"
+        "nl": "GeografischePositie"
       },
       "applicationProfileLabel": {
-        "nl": "Geografische Positie"
+        "nl": "GeografischePositie"
       },
       "vocabularyDefinition": {
         "nl": "Geografische positie aangegeven door middel van een punt."
@@ -2209,20 +2004,6 @@
       ]
     },
     {
-      "id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
-      "vocabularyLabel": {
-        "nl": "GeografischeNaam"
-      },
-      "applicationProfileLabel": {
-        "nl": "GeografischeNaam"
-      },
-      "applicationProfileDefinition": {
-        "nl": "Benaming toegekend aan of gebruikt voor een geografisch object."
-      },
-      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard"
-    },
-    {
       "id": "http://www.w3.org/ns/locn#Geometry",
       "vocabularyLabel": {
         "nl": "Geometrie"
@@ -2321,7 +2102,7 @@
             "nl": "lokaleIdentificator"
           },
           "applicationProfileLabel": {
-            "nl": "lokale identificator"
+            "nl": "lokaleIdentificator"
           },
           "applicationProfileDefinition": {
             "nl": "String gebruikt om het object uniek te identificeren binnen de naamruimte."
@@ -2378,7 +2159,7 @@
             "nl": "versieIdentificator"
           },
           "applicationProfileLabel": {
-            "nl": "versie-identificator"
+            "nl": "versieIdentificator"
           },
           "applicationProfileDefinition": {
             "nl": "Identificator van de specifieke versie van een object."
@@ -2394,112 +2175,6 @@
             },
             "applicationProfileLabel": {
               "nl": "String"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1"
-        }
-      ]
-    },
-    {
-      "id": "http://www.w3.org/ns/prov#Activity",
-      "vocabularyLabel": {
-        "nl": "Activiteit"
-      },
-      "applicationProfileLabel": {
-        "nl": "Herkomstactiviteit"
-      },
-      "applicationProfileDefinition": {
-        "nl": "Iets waarmee men actief is gedurende een bepaalde periode op een entiteit."
-      },
-      "applicationProfileUsageNote": {
-        "nl": "Bijvoorbeeld consumptie,verwerking,transformatie,wijziging,verplaatsing,gebruik,creatie..."
-      },
-      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
-      "properties": [
-        {
-          "id": "http://www.w3.org/ns/prov#used",
-          "vocabularyLabel": {
-            "nl": "gebruikt"
-          },
-          "applicationProfileLabel": {
-            "nl": "applicatie"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Gebruik ve entiteit door een activiteit."
-          },
-          "applicationProfileUsageNote": {
-            "nl": "Bvb de softwareapplicatie waarmee een activiteit (bvb creatie ve entiteit) wordt uitgevoerd. Niet te verwarren met de entiteit waarop de activiteit wordt uitgevoerd."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
-          "domain": "http://www.w3.org/ns/prov#Activity",
-          "range": {
-            "id": "http://www.w3.org/ns/prov#Entity",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "Entiteit"
-            },
-            "applicationProfileLabel": {
-              "nl": "Herkomstentiteit"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1"
-        },
-        {
-          "id": "http://todo.com/bewerking",
-          "vocabularyLabel": {
-            "nl": "bewerking"
-          },
-          "applicationProfileLabel": {
-            "nl": "bewerking"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Aard vd bewerking die ihkv de activiteit op de entiteit is uitgevoerd."
-          },
-          "applicationProfileUsageNote": {
-            "nl": "Bvb \"correctie\" als de entiteit een record is en bvb gegenereerd werd om het voorgaand record ve object te verbeteren."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
-          "domain": "http://www.w3.org/ns/prov#Activity",
-          "range": {
-            "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "Bewerkingstype"
-            },
-            "applicationProfileLabel": {
-              "nl": "Bewerkingstype"
-            }
-          },
-          "minCount": "1",
-          "maxCount": "1"
-        },
-        {
-          "id": "http://www.w3.org/ns/prov#wasAssociatedWith",
-          "vocabularyLabel": {
-            "nl": "was geassocieerd met"
-          },
-          "applicationProfileLabel": {
-            "nl": "operator"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Geeft aan welke agent verantwoordelijk was voor de activiteit en meer bepaald verantwoordelijk was voor het uitvoeren vd activiteit."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
-          "domain": "http://www.w3.org/ns/prov#Activity",
-          "range": {
-            "id": "http://www.w3.org/ns/prov#Agent",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "Agent"
-            },
-            "applicationProfileLabel": {
-              "nl": "Herkomstagent"
             }
           },
           "minCount": "0",
@@ -2530,7 +2205,7 @@
             "nl": "gestructureerdedentificator"
           },
           "applicationProfileLabel": {
-            "nl": "gestructureerde identificator"
+            "nl": "gestructureerdeIdentificator"
           },
           "applicationProfileDefinition": {
             "nl": "Identificator van het object opgesplitst in zijn onderdelen."
@@ -2582,33 +2257,6 @@
           "maxCount": "1"
         },
         {
-          "id": "http://purl.org/dc/terms/creator",
-          "vocabularyLabel": {
-            "nl": "maker"
-          },
-          "applicationProfileLabel": {
-            "nl": "toegekend door"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Link naar de agent die de identificator heeft uitgegeven."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
-          "domain": "http://www.w3.org/ns/adms#Identifier",
-          "range": {
-            "id": "http://purl.org/dc/terms/Agent",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "Agent"
-            },
-            "applicationProfileLabel": {
-              "nl": "Agent"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1"
-        },
-        {
           "id": "http://www.w3.org/ns/adms#schemaAgency",
           "vocabularyLabel": {
             "nl": "schemaAgentschap"
@@ -2630,6 +2278,33 @@
             },
             "applicationProfileLabel": {
               "nl": "String"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/creator",
+          "vocabularyLabel": {
+            "nl": "maker"
+          },
+          "applicationProfileLabel": {
+            "nl": "toegekendDoor"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Link naar de agent die de identificator heeft uitgegeven."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
+          "domain": "http://www.w3.org/ns/adms#Identifier",
+          "range": {
+            "id": "http://purl.org/dc/terms/Agent",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Agent"
+            },
+            "applicationProfileLabel": {
+              "nl": "Agent"
             }
           },
           "minCount": "0",
@@ -2932,8 +2607,8 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
       "domain": "https://implementatie.data.vlaanderen.be/ns/adres#Links",
       "range": {
-        "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-        "listedInDocument": true,
+        "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "listedInDocument": false,
         "vocabularyLabel": {
           "nl": "AnyURI"
         },
@@ -2962,8 +2637,8 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
       "domain": "https://implementatie.data.vlaanderen.be/ns/adres#Links",
       "range": {
-        "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-        "listedInDocument": true,
+        "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "listedInDocument": false,
         "vocabularyLabel": {
           "nl": "AnyURI"
         },
@@ -2992,8 +2667,8 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
       "domain": "https://implementatie.data.vlaanderen.be/ns/adres#Links",
       "range": {
-        "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-        "listedInDocument": true,
+        "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "listedInDocument": false,
         "vocabularyLabel": {
           "nl": "AnyURI"
         },
@@ -3022,8 +2697,8 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
       "domain": "https://implementatie.data.vlaanderen.be/ns/adres#Links",
       "range": {
-        "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-        "listedInDocument": true,
+        "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "listedInDocument": false,
         "vocabularyLabel": {
           "nl": "AnyURI"
         },
@@ -3052,8 +2727,8 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
       "domain": "https://implementatie.data.vlaanderen.be/ns/adres#Links",
       "range": {
-        "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-        "listedInDocument": true,
+        "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "listedInDocument": false,
         "vocabularyLabel": {
           "nl": "AnyURI"
         },
@@ -3082,8 +2757,8 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
       "domain": "https://implementatie.data.vlaanderen.be/ns/adres#Links",
       "range": {
-        "id": "https://www.w3.org/2001/XMLSchema#anyURI",
-        "listedInDocument": true,
+        "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+        "listedInDocument": false,
         "vocabularyLabel": {
           "nl": "AnyURI"
         },

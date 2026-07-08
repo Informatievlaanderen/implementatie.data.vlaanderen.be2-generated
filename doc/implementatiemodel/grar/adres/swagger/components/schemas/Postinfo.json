@@ -62,7 +62,17 @@
       "$ref": "#/components/schemas/Statuswaarde"
     },
     "detail": {
-      "$ref": "#/components/schemas/AnyURI"
+      "type": "object",
+      "description": "Een bron dat additionele info over het object bevat.",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "@id"
+      ]
     },
     "isToegekendAan": {
       "$ref": "#/components/schemas/Gemeente"
