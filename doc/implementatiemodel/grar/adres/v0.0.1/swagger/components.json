@@ -140,28 +140,6 @@
           "@type"
         ]
       },
-      "Ligplaats": {
-        "title": "Ligplaats",
-        "type": "object",
-        "description": "Een door het bevoegde gemeentelijke orgaan als zodanig aangewezen plaats in het water al dan niet aangevuld met een op de oever aanwezig terrein of een gedeelte daarvan, die bestemd is voor het permanent afmeren van een voor woon-, bedrijfsmatige of recreatieve doeleinden geschikt vaartuig.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "description": "Object type (klasse Ligplaats)",
-            "pattern": "^Ligplaats$"
-          },
-          "identificator": {
-            "$ref": "#/components/schemas/Identificator"
-          }
-        },
-        "required": [
-          "@type"
-        ]
-      },
       "Postinfo": {
         "title": "Postinfo",
         "type": "object",
@@ -370,28 +348,6 @@
           "gemeentenaam"
         ]
       },
-      "Standplaats": {
-        "title": "Standplaats",
-        "type": "object",
-        "description": "Een door het bevoegde gemeentelijke orgaan als zodanig aangewezen terrein of gedeelte daarvan dat bestemd is voor het permanent plaatsen van een niet direct en niet duurzaam met de aarde verbonden en voor woon -, bedrijfsmatige, of recreatieve doeleinden.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "description": "Object type (klasse Standplaats)",
-            "pattern": "^Standplaats$"
-          },
-          "identificator": {
-            "$ref": "#/components/schemas/Identificator"
-          }
-        },
-        "required": [
-          "@type"
-        ]
-      },
       "Adresuitbreiding": {
         "title": "Adresuitbreiding",
         "type": "object",
@@ -427,28 +383,6 @@
               ]
             },
             "minItems": 1
-          }
-        },
-        "required": [
-          "@type"
-        ]
-      },
-      "Gebouweenheid": {
-        "title": "Gebouweenheid",
-        "type": "object",
-        "description": "De kleinste eenheid binnen een gebouw die geschikt is voor woon-, bedrijfsmatige, of recreatieve doeleinden en die ontsloten wordt via een eigen afsluitbare toegang vanaf de openbare weg, een erf of een gedeelde circulatieruimte. Een gebouweenheid is in functioneel opzicht zelfstandig. Daarnaast kan een gebouweenheid ook een gemeenschappelijk deel zijn.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "description": "Object type (klasse Gebouweenheid)",
-            "pattern": "^Gebouweenheid$"
-          },
-          "identificator": {
-            "$ref": "#/components/schemas/Identificator"
           }
         },
         "required": [
@@ -530,30 +464,8 @@
           "@type"
         ]
       },
-      "Perceel": {
-        "title": "Perceel",
-        "type": "object",
-        "description": "Eén gebied (of meerdere gebieden) van land en/of water, of één enkel volume (of meerdere volumes) ruimte, afgebakend voor een bepaald doel.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "description": "Object type (klasse Perceel)",
-            "pattern": "^Perceel$"
-          },
-          "identificator": {
-            "$ref": "#/components/schemas/Identificator"
-          }
-        },
-        "required": [
-          "@type"
-        ]
-      },
-      "BelgischAdres": {
-        "title": "BelgischAdres",
+      "Adres": {
+        "title": "Adres",
         "type": "object",
         "description": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode.",
         "properties": {
@@ -563,8 +475,8 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse BelgischAdres)",
-            "pattern": "^BelgischAdres$"
+            "description": "Object type (klasse Adres)",
+            "pattern": "^Adres$"
           },
           "busnummer": {
             "type": "object",
@@ -640,36 +552,6 @@
           },
           "heeftPostinfo": {
             "$ref": "#/components/schemas/Postinfo"
-          },
-          "istoegekendaan": {
-            "type": "array",
-            "description": "Lijst van AdresseerbaarObject items.",
-            "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/Ligplaats"
-                },
-                {
-                  "$ref": "#/components/schemas/Standplaats"
-                },
-                {
-                  "$ref": "#/components/schemas/Gebouweenheid"
-                },
-                {
-                  "$ref": "#/components/schemas/Perceel"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "@type",
-                "mapping": {
-                  "Ligplaats": "#/components/schemas/Ligplaats",
-                  "Standplaats": "#/components/schemas/Standplaats",
-                  "Gebouweenheid": "#/components/schemas/Gebouweenheid",
-                  "Perceel": "#/components/schemas/Perceel"
-                }
-              }
-            },
-            "minItems": 1
           },
           "heeftReferentie": {
             "$ref": "#/components/schemas/Referentie"
@@ -1221,13 +1103,6 @@
       }
     },
     "links": {
-      "Ligplaats.identificator": {
-        "operationId": "LigplaatsGET",
-        "parameters": {
-          "id": "$response.body#/Ligplaats.identificator/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
-      },
       "Postinfo.status": {
         "operationId": "PostinfoGET",
         "parameters": {
@@ -1277,20 +1152,6 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gemeente` op te halen."
       },
-      "Standplaats.identificator": {
-        "operationId": "StandplaatsGET",
-        "parameters": {
-          "id": "$response.body#/Standplaats.identificator/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
-      },
-      "Gebouweenheid.identificator": {
-        "operationId": "GebouweenheidGET",
-        "parameters": {
-          "id": "$response.body#/Gebouweenheid.identificator/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
-      },
       "Gemeente.status": {
         "operationId": "GemeenteGET",
         "parameters": {
@@ -1312,80 +1173,66 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
       },
-      "Perceel.identificator": {
-        "operationId": "PerceelGET",
+      "Adres.positie": {
+        "operationId": "AdresGET",
         "parameters": {
-          "id": "$response.body#/Perceel.identificator/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
-      },
-      "BelgischAdres.positie": {
-        "operationId": "BelgischAdresGET",
-        "parameters": {
-          "id": "$response.body#/BelgischAdres.positie/@id"
+          "id": "$response.body#/Adres.positie/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeografischePositie` op te halen."
       },
-      "BelgischAdres.status": {
-        "operationId": "BelgischAdresGET",
+      "Adres.status": {
+        "operationId": "AdresGET",
         "parameters": {
-          "id": "$response.body#/BelgischAdres.status/@id"
+          "id": "$response.body#/Adres.status/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Statuswaarde` op te halen."
       },
-      "BelgischAdres.isVerrijktMet": {
-        "operationId": "BelgischAdresGET",
+      "Adres.isVerrijktMet": {
+        "operationId": "AdresGET",
         "parameters": {
-          "id": "$response.body#/BelgischAdres.isVerrijktMet/@id"
+          "id": "$response.body#/Adres.isVerrijktMet/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adresuitbreiding` op te halen."
       },
-      "BelgischAdres.heeftGemeentenaam": {
-        "operationId": "BelgischAdresGET",
+      "Adres.heeftGemeentenaam": {
+        "operationId": "AdresGET",
         "parameters": {
-          "id": "$response.body#/BelgischAdres.heeftGemeentenaam/@id"
+          "id": "$response.body#/Adres.heeftGemeentenaam/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gemeentenaam` op te halen."
       },
-      "BelgischAdres.isToegekendDoor": {
-        "operationId": "BelgischAdresGET",
+      "Adres.isToegekendDoor": {
+        "operationId": "AdresGET",
         "parameters": {
-          "id": "$response.body#/BelgischAdres.isToegekendDoor/@id"
+          "id": "$response.body#/Adres.isToegekendDoor/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gemeente` op te halen."
       },
-      "BelgischAdres.heeftStraatnaam": {
-        "operationId": "BelgischAdresGET",
+      "Adres.heeftStraatnaam": {
+        "operationId": "AdresGET",
         "parameters": {
-          "id": "$response.body#/BelgischAdres.heeftStraatnaam/@id"
+          "id": "$response.body#/Adres.heeftStraatnaam/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Straatnaam` op te halen."
       },
-      "BelgischAdres.heeftPostinfo": {
-        "operationId": "BelgischAdresGET",
+      "Adres.heeftPostinfo": {
+        "operationId": "AdresGET",
         "parameters": {
-          "id": "$response.body#/BelgischAdres.heeftPostinfo/@id"
+          "id": "$response.body#/Adres.heeftPostinfo/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Postinfo` op te halen."
       },
-      "BelgischAdres.istoegekendaan": {
-        "operationId": "BelgischAdresGET",
+      "Adres.heeftReferentie": {
+        "operationId": "AdresGET",
         "parameters": {
-          "id": "$response.body#/BelgischAdres.istoegekendaan/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AdresseerbaarObject` op te halen."
-      },
-      "BelgischAdres.heeftReferentie": {
-        "operationId": "BelgischAdresGET",
-        "parameters": {
-          "id": "$response.body#/BelgischAdres.heeftReferentie/@id"
+          "id": "$response.body#/Adres.heeftReferentie/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Referentie` op te halen."
       },
-      "BelgischAdres.identificator": {
-        "operationId": "BelgischAdresGET",
+      "Adres.identificator": {
+        "operationId": "AdresGET",
         "parameters": {
-          "id": "$response.body#/BelgischAdres.identificator/@id"
+          "id": "$response.body#/Adres.identificator/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
       },

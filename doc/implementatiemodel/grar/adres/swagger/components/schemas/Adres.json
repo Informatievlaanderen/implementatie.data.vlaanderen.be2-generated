@@ -1,0 +1,100 @@
+{
+  "title": "Adres",
+  "type": "object",
+  "description": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Adres)",
+      "pattern": "^Adres$"
+    },
+    "busnummer": {
+      "type": "object",
+      "description": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "huisnummer": {
+      "type": "object",
+      "description": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "officieelToegekend": {
+      "type": "object",
+      "description": "Geeft aan of het adres officieel door de adresbeheerder is toegekend. Een adres is niet-officieel wanneer het bestaan ervan niet gekend was vanuit de administratieve procedures, maar pas nadat nadat het feitelijk is vastgesteld op het terrein.",
+      "properties": {
+        "@value": {
+          "type": "boolean"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Boolean$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "detail": {
+      "type": "object",
+      "description": "Een bron dat additionele info over het object bevat.",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "@id"
+      ]
+    },
+    "positie": {
+      "$ref": "#/components/schemas/GeografischePositie"
+    },
+    "status": {
+      "$ref": "#/components/schemas/Statuswaarde"
+    },
+    "isVerrijktMet": {
+      "$ref": "#/components/schemas/Adresuitbreiding"
+    },
+    "heeftGemeentenaam": {
+      "$ref": "#/components/schemas/Gemeentenaam"
+    },
+    "isToegekendDoor": {
+      "$ref": "#/components/schemas/Gemeente"
+    },
+    "heeftStraatnaam": {
+      "$ref": "#/components/schemas/Straatnaam"
+    },
+    "heeftPostinfo": {
+      "$ref": "#/components/schemas/Postinfo"
+    },
+    "heeftReferentie": {
+      "$ref": "#/components/schemas/Referentie"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}
