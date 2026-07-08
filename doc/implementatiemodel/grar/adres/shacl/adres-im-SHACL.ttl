@@ -33,8 +33,8 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DateTimeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GestructureerdeIdentificatorShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GeometrieShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PuntShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AnyURIShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PuntShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LocatienaamtypeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LocatieaanduidingtypeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LocatorniveauwaardeShape>,
@@ -120,6 +120,16 @@
     shacl:maxCount 1;
     shacl:name "officieelToegekend"@nl;
     shacl:path <https://data.vlaanderen.be/ns/adres#officieelToegekend>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "detail"@nl;
+    rdfs:comment "Een bron dat additionele info over het object bevat."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.Detail>;
+    shacl:class xsd:anyURI;
+    shacl:description "Een bron dat additionele info over het object bevat."@nl;
+    shacl:maxCount 1;
+    shacl:name "detail"@nl;
+    shacl:path rdfs:seeAlso
   ], [
     a shacl:PropertyShape;
     rdfs:label "positie"@nl;
@@ -377,7 +387,7 @@
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GeografischePositie.Geometrie>;
     shacl:class <http://www.opengis.net/ont/sf#Point>;
     shacl:description "De cartografische coöordinaten van het punt."@nl;
-    shacl:maxCount 1;
+    shacl:maxCount 2;
     shacl:minCount 1;
     shacl:name "geometrie"@nl;
     shacl:path <http://www.w3.org/ns/locn#geometry>
@@ -678,6 +688,7 @@
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Object.Identificator>;
     shacl:class <http://www.w3.org/ns/adms#Identifier>;
     shacl:description "Identificator van het object."@nl;
+    shacl:maxCount 1;
     shacl:name "identificator"@nl;
     shacl:path <http://www.w3.org/ns/adms#identifier>
   ];

@@ -155,12 +155,7 @@
             "pattern": "^Ligplaats$"
           },
           "identificator": {
-            "type": "array",
-            "description": "Lijst van Identificator items.",
-            "items": {
-              "$ref": "#/components/schemas/Identificator"
-            },
-            "minItems": 1
+            "$ref": "#/components/schemas/Identificator"
           }
         },
         "required": [
@@ -247,12 +242,7 @@
             "$ref": "#/components/schemas/Gemeente"
           },
           "identificator": {
-            "type": "array",
-            "description": "Lijst van Identificator items.",
-            "items": {
-              "$ref": "#/components/schemas/Identificator"
-            },
-            "minItems": 1
+            "$ref": "#/components/schemas/Identificator"
           }
         },
         "required": [
@@ -327,12 +317,7 @@
             "$ref": "#/components/schemas/Gemeente"
           },
           "identificator": {
-            "type": "array",
-            "description": "Lijst van Identificator items.",
-            "items": {
-              "$ref": "#/components/schemas/Identificator"
-            },
-            "minItems": 1
+            "$ref": "#/components/schemas/Identificator"
           }
         },
         "required": [
@@ -400,12 +385,7 @@
             "pattern": "^Standplaats$"
           },
           "identificator": {
-            "type": "array",
-            "description": "Lijst van Identificator items.",
-            "items": {
-              "$ref": "#/components/schemas/Identificator"
-            },
-            "minItems": 1
+            "$ref": "#/components/schemas/Identificator"
           }
         },
         "required": [
@@ -468,12 +448,7 @@
             "pattern": "^Gebouweenheid$"
           },
           "identificator": {
-            "type": "array",
-            "description": "Lijst van Identificator items.",
-            "items": {
-              "$ref": "#/components/schemas/Identificator"
-            },
-            "minItems": 1
+            "$ref": "#/components/schemas/Identificator"
           }
         },
         "required": [
@@ -548,12 +523,7 @@
             "$ref": "#/components/schemas/Gemeentenaam"
           },
           "identificator": {
-            "type": "array",
-            "description": "Lijst van Identificator items.",
-            "items": {
-              "$ref": "#/components/schemas/Identificator"
-            },
-            "minItems": 1
+            "$ref": "#/components/schemas/Identificator"
           }
         },
         "required": [
@@ -575,12 +545,7 @@
             "pattern": "^Perceel$"
           },
           "identificator": {
-            "type": "array",
-            "description": "Lijst van Identificator items.",
-            "items": {
-              "$ref": "#/components/schemas/Identificator"
-            },
-            "minItems": 1
+            "$ref": "#/components/schemas/Identificator"
           }
         },
         "required": [
@@ -642,6 +607,19 @@
               "@type"
             ]
           },
+          "detail": {
+            "type": "object",
+            "description": "Een bron dat additionele info over het object bevat.",
+            "properties": {
+              "@id": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
           "positie": {
             "$ref": "#/components/schemas/GeografischePositie"
           },
@@ -697,12 +675,7 @@
             "$ref": "#/components/schemas/Referentie"
           },
           "identificator": {
-            "type": "array",
-            "description": "Lijst van Identificator items.",
-            "items": {
-              "$ref": "#/components/schemas/Identificator"
-            },
-            "minItems": 1
+            "$ref": "#/components/schemas/Identificator"
           }
         },
         "required": [
@@ -936,7 +909,13 @@
             ]
           },
           "geometrie": {
-            "$ref": "#/components/schemas/Punt"
+            "type": "array",
+            "description": "Lijst van Punt items.",
+            "items": {
+              "$ref": "#/components/schemas/Punt"
+            },
+            "minItems": 1,
+            "maxItems": 2
           },
           "methode": {
             "$ref": "#/components/schemas/GeometrieMethodeWaarde"

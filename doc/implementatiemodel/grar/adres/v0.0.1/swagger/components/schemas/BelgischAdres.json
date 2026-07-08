@@ -53,6 +53,19 @@
         "@type"
       ]
     },
+    "detail": {
+      "type": "object",
+      "description": "Een bron dat additionele info over het object bevat.",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "@id"
+      ]
+    },
     "positie": {
       "$ref": "#/components/schemas/GeografischePositie"
     },
@@ -108,12 +121,7 @@
       "$ref": "#/components/schemas/Referentie"
     },
     "identificator": {
-      "type": "array",
-      "description": "Lijst van Identificator items.",
-      "items": {
-        "$ref": "#/components/schemas/Identificator"
-      },
-      "minItems": 1
+      "$ref": "#/components/schemas/Identificator"
     }
   },
   "required": [
