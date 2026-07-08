@@ -2,5 +2,7 @@
 
 #||# -------------------------------------  
 
-2026-06-24T09:41:54.523Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/locn#geometry which acts as a parent. Using original URI as fallback.
+2026-07-08T09:07:50.761Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/prov#Entity which acts as a parent. Using original URI as fallback.
+
+2026-07-08T09:07:50.765Z info: Unable to find the assigned URI for external class http://www.w3.org/ns/locn#geometry which acts as a parent. Using original URI as fallback.
 

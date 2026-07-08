@@ -46,11 +46,26 @@
       },
       "minItems": 1
     },
-    "creatie": {
-      "$ref": "#/components/schemas/Creatie"
+    "nuts3": {
+      "type": "object",
+      "description": "De bijhorende NUTS 3 code.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
     },
-    "isVersieVan": {
-      "$ref": "#/components/schemas/Postinfo"
+    "status": {
+      "$ref": "#/components/schemas/Statuswaarde"
+    },
+    "detail": {
+      "$ref": "#/components/schemas/AnyURI"
+    },
+    "isToegekendAan": {
+      "$ref": "#/components/schemas/Gemeente"
     },
     "identificator": {
       "type": "array",
@@ -62,10 +77,6 @@
     }
   },
   "required": [
-    "@type",
-    "postcode",
-    "creatie",
-    "isVersieVan",
-    "identificator"
+    "@type"
   ]
 }

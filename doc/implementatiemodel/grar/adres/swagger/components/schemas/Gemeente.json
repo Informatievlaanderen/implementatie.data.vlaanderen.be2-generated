@@ -12,11 +12,48 @@
       "description": "Object type (klasse Gemeente)",
       "pattern": "^Gemeente$"
     },
-    "isVersieVan": {
-      "$ref": "#/components/schemas/Gemeente"
+    "officieleTaal": {
+      "type": "array",
+      "description": "Lijst van Literal items.",
+      "items": {
+        "type": "object",
+        "description": "De officiële talen van de gemeente.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "minItems": 1
     },
-    "creatie": {
-      "$ref": "#/components/schemas/Creatie"
+    "faciliteitenTaal": {
+      "type": "array",
+      "description": "Lijst van Literal items.",
+      "items": {
+        "type": "object",
+        "description": "De faciliteiten talen van de gemeente.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "minItems": 1
+    },
+    "detail": {
+      "$ref": "#/components/schemas/AnyURI"
+    },
+    "status": {
+      "$ref": "#/components/schemas/Statuswaarde"
+    },
+    "naam": {
+      "$ref": "#/components/schemas/Gemeentenaam"
     },
     "identificator": {
       "type": "array",
@@ -28,9 +65,6 @@
     }
   },
   "required": [
-    "@type",
-    "isVersieVan",
-    "creatie",
-    "identificator"
+    "@type"
   ]
 }
