@@ -6,19 +6,14 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LigplaatsShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresseerbaarObjectShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PostinfoShape>,
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PostinfoShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StraatnaamShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GemeentenaamShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StandplaatsShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresuitbreidingShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GebouweenheidShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AgentShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GemeenteShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PerceelShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#ObjectShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdresShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DataEnvelopShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#ReferentieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LinksShape>,
@@ -43,16 +38,136 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GeometriSpecificatieWaardeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BewerkingstypeShape> .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresseerbaarObjectShape> a shacl:NodeShape;
-  rdfs:label "AdresseerbaarObject"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Is abstract, het is te zeggen het type adresseerbaar object moet altijd worden opgegeven (bijvoorbeeld gebouweenheid, perceel)."@nl;
-  rdfs:comment "Geografisch object dat met een adres kan worden geïdentificeerd."@nl;
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresShape> a shacl:NodeShape;
+  rdfs:label "Adres"@nl;
+  <http://purl.org/vocab/vann/usageNote> "De definitie heeft betrekking op Belgische adressen. In andere landen kan een adres eventueel verwijzen naar andere geografisch objecten (niet gebouweenheid of perceel) of bestaan uit andere aanduidingen (verschillend van huisnummer en busnummer) of uit andere componenten dan straatnaam, gemeentenaam of postcode. Alternatieve adresaanduidingen dan huisnummer of busnummer (bijvoorbeeld ingangaanduiding, trapaanduiding, verdiepaanduiding...) of een gebouwnaam of kamernaam en dergelijke zijn mogelijk door middel van een associatie met adresuitbreiding. Uitwisseling van buitenlandse adressen moet gebeuren mbv het object adresvoorstelling."@nl;
+  rdfs:comment "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode."@nl;
   shacl:closed false;
-  shacl:targetClass <https://data.vlaanderen.be/ns/adres#Ligplaats>,
-    <https://data.vlaanderen.be/ns/adres#AdresseerbaarObject>,
-    <https://data.vlaanderen.be/ns/adres#Standplaats>,
-    <https://data.vlaanderen.be/ns/gebouw#Gebouweenheid>,
-    <https://data.vlaanderen.be/ns/perceel#RuimtelijkeEenheid> .
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "busnummer"@nl;
+    rdfs:comment "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adres.Busnummer>;
+    shacl:datatype xsd:string;
+    shacl:description "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben."@nl;
+    shacl:maxCount 1;
+    shacl:name "busnummer"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/adres#busnummer>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "huisnummer"@nl;
+    rdfs:comment "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adres.Huisnummer>;
+    shacl:datatype xsd:string;
+    shacl:description "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen."@nl;
+    shacl:maxCount 1;
+    shacl:name "huisnummer"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/adres#huisnummer>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "officieelToegekend"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Een adres is niet-officieel wanneer het bestaan ervan niet gekend was vanuit de administratieve procedures, maar pas nadat nadat het feitelijk is vastgesteld op het terrein."@nl;
+    rdfs:comment "Geeft aan of het adres officieel door de adresbeheerder is toegekend."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adres.OfficieelToegekend>;
+    shacl:datatype xsd:boolean;
+    shacl:description "Geeft aan of het adres officieel door de adresbeheerder is toegekend."@nl;
+    shacl:maxCount 1;
+    shacl:name "officieelToegekend"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/adres#officieelToegekend>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "detail"@nl;
+    rdfs:comment "Een bron dat additionele info over het object bevat."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adres.Detail>;
+    shacl:class xsd:anyURI;
+    shacl:description "Een bron dat additionele info over het object bevat."@nl;
+    shacl:maxCount 1;
+    shacl:name "detail"@nl;
+    shacl:path rdfs:seeAlso
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "positie"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Moet een punt zijn."@nl;
+    rdfs:comment "Positie van een karakeristiek punt dat de positie van het adres vertegenwoordigt volgens een bepaalde specificatie en inclusief informatie over de herkomst van de positie."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adres.Positie>;
+    shacl:class <https://data.vlaanderen.be/ns/generiek#GeografischePositie>;
+    shacl:description "Positie van een karakeristiek punt dat de positie van het adres vertegenwoordigt volgens een bepaalde specificatie en inclusief informatie over de herkomst van de positie."@nl;
+    shacl:maxCount 1;
+    shacl:name "positie"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/adres#positie>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "status"@nl;
+    rdfs:comment "Actuele toestand van het adres."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adres.Status>;
+    shacl:description "Actuele toestand van het adres."@nl;
+    shacl:maxCount 1;
+    shacl:name "status"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path <https://data.vlaanderen.be/ns/adres#Adres.status>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "isVerrijktMet"@nl;
+    rdfs:comment "Verwijzing naar een adresuitbreiding."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adres.IsVerrijktMet>;
+    shacl:class <https://data.vlaanderen.be/ns/adres#Adresuitbreiding>;
+    shacl:description "Verwijzing naar een adresuitbreiding."@nl;
+    shacl:maxCount 1;
+    shacl:name "isVerrijktMet"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/adres#isVerrijktMet>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "heeftGemeentenaam"@nl;
+    rdfs:comment "Gemeentenaamcomponent van het adres."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adres.HeeftGemeentenaam>;
+    shacl:class <https://data.vlaanderen.be/ns/adres#Gemeentenaam>;
+    shacl:description "Gemeentenaamcomponent van het adres."@nl;
+    shacl:maxCount 1;
+    shacl:name "heeftGemeentenaam"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/adres#heeftGemeentenaam>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "isToegekendDoor"@nl;
+    <http://purl.org/vocab/vann/usageNote> "In België is dit de gemeente."@nl;
+    rdfs:comment "Agent die het adres heeft toegekend."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adres.IsToegekendDoor>;
+    shacl:class <https://data.vlaanderen.be/ns/generiek#Gemeente>;
+    shacl:description "Agent die het adres heeft toegekend."@nl;
+    shacl:maxCount 1;
+    shacl:name "isToegekendDoor"@nl;
+    shacl:path prov:wasAttributedTo
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "heeftStraatnaam"@nl;
+    rdfs:comment "Straatnaamcomponent van het adres."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adres.HeeftStraatnaam>;
+    shacl:class <https://data.vlaanderen.be/ns/adres#Straatnaam>;
+    shacl:description "Straatnaamcomponent van het adres."@nl;
+    shacl:maxCount 1;
+    shacl:name "heeftStraatnaam"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/adres#heeftStraatnaam>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "heeftPostinfo"@nl;
+    rdfs:comment "Postinfocomponent van het adres."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adres.HeeftPostinfo>;
+    shacl:class <https://data.vlaanderen.be/ns/adres#Postinfo>;
+    shacl:description "Postinfocomponent van het adres."@nl;
+    shacl:maxCount 1;
+    shacl:name "heeftPostinfo"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/adres#heeftPostinfo>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "heeftReferentie"@nl;
+    rdfs:comment "Een verwante bron waarin de beschreven bron fysiek of logisch is opgenomen."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Adres.HeeftReferentie>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/adres#Referentie>;
+    shacl:description "Een verwante bron waarin de beschreven bron fysiek of logisch is opgenomen."@nl;
+    shacl:maxCount 1;
+    shacl:name "heeftReferentie"@nl;
+    shacl:path dc:isPartOf
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/adres#Adres> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresuitbreidingShape> a shacl:NodeShape;
   rdfs:label "Adresuitbreiding"@nl;
@@ -84,146 +199,6 @@
   shacl:closed false;
   shacl:targetClass xsd:anyURI .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdresShape> a shacl:NodeShape;
-  rdfs:label "BelgischAdres"@nl;
-  <http://purl.org/vocab/vann/usageNote> "De definitie heeft betrekking op Belgische adressen. In andere landen kan een adres eventueel verwijzen naar andere geografisch objecten (niet gebouweenheid of perceel) of bestaan uit andere aanduidingen (verschillend van huisnummer en busnummer) of uit andere componenten dan straatnaam, gemeentenaam of postcode. Alternatieve adresaanduidingen dan huisnummer of busnummer (bijvoorbeeld ingangaanduiding, trapaanduiding, verdiepaanduiding...) of een gebouwnaam of kamernaam en dergelijke zijn mogelijk door middel van een associatie met adresuitbreiding. Uitwisseling van buitenlandse adressen moet gebeuren mbv het object adresvoorstelling."@nl;
-  rdfs:comment "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode."@nl;
-  shacl:closed false;
-  shacl:property [
-    a shacl:PropertyShape;
-    rdfs:label "busnummer"@nl;
-    rdfs:comment "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.Busnummer>;
-    shacl:datatype xsd:string;
-    shacl:description "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben."@nl;
-    shacl:maxCount 1;
-    shacl:name "busnummer"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/adres#busnummer>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "huisnummer"@nl;
-    rdfs:comment "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.Huisnummer>;
-    shacl:datatype xsd:string;
-    shacl:description "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen."@nl;
-    shacl:maxCount 1;
-    shacl:name "huisnummer"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/adres#huisnummer>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "officieelToegekend"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Een adres is niet-officieel wanneer het bestaan ervan niet gekend was vanuit de administratieve procedures, maar pas nadat nadat het feitelijk is vastgesteld op het terrein."@nl;
-    rdfs:comment "Geeft aan of het adres officieel door de adresbeheerder is toegekend."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.OfficieelToegekend>;
-    shacl:datatype xsd:boolean;
-    shacl:description "Geeft aan of het adres officieel door de adresbeheerder is toegekend."@nl;
-    shacl:maxCount 1;
-    shacl:name "officieelToegekend"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/adres#officieelToegekend>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "detail"@nl;
-    rdfs:comment "Een bron dat additionele info over het object bevat."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.Detail>;
-    shacl:class xsd:anyURI;
-    shacl:description "Een bron dat additionele info over het object bevat."@nl;
-    shacl:maxCount 1;
-    shacl:name "detail"@nl;
-    shacl:path rdfs:seeAlso
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "positie"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Moet een punt zijn."@nl;
-    rdfs:comment "Positie van een karakeristiek punt dat de positie van het adres vertegenwoordigt volgens een bepaalde specificatie en inclusief informatie over de herkomst van de positie."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.Positie>;
-    shacl:class <https://data.vlaanderen.be/ns/generiek#GeografischePositie>;
-    shacl:description "Positie van een karakeristiek punt dat de positie van het adres vertegenwoordigt volgens een bepaalde specificatie en inclusief informatie over de herkomst van de positie."@nl;
-    shacl:maxCount 1;
-    shacl:name "positie"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/adres#positie>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "status"@nl;
-    rdfs:comment "Actuele toestand van het adres."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.Status>;
-    shacl:description "Actuele toestand van het adres."@nl;
-    shacl:maxCount 1;
-    shacl:name "status"@nl;
-    shacl:nodeKind shacl:BlankNodeOrIRI;
-    shacl:path <https://data.vlaanderen.be/ns/adres#Adres.status>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "isVerrijktMet"@nl;
-    rdfs:comment "Verwijzing naar een adresuitbreiding."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.IsVerrijktMet>;
-    shacl:class <https://data.vlaanderen.be/ns/adres#Adresuitbreiding>;
-    shacl:description "Verwijzing naar een adresuitbreiding."@nl;
-    shacl:maxCount 1;
-    shacl:name "isVerrijktMet"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/adres#isVerrijktMet>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "heeftGemeentenaam"@nl;
-    rdfs:comment "Gemeentenaamcomponent van het adres."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.HeeftGemeentenaam>;
-    shacl:class <https://data.vlaanderen.be/ns/adres#Gemeentenaam>;
-    shacl:description "Gemeentenaamcomponent van het adres."@nl;
-    shacl:maxCount 1;
-    shacl:name "heeftGemeentenaam"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/adres#heeftGemeentenaam>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "isToegekendDoor"@nl;
-    <http://purl.org/vocab/vann/usageNote> "In België is dit de gemeente."@nl;
-    rdfs:comment "Agent die het adres heeft toegekend."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.IsToegekendDoor>;
-    shacl:class <https://data.vlaanderen.be/ns/generiek#Gemeente>;
-    shacl:description "Agent die het adres heeft toegekend."@nl;
-    shacl:maxCount 1;
-    shacl:name "isToegekendDoor"@nl;
-    shacl:path prov:wasAttributedTo
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "heeftStraatnaam"@nl;
-    rdfs:comment "Straatnaamcomponent van het adres."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.HeeftStraatnaam>;
-    shacl:class <https://data.vlaanderen.be/ns/adres#Straatnaam>;
-    shacl:description "Straatnaamcomponent van het adres."@nl;
-    shacl:maxCount 1;
-    shacl:name "heeftStraatnaam"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/adres#heeftStraatnaam>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "heeftPostinfo"@nl;
-    rdfs:comment "Postinfocomponent van het adres."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.HeeftPostinfo>;
-    shacl:class <https://data.vlaanderen.be/ns/adres#Postinfo>;
-    shacl:description "Postinfocomponent van het adres."@nl;
-    shacl:maxCount 1;
-    shacl:name "heeftPostinfo"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/adres#heeftPostinfo>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "istoegekendaan"@nl;
-    rdfs:comment "Adresseerbaar object waaraan het adres is toegekend."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.Istoegekendaan>;
-    shacl:description "Adresseerbaar object waaraan het adres is toegekend."@nl;
-    shacl:name "istoegekendaan"@nl;
-    shacl:or ([shacl:class <https://data.vlaanderen.be/ns/adres#AdresseerbaarObject>] [shacl:class <https://data.vlaanderen.be/ns/adres#Ligplaats>] [shacl:class <https://data.vlaanderen.be/ns/adres#Standplaats>] [shacl:class <https://data.vlaanderen.be/ns/gebouw#Gebouweenheid>] [shacl:class <https://data.vlaanderen.be/ns/perceel#RuimtelijkeEenheid>]);
-    shacl:path <https://data.vlaanderen.be/ns/adres#isToegekendAan>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "heeftReferentie"@nl;
-    rdfs:comment "Een verwante bron waarin de beschreven bron fysiek of logisch is opgenomen."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BelgischAdres.HeeftReferentie>;
-    shacl:class <https://implementatie.data.vlaanderen.be/ns/adres#Referentie>;
-    shacl:description "Een verwante bron waarin de beschreven bron fysiek of logisch is opgenomen."@nl;
-    shacl:maxCount 1;
-    shacl:name "heeftReferentie"@nl;
-    shacl:path dc:isPartOf
-  ];
-  shacl:targetClass <https://data.vlaanderen.be/ns/adres#Adres> .
-
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BooleanShape> a shacl:NodeShape;
   rdfs:label "Boolean";
   shacl:closed false;
@@ -240,7 +215,7 @@
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DataEnvelop.Data>;
     shacl:description "De collectie data die de envelop bevat."@nl;
     shacl:name "data"@nl;
-    shacl:or ([shacl:class prov:Entity] [shacl:class <https://data.vlaanderen.be/ns/adres#Ligplaats>] [shacl:class <https://data.vlaanderen.be/ns/adres#Postinfo>] [shacl:class <https://data.vlaanderen.be/ns/adres#Straatnaam>] [shacl:class <https://data.vlaanderen.be/ns/adres#Standplaats>] [shacl:class <https://data.vlaanderen.be/ns/gebouw#Gebouweenheid>] [shacl:class <https://data.vlaanderen.be/ns/generiek#Gemeente>] [shacl:class <https://data.vlaanderen.be/ns/perceel#RuimtelijkeEenheid>] [shacl:class <https://data.vlaanderen.be/ns/adres#Adres>]);
+    shacl:or ([shacl:class prov:Entity] [shacl:class <https://data.vlaanderen.be/ns/adres#Postinfo>] [shacl:class <https://data.vlaanderen.be/ns/adres#Straatnaam>] [shacl:class <https://data.vlaanderen.be/ns/generiek#Gemeente>] [shacl:class <https://data.vlaanderen.be/ns/adres#Adres>]);
     shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#data>
   ], [
     a shacl:PropertyShape;
@@ -269,12 +244,6 @@
   rdfs:label "DateTime";
   shacl:closed false;
   shacl:targetClass xsd:dateTime .
-
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GebouweenheidShape> a shacl:NodeShape;
-  rdfs:label "Gebouweenheid"@nl;
-  rdfs:comment "De kleinste eenheid binnen een gebouw die geschikt is voor woon-, bedrijfsmatige, of recreatieve doeleinden en die ontsloten wordt via een eigen afsluitbare toegang vanaf de openbare weg, een erf of een gedeelde circulatieruimte. Een gebouweenheid is in functioneel opzicht zelfstandig. Daarnaast kan een gebouweenheid ook een gemeenschappelijk deel zijn."@nl;
-  shacl:closed false;
-  shacl:targetClass <https://data.vlaanderen.be/ns/gebouw#Gebouweenheid> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GemeenteShape> a shacl:NodeShape;
   rdfs:label "Gemeente"@nl;
@@ -550,13 +519,6 @@
   shacl:closed false;
   shacl:targetClass rdf:langString .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LigplaatsShape> a shacl:NodeShape;
-  rdfs:label "Ligplaats"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld plaats voor woonboot."@nl;
-  rdfs:comment "Een door het bevoegde gemeentelijke orgaan als zodanig aangewezen plaats in het water al dan niet aangevuld met een op de oever aanwezig terrein of een gedeelte daarvan, die bestemd is voor het permanent afmeren van een voor woon-, bedrijfsmatige of recreatieve doeleinden geschikt vaartuig."@nl;
-  shacl:closed false;
-  shacl:targetClass <https://data.vlaanderen.be/ns/adres#Ligplaats> .
-
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LinksShape> a shacl:NodeShape;
   rdfs:label "Links"@nl;
   rdfs:comment "Een verzameling van URIs wijzende naar locaties waar info kan gevonden worden over gerelateerde objecten."@nl;
@@ -694,13 +656,6 @@
   ];
   shacl:targetClass prov:Entity .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PerceelShape> a shacl:NodeShape;
-  rdfs:label "Perceel"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Is gekend in OSLO Perceel als RuimtelijkeEenheid."@nl;
-  rdfs:comment "Eén gebied (of meerdere gebieden) van land en/of water, of één enkel volume (of meerdere volumes) ruimte, afgebakend voor een bepaald doel."@nl;
-  shacl:closed false;
-  shacl:targetClass <https://data.vlaanderen.be/ns/perceel#RuimtelijkeEenheid> .
-
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PostinfoShape> a shacl:NodeShape;
   rdfs:label "Postinfo"@nl;
   rdfs:comment "Adrescomponent die verwijst naar informatie toegekend door de aanbieder van de universele postdienst voor de identificatie van een groepering van adressen in een geografisch gebied voor postale doeleinden."@nl;
@@ -791,13 +746,6 @@
     shacl:path rdfs:seeAlso
   ];
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/adres#Referentie> .
-
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StandplaatsShape> a shacl:NodeShape;
-  rdfs:label "Standplaats"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld plaats voor stacaravan."@nl;
-  rdfs:comment "Een door het bevoegde gemeentelijke orgaan als zodanig aangewezen terrein of gedeelte daarvan dat bestemd is voor het permanent plaatsen van een niet direct en niet duurzaam met de aarde verbonden en voor woon -, bedrijfsmatige, of recreatieve doeleinden."@nl;
-  shacl:closed false;
-  shacl:targetClass <https://data.vlaanderen.be/ns/adres#Standplaats> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StraatnaamShape> a shacl:NodeShape;
   rdfs:label "Straatnaam"@nl;

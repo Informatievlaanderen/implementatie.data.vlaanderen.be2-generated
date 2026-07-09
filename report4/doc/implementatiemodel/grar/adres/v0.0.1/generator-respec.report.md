@@ -2,5 +2,5 @@
 
 #||# -------------------------------------  
 
-2026-07-08T16:07:53.208Z error: Unable to find the assigned URI of parent (http://www.w3.org/ns/prov#Entity) of class [[urn:oslo-toolchain:210e2e73b576b345080968a202000279cf81caef43f26680df6ee86e01ee6f31](all-adres-im.jsonld#L3675)](all-adres-im.jsonld#L531).
+2026-07-09T06:09:39.936Z error: Unable to find the assigned URI of parent (http://www.w3.org/ns/prov#Entity) of class [[urn:oslo-toolchain:210e2e73b576b345080968a202000279cf81caef43f26680df6ee86e01ee6f31](all-adres-im.jsonld#L3631)](all-adres-im.jsonld#L531).
 
