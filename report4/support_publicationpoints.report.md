@@ -8,6 +8,8 @@
 #||#  
 #||#   + adding supporting /home/circleci/project/config/test/persoon-im.publication.json
 #||#  
+#||#   + adding supporting /home/circleci/project/config/test/trajectcontrole-im.publication.json
+#||#  
 #||#   + adding supporting /home/circleci/project/config/test/verkeersmetingen-im.publication.json
 #||#  
 #||#   + adding supporting /home/circleci/project/config/test/vmsw.publication.json
