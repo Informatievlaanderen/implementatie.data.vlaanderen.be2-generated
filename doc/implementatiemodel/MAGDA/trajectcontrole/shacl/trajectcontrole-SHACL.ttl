@@ -8,7 +8,8 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#RegistratiebewijsShape>,
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#VoertuigTypeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#RegistratiebewijsShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdeOrganisatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#AgentShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdPersoonShape>,
@@ -317,6 +318,17 @@
     shacl:path schemas:fabrikantNaam
   ], [
     a shacl:PropertyShape;
+    rdfs:label "type"@nl;
+    rdfs:comment "Het soort voertuig."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Voertuig.Type>;
+    shacl:class <http://todo.com/VoertuigType>;
+    shacl:description "Het soort voertuig."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "type"@nl;
+    shacl:path skos:Concept
+  ], [
+    a shacl:PropertyShape;
     rdfs:label "identificator";
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Voertuig.Identificator>;
     shacl:class <http://www.w3.org/ns/adms#Identifier>;
@@ -326,3 +338,8 @@
     shacl:path schemas:identificator
   ];
   shacl:targetClass schema:Vehicle .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#VoertuigTypeShape> a shacl:NodeShape;
+  rdfs:label "VoertuigType";
+  shacl:closed false;
+  shacl:targetClass <http://todo.com/VoertuigType> .

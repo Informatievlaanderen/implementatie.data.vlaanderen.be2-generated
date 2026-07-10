@@ -7,6 +7,20 @@
   },
   "components": {
     "schemas": {
+      "VoertuigType": {
+        "title": "VoertuigType",
+        "type": "object",
+        "description": "Enumeratie van VoertuigType",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
       "Registratiebewijs": {
         "title": "Registratiebewijs",
         "type": "object",
@@ -308,6 +322,9 @@
               "@value"
             ]
           },
+          "type": {
+            "$ref": "#/components/schemas/VoertuigType"
+          },
           "identificator": {
             "$ref": "#/components/schemas/Identificator"
           }
@@ -317,6 +334,7 @@
           "datum",
           "commercieleNaam",
           "fabrikantNaam",
+          "type",
           "identificator"
         ]
       },
