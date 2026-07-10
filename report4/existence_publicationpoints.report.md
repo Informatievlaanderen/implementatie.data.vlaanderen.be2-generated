@@ -33,8 +33,6 @@ error: missing '/tmp/generated/doc/vocabularium/vkbo/onderneming/v0.0.6/index.ht
 #||# Directory check
 #||# 
 #||# index.html check
-error: missing '/tmp/generated/doc/implementatiemodel/MAGDA/trajectcontrole/index.html'
-error: missing '/tmp/generated/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1/index.html'
 
 #||#    + checking /home/circleci/project/config/test/verkeersmetingen-im.publication.json
 #||# 

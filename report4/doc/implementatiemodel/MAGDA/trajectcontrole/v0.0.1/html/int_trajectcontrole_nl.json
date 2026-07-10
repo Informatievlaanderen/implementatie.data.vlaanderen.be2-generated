@@ -1,0 +1,905 @@
+{
+  "baseURI": "http://todo.com/",
+  "classes": [
+    {
+      "id": "http://xmlns.com/foaf/0.1/Agent",
+      "vocabularyLabel": {
+        "nl": "Agent"
+      },
+      "applicationProfileLabel": {
+        "nl": "Agent"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een agent zoals een Persoon, groep, software of fysiek artifact."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Te vervangen door een niet-abstracte klasse."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "id": "http://www.w3.org/ns/regorg#RegisteredOrganization",
+      "vocabularyLabel": {
+        "nl": "GeregistreerdeOrganisatie"
+      },
+      "applicationProfileLabel": {
+        "nl": "GeregistreerdeOrganisatie"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "In België moeten onder andere volgende Organisaties zich registreren: vennootschap (NV, BV, etc), eenmanszaak, overheidsorgaan, stichting, … Bij registratie krijgt de Organisatie een ondernemingsnummer en worden zijn gegevens ingevoerd in de Kruispuntbank van Ondernemingen (KBO)."
+      },
+      "parents": [
+        {
+          "id": "http://xmlns.com/foaf/0.1/Agent",
+          "vocabularyLabel": {
+            "nl": "Agent"
+          },
+          "applicationProfileLabel": {
+            "nl": "Agent"
+          }
+        },
+        {
+          "id": "http://www.w3.org/ns/org#FormalOrganization",
+          "vocabularyLabel": {
+            "nl": "FormeleOrganisatie"
+          },
+          "applicationProfileLabel": {
+            "nl": "FormeleOrganisatie"
+          }
+        },
+        {
+          "id": "http://www.w3.org/ns/org#Organization",
+          "vocabularyLabel": {
+            "nl": "Organisatie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Organisatie"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "http://www.w3.org/ns/regorg#rechtspersoonlijkheid",
+          "vocabularyLabel": {
+            "nl": "rechtspersoonlijkheid"
+          },
+          "applicationProfileLabel": {
+            "nl": "rechtspersoonlijkheid"
+          },
+          "vocabularyDefinition": {
+            "nl": "Geeft aan of de rechtspersoonlijkheid van de GeregistreerdeOrganisatie deze is van een natuurlijk persoon of van een rechtspersoon."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Aard van de rechtspersoonlijkheid."
+          },
+          "vocabularyUsageNote": {
+            "nl": "Een rechtspersoon is een juridische constructie die een organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bijvoorbeeld ook schulden hebben, contracten afsluiten, aangeklaagd worden, etc.). Voorbeelden privaatrechterlijke rechtspersonen: vennootschappen, vzw's, etc.; Voorbeelden publiekrechterlijke rechtspersonen: steden, gemeenten etc. Een feitelijke vereniging is in principe geen rechtspersoon maar wordt als ze geregistreerd is in KBO toch als dusdanig geklasseerd."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bvb venootschappen) moeten die van rechtswege toegekend krijgen."
+          },
+          "parents": [
+            {
+              "id": "http://www.w3.org/ns/regorg#orgType"
+            }
+          ],
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/regorg#RegisteredOrganization",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Rechtspersoonlijkheidtype"
+            },
+            "applicationProfileLabel": {
+              "nl": "Rechtspersoonlijkheidtype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://www.w3.org/ns/regorg#registration",
+          "vocabularyLabel": {
+            "nl": "registratie"
+          },
+          "applicationProfileLabel": {
+            "nl": "registratie"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Identificator dat de organisatie verkreeg bij registratie."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "In de KBO is dit het ondernemingsnummer."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/regorg#RegisteredOrganization",
+          "range": {
+            "id": "http://www.w3.org/ns/adms#Identifier",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Identificator"
+            },
+            "applicationProfileLabel": {
+              "nl": "Identificator"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://www.w3.org/ns/regorg#orgType",
+          "vocabularyLabel": {
+            "nl": "type"
+          },
+          "applicationProfileLabel": {
+            "nl": "type"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Soort Organisatie."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Specialisatie van classificatie (naast activiteit & status)."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/regorg#RegisteredOrganization",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "OrganisatieType"
+            },
+            "applicationProfileLabel": {
+              "nl": "OrganisatieType"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "http://www.w3.org/2004/02/skos/core#prefLabel",
+          "vocabularyLabel": {
+            "nl": "voorkeursnaam"
+          },
+          "applicationProfileLabel": {
+            "nl": "voorkeursnaam"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/regorg#RegisteredOrganization",
+          "range": {
+            "id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "LangString"
+            },
+            "applicationProfileLabel": {
+              "nl": "LangString"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+      "vocabularyLabel": {
+        "nl": "GeregistreerdPersoon"
+      },
+      "applicationProfileLabel": {
+        "nl": "GeregistreerdPersoon"
+      },
+      "vocabularyDefinition": {
+        "nl": "Persoon waarvan de gegevens zijn ingeschreven in een register."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Persoon waarvan de gegevens zijn ingeschreven in een register."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Doorgaans is dit register een bevolkingsregister maar het kan bv ook een kiesregister zijn. De ingeschreven gegevens hebben betrekking op de identeit (vb naam en voornaam) en de Verblijfplaats vd persoon en op belangrijke levensgebeurtenissen zoals geboorte, huwelijk, overlijden etc. Deze gegevens worden typisch geregistreerd door de overheid, ze bieden de ingeschreven persoon wettelijke bescherming en laten de overheid toe om basisstatistieken op te stellen over zijn bevolking."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Doorgaans is dit register een bevolkingsregister maar het kan bv ook een kiesregister zijn. De ingeschreven gegevens hebben betrekking op de identeit (vb naam en voornaam) en de Verblijfplaats vd persoon en op belangrijke levensgebeurtenissen zoals geboorte, huwelijk, overlijden etc. Deze gegevens worden typisch geregistreerd door de overheid, ze bieden de ingeschreven persoon wettelijke bescherming en laten de overheid toe om basisstatistieken op te stellen over zijn bevolking."
+      },
+      "parents": [
+        {
+          "id": "http://xmlns.com/foaf/0.1/Agent",
+          "vocabularyLabel": {
+            "nl": "Agent"
+          },
+          "applicationProfileLabel": {
+            "nl": "Agent"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "http://xmlns.com/foaf/0.1/familyName",
+          "vocabularyLabel": {
+            "nl": "achternaam"
+          },
+          "applicationProfileLabel": {
+            "nl": "achternaam"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/alternative",
+          "vocabularyLabel": {
+            "nl": "alternatieveNaam"
+          },
+          "applicationProfileLabel": {
+            "nl": "alternatieveNaam"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Alternatief voor de volledige naam van de Persoon."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Bijvoorbeeld pseudoniem."
+          },
+          "parents": [
+            {
+              "id": "http://xmlns.com/foaf/0.1/name"
+            }
+          ],
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://schema.org/contactPoint",
+          "vocabularyLabel": {
+            "nl": "contactinfo"
+          },
+          "applicationProfileLabel": {
+            "nl": "contactinfo"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Informatie zoals email, telefoon, ... die toelaat de Persoon te contacteren."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+          "range": {
+            "id": "https://schema.org/ContactPoint",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Contactinfo"
+            },
+            "applicationProfileLabel": {
+              "nl": "Contactpunt"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://data.europa.eu/m8g/gender",
+          "vocabularyLabel": {
+            "nl": "geslacht"
+          },
+          "applicationProfileLabel": {
+            "nl": "geslacht"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De uiting van een Persoon's indentiteit, expressie en sociale rol."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Het geslacht van een Persoon is sterk afhankelijk van de manier waarop dit gedefinieerd is, dit kan op basis van de biologische kenmerken maar ook op basis van gender, genderindentiteit, genderexpressie, etc. Voor meer informatie zie <a href=\"https://www.vlaanderen.be/dienst-diversiteitsbeleid/begrippen-rond-gender-en-seksuele-diversiteit\">Begrippen rond gender- en seksuele diversiteit</a>."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Geslacht"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geslacht"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/persoon#registratie",
+          "vocabularyLabel": {
+            "nl": "registratie"
+          },
+          "applicationProfileLabel": {
+            "nl": "registratie"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Identificatiecode van de persoon in het register."
+          },
+          "parents": [
+            {
+              "id": "http://www.w3.org/ns/adms#identifier"
+            }
+          ],
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+          "range": {
+            "id": "http://www.w3.org/ns/adms#Identifier",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Identificator"
+            },
+            "applicationProfileLabel": {
+              "nl": "Identificator"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/persoon#volledigeNaam",
+          "vocabularyLabel": {
+            "nl": "volledigeNaam"
+          },
+          "applicationProfileLabel": {
+            "nl": "volledigeNaam"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De volledige naam van de Persoon, doorgaans de combinatie van voornamen en achternaam."
+          },
+          "parents": [
+            {
+              "id": "http://xmlns.com/foaf/0.1/name"
+            }
+          ],
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://xmlns.com/foaf/0.1/givenName",
+          "vocabularyLabel": {
+            "nl": "voornaam"
+          },
+          "applicationProfileLabel": {
+            "nl": "voornaam"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        }
+      ]
+    },
+    {
+      "id": "https://w3id.org/dpv#Certification",
+      "vocabularyLabel": {
+        "nl": "Registratiebewijs"
+      },
+      "applicationProfileLabel": {
+        "nl": "Registratiebewijs"
+      },
+      "vocabularyDefinition": {
+        "nl": "De handeling van het zich registreren als gebruiker  van een dienst,product of webpagina."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De handeling van het zich registreren als gebruiker  van een dienst,product of webpagina."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Toegepast op de inschrijving van een voertuig."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Toegepast op de inschrijving van een voertuig."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "http://todo.com/bestuurder",
+          "vocabularyLabel": {
+            "nl": "bestuurder"
+          },
+          "applicationProfileLabel": {
+            "nl": "bestuurder"
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://w3id.org/dpv#Certification",
+          "range": {
+            "id": "http://xmlns.com/foaf/0.1/Agent",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Agent"
+            },
+            "applicationProfileLabel": {
+              "nl": "Agent"
+            }
+          }
+        },
+        {
+          "id": "http://todo.com/eigenaar",
+          "vocabularyLabel": {
+            "nl": "eigenaar"
+          },
+          "applicationProfileLabel": {
+            "nl": "eigenaar"
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://w3id.org/dpv#Certification",
+          "range": {
+            "id": "http://xmlns.com/foaf/0.1/Agent",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Agent"
+            },
+            "applicationProfileLabel": {
+              "nl": "Agent"
+            }
+          }
+        },
+        {
+          "id": "https://schema.org/identifier",
+          "vocabularyLabel": {
+            "nl": "kenteken"
+          },
+          "applicationProfileLabel": {
+            "nl": "kenteken"
+          },
+          "vocabularyDefinition": {
+            "nl": "De waarde die het object identificeert."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De waarde die het object identificeert."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://w3id.org/dpv#Certification",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/created",
+          "vocabularyLabel": {
+            "nl": "registratiedatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "registratiedatum"
+          },
+          "vocabularyDefinition": {
+            "nl": "Een tijdstip verbonden aan een registratie van de resource."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Een tijdstip verbonden aan een registratie van de resource."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://w3id.org/dpv#Certification",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#dateTime",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "DateTime"
+            },
+            "applicationProfileLabel": {
+              "nl": "DateTime"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/language",
+          "vocabularyLabel": {
+            "nl": "taal"
+          },
+          "applicationProfileLabel": {
+            "nl": "taal"
+          },
+          "vocabularyDefinition": {
+            "nl": "Een taal van de resource."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Een taal van de resource."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://w3id.org/dpv#Certification",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#language",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Language"
+            },
+            "applicationProfileLabel": {
+              "nl": "Language"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://todo.com/voertuig",
+          "vocabularyLabel": {
+            "nl": "voertuig"
+          },
+          "applicationProfileLabel": {
+            "nl": "voertuig"
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://w3id.org/dpv#Certification",
+          "range": {
+            "id": "http://schema.org/Vehicle",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Voertuig"
+            },
+            "applicationProfileLabel": {
+              "nl": "Voertuig"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "dataTypes": [
+    {
+      "id": "https://schema.org/ContactPoint",
+      "vocabularyLabel": {
+        "nl": "Contactinfo"
+      },
+      "applicationProfileLabel": {
+        "nl": "Contactpunt"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Informatie zoals email, telefoon, adres die toelaat om iemand of iets te contacteren."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Bijvoorbeeld: een persoon of organisatie of dienstverlening... Mogelijke vormen van contact: bellen, mailen, etc."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "http://www.w3.org/ns/locn#address",
+          "vocabularyLabel": {
+            "nl": "adres"
+          },
+          "applicationProfileLabel": {
+            "nl": "adres"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Adres dat men kan aanschrijven of bezoeken."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://schema.org/ContactPoint",
+          "range": {
+            "id": "http://www.w3.org/ns/locn#Address",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Adresvoorstelling"
+            },
+            "applicationProfileLabel": {
+              "nl": "Adresvoorstelling"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "http://www.w3.org/ns/adms#Identifier",
+      "vocabularyLabel": {
+        "nl": "Identificator"
+      },
+      "applicationProfileLabel": {
+        "nl": "Identificator"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Informatie gebruikt om een object uniek te identificeren."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Uitgangspunt hier is dat deze string door een organisatie wordt toegekend en dat dit gebeurt volgens een welbepaald systeem."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "http://www.w3.org/2004/02/skos/core#notation",
+          "vocabularyLabel": {
+            "nl": "notatie"
+          },
+          "applicationProfileLabel": {
+            "nl": "identificator"
+          },
+          "applicationProfileDefinition": {
+            "nl": "String gebruikt om het object uniek te identificeren."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/adms#Identifier",
+          "range": {
+            "id": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Literal"
+            },
+            "applicationProfileLabel": {
+              "nl": "Literal"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "http://schema.org/Vehicle",
+      "vocabularyLabel": {
+        "nl": "Voertuig"
+      },
+      "applicationProfileLabel": {
+        "nl": "Voertuig"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een voertuig is een apparaat dat ontworpen of gebruikt is om mensen of vracht te vervoeren over land, water, lucht, of door de ruimte."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "https://schema.org/commercieleNaam",
+          "vocabularyLabel": {
+            "nl": "commercieleNaam"
+          },
+          "applicationProfileLabel": {
+            "nl": "commercieleNaam"
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://schema.org/Vehicle",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://schema.org/datum",
+          "vocabularyLabel": {
+            "nl": "datum"
+          },
+          "applicationProfileLabel": {
+            "nl": "datum"
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://schema.org/Vehicle",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://schema.org/fabrikantNaam",
+          "vocabularyLabel": {
+            "nl": "fabrikantNaam"
+          },
+          "applicationProfileLabel": {
+            "nl": "fabrikantNaam"
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://schema.org/Vehicle",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://schema.org/identificator",
+          "vocabularyLabel": {
+            "nl": "identificator"
+          },
+          "applicationProfileLabel": {
+            "nl": "identificator"
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://schema.org/Vehicle",
+          "range": {
+            "id": "http://www.w3.org/ns/adms#Identifier",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Identificator"
+            },
+            "applicationProfileLabel": {
+              "nl": "Identificator"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "id": "http://todo.com/bestuurder",
+      "vocabularyLabel": {
+        "nl": "bestuurder"
+      },
+      "applicationProfileLabel": {
+        "nl": "bestuurder"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "domain": "https://w3id.org/dpv#Certification",
+      "range": {
+        "id": "http://xmlns.com/foaf/0.1/Agent",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Agent"
+        },
+        "applicationProfileLabel": {
+          "nl": "Agent"
+        }
+      }
+    },
+    {
+      "id": "http://todo.com/eigenaar",
+      "vocabularyLabel": {
+        "nl": "eigenaar"
+      },
+      "applicationProfileLabel": {
+        "nl": "eigenaar"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "domain": "https://w3id.org/dpv#Certification",
+      "range": {
+        "id": "http://xmlns.com/foaf/0.1/Agent",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Agent"
+        },
+        "applicationProfileLabel": {
+          "nl": "Agent"
+        }
+      }
+    },
+    {
+      "id": "http://todo.com/voertuig",
+      "vocabularyLabel": {
+        "nl": "voertuig"
+      },
+      "applicationProfileLabel": {
+        "nl": "voertuig"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "domain": "https://w3id.org/dpv#Certification",
+      "range": {
+        "id": "http://schema.org/Vehicle",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Voertuig"
+        },
+        "applicationProfileLabel": {
+          "nl": "Voertuig"
+        }
+      }
+    }
+  ]
+}

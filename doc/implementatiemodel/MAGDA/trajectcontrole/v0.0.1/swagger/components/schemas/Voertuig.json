@@ -1,0 +1,68 @@
+{
+  "title": "Voertuig",
+  "type": "object",
+  "description": "Een voertuig is een apparaat dat ontworpen of gebruikt is om mensen of vracht te vervoeren over land, water, lucht, of door de ruimte.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Voertuig)",
+      "pattern": "^Voertuig$"
+    },
+    "datum": {
+      "type": "object",
+      "description": "undefined",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Date$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "commercieleNaam": {
+      "type": "object",
+      "description": "undefined",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "fabrikantNaam": {
+      "type": "object",
+      "description": "undefined",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    }
+  },
+  "required": [
+    "@type",
+    "datum",
+    "commercieleNaam",
+    "fabrikantNaam",
+    "identificator"
+  ]
+}

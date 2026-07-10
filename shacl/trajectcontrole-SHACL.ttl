@@ -1,0 +1,328 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix schemas: <https://schema.org/> .
+@prefix shacl: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#RegistratiebewijsShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdeOrganisatieShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#AgentShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdPersoonShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#StringShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#DateTimeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#LanguageShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#IdentificatorShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#LangStringShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#VoertuigShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#DateShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#ContactpuntShape> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#AgentShape> a shacl:NodeShape;
+  rdfs:label "Agent"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Te vervangen door een niet-abstracte klasse."@nl;
+  rdfs:comment "Een agent zoals een Persoon, groep, software of fysiek artifact."@nl;
+  shacl:closed false;
+  shacl:targetClass <http://www.w3.org/ns/regorg#RegisteredOrganization>,
+    foaf:Agent,
+    <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#ContactpuntShape> a shacl:NodeShape;
+  rdfs:label "Contactpunt"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: een persoon of organisatie of dienstverlening... Mogelijke vormen van contact: bellen, mailen, etc."@nl;
+  rdfs:comment "Informatie zoals email, telefoon, adres die toelaat om iemand of iets te contacteren."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "adres"@nl;
+    rdfs:comment "Adres dat men kan aanschrijven of bezoeken."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Contactpunt.Adres>;
+    shacl:class <http://www.w3.org/ns/locn#Address>;
+    shacl:description "Adres dat men kan aanschrijven of bezoeken."@nl;
+    shacl:maxCount 1;
+    shacl:name "adres"@nl;
+    shacl:path <http://www.w3.org/ns/locn#address>
+  ];
+  shacl:targetClass schemas:ContactPoint .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#DateShape> a shacl:NodeShape;
+  rdfs:label "Date";
+  shacl:closed false;
+  shacl:targetClass xsd:date .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#DateTimeShape> a shacl:NodeShape;
+  rdfs:label "DateTime";
+  shacl:closed false;
+  shacl:targetClass xsd:dateTime .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdPersoonShape> a shacl:NodeShape;
+  rdfs:label "GeregistreerdPersoon"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Doorgaans is dit register een bevolkingsregister maar het kan bv ook een kiesregister zijn. De ingeschreven gegevens hebben betrekking op de identeit (vb naam en voornaam) en de Verblijfplaats vd persoon en op belangrijke levensgebeurtenissen zoals geboorte, huwelijk, overlijden etc. Deze gegevens worden typisch geregistreerd door de overheid, ze bieden de ingeschreven persoon wettelijke bescherming en laten de overheid toe om basisstatistieken op te stellen over zijn bevolking."@nl;
+  rdfs:comment "Persoon waarvan de gegevens zijn ingeschreven in een register."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "volledigeNaam"@nl;
+    rdfs:comment "De volledige naam van de Persoon, doorgaans de combinatie van voornamen en achternaam."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdPersoon.VolledigeNaam>;
+    shacl:datatype xsd:string;
+    shacl:description "De volledige naam van de Persoon, doorgaans de combinatie van voornamen en achternaam."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "volledigeNaam"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/persoon#volledigeNaam>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "achternaam"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt."@nl;
+    rdfs:comment "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdPersoon.Achternaam>;
+    shacl:datatype xsd:string;
+    shacl:description "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie."@nl;
+    shacl:maxCount 1;
+    shacl:name "achternaam"@nl;
+    shacl:path foaf:familyName
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "alternatieveNaam"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld pseudoniem."@nl;
+    rdfs:comment "Alternatief voor de volledige naam van de Persoon."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdPersoon.AlternatieveNaam>;
+    shacl:datatype xsd:string;
+    shacl:description "Alternatief voor de volledige naam van de Persoon."@nl;
+    shacl:name "alternatieveNaam"@nl;
+    shacl:path dc:alternative
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voornaam"@nl;
+    rdfs:comment "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdPersoon.Voornaam>;
+    shacl:datatype xsd:string;
+    shacl:description "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie."@nl;
+    shacl:name "voornaam"@nl;
+    shacl:path foaf:givenName
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "registratie"@nl;
+    rdfs:comment "Identificatiecode van de persoon in het register."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdPersoon.Registratie>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificatiecode van de persoon in het register."@nl;
+    shacl:minCount 1;
+    shacl:name "registratie"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/persoon#registratie>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "geslacht"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Het geslacht van een Persoon is sterk afhankelijk van de manier waarop dit gedefinieerd is, dit kan op basis van de biologische kenmerken maar ook op basis van gender, genderindentiteit, genderexpressie, etc. Voor meer informatie zie <a href=\"https://www.vlaanderen.be/dienst-diversiteitsbeleid/begrippen-rond-gender-en-seksuele-diversiteit\">Begrippen rond gender- en seksuele diversiteit</a>."@nl;
+    rdfs:comment "De uiting van een Persoon's indentiteit, expressie en sociale rol."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdPersoon.Geslacht>;
+    shacl:description "De uiting van een Persoon's indentiteit, expressie en sociale rol."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "geslacht"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path <http://data.europa.eu/m8g/gender>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "contactinfo"@nl;
+    rdfs:comment "Informatie zoals email, telefoon, ... die toelaat de Persoon te contacteren."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdPersoon.Contactinfo>;
+    shacl:class schemas:ContactPoint;
+    shacl:description "Informatie zoals email, telefoon, ... die toelaat de Persoon te contacteren."@nl;
+    shacl:maxCount 1;
+    shacl:name "contactinfo"@nl;
+    shacl:path schemas:contactPoint
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdeOrganisatieShape> a shacl:NodeShape;
+  rdfs:label "GeregistreerdeOrganisatie"@nl;
+  <http://purl.org/vocab/vann/usageNote> "In België moeten onder andere volgende Organisaties zich registreren: vennootschap (NV, BV, etc), eenmanszaak, overheidsorgaan, stichting, … Bij registratie krijgt de Organisatie een ondernemingsnummer en worden zijn gegevens ingevoerd in de Kruispuntbank van Ondernemingen (KBO)."@nl;
+  rdfs:comment "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "Naam waarmee de Organisatie bij voorkeur wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdeOrganisatie.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee de Organisatie bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "type"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Specialisatie van classificatie (naast activiteit & status)."@nl;
+    rdfs:comment "Soort Organisatie."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdeOrganisatie.Type>;
+    shacl:description "Soort Organisatie."@nl;
+    shacl:name "type"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path <http://www.w3.org/ns/regorg#orgType>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "rechtspersoonlijkheid"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bvb venootschappen) moeten die van rechtswege toegekend krijgen."@nl;
+    rdfs:comment "Aard van de rechtspersoonlijkheid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdeOrganisatie.Rechtspersoonlijkheid>;
+    shacl:description "Aard van de rechtspersoonlijkheid."@nl;
+    shacl:maxCount 1;
+    shacl:name "rechtspersoonlijkheid"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path <http://www.w3.org/ns/regorg#rechtspersoonlijkheid>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "registratie"@nl;
+    <http://purl.org/vocab/vann/usageNote> "In de KBO is dit het ondernemingsnummer."@nl;
+    rdfs:comment "Identificator dat de organisatie verkreeg bij registratie."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdeOrganisatie.Registratie>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificator dat de organisatie verkreeg bij registratie."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "registratie"@nl;
+    shacl:path <http://www.w3.org/ns/regorg#registration>
+  ];
+  shacl:targetClass <http://www.w3.org/ns/regorg#RegisteredOrganization> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#IdentificatorShape> a shacl:NodeShape;
+  rdfs:label "Identificator"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Uitgangspunt hier is dat deze string door een organisatie wordt toegekend en dat dit gebeurt volgens een welbepaald systeem."@nl;
+  rdfs:comment "Informatie gebruikt om een object uniek te identificeren."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "identificator"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator."@nl;
+    rdfs:comment "String gebruikt om het object uniek te identificeren."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Identificator.Identificator>;
+    shacl:description "String gebruikt om het object uniek te identificeren."@nl;
+    shacl:maxCount 1;
+    shacl:name "identificator"@nl;
+    shacl:path skos:notation
+  ];
+  shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#LangStringShape> a shacl:NodeShape;
+  rdfs:label "LangString";
+  shacl:closed false;
+  shacl:targetClass rdf:langString .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#LanguageShape> a shacl:NodeShape;
+  rdfs:label "Language";
+  shacl:closed false;
+  shacl:targetClass xsd:language .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#RegistratiebewijsShape> a shacl:NodeShape;
+  rdfs:label "Registratiebewijs"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Toegepast op de inschrijving van een voertuig."@nl;
+  rdfs:comment "De handeling van het zich registreren als gebruiker  van een dienst,product of webpagina."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "kenteken"@nl;
+    rdfs:comment "De waarde die het object identificeert."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Registratiebewijs.Kenteken>;
+    shacl:datatype xsd:string;
+    shacl:description "De waarde die het object identificeert."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "kenteken"@nl;
+    shacl:path schemas:identifier
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "registratiedatum"@nl;
+    rdfs:comment "Een tijdstip verbonden aan een registratie van de resource."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Registratiebewijs.Registratiedatum>;
+    shacl:datatype xsd:dateTime;
+    shacl:description "Een tijdstip verbonden aan een registratie van de resource."@nl;
+    shacl:maxCount 1;
+    shacl:name "registratiedatum"@nl;
+    shacl:path dc:created
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "taal"@nl;
+    rdfs:comment "Een taal van de resource."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Registratiebewijs.Taal>;
+    shacl:datatype xsd:language;
+    shacl:description "Een taal van de resource."@nl;
+    shacl:maxCount 1;
+    shacl:name "taal"@nl;
+    shacl:path dc:language
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "bestuurder";
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Registratiebewijs.Bestuurder>;
+    shacl:name "bestuurder";
+    shacl:or ([shacl:class foaf:Agent] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>]);
+    shacl:path <http://todo.com/bestuurder>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "eigenaar";
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Registratiebewijs.Eigenaar>;
+    shacl:name "eigenaar";
+    shacl:or ([shacl:class foaf:Agent] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>]);
+    shacl:path <http://todo.com/eigenaar>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voertuig";
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Registratiebewijs.Voertuig>;
+    shacl:class schema:Vehicle;
+    shacl:name "voertuig";
+    shacl:path <http://todo.com/voertuig>
+  ];
+  shacl:targetClass <https://w3id.org/dpv#Certification> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#StringShape> a shacl:NodeShape;
+  rdfs:label "String";
+  shacl:closed false;
+  shacl:targetClass xsd:string .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#VoertuigShape> a shacl:NodeShape;
+  rdfs:label "Voertuig"@nl;
+  rdfs:comment "Een voertuig is een apparaat dat ontworpen of gebruikt is om mensen of vracht te vervoeren over land, water, lucht, of door de ruimte."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "datum";
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Voertuig.Datum>;
+    shacl:datatype xsd:date;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "datum";
+    shacl:path schemas:datum
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "commercieleNaam";
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Voertuig.CommercieleNaam>;
+    shacl:datatype xsd:string;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "commercieleNaam";
+    shacl:path schemas:commercieleNaam
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "fabrikantNaam";
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Voertuig.FabrikantNaam>;
+    shacl:datatype xsd:string;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "fabrikantNaam";
+    shacl:path schemas:fabrikantNaam
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "identificator";
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Voertuig.Identificator>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "identificator";
+    shacl:path schemas:identificator
+  ];
+  shacl:targetClass schema:Vehicle .

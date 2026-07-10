@@ -1,0 +1,68 @@
+{
+  "title": "Registratiebewijs",
+  "type": "object",
+  "description": "De handeling van het zich registreren als gebruiker  van een dienst,product of webpagina.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Registratiebewijs)",
+      "pattern": "^Registratiebewijs$"
+    },
+    "kenteken": {
+      "type": "object",
+      "description": "De waarde die het object identificeert.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "registratiedatum": {
+      "type": "object",
+      "description": "Een tijdstip verbonden aan een registratie van de resource.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^DateTime$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "taal": {
+      "type": "object",
+      "description": "Een taal van de resource.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "pattern": "^[a-z]{2,3}(-[A-Z]{2})?"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Language$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    }
+  },
+  "required": [
+    "@type",
+    "kenteken"
+  ]
+}

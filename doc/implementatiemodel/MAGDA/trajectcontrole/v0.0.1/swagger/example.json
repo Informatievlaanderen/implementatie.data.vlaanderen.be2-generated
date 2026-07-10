@@ -11,8 +11,1219 @@
       "description": "Basis URL"
     }
   ],
-  "paths": {},
+  "paths": {
+    "/id/Registratiebewijs/{id}": {
+      "get": {
+        "summary": "De handeling van het zich registreren als gebruiker  van een dienst,product of webpagina.",
+        "description": "Toegepast op de inschrijving van een voertuig.",
+        "operationId": "RegistratiebewijsGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een Registratiebewijs object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Registratiebewijs object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Registratiebewijs"
+                }
+              }
+            },
+            "links": {
+              "Registratiebewijs.bestuurder": {
+                "operationId": "RegistratiebewijsGET",
+                "parameters": {
+                  "id": "$response.body#/Registratiebewijs.bestuurder/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Agent` op te halen."
+              },
+              "Registratiebewijs.eigenaar": {
+                "operationId": "RegistratiebewijsGET",
+                "parameters": {
+                  "id": "$response.body#/Registratiebewijs.eigenaar/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Agent` op te halen."
+              },
+              "Registratiebewijs.voertuig": {
+                "operationId": "RegistratiebewijsGET",
+                "parameters": {
+                  "id": "$response.body#/Registratiebewijs.voertuig/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Voertuig` op te halen."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "RegistratiebewijsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "RegistratiebewijsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "RegistratiebewijsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "RegistratiebewijsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "RegistratiebewijsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "RegistratiebewijsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "RegistratiebewijsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "RegistratiebewijsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "RegistratiebewijsGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/id/GeregistreerdeOrganisatie/{id}": {
+      "get": {
+        "summary": "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn.",
+        "description": "In België moeten onder andere volgende Organisaties zich registreren: vennootschap (NV, BV, etc), eenmanszaak, overheidsorgaan, stichting, … Bij registratie krijgt de Organisatie een ondernemingsnummer en worden zijn gegevens ingevoerd in de Kruispuntbank van Ondernemingen (KBO).",
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een GeregistreerdeOrganisatie object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "GeregistreerdeOrganisatie object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+                }
+              }
+            },
+            "links": {
+              "GeregistreerdeOrganisatie.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.type/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `OrganisatieType` op te halen."
+              },
+              "GeregistreerdeOrganisatie.rechtspersoonlijkheid": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.rechtspersoonlijkheid/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Rechtspersoonlijkheidtype` op te halen."
+              },
+              "GeregistreerdeOrganisatie.registratie": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdeOrganisatie.registratie/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdeOrganisatieGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/id/Agent/{id}": {
+      "get": {
+        "summary": "Een agent zoals een Persoon, groep, software of fysiek artifact.",
+        "description": "Te vervangen door een niet-abstracte klasse.",
+        "operationId": "AgentGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een Agent object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Agent object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Agent"
+                }
+              }
+            },
+            "links": {}
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AgentGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AgentGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AgentGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AgentGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AgentGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AgentGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AgentGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AgentGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "AgentGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/id/GeregistreerdPersoon/{id}": {
+      "get": {
+        "summary": "Persoon waarvan de gegevens zijn ingeschreven in een register.",
+        "description": "Doorgaans is dit register een bevolkingsregister maar het kan bv ook een kiesregister zijn. De ingeschreven gegevens hebben betrekking op de identeit (vb naam en voornaam) en de Verblijfplaats vd persoon en op belangrijke levensgebeurtenissen zoals geboorte, huwelijk, overlijden etc. Deze gegevens worden typisch geregistreerd door de overheid, ze bieden de ingeschreven persoon wettelijke bescherming en laten de overheid toe om basisstatistieken op te stellen over zijn bevolking.",
+        "operationId": "GeregistreerdPersoonGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een GeregistreerdPersoon object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "GeregistreerdPersoon object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GeregistreerdPersoon"
+                }
+              }
+            },
+            "links": {
+              "GeregistreerdPersoon.registratie": {
+                "operationId": "GeregistreerdPersoonGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.registratie/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+              },
+              "GeregistreerdPersoon.geslacht": {
+                "operationId": "GeregistreerdPersoonGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.geslacht/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Geslacht` op te halen."
+              },
+              "GeregistreerdPersoon.contactinfo": {
+                "operationId": "GeregistreerdPersoonGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.contactinfo/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactpunt` op te halen."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdPersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdPersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdPersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdPersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdPersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdPersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdPersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdPersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "GeregistreerdPersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
   "components": {
-    "schemas": {}
+    "schemas": {
+      "Registratiebewijs": {
+        "title": "Registratiebewijs",
+        "type": "object",
+        "description": "De handeling van het zich registreren als gebruiker  van een dienst,product of webpagina.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Registratiebewijs)",
+            "pattern": "^Registratiebewijs$"
+          },
+          "kenteken": {
+            "type": "object",
+            "description": "De waarde die het object identificeert.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "registratiedatum": {
+            "type": "object",
+            "description": "Een tijdstip verbonden aan een registratie van de resource.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^DateTime$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "taal": {
+            "type": "object",
+            "description": "Een taal van de resource.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "pattern": "^[a-z]{2,3}(-[A-Z]{2})?"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Language$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "kenteken"
+        ]
+      },
+      "GeregistreerdeOrganisatie": {
+        "title": "GeregistreerdeOrganisatie",
+        "type": "object",
+        "description": "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse GeregistreerdeOrganisatie)",
+            "pattern": "^GeregistreerdeOrganisatie$"
+          },
+          "voorkeursnaam": {
+            "type": "object",
+            "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "type": {
+            "type": "array",
+            "description": "Lijst van OrganisatieType items.",
+            "items": {
+              "$ref": "#/components/schemas/OrganisatieType"
+            },
+            "minItems": 1
+          },
+          "rechtspersoonlijkheid": {
+            "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
+          },
+          "registratie": {
+            "$ref": "#/components/schemas/Identificator"
+          }
+        },
+        "required": [
+          "@type",
+          "voorkeursnaam",
+          "registratie"
+        ]
+      },
+      "GeregistreerdPersoon": {
+        "title": "GeregistreerdPersoon",
+        "type": "object",
+        "description": "Persoon waarvan de gegevens zijn ingeschreven in een register.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse GeregistreerdPersoon)",
+            "pattern": "^GeregistreerdPersoon$"
+          },
+          "volledigeNaam": {
+            "type": "object",
+            "description": "De volledige naam van de Persoon, doorgaans de combinatie van voornamen en achternaam.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "achternaam": {
+            "type": "object",
+            "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "alternatieveNaam": {
+            "type": "array",
+            "description": "Lijst van String items.",
+            "items": {
+              "type": "object",
+              "description": "Alternatief voor de volledige naam van de Persoon. Bijvoorbeeld pseudoniem.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@value"
+              ]
+            },
+            "minItems": 1
+          },
+          "voornaam": {
+            "type": "array",
+            "description": "Lijst van String items.",
+            "items": {
+              "type": "object",
+              "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@value"
+              ]
+            },
+            "minItems": 1
+          },
+          "registratie": {
+            "type": "array",
+            "description": "Lijst van Identificator items.",
+            "items": {
+              "$ref": "#/components/schemas/Identificator"
+            },
+            "minItems": 1
+          },
+          "geslacht": {
+            "$ref": "#/components/schemas/Geslacht"
+          },
+          "contactinfo": {
+            "$ref": "#/components/schemas/Contactpunt"
+          }
+        },
+        "required": [
+          "@type",
+          "volledigeNaam",
+          "registratie",
+          "geslacht"
+        ]
+      },
+      "Identificator": {
+        "title": "Identificator",
+        "type": "object",
+        "description": "Informatie gebruikt om een object uniek te identificeren.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Identificator)",
+            "pattern": "^Identificator$"
+          },
+          "identificator": {
+            "type": "object",
+            "description": "String gebruikt om het object uniek te identificeren. Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Voertuig": {
+        "title": "Voertuig",
+        "type": "object",
+        "description": "Een voertuig is een apparaat dat ontworpen of gebruikt is om mensen of vracht te vervoeren over land, water, lucht, of door de ruimte.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Voertuig)",
+            "pattern": "^Voertuig$"
+          },
+          "datum": {
+            "type": "object",
+            "description": "undefined",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "commercieleNaam": {
+            "type": "object",
+            "description": "undefined",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "fabrikantNaam": {
+            "type": "object",
+            "description": "undefined",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "identificator": {
+            "$ref": "#/components/schemas/Identificator"
+          }
+        },
+        "required": [
+          "@type",
+          "datum",
+          "commercieleNaam",
+          "fabrikantNaam",
+          "identificator"
+        ]
+      },
+      "Contactpunt": {
+        "title": "Contactpunt",
+        "type": "object",
+        "description": "Informatie zoals email, telefoon, adres die toelaat om iemand of iets te contacteren.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Contactpunt)",
+            "pattern": "^Contactpunt$"
+          },
+          "adres": {
+            "$ref": "#/components/schemas/Adresvoorstelling"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      }
+    }
   }
 }
