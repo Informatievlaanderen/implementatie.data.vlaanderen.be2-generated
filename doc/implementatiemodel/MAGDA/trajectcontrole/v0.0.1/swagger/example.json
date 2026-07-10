@@ -45,6 +45,13 @@
                   "id": "$response.body#/VdipEnvelop.data/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Registratiebewijs` op te halen."
+              },
+              "VdipEnvelop.warning": {
+                "operationId": "VdipEnvelopGET",
+                "parameters": {
+                  "id": "$response.body#/VdipEnvelop.warning/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Probleemdetail` op te halen."
               }
             }
           },
@@ -396,6 +403,14 @@
           },
           "data": {
             "$ref": "#/components/schemas/Registratiebewijs"
+          },
+          "warning": {
+            "type": "array",
+            "description": "Lijst van Probleemdetail items.",
+            "items": {
+              "$ref": "#/components/schemas/Probleemdetail"
+            },
+            "minItems": 1
           },
           "@context": {
             "type": "string",
