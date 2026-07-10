@@ -9,6 +9,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#VoertuigTypeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#ProbleemdetailShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#VdipEnvelopShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#RegistratiebewijsShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdeOrganisatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#AgentShape>,
@@ -16,11 +18,98 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#StringShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#DateTimeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#LanguageShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#IdentificatorShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#LangStringShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#UriShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#IntegerShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#IdentificatorShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#AdresvoorstellingShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#VoertuigShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#DateShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#ContactpuntShape> .
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#ContactpuntShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#RechtspersoonlijkheidtypeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#OrganisatieTypeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeslachtShape> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#AdresvoorstellingShape> a shacl:NodeShape;
+  rdfs:label "Adresvoorstelling"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld als attribuut van een persoon of gebouw, ... De adresvoorstelling heeft niet enkel betrekking op Belgische adressen, ze kan gebruikt worden om buitenlandse adressen weer te geven (waar mogelijk andere adresaanduidingen dan huisnummer of busnummer worden gebruikt of waar adrescomponenten zoals adresgebieden voorkomen)."@nl;
+  rdfs:comment "Meer leesbare voorstelling met enkel de basisgegevens van het adres, bedoeld voor het gebruik van een adres als attribuut van een ander object."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "busnummer"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen."@nl;
+    rdfs:comment "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Adresvoorstelling.Busnummer>;
+    shacl:datatype xsd:string;
+    shacl:description "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben."@nl;
+    shacl:maxCount 1;
+    shacl:name "busnummer"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/adres#busnummer>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "gemeentenaam"@nl;
+    rdfs:comment "Gemeentenaam van het adres."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Adresvoorstelling.Gemeentenaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Gemeentenaam van het adres."@nl;
+    shacl:maxCount 1;
+    shacl:name "gemeentenaam"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/adres#Gemeentenaam>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "huisnummer"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen."@nl;
+    rdfs:comment "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Adresvoorstelling.Huisnummer>;
+    shacl:datatype xsd:string;
+    shacl:description "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen."@nl;
+    shacl:maxCount 1;
+    shacl:name "huisnummer"@nl;
+    shacl:path rdfs:label
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "land"@nl;
+    rdfs:comment "Land waarin het adres gelegen is."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Adresvoorstelling.Land>;
+    shacl:datatype rdf:langString;
+    shacl:description "Land waarin het adres gelegen is."@nl;
+    shacl:maxCount 1;
+    shacl:name "land"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/adres#land>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "postcode"@nl;
+    rdfs:comment "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Adresvoorstelling.Postcode>;
+    shacl:datatype xsd:string;
+    shacl:description "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "postcode"@nl;
+    shacl:path <http://www.w3.org/ns/locn#postCode>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "straatnaam"@nl;
+    rdfs:comment "Straatnaam van het adres."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Adresvoorstelling.Straatnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Straatnaam van het adres."@nl;
+    shacl:maxCount 1;
+    shacl:name "straatnaam"@nl;
+    shacl:path <http://www.w3.org/ns/locn#thoroughfare>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "volledigAdres"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Vermijdt fouten ten gevolge van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer."@nl;
+    rdfs:comment "Het complete adres in één string, al dan niet geformatteerd."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Adresvoorstelling.VolledigAdres>;
+    shacl:datatype rdf:langString;
+    shacl:description "Het complete adres in één string, al dan niet geformatteerd."@nl;
+    shacl:maxCount 1;
+    shacl:name "volledigAdres"@nl;
+    shacl:path <http://www.w3.org/ns/locn#fullAddress>
+  ];
+  shacl:targetClass <http://www.w3.org/ns/locn#Address> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#AgentShape> a shacl:NodeShape;
   rdfs:label "Agent"@nl;
@@ -210,6 +299,11 @@
   ];
   shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#IntegerShape> a shacl:NodeShape;
+  rdfs:label "Integer";
+  shacl:closed false;
+  shacl:targetClass xsd:integer .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#LangStringShape> a shacl:NodeShape;
   rdfs:label "LangString";
   shacl:closed false;
@@ -219,6 +313,68 @@
   rdfs:label "Language";
   shacl:closed false;
   shacl:targetClass xsd:language .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#ProbleemdetailShape> a shacl:NodeShape;
+  rdfs:label "Probleemdetail"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Dit ter aanvulling van een HTTP statuscode,bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc7807\">RFC7807</a>."@nl;
+  rdfs:comment "Meer gedetailleerde beschrijving van de fout in een HTTP response."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "detail"@nl;
+    rdfs:comment "Mensleesbare beschrijving van de fout."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Probleemdetail.Detail>;
+    shacl:datatype rdf:langString;
+    shacl:description "Mensleesbare beschrijving van de fout."@nl;
+    shacl:maxCount 1;
+    shacl:name "detail"@nl;
+    shacl:path dc:description
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "instantie"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: de verwijzing naar de request."@nl;
+    rdfs:comment "Verwijzing naar de instantie van het object waarop de fout betrekking heeft."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Probleemdetail.Instantie>;
+    shacl:datatype xsd:anyURI;
+    shacl:description "Verwijzing naar de instantie van het object waarop de fout betrekking heeft."@nl;
+    shacl:maxCount 1;
+    shacl:name "instantie"@nl;
+    shacl:path dc:references
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "status"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\"."@nl;
+    rdfs:comment "HTTP foutcode."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Probleemdetail.Status>;
+    shacl:datatype xsd:integer;
+    shacl:description "HTTP foutcode."@nl;
+    shacl:maxCount 1;
+    shacl:name "status"@nl;
+    shacl:path <http://www.w3.org/ns/adms#status>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "titel"@nl;
+    rdfs:comment "Korte mensleesbare beschrijving van de fout."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Probleemdetail.Titel>;
+    shacl:datatype rdf:langString;
+    shacl:description "Korte mensleesbare beschrijving van de fout."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "titel"@nl;
+    shacl:path dc:title
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "type"@nl;
+    rdfs:comment "Aard van de fout."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Probleemdetail.Type>;
+    shacl:datatype xsd:anyURI;
+    shacl:description "Aard van de fout."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "type"@nl;
+    shacl:path dc:type
+  ];
+  shacl:targetClass <http://todo.com/Probleemdetail> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#RegistratiebewijsShape> a shacl:NodeShape;
   rdfs:label "Registratiebewijs"@nl;
@@ -265,9 +421,9 @@
     shacl:path <http://todo.com/bestuurder>
   ], [
     a shacl:PropertyShape;
-    rdfs:label "eigenaar";
+    rdfs:label "eigenaar"@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Registratiebewijs.Eigenaar>;
-    shacl:name "eigenaar";
+    shacl:name "eigenaar"@nl;
     shacl:or ([shacl:class foaf:Agent] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>]);
     shacl:path <http://todo.com/eigenaar>
   ], [
@@ -284,6 +440,30 @@
   rdfs:label "String";
   shacl:closed false;
   shacl:targetClass xsd:string .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#UriShape> a shacl:NodeShape;
+  rdfs:label "Uri";
+  shacl:closed false;
+  shacl:targetClass xsd:anyURI .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#VdipEnvelopShape> a shacl:NodeShape;
+  rdfs:label "VdipEnvelop"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."@nl;
+  rdfs:comment "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "data"@nl;
+    rdfs:comment "De data die overgedragen werd."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#VdipEnvelop.Data>;
+    shacl:class <https://w3id.org/dpv#Certification>;
+    shacl:description "De data die overgedragen werd."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "data"@nl;
+    shacl:path schemas:data
+  ];
+  shacl:targetClass <http://todo.com/VdipEnvelop> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#VoertuigShape> a shacl:NodeShape;
   rdfs:label "Voertuig"@nl;

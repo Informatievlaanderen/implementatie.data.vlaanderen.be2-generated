@@ -1,0 +1,28 @@
+{
+  "title": "VdipEnvelop",
+  "type": "object",
+  "description": "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse VdipEnvelop)",
+      "pattern": "^VdipEnvelop$"
+    },
+    "data": {
+      "$ref": "#/components/schemas/Registratiebewijs"
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/MAGDA\\/trajectcontrole\\/v0.0.1\\/context\\/trajectcontrole.jsonld$"
+    }
+  },
+  "required": [
+    "@type",
+    "data"
+  ]
+}
