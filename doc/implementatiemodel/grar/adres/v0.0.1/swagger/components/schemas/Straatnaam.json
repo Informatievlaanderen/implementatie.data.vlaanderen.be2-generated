@@ -13,16 +13,21 @@
       "pattern": "^Straatnaam$"
     },
     "homoniemToevoeging": {
-      "type": "object",
-      "description": "Toevoeging om dubbele straatnamen (straatnamen met dezelfde naam maar andere ligging in de gemeente en eigen adressen) van elkaar te onderscheiden.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
+      "type": "array",
+      "description": "Lijst van String items.",
+      "items": {
+        "type": "object",
+        "description": "Toevoeging om dubbele straatnamen (straatnamen met dezelfde naam maar andere ligging in de gemeente en eigen adressen) van elkaar te onderscheiden.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
       },
-      "required": [
-        "@value"
-      ]
+      "minItems": 1
     },
     "straatnaam": {
       "type": "array",

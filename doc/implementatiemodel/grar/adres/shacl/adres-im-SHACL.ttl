@@ -6,7 +6,8 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PostinfoShape>,
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#ProbleemdetailShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PostinfoShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StraatnaamShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GemeentenaamShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresuitbreidingShape>,
@@ -17,26 +18,21 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DataEnvelopShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#ReferentieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LinksShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LangStringShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#UriShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#IntegerShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GeografischePositieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BooleanShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StringShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GeografischeNaamShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LocatieaanduidingShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LocatienaamShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LangStringShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#IdentificatorShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DateTimeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GestructureerdeIdentificatorShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GeometrieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AnyURIShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PuntShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LocatienaamtypeShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LocatieaanduidingtypeShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LocatorniveauwaardeShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StatuswaardeShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GeometrieMethodeWaardeShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GeometriSpecificatieWaardeShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BewerkingstypeShape> .
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PuntShape> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresShape> a shacl:NodeShape;
   rdfs:label "Adres"@nl;
@@ -514,6 +510,11 @@
   ];
   shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#IntegerShape> a shacl:NodeShape;
+  rdfs:label "Integer";
+  shacl:closed false;
+  shacl:targetClass xsd:integer .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LangStringShape> a shacl:NodeShape;
   rdfs:label "LangString";
   shacl:closed false;
@@ -723,6 +724,68 @@
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/adres#Postinfo> .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#ProbleemdetailShape> a shacl:NodeShape;
+  rdfs:label "Probleemdetail"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Dit ter aanvulling van een HTTP statuscode,bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc7807\">RFC7807</a>."@nl;
+  rdfs:comment "Meer gedetailleerde beschrijving van de fout in een HTTP response."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "detail"@nl;
+    rdfs:comment "Mensleesbare beschrijving van de fout."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Probleemdetail.Detail>;
+    shacl:datatype rdf:langString;
+    shacl:description "Mensleesbare beschrijving van de fout."@nl;
+    shacl:maxCount 1;
+    shacl:name "detail"@nl;
+    shacl:path dc:description
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "instantie"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: de verwijzing naar de request."@nl;
+    rdfs:comment "Verwijzing naar de instantie van het object waarop de fout betrekking heeft."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Probleemdetail.Instantie>;
+    shacl:datatype xsd:anyURI;
+    shacl:description "Verwijzing naar de instantie van het object waarop de fout betrekking heeft."@nl;
+    shacl:maxCount 1;
+    shacl:name "instantie"@nl;
+    shacl:path dc:references
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "status"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\"."@nl;
+    rdfs:comment "HTTP foutcode."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Probleemdetail.Status>;
+    shacl:datatype xsd:integer;
+    shacl:description "HTTP foutcode."@nl;
+    shacl:maxCount 1;
+    shacl:name "status"@nl;
+    shacl:path <http://www.w3.org/ns/adms#status>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "titel"@nl;
+    rdfs:comment "Korte mensleesbare beschrijving van de fout."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Probleemdetail.Titel>;
+    shacl:datatype rdf:langString;
+    shacl:description "Korte mensleesbare beschrijving van de fout."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "titel"@nl;
+    shacl:path dc:title
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "type"@nl;
+    rdfs:comment "Aard van de fout."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Probleemdetail.Type>;
+    shacl:datatype xsd:anyURI;
+    shacl:description "Aard van de fout."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "type"@nl;
+    shacl:path dc:type
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/adres#Probleemdetail> .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PuntShape> a shacl:NodeShape;
   rdfs:label "Punt"@nl;
   rdfs:comment "Een 0-dimensioneel geometrisch object dat een bepaalde locatie in een coördinaatruimte voorstelt. Heeft een x-coördinaat en een y-coördinaat. Kan ook een z-coördinaat (hoogte) en een m-coördinaat (afstand langs een curve) hebben."@nl;
@@ -758,7 +821,6 @@
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#Straatnaam.HomoniemToevoeging>;
     shacl:datatype xsd:string;
     shacl:description "Toevoeging om dubbele straatnamen (straatnamen met dezelfde naam maar andere ligging in de gemeente en eigen adressen) van elkaar te onderscheiden."@nl;
-    shacl:maxCount 1;
     shacl:name "homoniemToevoeging"@nl;
     shacl:path <https://data.vlaanderen.be/ns/adres#homoniemToevoeging>
   ], [
@@ -809,3 +871,8 @@
   rdfs:label "String";
   shacl:closed false;
   shacl:targetClass xsd:string .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#UriShape> a shacl:NodeShape;
+  rdfs:label "Uri";
+  shacl:closed false;
+  shacl:targetClass xsd:anyURI .

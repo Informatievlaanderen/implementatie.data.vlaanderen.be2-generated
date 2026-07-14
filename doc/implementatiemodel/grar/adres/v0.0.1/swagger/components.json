@@ -7,102 +7,103 @@
   },
   "components": {
     "schemas": {
-      "Locatienaamtype": {
-        "title": "Locatienaamtype",
+      "Probleemdetail": {
+        "title": "Probleemdetail",
         "type": "object",
-        "description": "Enumeratie van Locatienaamtype",
+        "description": "Meer gedetailleerde beschrijving van de fout in een HTTP response.",
         "properties": {
           "@id": {
             "type": "string",
             "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Locatieaanduidingtype": {
-        "title": "Locatieaanduidingtype",
-        "type": "object",
-        "description": "Enumeratie van Locatieaanduidingtype",
-        "properties": {
-          "@id": {
+          },
+          "@type": {
             "type": "string",
-            "format": "uri"
+            "description": "Object type (klasse Probleemdetail)",
+            "pattern": "^Probleemdetail$"
+          },
+          "detail": {
+            "type": "object",
+            "description": "Mensleesbare beschrijving van de fout.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "instantie": {
+            "type": "object",
+            "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.",
+            "properties": {
+              "@id": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "@id"
+            ]
+          },
+          "status": {
+            "type": "object",
+            "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\".",
+            "properties": {
+              "@value": {
+                "type": "number",
+                "format": "int64"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Integer$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "titel": {
+            "type": "object",
+            "description": "Korte mensleesbare beschrijving van de fout.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "type": {
+            "type": "object",
+            "description": "Aard van de fout.",
+            "properties": {
+              "@id": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           }
         },
         "required": [
-          "@id"
-        ]
-      },
-      "Locatorniveauwaarde": {
-        "title": "Locatorniveauwaarde",
-        "type": "object",
-        "description": "Enumeratie van Locatorniveauwaarde",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Statuswaarde": {
-        "title": "Statuswaarde",
-        "type": "object",
-        "description": "Enumeratie van Statuswaarde",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "GeometrieMethodeWaarde": {
-        "title": "GeometrieMethodeWaarde",
-        "type": "object",
-        "description": "Enumeratie van GeometrieMethodeWaarde",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "GeometriSpecificatieWaarde": {
-        "title": "GeometriSpecificatieWaarde",
-        "type": "object",
-        "description": "Enumeratie van GeometriSpecificatieWaarde",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Bewerkingstype": {
-        "title": "Bewerkingstype",
-        "type": "object",
-        "description": "Enumeratie van Bewerkingstype",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
+          "@type",
+          "titel",
+          "type"
         ]
       },
       "Postinfo": {
@@ -207,16 +208,21 @@
             "pattern": "^Straatnaam$"
           },
           "homoniemToevoeging": {
-            "type": "object",
-            "description": "Toevoeging om dubbele straatnamen (straatnamen met dezelfde naam maar andere ligging in de gemeente en eigen adressen) van elkaar te onderscheiden.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
+            "type": "array",
+            "description": "Lijst van String items.",
+            "items": {
+              "type": "object",
+              "description": "Toevoeging om dubbele straatnamen (straatnamen met dezelfde naam maar andere ligging in de gemeente en eigen adressen) van elkaar te onderscheiden.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@value"
+              ]
             },
-            "required": [
-              "@value"
-            ]
+            "minItems": 1
           },
           "straatnaam": {
             "type": "array",
@@ -558,11 +564,6 @@
           },
           "_links": {
             "$ref": "#/components/schemas/Links"
-          },
-          "@context": {
-            "type": "string",
-            "description": "URI of the JSON-LD versioned context file for this response.",
-            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/grar\\/adres\\/v0.0.1\\/context\\/adres-im.jsonld$"
           }
         },
         "required": [
