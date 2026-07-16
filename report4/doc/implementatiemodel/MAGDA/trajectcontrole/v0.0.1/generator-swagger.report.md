@@ -2,9 +2,9 @@
 
 #||#  -------------------------------------  
 
-2026-07-10T15:06:37.395Z error: Unknown cardinality for attribute [urn:oslo-toolchain:fdcc8fdb88aac862b705119925b0cbe5b75176e67a563a11b4ed33fd5905e1db](all-trajectcontrole.jsonld#L1823)
+2026-07-16T09:02:36.975Z error: Unknown cardinality for attribute [urn:oslo-toolchain:fdcc8fdb88aac862b705119925b0cbe5b75176e67a563a11b4ed33fd5905e1db](all-trajectcontrole.jsonld#L1823)
 
-2026-07-10T15:06:37.396Z error: Unknown cardinality for attribute [urn:oslo-toolchain:b8677f2661e57e00e4241f5f185b898e204451872773e18d4bdf2c48b89079da](all-trajectcontrole.jsonld#L1841)
+2026-07-16T09:02:36.977Z error: Unknown cardinality for attribute [urn:oslo-toolchain:b8677f2661e57e00e4241f5f185b898e204451872773e18d4bdf2c48b89079da](all-trajectcontrole.jsonld#L1841)
 
-2026-07-10T15:06:37.397Z error: Unknown cardinality for attribute [urn:oslo-toolchain:40b8e3f8e7e5b0cab516ce3880fc54c3771353b78733bf5ba57aef7948677926](all-trajectcontrole.jsonld#L1865)
+2026-07-16T09:02:36.977Z error: Unknown cardinality for attribute [urn:oslo-toolchain:40b8e3f8e7e5b0cab516ce3880fc54c3771353b78733bf5ba57aef7948677926](all-trajectcontrole.jsonld#L1865)
 
