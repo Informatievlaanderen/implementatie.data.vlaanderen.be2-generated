@@ -1,0 +1,39 @@
+{
+  "title": "PostinfoEnvelop",
+  "type": "object",
+  "description": "De collectie van de uitgewisselde adres en zijn metadata elementen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse PostinfoEnvelop)",
+      "pattern": "^PostinfoEnvelop$"
+    },
+    "data": {
+      "$ref": "#/components/schemas/Postinfo"
+    },
+    "volgende": {
+      "type": "object",
+      "description": "De URL waar de volgende pagina objecten kan gevonden worden.",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "@id"
+      ]
+    },
+    "_links": {
+      "$ref": "#/components/schemas/Links"
+    }
+  },
+  "required": [
+    "@type",
+    "data"
+  ]
+}

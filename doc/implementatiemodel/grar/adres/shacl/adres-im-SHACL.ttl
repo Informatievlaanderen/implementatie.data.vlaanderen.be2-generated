@@ -7,7 +7,15 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#ProbleemdetailShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DataEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdressenEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GemeenteEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GemeentenEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PostinfoEnvelopShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PostinfoShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PostinfoLijstEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StraatnaamEnvelopShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StraatnaamShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GemeentenaamShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresuitbreidingShape>,
@@ -15,7 +23,7 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GemeenteShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#ObjectShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DataEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StraatnaamenEnvelopShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#ReferentieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LinksShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#LangStringShape>,
@@ -40,6 +48,13 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GeometrieMethodeWaardeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GeometriSpecificatieWaardeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#BewerkingstypeShape> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresEnvelopShape> a shacl:NodeShape;
+  rdfs:label "AdresEnvelop"@nl;
+  rdfs:comment "De collectie van de uitgewisselde adres en zijn metadata elementen."@nl;
+  shacl:closed false;
+  shacl:property _:df_2_29;
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/adres#AdresEnvelop> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresShape> a shacl:NodeShape;
   rdfs:label "Adres"@nl;
@@ -172,6 +187,13 @@
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/adres#Adres> .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdressenEnvelopShape> a shacl:NodeShape;
+  rdfs:label "AdressenEnvelop"@nl;
+  rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  shacl:closed false;
+  shacl:property _:df_2_30;
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/adres#AdressenEnvelop> .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresuitbreidingShape> a shacl:NodeShape;
   rdfs:label "Adresuitbreiding"@nl;
   <http://purl.org/vocab/vann/usageNote> "Gegevens die officieel geen deel uitmaken van een adres, bijvoorbeeld de verdieping of de provincie..."@nl;
@@ -213,15 +235,6 @@
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
-    rdfs:label "data"@nl;
-    rdfs:comment "De collectie data die de envelop bevat."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DataEnvelop.Data>;
-    shacl:description "De collectie data die de envelop bevat."@nl;
-    shacl:name "data"@nl;
-    shacl:or ([shacl:class prov:Entity] [shacl:class <https://data.vlaanderen.be/ns/adres#Postinfo>] [shacl:class <https://data.vlaanderen.be/ns/adres#Straatnaam>] [shacl:class <https://data.vlaanderen.be/ns/generiek#Gemeente>] [shacl:class <https://data.vlaanderen.be/ns/adres#Adres>]);
-    shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#data>
-  ], [
-    a shacl:PropertyShape;
     rdfs:label "volgende"@nl;
     rdfs:comment "De URL waar de volgende pagina objecten kan gevonden worden."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DataEnvelop.Volgende>;
@@ -241,12 +254,67 @@
     shacl:name "_links"@nl;
     shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#links>
   ];
-  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/adres#DataEnvelop> .
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/adres#AdresEnvelop>,
+    <https://implementatie.data.vlaanderen.be/ns/adres#DataEnvelop>,
+    <https://implementatie.data.vlaanderen.be/ns/adres#AdressenEnvelop>,
+    <https://implementatie.data.vlaanderen.be/ns/adres#GemeenteEnvelop>,
+    <https://implementatie.data.vlaanderen.be/ns/adres#GemeentenEnvelop>,
+    <https://implementatie.data.vlaanderen.be/ns/adres#PostinfoEnvelop>,
+    <https://implementatie.data.vlaanderen.be/ns/adres#PostinfoLijstEnvelop>,
+    <https://implementatie.data.vlaanderen.be/ns/adres#StraatnaamEnvelop>,
+    <https://implementatie.data.vlaanderen.be/ns/adres#StraatnaamenEnvelop>;
+  shacl:xone ([
+      shacl:not _:df_2_73;
+      shacl:property _:df_2_48
+    ] [shacl:property _:df_2_29,
+        _:df_2_73]),
+    ([
+      shacl:not _:df_2_78;
+      shacl:property _:df_2_48
+    ] [shacl:property _:df_2_30,
+        _:df_2_78]),
+    ([
+      shacl:not _:df_2_83;
+      shacl:property _:df_2_48
+    ] [shacl:property _:df_2_31,
+        _:df_2_83]),
+    ([
+      shacl:not _:df_2_88;
+      shacl:property _:df_2_48
+    ] [shacl:property _:df_2_32,
+        _:df_2_88]),
+    ([
+      shacl:not _:df_2_93;
+      shacl:property _:df_2_48
+    ] [shacl:property _:df_2_33,
+        _:df_2_93]),
+    ([
+      shacl:not _:df_2_98;
+      shacl:property _:df_2_48
+    ] [shacl:property _:df_2_34,
+        _:df_2_98]),
+    ([
+      shacl:not _:df_2_103;
+      shacl:property _:df_2_48
+    ] [shacl:property _:df_2_35,
+        _:df_2_103]),
+    ([
+      shacl:not _:df_2_108;
+      shacl:property _:df_2_48
+    ] [shacl:property _:df_2_36,
+        _:df_2_108]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DateTimeShape> a shacl:NodeShape;
   rdfs:label "DateTime";
   shacl:closed false;
   shacl:targetClass xsd:dateTime .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GemeenteEnvelopShape> a shacl:NodeShape;
+  rdfs:label "GemeenteEnvelop"@nl;
+  rdfs:comment "De collectie van de uitgewisselde adres en zijn metadata elementen."@nl;
+  shacl:closed false;
+  shacl:property _:df_2_31;
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/adres#GemeenteEnvelop> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GemeenteShape> a shacl:NodeShape;
   rdfs:label "Gemeente"@nl;
@@ -302,6 +370,13 @@
     shacl:path dc:title
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/generiek#Gemeente> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GemeentenEnvelopShape> a shacl:NodeShape;
+  rdfs:label "GemeentenEnvelop"@nl;
+  rdfs:comment "De collectie van de uitgewisselde adres en zijn metadata elementen."@nl;
+  shacl:closed false;
+  shacl:property _:df_2_32;
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/adres#GemeentenEnvelop> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GemeentenaamShape> a shacl:NodeShape;
   rdfs:label "Gemeentenaam"@nl;
@@ -664,6 +739,20 @@
   ];
   shacl:targetClass prov:Entity .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PostinfoEnvelopShape> a shacl:NodeShape;
+  rdfs:label "PostinfoEnvelop"@nl;
+  rdfs:comment "De collectie van de uitgewisselde adres en zijn metadata elementen."@nl;
+  shacl:closed false;
+  shacl:property _:df_2_33;
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/adres#PostinfoEnvelop> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PostinfoLijstEnvelopShape> a shacl:NodeShape;
+  rdfs:label "PostinfoLijstEnvelop"@nl;
+  rdfs:comment "De collectie van de uitgewisselde adres en zijn metadata elementen."@nl;
+  shacl:closed false;
+  shacl:property _:df_2_34;
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/adres#PostinfoLijstEnvelop> .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PostinfoShape> a shacl:NodeShape;
   rdfs:label "Postinfo"@nl;
   rdfs:comment "Adrescomponent die verwijst naar informatie toegekend door de aanbieder van de universele postdienst voor de identificatie van een groepering van adressen in een geografisch gebied voor postale doeleinden."@nl;
@@ -817,6 +906,13 @@
   ];
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/adres#Referentie> .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StraatnaamEnvelopShape> a shacl:NodeShape;
+  rdfs:label "StraatnaamEnvelop"@nl;
+  rdfs:comment "De collectie van de uitgewisselde adres en zijn metadata elementen."@nl;
+  shacl:closed false;
+  shacl:property _:df_2_35;
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/adres#StraatnaamEnvelop> .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StraatnaamShape> a shacl:NodeShape;
   rdfs:label "Straatnaam"@nl;
   rdfs:comment "Adrescomponent met de naam die officieel werd toegekend aan een straat (baan, doorgang, plein) of aan een gehucht en waaraan adressen kunnen zijn gekoppeld."@nl;
@@ -874,6 +970,13 @@
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/adres#Straatnaam> .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StraatnaamenEnvelopShape> a shacl:NodeShape;
+  rdfs:label "StraatnaamenEnvelop"@nl;
+  rdfs:comment "De collectie van de uitgewisselde adres en zijn metadata elementen."@nl;
+  shacl:closed false;
+  shacl:property _:df_2_36;
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/adres#StraatnaamenEnvelop> .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StringShape> a shacl:NodeShape;
   rdfs:label "String";
   shacl:closed false;
@@ -883,3 +986,120 @@
   rdfs:label "Uri";
   shacl:closed false;
   shacl:targetClass xsd:anyURI .
+
+_:df_4_53 .
+
+_:df_2_103 a shacl:PropertyShape;
+  shacl:class <https://implementatie.data.vlaanderen.be/ns/adres#StraatnaamEnvelop> .
+
+_:df_2_108 a shacl:PropertyShape;
+  shacl:class <https://implementatie.data.vlaanderen.be/ns/adres#StraatnaamenEnvelop> .
+
+_:df_2_29 a shacl:PropertyShape;
+  rdfs:label "data"@nl;
+  rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdresEnvelop.Data>;
+  shacl:class <https://data.vlaanderen.be/ns/adres#Adres>;
+  shacl:description "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  shacl:maxCount 1;
+  shacl:minCount 1;
+  shacl:name "data"@nl;
+  shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#data> .
+
+_:df_2_30 a shacl:PropertyShape;
+  rdfs:label "data"@nl;
+  rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#AdressenEnvelop.Data>;
+  shacl:class <https://data.vlaanderen.be/ns/adres#Adres>;
+  shacl:description "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  shacl:name "data"@nl;
+  shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#data> .
+
+_:df_2_31 a shacl:PropertyShape;
+  rdfs:label "data"@nl;
+  rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GemeenteEnvelop.Data>;
+  shacl:class <https://data.vlaanderen.be/ns/generiek#Gemeente>;
+  shacl:description "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  shacl:maxCount 1;
+  shacl:minCount 1;
+  shacl:name "data"@nl;
+  shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#data> .
+
+_:df_2_32 a shacl:PropertyShape;
+  rdfs:label "data"@nl;
+  rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#GemeentenEnvelop.Data>;
+  shacl:class <https://data.vlaanderen.be/ns/generiek#Gemeente>;
+  shacl:description "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  shacl:name "data"@nl;
+  shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#data> .
+
+_:df_2_33 a shacl:PropertyShape;
+  rdfs:label "data"@nl;
+  rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PostinfoEnvelop.Data>;
+  shacl:class <https://data.vlaanderen.be/ns/adres#Postinfo>;
+  shacl:description "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  shacl:maxCount 1;
+  shacl:minCount 1;
+  shacl:name "data"@nl;
+  shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#data> .
+
+_:df_2_34 a shacl:PropertyShape;
+  rdfs:label "data"@nl;
+  rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#PostinfoLijstEnvelop.Data>;
+  shacl:class <https://data.vlaanderen.be/ns/adres#Postinfo>;
+  shacl:description "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  shacl:name "data"@nl;
+  shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#data> .
+
+_:df_2_35 a shacl:PropertyShape;
+  rdfs:label "data"@nl;
+  rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StraatnaamEnvelop.Data>;
+  shacl:class <https://data.vlaanderen.be/ns/adres#Straatnaam>;
+  shacl:description "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  shacl:maxCount 1;
+  shacl:minCount 1;
+  shacl:name "data"@nl;
+  shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#data> .
+
+_:df_2_36 a shacl:PropertyShape;
+  rdfs:label "data"@nl;
+  rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#StraatnaamenEnvelop.Data>;
+  shacl:class <https://data.vlaanderen.be/ns/adres#Straatnaam>;
+  shacl:description "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  shacl:maxCount 1;
+  shacl:minCount 1;
+  shacl:name "data"@nl;
+  shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#data> .
+
+_:df_2_73 a shacl:PropertyShape;
+  shacl:class <https://implementatie.data.vlaanderen.be/ns/adres#AdresEnvelop> .
+
+_:df_2_78 a shacl:PropertyShape;
+  shacl:class <https://implementatie.data.vlaanderen.be/ns/adres#AdressenEnvelop> .
+
+_:df_2_83 a shacl:PropertyShape;
+  shacl:class <https://implementatie.data.vlaanderen.be/ns/adres#GemeenteEnvelop> .
+
+_:df_2_88 a shacl:PropertyShape;
+  shacl:class <https://implementatie.data.vlaanderen.be/ns/adres#GemeentenEnvelop> .
+
+_:df_2_93 a shacl:PropertyShape;
+  shacl:class <https://implementatie.data.vlaanderen.be/ns/adres#PostinfoEnvelop> .
+
+_:df_2_98 a shacl:PropertyShape;
+  shacl:class <https://implementatie.data.vlaanderen.be/ns/adres#PostinfoLijstEnvelop> .
+
+_:df_2_48 a shacl:PropertyShape;
+  rdfs:label "data"@nl;
+  rdfs:comment "De collectie data die de envelop bevat."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/adres/v0.0.1#DataEnvelop.Data>;
+  shacl:description "De collectie data die de envelop bevat."@nl;
+  shacl:name "data"@nl;
+  shacl:or ([shacl:class prov:Entity] [shacl:class <https://data.vlaanderen.be/ns/adres#Postinfo>] [shacl:class <https://data.vlaanderen.be/ns/adres#Straatnaam>] [shacl:class <https://data.vlaanderen.be/ns/generiek#Gemeente>] [shacl:class <https://data.vlaanderen.be/ns/adres#Adres>]);
+  shacl:path <https://implementatie.data.vlaanderen.be/ns/adres#data> .
