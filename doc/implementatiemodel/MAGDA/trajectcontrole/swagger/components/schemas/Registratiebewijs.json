@@ -68,10 +68,50 @@
     },
     "kenteken": {
       "$ref": "#/components/schemas/Identificator"
+    },
+    "bestuurder": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    },
+    "eigenaar": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    },
+    "voertuig": {
+      "$ref": "#/components/schemas/Voertuig"
     }
   },
   "required": [
     "@type",
-    "kenteken"
+    "kenteken",
+    "bestuurder",
+    "eigenaar",
+    "voertuig"
   ]
 }

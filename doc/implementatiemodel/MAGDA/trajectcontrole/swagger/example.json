@@ -524,11 +524,51 @@
           },
           "kenteken": {
             "$ref": "#/components/schemas/Identificator"
+          },
+          "bestuurder": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          },
+          "eigenaar": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          },
+          "voertuig": {
+            "$ref": "#/components/schemas/Voertuig"
           }
         },
         "required": [
           "@type",
-          "kenteken"
+          "kenteken",
+          "bestuurder",
+          "eigenaar",
+          "voertuig"
         ]
       },
       "GeregistreerdeOrganisatie": {
@@ -663,26 +703,6 @@
               "@value"
             ]
           },
-          "tijdstip": {
-            "type": "object",
-            "description": "undefined",
-            "properties": {
-              "@value": {
-                "type": "number",
-                "format": "int32",
-                "minimum": -2147483648,
-                "maximum": 2147483647
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Int$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
-          },
           "achternaam": {
             "type": "object",
             "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
@@ -768,7 +788,6 @@
         "required": [
           "@type",
           "volledigeNaam",
-          "tijdstip",
           "registratie",
           "geslacht",
           "heeftGeboorte"
@@ -790,7 +809,7 @@
           },
           "identificator": {
             "type": "object",
-            "description": "String gebruikt om het object uniek te identificeren. Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator.",
+            "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
             "properties": {
               "@value": {
                 "type": "string"
@@ -850,7 +869,7 @@
           },
           "huisnummer": {
             "type": "object",
-            "description": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen. Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen.",
+            "description": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen. Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen.",
             "properties": {
               "@value": {
                 "type": "string"
@@ -974,7 +993,7 @@
           },
           "fabrikantNaam": {
             "type": "object",
-            "description": "De interne benaming van het voertuig door de fabrikant. Bijvoorbeeld: Nissan Micra K14",
+            "description": "De interne benaming van het voertuig door de fabrikant. Bijvoorbeeld: Nissan Micra K14.",
             "properties": {
               "@value": {
                 "type": "string"

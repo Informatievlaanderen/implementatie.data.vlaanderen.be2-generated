@@ -2,7 +2,6 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema: <http://schema.org/> .
 @prefix schemas: <https://schema.org/> .
 @prefix shacl: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -22,7 +21,6 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#UriShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#IntegerShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#DateShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#IntShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#LangStringShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#IdentificatorShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#AdresvoorstellingShape>,
@@ -62,7 +60,7 @@
   ], [
     a shacl:PropertyShape;
     rdfs:label "huisnummer"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen."@nl;
+    <http://purl.org/vocab/vann/usageNote> "Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen."@nl;
     rdfs:comment "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Adresvoorstelling.Huisnummer>;
     shacl:datatype xsd:string;
@@ -192,7 +190,7 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdPersoonShape> a shacl:NodeShape;
   rdfs:label "GeregistreerdPersoon"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Doorgaans is dit register een bevolkingsregister maar het kan bv ook een kiesregister zijn. De ingeschreven gegevens hebben betrekking op de identeit (vb naam en voornaam) en de Verblijfplaats vd persoon en op belangrijke levensgebeurtenissen zoals geboorte, huwelijk, overlijden etc. Deze gegevens worden typisch geregistreerd door de overheid, ze bieden de ingeschreven persoon wettelijke bescherming en laten de overheid toe om basisstatistieken op te stellen over zijn bevolking."@nl;
+  <http://purl.org/vocab/vann/usageNote> "Doorgaans is dit register een bevolkingsregister maar het kan bijvoorbeeld ook een kiesregister zijn. De ingeschreven gegevens hebben betrekking op de identeit (bijvoorbeeld: naam en voornaam) en de Verblijfplaats van de persoon en op belangrijke levensgebeurtenissen zoals geboorte, huwelijk, overlijden, etc. Deze gegevens worden typisch geregistreerd door de overheid, ze bieden de ingeschreven persoon wettelijke bescherming en laten de overheid toe om basisstatistieken op te stellen over zijn bevolking."@nl;
   rdfs:comment "Persoon waarvan de gegevens zijn ingeschreven in een register."@nl;
   shacl:closed false;
   shacl:property [
@@ -206,15 +204,6 @@
     shacl:minCount 1;
     shacl:name "volledigeNaam"@nl;
     shacl:path <https://data.vlaanderen.be/ns/persoon#volledigeNaam>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "^tijdstip";
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdPersoon.Tijdstip>;
-    shacl:datatype xsd:int;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "^tijdstip";
-    shacl:path <https://data.vlaanderen.be/ns/persoon#tijdstip>
   ], [
     a shacl:PropertyShape;
     rdfs:label "achternaam"@nl;
@@ -294,7 +283,7 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdeOrganisatieShape> a shacl:NodeShape;
   rdfs:label "GeregistreerdeOrganisatie"@nl;
-  <http://purl.org/vocab/vann/usageNote> "In België moeten onder andere volgende Organisaties zich registreren: vennootschap (NV, BV, etc), eenmanszaak, overheidsorgaan, stichting, … Bij registratie krijgt de Organisatie een ondernemingsnummer en worden zijn gegevens ingevoerd in de Kruispuntbank van Ondernemingen (KBO)."@nl;
+  <http://purl.org/vocab/vann/usageNote> "In België moeten onder andere volgende Organisaties zich registreren: vennootschap (NV, BV, etc.), eenmanszaak, overheidsorgaan, stichting, … Bij registratie krijgt de Organisatie een ondernemingsnummer en worden zijn gegevens ingevoerd in de Kruispuntbank van Ondernemingen (KBO)."@nl;
   rdfs:comment "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn."@nl;
   shacl:closed false;
   shacl:property [
@@ -352,7 +341,7 @@
   shacl:property [
     a shacl:PropertyShape;
     rdfs:label "identificator"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator."@nl;
+    <http://purl.org/vocab/vann/usageNote> "Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator."@nl;
     rdfs:comment "String gebruikt om het object uniek te identificeren."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Identificator.Identificator>;
     shacl:description "String gebruikt om het object uniek te identificeren."@nl;
@@ -361,11 +350,6 @@
     shacl:path skos:notation
   ];
   shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
-
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#IntShape> a shacl:NodeShape;
-  rdfs:label "int";
-  shacl:closed false;
-  shacl:targetClass xsd:int .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#IntegerShape> a shacl:NodeShape;
   rdfs:label "Integer";
@@ -460,7 +444,7 @@
     shacl:name "type"@nl;
     shacl:path dc:type
   ];
-  shacl:targetClass <http://todo.com/Problemdetail> .
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/trajectcontrole#Problemdetail> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#RegistratiebewijsShape> a shacl:NodeShape;
   rdfs:label "Registratiebewijs"@nl;
@@ -514,6 +498,8 @@
     rdfs:comment "De Agent die het Voertuig bestuurt volgens het register."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Registratiebewijs.Bestuurder>;
     shacl:description "De Agent die het Voertuig bestuurt volgens het register."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
     shacl:name "bestuurder"@nl;
     shacl:or ([shacl:class foaf:Agent] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>]);
     shacl:path dc:audience
@@ -523,6 +509,8 @@
     rdfs:comment "De Agent die het Voertuig bezit volgens het register."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Registratiebewijs.Eigenaar>;
     shacl:description "De Agent die het Voertuig bezit volgens het register."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
     shacl:name "eigenaar"@nl;
     shacl:or ([shacl:class foaf:Agent] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>]);
     shacl:path dc:rightsHolder
@@ -531,8 +519,10 @@
     rdfs:label "voertuig"@nl;
     rdfs:comment "Het voertuig dat gekoppeld is aan het Registratiebewijs."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Registratiebewijs.Voertuig>;
-    shacl:class schema:Vehicle;
+    shacl:class schemas:Vehicle;
     shacl:description "Het voertuig dat gekoppeld is aan het Registratiebewijs."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
     shacl:name "voertuig"@nl;
     shacl:path dc:hasPart
   ];
@@ -570,12 +560,12 @@
     <http://purl.org/vocab/vann/usageNote> "Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen."@nl;
     rdfs:comment "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#VehicleRegistrationEnvelop.Warning>;
-    shacl:class <http://todo.com/Problemdetail>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/trajectcontrole#Problemdetail>;
     shacl:description "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
     shacl:name "warning"@nl;
     shacl:path schemas:error
   ];
-  shacl:targetClass <http://todo.com/VehicleRegistrationEnvelop> .
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/trajectcontrole#VehicleRegistrationEnvelop> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#VoertuigShape> a shacl:NodeShape;
   rdfs:label "Voertuig"@nl;
@@ -607,7 +597,7 @@
   ], [
     a shacl:PropertyShape;
     rdfs:label "fabrikantNaam"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: Nissan Micra K14"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: Nissan Micra K14."@nl;
     rdfs:comment "De interne benaming van het voertuig door de fabrikant."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Voertuig.FabrikantNaam>;
     shacl:datatype xsd:string;
@@ -639,4 +629,4 @@
     shacl:name "vin"@nl;
     shacl:path schemas:vehicleIdentificationNumber
   ];
-  shacl:targetClass schema:Vehicle .
+  shacl:targetClass schemas:Vehicle .
