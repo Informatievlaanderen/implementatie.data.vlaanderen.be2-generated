@@ -2,19 +2,17 @@
 
 #||# -------------------------------------  
 
-2026-07-06T06:27:24.244Z info: Loaded 54 URI prefixes into whitelist
+2026-07-20T09:04:01.830Z info: [JsonLdValidationService]: Loaded 55 URI prefixes into whitelist
 
-2026-07-06T06:27:24.431Z error: Found missing class or attribute (VoorlopigeInschrijving): [urn:oslo-toolchain:daeef55c09bbc8be803c5bb46f69e6e3d0a31d1877bc776cc65558e5c3e5e06c](all-persoon.jsonld#L796) in Vocabulary
+2026-07-20T09:04:02.004Z warn: [JsonLdValidationService]: Found sentence without a '.': 'Plaats waar de Persoon het grootste deel van de tijd verblijft binnen de jurisdictie waarvan hij Inwoner is. Dit wordt doorgaans officieel vastgesteld en geregistreerd in het bevolkingsregister. Kan in praktijk verschillend zijn van de feitelijke verblijfplaats' for subject: [urn:oslo-toolchain:de099dc1385d817cf323fe0e3f42c68714378ca9a8014d48935f334518528536](all-persoon.jsonld#L607)
 
-2026-07-06T06:27:24.434Z error: Found missing class or attribute (procedure): [urn:oslo-toolchain:43d31fea09de92a37be087d8da67b14855a294ce2ac9e38030b87a56cc14c2df](all-persoon.jsonld#L3303) in Vocabulary
+2026-07-20T09:04:02.018Z info: [JsonLdValidationService]: Validation successful! All assigned URIs are whitelisted.
 
-2026-07-06T06:27:24.438Z info: Validation successful! All assigned URIs are whitelisted.
+2026-07-20T09:04:02.018Z info: [JsonLdValidationService]: Validation found 1 sentences with spelling mistakes or abbreviations.
 
-2026-07-06T06:27:24.439Z info: Validation successful! All sentences seem to be valid, no spelling mistakes found.
+2026-07-20T09:04:02.018Z info: [JsonLdValidationService]: Validation successful! All labels seem to be valid, no spelling mistakes or abbreviations found.
 
-2026-07-06T06:27:24.439Z info: Validation successful! All labels seem to be valid, no spelling mistakes found.
+2026-07-20T09:04:02.018Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
 
-2026-07-06T06:27:24.439Z info: Validation successful! All base URIs seem to be valid.
-
-2026-07-06T06:27:24.439Z info: Validation found 2 missing referenced classes or attributes.
+2026-07-20T09:04:02.018Z info: [JsonLdValidationService]: Validation successful! All referenced classes and attributes seem to be included.
 

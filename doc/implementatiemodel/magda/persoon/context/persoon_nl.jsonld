@@ -137,46 +137,41 @@
       },
       "@id": "https://data.vlaanderen.be/ns/persoon#BurgerlijkeStaat"
     },
-    "Contactadres": {
-      "@context": {
-        "nietMededeelbaar": {
-          "@id": "https://data.vlaanderen.be/ns/persoon#nietMededeelbaar",
-          "@type": "https://w3id.org/dpv#ConfidentialData"
-        },
-        "status": {
-          "@id": "https://data.vlaanderen.be/ns/persoon#status",
-          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
-        },
-        "verblijfsadres": {
-          "@id": "https://data.vlaanderen.be/ns/persoon#verblijfsadres",
-          "@type": "http://www.w3.org/ns/locn#Address"
-        }
-      },
-      "@id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Contactadres"
-    },
     "Contactinfo": {
       "@context": {
+        "aanschrijfvorm": {
+          "@id": "http://www.w3.org/2006/vcard/ns#honorific-prefix",
+          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        },
+        "adres": {
+          "@id": "http://www.w3.org/ns/locn#address",
+          "@type": "http://www.w3.org/ns/locn#Address"
+        },
         "email": {
-          "@id": "http://www.w3.org/2006/vcard/ns#hasEmail",
+          "@id": "https://schema.org/email",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
         "faxnummer": {
-          "@id": "http://www.w3.org/2006/vcard/ns#hasTelephone",
-          "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+          "@id": "https://schema.org/faxNumber",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "naam": {
+          "@id": "http://xmlns.com/foaf/0.1/name",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
         "telefoon": {
-          "@container": "@set",
-          "@id": "http://www.w3.org/2006/vcard/ns#hasTelephone",
-          "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+          "@id": "https://schema.org/telephone",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "website": {
+          "@id": "http://xmlns.com/foaf/0.1/homepage",
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         }
       },
-      "@id": "http://www.w3.org/2006/vcard/ns#Kind"
+      "@id": "https://schema.org/ContactPoint"
     },
     "Date": {
       "@id": "http://www.w3.org/2001/XMLSchema#date"
-    },
-    "DateTime": {
-      "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
     },
     "Domicilie": {
       "@context": {
@@ -228,8 +223,8 @@
           "@type": "http://www.w3.org/ns/org#Organization"
         },
         "contactinfo": {
-          "@id": "http://data.europa.eu/m8g/contactPoint",
-          "@type": "http://www.w3.org/2006/vcard/ns#Kind"
+          "@id": "https://schema.org/contactPoint",
+          "@type": "https://schema.org/ContactPoint"
         },
         "creatiedatum": {
           "@id": "http://purl.org/dc/terms/created",
@@ -238,10 +233,6 @@
         "dossierstatus": {
           "@id": "http://www.w3.org/ns/adms#status",
           "@type": "http://www.w3.org/2004/02/skos/core#Concept"
-        },
-        "gebruikteVoornaam": {
-          "@id": "https://data.vlaanderen.be/ns/persoon#gebruikteVoornaam",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
         "geslacht": {
           "@id": "http://data.europa.eu/m8g/gender",
@@ -409,32 +400,6 @@
     "LocatiePeriodeOfJurisdictie": {
       "@id": "http://purl.org/dc/terms/LocationPeriodOrJurisdiction"
     },
-    "Moment": {
-      "@context": {
-        "inXSDdatumTijd": {
-          "@id": "http://www.w3.org/2006/time#inXSDDateTime",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        }
-      },
-      "@id": "http://www.w3.org/2006/time#Instant"
-    },
-    "NietMededeelbaar": {
-      "@context": {
-        "beschrijving": {
-          "@id": "http://purl.org/dc/terms/description",
-          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-        },
-        "periode": {
-          "@id": "http://purl.org/dc/terms/valid",
-          "@type": "http://www.w3.org/2006/time#ProperInterval"
-        },
-        "sinds": {
-          "@id": "http://purl.org/dc/terms/date",
-          "@type": "http://www.w3.org/2001/XMLSchema#date"
-        }
-      },
-      "@id": "https://w3id.org/dpv#ConfidentialData"
-    },
     "Organisatie": {
       "@context": {
         "identificator": {
@@ -461,19 +426,6 @@
       },
       "@id": "https://data.vlaanderen.be/ns/persoon#Overlijden"
     },
-    "Periode": {
-      "@context": {
-        "tot": {
-          "@id": "http://www.w3.org/2006/time#hasEnd",
-          "@type": "http://www.w3.org/2006/time#Instant"
-        },
-        "van": {
-          "@id": "http://www.w3.org/2006/time#hasBeginning",
-          "@type": "http://www.w3.org/2006/time#Instant"
-        }
-      },
-      "@id": "http://www.w3.org/2006/time#ProperInterval"
-    },
     "Persoon": {
       "@context": {
         "achternaam": {
@@ -486,16 +438,12 @@
           "@type": "http://www.w3.org/ns/org#Organization"
         },
         "contactinfo": {
-          "@id": "http://data.europa.eu/m8g/contactPoint",
-          "@type": "http://www.w3.org/2006/vcard/ns#Kind"
+          "@id": "https://schema.org/contactPoint",
+          "@type": "https://schema.org/ContactPoint"
         },
         "creatiedatum": {
           "@id": "http://purl.org/dc/terms/created",
           "@type": "http://www.w3.org/2001/XMLSchema#date"
-        },
-        "gebruikteVoornaam": {
-          "@id": "https://data.vlaanderen.be/ns/persoon#gebruikteVoornaam",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
         "geslacht": {
           "@id": "http://data.europa.eu/m8g/gender",
@@ -619,20 +567,12 @@
     },
     "Referentieadres": {
       "@context": {
-        "einddatum": {
-          "@id": "https://schema.org/endDate",
-          "@type": "http://www.w3.org/2001/XMLSchema#date"
-        },
         "nietMededeelbaar": {
           "@id": "https://data.vlaanderen.be/ns/persoon#nietMededeelbaar",
           "@type": "https://w3id.org/dpv#ConfidentialData"
         },
-        "reden": {
-          "@id": "http://purl.org/dc/terms/description",
-          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-        },
         "status": {
-          "@id": "http://www.w3.org/ns/adms#status",
+          "@id": "https://data.vlaanderen.be/ns/persoon#status",
           "@type": "http://www.w3.org/2004/02/skos/core#Concept"
         },
         "verblijfsadres": {
@@ -662,10 +602,7 @@
     "String": {
       "@id": "http://www.w3.org/2001/XMLSchema#string"
     },
-    "TemporeleEntiteit": {
-      "@id": "http://www.w3.org/2006/time#TemporalEntity"
-    },
-    "Uri": {
+    "URI": {
       "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
     },
     "VdipEnvelop": {
@@ -733,31 +670,6 @@
         }
       },
       "@id": "https://data.vlaanderen.be/ns/generiek#VersieVolgensTransactietijd"
-    },
-    "VoorlopigeInschrijving": {
-      "@context": {
-        "geldigheid": {
-          "@id": "http://purl.org/dc/terms/valid",
-          "@type": "http://www.w3.org/2006/time#ProperInterval"
-        },
-        "nietMededeelbaar": {
-          "@id": "https://data.vlaanderen.be/ns/persoon#nietMededeelbaar",
-          "@type": "https://w3id.org/dpv#ConfidentialData"
-        },
-        "procedure": {
-          "@id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#procedure",
-          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
-        },
-        "status": {
-          "@id": "https://data.vlaanderen.be/ns/persoon#status",
-          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
-        },
-        "verblijfsadres": {
-          "@id": "https://data.vlaanderen.be/ns/persoon#verblijfsadres",
-          "@type": "http://www.w3.org/ns/locn#Address"
-        }
-      },
-      "@id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#VoorlopigeInschrijving"
     },
     "WettelijkVerblijf": {
       "@context": {

@@ -2,15 +2,15 @@
 
 #||# -------------------------------------  
 
-2026-07-06T06:27:21.862Z info: Loaded 54 URI prefixes into whitelist
+2026-07-20T09:03:59.580Z info: [JsonLdValidationService]: Loaded 55 URI prefixes into whitelist
 
-2026-07-06T06:27:22.045Z info: Validation successful! All assigned URIs are whitelisted.
+2026-07-20T09:03:59.839Z info: [JsonLdValidationService]: Validation successful! All assigned URIs are whitelisted.
 
-2026-07-06T06:27:22.045Z info: Validation successful! All sentences seem to be valid, no spelling mistakes found.
+2026-07-20T09:03:59.839Z info: [JsonLdValidationService]: Validation successful! All sentences seem to be valid, no spelling mistakes or abbreviations found.
 
-2026-07-06T06:27:22.045Z info: Validation successful! All labels seem to be valid, no spelling mistakes found.
+2026-07-20T09:03:59.840Z info: [JsonLdValidationService]: Validation successful! All labels seem to be valid, no spelling mistakes or abbreviations found.
 
-2026-07-06T06:27:22.045Z info: Validation successful! All base URIs seem to be valid.
+2026-07-20T09:03:59.840Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
 
-2026-07-06T06:27:22.045Z info: Validation successful! All referenced classes and attributes seem to be included.
+2026-07-20T09:03:59.840Z info: [JsonLdValidationService]: Validation successful! All referenced classes and attributes seem to be included.
 

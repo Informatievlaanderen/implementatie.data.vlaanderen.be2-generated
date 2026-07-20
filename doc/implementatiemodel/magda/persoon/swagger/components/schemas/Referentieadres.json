@@ -12,54 +12,17 @@
       "description": "Object type (klasse Referentieadres)",
       "pattern": "^Referentieadres$"
     },
-    "einddatum": {
-      "type": "object",
-      "description": "Datum waarop het Referentieadres eindigt. Enkel verplicht bij Situatie 'Beroepsredenen' (0022).",
-      "properties": {
-        "@value": {
-          "type": "string",
-          "format": "date"
-        },
-        "@type": {
-          "type": "string",
-          "pattern": "^Date$"
-        }
-      },
-      "required": [
-        "@value",
-        "@type"
-      ]
-    },
-    "reden": {
-      "type": "object",
-      "description": "Geeft de reden weer waarom het referentieadres werd toegekend.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        },
-        "@language": {
-          "type": "string",
-          "pattern": "^nl$"
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
+    "verblijfsadres": {
+      "$ref": "#/components/schemas/Adresvoorstelling"
     },
     "status": {
       "$ref": "#/components/schemas/DomicilieStatus"
-    },
-    "verblijfsadres": {
-      "$ref": "#/components/schemas/Adresvoorstelling"
     },
     "nietMededeelbaar": {
       "$ref": "#/components/schemas/NietMededeelbaar"
     }
   },
   "required": [
-    "@type",
-    "reden",
-    "status"
+    "@type"
   ]
 }
