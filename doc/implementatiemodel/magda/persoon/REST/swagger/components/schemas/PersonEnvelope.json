@@ -1,0 +1,36 @@
+{
+  "title": "PersonEnvelope",
+  "type": "object",
+  "description": "Enveloppe om Persoon en bijhorende validatiewaarschuwingen uit te wisselen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse PersonEnvelope)",
+      "pattern": "^PersonEnvelope$"
+    },
+    "warning": {
+      "type": "array",
+      "description": "Lijst van Problemdetail items.",
+      "items": {
+        "$ref": "#/components/schemas/Problemdetail"
+      },
+      "minItems": 1
+    },
+    "data": {
+      "$ref": "#/components/schemas/GeregistreerdPersoon"
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/magda\\/persoon\\/REST\\/context\\/persoon.jsonld$"
+    }
+  },
+  "required": [
+    "@type",
+    "data"
+  ]
+}
