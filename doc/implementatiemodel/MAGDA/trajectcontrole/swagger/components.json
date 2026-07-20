@@ -220,6 +220,9 @@
               "@value",
               "@type"
             ]
+          },
+          "plaats": {
+            "$ref": "#/components/schemas/Plaats"
           }
         },
         "required": [
@@ -371,6 +374,42 @@
           "@type",
           "voorkeursnaam",
           "registratie"
+        ]
+      },
+      "Plaats": {
+        "title": "Plaats",
+        "type": "object",
+        "description": "Een ruimtelijk gebied of benoemde plaats.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Plaats)",
+            "pattern": "^Plaats$"
+          },
+          "plaatsnaam": {
+            "type": "object",
+            "description": "Naam van de plaats of van het gebied.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          }
+        },
+        "required": [
+          "@type"
         ]
       },
       "GeregistreerdPersoon": {
@@ -773,6 +812,13 @@
           "id": "$response.body#/VehicleRegistrationEnvelop.warning/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+      },
+      "Geboorte.plaats": {
+        "operationId": "GeboorteGET",
+        "parameters": {
+          "id": "$response.body#/Geboorte.plaats/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen."
       },
       "Registratiebewijs.kenteken": {
         "operationId": "RegistratiebewijsGET",

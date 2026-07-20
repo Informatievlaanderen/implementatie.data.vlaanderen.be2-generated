@@ -14,6 +14,7 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#RegistratiebewijsShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdeOrganisatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#AgentShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#PlaatsShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#GeregistreerdPersoonShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#DateTimeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#LanguageShape>,
@@ -22,8 +23,8 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#IntegerShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#DateShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#IntShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#IdentificatorShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#LangStringShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#IdentificatorShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#AdresvoorstellingShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#VoertuigShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#ContactpuntShape>,
@@ -175,6 +176,17 @@
     shacl:maxCount 1;
     shacl:name "datum"@nl;
     shacl:path dc:date
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "plaats"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Gemeente of stad."@nl;
+    rdfs:comment "Plaats waar de gebeurtenis plaatsvond."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Geboorte.Plaats>;
+    shacl:class dc:Location;
+    shacl:description "Plaats waar de gebeurtenis plaatsvond."@nl;
+    shacl:maxCount 1;
+    shacl:name "plaats"@nl;
+    shacl:path dc:spatial
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/persoon#Geboorte> .
 
@@ -369,6 +381,23 @@
   rdfs:label "Language";
   shacl:closed false;
   shacl:targetClass xsd:language .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#PlaatsShape> a shacl:NodeShape;
+  rdfs:label "Plaats"@nl;
+  rdfs:comment "Een ruimtelijk gebied of benoemde plaats."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "plaatsnaam"@nl;
+    rdfs:comment "Naam van de plaats of van het gebied."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#Plaats.Plaatsnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam van de plaats of van het gebied."@nl;
+    shacl:maxCount 1;
+    shacl:name "plaatsnaam"@nl;
+    shacl:path rdfs:label
+  ];
+  shacl:targetClass dc:Location .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1#ProblemdetailShape> a shacl:NodeShape;
   rdfs:label "Problemdetail"@nl;
