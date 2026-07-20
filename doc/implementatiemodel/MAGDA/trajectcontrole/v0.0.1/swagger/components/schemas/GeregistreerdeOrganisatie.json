@@ -31,9 +31,9 @@
     },
     "type": {
       "type": "array",
-      "description": "Lijst van OrganisatieType items.",
+      "description": "Lijst van Rechtsvormtype items.",
       "items": {
-        "$ref": "#/components/schemas/OrganisatieType"
+        "$ref": "#/components/schemas/Rechtsvormtype"
       },
       "minItems": 1
     },
@@ -42,6 +42,24 @@
     },
     "registratie": {
       "$ref": "#/components/schemas/Identificator"
+    },
+    "modificatiedatum": {
+      "type": "object",
+      "description": "Datum waarop de gegevens werden bijgewerkt.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Date$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
     }
   },
   "required": [

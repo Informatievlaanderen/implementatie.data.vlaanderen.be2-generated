@@ -1,0 +1,36 @@
+{
+  "title": "VehicleRegistrationEnvelop",
+  "type": "object",
+  "description": "Enveloppe om voertuigregistraties en bijhorende validatiewaarschuwing uit te wisselen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse VehicleRegistrationEnvelop)",
+      "pattern": "^VehicleRegistrationEnvelop$"
+    },
+    "data": {
+      "$ref": "#/components/schemas/Registratiebewijs"
+    },
+    "warning": {
+      "type": "array",
+      "description": "Lijst van Problemdetail items.",
+      "items": {
+        "$ref": "#/components/schemas/Problemdetail"
+      },
+      "minItems": 1
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/MAGDA\\/trajectcontrole\\/v0.0.1\\/context\\/trajectcontrole.jsonld$"
+    }
+  },
+  "required": [
+    "@type",
+    "data"
+  ]
+}

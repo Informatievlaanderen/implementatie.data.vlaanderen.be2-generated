@@ -1,7 +1,7 @@
 {
   "title": "Registratiebewijs",
   "type": "object",
-  "description": "De handeling van het zich registreren als gebruiker  van een dienst,product of webpagina.",
+  "description": "Document dat de registratie van een voertuig in het register aangeeft, sinds wanneer, en welk kenteken is toegewezen aan het voertuig.",
   "properties": {
     "@id": {
       "type": "string",
@@ -12,21 +12,9 @@
       "description": "Object type (klasse Registratiebewijs)",
       "pattern": "^Registratiebewijs$"
     },
-    "kenteken": {
-      "type": "object",
-      "description": "De waarde die het object identificeert.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@value"
-      ]
-    },
     "registratiedatum": {
       "type": "object",
-      "description": "Een tijdstip verbonden aan een registratie van de resource.",
+      "description": "Datum waarop deze registratie werd uitgevoerd van het voertuig in het register.",
       "properties": {
         "@value": {
           "type": "string",
@@ -44,7 +32,7 @@
     },
     "taal": {
       "type": "object",
-      "description": "Een taal van de resource.",
+      "description": "De taal waarin het registratiecertificaat is opgesteld.",
       "properties": {
         "@value": {
           "type": "string",
@@ -59,6 +47,27 @@
         "@value",
         "@type"
       ]
+    },
+    "modificatiedatum": {
+      "type": "object",
+      "description": "Datum waarop de gegevens werden bijgewerkt.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Date$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "kenteken": {
+      "$ref": "#/components/schemas/Identificator"
     }
   },
   "required": [

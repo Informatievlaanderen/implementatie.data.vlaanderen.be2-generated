@@ -2,41 +2,39 @@
 
 #||# -------------------------------------
 
-2026-07-16T09:01:46.941Z info: Connector Model:OSLO-Trajectcontroles-IM:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Agent) is not an association with a source role. Ignoring this connector.
+2026-07-20T14:07:36.498Z info: Connector Model:OSLO-Trajectcontroles-IM:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Geboorte) is not an association with a source role. Ignoring this connector.
 
-2026-07-16T09:01:46.944Z info: Connector Model:OSLO-Trajectcontroles-IM:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Agent) is not an association with a source role. Ignoring this connector.
+2026-07-20T14:07:36.500Z info: Connector Model:OSLO-Trajectcontroles-IM:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-07-16T09:01:46.944Z info: Connector Model:OSLO-Trajectcontroles-IM:W3C-DPV:Certificaat:(Certificaat -> Agent) is not an association with a source role. Ignoring this connector.
+2026-07-20T14:07:36.500Z info: Connector Model:OSLO-Trajectcontroles-IM:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-07-16T09:01:46.944Z info: Connector Model:OSLO-Trajectcontroles-IM:W3C-DPV:Certificaat:(Certificaat -> Agent) is not an association with a source role. Ignoring this connector.
+2026-07-20T14:07:36.501Z info: Connector Model:OSLO-Trajectcontroles-IM:W3C-DPV:Registratiebewijs:(Registratiebewijs -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-07-16T09:01:46.945Z info: Connector Model:OSLO-Trajectcontroles-IM:W3C-DPV:Certificaat:(Certificaat -> Voertuig) is not an association with a source role. Ignoring this connector.
+2026-07-20T14:07:36.501Z info: Connector Model:OSLO-Trajectcontroles-IM:W3C-DPV:Registratiebewijs:(Registratiebewijs -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-07-16T09:01:46.945Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+2026-07-20T14:07:36.501Z info: Connector Model:OSLO-Trajectcontroles-IM:W3C-DPV:Registratiebewijs:(Registratiebewijs -> Voertuig) is not an association with a source role. Ignoring this connector.
 
-2026-07-16T09:01:46.945Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM). Using fallback URI (http://todo.com/) instead.
+2026-07-20T14:07:36.502Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
-2026-07-16T09:01:46.946Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM:W3C-Person). Using fallback URI (http://todo.com/) instead.
+2026-07-20T14:07:36.502Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM). Using fallback URI (http://todo.com/) instead.
 
-2026-07-16T09:01:46.946Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM:OSLO-Trajectcontrole-IM). Using fallback URI (http://todo.com/) instead.
+2026-07-20T14:07:36.502Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM:W3C-Person). Using fallback URI (http://todo.com/) instead.
 
-2026-07-16T09:01:46.949Z warn: [ConnectorConverterHandler]: Connector (eigenaar) does not have a package tag defined. Trying to determine the correct base URI based on the source and destination objects their package.
+2026-07-20T14:07:36.502Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM:OSLO-Trajectcontrole-IM). Using fallback URI (http://todo.com/) instead.
 
-2026-07-16T09:01:46.949Z warn: [ConnectorConverterHandler]: Can not determine the correct base URI for connector (eigenaar) and the fallback URI (http://todo.com/) will be assigned.
+2026-07-20T14:07:36.502Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM:Dummy). Using fallback URI (http://todo.com/) instead.
 
-2026-07-16T09:01:46.949Z warn: [ConnectorConverterHandler]: Connector (bestuurder) does not have a package tag defined. Trying to determine the correct base URI based on the source and destination objects their package.
+2026-07-20T14:07:36.510Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:OSLO-Trajectcontroles-IM:OSLO-Persoon:Geboorte:^plaats).
 
-2026-07-16T09:01:46.949Z warn: [ConnectorConverterHandler]: Can not determine the correct base URI for connector (bestuurder) and the fallback URI (http://todo.com/) will be assigned.
+2026-07-20T14:07:36.511Z warn: [ConverterHandler]: Entity with path Model:OSLO-Trajectcontroles-IM:W3C-REGORG:GeregistreerdeOrganisatie:^rechtsvorm has already a value for ap-label-nl in language nl, but will be overwritten.
 
-2026-07-16T09:01:46.949Z warn: [ConnectorConverterHandler]: Connector (voertuig) does not have a package tag defined. Trying to determine the correct base URI based on the source and destination objects their package.
+2026-07-20T14:07:36.511Z warn: [ConverterHandler]: Entity with path Model:OSLO-Trajectcontroles-IM:W3C-REGORG:GeregistreerdeOrganisatie:^rechtsvorm has already a value for ap-usageNote-nl in language nl, but will be overwritten.
 
-2026-07-16T09:01:46.949Z warn: [ConnectorConverterHandler]: Can not determine the correct base URI for connector (voertuig) and the fallback URI (http://todo.com/) will be assigned.
+2026-07-20T14:07:36.514Z warn: [ConnectorConverterHandler]: Unable to determine cardinality for connector (bestuurder).
 
-2026-07-16T09:01:46.960Z warn: [ConnectorConverterHandler]: Unable to determine cardinality for connector (bestuurder).
+2026-07-20T14:07:36.515Z warn: [ConnectorConverterHandler]: Unable to determine cardinality for connector (eigenaar).
 
-2026-07-16T09:01:46.960Z warn: [ConnectorConverterHandler]: Unable to determine cardinality for connector (eigenaar).
-
-2026-07-16T09:01:46.960Z warn: [ConnectorConverterHandler]: Unable to determine cardinality for connector (voertuig).
+2026-07-20T14:07:36.515Z warn: [ConnectorConverterHandler]: Unable to determine cardinality for connector (voertuig).
 
 #||# -------------------------------------
 

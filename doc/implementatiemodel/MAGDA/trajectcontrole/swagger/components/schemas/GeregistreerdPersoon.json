@@ -24,6 +24,26 @@
         "@value"
       ]
     },
+    "tijdstip": {
+      "type": "object",
+      "description": "undefined",
+      "properties": {
+        "@value": {
+          "type": "number",
+          "format": "int32",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Int$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
     "achternaam": {
       "type": "object",
       "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
@@ -83,12 +103,35 @@
     },
     "contactinfo": {
       "$ref": "#/components/schemas/Contactpunt"
+    },
+    "heeftGeboorte": {
+      "$ref": "#/components/schemas/Geboorte"
+    },
+    "modificatiedatum": {
+      "type": "object",
+      "description": "Datum waarop de gegevens werden bijgewerkt.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Date$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
     }
   },
   "required": [
     "@type",
     "volledigeNaam",
+    "tijdstip",
     "registratie",
-    "geslacht"
+    "geslacht",
+    "heeftGeboorte"
   ]
 }

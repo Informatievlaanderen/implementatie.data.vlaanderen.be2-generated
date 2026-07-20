@@ -12,17 +12,17 @@
     }
   ],
   "paths": {
-    "/id/VdipEnvelop/{id}": {
+    "/id/VehicleRegistrationEnvelop/{id}": {
       "get": {
-        "summary": "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen.",
+        "summary": "Enveloppe om voertuigregistraties en bijhorende validatiewaarschuwing uit te wisselen.",
         "description": "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP.",
-        "operationId": "VdipEnvelopGET",
+        "operationId": "VehicleRegistrationEnvelopGET",
         "parameters": [
           {
             "name": "id",
             "required": true,
             "in": "path",
-            "description": "Identificator van een VdipEnvelop object.",
+            "description": "Identificator van een VehicleRegistrationEnvelop object.",
             "schema": {
               "type": "string"
             }
@@ -30,28 +30,28 @@
         ],
         "responses": {
           "200": {
-            "description": "VdipEnvelop object gevonden.",
+            "description": "VehicleRegistrationEnvelop object gevonden.",
             "content": {
               "application/ld+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VdipEnvelop"
+                  "$ref": "#/components/schemas/VehicleRegistrationEnvelop"
                 }
               }
             },
             "links": {
-              "VdipEnvelop.data": {
-                "operationId": "VdipEnvelopGET",
+              "VehicleRegistrationEnvelop.data": {
+                "operationId": "VehicleRegistrationEnvelopGET",
                 "parameters": {
-                  "id": "$response.body#/VdipEnvelop.data/@id"
+                  "id": "$response.body#/VehicleRegistrationEnvelop.data/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Registratiebewijs` op te halen."
               },
-              "VdipEnvelop.warning": {
-                "operationId": "VdipEnvelopGET",
+              "VehicleRegistrationEnvelop.warning": {
+                "operationId": "VehicleRegistrationEnvelopGET",
                 "parameters": {
-                  "id": "$response.body#/VdipEnvelop.warning/@id"
+                  "id": "$response.body#/VehicleRegistrationEnvelop.warning/@id"
                 },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Probleemdetail` op te halen."
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
               }
             }
           },
@@ -66,7 +66,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VdipEnvelopGET",
+                "operationId": "VehicleRegistrationEnvelopGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -85,7 +85,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VdipEnvelopGET",
+                "operationId": "VehicleRegistrationEnvelopGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -104,7 +104,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VdipEnvelopGET",
+                "operationId": "VehicleRegistrationEnvelopGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -123,7 +123,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VdipEnvelopGET",
+                "operationId": "VehicleRegistrationEnvelopGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -142,7 +142,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VdipEnvelopGET",
+                "operationId": "VehicleRegistrationEnvelopGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -161,7 +161,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VdipEnvelopGET",
+                "operationId": "VehicleRegistrationEnvelopGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -180,7 +180,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VdipEnvelopGET",
+                "operationId": "VehicleRegistrationEnvelopGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -199,7 +199,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VdipEnvelopGET",
+                "operationId": "VehicleRegistrationEnvelopGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -218,7 +218,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VdipEnvelopGET",
+                "operationId": "VehicleRegistrationEnvelopGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -260,10 +260,10 @@
           "@id"
         ]
       },
-      "OrganisatieType": {
-        "title": "OrganisatieType",
+      "Rechtsvormtype": {
+        "title": "Rechtsvormtype",
         "type": "object",
-        "description": "Enumeratie van OrganisatieType",
+        "description": "Enumeratie van Rechtsvormtype",
         "properties": {
           "@id": {
             "type": "string",
@@ -288,8 +288,8 @@
           "@id"
         ]
       },
-      "Probleemdetail": {
-        "title": "Probleemdetail",
+      "Problemdetail": {
+        "title": "Problemdetail",
         "type": "object",
         "description": "Meer gedetailleerde beschrijving van de fout in een HTTP response.",
         "properties": {
@@ -299,8 +299,8 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse Probleemdetail)",
-            "pattern": "^Probleemdetail$"
+            "description": "Object type (klasse Problemdetail)",
+            "pattern": "^Problemdetail$"
           },
           "detail": {
             "type": "object",
@@ -308,18 +308,13 @@
             "properties": {
               "@value": {
                 "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
               }
             },
             "required": [
-              "@value",
-              "@language"
+              "@value"
             ]
           },
-          "instantie": {
+          "instance": {
             "type": "object",
             "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.",
             "properties": {
@@ -350,21 +345,16 @@
               "@type"
             ]
           },
-          "titel": {
+          "title": {
             "type": "object",
             "description": "Korte mensleesbare beschrijving van de fout.",
             "properties": {
               "@value": {
                 "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
               }
             },
             "required": [
-              "@value",
-              "@language"
+              "@value"
             ]
           },
           "type": {
@@ -383,14 +373,15 @@
         },
         "required": [
           "@type",
-          "titel",
+          "detail",
+          "title",
           "type"
         ]
       },
-      "VdipEnvelop": {
-        "title": "VdipEnvelop",
+      "VehicleRegistrationEnvelop": {
+        "title": "VehicleRegistrationEnvelop",
         "type": "object",
-        "description": "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen.",
+        "description": "Enveloppe om voertuigregistraties en bijhorende validatiewaarschuwing uit te wisselen.",
         "properties": {
           "@id": {
             "type": "string",
@@ -398,17 +389,17 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse VdipEnvelop)",
-            "pattern": "^VdipEnvelop$"
+            "description": "Object type (klasse VehicleRegistrationEnvelop)",
+            "pattern": "^VehicleRegistrationEnvelop$"
           },
           "data": {
             "$ref": "#/components/schemas/Registratiebewijs"
           },
           "warning": {
             "type": "array",
-            "description": "Lijst van Probleemdetail items.",
+            "description": "Lijst van Problemdetail items.",
             "items": {
-              "$ref": "#/components/schemas/Probleemdetail"
+              "$ref": "#/components/schemas/Problemdetail"
             },
             "minItems": 1
           },
@@ -423,10 +414,47 @@
           "data"
         ]
       },
+      "Geboorte": {
+        "title": "Geboorte",
+        "type": "object",
+        "description": "Het ter wereld komen van een Persoon.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Geboorte)",
+            "pattern": "^Geboorte$"
+          },
+          "datum": {
+            "type": "object",
+            "description": "Datum waarop de gebeurtenis plaatsvond.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
       "Registratiebewijs": {
         "title": "Registratiebewijs",
         "type": "object",
-        "description": "De handeling van het zich registreren als gebruiker  van een dienst,product of webpagina.",
+        "description": "Document dat de registratie van een voertuig in het register aangeeft, sinds wanneer, en welk kenteken is toegewezen aan het voertuig.",
         "properties": {
           "@id": {
             "type": "string",
@@ -437,21 +465,9 @@
             "description": "Object type (klasse Registratiebewijs)",
             "pattern": "^Registratiebewijs$"
           },
-          "kenteken": {
-            "type": "object",
-            "description": "De waarde die het object identificeert.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
-          },
           "registratiedatum": {
             "type": "object",
-            "description": "Een tijdstip verbonden aan een registratie van de resource.",
+            "description": "Datum waarop deze registratie werd uitgevoerd van het voertuig in het register.",
             "properties": {
               "@value": {
                 "type": "string",
@@ -469,7 +485,7 @@
           },
           "taal": {
             "type": "object",
-            "description": "Een taal van de resource.",
+            "description": "De taal waarin het registratiecertificaat is opgesteld.",
             "properties": {
               "@value": {
                 "type": "string",
@@ -484,6 +500,27 @@
               "@value",
               "@type"
             ]
+          },
+          "modificatiedatum": {
+            "type": "object",
+            "description": "Datum waarop de gegevens werden bijgewerkt.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "kenteken": {
+            "$ref": "#/components/schemas/Identificator"
           }
         },
         "required": [
@@ -524,9 +561,9 @@
           },
           "type": {
             "type": "array",
-            "description": "Lijst van OrganisatieType items.",
+            "description": "Lijst van Rechtsvormtype items.",
             "items": {
-              "$ref": "#/components/schemas/OrganisatieType"
+              "$ref": "#/components/schemas/Rechtsvormtype"
             },
             "minItems": 1
           },
@@ -535,6 +572,24 @@
           },
           "registratie": {
             "$ref": "#/components/schemas/Identificator"
+          },
+          "modificatiedatum": {
+            "type": "object",
+            "description": "Datum waarop de gegevens werden bijgewerkt.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
           }
         },
         "required": [
@@ -567,6 +622,26 @@
             },
             "required": [
               "@value"
+            ]
+          },
+          "tijdstip": {
+            "type": "object",
+            "description": "undefined",
+            "properties": {
+              "@value": {
+                "type": "number",
+                "format": "int32",
+                "minimum": -2147483648,
+                "maximum": 2147483647
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Int$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
             ]
           },
           "achternaam": {
@@ -628,13 +703,36 @@
           },
           "contactinfo": {
             "$ref": "#/components/schemas/Contactpunt"
+          },
+          "heeftGeboorte": {
+            "$ref": "#/components/schemas/Geboorte"
+          },
+          "modificatiedatum": {
+            "type": "object",
+            "description": "Datum waarop de gegevens werden bijgewerkt.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
           }
         },
         "required": [
           "@type",
           "volledigeNaam",
+          "tijdstip",
           "registratie",
-          "geslacht"
+          "geslacht",
+          "heeftGeboorte"
         ]
       },
       "Identificator": {
@@ -805,9 +903,9 @@
             "description": "Object type (klasse Voertuig)",
             "pattern": "^Voertuig$"
           },
-          "datum": {
+          "eersteRegistratieDatum": {
             "type": "object",
-            "description": "undefined",
+            "description": "Eerste datum waarop het voertuig werd geregistreerd in een register.",
             "properties": {
               "@value": {
                 "type": "string",
@@ -825,7 +923,7 @@
           },
           "commercieleNaam": {
             "type": "object",
-            "description": "undefined",
+            "description": "De commerciële benaming van het voertuig. Bijvoorbeeld: Nissan Micra N-Sport edition.",
             "properties": {
               "@value": {
                 "type": "string"
@@ -837,7 +935,7 @@
           },
           "fabrikantNaam": {
             "type": "object",
-            "description": "undefined",
+            "description": "De interne benaming van het voertuig door de fabrikant. Bijvoorbeeld: Nissan Micra K14",
             "properties": {
               "@value": {
                 "type": "string"
@@ -850,17 +948,17 @@
           "type": {
             "$ref": "#/components/schemas/VoertuigType"
           },
-          "identificator": {
+          "vin": {
             "$ref": "#/components/schemas/Identificator"
           }
         },
         "required": [
           "@type",
-          "datum",
+          "eersteRegistratieDatum",
           "commercieleNaam",
           "fabrikantNaam",
           "type",
-          "identificator"
+          "vin"
         ]
       },
       "Contactpunt": {
