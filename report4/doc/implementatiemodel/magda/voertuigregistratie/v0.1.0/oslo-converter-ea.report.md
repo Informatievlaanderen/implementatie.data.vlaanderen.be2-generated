@@ -1,28 +1,20 @@
-#||# oslo-converter-ea for diagram OSLO-Trajectcontrole-IM-Enumeraties
+#||# oslo-converter-ea for diagram OSLO-Voertuigregistratie-MAGDA-IM-Enumeraties
 
 #||# -------------------------------------
 
-2026-07-24T10:54:22.989Z info: Connector Model:OSLO-Trajectcontroles-IM:OSLO-Voertuigregistratie:Registratie:(Registratie -> Nummerplaat) is not an association with a source role. Ignoring this connector.
+Error: Path does not refer to a valid file: OSLO-Voertuigeregistratie-MAGDA-IMPL.eap
 
-2026-07-24T10:54:22.991Z info: Connector Model:OSLO-Trajectcontroles-IM:Schema.org:Voertuig:(Voertuig -> Agent) is not an association with a source role. Ignoring this connector.
+    at fetchFileOrUrl (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/node_modules/@oslo-flanders/core/lib/utils/fetchFileOrUrl.js:18:15)
 
-2026-07-24T10:54:22.991Z info: Connector Model:OSLO-Trajectcontroles-IM:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Agent) is not an association with a source role. Ignoring this connector.
+    at AccessDbFileReader.initDataRegistry (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/node_modules/@oslo-flanders/ea-uml-extractor/lib/AccessDbFileReader.js:21:56)
 
-2026-07-24T10:54:22.991Z info: Connector Model:OSLO-Trajectcontroles-IM:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Agent) is not an association with a source role. Ignoring this connector.
+    at FileReaderService.createDataRegistry (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/node_modules/@oslo-flanders/ea-uml-extractor/lib/FileReaderService.js:15:32)
 
-2026-07-24T10:54:22.991Z info: Connector Model:OSLO-Trajectcontroles-IM:OSLO-Voertuigregistratie:Registratie:(Registratie -> Agent) is not an association with a source role. Ignoring this connector.
+    at EaUmlConversionService.run (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/lib/EaUmlConversionService.js:36:116)
 
-2026-07-24T10:54:22.991Z info: Connector Model:OSLO-Trajectcontroles-IM:OSLO-Voertuigregistratie:Registratie:(Registratie -> Voertuig) is not an association with a source role. Ignoring this connector.
-
-2026-07-24T10:54:22.992Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
-
-2026-07-24T10:54:22.992Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM - Old:Dummy). Using fallback URI (http://todo.com/) instead.
-
-2026-07-24T10:54:22.992Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM - Old:W3C-Person). Using fallback URI (http://todo.com/) instead.
-
-2026-07-24T10:54:23.005Z warn: [ConverterHandler]: Entity with path Model:OSLO-Trajectcontroles-IM:W3C-REGORG:GeregistreerdeOrganisatie:^rechtsvorm has already a value for ap-label-nl in language nl, but will be overwritten.
-
-2026-07-24T10:54:23.005Z warn: [ConverterHandler]: Entity with path Model:OSLO-Trajectcontroles-IM:W3C-REGORG:GeregistreerdeOrganisatie:^rechtsvorm has already a value for ap-usageNote-nl in language nl, but will be overwritten.
+    at /usr/local/lib/node_modules/@oslo-flanders/ea-converter/node_modules/@oslo-flanders/core/lib/interfaces/AppRunner.js:37:33
 
 #||# -------------------------------------
+
+file voertuigregistratie.jsonld does not exist
 

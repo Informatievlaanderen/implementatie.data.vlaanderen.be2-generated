@@ -1,28 +1,14 @@
-#||# oslo-converter-ea for diagram OSLO-Trajectcontrole-IM-Enumeraties
+#||# oslo-converter-ea for diagram OSLO-Voertuigeregistratie-MAGDA-IM-Enumeraties
 
 #||# -------------------------------------
 
-2026-07-24T10:54:24.670Z info: Connector Model:OSLO-Trajectcontroles-IM:OSLO-Voertuigregistratie:Registratie:(Registratie -> Nummerplaat) is not an association with a source role. Ignoring this connector.
+Error: UML model does not contain a diagram with name OSLO-Voertuigeregistratie-MAGDA-IM-Enumeraties.
 
-2026-07-24T10:54:24.672Z info: Connector Model:OSLO-Trajectcontroles-IM:Schema.org:Voertuig:(Voertuig -> Agent) is not an association with a source role. Ignoring this connector.
+    at DataRegistry.setTargetDiagram (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/node_modules/@oslo-flanders/ea-uml-extractor/lib/DataRegistry.js:15:19)
 
-2026-07-24T10:54:24.673Z info: Connector Model:OSLO-Trajectcontroles-IM:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Agent) is not an association with a source role. Ignoring this connector.
-
-2026-07-24T10:54:24.673Z info: Connector Model:OSLO-Trajectcontroles-IM:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Agent) is not an association with a source role. Ignoring this connector.
-
-2026-07-24T10:54:24.673Z info: Connector Model:OSLO-Trajectcontroles-IM:OSLO-Voertuigregistratie:Registratie:(Registratie -> Agent) is not an association with a source role. Ignoring this connector.
-
-2026-07-24T10:54:24.673Z info: Connector Model:OSLO-Trajectcontroles-IM:OSLO-Voertuigregistratie:Registratie:(Registratie -> Voertuig) is not an association with a source role. Ignoring this connector.
-
-2026-07-24T10:54:24.674Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
-
-2026-07-24T10:54:24.674Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM - Old:Dummy). Using fallback URI (http://todo.com/) instead.
-
-2026-07-24T10:54:24.674Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM - Old:W3C-Person). Using fallback URI (http://todo.com/) instead.
-
-2026-07-24T10:54:24.685Z warn: [ConverterHandler]: Entity with path Model:OSLO-Trajectcontroles-IM:W3C-REGORG:GeregistreerdeOrganisatie:^rechtsvorm has already a value for ap-label-nl in language nl, but will be overwritten.
-
-2026-07-24T10:54:24.685Z warn: [ConverterHandler]: Entity with path Model:OSLO-Trajectcontroles-IM:W3C-REGORG:GeregistreerdeOrganisatie:^rechtsvorm has already a value for ap-usageNote-nl in language nl, but will be overwritten.
+    at EaUmlConversionService.run (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/lib/EaUmlConversionService.js:37:15)
 
 #||# -------------------------------------
+
+file voertuigregistratie.jsonld does not exist
 

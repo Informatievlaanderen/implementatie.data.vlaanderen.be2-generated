@@ -1,8 +1,8 @@
-INPUTTRANSLATIONFILE: /tmp/workspace/src/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0/translation/trajectcontrole_nl.json
+INPUTTRANSLATIONFILE: /tmp/workspace/src/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0/translation/voertuigregistratie_nl.json
 
-OUTPUTTRANSLATIONFILE: /tmp/workspace/report4/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0/translation/trajectcontrole_nl.json
+OUTPUTTRANSLATIONFILE: /tmp/workspace/report4/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0/translation/voertuigregistratie_nl.json
 
-TRANSLATIONFILE: trajectcontrole_nl.json
+TRANSLATIONFILE: voertuigregistratie_nl.json
 
 #||# translate for language nl  
 
@@ -18,5 +18,5 @@ WARNING The entered language values are the same!
 
 #||# Write complete  
 
-#||# the file was saved to: /tmp/workspace/report4/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0/translation/trajectcontrole_nl.json  
+#||# the file was saved to: /tmp/workspace/report4/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0/translation/voertuigregistratie_nl.json  
 
