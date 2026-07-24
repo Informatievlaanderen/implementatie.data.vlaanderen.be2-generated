@@ -1,5 +1,21 @@
 #||# checking publication points in directory /home/circleci/project/config/test
 #||# 
+#||#    + checking /home/circleci/project/config/test/generiek-im.publication.json
+#||# 
+#||# Directory check
+error: missing '/tmp/generated/ns/generiek'
+error: missing '/tmp/generated/doc/vocabularium/generiek'
+error: missing '/tmp/generated/ns/generiek/v0.1.0'
+error: missing '/tmp/generated/doc/vocabularium/generiek/v0.1.0'
+#||# 
+#||# index.html check
+error: missing '/tmp/generated/doc/implementatiemodel/generiek/index.html'
+error: missing '/tmp/generated/doc/implementatiemodel/generiek/v0.1.0/index.html'
+error: missing '/tmp/generated/ns/generiek/index.html'
+error: missing '/tmp/generated/doc/vocabularium/generiek/index.html'
+error: missing '/tmp/generated/ns/generiek/v0.1.0/index.html'
+error: missing '/tmp/generated/doc/vocabularium/generiek/v0.1.0/index.html'
+
 #||#    + checking /home/circleci/project/config/test/grar-adres-im.publication.json
 #||# 
 #||# Directory check
