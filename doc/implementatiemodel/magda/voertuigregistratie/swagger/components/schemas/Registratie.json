@@ -1,0 +1,63 @@
+{
+  "title": "Registratie",
+  "type": "object",
+  "description": "Document dat de registratie van een voertuig in het register aangeeft, sinds wanneer, en welk kenteken is toegewezen aan het voertuig.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Registratie)",
+      "pattern": "^Registratie$"
+    },
+    "registratiedatum": {
+      "type": "object",
+      "description": "Refereert naar de periode van tijd waarin de Activiteit plaatsvindt.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Date$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "nummerplaat": {
+      "$ref": "#/components/schemas/Nummerplaat"
+    },
+    "bestuurder": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    },
+    "voertuig": {
+      "$ref": "#/components/schemas/Voertuig"
+    }
+  },
+  "required": [
+    "@type",
+    "registratiedatum",
+    "nummerplaat",
+    "bestuurder"
+  ]
+}

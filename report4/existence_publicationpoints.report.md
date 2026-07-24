@@ -33,10 +33,10 @@ error: missing '/tmp/generated/doc/vocabularium/vkbo/onderneming/v0.0.6/index.ht
 #||# Directory check
 #||# 
 #||# index.html check
-error: missing '/tmp/generated/ns/magda/trajectcontrole/index.html'
-error: missing '/tmp/generated/doc/vocabularium/magda/trajectcontrole/index.html'
-error: missing '/tmp/generated/ns/magda/trajectcontrole/v0.1.0/index.html'
-error: missing '/tmp/generated/doc/vocabularium/magda/trajectcontrole/v0.1.0/index.html'
+error: missing '/tmp/generated/ns/magda/voertuigregistratie/index.html'
+error: missing '/tmp/generated/doc/vocabularium/magda/voertuigregistratie/index.html'
+error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.1.0/index.html'
+error: missing '/tmp/generated/doc/vocabularium/magda/voertuigregistratie/v0.1.0/index.html'
 
 #||#    + checking /home/circleci/project/config/test/verkeersmetingen-im.publication.json
 #||# 
