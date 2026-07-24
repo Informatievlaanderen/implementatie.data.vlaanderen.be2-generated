@@ -2,23 +2,23 @@
 
 #||# -------------------------------------
 
-2026-07-24T11:44:11.611Z info: Connector Model:OSLO-Voertuigregistratie-MAGDA-IM:OSLO-Voertuigregistratie:Registratie:(Registratie -> Nummerplaat) is not an association with a source role. Ignoring this connector.
+2026-07-24T12:04:23.353Z info: Connector Model:OSLO-Voertuigregistratie-MAGDA-IM:OSLO-Voertuigregistratie:Registratie:(Registratie -> Nummerplaat) is not an association with a source role. Ignoring this connector.
 
-2026-07-24T11:44:11.613Z info: Connector Model:OSLO-Voertuigregistratie-MAGDA-IM:Schema.org:Voertuig:(Voertuig -> Agent) is not an association with a source role. Ignoring this connector.
+2026-07-24T12:04:23.356Z info: Connector Model:OSLO-Voertuigregistratie-MAGDA-IM:Schema.org:Voertuig:(Voertuig -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-07-24T11:44:11.613Z info: Connector Model:OSLO-Voertuigregistratie-MAGDA-IM:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Agent) is not an association with a source role. Ignoring this connector.
+2026-07-24T12:04:23.356Z info: Connector Model:OSLO-Voertuigregistratie-MAGDA-IM:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-07-24T11:44:11.613Z info: Connector Model:OSLO-Voertuigregistratie-MAGDA-IM:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Agent) is not an association with a source role. Ignoring this connector.
+2026-07-24T12:04:23.356Z info: Connector Model:OSLO-Voertuigregistratie-MAGDA-IM:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-07-24T11:44:11.613Z info: Connector Model:OSLO-Voertuigregistratie-MAGDA-IM:OSLO-Voertuigregistratie:Registratie:(Registratie -> Agent) is not an association with a source role. Ignoring this connector.
+2026-07-24T12:04:23.356Z info: Connector Model:OSLO-Voertuigregistratie-MAGDA-IM:OSLO-Voertuigregistratie:Registratie:(Registratie -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-07-24T11:44:11.614Z info: Connector Model:OSLO-Voertuigregistratie-MAGDA-IM:OSLO-Voertuigregistratie:Registratie:(Registratie -> Voertuig) is not an association with a source role. Ignoring this connector.
+2026-07-24T12:04:23.356Z info: Connector Model:OSLO-Voertuigregistratie-MAGDA-IM:OSLO-Voertuigregistratie:Registratie:(Registratie -> Voertuig) is not an association with a source role. Ignoring this connector.
 
-2026-07-24T11:44:11.614Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+2026-07-24T12:04:23.357Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
-2026-07-24T11:44:11.623Z warn: [ConverterHandler]: Entity with path Model:OSLO-Voertuigregistratie-MAGDA-IM:W3C-REGORG:GeregistreerdeOrganisatie:^rechtsvorm has already a value for ap-label-nl in language nl, but will be overwritten.
+2026-07-24T12:04:23.368Z warn: [ConverterHandler]: Entity with path Model:OSLO-Voertuigregistratie-MAGDA-IM:W3C-REGORG:GeregistreerdeOrganisatie:^rechtsvorm has already a value for ap-label-nl in language nl, but will be overwritten.
 
-2026-07-24T11:44:11.623Z warn: [ConverterHandler]: Entity with path Model:OSLO-Voertuigregistratie-MAGDA-IM:W3C-REGORG:GeregistreerdeOrganisatie:^rechtsvorm has already a value for ap-usageNote-nl in language nl, but will be overwritten.
+2026-07-24T12:04:23.368Z warn: [ConverterHandler]: Entity with path Model:OSLO-Voertuigregistratie-MAGDA-IM:W3C-REGORG:GeregistreerdeOrganisatie:^rechtsvorm has already a value for ap-usageNote-nl in language nl, but will be overwritten.
 
 #||# -------------------------------------
 
