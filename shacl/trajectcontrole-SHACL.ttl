@@ -1,5 +1,6 @@
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schemas: <https://schema.org/> .
@@ -416,7 +417,7 @@
     shacl:name "type"@nl;
     shacl:path dc:type
   ];
-  shacl:targetClass <http://todo.com/Problemdetail> .
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#RegistratieShape> a shacl:NodeShape;
   rdfs:label "Registratie"@nl;
@@ -433,18 +434,18 @@
     shacl:maxCount 1;
     shacl:minCount 1;
     shacl:name "registratiedatum"@nl;
-    shacl:path <https://www.w3.org/ns/prov#time>
+    shacl:path prov:time
   ], [
     a shacl:PropertyShape;
-    rdfs:label "kenteken"@nl;
-    rdfs:comment "test"@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#Registratie.Kenteken>;
-    shacl:class <http://todo.com/Registratienummer>;
-    shacl:description "test"@nl;
+    rdfs:label "nummerplaat"@nl;
+    rdfs:comment "Een plaat die het kenteken bevat van het voertuig waaronder het voertuig geregistreerd werd."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#Registratie.Nummerplaat>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratienummer>;
+    shacl:description "Een plaat die het kenteken bevat van het voertuig waaronder het voertuig geregistreerd werd."@nl;
     shacl:maxCount 1;
     shacl:minCount 1;
-    shacl:name "kenteken"@nl;
-    shacl:path <http://todo.com/nummerplaat>
+    shacl:name "nummerplaat"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#nummerplaat>
   ], [
     a shacl:PropertyShape;
     rdfs:label "bestuurder"@nl;
@@ -467,7 +468,7 @@
     shacl:name "voertuig"@nl;
     shacl:path dc:hasPart
   ];
-  shacl:targetClass <http://todo.com/Registratie> .
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#RegistratienummerShape> a shacl:NodeShape;
   rdfs:label "Registratienummer";
@@ -485,15 +486,17 @@
     shacl:path dc:issued
   ], [
     a shacl:PropertyShape;
-    rdfs:label "registratienummer";
+    rdfs:label "registratienummer"@nl;
+    rdfs:comment "Het nummer waaronder het voertuig gekend is bij het register."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#Registratienummer.Registratienummer>;
     shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Het nummer waaronder het voertuig gekend is bij het register."@nl;
     shacl:maxCount 1;
     shacl:minCount 1;
-    shacl:name "registratienummer";
-    shacl:path <http://todo.com/registratienummer>
+    shacl:name "registratienummer"@nl;
+    shacl:path <http://www.w3.org/ns/adms#identifier>
   ];
-  shacl:targetClass <http://todo.com/Registratienummer> .
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratienummer> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#StringShape> a shacl:NodeShape;
   rdfs:label "String";
@@ -598,7 +601,7 @@
     rdfs:label "data"@nl;
     rdfs:comment "De data die overgedragen werd."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#VoertuigeregistratieEnvelop.Data>;
-    shacl:class <http://todo.com/Registratie>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie>;
     shacl:description "De data die overgedragen werd."@nl;
     shacl:maxCount 1;
     shacl:name "data"@nl;
@@ -609,9 +612,9 @@
     <http://purl.org/vocab/vann/usageNote> "Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen."@nl;
     rdfs:comment "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#VoertuigeregistratieEnvelop.Warning>;
-    shacl:class <http://todo.com/Problemdetail>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail>;
     shacl:description "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
     shacl:name "warning"@nl;
     shacl:path schemas:error
   ];
-  shacl:targetClass <http://todo.com/VoertuigregistratieEnvelop> .
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VoertuigregistratieEnvelop> .
