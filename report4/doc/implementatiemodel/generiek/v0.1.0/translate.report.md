@@ -12,7 +12,7 @@ TRANSLATIONFILE: _nl.json
 
 #||# done  
 
-SyntaxError: /tmp/workspace/report4/doc/implementatiemodel/generiek/v0.1.0/all-generiek.jsonld: Unexpected end of JSON input
+SyntaxError: /tmp/workspace/report4/doc/implementatiemodel/generiek/v0.1.0/all-generiek-implementatie.jsonld: Unexpected end of JSON input
 
     at JSON.parse (<anonymous>)
 

@@ -3,10 +3,6 @@
 #||#    + checking /home/circleci/project/config/test/generiek-im.publication.json
 #||# 
 #||# Directory check
-error: missing '/tmp/generated/ns/generiek'
-error: missing '/tmp/generated/doc/vocabularium/generiek'
-error: missing '/tmp/generated/ns/generiek/v0.1.0'
-error: missing '/tmp/generated/doc/vocabularium/generiek/v0.1.0'
 #||# 
 #||# index.html check
 error: missing '/tmp/generated/doc/implementatiemodel/generiek/index.html'
