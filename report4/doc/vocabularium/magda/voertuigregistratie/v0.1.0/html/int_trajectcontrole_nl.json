@@ -1,6 +1,330 @@
 {
-  "baseURI": "https://implementatie.data.vlaanderen.be/ns/magda/trajectcontrole#",
-  "classes": [],
+  "baseURI": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#",
+  "classes": [
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat",
+      "vocabularyLabel": {
+        "nl": "Nummerplaat"
+      },
+      "applicationProfileLabel": {
+        "nl": "Nummerplaat"
+      },
+      "applicationProfileDefinition": {
+        "nl": "De fysieke bekendmaking van het registratienummer van het Voertuig."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "http://purl.org/dc/terms/issued",
+          "vocabularyLabel": {
+            "nl": "^referentiedatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "referentiedatum"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Datum waarvoor de toestand van de entiteit opgevraagd is."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#dateTime",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "DateTime"
+            },
+            "applicationProfileLabel": {
+              "nl": "DateTime"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://www.w3.org/ns/adms#identifier",
+          "vocabularyLabel": {
+            "nl": "registratienummer"
+          },
+          "applicationProfileLabel": {
+            "nl": "registratienummer"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het nummer waaronder het voertuig gekend is bij het register."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat",
+          "range": {
+            "id": "http://www.w3.org/ns/adms#Identifier",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Identificator"
+            },
+            "applicationProfileLabel": {
+              "nl": "Identificator"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie",
+      "vocabularyLabel": {
+        "nl": "Registratie"
+      },
+      "applicationProfileLabel": {
+        "nl": "Registratie"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Document dat de registratie van een voertuig in het register aangeeft, sinds wanneer, en welk kenteken is toegewezen aan het voertuig."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Toegepast op de inschrijving van een voertuig."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Toegepast op de inschrijving van een voertuig."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "http://purl.org/dc/terms/audience",
+          "vocabularyLabel": {
+            "nl": "houder"
+          },
+          "applicationProfileLabel": {
+            "nl": "bestuurder"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De Agent die het Voertuig gebruikt volgens het register."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie",
+          "range": {
+            "id": "http://xmlns.com/foaf/0.1/Agent",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Agent"
+            },
+            "applicationProfileLabel": {
+              "nl": "Agent"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/hasPart",
+          "vocabularyLabel": {
+            "nl": "nummerplaat"
+          },
+          "applicationProfileLabel": {
+            "nl": "nummerplaat"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Een plaat die het kenteken bevat van het voertuig waaronder het voertuig geregistreerd werd."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie",
+          "range": {
+            "id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Nummerplaat"
+            },
+            "applicationProfileLabel": {
+              "nl": "Nummerplaat"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://www.w3.org/ns/prov#time",
+          "vocabularyLabel": {
+            "nl": "registratiedatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "registratiedatum"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Refereert naar de periode van tijd waarin de Activiteit plaatsvindt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/hasPart",
+          "vocabularyLabel": {
+            "nl": "voertuig"
+          },
+          "applicationProfileLabel": {
+            "nl": "voertuig"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het voertuig dat gekoppeld is aan het Registratiebewijs."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie",
+          "range": {
+            "id": "https://schema.org/Vehicle",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Voertuig"
+            },
+            "applicationProfileLabel": {
+              "nl": "Voertuig"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VoertuigregistratieEnvelop",
+      "vocabularyLabel": {
+        "nl": "VoertuigeregistratieEnvelop"
+      },
+      "applicationProfileLabel": {
+        "nl": "VoertuigeregistratieEnvelop"
+      },
+      "vocabularyDefinition": {
+        "nl": "Enveloppe om voertuigregistraties en bijhorende validatiewaarschuwing uit te wisselen."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Enveloppe om voertuigregistraties en bijhorende validatiewaarschuwing uit te wisselen."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."
+      },
+      "parents": [
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Envelope",
+          "vocabularyLabel": {
+            "nl": "envelop"
+          },
+          "applicationProfileLabel": {
+            "nl": "envelop"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "https://schema.org/data",
+          "vocabularyLabel": {
+            "nl": "^data"
+          },
+          "applicationProfileLabel": {
+            "nl": "data"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De data die overgedragen werd."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VoertuigregistratieEnvelop",
+          "range": {
+            "id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Registratie"
+            },
+            "applicationProfileLabel": {
+              "nl": "Registratie"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://schema.org/error",
+          "vocabularyLabel": {
+            "nl": "^warning"
+          },
+          "applicationProfileLabel": {
+            "nl": "warning"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Foutmeldingen die opgetreden zijn bij het afleveren van de data."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VoertuigregistratieEnvelop",
+          "range": {
+            "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Problemdetail"
+            },
+            "applicationProfileLabel": {
+              "nl": "Problemdetail"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "http://purl.org/dc/terms/language",
+          "vocabularyLabel": {
+            "nl": "language"
+          },
+          "applicationProfileLabel": {
+            "nl": "language"
+          },
+          "vocabularyDefinition": {
+            "nl": "Language of the response."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Language of the response."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VoertuigregistratieEnvelop",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#language",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Language"
+            },
+            "applicationProfileLabel": {
+              "nl": "Language"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    }
+  ],
   "dataTypes": [
     {
       "id": "http://www.w3.org/ns/locn#Address",
