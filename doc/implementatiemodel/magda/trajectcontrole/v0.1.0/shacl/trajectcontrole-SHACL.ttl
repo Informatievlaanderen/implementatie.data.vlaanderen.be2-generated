@@ -11,7 +11,7 @@
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#ProblemdetailShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#VoertuigeregistratieEnvelopShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#RegistratieShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#RegistratienummerShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#NummerplaatShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#GeregistreerdeOrganisatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#AgentShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#VoertuigShape>,
@@ -339,6 +339,35 @@
   shacl:closed false;
   shacl:targetClass xsd:language .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#NummerplaatShape> a shacl:NodeShape;
+  rdfs:label "Nummerplaat"@nl;
+  rdfs:comment "De fysieke bekendmaking van het registratienummer van het Voertuig."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "referentiedatum"@nl;
+    rdfs:comment "Datum waarvoor de toestand van de entiteit opgevraagd is."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#Nummerplaat.Referentiedatum>;
+    shacl:datatype xsd:dateTime;
+    shacl:description "Datum waarvoor de toestand van de entiteit opgevraagd is."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "referentiedatum"@nl;
+    shacl:path dc:issued
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "registratienummer"@nl;
+    rdfs:comment "Het nummer waaronder het voertuig gekend is bij het register."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#Nummerplaat.Registratienummer>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Het nummer waaronder het voertuig gekend is bij het register."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "registratienummer"@nl;
+    shacl:path <http://www.w3.org/ns/adms#identifier>
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat> .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#PlaatsShape> a shacl:NodeShape;
   rdfs:label "Plaats"@nl;
   rdfs:comment "Een ruimtelijk gebied of benoemde plaats."@nl;
@@ -440,18 +469,18 @@
     rdfs:label "nummerplaat"@nl;
     rdfs:comment "Een plaat die het kenteken bevat van het voertuig waaronder het voertuig geregistreerd werd."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#Registratie.Nummerplaat>;
-    shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratienummer>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat>;
     shacl:description "Een plaat die het kenteken bevat van het voertuig waaronder het voertuig geregistreerd werd."@nl;
     shacl:maxCount 1;
     shacl:minCount 1;
     shacl:name "nummerplaat"@nl;
-    shacl:path <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#nummerplaat>
+    shacl:path dc:hasPart
   ], [
     a shacl:PropertyShape;
     rdfs:label "bestuurder"@nl;
-    rdfs:comment "De Agent die het Voertuig bestuurt volgens het register."@nl;
+    rdfs:comment "De Agent die het Voertuig gebruikt volgens het register."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#Registratie.Bestuurder>;
-    shacl:description "De Agent die het Voertuig bestuurt volgens het register."@nl;
+    shacl:description "De Agent die het Voertuig gebruikt volgens het register."@nl;
     shacl:maxCount 1;
     shacl:minCount 1;
     shacl:name "bestuurder"@nl;
@@ -469,34 +498,6 @@
     shacl:path dc:hasPart
   ];
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie> .
-
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#RegistratienummerShape> a shacl:NodeShape;
-  rdfs:label "Registratienummer";
-  shacl:closed false;
-  shacl:property [
-    a shacl:PropertyShape;
-    rdfs:label "referentiedatum"@nl;
-    rdfs:comment "Datum waarvoor de toestand van de entiteit opgevraagd is."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#Registratienummer.Referentiedatum>;
-    shacl:datatype xsd:dateTime;
-    shacl:description "Datum waarvoor de toestand van de entiteit opgevraagd is."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "referentiedatum"@nl;
-    shacl:path dc:issued
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "registratienummer"@nl;
-    rdfs:comment "Het nummer waaronder het voertuig gekend is bij het register."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#Registratienummer.Registratienummer>;
-    shacl:class <http://www.w3.org/ns/adms#Identifier>;
-    shacl:description "Het nummer waaronder het voertuig gekend is bij het register."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "registratienummer"@nl;
-    shacl:path <http://www.w3.org/ns/adms#identifier>
-  ];
-  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratienummer> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#StringShape> a shacl:NodeShape;
   rdfs:label "String";
@@ -571,13 +572,15 @@
     shacl:path schemas:vehicleIdentificationNumber
   ], [
     a shacl:PropertyShape;
-    rdfs:label "eigenaar";
+    rdfs:label "eigenaar"@nl;
+    rdfs:comment "Agent die het Voertuig bezit."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#Voertuig.Eigenaar>;
+    shacl:description "Agent die het Voertuig bezit."@nl;
     shacl:maxCount 1;
     shacl:minCount 1;
-    shacl:name "eigenaar";
+    shacl:name "eigenaar"@nl;
     shacl:or ([shacl:class foaf:Agent] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>]);
-    shacl:path <http://todo.com/eigenaar>
+    shacl:path schemas:owner
   ];
   shacl:targetClass schemas:Vehicle .
 

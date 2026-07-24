@@ -234,7 +234,7 @@
             ]
           },
           "nummerplaat": {
-            "$ref": "#/components/schemas/Registratienummer"
+            "$ref": "#/components/schemas/Nummerplaat"
           },
           "bestuurder": {
             "oneOf": [
@@ -264,9 +264,10 @@
           "bestuurder"
         ]
       },
-      "Registratienummer": {
-        "title": "Registratienummer",
+      "Nummerplaat": {
+        "title": "Nummerplaat",
         "type": "object",
+        "description": "De fysieke bekendmaking van het registratienummer van het Voertuig.",
         "properties": {
           "@id": {
             "type": "string",
@@ -274,8 +275,8 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse Registratienummer)",
-            "pattern": "^Registratienummer$"
+            "description": "Object type (klasse Nummerplaat)",
+            "pattern": "^Nummerplaat$"
           },
           "referentiedatum": {
             "type": "object",
@@ -807,7 +808,7 @@
         "parameters": {
           "id": "$response.body#/Registratie.nummerplaat/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Registratienummer` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Nummerplaat` op te halen."
       },
       "Registratie.bestuurder": {
         "operationId": "RegistratieGET",
@@ -823,10 +824,10 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Voertuig` op te halen."
       },
-      "Registratienummer.registratienummer": {
-        "operationId": "RegistratienummerGET",
+      "Nummerplaat.registratienummer": {
+        "operationId": "NummerplaatGET",
         "parameters": {
-          "id": "$response.body#/Registratienummer.registratienummer/@id"
+          "id": "$response.body#/Nummerplaat.registratienummer/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
       },

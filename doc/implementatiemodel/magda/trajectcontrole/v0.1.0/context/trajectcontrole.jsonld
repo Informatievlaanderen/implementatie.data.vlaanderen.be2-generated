@@ -140,6 +140,19 @@
     "Literal": {
       "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
     },
+    "Nummerplaat": {
+      "@context": {
+        "referentiedatum": {
+          "@id": "http://purl.org/dc/terms/issued",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "registratienummer": {
+          "@id": "http://www.w3.org/ns/adms#identifier",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat"
+    },
     "Plaats": {
       "@context": {
         "plaatsnaam": {
@@ -187,8 +200,8 @@
           "@type": "http://xmlns.com/foaf/0.1/Agent"
         },
         "nummerplaat": {
-          "@id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#nummerplaat",
-          "@type": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratienummer"
+          "@id": "http://purl.org/dc/terms/hasPart",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat"
         },
         "registratiedatum": {
           "@id": "http://www.w3.org/ns/prov#time",
@@ -200,19 +213,6 @@
         }
       },
       "@id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie"
-    },
-    "Registratienummer": {
-      "@context": {
-        "referentiedatum": {
-          "@id": "http://purl.org/dc/terms/issued",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        },
-        "registratienummer": {
-          "@id": "http://www.w3.org/ns/adms#identifier",
-          "@type": "http://www.w3.org/ns/adms#Identifier"
-        }
-      },
-      "@id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratienummer"
     },
     "String": {
       "@id": "http://www.w3.org/2001/XMLSchema#string"
@@ -231,7 +231,7 @@
           "@type": "http://www.w3.org/2001/XMLSchema#date"
         },
         "eigenaar": {
-          "@id": "http://todo.com/eigenaar",
+          "@id": "https://schema.org/owner",
           "@type": "http://xmlns.com/foaf/0.1/Agent"
         },
         "fabrikantNaam": {

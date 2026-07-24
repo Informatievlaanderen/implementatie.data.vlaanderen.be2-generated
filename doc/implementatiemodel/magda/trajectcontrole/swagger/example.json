@@ -664,7 +664,7 @@
                 "parameters": {
                   "id": "$response.body#/Registratie.nummerplaat/@id"
                 },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Registratienummer` op te halen."
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Nummerplaat` op te halen."
               },
               "Registratie.bestuurder": {
                 "operationId": "RegistratieGET",
@@ -856,15 +856,16 @@
         }
       }
     },
-    "/id/Registratienummer/{id}": {
+    "/id/Nummerplaat/{id}": {
       "get": {
-        "operationId": "RegistratienummerGET",
+        "summary": "De fysieke bekendmaking van het registratienummer van het Voertuig.",
+        "operationId": "NummerplaatGET",
         "parameters": [
           {
             "name": "id",
             "required": true,
             "in": "path",
-            "description": "Identificator van een Registratienummer object.",
+            "description": "Identificator van een Nummerplaat object.",
             "schema": {
               "type": "string"
             }
@@ -872,19 +873,19 @@
         ],
         "responses": {
           "200": {
-            "description": "Registratienummer object gevonden.",
+            "description": "Nummerplaat object gevonden.",
             "content": {
               "application/ld+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Registratienummer"
+                  "$ref": "#/components/schemas/Nummerplaat"
                 }
               }
             },
             "links": {
-              "Registratienummer.registratienummer": {
-                "operationId": "RegistratienummerGET",
+              "Nummerplaat.registratienummer": {
+                "operationId": "NummerplaatGET",
                 "parameters": {
-                  "id": "$response.body#/Registratienummer.registratienummer/@id"
+                  "id": "$response.body#/Nummerplaat.registratienummer/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
               }
@@ -901,7 +902,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "RegistratienummerGET",
+                "operationId": "NummerplaatGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -920,7 +921,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "RegistratienummerGET",
+                "operationId": "NummerplaatGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -939,7 +940,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "RegistratienummerGET",
+                "operationId": "NummerplaatGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -958,7 +959,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "RegistratienummerGET",
+                "operationId": "NummerplaatGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -977,7 +978,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "RegistratienummerGET",
+                "operationId": "NummerplaatGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -996,7 +997,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "RegistratienummerGET",
+                "operationId": "NummerplaatGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -1015,7 +1016,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "RegistratienummerGET",
+                "operationId": "NummerplaatGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -1034,7 +1035,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "RegistratienummerGET",
+                "operationId": "NummerplaatGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -1053,7 +1054,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "RegistratienummerGET",
+                "operationId": "NummerplaatGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -2972,7 +2973,7 @@
             ]
           },
           "nummerplaat": {
-            "$ref": "#/components/schemas/Registratienummer"
+            "$ref": "#/components/schemas/Nummerplaat"
           },
           "bestuurder": {
             "oneOf": [
@@ -3002,9 +3003,10 @@
           "bestuurder"
         ]
       },
-      "Registratienummer": {
-        "title": "Registratienummer",
+      "Nummerplaat": {
+        "title": "Nummerplaat",
         "type": "object",
+        "description": "De fysieke bekendmaking van het registratienummer van het Voertuig.",
         "properties": {
           "@id": {
             "type": "string",
@@ -3012,8 +3014,8 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse Registratienummer)",
-            "pattern": "^Registratienummer$"
+            "description": "Object type (klasse Nummerplaat)",
+            "pattern": "^Nummerplaat$"
           },
           "referentiedatum": {
             "type": "object",

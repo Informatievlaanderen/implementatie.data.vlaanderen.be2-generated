@@ -12,7 +12,7 @@
         "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#RegistratieShape"
       },
       {
-        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#RegistratienummerShape"
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#NummerplaatShape"
       },
       {
         "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#GeregistreerdeOrganisatieShape"
@@ -476,6 +476,43 @@
     ]
   },
   {
+    "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#NummerplaatShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "nl",
+        "@value": "De fysieke bekendmaking van het registratienummer van het Voertuig."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "nl",
+        "@value": "Nummerplaat"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#closed": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": "false"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:df_2_26"
+      },
+      {
+        "@id": "_:df_2_30"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat"
+      }
+    ]
+  },
+  {
     "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#PlaatsShape",
     "@type": [
       "http://www.w3.org/ns/shacl#NodeShape"
@@ -558,36 +595,6 @@
     "http://www.w3.org/ns/shacl#targetClass": [
       {
         "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail"
-      }
-    ]
-  },
-  {
-    "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#RegistratienummerShape",
-    "@type": [
-      "http://www.w3.org/ns/shacl#NodeShape"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@value": "Registratienummer"
-      }
-    ],
-    "http://www.w3.org/ns/shacl#closed": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
-        "@value": "false"
-      }
-    ],
-    "http://www.w3.org/ns/shacl#property": [
-      {
-        "@id": "_:df_2_26"
-      },
-      {
-        "@id": "_:df_2_30"
-      }
-    ],
-    "http://www.w3.org/ns/shacl#targetClass": [
-      {
-        "@id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratienummer"
       }
     ]
   },
@@ -1840,7 +1847,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#Registratienummer.Referentiedatum"
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#Nummerplaat.Referentiedatum"
       }
     ],
     "http://www.w3.org/ns/shacl#datatype": [
@@ -2107,7 +2114,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#Registratienummer.Registratienummer"
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#Nummerplaat.Registratienummer"
       }
     ],
     "http://www.w3.org/ns/shacl#class": [
@@ -2625,7 +2632,7 @@
     ],
     "http://www.w3.org/ns/shacl#class": [
       {
-        "@id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratienummer"
+        "@id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat"
       }
     ],
     "http://www.w3.org/ns/shacl#description": [
@@ -2654,7 +2661,7 @@
     ],
     "http://www.w3.org/ns/shacl#path": [
       {
-        "@id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#nummerplaat"
+        "@id": "http://purl.org/dc/terms/hasPart"
       }
     ]
   },
@@ -2720,14 +2727,27 @@
     "@type": [
       "http://www.w3.org/ns/shacl#PropertyShape"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "nl",
+        "@value": "Agent die het Voertuig bezit."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
+        "@language": "nl",
         "@value": "eigenaar"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
         "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/trajectcontrole/v0.1.0#Voertuig.Eigenaar"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@language": "nl",
+        "@value": "Agent die het Voertuig bezit."
       }
     ],
     "http://www.w3.org/ns/shacl#maxCount": [
@@ -2744,6 +2764,7 @@
     ],
     "http://www.w3.org/ns/shacl#name": [
       {
+        "@language": "nl",
         "@value": "eigenaar"
       }
     ],
@@ -2754,7 +2775,7 @@
     ],
     "http://www.w3.org/ns/shacl#path": [
       {
-        "@id": "http://todo.com/eigenaar"
+        "@id": "https://schema.org/owner"
       }
     ]
   },
@@ -2766,7 +2787,7 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "nl",
-        "@value": "De Agent die het Voertuig bestuurt volgens het register."
+        "@value": "De Agent die het Voertuig gebruikt volgens het register."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -2783,7 +2804,7 @@
     "http://www.w3.org/ns/shacl#description": [
       {
         "@language": "nl",
-        "@value": "De Agent die het Voertuig bestuurt volgens het register."
+        "@value": "De Agent die het Voertuig gebruikt volgens het register."
       }
     ],
     "http://www.w3.org/ns/shacl#maxCount": [
