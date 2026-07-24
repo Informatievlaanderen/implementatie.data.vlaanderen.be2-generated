@@ -40,12 +40,6 @@ error: missing '/tmp/generated/doc/vocabularium/vkbo/onderneming/v0.0.6/index.ht
 #||# 
 #||# index.html check
 
-#||#    + checking /home/circleci/project/config/test/trajectcontrole-im.publication.json
-#||# 
-#||# Directory check
-#||# 
-#||# index.html check
-
 #||#    + checking /home/circleci/project/config/test/verkeersmetingen-im.publication.json
 #||# 
 #||# Directory check
@@ -59,6 +53,12 @@ error: missing '/tmp/generated/doc/implementatiemodel/kruispuntmetingen//index.h
 error: missing '/tmp/generated/ns/vsds-verkeersmetingverzameling//index.html'
 
 #||#    + checking /home/circleci/project/config/test/vmsw.publication.json
+#||# 
+#||# Directory check
+#||# 
+#||# index.html check
+
+#||#    + checking /home/circleci/project/config/test/voertuigregistratie-im.publication.json
 #||# 
 #||# Directory check
 #||# 

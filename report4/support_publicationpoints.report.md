@@ -10,11 +10,11 @@
 #||#  
 #||#   + adding supporting /home/circleci/project/config/test/persoon-im.publication.json
 #||#  
-#||#   + adding supporting /home/circleci/project/config/test/trajectcontrole-im.publication.json
-#||#  
 #||#   + adding supporting /home/circleci/project/config/test/verkeersmetingen-im.publication.json
 #||#  
 #||#   + adding supporting /home/circleci/project/config/test/vmsw.publication.json
+#||#  
+#||#   + adding supporting /home/circleci/project/config/test/voertuigregistratie-im.publication.json
 #||#  
 Error: the following directories are unsupported
 [
