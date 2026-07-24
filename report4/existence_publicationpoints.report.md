@@ -53,3 +53,9 @@ error: missing '/tmp/generated/ns/magda/persoon/v0.0.1/index.html'
 #||# 
 #||# index.html check
 
+#||#    + checking /home/circleci/project/config/production/voertuigregistratie-im.publication.json
+#||# 
+#||# Directory check
+#||# 
+#||# index.html check
+

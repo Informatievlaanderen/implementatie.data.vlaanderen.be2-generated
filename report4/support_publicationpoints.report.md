@@ -14,6 +14,8 @@
 #||#  
 #||#   + adding supporting /home/circleci/project/config/production/vmsw.publication.json
 #||#  
+#||#   + adding supporting /home/circleci/project/config/production/voertuigregistratie-im.publication.json
+#||#  
 Error: the following directories are unsupported
 [
   "/tmp/generated/doc/implementatiemodel/asbestinventaris",

@@ -1,0 +1,53 @@
+{
+  "title": "VoertuigeregistratieEnvelop",
+  "type": "object",
+  "description": "Enveloppe om voertuigregistraties en bijhorende validatiewaarschuwing uit te wisselen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse VoertuigeregistratieEnvelop)",
+      "pattern": "^VoertuigeregistratieEnvelop$"
+    },
+    "language": {
+      "type": "object",
+      "description": "De taal van het antwoord.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "pattern": "^[a-z]{2,3}(-[A-Z]{2})?"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Language$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "data": {
+      "$ref": "#/components/schemas/Registratie"
+    },
+    "warning": {
+      "type": "array",
+      "description": "Lijst van Problemdetail items.",
+      "items": {
+        "$ref": "#/components/schemas/Problemdetail"
+      },
+      "minItems": 1
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/\\/doc\\/implementatiemodel\\/magda\\/voertuigregistratie\\/v0.1.0\\/context\\/voertuigregistratie.jsonld$"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}
