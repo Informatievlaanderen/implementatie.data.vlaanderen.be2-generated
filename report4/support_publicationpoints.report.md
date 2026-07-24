@@ -17,5 +17,7 @@
 Error: the following directories are unsupported
 [
   "/tmp/generated/doc/implementatiemodel/verkeersmetingen",
-  "/tmp/generated/doc/implementatiemodel/verkeersmetingverzameling"
+  "/tmp/generated/doc/implementatiemodel/verkeersmetingverzameling",
+  "/tmp/generated/doc/implementatiemodel/MAGDA/trajectcontrole",
+  "/tmp/generated/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1"
 ]

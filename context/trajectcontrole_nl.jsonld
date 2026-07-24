@@ -34,12 +34,6 @@
       "@id": "http://www.w3.org/ns/locn#Address"
     },
     "Agent": {
-      "@context": {
-        "modificatiedatum": {
-          "@id": "http://purl.org/dc/terms/modified",
-          "@type": "http://www.w3.org/2001/XMLSchema#date"
-        }
-      },
       "@id": "http://xmlns.com/foaf/0.1/Agent"
     },
     "Contactpunt": {
@@ -56,19 +50,6 @@
     },
     "DateTime": {
       "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
-    },
-    "Geboorte": {
-      "@context": {
-        "datum": {
-          "@id": "http://purl.org/dc/terms/date",
-          "@type": "http://www.w3.org/2001/XMLSchema#date"
-        },
-        "plaats": {
-          "@id": "http://purl.org/dc/terms/spatial",
-          "@type": "http://purl.org/dc/terms/Location"
-        }
-      },
-      "@id": "https://data.vlaanderen.be/ns/persoon#Geboorte"
     },
     "GeregistreerdPersoon": {
       "@context": {
@@ -89,16 +70,11 @@
           "@id": "http://data.europa.eu/m8g/gender",
           "@type": "http://www.w3.org/2004/02/skos/core#Concept"
         },
-        "heeftGeboorte": {
-          "@id": "https://data.vlaanderen.be/ns/persoon#heeftGeboorte",
-          "@type": "https://data.vlaanderen.be/ns/persoon#Geboorte"
-        },
-        "modificatiedatum": {
-          "@id": "http://purl.org/dc/terms/modified",
-          "@type": "http://www.w3.org/2001/XMLSchema#date"
+        "referentiedatum": {
+          "@id": "http://purl.org/dc/terms/issued",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
         },
         "registratie": {
-          "@container": "@set",
           "@id": "https://data.vlaanderen.be/ns/persoon#registratie",
           "@type": "http://www.w3.org/ns/adms#Identifier"
         },
@@ -116,13 +92,13 @@
     },
     "GeregistreerdeOrganisatie": {
       "@context": {
-        "modificatiedatum": {
-          "@id": "http://purl.org/dc/terms/modified",
-          "@type": "http://www.w3.org/2001/XMLSchema#date"
-        },
         "rechtspersoonlijkheid": {
           "@id": "https://data.vlaanderen.be/ns/organisatie#rechtspersoonlijkheid",
           "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "referentiedatum": {
+          "@id": "http://purl.org/dc/terms/issued",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
         },
         "registratie": {
           "@id": "http://www.w3.org/ns/regorg#registration",
@@ -196,7 +172,7 @@
           "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         }
       },
-      "@id": "https://implementatie.data.vlaanderen.be/ns/magda/trajectcontrole#Problemdetail"
+      "@id": "http://todo.com/Problemdetail"
     },
     "Rechtspersoonlijkheidtype": {
       "@id": "http://www.w3.org/2004/02/skos/core#Concept"
@@ -204,58 +180,45 @@
     "Rechtsvormtype": {
       "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
-    "Registratiebewijs": {
+    "Registratie": {
       "@context": {
         "bestuurder": {
           "@id": "http://purl.org/dc/terms/audience",
           "@type": "http://xmlns.com/foaf/0.1/Agent"
         },
-        "eigenaar": {
-          "@id": "http://purl.org/dc/terms/rightsHolder",
-          "@type": "http://xmlns.com/foaf/0.1/Agent"
-        },
         "kenteken": {
-          "@id": "http://www.w3.org/ns/adms#identifier",
-          "@type": "http://www.w3.org/ns/adms#Identifier"
-        },
-        "modificatiedatum": {
-          "@id": "http://purl.org/dc/terms/modified",
-          "@type": "http://www.w3.org/2001/XMLSchema#date"
+          "@id": "http://todo.com/nummerplaat",
+          "@type": "http://todo.com/Registratienummer"
         },
         "registratiedatum": {
-          "@id": "http://purl.org/dc/terms/created",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        },
-        "taal": {
-          "@id": "http://purl.org/dc/terms/language",
-          "@type": "http://www.w3.org/2001/XMLSchema#language"
+          "@id": "https://www.w3.org/ns/prov#time",
+          "@type": "http://www.w3.org/2001/XMLSchema#date"
         },
         "voertuig": {
           "@id": "http://purl.org/dc/terms/hasPart",
           "@type": "https://schema.org/Vehicle"
         }
       },
-      "@id": "https://w3id.org/dpv#Certification"
+      "@id": "http://todo.com/Registratie"
+    },
+    "Registratienummer": {
+      "@context": {
+        "referentiedatum": {
+          "@id": "http://purl.org/dc/terms/issued",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "registratienummer": {
+          "@id": "http://todo.com/registratienummer",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        }
+      },
+      "@id": "http://todo.com/Registratienummer"
     },
     "String": {
       "@id": "http://www.w3.org/2001/XMLSchema#string"
     },
     "Uri": {
       "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
-    },
-    "VehicleRegistrationEnvelop": {
-      "@context": {
-        "data": {
-          "@id": "https://schema.org/data",
-          "@type": "https://w3id.org/dpv#Certification"
-        },
-        "warning": {
-          "@container": "@set",
-          "@id": "https://schema.org/error",
-          "@type": "https://implementatie.data.vlaanderen.be/ns/magda/trajectcontrole#Problemdetail"
-        }
-      },
-      "@id": "https://implementatie.data.vlaanderen.be/ns/magda/trajectcontrole#VehicleRegistrationEnvelop"
     },
     "Voertuig": {
       "@context": {
@@ -266,6 +229,10 @@
         "eersteRegistratieDatum": {
           "@id": "https://schema.org/dateVehicleFirstRegistered",
           "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "eigenaar": {
+          "@id": "http://todo.com/eigenaar",
+          "@type": "http://xmlns.com/foaf/0.1/Agent"
         },
         "fabrikantNaam": {
           "@id": "https://schema.org/alternateName",
@@ -284,6 +251,24 @@
     },
     "VoertuigType": {
       "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+    },
+    "VoertuigeregistratieEnvelop": {
+      "@context": {
+        "data": {
+          "@id": "https://schema.org/data",
+          "@type": "http://todo.com/Registratie"
+        },
+        "language": {
+          "@id": "http://purl.org/dc/terms/language",
+          "@type": "http://www.w3.org/2001/XMLSchema#language"
+        },
+        "warning": {
+          "@container": "@set",
+          "@id": "https://schema.org/error",
+          "@type": "http://todo.com/Problemdetail"
+        }
+      },
+      "@id": "http://todo.com/VoertuigregistratieEnvelop"
     }
   }
 }

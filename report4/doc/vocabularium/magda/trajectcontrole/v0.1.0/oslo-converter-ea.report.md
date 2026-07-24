@@ -1,0 +1,42 @@
+#||# oslo-converter-ea for diagram OSLO-Trajectcontrole-IM-Enumeraties
+
+#||# -------------------------------------
+
+2026-07-24T07:12:46.575Z info: Connector Model:OSLO-Trajectcontroles-IM:OSLO-Voertuigregistratie:Registratie:(Registratie -> Registratienummer) is not an association with a source role. Ignoring this connector.
+
+2026-07-24T07:12:46.578Z info: Connector Model:OSLO-Trajectcontroles-IM:Schema.org:Voertuig:(Voertuig -> Agent) is not an association with a source role. Ignoring this connector.
+
+2026-07-24T07:12:46.578Z info: Connector Model:OSLO-Trajectcontroles-IM:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Agent) is not an association with a source role. Ignoring this connector.
+
+2026-07-24T07:12:46.579Z info: Connector Model:OSLO-Trajectcontroles-IM:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Agent) is not an association with a source role. Ignoring this connector.
+
+2026-07-24T07:12:46.579Z info: Connector Model:OSLO-Trajectcontroles-IM:OSLO-Voertuigregistratie:Registratie:(Registratie -> Agent) is not an association with a source role. Ignoring this connector.
+
+2026-07-24T07:12:46.579Z info: Connector Model:OSLO-Trajectcontroles-IM:OSLO-Voertuigregistratie:Registratie:(Registratie -> Voertuig) is not an association with a source role. Ignoring this connector.
+
+2026-07-24T07:12:46.580Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+
+2026-07-24T07:12:46.580Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM:W3C-Person). Using fallback URI (http://todo.com/) instead.
+
+2026-07-24T07:12:46.580Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM:Dummy). Using fallback URI (http://todo.com/) instead.
+
+2026-07-24T07:12:46.581Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM - Copy:Dummy). Using fallback URI (http://todo.com/) instead.
+
+2026-07-24T07:12:46.581Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM - Copy:W3C-Person). Using fallback URI (http://todo.com/) instead.
+
+2026-07-24T07:12:46.581Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM:OSLO-Voertuigregistratie). Using fallback URI (http://todo.com/) instead.
+
+2026-07-24T07:12:46.581Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Trajectcontroles-IM:OSLO-Generiek-IM). Using fallback URI (http://todo.com/) instead.
+
+2026-07-24T07:12:46.586Z warn: [ConnectorConverterHandler]: Connector (eigenaar) does not have a package tag defined. Trying to determine the correct base URI based on the source and destination objects their package.
+
+2026-07-24T07:12:46.586Z warn: [ConnectorConverterHandler]: Can not determine the correct base URI for connector (eigenaar) and the fallback URI (http://todo.com/) will be assigned.
+
+2026-07-24T07:12:46.587Z warn: [ConnectorConverterHandler]: Connector (nummerplaat) does not have a package tag defined. Trying to determine the correct base URI based on the source and destination objects their package.
+
+2026-07-24T07:12:46.595Z warn: [ConverterHandler]: Entity with path Model:OSLO-Trajectcontroles-IM:W3C-REGORG:GeregistreerdeOrganisatie:^rechtsvorm has already a value for ap-label-nl in language nl, but will be overwritten.
+
+2026-07-24T07:12:46.595Z warn: [ConverterHandler]: Entity with path Model:OSLO-Trajectcontroles-IM:W3C-REGORG:GeregistreerdeOrganisatie:^rechtsvorm has already a value for ap-usageNote-nl in language nl, but will be overwritten.
+
+#||# -------------------------------------
+
