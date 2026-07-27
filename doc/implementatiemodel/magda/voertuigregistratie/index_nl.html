@@ -188,9 +188,20 @@
                         <h2 class="vl-title--h2" aria-level="1" role="heading" id="h2_sotd">Samenvatting</h2>
                         
 <p>
-Het MAGDA-Voertuigregistraties Implementatiemodel is gebasseerd op Eucaris, de Europese standaard om voertuigregistraties
-uit te wisselen tussen lidstaten. Voertuigregistraties laat toe om eigenaren, houders, en voertuigen uit te wisselen
-voor bijvoorbeeld handhaving doeleinden.
+Het MAGDA-Voertuigregistraties Implementatiemodel is gebasseerd op <a href="https://www.eucaris.net/" target="_blank">Eucaris</a>,
+de Europese standaard om voertuigregistraties uit te wisselen tussen lidstaten.
+Voertuigregistraties laat toe om eigenaren, houders, en voertuigen uit te wisselen voor bijvoorbeeld handhaving doeleinden.
+Dit implementatiemodel beperkt zich tot voertuigregistraties in het kader van handhaving zoals het uitschrijven van snelheidsboetes
+bij trajectcontroles en andere automatische systemen die overtredingen kunnen vaststellen. De bevoegde diensten gebruiken
+de uitgewisselde gegevens om de vaststelling om te zetten in een effectieve boete.
+</p>
+<p>
+Het implementatiemodel gebruikt de vocabularia van <a href="https://data.vlaanderen.be/ns/persoon/" target="_blank">OSLO Persoon</a>
+en <a href="https://data.vlaanderen.be/ns/organisatie/" target="_blank">OSLO Organisatie</a> om gegevens over de houder
+en eigenaar van het voertuig uit te wisselen. Het voertuig zelf is herbruikt van <a href="https://schema.org/Vehicle" target="_blank">Schema.org</a>
+waar alle relevante attributen over voertuigen zijn opgenomen die ook bij een registratie van een voertuig van toepassing zijn.
+Generieker klassen zoals Registratie en Nummerplaat zijn opgenomen in een apart vocabularium omdat deze herbruik zijn
+voor andere applicatieprofielen of implementatiemodellen.
 </p>
 
                      </div>
@@ -1136,8 +1147,8 @@ voor bijvoorbeeld handhaving doeleinden.
                                     
                                  
                                  <div class="vl-region vl-region--no-space-top">
-                                    <h3 class="vl-title--h3" id="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat">
-                                       <a href="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat" class="js-vl-tooltip" data-vl-tooltip-content="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat" id="Nummerplaat" data-vl-tooltip-placement="right">
+                                    <h3 class="vl-title--h3" id="https://data.vlaanderen.be/ns/voertuigregistratie#Nummerplaat">
+                                       <a href="https://data.vlaanderen.be/ns/voertuigregistratie#Nummerplaat" class="js-vl-tooltip" data-vl-tooltip-content="https://data.vlaanderen.be/ns/voertuigregistratie#Nummerplaat" id="Nummerplaat" data-vl-tooltip-placement="right">
                                           Nummerplaat</a>
                                     </h3>
                                     <div class="vl-region vl-region--no-space-top">
@@ -1145,9 +1156,14 @@ voor bijvoorbeeld handhaving doeleinden.
                                           <dt>Beschrijving</dt>
                                           <dd>
                                              
-                                                De fysieke bekendmaking van het registratienummer van het Voertuig.
+                                                Fysieke drager van het registratienummer van het Voertuig.
                                              
                                           </dd>
+                                          
+                                             <dt>Gebruik</dt>
+                                             <dd>
+                                                Uitgegeven door de overheid bevoegd voor de inschrijving van het Voertuig.
+                                             </dd>
                                           
                                           
                                           <dt>Eigenschappen</dt>
@@ -1704,8 +1720,8 @@ voor bijvoorbeeld handhaving doeleinden.
                                     
                                  
                                  <div class="vl-region vl-region--no-space-top">
-                                    <h3 class="vl-title--h3" id="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie">
-                                       <a href="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie" class="js-vl-tooltip" data-vl-tooltip-content="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie" id="Registratie" data-vl-tooltip-placement="right">
+                                    <h3 class="vl-title--h3" id="https://data.vlaanderen.be/ns/voertuigregistratie#Registratie">
+                                       <a href="https://data.vlaanderen.be/ns/voertuigregistratie#Registratie" class="js-vl-tooltip" data-vl-tooltip-content="https://data.vlaanderen.be/ns/voertuigregistratie#Registratie" id="Registratie" data-vl-tooltip-placement="right">
                                           Registratie</a>
                                     </h3>
                                     <div class="vl-region vl-region--no-space-top">
@@ -1713,13 +1729,13 @@ voor bijvoorbeeld handhaving doeleinden.
                                           <dt>Beschrijving</dt>
                                           <dd>
                                              
-                                                Document dat de registratie van een voertuig in het register aangeeft, sinds wanneer, en welk kenteken is toegewezen aan het voertuig.
+                                                Inschrijving van een Voertuig in een nationaal register.
                                              
                                           </dd>
                                           
                                              <dt>Gebruik</dt>
                                              <dd>
-                                                Toegepast op de inschrijving van een voertuig.
+                                                Het Voertuig krijgt daarbij een registratienummer en wordt gekoppeld aan een Persoon of Organisatie (al dan niet eigenaar van het Voertuig). De datum vanaf wanneer de inschrijving geldt wordt vastgelegd. Het registratienummer wordt weergegeven op een Nummerplaat.
                                              </dd>
                                           
                                           
@@ -1773,7 +1789,7 @@ voor bijvoorbeeld handhaving doeleinden.
                                                       <tr id="Registratie%3Ahouder" typeof="rdfs:Property" resource="">
                                                          <td>
                                                             <code property="rdfs:label">
-                                                               <a href="http://purl.org/dc/terms/audience" class="js-vl-tooltip" data-vl-tooltip-content="http://purl.org/dc/terms/audience" data-vl-tooltip-placement="right">
+                                                               <a href="http://todo.com/houder" class="js-vl-tooltip" data-vl-tooltip-content="http://todo.com/houder" data-vl-tooltip-placement="right">
                                                                   houder</a>
                                                             </code>
                                                          </td>
@@ -1812,7 +1828,7 @@ voor bijvoorbeeld handhaving doeleinden.
                                                       <tr id="Registratie%3Anummerplaat" typeof="rdfs:Property" resource="">
                                                          <td>
                                                             <code property="rdfs:label">
-                                                               <a href="http://purl.org/dc/terms/medium" class="js-vl-tooltip" data-vl-tooltip-content="http://purl.org/dc/terms/medium" data-vl-tooltip-placement="right">
+                                                               <a href="https://data.vlaanderen.be/ns/voertuigregistratie#nummerplaat" class="js-vl-tooltip" data-vl-tooltip-content="https://data.vlaanderen.be/ns/voertuigregistratie#nummerplaat" data-vl-tooltip-placement="right">
                                                                   nummerplaat</a>
                                                             </code>
                                                          </td>
@@ -1890,7 +1906,7 @@ voor bijvoorbeeld handhaving doeleinden.
                                                       <tr id="Registratie%3Avoertuig" typeof="rdfs:Property" resource="">
                                                          <td>
                                                             <code property="rdfs:label">
-                                                               <a href="http://purl.org/dc/terms/references" class="js-vl-tooltip" data-vl-tooltip-content="http://purl.org/dc/terms/references" data-vl-tooltip-placement="right">
+                                                               <a href="http://todo.com/voertuig" class="js-vl-tooltip" data-vl-tooltip-content="http://todo.com/voertuig" data-vl-tooltip-placement="right">
                                                                   voertuig</a>
                                                             </code>
                                                          </td>
@@ -3321,6 +3337,17 @@ Deze componenten zijn gebruikt in de MAGDA OpenAPI beschrijving van de Voertuigr
                                  
                                     
                                        
+                                          <tr>
+                                             <td>
+                                                <a href="#Nummerplaat">Nummerplaat</a>
+                                             </td>
+                                             <td>
+                                                <b>
+                                                   <code>https://data.vlaanderen.be/ns/voertuigregistratie#Nummerplaat</code>
+                                                </b>
+                                             </td>
+                                          </tr>
+                                       
                                        
                                           
                                              
@@ -3483,6 +3510,17 @@ Deze componenten zijn gebruikt in de MAGDA OpenAPI beschrijving van de Voertuigr
                                  
                                     
                                        
+                                          <tr>
+                                             <td>
+                                                <a href="#Registratie">Registratie</a>
+                                             </td>
+                                             <td>
+                                                <b>
+                                                   <code>https://data.vlaanderen.be/ns/voertuigregistratie#Registratie</code>
+                                                </b>
+                                             </td>
+                                          </tr>
+                                       
                                        
                                           
                                              
@@ -3491,7 +3529,7 @@ Deze componenten zijn gebruikt in de MAGDA OpenAPI beschrijving van de Voertuigr
                                                       <a href="#Registratie%3Ahouder">Registratie.houder</a>
                                                    </td>
                                                    <td>
-                                                      <code>http://purl.org/dc/terms/audience</code>
+                                                      <code>http://todo.com/houder</code>
                                                    </td>
                                                 </tr>
                                              
@@ -3504,7 +3542,7 @@ Deze componenten zijn gebruikt in de MAGDA OpenAPI beschrijving van de Voertuigr
                                                       <a href="#Registratie%3Anummerplaat">Registratie.nummerplaat</a>
                                                    </td>
                                                    <td>
-                                                      <code>http://purl.org/dc/terms/medium</code>
+                                                      <code>https://data.vlaanderen.be/ns/voertuigregistratie#nummerplaat</code>
                                                    </td>
                                                 </tr>
                                              
@@ -3530,7 +3568,7 @@ Deze componenten zijn gebruikt in de MAGDA OpenAPI beschrijving van de Voertuigr
                                                       <a href="#Registratie%3Avoertuig">Registratie.voertuig</a>
                                                    </td>
                                                    <td>
-                                                      <code>http://purl.org/dc/terms/references</code>
+                                                      <code>http://todo.com/voertuig</code>
                                                    </td>
                                                 </tr>
                                              

@@ -341,7 +341,8 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#NummerplaatShape> a shacl:NodeShape;
   rdfs:label "Nummerplaat"@nl;
-  rdfs:comment "De fysieke bekendmaking van het registratienummer van het Voertuig."@nl;
+  <http://purl.org/vocab/vann/usageNote> "Uitgegeven door de overheid bevoegd voor de inschrijving van het Voertuig."@nl;
+  rdfs:comment "Fysieke drager van het registratienummer van het Voertuig."@nl;
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
@@ -366,7 +367,7 @@
     shacl:name "registratienummer"@nl;
     shacl:path <http://www.w3.org/ns/adms#identifier>
   ];
-  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat> .
+  shacl:targetClass <https://data.vlaanderen.be/ns/voertuigregistratie#Nummerplaat> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#PlaatsShape> a shacl:NodeShape;
   rdfs:label "Plaats"@nl;
@@ -450,8 +451,8 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#RegistratieShape> a shacl:NodeShape;
   rdfs:label "Registratie"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Toegepast op de inschrijving van een voertuig."@nl;
-  rdfs:comment "Document dat de registratie van een voertuig in het register aangeeft, sinds wanneer, en welk kenteken is toegewezen aan het voertuig."@nl;
+  <http://purl.org/vocab/vann/usageNote> "Het Voertuig krijgt daarbij een registratienummer en wordt gekoppeld aan een Persoon of Organisatie (al dan niet eigenaar van het Voertuig). De datum vanaf wanneer de inschrijving geldt wordt vastgelegd. Het registratienummer wordt weergegeven op een Nummerplaat."@nl;
+  rdfs:comment "Inschrijving van een Voertuig in een nationaal register."@nl;
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
@@ -469,12 +470,12 @@
     rdfs:label "nummerplaat"@nl;
     rdfs:comment "Een plaat die het kenteken bevat van het voertuig waaronder het voertuig geregistreerd werd."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#Registratie.Nummerplaat>;
-    shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat>;
+    shacl:class <https://data.vlaanderen.be/ns/voertuigregistratie#Nummerplaat>;
     shacl:description "Een plaat die het kenteken bevat van het voertuig waaronder het voertuig geregistreerd werd."@nl;
     shacl:maxCount 1;
     shacl:minCount 1;
     shacl:name "nummerplaat"@nl;
-    shacl:path dc:medium
+    shacl:path <https://data.vlaanderen.be/ns/voertuigregistratie#nummerplaat>
   ], [
     a shacl:PropertyShape;
     rdfs:label "houder"@nl;
@@ -485,7 +486,7 @@
     shacl:minCount 1;
     shacl:name "houder"@nl;
     shacl:or ([shacl:class foaf:Agent] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>]);
-    shacl:path dc:audience
+    shacl:path <http://todo.com/houder>
   ], [
     a shacl:PropertyShape;
     rdfs:label "voertuig"@nl;
@@ -495,9 +496,9 @@
     shacl:description "Het voertuig dat gekoppeld is aan het Registratiebewijs."@nl;
     shacl:maxCount 1;
     shacl:name "voertuig"@nl;
-    shacl:path dc:references
+    shacl:path <http://todo.com/voertuig>
   ];
-  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie> .
+  shacl:targetClass <https://data.vlaanderen.be/ns/voertuigregistratie#Registratie> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#StringShape> a shacl:NodeShape;
   rdfs:label "String";
@@ -604,7 +605,7 @@
     rdfs:label "data"@nl;
     rdfs:comment "De data die overgedragen werd."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#VoertuigeregistratieEnvelop.Data>;
-    shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie>;
+    shacl:class <https://data.vlaanderen.be/ns/voertuigregistratie#Registratie>;
     shacl:description "De data die overgedragen werd."@nl;
     shacl:maxCount 1;
     shacl:name "data"@nl;
