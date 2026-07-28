@@ -1,8 +1,8 @@
-#||# oslo-converter-ea for diagram OSLO-Persoon-IM
+#||# oslo-converter-ea for diagram OSLO-Voertuigregistratie-MAGDA-IM-Enumeraties
 
 #||# -------------------------------------
 
-Error: Path does not refer to a valid file: OSLO-Persoon-MAGDA-IM.eap
+Error: Path does not refer to a valid file: OSLO-Voertuigregistratie-MAGDA-IMPL.eap
 
     at fetchFileOrUrl (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/node_modules/@oslo-flanders/core/lib/utils/fetchFileOrUrl.js:18:15)
 
