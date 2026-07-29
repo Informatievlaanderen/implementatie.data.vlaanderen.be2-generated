@@ -64,3 +64,9 @@ error: missing '/tmp/generated/ns/vsds-verkeersmetingverzameling//index.html'
 #||# 
 #||# index.html check
 
+#||#    + checking /home/circleci/project/config/test/voertuigregistratie.publication.json
+#||# 
+#||# Directory check
+#||# 
+#||# index.html check
+

@@ -16,6 +16,8 @@
 #||#  
 #||#   + adding supporting /home/circleci/project/config/test/voertuigregistratie-im.publication.json
 #||#  
+#||#   + adding supporting /home/circleci/project/config/test/voertuigregistratie.publication.json
+#||#  
 Error: the following directories are unsupported
 [
   "/tmp/generated/doc/implementatiemodel/magda/trajectcontrole",
