@@ -1,24 +1,8 @@
-#||# oslo-converter-ea for diagram 
+#||# oslo-converter-ea for diagram OSLO-Generiek-IM
 
 #||# -------------------------------------
 
-TypeError: file.startsWith is not a function
-
-    at fetchFileOrUrl (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/node_modules/@oslo-flanders/core/lib/utils/fetchFileOrUrl.js:11:14)
-
-    at AccessDbFileReader.initDataRegistry (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/node_modules/@oslo-flanders/ea-uml-extractor/lib/AccessDbFileReader.js:21:56)
-
-    at FileReaderService.createDataRegistry (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/node_modules/@oslo-flanders/ea-uml-extractor/lib/FileReaderService.js:15:32)
-
-    at EaUmlConversionService.run (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/lib/EaUmlConversionService.js:36:116)
-
-    at /usr/local/lib/node_modules/@oslo-flanders/ea-converter/node_modules/@oslo-flanders/core/lib/interfaces/AppRunner.js:37:33
+2026-07-30T08:32:56.051Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
 #||# -------------------------------------
-
-jq: parse error: Invalid numeric literal at line 2, column 0
-
-cp: missing destination file operand after '/tmp/.1'
-
-Try 'cp --help' for more information.
 
