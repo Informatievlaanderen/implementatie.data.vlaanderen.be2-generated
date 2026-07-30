@@ -63,6 +63,7 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#IntegerShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#PeriodeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#TemporeleEntiteitShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#TemporelePositieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#WoonvormtypeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#RedenAfwezigheidShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#AfstammingstypeShape>,
@@ -311,7 +312,6 @@
     shacl:datatype xsd:string;
     shacl:description "Jaar positie in een kalendersysteem."@nl;
     shacl:maxCount 1;
-    shacl:minCount 1;
     shacl:name "jaar"@nl;
     shacl:path <http://www.w3.org/2006/time#year>
   ], [
@@ -322,7 +322,6 @@
     shacl:datatype xsd:string;
     shacl:description "Maand positie in een kalendersysteem."@nl;
     shacl:maxCount 1;
-    shacl:minCount 1;
     shacl:name "maand"@nl;
     shacl:path <http://www.w3.org/2006/time#month>
   ], [
@@ -333,7 +332,6 @@
     shacl:datatype xsd:string;
     shacl:description "Dag positie in een kalendersysteem."@nl;
     shacl:maxCount 1;
-    shacl:minCount 1;
     shacl:name "dag"@nl;
     shacl:path <http://www.w3.org/2006/time#day>
   ];
@@ -1290,6 +1288,14 @@
   shacl:targetClass <http://www.w3.org/2006/time#Instant>,
     <http://www.w3.org/2006/time#ProperInterval>,
     <http://www.w3.org/2006/time#TemporalEntity> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#TemporelePositieShape> a shacl:NodeShape;
+  rdfs:label "TemporelePositie"@nl;
+  <http://purl.org/vocab/vann/usageNote> "TemporelePosities zijn temporele geometrische primitieven zoals AlgemeneDatumTijdBeschrijving. Dit datatype is abstract, gebruik één van de subklassen."@nl;
+  rdfs:comment "Abstracte klasse voor temporele posities."@nl;
+  shacl:closed false;
+  shacl:targetClass <http://www.w3.org/2006/time#GeneralDateTimeDescription>,
+    <http://www.w3.org/2006/time#TemporalPosition> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#URIShape> a shacl:NodeShape;
   rdfs:label "URI";
