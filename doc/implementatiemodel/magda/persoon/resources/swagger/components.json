@@ -7,6 +7,188 @@
   },
   "components": {
     "schemas": {
+      "Woonvormtype": {
+        "title": "Woonvormtype",
+        "type": "object",
+        "description": "Enumeratie van Woonvormtype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "RedenAfwezigheid": {
+        "title": "RedenAfwezigheid",
+        "type": "object",
+        "description": "Enumeratie van RedenAfwezigheid",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Afstammingstype": {
+        "title": "Afstammingstype",
+        "type": "object",
+        "description": "Enumeratie van Afstammingstype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Geslacht": {
+        "title": "Geslacht",
+        "type": "object",
+        "description": "Enumeratie van Geslacht",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "BurgerlijkeStaatType": {
+        "title": "BurgerlijkeStaatType",
+        "type": "object",
+        "description": "Enumeratie van BurgerlijkeStaatType",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "ProcedureType": {
+        "title": "ProcedureType",
+        "type": "object",
+        "description": "Enumeratie van ProcedureType",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "DomicilieStatus": {
+        "title": "DomicilieStatus",
+        "type": "object",
+        "description": "Enumeratie van DomicilieStatus",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "AdministratiefBeheerdertype": {
+        "title": "AdministratiefBeheerdertype",
+        "type": "object",
+        "description": "Enumeratie van AdministratiefBeheerdertype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Dossierstatus": {
+        "title": "Dossierstatus",
+        "type": "object",
+        "description": "Enumeratie van Dossierstatus",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Omstandigheid": {
+        "title": "Omstandigheid",
+        "type": "object",
+        "description": "Enumeratie van Omstandigheid",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Gezinsrelatietype": {
+        "title": "Gezinsrelatietype",
+        "type": "object",
+        "description": "Enumeratie van Gezinsrelatietype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "UitzonderingOorsprong": {
+        "title": "UitzonderingOorsprong",
+        "type": "object",
+        "description": "Enumeratie van UitzonderingOorsprong",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "UitzonderingType": {
+        "title": "UitzonderingType",
+        "type": "object",
+        "description": "Enumeratie van UitzonderingType",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
       "Persoon": {
         "title": "Persoon",
         "type": "object",
@@ -908,7 +1090,23 @@
             ]
           },
           "afstammingstype": {
-            "$ref": "#/components/schemas/Afstammingstype"
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Afstammingstype"
+              },
+              {
+                "$ref": "#/components/schemas/Afstammingstype"
+              },
+              {
+                "$ref": "#/components/schemas/Afstammingstype"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Afstammingstype": "#/components/schemas/Afstammingstype"
+              }
+            }
           },
           "metPersoon": {
             "oneOf": [

@@ -1,4 +1,4 @@
-#||# oslo-converter-ea for diagram OSLO-Persoon-IM
+#||# oslo-converter-ea for diagram OSLO-Persoon-IM-metEnumeraties
 
 #||# -------------------------------------
 

@@ -31,7 +31,23 @@
       ]
     },
     "afstammingstype": {
-      "$ref": "#/components/schemas/Afstammingstype"
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Afstammingstype"
+        },
+        {
+          "$ref": "#/components/schemas/Afstammingstype"
+        },
+        {
+          "$ref": "#/components/schemas/Afstammingstype"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Afstammingstype": "#/components/schemas/Afstammingstype"
+        }
+      }
     },
     "metPersoon": {
       "oneOf": [
