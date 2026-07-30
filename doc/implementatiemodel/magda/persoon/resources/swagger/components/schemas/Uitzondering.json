@@ -1,0 +1,71 @@
+{
+  "title": "Uitzondering",
+  "type": "object",
+  "description": "Uitzondering geeft miet-kritieke problemen weer bij het uitwisselen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Uitzondering)",
+      "pattern": "^Uitzondering$"
+    },
+    "datum": {
+      "type": "object",
+      "description": "De datum waarop de Uitzondering aangemaakt werd.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^DateTime$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "diagnose": {
+      "type": "object",
+      "description": "Een beschrijving waarom de Uitzondering aangemaakt werd.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "oorsprong": {
+      "$ref": "#/components/schemas/MAGDA-UitzonderingOorsprong-V1"
+    },
+    "type": {
+      "$ref": "#/components/schemas/MAGDA-UitzonderingType-V1"
+    },
+    "omstandigheid": {
+      "$ref": "#/components/schemas/MAGDA-Omstandigheid-V1"
+    },
+    "annotatie": {
+      "type": "array",
+      "description": "Lijst van Annotatie items.",
+      "items": {
+        "$ref": "#/components/schemas/Annotatie"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "datum",
+    "diagnose",
+    "oorsprong",
+    "type",
+    "omstandigheid"
+  ]
+}

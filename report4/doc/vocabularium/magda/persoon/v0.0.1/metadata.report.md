@@ -6,9 +6,13 @@
 
 #||# done  
 
-SyntaxError: /tmp/workspace/report4/doc/vocabularium/magda/persoon/v0.0.1/all-persoon-IMVOC.jsonld: Unexpected end of JSON input
+#||# start processing  
 
-    at JSON.parse (<anonymous>)
+#||# Checking Namespaces  
 
-    at Object._readFile (/app/node_modules/jsonfile/index.js:25:16)
+#||# Finished  
+
+#||# start writing  
+
+#||# The file has been saved to /tmp/workspace/report4/doc/vocabularium/magda/persoon/v0.0.1/html/meta_persoon-IMVOC_nl.json  
 

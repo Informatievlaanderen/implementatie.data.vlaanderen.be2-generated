@@ -33,16 +33,7 @@ error: missing '/tmp/generated/doc/vocabularium/vkbo/onderneming/v0.0.6/index.ht
 #||# Directory check
 #||# 
 #||# index.html check
-error: missing '/tmp/generated/doc/vocabularium/magda/persoon/index.html'
 error: missing '/tmp/generated/doc/vocabularium/magda/persoon/v0.0.1/index.html'
-error: missing '/tmp/generated/doc/vocabularium/magda/persoon/v0.0.2/index.html'
-error: missing '/tmp/generated/doc/vocabularium/magda/persoon/v0.0.3/index.html'
-error: missing '/tmp/generated/doc/vocabularium/magda/persoon/v0.0.4/index.html'
-error: missing '/tmp/generated/doc/vocabularium/magda/persoon/v0.0.5/index.html'
-error: missing '/tmp/generated/doc/vocabularium/magda/persoon/v0.0.6/index.html'
-error: missing '/tmp/generated/doc/vocabularium/magda/persoon/v0.1.0/index.html'
-error: missing '/tmp/generated/doc/vocabularium/magda/persoon/v0.1.1/index.html'
-error: missing '/tmp/generated/doc/vocabularium/magda/persoon/v0.2.0/index.html'
 
 #||#    + checking /home/circleci/project/config/test/verkeersmetingen-im.publication.json
 #||# 

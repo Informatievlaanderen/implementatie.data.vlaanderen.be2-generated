@@ -1,0 +1,45 @@
+{
+  "title": "Annotatie",
+  "type": "object",
+  "description": "Detailinformatie die meegegeven is bij een Uitzondering.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Annotatie)",
+      "pattern": "^Annotatie$"
+    },
+    "waarde": {
+      "type": "object",
+      "description": "De waarde van het veld.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "naam": {
+      "type": "object",
+      "description": "Naam van het veld.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    }
+  },
+  "required": [
+    "@type",
+    "waarde",
+    "naam"
+  ]
+}

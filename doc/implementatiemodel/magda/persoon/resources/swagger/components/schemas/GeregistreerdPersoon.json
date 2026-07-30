@@ -15,11 +15,20 @@
     "registratie": {
       "$ref": "#/components/schemas/Identificator"
     },
-    "beheerder": {
+    "achternaam": {
       "type": "array",
-      "description": "Lijst van AdministratiefBeheerder items.",
+      "description": "Lijst van String items.",
       "items": {
-        "$ref": "#/components/schemas/AdministratiefBeheerder"
+        "type": "object",
+        "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
       },
       "minItems": 1
     },
@@ -40,28 +49,50 @@
       },
       "minItems": 1
     },
-    "achternaam": {
-      "type": "array",
-      "description": "Lijst van String items.",
-      "items": {
-        "type": "object",
-        "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
+    "geslacht": {
+      "$ref": "#/components/schemas/Geslacht"
+    },
+    "creatiedatum": {
+      "type": "object",
+      "description": "Datum waarop de gegevens zijn ingevoerd.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date"
         },
-        "required": [
-          "@value"
-        ]
+        "@type": {
+          "type": "string",
+          "pattern": "^Date$"
+        }
       },
-      "minItems": 1
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "modificatiedatum": {
+      "type": "object",
+      "description": "Datum waarop de gegevens werden bijgewerkt.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Date$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "bron": {
+      "$ref": "#/components/schemas/Organisatie"
     },
     "contactinfo": {
       "$ref": "#/components/schemas/Contactinfo"
-    },
-    "geslacht": {
-      "$ref": "#/components/schemas/Geslacht"
     },
     "isHoofdVan": {
       "$ref": "#/components/schemas/Gezin"
@@ -120,45 +151,6 @@
         "$ref": "#/components/schemas/Gezin"
       },
       "minItems": 1
-    },
-    "creatiedatum": {
-      "type": "object",
-      "description": "Datum waarop de gegevens zijn ingevoerd.",
-      "properties": {
-        "@value": {
-          "type": "string",
-          "format": "date"
-        },
-        "@type": {
-          "type": "string",
-          "pattern": "^Date$"
-        }
-      },
-      "required": [
-        "@value",
-        "@type"
-      ]
-    },
-    "modificatiedatum": {
-      "type": "object",
-      "description": "Datum waarop de gegevens werden bijgewerkt.",
-      "properties": {
-        "@value": {
-          "type": "string",
-          "format": "date"
-        },
-        "@type": {
-          "type": "string",
-          "pattern": "^Date$"
-        }
-      },
-      "required": [
-        "@value",
-        "@type"
-      ]
-    },
-    "bron": {
-      "$ref": "#/components/schemas/Organisatie"
     }
   },
   "required": [

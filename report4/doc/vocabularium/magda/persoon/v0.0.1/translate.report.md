@@ -1,8 +1,8 @@
-INPUTTRANSLATIONFILE: /tmp/workspace/src/doc/vocabularium/magda/persoon/v0.0.1/translation/_nl.json
+INPUTTRANSLATIONFILE: /tmp/workspace/src/doc/vocabularium/magda/persoon/v0.0.1/translation/persoon-IMVOC_nl.json
 
-OUTPUTTRANSLATIONFILE: /tmp/workspace/report4/doc/vocabularium/magda/persoon/v0.0.1/translation/_nl.json
+OUTPUTTRANSLATIONFILE: /tmp/workspace/report4/doc/vocabularium/magda/persoon/v0.0.1/translation/persoon-IMVOC_nl.json
 
-TRANSLATIONFILE: _nl.json
+TRANSLATIONFILE: persoon-IMVOC_nl.json
 
 #||# translate for language nl  
 
@@ -12,9 +12,11 @@ TRANSLATIONFILE: _nl.json
 
 #||# done  
 
-SyntaxError: /tmp/workspace/report4/doc/vocabularium/magda/persoon/v0.0.1/all-persoon-IMVOC.jsonld: Unexpected end of JSON input
+#||# start processing  
 
-    at JSON.parse (<anonymous>)
+WARNING The entered language values are the same!  
 
-    at Object._readFile (/app/node_modules/jsonfile/index.js:25:16)
+#||# Write complete  
+
+#||# the file was saved to: /tmp/workspace/report4/doc/vocabularium/magda/persoon/v0.0.1/translation/persoon-IMVOC_nl.json  
 

@@ -12,23 +12,6 @@
       "description": "Object type (klasse Persoon)",
       "pattern": "^Persoon$"
     },
-    "voornaam": {
-      "type": "array",
-      "description": "Lijst van String items.",
-      "items": {
-        "type": "object",
-        "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
-      },
-      "minItems": 1
-    },
     "achternaam": {
       "type": "array",
       "description": "Lijst van String items.",
@@ -46,69 +29,25 @@
       },
       "minItems": 1
     },
-    "contactinfo": {
-      "$ref": "#/components/schemas/Contactinfo"
+    "voornaam": {
+      "type": "array",
+      "description": "Lijst van String items.",
+      "items": {
+        "type": "object",
+        "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "minItems": 1
     },
     "geslacht": {
       "$ref": "#/components/schemas/Geslacht"
-    },
-    "isHoofdVan": {
-      "$ref": "#/components/schemas/Gezin"
-    },
-    "heeftBurgerlijkeStaat": {
-      "$ref": "#/components/schemas/BurgerlijkeStaat"
-    },
-    "heeftGeboorte": {
-      "$ref": "#/components/schemas/Geboorte"
-    },
-    "heeftOverlijden": {
-      "$ref": "#/components/schemas/Overlijden"
-    },
-    "heeftInwonerschap": {
-      "type": "array",
-      "description": "Lijst van Inwonerschap items.",
-      "items": {
-        "$ref": "#/components/schemas/Inwonerschap"
-      },
-      "minItems": 1
-    },
-    "heeftPersoonsrelatie": {
-      "type": "array",
-      "description": "Lijst van Persoonsrelatie items.",
-      "items": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/Gezinsrelatie"
-          },
-          {
-            "$ref": "#/components/schemas/Huwelijk"
-          },
-          {
-            "$ref": "#/components/schemas/Samenwonen"
-          },
-          {
-            "$ref": "#/components/schemas/Afstamming"
-          }
-        ],
-        "discriminator": {
-          "propertyName": "@type",
-          "mapping": {
-            "Gezinsrelatie": "#/components/schemas/Gezinsrelatie",
-            "Huwelijk": "#/components/schemas/Huwelijk",
-            "Samenwonen": "#/components/schemas/Samenwonen",
-            "Afstamming": "#/components/schemas/Afstamming"
-          }
-        }
-      },
-      "minItems": 1
-    },
-    "isLidVan": {
-      "type": "array",
-      "description": "Lijst van Gezin items.",
-      "items": {
-        "$ref": "#/components/schemas/Gezin"
-      },
-      "minItems": 1
     },
     "creatiedatum": {
       "type": "object",
