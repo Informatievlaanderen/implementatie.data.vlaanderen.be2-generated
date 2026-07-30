@@ -6,6 +6,12 @@
 #||# 
 #||# index.html check
 
+#||#    + checking /home/circleci/project/config/production/generiek-implementatie.publication.json
+#||# 
+#||# Directory check
+#||# 
+#||# index.html check
+
 #||#    + checking /home/circleci/project/config/production/grondverzet.publication.json
 #||# 
 #||# Directory check

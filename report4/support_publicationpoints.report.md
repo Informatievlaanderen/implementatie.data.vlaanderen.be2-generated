@@ -2,6 +2,8 @@
 #||# 
 #||#   + adding supporting /home/circleci/project/config/production/asbestinventaris.publication.json
 #||#  
+#||#   + adding supporting /home/circleci/project/config/production/generiek-implementatie.publication.json
+#||#  
 #||#   + adding supporting /home/circleci/project/config/production/grondverzet.publication.json
 #||#  
 #||#   + adding supporting /home/circleci/project/config/production/kwaliteitWegenEnWegmarkeringen.publication.json

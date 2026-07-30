@@ -1,0 +1,96 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shacl: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#> rdfs:member <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#ProblemdetailShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#EnvelopShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#StringShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#UriShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#IntegerShape> .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#EnvelopShape> a shacl:NodeShape;
+  rdfs:label "envelop"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."@nl;
+  rdfs:comment "Envelop is het hoofdobject om data uit te wisselen."@nl;
+  shacl:closed false;
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Envelope> .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#IntegerShape> a shacl:NodeShape;
+  rdfs:label "Integer";
+  shacl:closed false;
+  shacl:targetClass xsd:integer .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#ProblemdetailShape> a shacl:NodeShape;
+  rdfs:label "Problemdetail"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Dit ter aanvulling van een HTTP statuscode,bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc7807\">RFC7807</a>."@nl;
+  rdfs:comment "Meer gedetailleerde beschrijving van de fout in een HTTP response."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "detail"@nl;
+    rdfs:comment "Mensleesbare beschrijving van de fout."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#Problemdetail.Detail>;
+    shacl:datatype xsd:string;
+    shacl:description "Mensleesbare beschrijving van de fout."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "detail"@nl;
+    shacl:path dc:description
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "instance"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: de verwijzing naar de request."@nl;
+    rdfs:comment "Verwijzing naar de instantie van het object waarop de fout betrekking heeft."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#Problemdetail.Instance>;
+    shacl:datatype xsd:anyURI;
+    shacl:description "Verwijzing naar de instantie van het object waarop de fout betrekking heeft."@nl;
+    shacl:maxCount 1;
+    shacl:name "instance"@nl;
+    shacl:path dc:references
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "status"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\"."@nl;
+    rdfs:comment "HTTP foutcode."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#Problemdetail.Status>;
+    shacl:datatype xsd:integer;
+    shacl:description "HTTP foutcode."@nl;
+    shacl:maxCount 1;
+    shacl:name "status"@nl;
+    shacl:path <http://www.w3.org/ns/adms#status>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "title"@nl;
+    rdfs:comment "Korte mensleesbare beschrijving van de fout."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#Problemdetail.Title>;
+    shacl:datatype xsd:string;
+    shacl:description "Korte mensleesbare beschrijving van de fout."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "title"@nl;
+    shacl:path dc:title
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "type"@nl;
+    rdfs:comment "Aard van de fout."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#Problemdetail.Type>;
+    shacl:datatype xsd:anyURI;
+    shacl:description "Aard van de fout."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "type"@nl;
+    shacl:path dc:type
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail> .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#StringShape> a shacl:NodeShape;
+  rdfs:label "String";
+  shacl:closed false;
+  shacl:targetClass xsd:string .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/generiek/v0.1.0#UriShape> a shacl:NodeShape;
+  rdfs:label "Uri";
+  shacl:closed false;
+  shacl:targetClass xsd:anyURI .
