@@ -769,7 +769,7 @@
             }
           },
           "minCount": "0",
-          "maxCount": "1"
+          "maxCount": "*"
         }
       ]
     },
@@ -2618,12 +2618,49 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
       "properties": [
         {
+          "id": "http://www.w3.org/ns/adms#status",
+          "vocabularyLabel": {
+            "nl": "dossierstatus"
+          },
+          "applicationProfileLabel": {
+            "nl": "dossierstatus"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Toestand van het dossier van de Registratie."
+          },
+          "vocabularyUsageNote": {
+            "nl": "In het Rijksregister gebruikt wanneer de inschrijving in het register niet meer geldig is, bijvoorbeeld: omdat de persoon uit het register is geschrapt of een eerdere registratie werd geannuleerd of de persoon is overleden, etc."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "In het Rijksregister gebruikt wanneer de inschrijving in het register niet meer geldig is, bijvoorbeeld: omdat de persoon uit het register is geschrapt of een eerdere registratie werd geannuleerd of de persoon is overleden, etc."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Registratie",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "IT001-Dossierstatus-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "Dossierstatus"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*",
+          "codelist": "https://data.vlaanderen.be/id/conceptscheme/IT001/Dossierstatus/v1"
+        },
+        {
           "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#redenAfwezigheid",
           "vocabularyLabel": {
             "nl": "redenAfwezigheid"
           },
           "applicationProfileLabel": {
             "nl": "redenAfwezigheid"
+          },
+          "vocabularyDefinition": {
+            "nl": "Reden waarom de Persoon afwezig is."
           },
           "applicationProfileDefinition": {
             "nl": "Reden waarom de Persoon afwezig is."
@@ -2653,8 +2690,14 @@
           "applicationProfileLabel": {
             "nl": "referentiedossier"
           },
+          "vocabularyDefinition": {
+            "nl": "De nieuwe registratie van een Persoon in het register."
+          },
           "applicationProfileDefinition": {
             "nl": "De nieuwe registratie van een Persoon in het register."
+          },
+          "vocabularyUsageNote": {
+            "nl": "Enkel van toepassing indien er een referentiedossier bestaat volgens IT002."
           },
           "applicationProfileUsageNote": {
             "nl": "Enkel van toepassing indien er een referentiedossier bestaat volgens IT002."
@@ -2674,37 +2717,6 @@
           },
           "minCount": "0",
           "maxCount": "1"
-        },
-        {
-          "id": "http://www.w3.org/ns/adms#status",
-          "vocabularyLabel": {
-            "nl": "dossierstatus"
-          },
-          "applicationProfileLabel": {
-            "nl": "Toestand van het dossier van de Registratie."
-          },
-          "vocabularyUsageNote": {
-            "nl": "In het Rijksregister gebruikt wanneer de inschrijving in het register niet meer geldig is, bijvoorbeeld: omdat de persoon uit het register is geschrapt of een eerdere registratie werd geannuleerd of de persoon is overleden, etc."
-          },
-          "applicationProfileUsageNote": {
-            "nl": "In het Rijksregister gebruikt wanneer de inschrijving in het register niet meer geldig is, bijvoorbeeld: omdat de persoon uit het register is geschrapt of een eerdere registratie werd geannuleerd of de persoon is overleden, etc."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Registratie",
-          "range": {
-            "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "IT001-Dossierstatus-v1"
-            },
-            "applicationProfileLabel": {
-              "nl": "Dossierstatus"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "*",
-          "codelist": "https://data.vlaanderen.be/id/conceptscheme/IT001/Dossierstatus/v1"
         }
       ]
     },
@@ -4483,6 +4495,9 @@
       "applicationProfileLabel": {
         "nl": "redenAfwezigheid"
       },
+      "vocabularyDefinition": {
+        "nl": "Reden waarom de Persoon afwezig is."
+      },
       "applicationProfileDefinition": {
         "nl": "Reden waarom de Persoon afwezig is."
       },
@@ -4511,8 +4526,14 @@
       "applicationProfileLabel": {
         "nl": "referentiedossier"
       },
+      "vocabularyDefinition": {
+        "nl": "De nieuwe registratie van een Persoon in het register."
+      },
       "applicationProfileDefinition": {
         "nl": "De nieuwe registratie van een Persoon in het register."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Enkel van toepassing indien er een referentiedossier bestaat volgens IT002."
       },
       "applicationProfileUsageNote": {
         "nl": "Enkel van toepassing indien er een referentiedossier bestaat volgens IT002."
@@ -4561,7 +4582,7 @@
         }
       },
       "minCount": "0",
-      "maxCount": "1"
+      "maxCount": "*"
     }
   ]
 }
