@@ -4500,19 +4500,19 @@
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
               },
-              "GeregistreerdPersoon.beheerder": {
-                "operationId": "GeregistreerdPersoonGET",
-                "parameters": {
-                  "id": "$response.body#/GeregistreerdPersoon.beheerder/@id"
-                },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AdministratiefBeheerder` op te halen."
-              },
               "GeregistreerdPersoon.registratiedetail": {
                 "operationId": "GeregistreerdPersoonGET",
                 "parameters": {
                   "id": "$response.body#/GeregistreerdPersoon.registratiedetail/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Registratie` op te halen."
+              },
+              "GeregistreerdPersoon.beheerder": {
+                "operationId": "GeregistreerdPersoonGET",
+                "parameters": {
+                  "id": "$response.body#/GeregistreerdPersoon.beheerder/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AdministratiefBeheerder` op te halen."
               },
               "GeregistreerdPersoon.contactinfo": {
                 "operationId": "GeregistreerdPersoonGET",
@@ -11080,23 +11080,6 @@
             "description": "Object type (klasse Persoon)",
             "pattern": "^Persoon$"
           },
-          "achternaam": {
-            "type": "array",
-            "description": "Lijst van String items.",
-            "items": {
-              "type": "object",
-              "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
-              "properties": {
-                "@value": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@value"
-              ]
-            },
-            "minItems": 1
-          },
           "voornaam": {
             "type": "array",
             "description": "Lijst van String items.",
@@ -11114,8 +11097,86 @@
             },
             "minItems": 1
           },
+          "achternaam": {
+            "type": "array",
+            "description": "Lijst van String items.",
+            "items": {
+              "type": "object",
+              "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@value"
+              ]
+            },
+            "minItems": 1
+          },
+          "contactinfo": {
+            "$ref": "#/components/schemas/Contactinfo"
+          },
           "geslacht": {
             "$ref": "#/components/schemas/Geslacht"
+          },
+          "isHoofdVan": {
+            "$ref": "#/components/schemas/Gezin"
+          },
+          "heeftBurgerlijkeStaat": {
+            "$ref": "#/components/schemas/BurgerlijkeStaat"
+          },
+          "heeftGeboorte": {
+            "$ref": "#/components/schemas/Geboorte"
+          },
+          "heeftOverlijden": {
+            "$ref": "#/components/schemas/Overlijden"
+          },
+          "heeftInwonerschap": {
+            "type": "array",
+            "description": "Lijst van Inwonerschap items.",
+            "items": {
+              "$ref": "#/components/schemas/Inwonerschap"
+            },
+            "minItems": 1
+          },
+          "heeftPersoonsrelatie": {
+            "type": "array",
+            "description": "Lijst van Persoonsrelatie items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Gezinsrelatie"
+                },
+                {
+                  "$ref": "#/components/schemas/Huwelijk"
+                },
+                {
+                  "$ref": "#/components/schemas/Samenwonen"
+                },
+                {
+                  "$ref": "#/components/schemas/Afstamming"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Gezinsrelatie": "#/components/schemas/Gezinsrelatie",
+                  "Huwelijk": "#/components/schemas/Huwelijk",
+                  "Samenwonen": "#/components/schemas/Samenwonen",
+                  "Afstamming": "#/components/schemas/Afstamming"
+                }
+              }
+            },
+            "minItems": 1
+          },
+          "isLidVan": {
+            "type": "array",
+            "description": "Lijst van Gezin items.",
+            "items": {
+              "$ref": "#/components/schemas/Gezin"
+            },
+            "minItems": 1
           },
           "creatiedatum": {
             "type": "object",
@@ -11763,20 +11824,14 @@
           "registratie": {
             "$ref": "#/components/schemas/Identificator"
           },
-          "achternaam": {
+          "registratiedetail": {
+            "$ref": "#/components/schemas/Registratie"
+          },
+          "beheerder": {
             "type": "array",
-            "description": "Lijst van String items.",
+            "description": "Lijst van AdministratiefBeheerder items.",
             "items": {
-              "type": "object",
-              "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
-              "properties": {
-                "@value": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@value"
-              ]
+              "$ref": "#/components/schemas/AdministratiefBeheerder"
             },
             "minItems": 1
           },
@@ -11797,50 +11852,28 @@
             },
             "minItems": 1
           },
-          "geslacht": {
-            "$ref": "#/components/schemas/Geslacht"
-          },
-          "creatiedatum": {
-            "type": "object",
-            "description": "Datum waarop de gegevens zijn ingevoerd.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
+          "achternaam": {
+            "type": "array",
+            "description": "Lijst van String items.",
+            "items": {
+              "type": "object",
+              "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
+              "properties": {
+                "@value": {
+                  "type": "string"
+                }
               },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
+              "required": [
+                "@value"
+              ]
             },
-            "required": [
-              "@value",
-              "@type"
-            ]
-          },
-          "modificatiedatum": {
-            "type": "object",
-            "description": "Datum waarop de gegevens werden bijgewerkt.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
-          },
-          "bron": {
-            "$ref": "#/components/schemas/Organisatie"
+            "minItems": 1
           },
           "contactinfo": {
             "$ref": "#/components/schemas/Contactinfo"
+          },
+          "geslacht": {
+            "$ref": "#/components/schemas/Geslacht"
           },
           "isHoofdVan": {
             "$ref": "#/components/schemas/Gezin"
@@ -11899,6 +11932,45 @@
               "$ref": "#/components/schemas/Gezin"
             },
             "minItems": 1
+          },
+          "creatiedatum": {
+            "type": "object",
+            "description": "Datum waarop de gegevens zijn ingevoerd.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "modificatiedatum": {
+            "type": "object",
+            "description": "Datum waarop de gegevens werden bijgewerkt.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "bron": {
+            "$ref": "#/components/schemas/Organisatie"
           }
         },
         "required": [
