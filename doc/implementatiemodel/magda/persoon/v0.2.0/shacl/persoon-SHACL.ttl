@@ -21,8 +21,8 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#HuwelijkShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#VersieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#FormeleOrganisatieShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#ProbleemdetailShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#VdipEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#ProblemdetailShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#PersonEnvelopeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#InwonerschapShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#SamenwonenShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#GeregistreerdPersoonShape>,
@@ -386,7 +386,7 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#DomicilieShape> a shacl:NodeShape;
   rdfs:label "Domicilie"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Plaats waar de Persoon het grootste deel van de tijd verblijft binnen de jurisdictie waarvan hij Inwoner is. Dit wordt doorgaans officieel vastgesteld en geregistreerd in het bevolkingsregister. Kan in praktijk verschillend zijn van de feitelijke verblijfplaats"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Plaats waar de Persoon het grootste deel van de tijd verblijft binnen de Jurisdictie waarvan de persoon Inwoner is. Dit wordt doorgaans officieel vastgesteld en geregistreerd in het bevolkingsregister. Kan in praktijk verschillend zijn van de feitelijke verblijfplaats."@nl;
   rdfs:comment "Hoofdverblijfplaats van een Persoon."@nl;
   shacl:closed false;
   shacl:property [
@@ -416,10 +416,10 @@
     <https://implementatie.data.vlaanderen.be/ns/magda/persoon#Referentieadres>,
     <https://implementatie.data.vlaanderen.be/ns/magda/persoon#VerblijfplaatsBuitenlandDomicilie>;
   shacl:xone ([
-      shacl:not _:df_2_77;
+      shacl:not _:df_2_75;
       shacl:property _:df_2_35
     ] [shacl:property _:df_2_46,
-        _:df_2_77]) .
+        _:df_2_75]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#FormeleOrganisatieShape> a shacl:NodeShape;
   rdfs:label "FormeleOrganisatie"@nl;
@@ -450,38 +450,6 @@
     shacl:minCount 1;
     shacl:name "registratie"@nl;
     shacl:path <https://data.vlaanderen.be/ns/persoon#registratie>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "dossierstatus"@nl;
-    <http://purl.org/vocab/vann/usageNote> "In het Rijksregister gebruikt wanneer de inschrijving in het register niet meer geldig is, bijvoorbeeld: omdat de persoon uit het register is geschrapt of een eerdere registratie werd geannuleerd of de persoon is overleden, etc."@nl;
-    rdfs:comment "Toestand van het dossier van de Registratie."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#GeregistreerdPersoon.Dossierstatus>;
-    shacl:description "Toestand van het dossier van de Registratie."@nl;
-    shacl:maxCount 1;
-    shacl:name "dossierstatus"@nl;
-    shacl:nodeKind shacl:BlankNodeOrIRI;
-    shacl:path <http://www.w3.org/ns/adms#status>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "vorigeRegistratie"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Enkel van toepassing indien er een referentiedossier bestaat volgens IT002."@nl;
-    rdfs:comment "Het referentiedossier van de persoon die de vorige registratie bevat."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#GeregistreerdPersoon.VorigeRegistratie>;
-    shacl:class <http://www.w3.org/ns/adms#Identifier>;
-    shacl:description "Het referentiedossier van de persoon die de vorige registratie bevat."@nl;
-    shacl:maxCount 1;
-    shacl:name "vorigeRegistratie"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/persoon#vorigeRegistratie>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "redenAfwezigheid"@nl;
-    rdfs:comment "Reden waarom de Persoon afwezig is."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#GeregistreerdPersoon.RedenAfwezigheid>;
-    shacl:description "Reden waarom de Persoon afwezig is."@nl;
-    shacl:maxCount 1;
-    shacl:name "redenAfwezigheid"@nl;
-    shacl:nodeKind shacl:BlankNodeOrIRI;
-    shacl:path <https://data.vlaanderen.be/ns/persoon#redenAfwezigheid>
   ], [
     a shacl:PropertyShape;
     rdfs:label "beheerder"@nl;
@@ -715,6 +683,35 @@
   shacl:closed false;
   shacl:targetClass <https://data.vlaanderen.be/ns/persoon#Overlijden> .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#PersonEnvelopeShape> a shacl:NodeShape;
+  rdfs:label "PersonEnvelope"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."@nl;
+  rdfs:comment "Enveloppe om Persoon en bijhorende validatiewaarschuwingen uit te wisselen."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "warning"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen."@nl;
+    rdfs:comment "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#PersonEnvelope.Warning>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering>;
+    shacl:description "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
+    shacl:name "warning"@nl;
+    shacl:path schemas:error
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "data"@nl;
+    rdfs:comment "De data die overgedragen werd."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#PersonEnvelope.Data>;
+    shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>;
+    shacl:description "De data die overgedragen werd."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "data"@nl;
+    shacl:path schemas:data
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/persoon#PersonEnvelope> .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#PersoonShape> a shacl:NodeShape;
   rdfs:label "Persoon"@nl;
   <http://purl.org/vocab/vann/usageNote> "In de rechtspraak betreft het een persoon (in de wettelijke betekenis, het is te zeggen met eigen rechtspersoonlijkheid) van de menselijke soort, het is te zeggen een fysiek persoon. Tegenhanger is de rechtspersoon, een juridische constructie die een private of publieke organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bijvoorbeeld ook schulden hebben, contracten afsluiten, aangeklaagd worden, etc.)."@nl;
@@ -839,16 +836,6 @@
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
-    rdfs:label "datum"@nl;
-    rdfs:comment "Datum waarop de gebeurtenis plaatsvond."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Persoonsgebeurtenis.Datum>;
-    shacl:datatype xsd:date;
-    shacl:description "Datum waarop de gebeurtenis plaatsvond."@nl;
-    shacl:maxCount 1;
-    shacl:name "datum"@nl;
-    shacl:path dc:date
-  ], [
-    a shacl:PropertyShape;
     rdfs:label "plaats"@nl;
     <http://purl.org/vocab/vann/usageNote> "Gemeente of stad."@nl;
     rdfs:comment "Plaats waar de gebeurtenis plaatsvond."@nl;
@@ -858,6 +845,16 @@
     shacl:maxCount 1;
     shacl:name "plaats"@nl;
     shacl:path dc:spatial
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "datum"@nl;
+    rdfs:comment "Datum waarop de gebeurtenis plaatsvond."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Persoonsgebeurtenis.Datum>;
+    shacl:class <http://www.w3.org/2006/time#Instant>;
+    shacl:description "Datum waarop de gebeurtenis plaatsvond."@nl;
+    shacl:maxCount 1;
+    shacl:name "datum"@nl;
+    shacl:path dc:date
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/persoon#Overlijden>,
     <https://data.vlaanderen.be/ns/persoon#Persoonsgebeurtenis>,
@@ -930,16 +927,16 @@
   shacl:closed false;
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/persoon#Postadres> .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#ProbleemdetailShape> a shacl:NodeShape;
-  rdfs:label "Probleemdetail"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Dit ter aanvulling van een HTTP statuscode, bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc7807\">RFC7807</a>."@nl;
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#ProblemdetailShape> a shacl:NodeShape;
+  rdfs:label "Problemdetail"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Dit ter aanvulling van een HTTP statuscode, bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc9457\">RFC9457</a>."@nl;
   rdfs:comment "Meer gedetailleerde beschrijving van de fout in een HTTP response."@nl;
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
     rdfs:label "type"@nl;
     rdfs:comment "Aard van de fout."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Probleemdetail.Type>;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Problemdetail.Type>;
     shacl:datatype xsd:anyURI;
     shacl:description "Aard van de fout."@nl;
     shacl:maxCount 1;
@@ -948,21 +945,21 @@
     shacl:path dc:type
   ], [
     a shacl:PropertyShape;
-    rdfs:label "titel"@nl;
+    rdfs:label "title"@nl;
     rdfs:comment "Korte mensleesbare beschrijving van de fout."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Probleemdetail.Titel>;
-    shacl:datatype rdf:langString;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Problemdetail.Title>;
+    shacl:datatype xsd:string;
     shacl:description "Korte mensleesbare beschrijving van de fout."@nl;
     shacl:maxCount 1;
     shacl:minCount 1;
-    shacl:name "titel"@nl;
+    shacl:name "title"@nl;
     shacl:path dc:title
   ], [
     a shacl:PropertyShape;
     rdfs:label "status"@nl;
     <http://purl.org/vocab/vann/usageNote> "Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\"."@nl;
     rdfs:comment "HTTP foutcode."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Probleemdetail.Status>;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Problemdetail.Status>;
     shacl:datatype xsd:integer;
     shacl:description "HTTP foutcode."@nl;
     shacl:maxCount 1;
@@ -972,31 +969,44 @@
     a shacl:PropertyShape;
     rdfs:label "detail"@nl;
     rdfs:comment "Mensleesbare beschrijving van de fout."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Probleemdetail.Detail>;
-    shacl:datatype rdf:langString;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Problemdetail.Detail>;
+    shacl:datatype xsd:string;
     shacl:description "Mensleesbare beschrijving van de fout."@nl;
     shacl:maxCount 1;
+    shacl:minCount 1;
     shacl:name "detail"@nl;
     shacl:path dc:description
   ], [
     a shacl:PropertyShape;
-    rdfs:label "instantie"@nl;
+    rdfs:label "instance"@nl;
     <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: de verwijzing naar de request."@nl;
     rdfs:comment "Verwijzing naar de instantie van het object waarop de fout betrekking heeft."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Probleemdetail.Instantie>;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Problemdetail.Instance>;
     shacl:datatype xsd:anyURI;
     shacl:description "Verwijzing naar de instantie van het object waarop de fout betrekking heeft."@nl;
     shacl:maxCount 1;
-    shacl:name "instantie"@nl;
+    shacl:name "instance"@nl;
     shacl:path dc:references
   ];
-  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/persoon#Probleemdetail> .
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#ReferentieadresShape> a shacl:NodeShape;
   rdfs:label "Referentieadres"@nl;
   <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld in het geval van mobiele woning (tytpisch binnenscheepvaart), dakloosheid, hechtenis (zonder woonst), opdracht in het buitenland (typuisch voor militairen) en dergelijke meer."@nl;
   rdfs:comment "Adres van een andere persoon of rechtspersoon voor personen zonder vaste verblijfplaats."@nl;
   shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "einddatum"@nl;
+    rdfs:comment "De datum waarop het referentieadres vervalt."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Referentieadres.Einddatum>;
+    shacl:datatype xsd:date;
+    shacl:description "De datum waarop het referentieadres vervalt."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "einddatum"@nl;
+    shacl:path schemas:endDate
+  ];
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/persoon#Referentieadres> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#SamenwonenShape> a shacl:NodeShape;
@@ -1028,35 +1038,6 @@
   shacl:closed false;
   shacl:targetClass xsd:anyURI .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#VdipEnvelopShape> a shacl:NodeShape;
-  rdfs:label "VdipEnvelop"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."@nl;
-  rdfs:comment "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen."@nl;
-  shacl:closed false;
-  shacl:property [
-    a shacl:PropertyShape;
-    rdfs:label "warning"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen."@nl;
-    rdfs:comment "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#VdipEnvelop.Warning>;
-    shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/persoon#Probleemdetail>;
-    shacl:description "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
-    shacl:name "warning"@nl;
-    shacl:path schemas:error
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "data"@nl;
-    rdfs:comment "De data die overgedragen werd."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#VdipEnvelop.Data>;
-    shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>;
-    shacl:description "De data die overgedragen werd."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "data"@nl;
-    shacl:path schemas:data
-  ];
-  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/persoon#VdipEnvelop> .
-
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#VerblijfplaatsBuitenlandDomicilieShape> a shacl:NodeShape;
   rdfs:label "VerblijfplaatsBuitenlandDomicilie"@nl;
   <http://purl.org/vocab/vann/usageNote> "Plaats waar de Persoon het grootste deel van de tijd verblijft binnen de jurisdictie waarvan hij Inwoner is. Dit wordt doorgaans officieel vastgesteld en geregistreerd in het bevolkingsregister. Kan in praktijk verschillend zijn van de feitelijke verblijfplaats."@nl;
@@ -1085,7 +1066,7 @@
     <https://implementatie.data.vlaanderen.be/ns/magda/persoon#VerblijfplaatsBuitenland>,
     <https://implementatie.data.vlaanderen.be/ns/magda/persoon#WettelijkVerblijf>;
   shacl:xone ([
-      shacl:not _:df_2_82;
+      shacl:not _:df_2_80;
       shacl:property [
         a shacl:PropertyShape;
         rdfs:label "verblijfsadres"@nl;
@@ -1098,7 +1079,7 @@
         shacl:path <https://data.vlaanderen.be/ns/persoon#verblijfsadres>
       ]
     ] [shacl:property _:df_2_35,
-        _:df_2_82]) .
+        _:df_2_80]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#VersieShape> a shacl:NodeShape;
   rdfs:label "Versie"@nl;
@@ -1165,8 +1146,8 @@ _:df_2_46 a shacl:PropertyShape;
   shacl:name "verblijfsadres"@nl;
   shacl:path <https://data.vlaanderen.be/ns/persoon#verblijfsadres> .
 
-_:df_2_77 a shacl:PropertyShape;
+_:df_2_75 a shacl:PropertyShape;
   shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/persoon#VerblijfplaatsBuitenlandDomicilie> .
 
-_:df_2_82 a shacl:PropertyShape;
+_:df_2_80 a shacl:PropertyShape;
   shacl:class <https://data.vlaanderen.be/ns/persoon#Domicilie> .

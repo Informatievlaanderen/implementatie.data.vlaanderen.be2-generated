@@ -265,26 +265,11 @@
             "description": "Object type (klasse Overlijden)",
             "pattern": "^Overlijden$"
           },
-          "datum": {
-            "type": "object",
-            "description": "Datum waarop de gebeurtenis plaatsvond.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
-          },
           "plaats": {
             "$ref": "#/components/schemas/Plaats"
+          },
+          "datum": {
+            "$ref": "#/components/schemas/Moment"
           }
         },
         "required": [
@@ -305,26 +290,11 @@
             "description": "Object type (klasse Persoonsgebeurtenis)",
             "pattern": "^Persoonsgebeurtenis$"
           },
-          "datum": {
-            "type": "object",
-            "description": "Datum waarop de gebeurtenis plaatsvond.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
-          },
           "plaats": {
             "$ref": "#/components/schemas/Plaats"
+          },
+          "datum": {
+            "$ref": "#/components/schemas/Moment"
           }
         },
         "required": [
@@ -345,26 +315,11 @@
             "description": "Object type (klasse Geboorte)",
             "pattern": "^Geboorte$"
           },
-          "datum": {
-            "type": "object",
-            "description": "Datum waarop de gebeurtenis plaatsvond.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
-          },
           "plaats": {
             "$ref": "#/components/schemas/Plaats"
+          },
+          "datum": {
+            "$ref": "#/components/schemas/Moment"
           }
         },
         "required": [
@@ -488,8 +443,8 @@
           "@type"
         ]
       },
-      "Probleemdetail": {
-        "title": "Probleemdetail",
+      "Problemdetail": {
+        "title": "Problemdetail",
         "type": "object",
         "description": "Meer gedetailleerde beschrijving van de fout in een HTTP response.",
         "properties": {
@@ -499,8 +454,8 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse Probleemdetail)",
-            "pattern": "^Probleemdetail$"
+            "description": "Object type (klasse Problemdetail)",
+            "pattern": "^Problemdetail$"
           },
           "type": {
             "type": "object",
@@ -515,21 +470,16 @@
               "@id"
             ]
           },
-          "titel": {
+          "title": {
             "type": "object",
             "description": "Korte mensleesbare beschrijving van de fout.",
             "properties": {
               "@value": {
                 "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
               }
             },
             "required": [
-              "@value",
-              "@language"
+              "@value"
             ]
           },
           "status": {
@@ -556,18 +506,13 @@
             "properties": {
               "@value": {
                 "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
               }
             },
             "required": [
-              "@value",
-              "@language"
+              "@value"
             ]
           },
-          "instantie": {
+          "instance": {
             "type": "object",
             "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.",
             "properties": {
@@ -584,13 +529,14 @@
         "required": [
           "@type",
           "type",
-          "titel"
+          "title",
+          "detail"
         ]
       },
-      "VdipEnvelop": {
-        "title": "VdipEnvelop",
+      "PersonEnvelope": {
+        "title": "PersonEnvelope",
         "type": "object",
-        "description": "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen.",
+        "description": "Enveloppe om Persoon en bijhorende validatiewaarschuwingen uit te wisselen.",
         "properties": {
           "@id": {
             "type": "string",
@@ -598,24 +544,19 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse VdipEnvelop)",
-            "pattern": "^VdipEnvelop$"
+            "description": "Object type (klasse PersonEnvelope)",
+            "pattern": "^PersonEnvelope$"
           },
           "warning": {
             "type": "array",
-            "description": "Lijst van Probleemdetail items.",
+            "description": "Lijst van Uitzondering items.",
             "items": {
-              "$ref": "#/components/schemas/Probleemdetail"
+              "$ref": "#/components/schemas/Uitzondering"
             },
             "minItems": 1
           },
           "data": {
             "$ref": "#/components/schemas/GeregistreerdPersoon"
-          },
-          "@context": {
-            "type": "string",
-            "description": "URI of the JSON-LD versioned context file for this response.",
-            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/magda\\/persoon\\/v0.2.0\\/context\\/persoon.jsonld$"
           }
         },
         "required": [
@@ -732,15 +673,6 @@
           },
           "registratie": {
             "$ref": "#/components/schemas/Identificator"
-          },
-          "dossierstatus": {
-            "$ref": "#/components/schemas/Dossierstatus"
-          },
-          "vorigeRegistratie": {
-            "$ref": "#/components/schemas/Identificator"
-          },
-          "redenAfwezigheid": {
-            "$ref": "#/components/schemas/RedenAfwezigheid"
           },
           "beheerder": {
             "type": "array",
@@ -1209,6 +1141,24 @@
             "description": "Object type (klasse Referentieadres)",
             "pattern": "^Referentieadres$"
           },
+          "einddatum": {
+            "type": "object",
+            "description": "De datum waarop het referentieadres vervalt.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
           "verblijfsadres": {
             "$ref": "#/components/schemas/Adresvoorstelling"
           },
@@ -1220,7 +1170,8 @@
           }
         },
         "required": [
-          "@type"
+          "@type",
+          "einddatum"
         ]
       },
       "VerblijfplaatsBuitenlandDomicilie": {
@@ -1825,6 +1776,13 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen."
       },
+      "Overlijden.datum": {
+        "operationId": "OverlijdenGET",
+        "parameters": {
+          "id": "$response.body#/Overlijden.datum/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Moment` op te halen."
+      },
       "Persoonsgebeurtenis.plaats": {
         "operationId": "PersoonsgebeurtenisGET",
         "parameters": {
@@ -1832,12 +1790,26 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen."
       },
+      "Persoonsgebeurtenis.datum": {
+        "operationId": "PersoonsgebeurtenisGET",
+        "parameters": {
+          "id": "$response.body#/Persoonsgebeurtenis.datum/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Moment` op te halen."
+      },
       "Geboorte.plaats": {
         "operationId": "GeboorteGET",
         "parameters": {
           "id": "$response.body#/Geboorte.plaats/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen."
+      },
+      "Geboorte.datum": {
+        "operationId": "GeboorteGET",
+        "parameters": {
+          "id": "$response.body#/Geboorte.datum/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Moment` op te halen."
       },
       "Huwelijk.plaats": {
         "operationId": "HuwelijkGET",
@@ -1860,17 +1832,17 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Organisatie` op te halen."
       },
-      "VdipEnvelop.warning": {
-        "operationId": "VdipEnvelopGET",
+      "PersonEnvelope.warning": {
+        "operationId": "PersonEnvelopeGET",
         "parameters": {
-          "id": "$response.body#/VdipEnvelop.warning/@id"
+          "id": "$response.body#/PersonEnvelope.warning/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Probleemdetail` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Uitzondering` op te halen."
       },
-      "VdipEnvelop.data": {
-        "operationId": "VdipEnvelopGET",
+      "PersonEnvelope.data": {
+        "operationId": "PersonEnvelopeGET",
         "parameters": {
-          "id": "$response.body#/VdipEnvelop.data/@id"
+          "id": "$response.body#/PersonEnvelope.data/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdPersoon` op te halen."
       },
@@ -1908,27 +1880,6 @@
           "id": "$response.body#/GeregistreerdPersoon.registratie/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
-      },
-      "GeregistreerdPersoon.dossierstatus": {
-        "operationId": "GeregistreerdPersoonGET",
-        "parameters": {
-          "id": "$response.body#/GeregistreerdPersoon.dossierstatus/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Dossierstatus` op te halen."
-      },
-      "GeregistreerdPersoon.vorigeRegistratie": {
-        "operationId": "GeregistreerdPersoonGET",
-        "parameters": {
-          "id": "$response.body#/GeregistreerdPersoon.vorigeRegistratie/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
-      },
-      "GeregistreerdPersoon.redenAfwezigheid": {
-        "operationId": "GeregistreerdPersoonGET",
-        "parameters": {
-          "id": "$response.body#/GeregistreerdPersoon.redenAfwezigheid/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `RedenAfwezigheid` op te halen."
       },
       "GeregistreerdPersoon.beheerder": {
         "operationId": "GeregistreerdPersoonGET",

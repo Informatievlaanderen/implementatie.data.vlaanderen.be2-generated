@@ -18,6 +18,7 @@
 #||#  
 Error: the following directories are unsupported
 [
+  "/tmp/generated/doc/implementatiemodel/magda/persoon/REST",
   "/tmp/generated/doc/implementatiemodel/magda/trajectcontrole",
   "/tmp/generated/doc/implementatiemodel/magda/trajectcontrole/v0.1.0",
   "/tmp/generated/doc/implementatiemodel/verkeersmetingen",

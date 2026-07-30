@@ -197,7 +197,7 @@
       "@context": {
         "datum": {
           "@id": "http://purl.org/dc/terms/date",
-          "@type": "http://www.w3.org/2001/XMLSchema#date"
+          "@type": "http://www.w3.org/2006/time#Instant"
         },
         "plaats": {
           "@id": "http://purl.org/dc/terms/spatial",
@@ -229,10 +229,6 @@
         "creatiedatum": {
           "@id": "http://purl.org/dc/terms/created",
           "@type": "http://www.w3.org/2001/XMLSchema#date"
-        },
-        "dossierstatus": {
-          "@id": "http://www.w3.org/ns/adms#status",
-          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
         },
         "geslacht": {
           "@id": "http://data.europa.eu/m8g/gender",
@@ -273,10 +269,6 @@
           "@id": "http://purl.org/dc/terms/modified",
           "@type": "http://www.w3.org/2001/XMLSchema#date"
         },
-        "redenAfwezigheid": {
-          "@id": "https://data.vlaanderen.be/ns/persoon#redenAfwezigheid",
-          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
-        },
         "registratie": {
           "@id": "https://data.vlaanderen.be/ns/persoon#registratie",
           "@type": "http://www.w3.org/ns/adms#Identifier"
@@ -285,10 +277,6 @@
           "@container": "@set",
           "@id": "http://xmlns.com/foaf/0.1/givenName",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "vorigeRegistratie": {
-          "@id": "https://data.vlaanderen.be/ns/persoon#vorigeRegistratie",
-          "@type": "http://www.w3.org/ns/adms#Identifier"
         }
       },
       "@id": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon"
@@ -417,7 +405,7 @@
       "@context": {
         "datum": {
           "@id": "http://purl.org/dc/terms/date",
-          "@type": "http://www.w3.org/2001/XMLSchema#date"
+          "@type": "http://www.w3.org/2006/time#Instant"
         },
         "plaats": {
           "@id": "http://purl.org/dc/terms/spatial",
@@ -425,6 +413,20 @@
         }
       },
       "@id": "https://data.vlaanderen.be/ns/persoon#Overlijden"
+    },
+    "PersonEnvelope": {
+      "@context": {
+        "data": {
+          "@id": "https://schema.org/data",
+          "@type": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon"
+        },
+        "warning": {
+          "@container": "@set",
+          "@id": "https://schema.org/error",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#PersonEnvelope"
     },
     "Persoon": {
       "@context": {
@@ -496,7 +498,7 @@
       "@context": {
         "datum": {
           "@id": "http://purl.org/dc/terms/date",
-          "@type": "http://www.w3.org/2001/XMLSchema#date"
+          "@type": "http://www.w3.org/2006/time#Instant"
         },
         "plaats": {
           "@id": "http://purl.org/dc/terms/spatial",
@@ -540,13 +542,13 @@
       },
       "@id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Postadres"
     },
-    "Probleemdetail": {
+    "Problemdetail": {
       "@context": {
         "detail": {
           "@id": "http://purl.org/dc/terms/description",
-          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
-        "instantie": {
+        "instance": {
           "@id": "http://purl.org/dc/terms/references",
           "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         },
@@ -554,19 +556,23 @@
           "@id": "http://www.w3.org/ns/adms#status",
           "@type": "http://www.w3.org/2001/XMLSchema#integer"
         },
-        "titel": {
+        "title": {
           "@id": "http://purl.org/dc/terms/title",
-          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
         "type": {
           "@id": "http://purl.org/dc/terms/type",
           "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         }
       },
-      "@id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Probleemdetail"
+      "@id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail"
     },
     "Referentieadres": {
       "@context": {
+        "einddatum": {
+          "@id": "https://schema.org/endDate",
+          "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
         "nietMededeelbaar": {
           "@id": "https://data.vlaanderen.be/ns/persoon#nietMededeelbaar",
           "@type": "https://w3id.org/dpv#ConfidentialData"
@@ -604,20 +610,6 @@
     },
     "URI": {
       "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
-    },
-    "VdipEnvelop": {
-      "@context": {
-        "data": {
-          "@id": "https://schema.org/data",
-          "@type": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon"
-        },
-        "warning": {
-          "@container": "@set",
-          "@id": "https://schema.org/error",
-          "@type": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Probleemdetail"
-        }
-      },
-      "@id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#VdipEnvelop"
     },
     "Verblijfplaats": {
       "@context": {
