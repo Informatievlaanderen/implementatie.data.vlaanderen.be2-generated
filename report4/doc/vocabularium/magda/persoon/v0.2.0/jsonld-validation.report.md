@@ -2,27 +2,21 @@
 
 #||# -------------------------------------  
 
-2026-07-30T16:38:42.827Z info: [JsonLdValidationService]: Loaded 55 URI prefixes into whitelist
+2026-07-30T16:53:19.403Z info: [JsonLdValidationService]: Loaded 55 URI prefixes into whitelist
 
-2026-07-30T16:38:43.049Z warn: [JsonLdValidationService]: Found abbreviation 'bvb' in sentence 'Geeft detail over de registratie zelf, bvb of de registratie nog geldig is en evt is gevolgd door een nieuwe registratie. Dat laatste gebeurt in het Rijksregister bvb bij fouten in of veranderingen aan de identificator (bvb bij geslachtsverandering) waardoor de registratie opnieuw moet gebeuren.' for subject: [urn:oslo-toolchain:7c9ab554ff6fcadbe9568dc0643cdf9111a1ce86df25f19e2f25431f20e4b240](all-persoon.jsonld#L399), replace with 'bijvoorbeeld'
+2026-07-30T16:53:19.692Z warn: [JsonLdValidationService]: Labels must not end with a '.': 'Toestand van het dossier van de Registratie.' for subject: [urn:oslo-toolchain:bad1407b9264e72e767b26673346563ebfdc352f74ded353b80e9eba1f4da4bf](all-persoon.jsonld#L4675)
 
-2026-07-30T16:38:43.049Z warn: [JsonLdValidationService]: Found abbreviation 'evt' in sentence 'Geeft detail over de registratie zelf, bvb of de registratie nog geldig is en evt is gevolgd door een nieuwe registratie. Dat laatste gebeurt in het Rijksregister bvb bij fouten in of veranderingen aan de identificator (bvb bij geslachtsverandering) waardoor de registratie opnieuw moet gebeuren.' for subject: [urn:oslo-toolchain:7c9ab554ff6fcadbe9568dc0643cdf9111a1ce86df25f19e2f25431f20e4b240](all-persoon.jsonld#L399), replace with 'eventueel'
+2026-07-30T16:53:19.699Z error: [JsonLdValidationService]: Found missing class or attribute (referentiedossier): [urn:oslo-toolchain:8cfa2f85c39bb172f751b391555e3786ea2a8e5446f9d42544520d7ba874876b](all-persoon.jsonld#L4714) in Vocabulary
 
-2026-07-30T16:38:43.053Z error: [JsonLdValidationService]: Found missing class or attribute (VoorlopigInschrijving): [urn:oslo-toolchain:f358427b3bb90dcb1a14e25330ca574b2b102e2f715e7e23a5a510dacd73f2f5](all-persoon.jsonld#L944) in Vocabulary
+2026-07-30T16:53:19.700Z error: [JsonLdValidationService]: Found missing class or attribute (redenAfwezigheid): [urn:oslo-toolchain:3cd62f0e6108689d1b4567274fb91e0eae99f42c576c8039f2e801a11cd194e8](all-persoon.jsonld#L4758) in Vocabulary
 
-2026-07-30T16:38:43.056Z error: [JsonLdValidationService]: Found missing class or attribute (waarde): [urn:oslo-toolchain:22c4b312786fbce13ae6f126a2f23761f6830e745286e4626dfc0efc81f90968](all-persoon.jsonld#L3103) in Vocabulary
+2026-07-30T16:53:19.702Z info: [JsonLdValidationService]: Validation successful! All assigned URIs are whitelisted.
 
-2026-07-30T16:38:43.057Z error: [JsonLdValidationService]: Found missing class or attribute (procedure): [urn:oslo-toolchain:43d31fea09de92a37be087d8da67b14855a294ce2ac9e38030b87a56cc14c2df](all-persoon.jsonld#L4075) in Vocabulary
+2026-07-30T16:53:19.702Z info: [JsonLdValidationService]: Validation successful! All sentences seem to be valid, no spelling mistakes or abbreviations found.
 
-2026-07-30T16:38:43.058Z error: [JsonLdValidationService]: Found missing class or attribute (referentiedossier): [urn:oslo-toolchain:8cfa2f85c39bb172f751b391555e3786ea2a8e5446f9d42544520d7ba874876b](all-persoon.jsonld#L4720) in Vocabulary
+2026-07-30T16:53:19.702Z info: [JsonLdValidationService]: Validation found 1 labels with spelling mistakes or abbreviations.
 
-2026-07-30T16:38:43.060Z info: [JsonLdValidationService]: Validation successful! All assigned URIs are whitelisted.
+2026-07-30T16:53:19.702Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
 
-2026-07-30T16:38:43.060Z info: [JsonLdValidationService]: Validation found 1 sentences with spelling mistakes or abbreviations.
-
-2026-07-30T16:38:43.060Z info: [JsonLdValidationService]: Validation successful! All labels seem to be valid, no spelling mistakes or abbreviations found.
-
-2026-07-30T16:38:43.060Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
-
-2026-07-30T16:38:43.060Z info: [JsonLdValidationService]: Validation found 4 missing referenced classes or attributes.
+2026-07-30T16:53:19.702Z info: [JsonLdValidationService]: Validation found 2 missing referenced classes or attributes.
 

@@ -1772,7 +1772,7 @@
     "/id/Registratie/{id}": {
       "get": {
         "summary": "Opname van de Persoon in het register.",
-        "description": "Geeft detail over de registratie zelf, bvb of de registratie nog geldig is en evt is gevolgd door een nieuwe registratie. Dat laatste gebeurt in het Rijksregister bvb bij fouten in of veranderingen aan de identificator (bvb bij geslachtsverandering) waardoor de registratie opnieuw moet gebeuren.",
+        "description": "Geeft detail over de registratie zelf, bijvoorbeeld of de registratie nog geldig is en eventueel is gevolgd door een nieuwe registratie. Dat laatste gebeurt in het Rijksregister bijvoorbeeld bij fouten in of veranderingen aan de identificator (bijvoorbeeld bij geslachtsverandering) waardoor de registratie opnieuw moet gebeuren.",
         "operationId": "RegistratieGET",
         "parameters": [
           {
@@ -1796,10 +1796,10 @@
               }
             },
             "links": {
-              "Registratie.dossierstatus": {
+              "Registratie.toestandVanHetDossierVanDeRegistratie.": {
                 "operationId": "RegistratieGET",
                 "parameters": {
-                  "id": "$response.body#/Registratie.dossierstatus/@id"
+                  "id": "$response.body#/Registratie.toestandVanHetDossierVanDeRegistratie./@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Dossierstatus` op te halen."
               },
@@ -5828,17 +5828,17 @@
         }
       }
     },
-    "/id/VoorlopigInschrijving/{id}": {
+    "/id/VoorlopigeInschrijving/{id}": {
       "get": {
         "summary": "De Persoon is voorlopig ingeschreven in het bevolkingsregister wanneer deze Persoon zich gevestigd heeft in een woning waar permanente bewoning niet toegelaten is.",
         "description": "De inschrijving blijft voorlopig zolang de administratieve beheerder geen beslissing heeft genomen om de onregelmatige toestand te beëindigen.",
-        "operationId": "VoorlopigInschrijvingGET",
+        "operationId": "VoorlopigeInschrijvingGET",
         "parameters": [
           {
             "name": "id",
             "required": true,
             "in": "path",
-            "description": "Identificator van een VoorlopigInschrijving object.",
+            "description": "Identificator van een VoorlopigeInschrijving object.",
             "schema": {
               "type": "string"
             }
@@ -5846,47 +5846,47 @@
         ],
         "responses": {
           "200": {
-            "description": "VoorlopigInschrijving object gevonden.",
+            "description": "VoorlopigeInschrijving object gevonden.",
             "content": {
               "application/ld+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VoorlopigInschrijving"
+                  "$ref": "#/components/schemas/VoorlopigeInschrijving"
                 }
               }
             },
             "links": {
-              "VoorlopigInschrijving.geldigheid": {
-                "operationId": "VoorlopigInschrijvingGET",
+              "VoorlopigeInschrijving.geldigheid": {
+                "operationId": "VoorlopigeInschrijvingGET",
                 "parameters": {
-                  "id": "$response.body#/VoorlopigInschrijving.geldigheid/@id"
+                  "id": "$response.body#/VoorlopigeInschrijving.geldigheid/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Periode` op te halen."
               },
-              "VoorlopigInschrijving.procedure": {
-                "operationId": "VoorlopigInschrijvingGET",
+              "VoorlopigeInschrijving.procedure": {
+                "operationId": "VoorlopigeInschrijvingGET",
                 "parameters": {
-                  "id": "$response.body#/VoorlopigInschrijving.procedure/@id"
+                  "id": "$response.body#/VoorlopigeInschrijving.procedure/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `ProcedureType` op te halen."
               },
-              "VoorlopigInschrijving.verblijfsadres": {
-                "operationId": "VoorlopigInschrijvingGET",
+              "VoorlopigeInschrijving.verblijfsadres": {
+                "operationId": "VoorlopigeInschrijvingGET",
                 "parameters": {
-                  "id": "$response.body#/VoorlopigInschrijving.verblijfsadres/@id"
+                  "id": "$response.body#/VoorlopigeInschrijving.verblijfsadres/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen."
               },
-              "VoorlopigInschrijving.status": {
-                "operationId": "VoorlopigInschrijvingGET",
+              "VoorlopigeInschrijving.status": {
+                "operationId": "VoorlopigeInschrijvingGET",
                 "parameters": {
-                  "id": "$response.body#/VoorlopigInschrijving.status/@id"
+                  "id": "$response.body#/VoorlopigeInschrijving.status/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `DomicilieStatus` op te halen."
               },
-              "VoorlopigInschrijving.nietMededeelbaar": {
-                "operationId": "VoorlopigInschrijvingGET",
+              "VoorlopigeInschrijving.nietMededeelbaar": {
+                "operationId": "VoorlopigeInschrijvingGET",
                 "parameters": {
-                  "id": "$response.body#/VoorlopigInschrijving.nietMededeelbaar/@id"
+                  "id": "$response.body#/VoorlopigeInschrijving.nietMededeelbaar/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `NietMededeelbaar` op te halen."
               }
@@ -5903,7 +5903,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VoorlopigInschrijvingGET",
+                "operationId": "VoorlopigeInschrijvingGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -5922,7 +5922,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VoorlopigInschrijvingGET",
+                "operationId": "VoorlopigeInschrijvingGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -5941,7 +5941,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VoorlopigInschrijvingGET",
+                "operationId": "VoorlopigeInschrijvingGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -5960,7 +5960,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VoorlopigInschrijvingGET",
+                "operationId": "VoorlopigeInschrijvingGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -5979,7 +5979,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VoorlopigInschrijvingGET",
+                "operationId": "VoorlopigeInschrijvingGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -5998,7 +5998,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VoorlopigInschrijvingGET",
+                "operationId": "VoorlopigeInschrijvingGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -6017,7 +6017,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VoorlopigInschrijvingGET",
+                "operationId": "VoorlopigeInschrijvingGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -6036,7 +6036,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VoorlopigInschrijvingGET",
+                "operationId": "VoorlopigeInschrijvingGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -6055,7 +6055,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "VoorlopigInschrijvingGET",
+                "operationId": "VoorlopigeInschrijvingGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -11378,7 +11378,7 @@
             "description": "Object type (klasse Registratie)",
             "pattern": "^Registratie$"
           },
-          "dossierstatus": {
+          "toestandVanHetDossierVanDeRegistratie.": {
             "type": "array",
             "description": "Lijst van Dossierstatus items.",
             "items": {
@@ -12036,8 +12036,8 @@
           "@type"
         ]
       },
-      "VoorlopigInschrijving": {
-        "title": "VoorlopigInschrijving",
+      "VoorlopigeInschrijving": {
+        "title": "VoorlopigeInschrijving",
         "type": "object",
         "description": "De Persoon is voorlopig ingeschreven in het bevolkingsregister wanneer deze Persoon zich gevestigd heeft in een woning waar permanente bewoning niet toegelaten is.",
         "properties": {
@@ -12047,8 +12047,8 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse VoorlopigInschrijving)",
-            "pattern": "^VoorlopigInschrijving$"
+            "description": "Object type (klasse VoorlopigeInschrijving)",
+            "pattern": "^VoorlopigeInschrijving$"
           },
           "geldigheid": {
             "$ref": "#/components/schemas/Periode"
