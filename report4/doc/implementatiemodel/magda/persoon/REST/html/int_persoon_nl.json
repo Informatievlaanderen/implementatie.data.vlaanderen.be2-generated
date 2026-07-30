@@ -291,7 +291,7 @@
         "nl": "Hoofdverblijfplaats van een Persoon."
       },
       "applicationProfileUsageNote": {
-        "nl": "Plaats waar de Persoon het grootste deel van de tijd verblijft binnen de jurisdictie waarvan hij Inwoner is. Dit wordt doorgaans officieel vastgesteld en geregistreerd in het bevolkingsregister. Kan in praktijk verschillend zijn van de feitelijke verblijfplaats"
+        "nl": "Plaats waar de Persoon het grootste deel van de tijd verblijft binnen de jurisdictie waarvan hij Inwoner is. Dit wordt doorgaans officieel vastgesteld en geregistreerd in het bevolkingsregister. Kan in praktijk verschillend zijn van de feitelijke verblijfplaats."
       },
       "parents": [
         {
@@ -504,74 +504,6 @@
           "maxCount": "*"
         },
         {
-          "id": "http://www.w3.org/ns/adms#status",
-          "vocabularyLabel": {
-            "nl": "dossierstatus"
-          },
-          "applicationProfileLabel": {
-            "nl": "dossierstatus"
-          },
-          "vocabularyDefinition": {
-            "nl": "Toestand van het dossier van de Registratie."
-          },
-          "applicationProfileDefinition": {
-            "nl": "Toestand van het dossier van de Registratie."
-          },
-          "vocabularyUsageNote": {
-            "nl": "In het Rijksregister gebruikt wanneer de inschrijving in het register niet meer geldig is, bijvoorbeeld: omdat de persoon uit het register is geschrapt of een eerdere registratie werd geannuleerd of de persoon is overleden, etc."
-          },
-          "applicationProfileUsageNote": {
-            "nl": "In het Rijksregister gebruikt wanneer de inschrijving in het register niet meer geldig is, bijvoorbeeld: omdat de persoon uit het register is geschrapt of een eerdere registratie werd geannuleerd of de persoon is overleden, etc."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
-          "range": {
-            "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "IT001-Dossierstatus-v1"
-            },
-            "applicationProfileLabel": {
-              "nl": "Dossierstatus"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1",
-          "codelist": "https://data.vlaanderen.be/id/conceptscheme/IT001/Dossierstatus/v1"
-        },
-        {
-          "id": "https://data.vlaanderen.be/ns/persoon#redenAfwezigheid",
-          "vocabularyLabel": {
-            "nl": "redenAfwezigheid"
-          },
-          "applicationProfileLabel": {
-            "nl": "redenAfwezigheid"
-          },
-          "vocabularyDefinition": {
-            "nl": "Reden waarom de Persoon afwezig is."
-          },
-          "applicationProfileDefinition": {
-            "nl": "Reden waarom de Persoon afwezig is."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
-          "range": {
-            "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "IT026-RedenAfwezigheid-v1"
-            },
-            "applicationProfileLabel": {
-              "nl": "RedenAfwezigheid"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1",
-          "codelist": "https://data.vlaanderen.be/id/conceptscheme/IT026/RedenAfwezigheid/v1"
-        },
-        {
           "id": "https://data.vlaanderen.be/ns/persoon#registratie",
           "vocabularyLabel": {
             "nl": "registratie"
@@ -601,36 +533,6 @@
             }
           },
           "minCount": "1",
-          "maxCount": "1"
-        },
-        {
-          "id": "https://data.vlaanderen.be/ns/persoon#volgendeRegistratie",
-          "vocabularyLabel": {
-            "nl": "volgendeRegistratie"
-          },
-          "applicationProfileLabel": {
-            "nl": "volgendeRegistratie"
-          },
-          "applicationProfileDefinition": {
-            "nl": "De nieuwe registratie van een Persoon in het register."
-          },
-          "applicationProfileUsageNote": {
-            "nl": "Enkel van toepassing indien er een referentiedossier bestaat volgens IT002."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
-          "range": {
-            "id": "http://www.w3.org/ns/adms#Identifier",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "Identificator"
-            },
-            "applicationProfileLabel": {
-              "nl": "Identificator"
-            }
-          },
-          "minCount": "0",
           "maxCount": "1"
         }
       ]
@@ -1192,13 +1094,24 @@
       "applicationProfileUsageNote": {
         "nl": "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."
       },
+      "parents": [
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Envelope",
+          "vocabularyLabel": {
+            "nl": "envelop"
+          },
+          "applicationProfileLabel": {
+            "nl": "envelop"
+          }
+        }
+      ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
       "properties": [
         {
           "id": "https://schema.org/data",
           "vocabularyLabel": {
-            "nl": "data"
+            "nl": "^data"
           },
           "applicationProfileLabel": {
             "nl": "data"
@@ -1225,7 +1138,7 @@
         {
           "id": "https://schema.org/error",
           "vocabularyLabel": {
-            "nl": "warning"
+            "nl": "^warning"
           },
           "applicationProfileLabel": {
             "nl": "warning"
@@ -1240,13 +1153,13 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#PersonEnvelope",
           "range": {
-            "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail",
-            "listedInDocument": true,
+            "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering",
+            "listedInDocument": false,
             "vocabularyLabel": {
-              "nl": "Problemdetail"
+              "nl": "Uitzondering"
             },
             "applicationProfileLabel": {
-              "nl": "Problemdetail"
+              "nl": "Uitzondering"
             }
           },
           "minCount": "0",
@@ -1643,13 +1556,13 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
           "domain": "https://data.vlaanderen.be/ns/persoon#Persoonsgebeurtenis",
           "range": {
-            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "id": "http://www.w3.org/2006/time#Instant",
             "listedInDocument": false,
             "vocabularyLabel": {
-              "nl": "Date"
+              "nl": "Moment"
             },
             "applicationProfileLabel": {
-              "nl": "Date"
+              "nl": "Moment"
             }
           },
           "minCount": "0",
@@ -1887,10 +1800,10 @@
         "nl": "Meer gedetailleerde beschrijving van de fout in een HTTP response."
       },
       "vocabularyUsageNote": {
-        "nl": "Dit ter aanvulling van een HTTP statuscode, bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc7807\">RFC7807</a>."
+        "nl": "Dit ter aanvulling van een HTTP statuscode, bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc9457\">RFC9457</a>."
       },
       "applicationProfileUsageNote": {
-        "nl": "Dit ter aanvulling van een HTTP statuscode, bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc7807\">RFC7807</a>."
+        "nl": "Dit ter aanvulling van een HTTP statuscode, bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc9457\">RFC9457</a>."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
@@ -2070,7 +1983,36 @@
         }
       ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard"
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "https://schema.org/endDate",
+          "vocabularyLabel": {
+            "nl": "einddatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "einddatum"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De datum waarop het referentieadres vervalt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Referentieadres",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
     },
     {
       "id": "https://data.vlaanderen.be/ns/persoon#Samenwonen",

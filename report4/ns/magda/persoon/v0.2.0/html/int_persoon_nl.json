@@ -100,6 +100,99 @@
       ]
     },
     {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#PersonEnvelope",
+      "vocabularyLabel": {
+        "nl": "PersonEnvelope"
+      },
+      "applicationProfileLabel": {
+        "nl": "PersonEnvelope"
+      },
+      "vocabularyDefinition": {
+        "nl": "Enveloppe om Persoon en bijhorende validatiewaarschuwingen uit te wisselen."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Enveloppe om Persoon en bijhorende validatiewaarschuwingen uit te wisselen."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."
+      },
+      "parents": [
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Envelope",
+          "vocabularyLabel": {
+            "nl": "envelop"
+          },
+          "applicationProfileLabel": {
+            "nl": "envelop"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "https://schema.org/data",
+          "vocabularyLabel": {
+            "nl": "^data"
+          },
+          "applicationProfileLabel": {
+            "nl": "data"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De data die overgedragen werd."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#PersonEnvelope",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "GeregistreerdPersoon"
+            },
+            "applicationProfileLabel": {
+              "nl": "GeregistreerdPersoon"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://schema.org/error",
+          "vocabularyLabel": {
+            "nl": "^warning"
+          },
+          "applicationProfileLabel": {
+            "nl": "warning"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Foutmeldingen die opgetreden zijn bij het afleveren van de data."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#PersonEnvelope",
+          "range": {
+            "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Uitzondering"
+            },
+            "applicationProfileLabel": {
+              "nl": "Uitzondering"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        }
+      ]
+    },
+    {
       "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Postadres",
       "vocabularyLabel": {
         "nl": "Postadres"
@@ -134,12 +227,12 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard"
     },
     {
-      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Probleemdetail",
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail",
       "vocabularyLabel": {
-        "nl": "Probleemdetail"
+        "nl": "Problemdetail"
       },
       "applicationProfileLabel": {
-        "nl": "Probleemdetail"
+        "nl": "Problemdetail"
       },
       "vocabularyDefinition": {
         "nl": "Meer gedetailleerde beschrijving van de fout in een HTTP response."
@@ -148,10 +241,10 @@
         "nl": "Meer gedetailleerde beschrijving van de fout in een HTTP response."
       },
       "vocabularyUsageNote": {
-        "nl": "Dit ter aanvulling van een HTTP statuscode, bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc7807\">RFC7807</a>."
+        "nl": "Dit ter aanvulling van een HTTP statuscode, bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc9457\">RFC9457</a>."
       },
       "applicationProfileUsageNote": {
-        "nl": "Dit ter aanvulling van een HTTP statuscode, bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc7807\">RFC7807</a>."
+        "nl": "Dit ter aanvulling van een HTTP statuscode, bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc9457\">RFC9457</a>."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
@@ -169,27 +262,27 @@
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Probleemdetail",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail",
           "range": {
-            "id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+            "id": "http://www.w3.org/2001/XMLSchema#string",
             "listedInDocument": false,
             "vocabularyLabel": {
-              "nl": "LangString"
+              "nl": "String"
             },
             "applicationProfileLabel": {
-              "nl": "LangString"
+              "nl": "String"
             }
           },
-          "minCount": "0",
+          "minCount": "1",
           "maxCount": "1"
         },
         {
           "id": "http://purl.org/dc/terms/references",
           "vocabularyLabel": {
-            "nl": "instantie"
+            "nl": "instance"
           },
           "applicationProfileLabel": {
-            "nl": "instantie"
+            "nl": "instance"
           },
           "applicationProfileDefinition": {
             "nl": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft."
@@ -199,7 +292,7 @@
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Probleemdetail",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail",
           "range": {
             "id": "http://www.w3.org/2001/XMLSchema#anyURI",
             "listedInDocument": false,
@@ -229,7 +322,7 @@
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Probleemdetail",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail",
           "range": {
             "id": "http://www.w3.org/2001/XMLSchema#integer",
             "listedInDocument": false,
@@ -246,25 +339,25 @@
         {
           "id": "http://purl.org/dc/terms/title",
           "vocabularyLabel": {
-            "nl": "titel"
+            "nl": "title"
           },
           "applicationProfileLabel": {
-            "nl": "titel"
+            "nl": "title"
           },
           "applicationProfileDefinition": {
             "nl": "Korte mensleesbare beschrijving van de fout."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Probleemdetail",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail",
           "range": {
-            "id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+            "id": "http://www.w3.org/2001/XMLSchema#string",
             "listedInDocument": false,
             "vocabularyLabel": {
-              "nl": "LangString"
+              "nl": "String"
             },
             "applicationProfileLabel": {
-              "nl": "LangString"
+              "nl": "String"
             }
           },
           "minCount": "1",
@@ -283,7 +376,7 @@
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Probleemdetail",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail",
           "range": {
             "id": "http://www.w3.org/2001/XMLSchema#anyURI",
             "listedInDocument": false,
@@ -331,87 +424,34 @@
         }
       ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard"
-    },
-    {
-      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#VdipEnvelop",
-      "vocabularyLabel": {
-        "nl": "VdipEnvelop"
-      },
-      "applicationProfileLabel": {
-        "nl": "VdipEnvelop"
-      },
-      "vocabularyDefinition": {
-        "nl": "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen."
-      },
-      "applicationProfileDefinition": {
-        "nl": "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen."
-      },
-      "vocabularyUsageNote": {
-        "nl": "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."
-      },
-      "applicationProfileUsageNote": {
-        "nl": "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."
-      },
-      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
       "properties": [
         {
-          "id": "https://schema.org/data",
+          "id": "https://schema.org/endDate",
           "vocabularyLabel": {
-            "nl": "data"
+            "nl": "einddatum"
           },
           "applicationProfileLabel": {
-            "nl": "data"
+            "nl": "einddatum"
           },
           "applicationProfileDefinition": {
-            "nl": "De data die overgedragen werd."
+            "nl": "De datum waarop het referentieadres vervalt."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#VdipEnvelop",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Referentieadres",
           "range": {
-            "id": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
-            "listedInDocument": true,
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
             "vocabularyLabel": {
-              "nl": "GeregistreerdPersoon"
+              "nl": "Date"
             },
             "applicationProfileLabel": {
-              "nl": "GeregistreerdPersoon"
+              "nl": "Date"
             }
           },
           "minCount": "1",
           "maxCount": "1"
-        },
-        {
-          "id": "https://schema.org/error",
-          "vocabularyLabel": {
-            "nl": "warning"
-          },
-          "applicationProfileLabel": {
-            "nl": "warning"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Foutmeldingen die opgetreden zijn bij het afleveren van de data."
-          },
-          "applicationProfileUsageNote": {
-            "nl": "Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#VdipEnvelop",
-          "range": {
-            "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Probleemdetail",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "Probleemdetail"
-            },
-            "applicationProfileLabel": {
-              "nl": "Probleemdetail"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "*"
         }
       ]
     },
