@@ -31,22 +31,21 @@
       ]
     },
     "afstammingstype": {
-      "$ref": "#/components/schemas/Afstammingstype"
-    },
-    "vanPersoon": {
       "oneOf": [
         {
-          "$ref": "#/components/schemas/Persoon"
+          "$ref": "#/components/schemas/Afstammingstype"
         },
         {
-          "$ref": "#/components/schemas/GeregistreerdPersoon"
+          "$ref": "#/components/schemas/Afstammingstype"
+        },
+        {
+          "$ref": "#/components/schemas/Afstammingstype"
         }
       ],
       "discriminator": {
         "propertyName": "@type",
         "mapping": {
-          "Persoon": "#/components/schemas/Persoon",
-          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+          "Afstammingstype": "#/components/schemas/Afstammingstype"
         }
       }
     },
@@ -70,7 +69,6 @@
   },
   "required": [
     "@type",
-    "vanPersoon",
     "metPersoon"
   ]
 }

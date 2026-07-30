@@ -1,0 +1,31 @@
+{
+  "title": "PersonEnvelope",
+  "type": "object",
+  "description": "Enveloppe om Persoon en bijhorende validatiewaarschuwingen uit te wisselen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse PersonEnvelope)",
+      "pattern": "^PersonEnvelope$"
+    },
+    "warning": {
+      "type": "array",
+      "description": "Lijst van Uitzondering items.",
+      "items": {
+        "$ref": "#/components/schemas/Uitzondering"
+      },
+      "minItems": 1
+    },
+    "data": {
+      "$ref": "#/components/schemas/GeregistreerdPersoon"
+    }
+  },
+  "required": [
+    "@type",
+    "data"
+  ]
+}

@@ -46,6 +46,7 @@ error: missing '/tmp/generated/doc/vocabularium/vkbo/onderneming/v0.0.6/index.ht
 #||# 
 #||# index.html check
 error: missing '/tmp/generated/ns/magda/persoon/v0.0.1/index.html'
+error: missing '/tmp/generated/doc/vocabularium/magda/persoon/v0.0.1/index.html'
 
 #||#    + checking /home/circleci/project/config/production/verkeersmetingen-im.publication.json
 #||# 

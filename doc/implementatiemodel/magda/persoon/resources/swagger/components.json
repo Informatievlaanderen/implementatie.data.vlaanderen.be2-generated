@@ -3,14 +3,28 @@
   "info": {
     "title": "Components of MAGDA geefPersoon REST",
     "description": "MAGDA OSLO-conforme REST API voor geefPersoon (MVP)",
-    "version": "0.1.1"
+    "version": "0.2.0"
   },
   "components": {
     "schemas": {
-      "DomicilieStatus": {
-        "title": "DomicilieStatus",
+      "Woonvormtype": {
+        "title": "Woonvormtype",
         "type": "object",
-        "description": "Enumeratie van DomicilieStatus",
+        "description": "Enumeratie van Woonvormtype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "RedenAfwezigheid": {
+        "title": "RedenAfwezigheid",
+        "type": "object",
+        "description": "Enumeratie van RedenAfwezigheid",
         "properties": {
           "@id": {
             "type": "string",
@@ -49,10 +63,10 @@
           "@id"
         ]
       },
-      "Gezinsrelatietype": {
-        "title": "Gezinsrelatietype",
+      "BurgerlijkeStaatType": {
+        "title": "BurgerlijkeStaatType",
         "type": "object",
-        "description": "Enumeratie van Gezinsrelatietype",
+        "description": "Enumeratie van BurgerlijkeStaatType",
         "properties": {
           "@id": {
             "type": "string",
@@ -63,10 +77,24 @@
           "@id"
         ]
       },
-      "BurgerlijkeStaatType": {
-        "title": "BurgerlijkeStaatType",
+      "ProcedureType": {
+        "title": "ProcedureType",
         "type": "object",
-        "description": "Enumeratie van BurgerlijkeStaatType",
+        "description": "Enumeratie van ProcedureType",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "DomicilieStatus": {
+        "title": "DomicilieStatus",
+        "type": "object",
+        "description": "Enumeratie van DomicilieStatus",
         "properties": {
           "@id": {
             "type": "string",
@@ -91,20 +119,6 @@
           "@id"
         ]
       },
-      "Woonvormtype": {
-        "title": "Woonvormtype",
-        "type": "object",
-        "description": "Enumeratie van Woonvormtype",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
       "Dossierstatus": {
         "title": "Dossierstatus",
         "type": "object",
@@ -119,10 +133,52 @@
           "@id"
         ]
       },
-      "RedenAfwezigheid": {
-        "title": "RedenAfwezigheid",
+      "Omstandigheid": {
+        "title": "Omstandigheid",
         "type": "object",
-        "description": "Enumeratie van RedenAfwezigheid",
+        "description": "Enumeratie van Omstandigheid",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Gezinsrelatietype": {
+        "title": "Gezinsrelatietype",
+        "type": "object",
+        "description": "Enumeratie van Gezinsrelatietype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "UitzonderingOorsprong": {
+        "title": "UitzonderingOorsprong",
+        "type": "object",
+        "description": "Enumeratie van UitzonderingOorsprong",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "UitzonderingType": {
+        "title": "UitzonderingType",
+        "type": "object",
+        "description": "Enumeratie van UitzonderingType",
         "properties": {
           "@id": {
             "type": "string",
@@ -354,23 +410,6 @@
           "gezinsrelatietype": {
             "$ref": "#/components/schemas/Gezinsrelatietype"
           },
-          "vanPersoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
-          },
           "metPersoon": {
             "oneOf": [
               {
@@ -391,7 +430,6 @@
         },
         "required": [
           "@type",
-          "vanPersoon",
           "metPersoon"
         ]
       },
@@ -409,26 +447,11 @@
             "description": "Object type (klasse Overlijden)",
             "pattern": "^Overlijden$"
           },
-          "datum": {
-            "type": "object",
-            "description": "Datum waarop de gebeurtenis plaatsvond.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
-          },
           "plaats": {
             "$ref": "#/components/schemas/Plaats"
+          },
+          "datum": {
+            "$ref": "#/components/schemas/Moment"
           }
         },
         "required": [
@@ -449,26 +472,11 @@
             "description": "Object type (klasse Persoonsgebeurtenis)",
             "pattern": "^Persoonsgebeurtenis$"
           },
-          "datum": {
-            "type": "object",
-            "description": "Datum waarop de gebeurtenis plaatsvond.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
-          },
           "plaats": {
             "$ref": "#/components/schemas/Plaats"
+          },
+          "datum": {
+            "$ref": "#/components/schemas/Moment"
           }
         },
         "required": [
@@ -489,26 +497,11 @@
             "description": "Object type (klasse Geboorte)",
             "pattern": "^Geboorte$"
           },
-          "datum": {
-            "type": "object",
-            "description": "Datum waarop de gebeurtenis plaatsvond.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
-          },
           "plaats": {
             "$ref": "#/components/schemas/Plaats"
+          },
+          "datum": {
+            "$ref": "#/components/schemas/Moment"
           }
         },
         "required": [
@@ -532,23 +525,6 @@
           "plaats": {
             "$ref": "#/components/schemas/Plaats"
           },
-          "vanPersoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
-          },
           "metPersoon": {
             "oneOf": [
               {
@@ -569,8 +545,40 @@
         },
         "required": [
           "@type",
-          "vanPersoon",
           "metPersoon"
+        ]
+      },
+      "Registratie": {
+        "title": "Registratie",
+        "type": "object",
+        "description": "Opname van de Persoon in het register.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Registratie)",
+            "pattern": "^Registratie$"
+          },
+          "dossierstatus": {
+            "type": "array",
+            "description": "Lijst van Dossierstatus items.",
+            "items": {
+              "$ref": "#/components/schemas/Dossierstatus"
+            },
+            "minItems": 1
+          },
+          "referentiedossier": {
+            "$ref": "#/components/schemas/Identificator"
+          },
+          "redenAfwezigheid": {
+            "$ref": "#/components/schemas/RedenAfwezigheid"
+          }
+        },
+        "required": [
+          "@type"
         ]
       },
       "Versie": {
@@ -650,8 +658,8 @@
           "@type"
         ]
       },
-      "Probleemdetail": {
-        "title": "Probleemdetail",
+      "Problemdetail": {
+        "title": "Problemdetail",
         "type": "object",
         "description": "Meer gedetailleerde beschrijving van de fout in een HTTP response.",
         "properties": {
@@ -661,8 +669,8 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse Probleemdetail)",
-            "pattern": "^Probleemdetail$"
+            "description": "Object type (klasse Problemdetail)",
+            "pattern": "^Problemdetail$"
           },
           "type": {
             "type": "object",
@@ -677,21 +685,16 @@
               "@id"
             ]
           },
-          "titel": {
+          "title": {
             "type": "object",
             "description": "Korte mensleesbare beschrijving van de fout.",
             "properties": {
               "@value": {
                 "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
               }
             },
             "required": [
-              "@value",
-              "@language"
+              "@value"
             ]
           },
           "status": {
@@ -718,18 +721,13 @@
             "properties": {
               "@value": {
                 "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
               }
             },
             "required": [
-              "@value",
-              "@language"
+              "@value"
             ]
           },
-          "instantie": {
+          "instance": {
             "type": "object",
             "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.",
             "properties": {
@@ -746,13 +744,14 @@
         "required": [
           "@type",
           "type",
-          "titel"
+          "title",
+          "detail"
         ]
       },
-      "VdipEnvelop": {
-        "title": "VdipEnvelop",
+      "PersonEnvelope": {
+        "title": "PersonEnvelope",
         "type": "object",
-        "description": "Vlaams Data Integratieplatform (VDIP) data enveloppe volgens de REST richtlijnen.",
+        "description": "Enveloppe om Persoon en bijhorende validatiewaarschuwingen uit te wisselen.",
         "properties": {
           "@id": {
             "type": "string",
@@ -760,29 +759,82 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse VdipEnvelop)",
-            "pattern": "^VdipEnvelop$"
+            "description": "Object type (klasse PersonEnvelope)",
+            "pattern": "^PersonEnvelope$"
           },
           "warning": {
             "type": "array",
-            "description": "Lijst van Probleemdetail items.",
+            "description": "Lijst van Uitzondering items.",
             "items": {
-              "$ref": "#/components/schemas/Probleemdetail"
+              "$ref": "#/components/schemas/Uitzondering"
             },
             "minItems": 1
           },
           "data": {
             "$ref": "#/components/schemas/GeregistreerdPersoon"
-          },
-          "@context": {
-            "type": "string",
-            "description": "URI of the JSON-LD versioned context file for this response.",
-            "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/\\/doc\\/implementatiemodel\\/magda\\/persoon\\/v0.1.1\\/context\\/persoon.jsonld$"
           }
         },
         "required": [
           "@type",
           "data"
+        ]
+      },
+      "NietMededeelbaar": {
+        "title": "NietMededeelbaar",
+        "type": "object",
+        "description": "Data die vertrouwelijk is en daardoor niet mag meegedeeld worden.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse NietMededeelbaar)",
+            "pattern": "^NietMededeelbaar$"
+          },
+          "sinds": {
+            "type": "object",
+            "description": "Datum wanneer de beslissing genomen is dat de informatie vertrouwelijk is.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "beschrijving": {
+            "type": "object",
+            "description": "De opgegeven reden die bij een procedure mogelijks hoort.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          },
+          "periode": {
+            "$ref": "#/components/schemas/Periode"
+          }
+        },
+        "required": [
+          "@type",
+          "beschrijving"
         ]
       },
       "Inwonerschap": {
@@ -798,23 +850,6 @@
             "type": "string",
             "description": "Object type (klasse Inwonerschap)",
             "pattern": "^Inwonerschap$"
-          },
-          "persoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
           },
           "jurisdictie": {
             "$ref": "#/components/schemas/Jurisdictie"
@@ -852,7 +887,6 @@
         },
         "required": [
           "@type",
-          "persoon",
           "jurisdictie"
         ]
       },
@@ -872,23 +906,6 @@
           },
           "plaats": {
             "$ref": "#/components/schemas/Plaats"
-          },
-          "vanPersoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
           },
           "metPersoon": {
             "oneOf": [
@@ -910,7 +927,6 @@
         },
         "required": [
           "@type",
-          "vanPersoon",
           "metPersoon"
         ]
       },
@@ -931,14 +947,8 @@
           "registratie": {
             "$ref": "#/components/schemas/Identificator"
           },
-          "dossierstatus": {
-            "$ref": "#/components/schemas/Dossierstatus"
-          },
-          "vorigeRegistratie": {
-            "$ref": "#/components/schemas/Identificator"
-          },
-          "redenAfwezigheid": {
-            "$ref": "#/components/schemas/RedenAfwezigheid"
+          "registratiedetail": {
+            "$ref": "#/components/schemas/Registratie"
           },
           "beheerder": {
             "type": "array",
@@ -1152,22 +1162,21 @@
             ]
           },
           "afstammingstype": {
-            "$ref": "#/components/schemas/Afstammingstype"
-          },
-          "vanPersoon": {
             "oneOf": [
               {
-                "$ref": "#/components/schemas/Persoon"
+                "$ref": "#/components/schemas/Afstammingstype"
               },
               {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
+                "$ref": "#/components/schemas/Afstammingstype"
+              },
+              {
+                "$ref": "#/components/schemas/Afstammingstype"
               }
             ],
             "discriminator": {
               "propertyName": "@type",
               "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+                "Afstammingstype": "#/components/schemas/Afstammingstype"
               }
             }
           },
@@ -1191,7 +1200,6 @@
         },
         "required": [
           "@type",
-          "vanPersoon",
           "metPersoon"
         ]
       },
@@ -1223,6 +1231,139 @@
           "@type"
         ]
       },
+      "VoorlopigeInschrijving": {
+        "title": "VoorlopigeInschrijving",
+        "type": "object",
+        "description": "De Persoon is voorlopig ingeschreven in het bevolkingsregister wanneer deze Persoon zich gevestigd heeft in een woning waar permanente bewoning niet toegelaten is.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse VoorlopigeInschrijving)",
+            "pattern": "^VoorlopigeInschrijving$"
+          },
+          "geldigheid": {
+            "$ref": "#/components/schemas/Periode"
+          },
+          "procedure": {
+            "$ref": "#/components/schemas/ProcedureType"
+          },
+          "verblijfsadres": {
+            "$ref": "#/components/schemas/Adresvoorstelling"
+          },
+          "status": {
+            "$ref": "#/components/schemas/DomicilieStatus"
+          },
+          "nietMededeelbaar": {
+            "$ref": "#/components/schemas/NietMededeelbaar"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Contactadres": {
+        "title": "Contactadres",
+        "type": "object",
+        "description": "Het domicillie adres voor personen die in het BIS, RAD of RAN register geregistreerd zijn bij KSZ.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Contactadres)",
+            "pattern": "^Contactadres$"
+          },
+          "verblijfsadres": {
+            "$ref": "#/components/schemas/Adresvoorstelling"
+          },
+          "status": {
+            "$ref": "#/components/schemas/DomicilieStatus"
+          },
+          "nietMededeelbaar": {
+            "$ref": "#/components/schemas/NietMededeelbaar"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Uitzondering": {
+        "title": "Uitzondering",
+        "type": "object",
+        "description": "Uitzondering geeft miet-kritieke problemen weer bij het uitwisselen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Uitzondering)",
+            "pattern": "^Uitzondering$"
+          },
+          "datum": {
+            "type": "object",
+            "description": "De datum waarop de Uitzondering aangemaakt werd.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^DateTime$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "diagnose": {
+            "type": "object",
+            "description": "Een beschrijving waarom de Uitzondering aangemaakt werd.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "oorsprong": {
+            "$ref": "#/components/schemas/UitzonderingOorsprong"
+          },
+          "type": {
+            "$ref": "#/components/schemas/UitzonderingType"
+          },
+          "omstandigheid": {
+            "$ref": "#/components/schemas/Omstandigheid"
+          },
+          "annotatie": {
+            "type": "array",
+            "description": "Lijst van Annotatie items.",
+            "items": {
+              "$ref": "#/components/schemas/Annotatie"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type",
+          "datum",
+          "diagnose",
+          "oorsprong",
+          "type",
+          "omstandigheid"
+        ]
+      },
       "BelgischAdres": {
         "title": "BelgischAdres",
         "type": "object",
@@ -1240,6 +1381,51 @@
         },
         "required": [
           "@type"
+        ]
+      },
+      "Annotatie": {
+        "title": "Annotatie",
+        "type": "object",
+        "description": "Detailinformatie die meegegeven is bij een Uitzondering.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Annotatie)",
+            "pattern": "^Annotatie$"
+          },
+          "waarde": {
+            "type": "object",
+            "description": "De waarde van het veld.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "naam": {
+            "type": "object",
+            "description": "Naam van het veld.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "waarde",
+          "naam"
         ]
       },
       "Jurisdictie": {
@@ -1425,6 +1611,24 @@
             "description": "Object type (klasse Referentieadres)",
             "pattern": "^Referentieadres$"
           },
+          "einddatum": {
+            "type": "object",
+            "description": "De datum waarop het referentieadres vervalt.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Date$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
           "verblijfsadres": {
             "$ref": "#/components/schemas/Adresvoorstelling"
           },
@@ -1436,7 +1640,8 @@
           }
         },
         "required": [
-          "@type"
+          "@type",
+          "einddatum"
         ]
       },
       "VerblijfplaatsBuitenlandDomicilie": {
@@ -1947,6 +2152,164 @@
         "required": [
           "@type"
         ]
+      },
+      "Moment": {
+        "title": "Moment",
+        "type": "object",
+        "description": "Moment met omvang en duur nul.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Moment)",
+            "pattern": "^Moment$"
+          },
+          "inXSDdatumTijd": {
+            "type": "object",
+            "description": "Positie in de tijd uitgedrukt door middel van xsd:dateTime.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^DateTime$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "inDatumTijd": {
+            "$ref": "#/components/schemas/AlgemeneDatumTijdBeschrijving"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "AlgemeneDatumTijdBeschrijving": {
+        "title": "AlgemeneDatumTijdBeschrijving",
+        "type": "object",
+        "description": "Algemene beschrijving van datum en tijd.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse AlgemeneDatumTijdBeschrijving)",
+            "pattern": "^AlgemeneDatumTijdBeschrijving$"
+          },
+          "jaar": {
+            "type": "object",
+            "description": "Jaar positie in een kalendersysteem.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "maand": {
+            "type": "object",
+            "description": "Maand positie in een kalendersysteem.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "dag": {
+            "type": "object",
+            "description": "Dag positie in een kalendersysteem.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Periode": {
+        "title": "Periode",
+        "type": "object",
+        "description": "Temporele Entiteit waarvan de omvang en duurtijd verschilt van nul, dit wil zeggen, waarvoor de begin- en eindtijd verschillend zijn.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Periode)",
+            "pattern": "^Periode$"
+          },
+          "tot": {
+            "$ref": "#/components/schemas/Moment"
+          },
+          "van": {
+            "$ref": "#/components/schemas/Moment"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "TemporeleEntiteit": {
+        "title": "TemporeleEntiteit",
+        "type": "object",
+        "description": "Abstracte klasse voor temporele objecten.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse TemporeleEntiteit)",
+            "pattern": "^TemporeleEntiteit$"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "TemporelePositie": {
+        "title": "TemporelePositie",
+        "type": "object",
+        "description": "Abstracte klasse voor temporele posities.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse TemporelePositie)",
+            "pattern": "^TemporelePositie$"
+          }
+        },
+        "required": [
+          "@type"
+        ]
       }
     },
     "links": {
@@ -2027,13 +2390,6 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gezinsrelatietype` op te halen."
       },
-      "Gezinsrelatie.vanPersoon": {
-        "operationId": "GezinsrelatieGET",
-        "parameters": {
-          "id": "$response.body#/Gezinsrelatie.vanPersoon/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
-      },
       "Gezinsrelatie.metPersoon": {
         "operationId": "GezinsrelatieGET",
         "parameters": {
@@ -2048,12 +2404,26 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen."
       },
+      "Overlijden.datum": {
+        "operationId": "OverlijdenGET",
+        "parameters": {
+          "id": "$response.body#/Overlijden.datum/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Moment` op te halen."
+      },
       "Persoonsgebeurtenis.plaats": {
         "operationId": "PersoonsgebeurtenisGET",
         "parameters": {
           "id": "$response.body#/Persoonsgebeurtenis.plaats/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen."
+      },
+      "Persoonsgebeurtenis.datum": {
+        "operationId": "PersoonsgebeurtenisGET",
+        "parameters": {
+          "id": "$response.body#/Persoonsgebeurtenis.datum/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Moment` op te halen."
       },
       "Geboorte.plaats": {
         "operationId": "GeboorteGET",
@@ -2062,19 +2432,19 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen."
       },
+      "Geboorte.datum": {
+        "operationId": "GeboorteGET",
+        "parameters": {
+          "id": "$response.body#/Geboorte.datum/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Moment` op te halen."
+      },
       "Huwelijk.plaats": {
         "operationId": "HuwelijkGET",
         "parameters": {
           "id": "$response.body#/Huwelijk.plaats/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen."
-      },
-      "Huwelijk.vanPersoon": {
-        "operationId": "HuwelijkGET",
-        "parameters": {
-          "id": "$response.body#/Huwelijk.vanPersoon/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
       },
       "Huwelijk.metPersoon": {
         "operationId": "HuwelijkGET",
@@ -2083,6 +2453,27 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
       },
+      "Registratie.dossierstatus": {
+        "operationId": "RegistratieGET",
+        "parameters": {
+          "id": "$response.body#/Registratie.dossierstatus/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Dossierstatus` op te halen."
+      },
+      "Registratie.referentiedossier": {
+        "operationId": "RegistratieGET",
+        "parameters": {
+          "id": "$response.body#/Registratie.referentiedossier/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "Registratie.redenAfwezigheid": {
+        "operationId": "RegistratieGET",
+        "parameters": {
+          "id": "$response.body#/Registratie.redenAfwezigheid/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `RedenAfwezigheid` op te halen."
+      },
       "Versie.bron": {
         "operationId": "VersieGET",
         "parameters": {
@@ -2090,26 +2481,26 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Organisatie` op te halen."
       },
-      "VdipEnvelop.warning": {
-        "operationId": "VdipEnvelopGET",
+      "PersonEnvelope.warning": {
+        "operationId": "PersonEnvelopeGET",
         "parameters": {
-          "id": "$response.body#/VdipEnvelop.warning/@id"
+          "id": "$response.body#/PersonEnvelope.warning/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Probleemdetail` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Uitzondering` op te halen."
       },
-      "VdipEnvelop.data": {
-        "operationId": "VdipEnvelopGET",
+      "PersonEnvelope.data": {
+        "operationId": "PersonEnvelopeGET",
         "parameters": {
-          "id": "$response.body#/VdipEnvelop.data/@id"
+          "id": "$response.body#/PersonEnvelope.data/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdPersoon` op te halen."
       },
-      "Inwonerschap.persoon": {
-        "operationId": "InwonerschapGET",
+      "NietMededeelbaar.periode": {
+        "operationId": "NietMededeelbaarGET",
         "parameters": {
-          "id": "$response.body#/Inwonerschap.persoon/@id"
+          "id": "$response.body#/NietMededeelbaar.periode/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Periode` op te halen."
       },
       "Inwonerschap.jurisdictie": {
         "operationId": "InwonerschapGET",
@@ -2132,13 +2523,6 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen."
       },
-      "Samenwonen.vanPersoon": {
-        "operationId": "SamenwonenGET",
-        "parameters": {
-          "id": "$response.body#/Samenwonen.vanPersoon/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
-      },
       "Samenwonen.metPersoon": {
         "operationId": "SamenwonenGET",
         "parameters": {
@@ -2153,26 +2537,12 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
       },
-      "GeregistreerdPersoon.dossierstatus": {
+      "GeregistreerdPersoon.registratiedetail": {
         "operationId": "GeregistreerdPersoonGET",
         "parameters": {
-          "id": "$response.body#/GeregistreerdPersoon.dossierstatus/@id"
+          "id": "$response.body#/GeregistreerdPersoon.registratiedetail/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Dossierstatus` op te halen."
-      },
-      "GeregistreerdPersoon.vorigeRegistratie": {
-        "operationId": "GeregistreerdPersoonGET",
-        "parameters": {
-          "id": "$response.body#/GeregistreerdPersoon.vorigeRegistratie/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
-      },
-      "GeregistreerdPersoon.redenAfwezigheid": {
-        "operationId": "GeregistreerdPersoonGET",
-        "parameters": {
-          "id": "$response.body#/GeregistreerdPersoon.redenAfwezigheid/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `RedenAfwezigheid` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Registratie` op te halen."
       },
       "GeregistreerdPersoon.beheerder": {
         "operationId": "GeregistreerdPersoonGET",
@@ -2279,13 +2649,6 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Afstammingstype` op te halen."
       },
-      "Afstamming.vanPersoon": {
-        "operationId": "AfstammingGET",
-        "parameters": {
-          "id": "$response.body#/Afstamming.vanPersoon/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
-      },
       "Afstamming.metPersoon": {
         "operationId": "AfstammingGET",
         "parameters": {
@@ -2313,6 +2676,90 @@
           "id": "$response.body#/AangegevenAdres.nietMededeelbaar/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `NietMededeelbaar` op te halen."
+      },
+      "VoorlopigeInschrijving.geldigheid": {
+        "operationId": "VoorlopigeInschrijvingGET",
+        "parameters": {
+          "id": "$response.body#/VoorlopigeInschrijving.geldigheid/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Periode` op te halen."
+      },
+      "VoorlopigeInschrijving.procedure": {
+        "operationId": "VoorlopigeInschrijvingGET",
+        "parameters": {
+          "id": "$response.body#/VoorlopigeInschrijving.procedure/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `ProcedureType` op te halen."
+      },
+      "VoorlopigeInschrijving.verblijfsadres": {
+        "operationId": "VoorlopigeInschrijvingGET",
+        "parameters": {
+          "id": "$response.body#/VoorlopigeInschrijving.verblijfsadres/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen."
+      },
+      "VoorlopigeInschrijving.status": {
+        "operationId": "VoorlopigeInschrijvingGET",
+        "parameters": {
+          "id": "$response.body#/VoorlopigeInschrijving.status/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `DomicilieStatus` op te halen."
+      },
+      "VoorlopigeInschrijving.nietMededeelbaar": {
+        "operationId": "VoorlopigeInschrijvingGET",
+        "parameters": {
+          "id": "$response.body#/VoorlopigeInschrijving.nietMededeelbaar/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `NietMededeelbaar` op te halen."
+      },
+      "Contactadres.verblijfsadres": {
+        "operationId": "ContactadresGET",
+        "parameters": {
+          "id": "$response.body#/Contactadres.verblijfsadres/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adresvoorstelling` op te halen."
+      },
+      "Contactadres.status": {
+        "operationId": "ContactadresGET",
+        "parameters": {
+          "id": "$response.body#/Contactadres.status/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `DomicilieStatus` op te halen."
+      },
+      "Contactadres.nietMededeelbaar": {
+        "operationId": "ContactadresGET",
+        "parameters": {
+          "id": "$response.body#/Contactadres.nietMededeelbaar/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `NietMededeelbaar` op te halen."
+      },
+      "Uitzondering.oorsprong": {
+        "operationId": "UitzonderingGET",
+        "parameters": {
+          "id": "$response.body#/Uitzondering.oorsprong/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `UitzonderingOorsprong` op te halen."
+      },
+      "Uitzondering.type": {
+        "operationId": "UitzonderingGET",
+        "parameters": {
+          "id": "$response.body#/Uitzondering.type/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `UitzonderingType` op te halen."
+      },
+      "Uitzondering.omstandigheid": {
+        "operationId": "UitzonderingGET",
+        "parameters": {
+          "id": "$response.body#/Uitzondering.omstandigheid/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Omstandigheid` op te halen."
+      },
+      "Uitzondering.annotatie": {
+        "operationId": "UitzonderingGET",
+        "parameters": {
+          "id": "$response.body#/Uitzondering.annotatie/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Annotatie` op te halen."
       },
       "Jurisdictie.plaats": {
         "operationId": "JurisdictieGET",

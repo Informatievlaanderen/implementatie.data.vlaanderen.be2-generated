@@ -1,0 +1,58 @@
+{
+  "title": "NietMededeelbaar",
+  "type": "object",
+  "description": "Data die vertrouwelijk is en daardoor niet mag meegedeeld worden.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse NietMededeelbaar)",
+      "pattern": "^NietMededeelbaar$"
+    },
+    "sinds": {
+      "type": "object",
+      "description": "Datum wanneer de beslissing genomen is dat de informatie vertrouwelijk is.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Date$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "beschrijving": {
+      "type": "object",
+      "description": "De opgegeven reden die bij een procedure mogelijks hoort.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        },
+        "@language": {
+          "type": "string",
+          "pattern": "^nl$"
+        }
+      },
+      "required": [
+        "@value",
+        "@language"
+      ]
+    },
+    "periode": {
+      "$ref": "#/components/schemas/Periode"
+    }
+  },
+  "required": [
+    "@type",
+    "beschrijving"
+  ]
+}
