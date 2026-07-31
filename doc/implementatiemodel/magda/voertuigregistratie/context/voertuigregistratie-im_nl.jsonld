@@ -36,6 +36,19 @@
     "Agent": {
       "@id": "http://xmlns.com/foaf/0.1/Agent"
     },
+    "Annotatie": {
+      "@context": {
+        "naam": {
+          "@id": "http://purl.org/dc/terms/title",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "waarde": {
+          "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Annotatie"
+    },
     "Contactpunt": {
       "@context": {
         "adres": {
@@ -153,6 +166,9 @@
       },
       "@id": "https://data.vlaanderen.be/ns/voertuigregistratie#Nummerplaat"
     },
+    "Omstandigheid": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+    },
     "Plaats": {
       "@context": {
         "plaatsnaam": {
@@ -217,8 +233,62 @@
     "String": {
       "@id": "http://www.w3.org/2001/XMLSchema#string"
     },
+    "Uitzondering": {
+      "@context": {
+        "annotatie": {
+          "@container": "@set",
+          "@id": "http://purl.org/dc/terms/hasPart",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/generiek#Annotatie"
+        },
+        "datum": {
+          "@id": "http://purl.org/dc/terms/issued",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "diagnose": {
+          "@id": "http://purl.org/dc/terms/description",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "omstandigheid": {
+          "@id": "http://purl.org/dc/terms/references",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "oorsprong": {
+          "@id": "http://purl.org/dc/terms/source",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "type": {
+          "@id": "http://purl.org/dc/terms/type",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering"
+    },
+    "UitzonderingOorsprong": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+    },
+    "UitzonderingType": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+    },
     "Uri": {
       "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
+    },
+    "VehicleregistrationEnvelope": {
+      "@context": {
+        "data": {
+          "@id": "https://schema.org/data",
+          "@type": "https://data.vlaanderen.be/ns/voertuigregistratie#Registratie"
+        },
+        "language": {
+          "@id": "http://purl.org/dc/terms/language",
+          "@type": "http://www.w3.org/2001/XMLSchema#language"
+        },
+        "warning": {
+          "@container": "@set",
+          "@id": "https://schema.org/error",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VehicleregistrationEnvelope"
     },
     "Voertuig": {
       "@context": {
@@ -251,24 +321,6 @@
     },
     "VoertuigType": {
       "@id": "http://www.w3.org/2004/02/skos/core#Concept"
-    },
-    "VoertuigeregistratieEnvelop": {
-      "@context": {
-        "data": {
-          "@id": "https://schema.org/data",
-          "@type": "https://data.vlaanderen.be/ns/voertuigregistratie#Registratie"
-        },
-        "language": {
-          "@id": "http://purl.org/dc/terms/language",
-          "@type": "http://www.w3.org/2001/XMLSchema#language"
-        },
-        "warning": {
-          "@container": "@set",
-          "@id": "https://schema.org/error",
-          "@type": "https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail"
-        }
-      },
-      "@id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VoertuigregistratieEnvelop"
     }
   }
 }

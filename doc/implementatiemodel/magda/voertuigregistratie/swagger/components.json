@@ -21,6 +21,20 @@
           "@id"
         ]
       },
+      "Omstandigheid": {
+        "title": "Omstandigheid",
+        "type": "object",
+        "description": "Enumeratie van Omstandigheid",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
       "Rechtspersoonlijkheidtype": {
         "title": "Rechtspersoonlijkheidtype",
         "type": "object",
@@ -39,6 +53,34 @@
         "title": "Rechtsvormtype",
         "type": "object",
         "description": "Enumeratie van Rechtsvormtype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "UitzonderingOorsprong": {
+        "title": "UitzonderingOorsprong",
+        "type": "object",
+        "description": "Enumeratie van UitzonderingOorsprong",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "UitzonderingType": {
+        "title": "UitzonderingType",
+        "type": "object",
+        "description": "Enumeratie van UitzonderingType",
         "properties": {
           "@id": {
             "type": "string",
@@ -153,8 +195,8 @@
           "type"
         ]
       },
-      "VoertuigeregistratieEnvelop": {
-        "title": "VoertuigeregistratieEnvelop",
+      "VehicleregistrationEnvelope": {
+        "title": "VehicleregistrationEnvelope",
         "type": "object",
         "description": "Enveloppe om voertuigregistraties en bijhorende validatiewaarschuwing uit te wisselen.",
         "properties": {
@@ -164,8 +206,8 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse VoertuigeregistratieEnvelop)",
-            "pattern": "^VoertuigeregistratieEnvelop$"
+            "description": "Object type (klasse VehicleregistrationEnvelope)",
+            "pattern": "^VehicleregistrationEnvelope$"
           },
           "language": {
             "type": "object",
@@ -190,9 +232,9 @@
           },
           "warning": {
             "type": "array",
-            "description": "Lijst van Problemdetail items.",
+            "description": "Lijst van Uitzondering items.",
             "items": {
-              "$ref": "#/components/schemas/Problemdetail"
+              "$ref": "#/components/schemas/Uitzondering"
             },
             "minItems": 1
           },
@@ -309,6 +351,122 @@
           "@type",
           "referentiedatum",
           "registratienummer"
+        ]
+      },
+      "Uitzondering": {
+        "title": "Uitzondering",
+        "type": "object",
+        "description": "Uitzondering geeft miet-kritieke problemen weer bij het uitwisselen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Uitzondering)",
+            "pattern": "^Uitzondering$"
+          },
+          "datum": {
+            "type": "object",
+            "description": "De datum waarop de Uitzondering aangemaakt werd.",
+            "properties": {
+              "@value": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^DateTime$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "diagnose": {
+            "type": "object",
+            "description": "Een beschrijving waarom de Uitzondering aangemaakt werd.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "oorsprong": {
+            "$ref": "#/components/schemas/UitzonderingOorsprong"
+          },
+          "type": {
+            "$ref": "#/components/schemas/UitzonderingType"
+          },
+          "omstandigheid": {
+            "$ref": "#/components/schemas/Omstandigheid"
+          },
+          "annotatie": {
+            "type": "array",
+            "description": "Lijst van Annotatie items.",
+            "items": {
+              "$ref": "#/components/schemas/Annotatie"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type",
+          "datum",
+          "diagnose",
+          "oorsprong",
+          "type",
+          "omstandigheid"
+        ]
+      },
+      "Annotatie": {
+        "title": "Annotatie",
+        "type": "object",
+        "description": "Detailinformatie die meegegeven is bij een Uitzondering.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Annotatie)",
+            "pattern": "^Annotatie$"
+          },
+          "naam": {
+            "type": "object",
+            "description": "Naam van het veld.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "waarde": {
+            "type": "object",
+            "description": "De waarde van het veld.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "naam",
+          "waarde"
         ]
       },
       "GeregistreerdeOrganisatie": {
@@ -794,19 +952,19 @@
       }
     },
     "links": {
-      "VoertuigeregistratieEnvelop.data": {
-        "operationId": "VoertuigeregistratieEnvelopGET",
+      "VehicleregistrationEnvelope.data": {
+        "operationId": "VehicleregistrationEnvelopeGET",
         "parameters": {
-          "id": "$response.body#/VoertuigeregistratieEnvelop.data/@id"
+          "id": "$response.body#/VehicleregistrationEnvelope.data/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Registratie` op te halen."
       },
-      "VoertuigeregistratieEnvelop.warning": {
-        "operationId": "VoertuigeregistratieEnvelopGET",
+      "VehicleregistrationEnvelope.warning": {
+        "operationId": "VehicleregistrationEnvelopeGET",
         "parameters": {
-          "id": "$response.body#/VoertuigeregistratieEnvelop.warning/@id"
+          "id": "$response.body#/VehicleregistrationEnvelope.warning/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Uitzondering` op te halen."
       },
       "Registratie.nummerplaat": {
         "operationId": "RegistratieGET",
@@ -835,6 +993,34 @@
           "id": "$response.body#/Nummerplaat.registratienummer/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "Uitzondering.oorsprong": {
+        "operationId": "UitzonderingGET",
+        "parameters": {
+          "id": "$response.body#/Uitzondering.oorsprong/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `UitzonderingOorsprong` op te halen."
+      },
+      "Uitzondering.type": {
+        "operationId": "UitzonderingGET",
+        "parameters": {
+          "id": "$response.body#/Uitzondering.type/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `UitzonderingType` op te halen."
+      },
+      "Uitzondering.omstandigheid": {
+        "operationId": "UitzonderingGET",
+        "parameters": {
+          "id": "$response.body#/Uitzondering.omstandigheid/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Omstandigheid` op te halen."
+      },
+      "Uitzondering.annotatie": {
+        "operationId": "UitzonderingGET",
+        "parameters": {
+          "id": "$response.body#/Uitzondering.annotatie/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Annotatie` op te halen."
       },
       "GeregistreerdeOrganisatie.type": {
         "operationId": "GeregistreerdeOrganisatieGET",

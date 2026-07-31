@@ -9,9 +9,11 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#ProblemdetailShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#VoertuigeregistratieEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#VehicleregistrationEnvelopeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#RegistratieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#NummerplaatShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#UitzonderingShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#AnnotatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#GeregistreerdeOrganisatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#AgentShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#VoertuigShape>,
@@ -28,8 +30,11 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#AdresvoorstellingShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#ContactpuntShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#VoertuigTypeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#OmstandigheidShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#RechtspersoonlijkheidtypeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#RechtsvormtypeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#UitzonderingOorsprongShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#UitzonderingTypeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#GeslachtShape> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#AdresvoorstellingShape> a shacl:NodeShape;
@@ -121,6 +126,35 @@
   shacl:targetClass <http://www.w3.org/ns/regorg#RegisteredOrganization>,
     foaf:Agent,
     <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#AnnotatieShape> a shacl:NodeShape;
+  rdfs:label "Annotatie"@nl;
+  rdfs:comment "Detailinformatie die meegegeven is bij een Uitzondering."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "naam"@nl;
+    rdfs:comment "Naam van het veld."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#Annotatie.Naam>;
+    shacl:datatype xsd:string;
+    shacl:description "Naam van het veld."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "naam"@nl;
+    shacl:path dc:title
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "waarde"@nl;
+    rdfs:comment "De waarde van het veld."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#Annotatie.Waarde>;
+    shacl:datatype xsd:string;
+    shacl:description "De waarde van het veld."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "waarde"@nl;
+    shacl:path rdf:value
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Annotatie> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#ContactpuntShape> a shacl:NodeShape;
   rdfs:label "Contactpunt"@nl;
@@ -505,10 +539,121 @@
   shacl:closed false;
   shacl:targetClass xsd:string .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#UitzonderingShape> a shacl:NodeShape;
+  rdfs:label "Uitzondering"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: nieuwe INSZ nummer bij het Rijksregister."@nl;
+  rdfs:comment "Uitzondering geeft miet-kritieke problemen weer bij het uitwisselen."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "datum"@nl;
+    rdfs:comment "De datum waarop de Uitzondering aangemaakt werd."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#Uitzondering.Datum>;
+    shacl:datatype xsd:dateTime;
+    shacl:description "De datum waarop de Uitzondering aangemaakt werd."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "datum"@nl;
+    shacl:path dc:issued
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "diagnose"@nl;
+    rdfs:comment "Een beschrijving waarom de Uitzondering aangemaakt werd."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#Uitzondering.Diagnose>;
+    shacl:datatype xsd:string;
+    shacl:description "Een beschrijving waarom de Uitzondering aangemaakt werd."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "diagnose"@nl;
+    shacl:path dc:description
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "oorsprong"@nl;
+    rdfs:comment "De entiteit die de Uitzondering aangemaakt heeft."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#Uitzondering.Oorsprong>;
+    shacl:description "De entiteit die de Uitzondering aangemaakt heeft."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "oorsprong"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path dc:source
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "type"@nl;
+    rdfs:comment "Het soort Uitzondering."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#Uitzondering.Type>;
+    shacl:description "Het soort Uitzondering."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "type"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path dc:type
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "omstandigheid"@nl;
+    <http://purl.org/vocab/vann/usageNote> "De foutcode van de bron die tot de Uitzondering heeft geleid."@nl;
+    rdfs:comment "De omstandigheden waarin de Uitzondering werd aangemaakt."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#Uitzondering.Omstandigheid>;
+    shacl:description "De omstandigheden waarin de Uitzondering werd aangemaakt."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "omstandigheid"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path dc:references
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "annotatie"@nl;
+    rdfs:comment "Verwijzing naar annotaties die bij de Uitzondering horen."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#Uitzondering.Annotatie>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/generiek#Annotatie>;
+    shacl:description "Verwijzing naar annotaties die bij de Uitzondering horen."@nl;
+    shacl:name "annotatie"@nl;
+    shacl:path dc:hasPart
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering> .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#UriShape> a shacl:NodeShape;
   rdfs:label "Uri";
   shacl:closed false;
   shacl:targetClass xsd:anyURI .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#VehicleregistrationEnvelopeShape> a shacl:NodeShape;
+  rdfs:label "VehicleregistrationEnvelope"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."@nl;
+  rdfs:comment "Enveloppe om voertuigregistraties en bijhorende validatiewaarschuwing uit te wisselen."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "language"@nl;
+    rdfs:comment "De taal van het antwoord."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#VehicleregistrationEnvelope.Language>;
+    shacl:datatype xsd:language;
+    shacl:description "De taal van het antwoord."@nl;
+    shacl:maxCount 1;
+    shacl:name "language"@nl;
+    shacl:path dc:language
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "data"@nl;
+    rdfs:comment "De data die overgedragen werd."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#VehicleregistrationEnvelope.Data>;
+    shacl:class <https://data.vlaanderen.be/ns/voertuigregistratie#Registratie>;
+    shacl:description "De data die overgedragen werd."@nl;
+    shacl:maxCount 1;
+    shacl:name "data"@nl;
+    shacl:path schemas:data
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "warning"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen."@nl;
+    rdfs:comment "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#VehicleregistrationEnvelope.Warning>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering>;
+    shacl:description "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
+    shacl:name "warning"@nl;
+    shacl:path schemas:error
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VehicleregistrationEnvelope> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#VoertuigShape> a shacl:NodeShape;
   rdfs:label "Voertuig"@nl;
@@ -584,41 +729,3 @@
     shacl:path schemas:owner
   ];
   shacl:targetClass schemas:Vehicle .
-
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#VoertuigeregistratieEnvelopShape> a shacl:NodeShape;
-  rdfs:label "VoertuigeregistratieEnvelop"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."@nl;
-  rdfs:comment "Enveloppe om voertuigregistraties en bijhorende validatiewaarschuwing uit te wisselen."@nl;
-  shacl:closed false;
-  shacl:property [
-    a shacl:PropertyShape;
-    rdfs:label "language"@nl;
-    rdfs:comment "De taal van het antwoord."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#VoertuigeregistratieEnvelop.Language>;
-    shacl:datatype xsd:language;
-    shacl:description "De taal van het antwoord."@nl;
-    shacl:maxCount 1;
-    shacl:name "language"@nl;
-    shacl:path dc:language
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "data"@nl;
-    rdfs:comment "De data die overgedragen werd."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#VoertuigeregistratieEnvelop.Data>;
-    shacl:class <https://data.vlaanderen.be/ns/voertuigregistratie#Registratie>;
-    shacl:description "De data die overgedragen werd."@nl;
-    shacl:maxCount 1;
-    shacl:name "data"@nl;
-    shacl:path schemas:data
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "warning"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen."@nl;
-    rdfs:comment "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0#VoertuigeregistratieEnvelop.Warning>;
-    shacl:class <https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail>;
-    shacl:description "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
-    shacl:name "warning"@nl;
-    shacl:path schemas:error
-  ];
-  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VoertuigregistratieEnvelop> .
