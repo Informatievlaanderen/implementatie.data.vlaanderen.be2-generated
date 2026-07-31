@@ -532,10 +532,10 @@
     <https://implementatie.data.vlaanderen.be/ns/magda/persoon#Referentieadres>,
     <https://implementatie.data.vlaanderen.be/ns/magda/persoon#VerblijfplaatsBuitenlandDomicilie>;
   shacl:xone ([
-      shacl:not _:df_2_100;
-      shacl:property _:df_2_46
-    ] [shacl:property _:df_2_60,
-        _:df_2_100]) .
+      shacl:not _:df_2_99;
+      shacl:property _:df_2_45
+    ] [shacl:property _:df_2_59,
+        _:df_2_99]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#FormeleOrganisatieShape> a shacl:NodeShape;
   rdfs:label "FormeleOrganisatie"@nl;
@@ -818,17 +818,6 @@
     shacl:maxCount 1;
     shacl:name "sinds"@nl;
     shacl:path dc:date
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "beschrijving"@nl;
-    rdfs:comment "De opgegeven reden die bij een procedure mogelijks hoort."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#NietMededeelbaar.Beschrijving>;
-    shacl:datatype rdf:langString;
-    shacl:description "De opgegeven reden die bij een procedure mogelijks hoort."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "beschrijving"@nl;
-    shacl:path dc:description
   ], [
     a shacl:PropertyShape;
     rdfs:label "periode"@nl;
@@ -1390,7 +1379,7 @@
   <http://purl.org/vocab/vann/usageNote> "Plaats waar de Persoon het grootste deel van de tijd verblijft binnen de jurisdictie waarvan hij Inwoner is. Dit wordt doorgaans officieel vastgesteld en geregistreerd in het bevolkingsregister. Kan in praktijk verschillend zijn van de feitelijke verblijfplaats."@nl;
   rdfs:comment "Hoofdverblijplaats in het buitenland."@nl;
   shacl:closed false;
-  shacl:property _:df_2_60;
+  shacl:property _:df_2_59;
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/persoon#VerblijfplaatsBuitenlandDomicilie> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#VerblijfplaatsBuitenlandShape> a shacl:NodeShape;
@@ -1415,7 +1404,7 @@
     <https://implementatie.data.vlaanderen.be/ns/magda/persoon#VerblijfplaatsBuitenland>,
     <https://implementatie.data.vlaanderen.be/ns/magda/persoon#WettelijkVerblijf>;
   shacl:xone ([
-      shacl:not _:df_2_105;
+      shacl:not _:df_2_104;
       shacl:property [
         a shacl:PropertyShape;
         rdfs:label "verblijfsadres"@nl;
@@ -1427,8 +1416,8 @@
         shacl:name "verblijfsadres"@nl;
         shacl:path <https://data.vlaanderen.be/ns/persoon#verblijfsadres>
       ]
-    ] [shacl:property _:df_2_46,
-        _:df_2_105]) .
+    ] [shacl:property _:df_2_45,
+        _:df_2_104]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#VersieShape> a shacl:NodeShape;
   rdfs:label "Versie"@nl;
@@ -1502,13 +1491,10 @@
   shacl:closed false;
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/persoon#WettelijkVerblijf> .
 
-_:df_2_100 a shacl:PropertyShape;
-  shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/persoon#VerblijfplaatsBuitenlandDomicilie> .
-
-_:df_2_105 a shacl:PropertyShape;
+_:df_2_104 a shacl:PropertyShape;
   shacl:class <https://data.vlaanderen.be/ns/persoon#Domicilie> .
 
-_:df_2_46 a shacl:PropertyShape;
+_:df_2_45 a shacl:PropertyShape;
   rdfs:label "verblijfsadres"@nl;
   <http://purl.org/vocab/vann/usageNote> "In principe een Belgisch adres."@nl;
   rdfs:comment "Adres van de hoofdverblijfplaats."@nl;
@@ -1519,7 +1505,7 @@ _:df_2_46 a shacl:PropertyShape;
   shacl:name "verblijfsadres"@nl;
   shacl:path <https://data.vlaanderen.be/ns/persoon#verblijfsadres> .
 
-_:df_2_60 a shacl:PropertyShape;
+_:df_2_59 a shacl:PropertyShape;
   rdfs:label "verblijfsadres"@nl;
   rdfs:comment "Adres van de hoofdverblijfplaats."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#VerblijfplaatsBuitenlandDomicilie.Verblijfsadres>;
@@ -1528,3 +1514,6 @@ _:df_2_60 a shacl:PropertyShape;
   shacl:maxCount 1;
   shacl:name "verblijfsadres"@nl;
   shacl:path <https://data.vlaanderen.be/ns/persoon#verblijfsadres> .
+
+_:df_2_99 a shacl:PropertyShape;
+  shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/persoon#VerblijfplaatsBuitenlandDomicilie> .
