@@ -58,7 +58,7 @@
                                     <a href="https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus">Zonder Status</a>
                                  </dd>
                                  <dt>Uitgegeven op</dt>
-                                 <dd>2026-07-24</dd>
+                                 <dd>2026-07-31</dd>
                                  <dt>Deze versie</dt>
                                  <dd>
                                     <a href="https://implementatie.data.vlaanderen.be//doc/implementatiemodel/magda/voertuigregistratie/v0.1.0">https://implementatie.data.vlaanderen.be//doc/implementatiemodel/magda/voertuigregistratie/v0.1.0</a>
@@ -143,7 +143,7 @@
      <dl>
         <dt>Brondata</dt>
         <dd>
-           <a href="https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole/releases/tag/83cd67c1d463ed9be7b4efa61bf018d6d9eec081">https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole/releases/tag/83cd67c1d463ed9be7b4efa61bf018d6d9eec081</a>
+           <a href="https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole/releases/tag/v0.1.0">https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole/releases/tag/v0.1.0</a>
         </dd>
         <dt>Changelog</dt>
         <dd>
@@ -151,10 +151,10 @@
         </dd>
         <dt>Opmerkingen en feedback</dt>
         <dd>
-           <a href="https://github.com/Informatievlaanderen/OSLOthema-voertuigregistratie/issues">https://github.com/Informatievlaanderen/OSLOthema-voertuigregistratie/issues</a>
+           <a href="https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole/issues">https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole/issues</a>
         </dd>
         <dd>
-           <a href="https://data.vlaanderen.be/standaarden/implementatiemodel-voertuigregistratie-magda/">https://data.vlaanderen.be/standaarden/implementatiemodel-voertuigregistratie-magda/</a>
+           <a href="https://data.vlaanderen.be/standaarden/implementatiemodel-magda-voertuigregistraties">https://data.vlaanderen.be/standaarden/implementatiemodel-magda-voertuigregistraties</a>
         </dd>
         
      </dl>
@@ -188,9 +188,20 @@
                         <h2 class="vl-title--h2" aria-level="1" role="heading" id="h2_sotd">Samenvatting</h2>
                         
 <p>
-Het MAGDA-Voertuigregistraties Implementatiemodel is gebasseerd op Eucaris, de Europese standaard om voertuigregistraties
-uit te wisselen tussen lidstaten. Voertuigregistraties laat toe om eigenaren, houders, en voertuigen uit te wisselen
-voor bijvoorbeeld handhaving doeleinden.
+Het MAGDA-Voertuigregistraties Implementatiemodel is gebasseerd op <a href="https://www.eucaris.net/" target="_blank">Eucaris</a>,
+de Europese standaard om voertuigregistraties uit te wisselen tussen lidstaten.
+Voertuigregistraties laat toe om eigenaren, houders, en voertuigen uit te wisselen voor bijvoorbeeld handhaving doeleinden.
+Dit implementatiemodel beperkt zich tot voertuigregistraties in het kader van handhaving zoals het uitschrijven van snelheidsboetes
+bij trajectcontroles en andere automatische systemen die overtredingen kunnen vaststellen. De bevoegde diensten gebruiken
+de uitgewisselde gegevens om de vaststelling om te zetten in een effectieve boete.
+</p>
+<p>
+Het implementatiemodel gebruikt de vocabularia van <a href="https://data.vlaanderen.be/ns/persoon/" target="_blank">OSLO Persoon</a>
+en <a href="https://data.vlaanderen.be/ns/organisatie/" target="_blank">OSLO Organisatie</a> om gegevens over de houder
+en eigenaar van het voertuig uit te wisselen. Het voertuig zelf is herbruikt van <a href="https://schema.org/Vehicle" target="_blank">Schema.org</a>
+waar alle relevante attributen over voertuigen zijn opgenomen die ook bij een registratie van een voertuig van toepassing zijn.
+Generieker klassen zoals Registratie en Nummerplaat zijn opgenomen in een apart vocabularium omdat deze herbruik zijn
+voor andere applicatieprofielen of implementatiemodellen.
 </p>
 
                      </div>
@@ -202,7 +213,7 @@ voor bijvoorbeeld handhaving doeleinden.
                                  Dit implementatiemodel heeft status
                                  <a href="https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus">
                                     Zonder Status</a>
-                                 en werd uitgegeven op 2026-07-24.
+                                 en werd uitgegeven op 2026-07-31.
                               </p>
                            
                         </section>
@@ -248,6 +259,11 @@ voor bijvoorbeeld handhaving doeleinden.
                                                 |
                                              
                                              
+                                                <a href="#Annotatie">
+                                                   Annotatie</a>
+                                                |
+                                             
+                                             
                                                 <a href="#GeregistreerdeOrganisatie">
                                                    GeregistreerdeOrganisatie</a>
                                                 |
@@ -265,6 +281,11 @@ voor bijvoorbeeld handhaving doeleinden.
                                              
                                                 <a href="#Nummerplaat">
                                                    Nummerplaat</a>
+                                                |
+                                             
+                                             
+                                                <a href="#Omstandigheid">
+                                                   Omstandigheid</a>
                                                 |
                                              
                                              
@@ -293,13 +314,28 @@ voor bijvoorbeeld handhaving doeleinden.
                                                 |
                                              
                                              
-                                                <a href="#Voertuig">
-                                                   Voertuig</a>
+                                                <a href="#Uitzondering">
+                                                   Uitzondering</a>
                                                 |
                                              
                                              
-                                                <a href="#VoertuigeregistratieEnvelop">
-                                                   VoertuigeregistratieEnvelop</a>
+                                                <a href="#UitzonderingOorsprong">
+                                                   UitzonderingOorsprong</a>
+                                                |
+                                             
+                                             
+                                                <a href="#UitzonderingType">
+                                                   UitzonderingType</a>
+                                                |
+                                             
+                                             
+                                                <a href="#VehicleRegistrationEnvelope">
+                                                   VehicleRegistrationEnvelope</a>
+                                                |
+                                             
+                                             
+                                                <a href="#Voertuig">
+                                                   Voertuig</a>
                                                 |
                                              
                                              
@@ -380,6 +416,141 @@ voor bijvoorbeeld handhaving doeleinden.
                                     
                                  
                                  <div class="vl-region vl-region--no-space-top">
+                                    <h3 class="vl-title--h3" id="https://implementatie.data.vlaanderen.be/ns/generiek#Annotatie">
+                                       <a href="https://implementatie.data.vlaanderen.be/ns/generiek#Annotatie" class="js-vl-tooltip" data-vl-tooltip-content="https://implementatie.data.vlaanderen.be/ns/generiek#Annotatie" id="Annotatie" data-vl-tooltip-placement="right">
+                                          Annotatie</a>
+                                    </h3>
+                                    <div class="vl-region vl-region--no-space-top">
+                                       <dl>
+                                          <dt>Beschrijving</dt>
+                                          <dd>
+                                             
+                                                Detailinformatie die meegegeven is bij een Uitzondering.
+                                             
+                                          </dd>
+                                          
+                                          
+                                          <dt>Eigenschappen</dt>
+                                          
+                                             <dd>Voor deze entiteit zijn de volgende eigenschappen gedefinieerd:
+                                                   
+                                                      <a href="#Annotatie%3Anaam">
+                                                         naam</a>
+                                                   
+                                                   ,
+                                                   
+                                                   
+                                                      <a href="#Annotatie%3Awaarde">
+                                                         waarde</a>
+                                                   
+                                                   .
+                                             </dd>
+                                          
+                                       </dl>
+                                       
+                                          <div class="vl-u-table-overflow">
+                                             <table class="vl-data-table">
+                                                <thead>
+                                                   <tr class="vl-data-table__header">
+                                                      <th class="vl-data-table__header-title data-table__header-title--sortable-active">Eigenschap</th>
+                                                      <th class="vl-data-table__header-title">Verwacht Type</th>
+                                                      <th class="vl-data-table__header-title">Kardinaliteit</th>
+                                                      <th class="vl-data-table__header-title">Beschrijving</th>
+                                                      <th class="vl-data-table__header-title">Gebruik</th>
+                                                      <th class="vl-data-table__header-title">Codelijst</th>
+                                                   </tr>
+                                                </thead>
+                                                <tbody class="supertype">
+                                                   
+                                                      
+                                                         
+                                                      
+                                                      <tr id="Annotatie%3Anaam" typeof="rdfs:Property" resource="">
+                                                         <td>
+                                                            <code property="rdfs:label">
+                                                               <a href="http://purl.org/dc/terms/title" class="js-vl-tooltip" data-vl-tooltip-content="http://purl.org/dc/terms/title" data-vl-tooltip-placement="right">
+                                                                  naam</a>
+                                                            </code>
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                                  
+                                                                     <a href="http://www.w3.org/2001/XMLSchema#string" class="js-vl-tooltip" data-vl-tooltip-content="http://www.w3.org/2001/XMLSchema#string" data-vl-tooltip-placement="right">
+                                                                        String</a>
+                                                                  
+                                                               
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                            
+                                                            1
+                                                         </td>
+                                                         <td property="rdfs:comment">
+                                                            
+                                                               Naam van het veld.
+                                                            
+                                                         </td>
+                                                         <td property="vann:usageNote">
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                         </td>
+                                                      </tr>
+                                                   
+                                                      
+                                                         
+                                                      
+                                                      <tr id="Annotatie%3Awaarde" typeof="rdfs:Property" resource="">
+                                                         <td>
+                                                            <code property="rdfs:label">
+                                                               <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#value" class="js-vl-tooltip" data-vl-tooltip-content="http://www.w3.org/1999/02/22-rdf-syntax-ns#value" data-vl-tooltip-placement="right">
+                                                                  waarde</a>
+                                                            </code>
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                                  
+                                                                     <a href="http://www.w3.org/2001/XMLSchema#string" class="js-vl-tooltip" data-vl-tooltip-content="http://www.w3.org/2001/XMLSchema#string" data-vl-tooltip-placement="right">
+                                                                        String</a>
+                                                                  
+                                                               
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                            
+                                                            1
+                                                         </td>
+                                                         <td property="rdfs:comment">
+                                                            
+                                                               De waarde van het veld.
+                                                            
+                                                         </td>
+                                                         <td property="vann:usageNote">
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                         </td>
+                                                      </tr>
+                                                   
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                       
+                                    </div>
+                                 </div>
+                              
+                                 
+                                    
+                                 
+                                 <div class="vl-region vl-region--no-space-top">
                                     <h3 class="vl-title--h3" id="http://www.w3.org/ns/regorg#RegisteredOrganization">
                                        <a href="http://www.w3.org/ns/regorg#RegisteredOrganization" class="js-vl-tooltip" data-vl-tooltip-content="http://www.w3.org/ns/regorg#RegisteredOrganization" id="GeregistreerdeOrganisatie" data-vl-tooltip-placement="right">
                                           GeregistreerdeOrganisatie</a>
@@ -418,6 +589,12 @@ voor bijvoorbeeld handhaving doeleinden.
                                           <dt>Eigenschappen</dt>
                                           
                                              <dd>Voor deze entiteit zijn de volgende eigenschappen gedefinieerd:
+                                                   
+                                                      <a href="#GeregistreerdeOrganisatie%3Acontactinfo">
+                                                         contactinfo</a>
+                                                   
+                                                   ,
+                                                   
                                                    
                                                       <a href="#GeregistreerdeOrganisatie%3Arechtspersoonlijkheid">
                                                          rechtspersoonlijkheid</a>
@@ -464,6 +641,45 @@ voor bijvoorbeeld handhaving doeleinden.
                                                    </tr>
                                                 </thead>
                                                 <tbody class="supertype">
+                                                   
+                                                      
+                                                         
+                                                      
+                                                      <tr id="GeregistreerdeOrganisatie%3Acontactinfo" typeof="rdfs:Property" resource="">
+                                                         <td>
+                                                            <code property="rdfs:label">
+                                                               <a href="http://data.europa.eu/m8g/contactPoint" class="js-vl-tooltip" data-vl-tooltip-content="http://data.europa.eu/m8g/contactPoint" data-vl-tooltip-placement="right">
+                                                                  contactinfo</a>
+                                                            </code>
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                                  
+                                                                     <a href="#Contactpunt" class="js-vl-tooltip" data-vl-tooltip-content="Contactpunt" data-vl-tooltip-placement="right">
+                                                                        Contactpunt</a>
+                                                                  
+                                                               
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                            
+                                                            0..1
+                                                         </td>
+                                                         <td property="rdfs:comment">
+                                                            
+                                                               Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren.
+                                                            
+                                                         </td>
+                                                         <td property="vann:usageNote">
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                         </td>
+                                                      </tr>
                                                    
                                                       
                                                          
@@ -868,7 +1084,7 @@ voor bijvoorbeeld handhaving doeleinden.
                                                       <tr id="GeregistreerdPersoon%3Acontactinfo" typeof="rdfs:Property" resource="">
                                                          <td>
                                                             <code property="rdfs:label">
-                                                               <a href="https://schema.org/contactPoint" class="js-vl-tooltip" data-vl-tooltip-content="https://schema.org/contactPoint" data-vl-tooltip-placement="right">
+                                                               <a href="http://data.europa.eu/m8g/contactPoint" class="js-vl-tooltip" data-vl-tooltip-content="http://data.europa.eu/m8g/contactPoint" data-vl-tooltip-placement="right">
                                                                   contactinfo</a>
                                                             </code>
                                                          </td>
@@ -1136,8 +1352,8 @@ voor bijvoorbeeld handhaving doeleinden.
                                     
                                  
                                  <div class="vl-region vl-region--no-space-top">
-                                    <h3 class="vl-title--h3" id="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat">
-                                       <a href="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat" class="js-vl-tooltip" data-vl-tooltip-content="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat" id="Nummerplaat" data-vl-tooltip-placement="right">
+                                    <h3 class="vl-title--h3" id="https://data.vlaanderen.be/ns/voertuigregistratie#Nummerplaat">
+                                       <a href="https://data.vlaanderen.be/ns/voertuigregistratie#Nummerplaat" class="js-vl-tooltip" data-vl-tooltip-content="https://data.vlaanderen.be/ns/voertuigregistratie#Nummerplaat" id="Nummerplaat" data-vl-tooltip-placement="right">
                                           Nummerplaat</a>
                                     </h3>
                                     <div class="vl-region vl-region--no-space-top">
@@ -1145,9 +1361,14 @@ voor bijvoorbeeld handhaving doeleinden.
                                           <dt>Beschrijving</dt>
                                           <dd>
                                              
-                                                De fysieke bekendmaking van het registratienummer van het Voertuig.
+                                                Fysieke drager van het registratienummer van het Voertuig.
                                              
                                           </dd>
+                                          
+                                             <dt>Gebruik</dt>
+                                             <dd>
+                                                Uitgegeven door de overheid bevoegd voor de inschrijving van het Voertuig.
+                                             </dd>
                                           
                                           
                                           <dt>Eigenschappen</dt>
@@ -1263,6 +1484,31 @@ voor bijvoorbeeld handhaving doeleinden.
                                                 </tbody>
                                              </table>
                                           </div>
+                                       
+                                    </div>
+                                 </div>
+                              
+                                 
+                                    
+                                 
+                                 <div class="vl-region vl-region--no-space-top">
+                                    <h3 class="vl-title--h3" id="http://www.w3.org/2004/02/skos/core#Concept">
+                                       <a href="http://www.w3.org/2004/02/skos/core#Concept" class="js-vl-tooltip" data-vl-tooltip-content="http://www.w3.org/2004/02/skos/core#Concept" id="Omstandigheid" data-vl-tooltip-placement="right">
+                                          Omstandigheid</a>
+                                    </h3>
+                                    <div class="vl-region vl-region--no-space-top">
+                                       <dl>
+                                          <dt>Beschrijving</dt>
+                                          <dd>
+                                             
+                                          </dd>
+                                          
+                                          
+                                          <dt>Eigenschappen</dt>
+                                          
+                                             <dd>Voor deze entiteit zijn geen eigenschappen gedefinieerd.</dd>
+                                          
+                                       </dl>
                                        
                                     </div>
                                  </div>
@@ -1704,8 +1950,8 @@ voor bijvoorbeeld handhaving doeleinden.
                                     
                                  
                                  <div class="vl-region vl-region--no-space-top">
-                                    <h3 class="vl-title--h3" id="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie">
-                                       <a href="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie" class="js-vl-tooltip" data-vl-tooltip-content="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie" id="Registratie" data-vl-tooltip-placement="right">
+                                    <h3 class="vl-title--h3" id="https://data.vlaanderen.be/ns/voertuigregistratie#Registratie">
+                                       <a href="https://data.vlaanderen.be/ns/voertuigregistratie#Registratie" class="js-vl-tooltip" data-vl-tooltip-content="https://data.vlaanderen.be/ns/voertuigregistratie#Registratie" id="Registratie" data-vl-tooltip-placement="right">
                                           Registratie</a>
                                     </h3>
                                     <div class="vl-region vl-region--no-space-top">
@@ -1713,13 +1959,13 @@ voor bijvoorbeeld handhaving doeleinden.
                                           <dt>Beschrijving</dt>
                                           <dd>
                                              
-                                                Document dat de registratie van een voertuig in het register aangeeft, sinds wanneer, en welk kenteken is toegewezen aan het voertuig.
+                                                Inschrijving van een Voertuig in een nationaal register.
                                              
                                           </dd>
                                           
                                              <dt>Gebruik</dt>
                                              <dd>
-                                                Toegepast op de inschrijving van een voertuig.
+                                                Het Voertuig krijgt daarbij een registratienummer en wordt gekoppeld aan een Persoon of Organisatie (al dan niet eigenaar van het Voertuig). De datum vanaf wanneer de inschrijving geldt wordt vastgelegd. Het registratienummer wordt weergegeven op een Nummerplaat.
                                              </dd>
                                           
                                           
@@ -1773,7 +2019,7 @@ voor bijvoorbeeld handhaving doeleinden.
                                                       <tr id="Registratie%3Ahouder" typeof="rdfs:Property" resource="">
                                                          <td>
                                                             <code property="rdfs:label">
-                                                               <a href="http://purl.org/dc/terms/audience" class="js-vl-tooltip" data-vl-tooltip-content="http://purl.org/dc/terms/audience" data-vl-tooltip-placement="right">
+                                                               <a href="https://data.vlaanderen.be/ns/voertuigregistratie#houder" class="js-vl-tooltip" data-vl-tooltip-content="https://data.vlaanderen.be/ns/voertuigregistratie#houder" data-vl-tooltip-placement="right">
                                                                   houder</a>
                                                             </code>
                                                          </td>
@@ -1812,7 +2058,7 @@ voor bijvoorbeeld handhaving doeleinden.
                                                       <tr id="Registratie%3Anummerplaat" typeof="rdfs:Property" resource="">
                                                          <td>
                                                             <code property="rdfs:label">
-                                                               <a href="http://purl.org/dc/terms/medium" class="js-vl-tooltip" data-vl-tooltip-content="http://purl.org/dc/terms/medium" data-vl-tooltip-placement="right">
+                                                               <a href="https://data.vlaanderen.be/ns/voertuigregistratie#nummerplaat" class="js-vl-tooltip" data-vl-tooltip-content="https://data.vlaanderen.be/ns/voertuigregistratie#nummerplaat" data-vl-tooltip-placement="right">
                                                                   nummerplaat</a>
                                                             </code>
                                                          </td>
@@ -1834,7 +2080,7 @@ voor bijvoorbeeld handhaving doeleinden.
                                                          </td>
                                                          <td property="rdfs:comment">
                                                             
-                                                               Een plaat die het kenteken bevat van het voertuig waaronder het voertuig geregistreerd werd.
+                                                               Een fysieke drager die het registratienummer bevat van het voertuig waaronder het voertuig geregistreerd werd.
                                                             
                                                          </td>
                                                          <td property="vann:usageNote">
@@ -1890,7 +2136,7 @@ voor bijvoorbeeld handhaving doeleinden.
                                                       <tr id="Registratie%3Avoertuig" typeof="rdfs:Property" resource="">
                                                          <td>
                                                             <code property="rdfs:label">
-                                                               <a href="http://purl.org/dc/terms/references" class="js-vl-tooltip" data-vl-tooltip-content="http://purl.org/dc/terms/references" data-vl-tooltip-placement="right">
+                                                               <a href="https://data.vlaanderen.be/ns/voertuigregistratie#voertuig" class="js-vl-tooltip" data-vl-tooltip-content="https://data.vlaanderen.be/ns/voertuigregistratie#voertuig" data-vl-tooltip-placement="right">
                                                                   voertuig</a>
                                                             </code>
                                                          </td>
@@ -1916,6 +2162,573 @@ voor bijvoorbeeld handhaving doeleinden.
                                                             
                                                          </td>
                                                          <td property="vann:usageNote">
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                         </td>
+                                                      </tr>
+                                                   
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                       
+                                    </div>
+                                 </div>
+                              
+                                 
+                                    
+                                 
+                                 <div class="vl-region vl-region--no-space-top">
+                                    <h3 class="vl-title--h3" id="https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering">
+                                       <a href="https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering" class="js-vl-tooltip" data-vl-tooltip-content="https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering" id="Uitzondering" data-vl-tooltip-placement="right">
+                                          Uitzondering</a>
+                                    </h3>
+                                    <div class="vl-region vl-region--no-space-top">
+                                       <dl>
+                                          <dt>Beschrijving</dt>
+                                          <dd>
+                                             
+                                                Uitzondering geeft miet-kritieke problemen weer bij het uitwisselen.
+                                             
+                                          </dd>
+                                          
+                                             <dt>Gebruik</dt>
+                                             <dd>
+                                                Bijvoorbeeld: nieuwe INSZ nummer bij het Rijksregister.
+                                             </dd>
+                                          
+                                          
+                                          <dt>Eigenschappen</dt>
+                                          
+                                             <dd>Voor deze entiteit zijn de volgende eigenschappen gedefinieerd:
+                                                   
+                                                      <a href="#Uitzondering%3Aannotatie">
+                                                         annotatie</a>
+                                                   
+                                                   ,
+                                                   
+                                                   
+                                                      <a href="#Uitzondering%3Adatum">
+                                                         datum</a>
+                                                   
+                                                   ,
+                                                   
+                                                   
+                                                      <a href="#Uitzondering%3Adiagnose">
+                                                         diagnose</a>
+                                                   
+                                                   ,
+                                                   
+                                                   
+                                                      <a href="#Uitzondering%3Aomstandigheid">
+                                                         omstandigheid</a>
+                                                   
+                                                   ,
+                                                   
+                                                   
+                                                      <a href="#Uitzondering%3Aoorsprong">
+                                                         oorsprong</a>
+                                                   
+                                                   ,
+                                                   
+                                                   
+                                                      <a href="#Uitzondering%3Atype">
+                                                         type</a>
+                                                   
+                                                   .
+                                             </dd>
+                                          
+                                       </dl>
+                                       
+                                          <div class="vl-u-table-overflow">
+                                             <table class="vl-data-table">
+                                                <thead>
+                                                   <tr class="vl-data-table__header">
+                                                      <th class="vl-data-table__header-title data-table__header-title--sortable-active">Eigenschap</th>
+                                                      <th class="vl-data-table__header-title">Verwacht Type</th>
+                                                      <th class="vl-data-table__header-title">Kardinaliteit</th>
+                                                      <th class="vl-data-table__header-title">Beschrijving</th>
+                                                      <th class="vl-data-table__header-title">Gebruik</th>
+                                                      <th class="vl-data-table__header-title">Codelijst</th>
+                                                   </tr>
+                                                </thead>
+                                                <tbody class="supertype">
+                                                   
+                                                      
+                                                         
+                                                      
+                                                      <tr id="Uitzondering%3Aannotatie" typeof="rdfs:Property" resource="">
+                                                         <td>
+                                                            <code property="rdfs:label">
+                                                               <a href="http://purl.org/dc/terms/hasPart" class="js-vl-tooltip" data-vl-tooltip-content="http://purl.org/dc/terms/hasPart" data-vl-tooltip-placement="right">
+                                                                  annotatie</a>
+                                                            </code>
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                                  
+                                                                     <a href="#Annotatie" class="js-vl-tooltip" data-vl-tooltip-content="Annotatie" data-vl-tooltip-placement="right">
+                                                                        Annotatie</a>
+                                                                  
+                                                               
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                            
+                                                            0..*
+                                                         </td>
+                                                         <td property="rdfs:comment">
+                                                            
+                                                               Verwijzing naar annotaties die bij de Uitzondering horen.
+                                                            
+                                                         </td>
+                                                         <td property="vann:usageNote">
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                         </td>
+                                                      </tr>
+                                                   
+                                                      
+                                                         
+                                                      
+                                                      <tr id="Uitzondering%3Adatum" typeof="rdfs:Property" resource="">
+                                                         <td>
+                                                            <code property="rdfs:label">
+                                                               <a href="http://purl.org/dc/terms/issued" class="js-vl-tooltip" data-vl-tooltip-content="http://purl.org/dc/terms/issued" data-vl-tooltip-placement="right">
+                                                                  datum</a>
+                                                            </code>
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                                  
+                                                                     <a href="http://www.w3.org/2001/XMLSchema#dateTime" class="js-vl-tooltip" data-vl-tooltip-content="http://www.w3.org/2001/XMLSchema#dateTime" data-vl-tooltip-placement="right">
+                                                                        DateTime</a>
+                                                                  
+                                                               
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                            
+                                                            1
+                                                         </td>
+                                                         <td property="rdfs:comment">
+                                                            
+                                                               De datum waarop de Uitzondering aangemaakt werd.
+                                                            
+                                                         </td>
+                                                         <td property="vann:usageNote">
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                         </td>
+                                                      </tr>
+                                                   
+                                                      
+                                                         
+                                                      
+                                                      <tr id="Uitzondering%3Adiagnose" typeof="rdfs:Property" resource="">
+                                                         <td>
+                                                            <code property="rdfs:label">
+                                                               <a href="http://purl.org/dc/terms/description" class="js-vl-tooltip" data-vl-tooltip-content="http://purl.org/dc/terms/description" data-vl-tooltip-placement="right">
+                                                                  diagnose</a>
+                                                            </code>
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                                  
+                                                                     <a href="http://www.w3.org/2001/XMLSchema#string" class="js-vl-tooltip" data-vl-tooltip-content="http://www.w3.org/2001/XMLSchema#string" data-vl-tooltip-placement="right">
+                                                                        String</a>
+                                                                  
+                                                               
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                            
+                                                            1
+                                                         </td>
+                                                         <td property="rdfs:comment">
+                                                            
+                                                               Een beschrijving waarom de Uitzondering aangemaakt werd.
+                                                            
+                                                         </td>
+                                                         <td property="vann:usageNote">
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                         </td>
+                                                      </tr>
+                                                   
+                                                      
+                                                         
+                                                      
+                                                      <tr id="Uitzondering%3Aomstandigheid" typeof="rdfs:Property" resource="">
+                                                         <td>
+                                                            <code property="rdfs:label">
+                                                               <a href="http://purl.org/dc/terms/references" class="js-vl-tooltip" data-vl-tooltip-content="http://purl.org/dc/terms/references" data-vl-tooltip-placement="right">
+                                                                  omstandigheid</a>
+                                                            </code>
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                                  
+                                                                     <a href="#Omstandigheid" class="js-vl-tooltip" data-vl-tooltip-content="Omstandigheid" data-vl-tooltip-placement="right">
+                                                                        Omstandigheid</a>
+                                                                  
+                                                               
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                            
+                                                            1
+                                                         </td>
+                                                         <td property="rdfs:comment">
+                                                            
+                                                               De omstandigheden waarin de Uitzondering werd aangemaakt.
+                                                            
+                                                         </td>
+                                                         <td property="vann:usageNote">
+                                                            
+                                                               De foutcode van de bron die tot de Uitzondering heeft geleid.
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                         </td>
+                                                      </tr>
+                                                   
+                                                      
+                                                         
+                                                      
+                                                      <tr id="Uitzondering%3Aoorsprong" typeof="rdfs:Property" resource="">
+                                                         <td>
+                                                            <code property="rdfs:label">
+                                                               <a href="http://purl.org/dc/terms/source" class="js-vl-tooltip" data-vl-tooltip-content="http://purl.org/dc/terms/source" data-vl-tooltip-placement="right">
+                                                                  oorsprong</a>
+                                                            </code>
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                                  
+                                                                     <a href="#UitzonderingOorsprong" class="js-vl-tooltip" data-vl-tooltip-content="UitzonderingOorsprong" data-vl-tooltip-placement="right">
+                                                                        UitzonderingOorsprong</a>
+                                                                  
+                                                               
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                            
+                                                            1
+                                                         </td>
+                                                         <td property="rdfs:comment">
+                                                            
+                                                               De entiteit die de Uitzondering aangemaakt heeft.
+                                                            
+                                                         </td>
+                                                         <td property="vann:usageNote">
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                         </td>
+                                                      </tr>
+                                                   
+                                                      
+                                                         
+                                                      
+                                                      <tr id="Uitzondering%3Atype" typeof="rdfs:Property" resource="">
+                                                         <td>
+                                                            <code property="rdfs:label">
+                                                               <a href="http://purl.org/dc/terms/type" class="js-vl-tooltip" data-vl-tooltip-content="http://purl.org/dc/terms/type" data-vl-tooltip-placement="right">
+                                                                  type</a>
+                                                            </code>
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                                  
+                                                                     <a href="#UitzonderingType" class="js-vl-tooltip" data-vl-tooltip-content="UitzonderingType" data-vl-tooltip-placement="right">
+                                                                        UitzonderingType</a>
+                                                                  
+                                                               
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                            
+                                                            1
+                                                         </td>
+                                                         <td property="rdfs:comment">
+                                                            
+                                                               Het soort Uitzondering.
+                                                            
+                                                         </td>
+                                                         <td property="vann:usageNote">
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                         </td>
+                                                      </tr>
+                                                   
+                                                </tbody>
+                                             </table>
+                                          </div>
+                                       
+                                    </div>
+                                 </div>
+                              
+                                 
+                                    
+                                 
+                                 <div class="vl-region vl-region--no-space-top">
+                                    <h3 class="vl-title--h3" id="http://www.w3.org/2004/02/skos/core#Concept">
+                                       <a href="http://www.w3.org/2004/02/skos/core#Concept" class="js-vl-tooltip" data-vl-tooltip-content="http://www.w3.org/2004/02/skos/core#Concept" id="UitzonderingOorsprong" data-vl-tooltip-placement="right">
+                                          UitzonderingOorsprong</a>
+                                    </h3>
+                                    <div class="vl-region vl-region--no-space-top">
+                                       <dl>
+                                          <dt>Beschrijving</dt>
+                                          <dd>
+                                             
+                                          </dd>
+                                          
+                                          
+                                          <dt>Eigenschappen</dt>
+                                          
+                                             <dd>Voor deze entiteit zijn geen eigenschappen gedefinieerd.</dd>
+                                          
+                                       </dl>
+                                       
+                                    </div>
+                                 </div>
+                              
+                                 
+                                    
+                                 
+                                 <div class="vl-region vl-region--no-space-top">
+                                    <h3 class="vl-title--h3" id="http://www.w3.org/2004/02/skos/core#Concept">
+                                       <a href="http://www.w3.org/2004/02/skos/core#Concept" class="js-vl-tooltip" data-vl-tooltip-content="http://www.w3.org/2004/02/skos/core#Concept" id="UitzonderingType" data-vl-tooltip-placement="right">
+                                          UitzonderingType</a>
+                                    </h3>
+                                    <div class="vl-region vl-region--no-space-top">
+                                       <dl>
+                                          <dt>Beschrijving</dt>
+                                          <dd>
+                                             
+                                          </dd>
+                                          
+                                          
+                                          <dt>Eigenschappen</dt>
+                                          
+                                             <dd>Voor deze entiteit zijn geen eigenschappen gedefinieerd.</dd>
+                                          
+                                       </dl>
+                                       
+                                    </div>
+                                 </div>
+                              
+                                 
+                                    
+                                 
+                                 <div class="vl-region vl-region--no-space-top">
+                                    <h3 class="vl-title--h3" id="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VehicleRegistrationEnvelope">
+                                       <a href="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VehicleRegistrationEnvelope" class="js-vl-tooltip" data-vl-tooltip-content="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VehicleRegistrationEnvelope" id="VehicleRegistrationEnvelope" data-vl-tooltip-placement="right">
+                                          VehicleRegistrationEnvelope</a>
+                                    </h3>
+                                    <div class="vl-region vl-region--no-space-top">
+                                       <dl>
+                                          <dt>Beschrijving</dt>
+                                          <dd>
+                                             
+                                                Enveloppe om voertuigregistraties en bijhorende validatiewaarschuwing uit te wisselen.
+                                             
+                                          </dd>
+                                          
+                                             <dt>Gebruik</dt>
+                                             <dd>
+                                                Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP.
+                                             </dd>
+                                          
+                                          
+                                             <dt>Subklasse van
+                                             </dt>
+                                             <dd>
+                                                   <a href="#Envelop">
+                                                      Envelop</a>
+                                                   
+                                             </dd>
+                                          
+                                          <dt>Eigenschappen</dt>
+                                          
+                                             <dd>Voor deze entiteit zijn de volgende eigenschappen gedefinieerd:
+                                                   
+                                                      <a href="#VehicleRegistrationEnvelope%3Adata">
+                                                         data</a>
+                                                   
+                                                   ,
+                                                   
+                                                   
+                                                      <a href="#VehicleRegistrationEnvelope%3Alanguage">
+                                                         language</a>
+                                                   
+                                                   ,
+                                                   
+                                                   
+                                                      <a href="#VehicleRegistrationEnvelope%3Awarning">
+                                                         warning</a>
+                                                   
+                                                   .
+                                             </dd>
+                                          
+                                       </dl>
+                                       
+                                          <div class="vl-u-table-overflow">
+                                             <table class="vl-data-table">
+                                                <thead>
+                                                   <tr class="vl-data-table__header">
+                                                      <th class="vl-data-table__header-title data-table__header-title--sortable-active">Eigenschap</th>
+                                                      <th class="vl-data-table__header-title">Verwacht Type</th>
+                                                      <th class="vl-data-table__header-title">Kardinaliteit</th>
+                                                      <th class="vl-data-table__header-title">Beschrijving</th>
+                                                      <th class="vl-data-table__header-title">Gebruik</th>
+                                                      <th class="vl-data-table__header-title">Codelijst</th>
+                                                   </tr>
+                                                </thead>
+                                                <tbody class="supertype">
+                                                   
+                                                      
+                                                         
+                                                      
+                                                      <tr id="VehicleRegistrationEnvelope%3Adata" typeof="rdfs:Property" resource="">
+                                                         <td>
+                                                            <code property="rdfs:label">
+                                                               <a href="https://schema.org/data" class="js-vl-tooltip" data-vl-tooltip-content="https://schema.org/data" data-vl-tooltip-placement="right">
+                                                                  data</a>
+                                                            </code>
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                                  
+                                                                     <a href="#Registratie" class="js-vl-tooltip" data-vl-tooltip-content="Registratie" data-vl-tooltip-placement="right">
+                                                                        Registratie</a>
+                                                                  
+                                                               
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                            
+                                                            0..1
+                                                         </td>
+                                                         <td property="rdfs:comment">
+                                                            
+                                                               De data die overgedragen werd.
+                                                            
+                                                         </td>
+                                                         <td property="vann:usageNote">
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                         </td>
+                                                      </tr>
+                                                   
+                                                      
+                                                         
+                                                      
+                                                      <tr id="VehicleRegistrationEnvelope%3Alanguage" typeof="rdfs:Property" resource="">
+                                                         <td>
+                                                            <code property="rdfs:label">
+                                                               <a href="http://purl.org/dc/terms/language" class="js-vl-tooltip" data-vl-tooltip-content="http://purl.org/dc/terms/language" data-vl-tooltip-placement="right">
+                                                                  language</a>
+                                                            </code>
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                                  
+                                                                     <a href="http://www.w3.org/2001/XMLSchema#language" class="js-vl-tooltip" data-vl-tooltip-content="http://www.w3.org/2001/XMLSchema#language" data-vl-tooltip-placement="right">
+                                                                        Language</a>
+                                                                  
+                                                               
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                            
+                                                            0..1
+                                                         </td>
+                                                         <td property="rdfs:comment">
+                                                            
+                                                               De taal van het antwoord.
+                                                            
+                                                         </td>
+                                                         <td property="vann:usageNote">
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                         </td>
+                                                      </tr>
+                                                   
+                                                      
+                                                         
+                                                      
+                                                      <tr id="VehicleRegistrationEnvelope%3Awarning" typeof="rdfs:Property" resource="">
+                                                         <td>
+                                                            <code property="rdfs:label">
+                                                               <a href="https://schema.org/error" class="js-vl-tooltip" data-vl-tooltip-content="https://schema.org/error" data-vl-tooltip-placement="right">
+                                                                  warning</a>
+                                                            </code>
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                                  
+                                                                     <a href="#Uitzondering" class="js-vl-tooltip" data-vl-tooltip-content="Uitzondering" data-vl-tooltip-placement="right">
+                                                                        Uitzondering</a>
+                                                                  
+                                                               
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                            
+                                                            0..*
+                                                         </td>
+                                                         <td property="rdfs:comment">
+                                                            
+                                                               Foutmeldingen die opgetreden zijn bij het afleveren van de data.
+                                                            
+                                                         </td>
+                                                         <td property="vann:usageNote">
+                                                            
+                                                               Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen.
                                                             
                                                          </td>
                                                          <td>
@@ -2235,201 +3048,6 @@ voor bijvoorbeeld handhaving doeleinden.
                                                             
                                                          </td>
                                                          <td property="vann:usageNote">
-                                                            
-                                                         </td>
-                                                         <td>
-                                                            
-                                                         </td>
-                                                      </tr>
-                                                   
-                                                </tbody>
-                                             </table>
-                                          </div>
-                                       
-                                    </div>
-                                 </div>
-                              
-                                 
-                                    
-                                 
-                                 <div class="vl-region vl-region--no-space-top">
-                                    <h3 class="vl-title--h3" id="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VoertuigregistratieEnvelop">
-                                       <a href="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VoertuigregistratieEnvelop" class="js-vl-tooltip" data-vl-tooltip-content="https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VoertuigregistratieEnvelop" id="VoertuigeregistratieEnvelop" data-vl-tooltip-placement="right">
-                                          VoertuigeregistratieEnvelop</a>
-                                    </h3>
-                                    <div class="vl-region vl-region--no-space-top">
-                                       <dl>
-                                          <dt>Beschrijving</dt>
-                                          <dd>
-                                             
-                                                Enveloppe om voertuigregistraties en bijhorende validatiewaarschuwing uit te wisselen.
-                                             
-                                          </dd>
-                                          
-                                             <dt>Gebruik</dt>
-                                             <dd>
-                                                Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP.
-                                             </dd>
-                                          
-                                          
-                                             <dt>Subklasse van
-                                             </dt>
-                                             <dd>
-                                                   <a href="#Envelop">
-                                                      Envelop</a>
-                                                   
-                                             </dd>
-                                          
-                                          <dt>Eigenschappen</dt>
-                                          
-                                             <dd>Voor deze entiteit zijn de volgende eigenschappen gedefinieerd:
-                                                   
-                                                      <a href="#VoertuigeregistratieEnvelop%3Adata">
-                                                         data</a>
-                                                   
-                                                   ,
-                                                   
-                                                   
-                                                      <a href="#VoertuigeregistratieEnvelop%3Alanguage">
-                                                         language</a>
-                                                   
-                                                   ,
-                                                   
-                                                   
-                                                      <a href="#VoertuigeregistratieEnvelop%3Awarning">
-                                                         warning</a>
-                                                   
-                                                   .
-                                             </dd>
-                                          
-                                       </dl>
-                                       
-                                          <div class="vl-u-table-overflow">
-                                             <table class="vl-data-table">
-                                                <thead>
-                                                   <tr class="vl-data-table__header">
-                                                      <th class="vl-data-table__header-title data-table__header-title--sortable-active">Eigenschap</th>
-                                                      <th class="vl-data-table__header-title">Verwacht Type</th>
-                                                      <th class="vl-data-table__header-title">Kardinaliteit</th>
-                                                      <th class="vl-data-table__header-title">Beschrijving</th>
-                                                      <th class="vl-data-table__header-title">Gebruik</th>
-                                                      <th class="vl-data-table__header-title">Codelijst</th>
-                                                   </tr>
-                                                </thead>
-                                                <tbody class="supertype">
-                                                   
-                                                      
-                                                         
-                                                      
-                                                      <tr id="VoertuigeregistratieEnvelop%3Adata" typeof="rdfs:Property" resource="">
-                                                         <td>
-                                                            <code property="rdfs:label">
-                                                               <a href="https://schema.org/data" class="js-vl-tooltip" data-vl-tooltip-content="https://schema.org/data" data-vl-tooltip-placement="right">
-                                                                  data</a>
-                                                            </code>
-                                                         </td>
-                                                         <td>
-                                                            
-                                                               
-                                                                  
-                                                                     <a href="#Registratie" class="js-vl-tooltip" data-vl-tooltip-content="Registratie" data-vl-tooltip-placement="right">
-                                                                        Registratie</a>
-                                                                  
-                                                               
-                                                            
-                                                         </td>
-                                                         <td>
-                                                            
-                                                               
-                                                            
-                                                            0..1
-                                                         </td>
-                                                         <td property="rdfs:comment">
-                                                            
-                                                               De data die overgedragen werd.
-                                                            
-                                                         </td>
-                                                         <td property="vann:usageNote">
-                                                            
-                                                         </td>
-                                                         <td>
-                                                            
-                                                         </td>
-                                                      </tr>
-                                                   
-                                                      
-                                                         
-                                                      
-                                                      <tr id="VoertuigeregistratieEnvelop%3Alanguage" typeof="rdfs:Property" resource="">
-                                                         <td>
-                                                            <code property="rdfs:label">
-                                                               <a href="http://purl.org/dc/terms/language" class="js-vl-tooltip" data-vl-tooltip-content="http://purl.org/dc/terms/language" data-vl-tooltip-placement="right">
-                                                                  language</a>
-                                                            </code>
-                                                         </td>
-                                                         <td>
-                                                            
-                                                               
-                                                                  
-                                                                     <a href="http://www.w3.org/2001/XMLSchema#language" class="js-vl-tooltip" data-vl-tooltip-content="http://www.w3.org/2001/XMLSchema#language" data-vl-tooltip-placement="right">
-                                                                        Language</a>
-                                                                  
-                                                               
-                                                            
-                                                         </td>
-                                                         <td>
-                                                            
-                                                               
-                                                            
-                                                            0..1
-                                                         </td>
-                                                         <td property="rdfs:comment">
-                                                            
-                                                               De taal van het antwoord.
-                                                            
-                                                         </td>
-                                                         <td property="vann:usageNote">
-                                                            
-                                                         </td>
-                                                         <td>
-                                                            
-                                                         </td>
-                                                      </tr>
-                                                   
-                                                      
-                                                         
-                                                      
-                                                      <tr id="VoertuigeregistratieEnvelop%3Awarning" typeof="rdfs:Property" resource="">
-                                                         <td>
-                                                            <code property="rdfs:label">
-                                                               <a href="https://schema.org/error" class="js-vl-tooltip" data-vl-tooltip-content="https://schema.org/error" data-vl-tooltip-placement="right">
-                                                                  warning</a>
-                                                            </code>
-                                                         </td>
-                                                         <td>
-                                                            
-                                                               
-                                                                  
-                                                                     <a href="#Problemdetail" class="js-vl-tooltip" data-vl-tooltip-content="Problemdetail" data-vl-tooltip-placement="right">
-                                                                        Problemdetail</a>
-                                                                  
-                                                               
-                                                            
-                                                         </td>
-                                                         <td>
-                                                            
-                                                               
-                                                            
-                                                            0..*
-                                                         </td>
-                                                         <td property="rdfs:comment">
-                                                            
-                                                               Foutmeldingen die opgetreden zijn bij het afleveren van de data.
-                                                            
-                                                         </td>
-                                                         <td property="vann:usageNote">
-                                                            
-                                                               Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen.
                                                             
                                                          </td>
                                                          <td>
@@ -3020,8 +3638,8 @@ voor bijvoorbeeld handhaving doeleinden.
                            (niet normatief)
                            
                               <p>Een herbruikbare JSON-LD context definitie voor dit implementatiemodel is terug te vinden op:
-                                 <a href="/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0/context/voertuigregistratie.jsonld" target="_blank">
-                                    /doc/implementatiemodel/magda/voertuigregistratie/v0.1.0/context/voertuigregistratie.jsonld</a>
+                                 <a href="/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0/context/voertuigregistratie-im.jsonld" target="_blank">
+                                    /doc/implementatiemodel/magda/voertuigregistratie/v0.1.0/context/voertuigregistratie-im.jsonld</a>
                               </p>
                            
                         </div>
@@ -3030,8 +3648,8 @@ voor bijvoorbeeld handhaving doeleinden.
                            (niet normatief)
                            
                               <p>Een herbruikbare SHACL template definitie voor dit implementatiemodel is terug te vinden op:
-                                 <a href="/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0/shacl/voertuigregistratie-SHACL.ttl" target="_blank">
-                                    /doc/implementatiemodel/magda/voertuigregistratie/v0.1.0/shacl/voertuigregistratie-SHACL.ttl</a>
+                                 <a href="/doc/implementatiemodel/magda/voertuigregistratie/v0.1.0/shacl/voertuigregistratie-im-SHACL.ttl" target="_blank">
+                                    /doc/implementatiemodel/magda/voertuigregistratie/v0.1.0/shacl/voertuigregistratie-im-SHACL.ttl</a>
                               </p>
                            
                         </div>
@@ -3104,6 +3722,37 @@ Deze componenten zijn gebruikt in de MAGDA OpenAPI beschrijving van de Voertuigr
                                  
                                     
                                        
+                                       
+                                          
+                                             
+                                                <tr>
+                                                   <td>
+                                                      <a href="#Annotatie%3Anaam">Annotatie.naam</a>
+                                                   </td>
+                                                   <td>
+                                                      <code>http://purl.org/dc/terms/title</code>
+                                                   </td>
+                                                </tr>
+                                             
+                                          
+                                       
+                                          
+                                             
+                                                <tr>
+                                                   <td>
+                                                      <a href="#Annotatie%3Awaarde">Annotatie.waarde</a>
+                                                   </td>
+                                                   <td>
+                                                      <code>http://www.w3.org/1999/02/22-rdf-syntax-ns#value</code>
+                                                   </td>
+                                                </tr>
+                                             
+                                          
+                                       
+                                    
+                                 
+                                    
+                                       
                                           <tr>
                                              <td>
                                                 <a href="#GeregistreerdeOrganisatie">GeregistreerdeOrganisatie</a>
@@ -3115,6 +3764,19 @@ Deze componenten zijn gebruikt in de MAGDA OpenAPI beschrijving van de Voertuigr
                                              </td>
                                           </tr>
                                        
+                                       
+                                          
+                                             
+                                                <tr>
+                                                   <td>
+                                                      <a href="#GeregistreerdeOrganisatie%3Acontactinfo">GeregistreerdeOrganisatie.contactinfo</a>
+                                                   </td>
+                                                   <td>
+                                                      <code>http://data.europa.eu/m8g/contactPoint</code>
+                                                   </td>
+                                                </tr>
+                                             
+                                          
                                        
                                           
                                              
@@ -3230,7 +3892,7 @@ Deze componenten zijn gebruikt in de MAGDA OpenAPI beschrijving van de Voertuigr
                                                       <a href="#GeregistreerdPersoon%3Acontactinfo">GeregistreerdPersoon.contactinfo</a>
                                                    </td>
                                                    <td>
-                                                      <code>https://schema.org/contactPoint</code>
+                                                      <code>http://data.europa.eu/m8g/contactPoint</code>
                                                    </td>
                                                 </tr>
                                              
@@ -3321,6 +3983,17 @@ Deze componenten zijn gebruikt in de MAGDA OpenAPI beschrijving van de Voertuigr
                                  
                                     
                                        
+                                          <tr>
+                                             <td>
+                                                <a href="#Nummerplaat">Nummerplaat</a>
+                                             </td>
+                                             <td>
+                                                <b>
+                                                   <code>https://data.vlaanderen.be/ns/voertuigregistratie#Nummerplaat</code>
+                                                </b>
+                                             </td>
+                                          </tr>
+                                       
                                        
                                           
                                              
@@ -3347,6 +4020,22 @@ Deze componenten zijn gebruikt in de MAGDA OpenAPI beschrijving van de Voertuigr
                                                 </tr>
                                              
                                           
+                                       
+                                    
+                                 
+                                    
+                                       
+                                          <tr>
+                                             <td>
+                                                <a href="#Omstandigheid">Omstandigheid</a>
+                                             </td>
+                                             <td>
+                                                <b>
+                                                   <code>http://www.w3.org/2004/02/skos/core#Concept</code>
+                                                </b>
+                                             </td>
+                                          </tr>
+                                       
                                        
                                     
                                  
@@ -3483,6 +4172,17 @@ Deze componenten zijn gebruikt in de MAGDA OpenAPI beschrijving van de Voertuigr
                                  
                                     
                                        
+                                          <tr>
+                                             <td>
+                                                <a href="#Registratie">Registratie</a>
+                                             </td>
+                                             <td>
+                                                <b>
+                                                   <code>https://data.vlaanderen.be/ns/voertuigregistratie#Registratie</code>
+                                                </b>
+                                             </td>
+                                          </tr>
+                                       
                                        
                                           
                                              
@@ -3491,7 +4191,7 @@ Deze componenten zijn gebruikt in de MAGDA OpenAPI beschrijving van de Voertuigr
                                                       <a href="#Registratie%3Ahouder">Registratie.houder</a>
                                                    </td>
                                                    <td>
-                                                      <code>http://purl.org/dc/terms/audience</code>
+                                                      <code>https://data.vlaanderen.be/ns/voertuigregistratie#houder</code>
                                                    </td>
                                                 </tr>
                                              
@@ -3504,7 +4204,7 @@ Deze componenten zijn gebruikt in de MAGDA OpenAPI beschrijving van de Voertuigr
                                                       <a href="#Registratie%3Anummerplaat">Registratie.nummerplaat</a>
                                                    </td>
                                                    <td>
-                                                      <code>http://purl.org/dc/terms/medium</code>
+                                                      <code>https://data.vlaanderen.be/ns/voertuigregistratie#nummerplaat</code>
                                                    </td>
                                                 </tr>
                                              
@@ -3530,7 +4230,166 @@ Deze componenten zijn gebruikt in de MAGDA OpenAPI beschrijving van de Voertuigr
                                                       <a href="#Registratie%3Avoertuig">Registratie.voertuig</a>
                                                    </td>
                                                    <td>
+                                                      <code>https://data.vlaanderen.be/ns/voertuigregistratie#voertuig</code>
+                                                   </td>
+                                                </tr>
+                                             
+                                          
+                                       
+                                    
+                                 
+                                    
+                                       
+                                       
+                                          
+                                             
+                                                <tr>
+                                                   <td>
+                                                      <a href="#Uitzondering%3Aannotatie">Uitzondering.annotatie</a>
+                                                   </td>
+                                                   <td>
+                                                      <code>http://purl.org/dc/terms/hasPart</code>
+                                                   </td>
+                                                </tr>
+                                             
+                                          
+                                       
+                                          
+                                             
+                                                <tr>
+                                                   <td>
+                                                      <a href="#Uitzondering%3Adatum">Uitzondering.datum</a>
+                                                   </td>
+                                                   <td>
+                                                      <code>http://purl.org/dc/terms/issued</code>
+                                                   </td>
+                                                </tr>
+                                             
+                                          
+                                       
+                                          
+                                             
+                                                <tr>
+                                                   <td>
+                                                      <a href="#Uitzondering%3Adiagnose">Uitzondering.diagnose</a>
+                                                   </td>
+                                                   <td>
+                                                      <code>http://purl.org/dc/terms/description</code>
+                                                   </td>
+                                                </tr>
+                                             
+                                          
+                                       
+                                          
+                                             
+                                                <tr>
+                                                   <td>
+                                                      <a href="#Uitzondering%3Aomstandigheid">Uitzondering.omstandigheid</a>
+                                                   </td>
+                                                   <td>
                                                       <code>http://purl.org/dc/terms/references</code>
+                                                   </td>
+                                                </tr>
+                                             
+                                          
+                                       
+                                          
+                                             
+                                                <tr>
+                                                   <td>
+                                                      <a href="#Uitzondering%3Aoorsprong">Uitzondering.oorsprong</a>
+                                                   </td>
+                                                   <td>
+                                                      <code>http://purl.org/dc/terms/source</code>
+                                                   </td>
+                                                </tr>
+                                             
+                                          
+                                       
+                                          
+                                             
+                                                <tr>
+                                                   <td>
+                                                      <a href="#Uitzondering%3Atype">Uitzondering.type</a>
+                                                   </td>
+                                                   <td>
+                                                      <code>http://purl.org/dc/terms/type</code>
+                                                   </td>
+                                                </tr>
+                                             
+                                          
+                                       
+                                    
+                                 
+                                    
+                                       
+                                          <tr>
+                                             <td>
+                                                <a href="#UitzonderingOorsprong">UitzonderingOorsprong</a>
+                                             </td>
+                                             <td>
+                                                <b>
+                                                   <code>http://www.w3.org/2004/02/skos/core#Concept</code>
+                                                </b>
+                                             </td>
+                                          </tr>
+                                       
+                                       
+                                    
+                                 
+                                    
+                                       
+                                          <tr>
+                                             <td>
+                                                <a href="#UitzonderingType">UitzonderingType</a>
+                                             </td>
+                                             <td>
+                                                <b>
+                                                   <code>http://www.w3.org/2004/02/skos/core#Concept</code>
+                                                </b>
+                                             </td>
+                                          </tr>
+                                       
+                                       
+                                    
+                                 
+                                    
+                                       
+                                       
+                                          
+                                             
+                                                <tr>
+                                                   <td>
+                                                      <a href="#VehicleRegistrationEnvelope%3Adata">VehicleRegistrationEnvelope.data</a>
+                                                   </td>
+                                                   <td>
+                                                      <code>https://schema.org/data</code>
+                                                   </td>
+                                                </tr>
+                                             
+                                          
+                                       
+                                          
+                                             
+                                                <tr>
+                                                   <td>
+                                                      <a href="#VehicleRegistrationEnvelope%3Alanguage">VehicleRegistrationEnvelope.language</a>
+                                                   </td>
+                                                   <td>
+                                                      <code>http://purl.org/dc/terms/language</code>
+                                                   </td>
+                                                </tr>
+                                             
+                                          
+                                       
+                                          
+                                             
+                                                <tr>
+                                                   <td>
+                                                      <a href="#VehicleRegistrationEnvelope%3Awarning">VehicleRegistrationEnvelope.warning</a>
+                                                   </td>
+                                                   <td>
+                                                      <code>https://schema.org/error</code>
                                                    </td>
                                                 </tr>
                                              
@@ -3625,50 +4484,6 @@ Deze componenten zijn gebruikt in de MAGDA OpenAPI beschrijving van de Voertuigr
                                                    </td>
                                                    <td>
                                                       <code>https://schema.org/vehicleIdentificationNumber</code>
-                                                   </td>
-                                                </tr>
-                                             
-                                          
-                                       
-                                    
-                                 
-                                    
-                                       
-                                       
-                                          
-                                             
-                                                <tr>
-                                                   <td>
-                                                      <a href="#VoertuigeregistratieEnvelop%3Adata">VoertuigeregistratieEnvelop.data</a>
-                                                   </td>
-                                                   <td>
-                                                      <code>https://schema.org/data</code>
-                                                   </td>
-                                                </tr>
-                                             
-                                          
-                                       
-                                          
-                                             
-                                                <tr>
-                                                   <td>
-                                                      <a href="#VoertuigeregistratieEnvelop%3Alanguage">VoertuigeregistratieEnvelop.language</a>
-                                                   </td>
-                                                   <td>
-                                                      <code>http://purl.org/dc/terms/language</code>
-                                                   </td>
-                                                </tr>
-                                             
-                                          
-                                       
-                                          
-                                             
-                                                <tr>
-                                                   <td>
-                                                      <a href="#VoertuigeregistratieEnvelop%3Awarning">VoertuigeregistratieEnvelop.warning</a>
-                                                   </td>
-                                                   <td>
-                                                      <code>https://schema.org/error</code>
                                                    </td>
                                                 </tr>
                                              

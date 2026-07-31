@@ -50,7 +50,7 @@
                       <a href="https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus">Zonder Status</a>
                     </dd>
                     <dt>Uitgegeven op</dt>
-                    <dd>2026-07-24</dd>
+                    <dd>2026-07-31</dd>
                     <dt>Deze versie</dt>
                     <dd>
                       <a href="https://implementatie.data.vlaanderen.be//doc/vocabularium/magda/voertuigregistratie/v0.1.0">https://implementatie.data.vlaanderen.be//doc/vocabularium/magda/voertuigregistratie/v0.1.0</a>
@@ -137,19 +137,19 @@
               <dl>
                 <dt>Brondata</dt>
                 <dd>
-                  <a href="https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole//tree/83cd67c1d463ed9be7b4efa61bf018d6d9eec081">https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole//tree/83cd67c1d463ed9be7b4efa61bf018d6d9eec081</a>
+                  <a href="https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole//tree/1529f52c098dde1412695b107cc1b7886d5485f4">https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole//tree/1529f52c098dde1412695b107cc1b7886d5485f4</a>
                 </dd>
                 <dt>Changelog</dt>
                 <dd>
-                  <a href="https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole//blob/83cd67c1d463ed9be7b4efa61bf018d6d9eec081/CHANGELOG">https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole//blob/83cd67c1d463ed9be7b4efa61bf018d6d9eec081/CHANGELOG</a>
+                  <a href="https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole//blob/1529f52c098dde1412695b107cc1b7886d5485f4/CHANGELOG">https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole//blob/1529f52c098dde1412695b107cc1b7886d5485f4/CHANGELOG</a>
                 </dd>
                 <dt id="feedbackurl">Opmerkingen en feedback</dt>
                 <dd>
-                  <a href="https://github.com/Informatievlaanderen/OSLOthema-voertuigregistratie/issues">https://github.com/Informatievlaanderen/OSLOthema-voertuigregistratie/issues</a>
+                  <a href="https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole/issues">https://github.com/Informatievlaanderen/OSLOthema-trajectcontrole/issues</a>
                 </dd>
                 <dt>Standaardenregister</dt>
                 <dd>
-                  <a href="https://data.vlaanderen.be/standaarden/vocabularium-magda-voertuigregistratie/">https://data.vlaanderen.be/standaarden/vocabularium-magda-voertuigregistratie/</a>
+                  <a href="https://data.vlaanderen.be/standaarden/vocabularium-magda-voertuigregistraties/">https://data.vlaanderen.be/standaarden/vocabularium-magda-voertuigregistraties/</a>
                 </dd>
                 
               </dl>
@@ -189,9 +189,11 @@
                     <div class="vl-typography" id="summary">
                       
                       
-Het MAGDA-Voertuigregistraties Vocabularium is gebasseerd op Eucaris, de Europese standaard om voertuigregistraties
-uit te wisselen tussen lidstaten. Voertuigregistraties laat toe om eigenaren, houders, en voertuigen uit te wisselen
-voor bijvoorbeeld handhaving doeleinden.
+<p>
+Het MAGDA-Voertuigregistraties Vocabularium bevat enkele de relevante termen om de data-uitwisseling mogelijk te maken
+van voertuigregistraties volgens een REST API op het MAGDA platform. De cruciale klasse hierbij is VoertuigeregistratieEnvelop
+die zowel Registraties als MAGDA Uitzonderingen aan elkaar koppelt.
+</p>
 
                     </div>
                   </section>
@@ -209,7 +211,7 @@ voor bijvoorbeeld handhaving doeleinden.
                           Dit vocabularium heeft status
                           <a href="https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus">
                             Zonder Status</a>
-                          en werd uitgegeven op 2026-07-24.
+                          en werd uitgegeven op 2026-07-31.
                         </p>
                         <p>Dit document is een offici&#235;le specificatie van een vocabularium en biedt een gedeeld begrippenkader voor
                           bepaalde concepten. Deze specificatie dient om de definitie, gebruik, domein en bereik van de RDF termen binnen dit
@@ -280,13 +282,7 @@ voor bijvoorbeeld handhaving doeleinden.
                             <p>
                               |
                               
-                                <a href="#Nummerplaat" rel="class">Nummerplaat</a>
-                                |
-                              
-                                <a href="#Registratie" rel="class">Registratie</a>
-                                |
-                              
-                                <a href="#VoertuigregistratieEnvelop" rel="class">VoertuigeregistratieEnvelop</a>
+                                <a href="#VehicleRegistrationEnvelope" rel="class">VehicleRegistrationEnvelope</a>
                                 |
                               
                             </p>
@@ -308,8 +304,8 @@ voor bijvoorbeeld handhaving doeleinden.
                         </div>
                         
                           <div class="vl-region vl-region--no-space-top">
-                            <h3 class="vl-title--h3" id="Nummerplaat">Klasse
-                              <em>Nummerplaat</em>
+                            <h3 class="vl-title--h3" id="VehicleRegistrationEnvelope">Klasse
+                              <em>VehicleRegistrationEnvelope</em>
                             </h3>
                             <table class="definition">
                               <tbody>
@@ -320,86 +316,7 @@ voor bijvoorbeeld handhaving doeleinden.
                                 <tr>
                                   <th>URI</th>
                                   <td>
-                                    <code>https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Nummerplaat</code>
-                                  </td>
-                                </tr>
-                                
-                                <tr>
-                                  <th>Definitie</th>
-                                  <td>De fysieke bekendmaking van het registratienummer van het Voertuig.</td>
-                                </tr>
-                                
-                                <tr>
-                                  <th>
-                                    <p>Status</p>
-                                  </th>
-                                  
-                                    <td>
-                                      <code>https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus</code>
-                                    </td>
-                                  
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        
-                          <div class="vl-region vl-region--no-space-top">
-                            <h3 class="vl-title--h3" id="Registratie">Klasse
-                              <em>Registratie</em>
-                            </h3>
-                            <table class="definition">
-                              <tbody>
-                                <tr>
-                                  <th>Type</th>
-                                  <td>Klasse</td>
-                                </tr>
-                                <tr>
-                                  <th>URI</th>
-                                  <td>
-                                    <code>https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#Registratie</code>
-                                  </td>
-                                </tr>
-                                
-                                <tr>
-                                  <th>Definitie</th>
-                                  <td>Document dat de registratie van een voertuig in het register aangeeft, sinds wanneer, en welk kenteken is toegewezen aan het voertuig.</td>
-                                </tr>
-                                
-                                  <tr>
-                                    <th>
-                                      <p>Gebruik</p>
-                                    </th>
-                                    <td>Toegepast op de inschrijving van een voertuig.</td>
-                                  </tr>
-                                
-                                <tr>
-                                  <th>
-                                    <p>Status</p>
-                                  </th>
-                                  
-                                    <td>
-                                      <code>https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus</code>
-                                    </td>
-                                  
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        
-                          <div class="vl-region vl-region--no-space-top">
-                            <h3 class="vl-title--h3" id="VoertuigregistratieEnvelop">Klasse
-                              <em>VoertuigeregistratieEnvelop</em>
-                            </h3>
-                            <table class="definition">
-                              <tbody>
-                                <tr>
-                                  <th>Type</th>
-                                  <td>Klasse</td>
-                                </tr>
-                                <tr>
-                                  <th>URI</th>
-                                  <td>
-                                    <code>https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VoertuigregistratieEnvelop</code>
+                                    <code>https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VehicleRegistrationEnvelope</code>
                                   </td>
                                 </tr>
                                 

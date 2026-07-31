@@ -1,0 +1,472 @@
+{
+  "baseURI": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#",
+  "classes": [
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VehicleRegistrationEnvelope",
+      "vocabularyLabel": {
+        "nl": "VehicleRegistrationEnvelope"
+      },
+      "applicationProfileLabel": {
+        "nl": "VehicleRegistrationEnvelope"
+      },
+      "vocabularyDefinition": {
+        "nl": "Enveloppe om voertuigregistraties en bijhorende validatiewaarschuwing uit te wisselen."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Enveloppe om voertuigregistraties en bijhorende validatiewaarschuwing uit te wisselen."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."
+      },
+      "parents": [
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Envelope",
+          "vocabularyLabel": {
+            "nl": "Envelop"
+          },
+          "applicationProfileLabel": {
+            "nl": "Envelop"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "https://schema.org/data",
+          "vocabularyLabel": {
+            "nl": "^data"
+          },
+          "applicationProfileLabel": {
+            "nl": "data"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De data die overgedragen werd."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VehicleRegistrationEnvelope",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/voertuigregistratie#Registratie",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Registratie"
+            },
+            "applicationProfileLabel": {
+              "nl": "Registratie"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/language",
+          "vocabularyLabel": {
+            "nl": "^language"
+          },
+          "applicationProfileLabel": {
+            "nl": "language"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De taal van het antwoord."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VehicleRegistrationEnvelope",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#language",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Language"
+            },
+            "applicationProfileLabel": {
+              "nl": "Language"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://schema.org/error",
+          "vocabularyLabel": {
+            "nl": "^warning"
+          },
+          "applicationProfileLabel": {
+            "nl": "warning"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Foutmeldingen die opgetreden zijn bij het afleveren van de data."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/voertuigregistratie#VehicleRegistrationEnvelope",
+          "range": {
+            "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Uitzondering"
+            },
+            "applicationProfileLabel": {
+              "nl": "Uitzondering"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        }
+      ]
+    }
+  ],
+  "dataTypes": [
+    {
+      "id": "http://www.w3.org/ns/locn#Address",
+      "vocabularyLabel": {
+        "nl": "Adresvoorstelling"
+      },
+      "applicationProfileLabel": {
+        "nl": "Adresvoorstelling"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Meer leesbare voorstelling met enkel de basisgegevens van het adres, bedoeld voor het gebruik van een adres als attribuut van een ander object."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Bijvoorbeeld als attribuut van een persoon of gebouw, ... De adresvoorstelling heeft niet enkel betrekking op Belgische adressen, ze kan gebruikt worden om buitenlandse adressen weer te geven (waar mogelijk andere adresaanduidingen dan huisnummer of busnummer worden gebruikt of waar adrescomponenten zoals adresgebieden voorkomen)."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/adres#busnummer",
+          "vocabularyLabel": {
+            "nl": "busnummer"
+          },
+          "applicationProfileLabel": {
+            "nl": "busnummer"
+          },
+          "vocabularyDefinition": {
+            "nl": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben."
+          },
+          "vocabularyUsageNote": {
+            "nl": "Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen."
+          },
+          "parents": [
+            {
+              "id": "http://www.w3.org/ns/locn#locatorDesignator"
+            }
+          ],
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/locn#Address",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/adres#Gemeentenaam",
+          "vocabularyLabel": {
+            "nl": "gemeentenaam"
+          },
+          "applicationProfileLabel": {
+            "nl": "gemeentenaam"
+          },
+          "vocabularyDefinition": {
+            "nl": "Gemeentenaam van het adres."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Gemeentenaam van het adres."
+          },
+          "parents": [
+            {
+              "id": "http://www.w3.org/ns/locn#postName"
+            }
+          ],
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/locn#Address",
+          "range": {
+            "id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "LangString"
+            },
+            "applicationProfileLabel": {
+              "nl": "LangString"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://www.w3.org/2000/01/rdf-schema#label",
+          "vocabularyLabel": {
+            "nl": "huisnummer"
+          },
+          "applicationProfileLabel": {
+            "nl": "huisnummer"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen."
+          },
+          "parents": [
+            {
+              "id": "http://www.w3.org/ns/locn#locatorDesignator"
+            }
+          ],
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/locn#Address",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/adres#land",
+          "vocabularyLabel": {
+            "nl": "land"
+          },
+          "applicationProfileLabel": {
+            "nl": "land"
+          },
+          "vocabularyDefinition": {
+            "nl": "Land waarin het adres gelegen is."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Land waarin het adres gelegen is."
+          },
+          "parents": [
+            {
+              "id": "http://www.w3.org/ns/locn#adminUnitL1"
+            }
+          ],
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/locn#Address",
+          "range": {
+            "id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "LangString"
+            },
+            "applicationProfileLabel": {
+              "nl": "LangString"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://www.w3.org/ns/locn#postCode",
+          "vocabularyLabel": {
+            "nl": "postcode"
+          },
+          "applicationProfileLabel": {
+            "nl": "postcode"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/locn#Address",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://www.w3.org/ns/locn#thoroughfare",
+          "vocabularyLabel": {
+            "nl": "straatnaam"
+          },
+          "applicationProfileLabel": {
+            "nl": "straatnaam"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Straatnaam van het adres."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/locn#Address",
+          "range": {
+            "id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "LangString"
+            },
+            "applicationProfileLabel": {
+              "nl": "LangString"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://www.w3.org/ns/locn#fullAddress",
+          "vocabularyLabel": {
+            "nl": "volledigAdres"
+          },
+          "applicationProfileLabel": {
+            "nl": "volledigAdres"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het complete adres in één string, al dan niet geformatteerd."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Vermijdt fouten ten gevolge van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/locn#Address",
+          "range": {
+            "id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "LangString"
+            },
+            "applicationProfileLabel": {
+              "nl": "LangString"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://schema.org/ContactPoint",
+      "vocabularyLabel": {
+        "nl": "Contactinfo"
+      },
+      "applicationProfileLabel": {
+        "nl": "Contactpunt"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Informatie zoals email, telefoon, adres die toelaat om iemand of iets te contacteren."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Bijvoorbeeld: een persoon of organisatie of dienstverlening... Mogelijke vormen van contact: bellen, mailen, etc."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "http://www.w3.org/ns/locn#address",
+          "vocabularyLabel": {
+            "nl": "adres"
+          },
+          "applicationProfileLabel": {
+            "nl": "adres"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Adres dat men kan aanschrijven of bezoeken."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://schema.org/ContactPoint",
+          "range": {
+            "id": "http://www.w3.org/ns/locn#Address",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Adresvoorstelling"
+            },
+            "applicationProfileLabel": {
+              "nl": "Adresvoorstelling"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "http://www.w3.org/ns/adms#Identifier",
+      "vocabularyLabel": {
+        "nl": "Identificator"
+      },
+      "applicationProfileLabel": {
+        "nl": "Identificator"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Informatie gebruikt om een object uniek te identificeren."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Uitgangspunt hier is dat deze string door een organisatie wordt toegekend en dat dit gebeurt volgens een welbepaald systeem."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "http://www.w3.org/2004/02/skos/core#notation",
+          "vocabularyLabel": {
+            "nl": "notatie"
+          },
+          "applicationProfileLabel": {
+            "nl": "identificator"
+          },
+          "applicationProfileDefinition": {
+            "nl": "String gebruikt om het object uniek te identificeren."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/adms#Identifier",
+          "range": {
+            "id": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Literal"
+            },
+            "applicationProfileLabel": {
+              "nl": "Literal"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    }
+  ],
+  "properties": []
+}
