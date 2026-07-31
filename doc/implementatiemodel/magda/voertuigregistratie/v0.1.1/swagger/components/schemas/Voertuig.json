@@ -1,0 +1,90 @@
+{
+  "title": "Voertuig",
+  "type": "object",
+  "description": "Een voertuig is een apparaat dat ontworpen of gebruikt is om mensen of vracht te vervoeren over land, water, lucht, of door de ruimte.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Voertuig)",
+      "pattern": "^Voertuig$"
+    },
+    "eersteRegistratieDatum": {
+      "type": "object",
+      "description": "Eerste datum waarop het voertuig werd geregistreerd in een register.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Date$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "commercieleNaam": {
+      "type": "object",
+      "description": "De commerciële benaming van het voertuig. Bijvoorbeeld: Nissan Micra N-Sport edition.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "fabrikantNaam": {
+      "type": "object",
+      "description": "De interne benaming van het voertuig door de fabrikant. Bijvoorbeeld: Nissan Micra K14.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "type": {
+      "$ref": "#/components/schemas/VoertuigType"
+    },
+    "vin": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "eigenaar": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type",
+    "eersteRegistratieDatum",
+    "commercieleNaam",
+    "fabrikantNaam",
+    "type",
+    "vin",
+    "eigenaar"
+  ]
+}

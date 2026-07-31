@@ -1,0 +1,108 @@
+{
+  "title": "GeregistreerdPersoon",
+  "type": "object",
+  "description": "Persoon waarvan de gegevens zijn ingeschreven in een register.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse GeregistreerdPersoon)",
+      "pattern": "^GeregistreerdPersoon$"
+    },
+    "volledigeNaam": {
+      "type": "object",
+      "description": "De volledige naam van de Persoon, doorgaans de combinatie van voornamen en achternaam.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "referentiedatum": {
+      "type": "object",
+      "description": "Datum waarvoor de toestand van de entiteit opgevraagd is.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^DateTime$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "achternaam": {
+      "type": "object",
+      "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "alternatieveNaam": {
+      "type": "array",
+      "description": "Lijst van String items.",
+      "items": {
+        "type": "object",
+        "description": "Alternatief voor de volledige naam van de Persoon. Bijvoorbeeld pseudoniem.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "minItems": 1
+    },
+    "voornaam": {
+      "type": "array",
+      "description": "Lijst van String items.",
+      "items": {
+        "type": "object",
+        "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "minItems": 1
+    },
+    "registratie": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "geslacht": {
+      "$ref": "#/components/schemas/Geslacht"
+    },
+    "contactinfo": {
+      "$ref": "#/components/schemas/Contactpunt"
+    }
+  },
+  "required": [
+    "@type",
+    "volledigeNaam",
+    "referentiedatum",
+    "registratie",
+    "geslacht"
+  ]
+}
