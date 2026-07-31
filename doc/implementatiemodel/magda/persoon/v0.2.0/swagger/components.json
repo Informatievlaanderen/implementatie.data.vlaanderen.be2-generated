@@ -35,20 +35,6 @@
           "@id"
         ]
       },
-      "AfstammingDalendelijnstype": {
-        "title": "AfstammingDalendelijnstype",
-        "type": "object",
-        "description": "Enumeratie van AfstammingDalendelijnstype",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
       "Afstammingstype": {
         "title": "Afstammingstype",
         "type": "object",
@@ -151,20 +137,6 @@
         "title": "Omstandigheid",
         "type": "object",
         "description": "Enumeratie van Omstandigheid",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "AfstammingStijgendelijnstype": {
-        "title": "AfstammingStijgendelijnstype",
-        "type": "object",
-        "description": "Enumeratie van AfstammingStijgendelijnstype",
         "properties": {
           "@id": {
             "type": "string",
@@ -1215,25 +1187,7 @@
             ]
           },
           "afstammingstype": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Afstammingstype"
-              },
-              {
-                "$ref": "#/components/schemas/AfstammingDalendelijnstype"
-              },
-              {
-                "$ref": "#/components/schemas/AfstammingStijgendelijnstype"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Afstammingstype": "#/components/schemas/Afstammingstype",
-                "AfstammingDalendelijnstype": "#/components/schemas/AfstammingDalendelijnstype",
-                "AfstammingStijgendelijnstype": "#/components/schemas/AfstammingStijgendelijnstype"
-              }
-            }
+            "$ref": "#/components/schemas/Afstammingstype"
           },
           "metPersoon": {
             "oneOf": [
