@@ -35,6 +35,20 @@
           "@id"
         ]
       },
+      "AfstammingDalendelijnstype": {
+        "title": "AfstammingDalendelijnstype",
+        "type": "object",
+        "description": "Enumeratie van AfstammingDalendelijnstype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
       "Afstammingstype": {
         "title": "Afstammingstype",
         "type": "object",
@@ -137,6 +151,20 @@
         "title": "Omstandigheid",
         "type": "object",
         "description": "Enumeratie van Omstandigheid",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "AfstammingStijgendelijnstype": {
+        "title": "AfstammingStijgendelijnstype",
+        "type": "object",
+        "description": "Enumeratie van AfstammingStijgendelijnstype",
         "properties": {
           "@id": {
             "type": "string",
@@ -376,9 +404,9 @@
               "@language"
             ]
           },
-          "land": {
+          "landcode": {
             "type": "object",
-            "description": "Land waartoe de administratieveeenheid behoort.",
+            "description": "Code van het land waartoe de plaats behoort.",
             "properties": {
               "@value": {
                 "type": "string"
@@ -772,6 +800,11 @@
           },
           "data": {
             "$ref": "#/components/schemas/GeregistreerdPersoon"
+          },
+          "@context": {
+            "type": "string",
+            "description": "URI of the JSON-LD versioned context file for this response.",
+            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/magda\\/persoon\\/v0.2.0\\/context\\/persoon.jsonld$"
           }
         },
         "required": [
@@ -1167,16 +1200,18 @@
                 "$ref": "#/components/schemas/Afstammingstype"
               },
               {
-                "$ref": "#/components/schemas/Afstammingstype"
+                "$ref": "#/components/schemas/AfstammingDalendelijnstype"
               },
               {
-                "$ref": "#/components/schemas/Afstammingstype"
+                "$ref": "#/components/schemas/AfstammingStijgendelijnstype"
               }
             ],
             "discriminator": {
               "propertyName": "@type",
               "mapping": {
-                "Afstammingstype": "#/components/schemas/Afstammingstype"
+                "Afstammingstype": "#/components/schemas/Afstammingstype",
+                "AfstammingDalendelijnstype": "#/components/schemas/AfstammingDalendelijnstype",
+                "AfstammingStijgendelijnstype": "#/components/schemas/AfstammingStijgendelijnstype"
               }
             }
           },
@@ -1640,8 +1675,7 @@
           }
         },
         "required": [
-          "@type",
-          "einddatum"
+          "@type"
         ]
       },
       "VerblijfplaatsBuitenlandDomicilie": {
@@ -1730,9 +1764,6 @@
             "description": "Object type (klasse AdministratiefBeheerder)",
             "pattern": "^AdministratiefBeheerder$"
           },
-          "type": {
-            "$ref": "#/components/schemas/AdministratiefBeheerdertype"
-          },
           "voorkeursnaam": {
             "type": "object",
             "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
@@ -1749,6 +1780,9 @@
               "@value",
               "@language"
             ]
+          },
+          "type": {
+            "$ref": "#/components/schemas/AdministratiefBeheerdertype"
           },
           "identificator": {
             "$ref": "#/components/schemas/Identificator"
@@ -2167,17 +2201,17 @@
             "description": "Object type (klasse Moment)",
             "pattern": "^Moment$"
           },
-          "inXSDdatumTijd": {
+          "inXSDdatum": {
             "type": "object",
-            "description": "Positie in de tijd uitgedrukt door middel van xsd:dateTime.",
+            "description": "Positie in de tijd uitgedrukt door middel van xsd:date.",
             "properties": {
               "@value": {
                 "type": "string",
-                "format": "date-time"
+                "format": "date"
               },
               "@type": {
                 "type": "string",
-                "pattern": "^DateTime$"
+                "pattern": "^Date$"
               }
             },
             "required": [
