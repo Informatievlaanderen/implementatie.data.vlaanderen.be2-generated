@@ -12,17 +12,17 @@
     }
   ],
   "paths": {
-    "/id/Gebruiksperceel/{id}": {
+    "/id/Landbouwgebruiksperceel/{id}": {
       "get": {
-        "summary": "Een perceel dat gebruikt is voor een bepaalde toepassing.",
-        "description": "TODO: In context van LV situeren dat zowel tijd, geometrie, als uitbating samengevoegd zijn wat 1 identificator: AGPAYKEY oplevert",
-        "operationId": "GebruiksperceelGET",
+        "summary": "Een perceel dat gebruikt is voor een bepaalde landbouwactiviteit.",
+        "description": "De AGPAKEY die, het Landbouwgebruiksperceel uniek identificeert, bevat 3 componenten: tijd, geometrie, en uitbating. Indien een component wijzigt, ontstaat er een nieuwe AGPAKEY.",
+        "operationId": "LandbouwgebruiksperceelGET",
         "parameters": [
           {
             "name": "id",
             "required": true,
             "in": "path",
-            "description": "Identificator van een Gebruiksperceel object.",
+            "description": "Identificator van een Landbouwgebruiksperceel object.",
             "schema": {
               "type": "string"
             }
@@ -30,26 +30,26 @@
         ],
         "responses": {
           "200": {
-            "description": "Gebruiksperceel object gevonden.",
+            "description": "Landbouwgebruiksperceel object gevonden.",
             "content": {
               "application/ld+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Gebruiksperceel"
+                  "$ref": "#/components/schemas/Landbouwgebruiksperceel"
                 }
               }
             },
             "links": {
-              "Gebruiksperceel.identificator": {
-                "operationId": "GebruiksperceelGET",
+              "Landbouwgebruiksperceel.identificator": {
+                "operationId": "LandbouwgebruiksperceelGET",
                 "parameters": {
-                  "id": "$response.body#/Gebruiksperceel.identificator/@id"
+                  "id": "$response.body#/Landbouwgebruiksperceel.identificator/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
               },
-              "Gebruiksperceel.uitbater": {
-                "operationId": "GebruiksperceelGET",
+              "Landbouwgebruiksperceel.uitbater": {
+                "operationId": "LandbouwgebruiksperceelGET",
                 "parameters": {
-                  "id": "$response.body#/Gebruiksperceel.uitbater/@id"
+                  "id": "$response.body#/Landbouwgebruiksperceel.uitbater/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Agent` op te halen."
               }
@@ -66,7 +66,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "GebruiksperceelGET",
+                "operationId": "LandbouwgebruiksperceelGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -85,7 +85,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "GebruiksperceelGET",
+                "operationId": "LandbouwgebruiksperceelGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -104,7 +104,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "GebruiksperceelGET",
+                "operationId": "LandbouwgebruiksperceelGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -123,7 +123,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "GebruiksperceelGET",
+                "operationId": "LandbouwgebruiksperceelGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -142,7 +142,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "GebruiksperceelGET",
+                "operationId": "LandbouwgebruiksperceelGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -161,7 +161,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "GebruiksperceelGET",
+                "operationId": "LandbouwgebruiksperceelGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -180,7 +180,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "GebruiksperceelGET",
+                "operationId": "LandbouwgebruiksperceelGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -199,7 +199,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "GebruiksperceelGET",
+                "operationId": "LandbouwgebruiksperceelGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -218,7 +218,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "GebruiksperceelGET",
+                "operationId": "LandbouwgebruiksperceelGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -769,10 +769,10 @@
           "@type"
         ]
       },
-      "Gebruiksperceel": {
-        "title": "Gebruiksperceel",
+      "Landbouwgebruiksperceel": {
+        "title": "Landbouwgebruiksperceel",
         "type": "object",
-        "description": "Een perceel dat gebruikt is voor een bepaalde toepassing.",
+        "description": "Een perceel dat gebruikt is voor een bepaalde landbouwactiviteit.",
         "properties": {
           "@id": {
             "type": "string",
@@ -780,8 +780,8 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse Gebruiksperceel)",
-            "pattern": "^Gebruiksperceel$"
+            "description": "Object type (klasse Landbouwgebruiksperceel)",
+            "pattern": "^Landbouwgebruiksperceel$"
           },
           "identificator": {
             "$ref": "#/components/schemas/Identificator"

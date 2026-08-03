@@ -14,7 +14,7 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdPersoonShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdeOrganisatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#OverlijdenShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GebruiksperceelShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#LandbouwgebruiksperceelShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#LangStringShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#IdentificatorShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#StringShape>,
@@ -177,37 +177,6 @@
   ];
   shacl:targetClass schemas:ContactPoint .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GebruiksperceelShape> a shacl:NodeShape;
-  rdfs:label "Gebruiksperceel"@nl;
-  <http://purl.org/vocab/vann/usageNote> "TODO: In context van LV situeren dat zowel tijd, geometrie, als uitbating samengevoegd zijn wat 1 identificator: AGPAYKEY oplevert"@nl;
-  rdfs:comment "Een perceel dat gebruikt is voor een bepaalde toepassing."@nl;
-  shacl:closed false;
-  shacl:property [
-    a shacl:PropertyShape;
-    rdfs:label "identificator"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: AGPAKEY."@nl;
-    rdfs:comment "Identificatiecode van het Gebruiksperceel."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Gebruiksperceel.Identificator>;
-    shacl:class <http://www.w3.org/ns/adms#Identifier>;
-    shacl:description "Identificatiecode van het Gebruiksperceel."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "identificator"@nl;
-    shacl:path <http://www.w3.org/ns/adms#identifier>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "uitbater"@nl;
-    rdfs:comment "De Agent die het Landbouwgebruiksperceel gebruikt voor landbouwactiviteiten."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Gebruiksperceel.Uitbater>;
-    shacl:description "De Agent die het Landbouwgebruiksperceel gebruikt voor landbouwactiviteiten."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "uitbater"@nl;
-    shacl:or ([shacl:class foaf:Agent] [shacl:class org:Organization] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>] [shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>]);
-    shacl:path <https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#uitbater>
-  ];
-  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#Landbouwgebruiksperceel> .
-
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdPersoonShape> a shacl:NodeShape;
   rdfs:label "GeregistreerdPersoon"@nl;
   <http://purl.org/vocab/vann/usageNote> "Doorgaans is dit register een bevolkingsregister maar het kan bijvoorbeeld ook een kiesregister zijn. De ingeschreven gegevens hebben betrekking op de identeit (bijvoorbeeld: naam en voornaam) en de Verblijfplaats van de persoon en op belangrijke levensgebeurtenissen zoals geboorte, huwelijk, overlijden, etc. Deze gegevens worden typisch geregistreerd door de overheid, ze bieden de ingeschreven persoon wettelijke bescherming en laten de overheid toe om basisstatistieken op te stellen over zijn bevolking."@nl;
@@ -294,6 +263,37 @@
     shacl:path dc:creator
   ];
   shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#LandbouwgebruiksperceelShape> a shacl:NodeShape;
+  rdfs:label "Landbouwgebruiksperceel"@nl;
+  <http://purl.org/vocab/vann/usageNote> "De AGPAKEY die, het Landbouwgebruiksperceel uniek identificeert, bevat 3 componenten: tijd, geometrie, en uitbating. Indien een component wijzigt, ontstaat er een nieuwe AGPAKEY."@nl;
+  rdfs:comment "Een perceel dat gebruikt is voor een bepaalde landbouwactiviteit."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "identificator"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: AGPAKEY."@nl;
+    rdfs:comment "Identificatiecode van het Gebruiksperceel."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Landbouwgebruiksperceel.Identificator>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificatiecode van het Gebruiksperceel."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "identificator"@nl;
+    shacl:path <http://www.w3.org/ns/adms#identifier>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "uitbater"@nl;
+    rdfs:comment "De Agent die het Landbouwgebruiksperceel gebruikt voor landbouwactiviteiten."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Landbouwgebruiksperceel.Uitbater>;
+    shacl:description "De Agent die het Landbouwgebruiksperceel gebruikt voor landbouwactiviteiten."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "uitbater"@nl;
+    shacl:or ([shacl:class foaf:Agent] [shacl:class org:Organization] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>] [shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>]);
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#uitbater>
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#Landbouwgebruiksperceel> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#LangStringShape> a shacl:NodeShape;
   rdfs:label "LangString";
