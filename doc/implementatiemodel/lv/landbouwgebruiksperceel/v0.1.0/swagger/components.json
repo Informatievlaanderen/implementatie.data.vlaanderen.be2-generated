@@ -158,6 +158,28 @@
             },
             "minItems": 1
           },
+          "lid": {
+            "type": "array",
+            "description": "Lijst van Persoon items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Persoon"
+                },
+                {
+                  "$ref": "#/components/schemas/GeregistreerdPersoon"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Persoon": "#/components/schemas/Persoon",
+                  "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+                }
+              }
+            },
+            "minItems": 1
+          },
           "identificator": {
             "type": "array",
             "description": "Lijst van Identificator items.",
@@ -238,6 +260,28 @@
           },
           "heeftOverlijden": {
             "$ref": "#/components/schemas/Overlijden"
+          },
+          "isLidVan": {
+            "type": "array",
+            "description": "Lijst van Organisatie items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Organisatie"
+                },
+                {
+                  "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Organisatie": "#/components/schemas/Organisatie",
+                  "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
+                }
+              }
+            },
+            "minItems": 1
           },
           "identificator": {
             "type": "array",
@@ -325,6 +369,28 @@
           },
           "heeftOverlijden": {
             "$ref": "#/components/schemas/Overlijden"
+          },
+          "isLidVan": {
+            "type": "array",
+            "description": "Lijst van Organisatie items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Organisatie"
+                },
+                {
+                  "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Organisatie": "#/components/schemas/Organisatie",
+                  "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
+                }
+              }
+            },
+            "minItems": 1
           },
           "identificator": {
             "type": "array",
@@ -416,6 +482,28 @@
                 "mapping": {
                   "Activiteittype": "#/components/schemas/Activiteittype",
                   "LandbouwActiviteit-V1": "#/components/schemas/LandbouwActiviteit-V1"
+                }
+              }
+            },
+            "minItems": 1
+          },
+          "lid": {
+            "type": "array",
+            "description": "Lijst van Persoon items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Persoon"
+                },
+                {
+                  "$ref": "#/components/schemas/GeregistreerdPersoon"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Persoon": "#/components/schemas/Persoon",
+                  "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
                 }
               }
             },
