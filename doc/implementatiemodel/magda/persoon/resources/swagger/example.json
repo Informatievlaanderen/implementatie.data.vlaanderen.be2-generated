@@ -12,17 +12,17 @@
     }
   ],
   "paths": {
-    "/id/PersonEnvelop/{id}": {
+    "/id/PersonEnvelope/{id}": {
       "get": {
         "summary": "Enveloppe om Persoon en bijhorende validatiewaarschuwingen uit te wisselen.",
         "description": "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP.",
-        "operationId": "PersonEnvelopGET",
+        "operationId": "PersonEnvelopeGET",
         "parameters": [
           {
             "name": "id",
             "required": true,
             "in": "path",
-            "description": "Identificator van een PersonEnvelop object.",
+            "description": "Identificator van een PersonEnvelope object.",
             "schema": {
               "type": "string"
             }
@@ -30,26 +30,26 @@
         ],
         "responses": {
           "200": {
-            "description": "PersonEnvelop object gevonden.",
+            "description": "PersonEnvelope object gevonden.",
             "content": {
               "application/ld+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PersonEnvelop"
+                  "$ref": "#/components/schemas/PersonEnvelope"
                 }
               }
             },
             "links": {
-              "PersonEnvelop.warning": {
-                "operationId": "PersonEnvelopGET",
+              "PersonEnvelope.warning": {
+                "operationId": "PersonEnvelopeGET",
                 "parameters": {
-                  "id": "$response.body#/PersonEnvelop.warning/@id"
+                  "id": "$response.body#/PersonEnvelope.warning/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Uitzondering` op te halen."
               },
-              "PersonEnvelop.data": {
-                "operationId": "PersonEnvelopGET",
+              "PersonEnvelope.data": {
+                "operationId": "PersonEnvelopeGET",
                 "parameters": {
-                  "id": "$response.body#/PersonEnvelop.data/@id"
+                  "id": "$response.body#/PersonEnvelope.data/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeregistreerdPersoon` op te halen."
               }
@@ -66,7 +66,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "PersonEnvelopGET",
+                "operationId": "PersonEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -85,7 +85,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "PersonEnvelopGET",
+                "operationId": "PersonEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -104,7 +104,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "PersonEnvelopGET",
+                "operationId": "PersonEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -123,7 +123,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "PersonEnvelopGET",
+                "operationId": "PersonEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -142,7 +142,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "PersonEnvelopGET",
+                "operationId": "PersonEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -161,7 +161,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "PersonEnvelopGET",
+                "operationId": "PersonEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -180,7 +180,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "PersonEnvelopGET",
+                "operationId": "PersonEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -199,7 +199,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "PersonEnvelopGET",
+                "operationId": "PersonEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -218,7 +218,7 @@
             },
             "links": {
               "Probleemdetail.type": {
-                "operationId": "PersonEnvelopGET",
+                "operationId": "PersonEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -973,8 +973,8 @@
           "detail"
         ]
       },
-      "PersonEnvelop": {
-        "title": "PersonEnvelop",
+      "PersonEnvelope": {
+        "title": "PersonEnvelope",
         "type": "object",
         "description": "Enveloppe om Persoon en bijhorende validatiewaarschuwingen uit te wisselen.",
         "properties": {
@@ -984,8 +984,8 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse PersonEnvelop)",
-            "pattern": "^PersonEnvelop$"
+            "description": "Object type (klasse PersonEnvelope)",
+            "pattern": "^PersonEnvelope$"
           },
           "warning": {
             "type": "array",
@@ -1572,12 +1572,7 @@
           }
         },
         "required": [
-          "@type",
-          "datum",
-          "diagnose",
-          "oorsprong",
-          "type",
-          "omstandigheid"
+          "@type"
         ]
       },
       "BelgischAdres": {

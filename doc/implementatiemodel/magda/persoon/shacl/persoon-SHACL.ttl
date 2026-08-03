@@ -23,7 +23,7 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#VersieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#FormeleOrganisatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#ProblemdetailShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#PersonEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#PersonEnvelopeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#NietMededeelbaarShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#InwonerschapShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#SamenwonenShape>,
@@ -891,8 +891,8 @@
   ];
   shacl:targetClass <http://www.w3.org/2006/time#ProperInterval> .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#PersonEnvelopShape> a shacl:NodeShape;
-  rdfs:label "PersonEnvelop"@nl;
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#PersonEnvelopeShape> a shacl:NodeShape;
+  rdfs:label "PersonEnvelope"@nl;
   <http://purl.org/vocab/vann/usageNote> "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."@nl;
   rdfs:comment "Enveloppe om Persoon en bijhorende validatiewaarschuwingen uit te wisselen."@nl;
   shacl:closed false;
@@ -901,7 +901,7 @@
     rdfs:label "warning"@nl;
     <http://purl.org/vocab/vann/usageNote> "Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen."@nl;
     rdfs:comment "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#PersonEnvelop.Warning>;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#PersonEnvelope.Warning>;
     shacl:class <https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering>;
     shacl:description "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
     shacl:name "warning"@nl;
@@ -910,7 +910,7 @@
     a shacl:PropertyShape;
     rdfs:label "data"@nl;
     rdfs:comment "De data die overgedragen werd."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#PersonEnvelop.Data>;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#PersonEnvelope.Data>;
     shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>;
     shacl:description "De data die overgedragen werd."@nl;
     shacl:maxCount 1;
@@ -918,7 +918,7 @@
     shacl:name "data"@nl;
     shacl:path schemas:data
   ];
-  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/persoon#PersonEnvelop> .
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/persoon#PersonEnvelope> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#PersoonShape> a shacl:NodeShape;
   rdfs:label "Persoon"@nl;
@@ -1314,7 +1314,6 @@
     shacl:datatype xsd:dateTime;
     shacl:description "De datum waarop de Uitzondering aangemaakt werd."@nl;
     shacl:maxCount 1;
-    shacl:minCount 1;
     shacl:name "datum"@nl;
     shacl:path dc:issued
   ], [
@@ -1325,7 +1324,6 @@
     shacl:datatype xsd:string;
     shacl:description "Een beschrijving waarom de Uitzondering aangemaakt werd."@nl;
     shacl:maxCount 1;
-    shacl:minCount 1;
     shacl:name "diagnose"@nl;
     shacl:path dc:description
   ], [
@@ -1335,7 +1333,6 @@
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Uitzondering.Oorsprong>;
     shacl:description "De entiteit die de Uitzondering aangemaakt heeft."@nl;
     shacl:maxCount 1;
-    shacl:minCount 1;
     shacl:name "oorsprong"@nl;
     shacl:nodeKind shacl:BlankNodeOrIRI;
     shacl:path dc:source
@@ -1346,7 +1343,6 @@
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Uitzondering.Type>;
     shacl:description "Het soort Uitzondering."@nl;
     shacl:maxCount 1;
-    shacl:minCount 1;
     shacl:name "type"@nl;
     shacl:nodeKind shacl:BlankNodeOrIRI;
     shacl:path dc:type
@@ -1358,7 +1354,6 @@
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.2.0#Uitzondering.Omstandigheid>;
     shacl:description "De omstandigheden waarin de Uitzondering werd aangemaakt."@nl;
     shacl:maxCount 1;
-    shacl:minCount 1;
     shacl:name "omstandigheid"@nl;
     shacl:nodeKind shacl:BlankNodeOrIRI;
     shacl:path dc:references
