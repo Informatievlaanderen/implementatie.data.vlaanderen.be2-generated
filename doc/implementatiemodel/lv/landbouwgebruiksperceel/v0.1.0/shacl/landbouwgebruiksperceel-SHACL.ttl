@@ -56,7 +56,7 @@
   ], [
     a shacl:PropertyShape;
     rdfs:label "huisnummer"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen."@nl;
+    <http://purl.org/vocab/vann/usageNote> "Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen."@nl;
     rdfs:comment "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Adresvoorstelling.Huisnummer>;
     shacl:datatype xsd:string;
@@ -210,7 +210,7 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdPersoonShape> a shacl:NodeShape;
   rdfs:label "GeregistreerdPersoon"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Doorgaans is dit register een bevolkingsregister maar het kan bv ook een kiesregister zijn. De ingeschreven gegevens hebben betrekking op de identeit (vb naam en voornaam) en de Verblijfplaats vd persoon en op belangrijke levensgebeurtenissen zoals geboorte, huwelijk, overlijden etc. Deze gegevens worden typisch geregistreerd door de overheid, ze bieden de ingeschreven persoon wettelijke bescherming en laten de overheid toe om basisstatistieken op te stellen over zijn bevolking."@nl;
+  <http://purl.org/vocab/vann/usageNote> "Doorgaans is dit register een bevolkingsregister maar het kan bijvoorbeeld ook een kiesregister zijn. De ingeschreven gegevens hebben betrekking op de identeit (bijvoorbeeld: naam en voornaam) en de Verblijfplaats van de persoon en op belangrijke levensgebeurtenissen zoals geboorte, huwelijk, overlijden, etc. Deze gegevens worden typisch geregistreerd door de overheid, ze bieden de ingeschreven persoon wettelijke bescherming en laten de overheid toe om basisstatistieken op te stellen over zijn bevolking."@nl;
   rdfs:comment "Persoon waarvan de gegevens zijn ingeschreven in een register."@nl;
   shacl:closed false;
   shacl:property [
@@ -228,13 +228,13 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdeOrganisatieShape> a shacl:NodeShape;
   rdfs:label "GeregistreerdeOrganisatie"@nl;
-  <http://purl.org/vocab/vann/usageNote> "In België moeten onder andere volgende Organisaties zich registreren: vennootschap (NV, BV, etc), eenmanszaak, overheidsorgaan, stichting, … Bij registratie krijgt de Organisatie een ondernemingsnummer en worden zijn gegevens ingevoerd in de Kruispuntbank van Ondernemingen (KBO)."@nl;
+  <http://purl.org/vocab/vann/usageNote> "In België moeten onder andere volgende Organisaties zich registreren: vennootschap (NV, VZW, etc.), eenmanszaak, overheidsorgaan, stichting, … Bij registratie krijgt de Organisatie een ondernemingsnummer en worden zijn gegevens ingevoerd in de Kruispuntbank van Ondernemingen (KBO)."@nl;
   rdfs:comment "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn."@nl;
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
     rdfs:label "rechtspersoonlijkheid"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bvb venootschappen) moeten die van rechtswege toegekend krijgen."@nl;
+    <http://purl.org/vocab/vann/usageNote> "Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bijvoorbeeld: vennootschappen) moeten die van rechtswege toegekend krijgen."@nl;
     rdfs:comment "Aard van de rechtspersoonlijkheid."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdeOrganisatie.Rechtspersoonlijkheid>;
     shacl:description "Aard van de rechtspersoonlijkheid."@nl;
@@ -275,7 +275,7 @@
   shacl:property [
     a shacl:PropertyShape;
     rdfs:label "identificator"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator."@nl;
+    <http://purl.org/vocab/vann/usageNote> "Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator."@nl;
     rdfs:comment "String gebruikt om het object uniek te identificeren."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Identificator.Identificator>;
     shacl:description "String gebruikt om het object uniek te identificeren."@nl;
@@ -285,9 +285,9 @@
   ], [
     a shacl:PropertyShape;
     rdfs:label "toegekendDoor"@nl;
-    rdfs:comment "Link naar de agent die de identificator heeft uitgegeven."@nl;
+    rdfs:comment "Link naar de Agent die de identificator heeft uitgegeven."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Identificator.ToegekendDoor>;
-    shacl:description "Link naar de agent die de identificator heeft uitgegeven."@nl;
+    shacl:description "Link naar de Agent die de identificator heeft uitgegeven."@nl;
     shacl:maxCount 1;
     shacl:name "toegekendDoor"@nl;
     shacl:or ([shacl:class foaf:Agent] [shacl:class org:Organization] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>] [shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>]);
@@ -364,7 +364,7 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#PersoonShape> a shacl:NodeShape;
   rdfs:label "Persoon"@nl;
-  <http://purl.org/vocab/vann/usageNote> "In de rechtspraak betreft het een persoon (in de wettelijke betekenis, ttz met eigen rechtspersoonlijkheid) van de menselijke soort, ttz een fysiek persoon. Tegenhanger is de rechtspersoon, een juridische constructie die een private of publieke organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bv ook schulden hebben, contracten afsluiten, aangeklaagd worden etc)."@nl;
+  <http://purl.org/vocab/vann/usageNote> "In de rechtspraak betreft het een persoon (in de wettelijke betekenis, het is te zeggen met eigen rechtspersoonlijkheid) van de menselijke soort, het is te zeggen een fysiek persoon. Tegenhanger is de rechtspersoon, een juridische constructie die een private of publieke organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bijvoorbeeld ook schulden hebben, contracten afsluiten, aangeklaagd worden, etc.)."@nl;
   rdfs:comment "Natuurlijk persoon."@nl;
   shacl:closed false;
   shacl:property [
@@ -425,7 +425,7 @@
     shacl:description "Niet nader bepaald lidmaatschap van een Agent van een Organisatie."@nl;
     shacl:name "isLidVan"@nl;
     shacl:or ([shacl:class org:Organization] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>]);
-    shacl:path <https://www.w3.org/ns/org#memberOf>
+    shacl:path org:memberOf
   ];
   shacl:targetClass <http://www.w3.org/ns/person#Person>,
     <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon> .
