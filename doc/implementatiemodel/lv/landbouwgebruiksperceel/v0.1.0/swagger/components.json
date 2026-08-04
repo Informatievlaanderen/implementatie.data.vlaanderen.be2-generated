@@ -212,8 +212,7 @@
           }
         },
         "required": [
-          "@type",
-          "voorkeursnaam"
+          "@type"
         ]
       },
       "Persoon": {
@@ -339,6 +338,14 @@
             },
             "minItems": 1
           },
+          "identificator": {
+            "type": "array",
+            "description": "Lijst van Identificator items.",
+            "items": {
+              "$ref": "#/components/schemas/Identificator"
+            },
+            "minItems": 1
+          },
           "voornaam": {
             "type": "array",
             "description": "Lijst van String items.",
@@ -410,14 +417,6 @@
                   "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
                 }
               }
-            },
-            "minItems": 1
-          },
-          "identificator": {
-            "type": "array",
-            "description": "Lijst van Identificator items.",
-            "items": {
-              "$ref": "#/components/schemas/Identificator"
             },
             "minItems": 1
           }
@@ -580,8 +579,7 @@
         },
         "required": [
           "@type",
-          "registratie",
-          "voorkeursnaam"
+          "registratie"
         ]
       },
       "Overlijden": {
@@ -627,13 +625,21 @@
               },
               {
                 "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
               }
             ],
             "discriminator": {
               "propertyName": "@type",
               "mapping": {
                 "Organisatie": "#/components/schemas/Organisatie",
-                "Persoon": "#/components/schemas/Persoon"
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon",
+                "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
               }
             }
           },
@@ -645,7 +651,6 @@
         },
         "required": [
           "@type",
-          "identificator",
           "uitbater"
         ]
       },
@@ -682,13 +687,21 @@
               },
               {
                 "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
               }
             ],
             "discriminator": {
               "propertyName": "@type",
               "mapping": {
                 "Organisatie": "#/components/schemas/Organisatie",
-                "Persoon": "#/components/schemas/Persoon"
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon",
+                "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
               }
             }
           }
@@ -969,6 +982,13 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
       },
+      "GeregistreerdPersoon.identificator": {
+        "operationId": "GeregistreerdPersoonGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdPersoon.identificator/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
       "GeregistreerdPersoon.contactinfo": {
         "operationId": "GeregistreerdPersoonGET",
         "parameters": {
@@ -989,13 +1009,6 @@
           "id": "$response.body#/GeregistreerdPersoon.isLidVan/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Organisatie` op te halen."
-      },
-      "GeregistreerdPersoon.identificator": {
-        "operationId": "GeregistreerdPersoonGET",
-        "parameters": {
-          "id": "$response.body#/GeregistreerdPersoon.identificator/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
       },
       "GeregistreerdeOrganisatie.rechtstoestand": {
         "operationId": "GeregistreerdeOrganisatieGET",
