@@ -1,0 +1,46 @@
+{
+  "title": "Landbouwgebruiksperceel",
+  "type": "object",
+  "description": "Een perceel dat gebruikt is voor een bepaalde landbouwactiviteit.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Landbouwgebruiksperceel)",
+      "pattern": "^Landbouwgebruiksperceel$"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "uitbater": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        },
+        {
+          "$ref": "#/components/schemas/Persoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Organisatie": "#/components/schemas/Organisatie",
+          "Persoon": "#/components/schemas/Persoon"
+        }
+      }
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/\\/doc\\/implementatiemodel\\/lv\\/landbouwgebruiksperceel\\/v0.1.0\\/context\\/landbouwgebruiksperceel.jsonld$"
+    }
+  },
+  "required": [
+    "@type",
+    "identificator",
+    "uitbater"
+  ]
+}

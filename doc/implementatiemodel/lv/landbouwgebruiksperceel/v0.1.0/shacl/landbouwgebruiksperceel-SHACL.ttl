@@ -1,0 +1,463 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schemas: <https://schema.org/> .
+@prefix shacl: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#> rdfs:member <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#OrganisatieShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#AgentShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#PersoonShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdPersoonShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdeOrganisatieShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#OverlijdenShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#LandbouwgebruiksperceelShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#LangStringShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#IdentificatorShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#StringShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#ContactpuntShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#AdresvoorstellingShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#OrganisatieTypeShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#RechtspersoonlijkheidtypeShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#RechtsvormtypeShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#ActiviteittypeShape>,
+    <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#OrganisatieStatusShape> .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#AdresvoorstellingShape> a shacl:NodeShape;
+  rdfs:label "Adresvoorstelling"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld als attribuut van een persoon of gebouw, ... De adresvoorstelling heeft niet enkel betrekking op Belgische adressen, ze kan gebruikt worden om buitenlandse adressen weer te geven (waar mogelijk andere adresaanduidingen dan huisnummer of busnummer worden gebruikt of waar adrescomponenten zoals adresgebieden voorkomen)."@nl;
+  rdfs:comment "Meer leesbare voorstelling met enkel de basisgegevens van het adres, bedoeld voor het gebruik van een adres als attribuut van een ander object."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "busnummer"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen."@nl;
+    rdfs:comment "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Adresvoorstelling.Busnummer>;
+    shacl:datatype xsd:string;
+    shacl:description "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben."@nl;
+    shacl:maxCount 1;
+    shacl:name "busnummer"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/adres#busnummer>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "gemeentenaam"@nl;
+    rdfs:comment "Gemeentenaam van het adres."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Adresvoorstelling.Gemeentenaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Gemeentenaam van het adres."@nl;
+    shacl:maxCount 1;
+    shacl:name "gemeentenaam"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/adres#gemeentenaam>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "huisnummer"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen."@nl;
+    rdfs:comment "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Adresvoorstelling.Huisnummer>;
+    shacl:datatype xsd:string;
+    shacl:description "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen."@nl;
+    shacl:maxCount 1;
+    shacl:name "huisnummer"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/adres#huisnummer>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "land"@nl;
+    rdfs:comment "Land waarin het adres gelegen is."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Adresvoorstelling.Land>;
+    shacl:datatype rdf:langString;
+    shacl:description "Land waarin het adres gelegen is."@nl;
+    shacl:maxCount 1;
+    shacl:name "land"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/adres#land>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "postbus"@nl;
+    rdfs:comment "Postbusnummer in een postkantoor."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Adresvoorstelling.Postbus>;
+    shacl:datatype xsd:string;
+    shacl:description "Postbusnummer in een postkantoor."@nl;
+    shacl:maxCount 1;
+    shacl:name "postbus"@nl;
+    shacl:path <http://www.w3.org/ns/locn#poBox>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "postcode"@nl;
+    rdfs:comment "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Adresvoorstelling.Postcode>;
+    shacl:datatype xsd:string;
+    shacl:description "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "postcode"@nl;
+    shacl:path <http://www.w3.org/ns/locn#postCode>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "straatnaam"@nl;
+    rdfs:comment "Straatnaam van het adres."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Adresvoorstelling.Straatnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Straatnaam van het adres."@nl;
+    shacl:maxCount 1;
+    shacl:name "straatnaam"@nl;
+    shacl:path <http://www.w3.org/ns/locn#thoroughfare>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "volledigAdres"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Vermijdt fouten ten gevolge van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer."@nl;
+    rdfs:comment "Het complete adres in één string, al dan niet geformatteerd."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Adresvoorstelling.VolledigAdres>;
+    shacl:datatype rdf:langString;
+    shacl:description "Het complete adres in één string, al dan niet geformatteerd."@nl;
+    shacl:maxCount 1;
+    shacl:name "volledigAdres"@nl;
+    shacl:path <http://www.w3.org/ns/locn#fullAddress>
+  ];
+  shacl:targetClass <http://www.w3.org/ns/locn#Address> .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#AgentShape> a shacl:NodeShape;
+  rdfs:label "Agent"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Te vervangen door een niet-abstracte klasse."@nl;
+  rdfs:comment "Een agent zoals een Persoon, groep, software of fysiek artifact."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "identificator"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: klantennummer."@nl;
+    rdfs:comment "Identificatiecode van de Agent."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Agent.Identificator>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificatiecode van de Agent."@nl;
+    shacl:name "identificator"@nl;
+    shacl:path <http://www.w3.org/ns/adms#identifier>
+  ];
+  shacl:targetClass org:Organization,
+    <http://www.w3.org/ns/regorg#RegisteredOrganization>,
+    foaf:Agent,
+    <http://www.w3.org/ns/person#Person>,
+    <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon> .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#ContactpuntShape> a shacl:NodeShape;
+  rdfs:label "Contactpunt"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: een persoon of organisatie of dienstverlening... Mogelijke vormen van contact: bellen, mailen, etc."@nl;
+  rdfs:comment "Informatie zoals email, telefoon, adres die toelaat om iemand of iets te contacteren."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "email"@nl;
+    rdfs:comment "Email-adres waarnaar men kan mailen."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Contactpunt.Email>;
+    shacl:datatype xsd:string;
+    shacl:description "Email-adres waarnaar men kan mailen."@nl;
+    shacl:maxCount 1;
+    shacl:name "email"@nl;
+    shacl:path schemas:email
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "telefoon"@nl;
+    rdfs:comment "Telefoonnummer waarop men kan bellen."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Contactpunt.Telefoon>;
+    shacl:description "Telefoonnummer waarop men kan bellen."@nl;
+    shacl:name "telefoon"@nl;
+    shacl:nodeKind shacl:Literal;
+    shacl:path schemas:telephone
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "adres"@nl;
+    rdfs:comment "Adres dat men kan aanschrijven of bezoeken."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Contactpunt.Adres>;
+    shacl:class <http://www.w3.org/ns/locn#Address>;
+    shacl:description "Adres dat men kan aanschrijven of bezoeken."@nl;
+    shacl:maxCount 1;
+    shacl:name "adres"@nl;
+    shacl:path <http://www.w3.org/ns/locn#address>
+  ];
+  shacl:targetClass schemas:ContactPoint .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdPersoonShape> a shacl:NodeShape;
+  rdfs:label "GeregistreerdPersoon"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Doorgaans is dit register een bevolkingsregister maar het kan bijvoorbeeld ook een kiesregister zijn. De ingeschreven gegevens hebben betrekking op de identeit (bijvoorbeeld: naam en voornaam) en de Verblijfplaats van de persoon en op belangrijke levensgebeurtenissen zoals geboorte, huwelijk, overlijden, etc. Deze gegevens worden typisch geregistreerd door de overheid, ze bieden de ingeschreven persoon wettelijke bescherming en laten de overheid toe om basisstatistieken op te stellen over zijn bevolking."@nl;
+  rdfs:comment "Persoon waarvan de gegevens zijn ingeschreven in een register."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "registratie"@nl;
+    rdfs:comment "Identificatiecode van de persoon in het register."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdPersoon.Registratie>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificatiecode van de persoon in het register."@nl;
+    shacl:minCount 1;
+    shacl:name "registratie"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/persoon#registratie>
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon> .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdeOrganisatieShape> a shacl:NodeShape;
+  rdfs:label "GeregistreerdeOrganisatie"@nl;
+  <http://purl.org/vocab/vann/usageNote> "In België moeten onder andere volgende Organisaties zich registreren: vennootschap (NV, VZW, etc.), eenmanszaak, overheidsorgaan, stichting, … Bij registratie krijgt de Organisatie een ondernemingsnummer en worden zijn gegevens ingevoerd in de Kruispuntbank van Ondernemingen (KBO)."@nl;
+  rdfs:comment "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "rechtstoestand"@nl;
+    rdfs:comment "Status van de geregistreerde organisatie."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdeOrganisatie.Rechtstoestand>;
+    shacl:description "Status van de geregistreerde organisatie."@nl;
+    shacl:maxCount 1;
+    shacl:name "rechtstoestand"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path <https://data.vlaanderen.be/ns/organisatie#rechtstoestand>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "rechtspersoonlijkheid"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bijvoorbeeld: vennootschappen) moeten die van rechtswege toegekend krijgen."@nl;
+    rdfs:comment "Aard van de rechtspersoonlijkheid."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdeOrganisatie.Rechtspersoonlijkheid>;
+    shacl:description "Aard van de rechtspersoonlijkheid."@nl;
+    shacl:maxCount 1;
+    shacl:name "rechtspersoonlijkheid"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path <https://data.vlaanderen.be/ns/organisatie#rechtspersoonlijkheid>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "registratie"@nl;
+    <http://purl.org/vocab/vann/usageNote> "In de KBO is dit het ondernemingsnummer."@nl;
+    rdfs:comment "Identificator dat de organisatie verkreeg bij registratie."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdeOrganisatie.Registratie>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificator dat de organisatie verkreeg bij registratie."@nl;
+    shacl:minCount 1;
+    shacl:name "registratie"@nl;
+    shacl:path <http://www.w3.org/ns/regorg#registration>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "rechtsvorm"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Stemt in de KBO overeen met rechtsvorm, bijvoorbeeld: NV, VZW, Stad/Gemeente, OCMW, etc."@nl;
+    rdfs:comment "Juridisch statuut van de geregistreerde organisatie."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdeOrganisatie.Rechtsvorm>;
+    shacl:description "Juridisch statuut van de geregistreerde organisatie."@nl;
+    shacl:maxCount 1;
+    shacl:name "rechtsvorm"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path <https://data.vlaanderen.be/ns/organisatie#rechtsvorm>
+  ];
+  shacl:targetClass <http://www.w3.org/ns/regorg#RegisteredOrganization> .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#IdentificatorShape> a shacl:NodeShape;
+  rdfs:label "Identificator"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Uitgangspunt hier is dat deze string door een organisatie wordt toegekend en dat dit gebeurt volgens een welbepaald systeem."@nl;
+  rdfs:comment "Informatie gebruikt om een object uniek te identificeren."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "identificator"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator."@nl;
+    rdfs:comment "String gebruikt om het object uniek te identificeren."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Identificator.Identificator>;
+    shacl:description "String gebruikt om het object uniek te identificeren."@nl;
+    shacl:maxCount 1;
+    shacl:name "identificator"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "toegekendDoor"@nl;
+    rdfs:comment "Link naar de Agent die de identificator heeft uitgegeven."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Identificator.ToegekendDoor>;
+    shacl:description "Link naar de Agent die de identificator heeft uitgegeven."@nl;
+    shacl:maxCount 1;
+    shacl:name "toegekendDoor"@nl;
+    shacl:or ([shacl:class foaf:Agent] [shacl:class org:Organization] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>] [shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>]);
+    shacl:path dc:creator
+  ];
+  shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#LandbouwgebruiksperceelShape> a shacl:NodeShape;
+  rdfs:label "Landbouwgebruiksperceel"@nl;
+  <http://purl.org/vocab/vann/usageNote> "De AGPAKEY die, het Landbouwgebruiksperceel uniek identificeert, bevat 3 componenten: tijd, geometrie, en uitbating. Indien een component wijzigt, ontstaat er een nieuwe AGPAKEY."@nl;
+  rdfs:comment "Een perceel dat gebruikt is voor een bepaalde landbouwactiviteit."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "identificator"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: AGPAKEY."@nl;
+    rdfs:comment "Identificatiecode van het Gebruiksperceel."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Landbouwgebruiksperceel.Identificator>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificatiecode van het Gebruiksperceel."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "identificator"@nl;
+    shacl:path <http://www.w3.org/ns/adms#identifier>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "uitbater"@nl;
+    rdfs:comment "De Agent die het Landbouwgebruiksperceel gebruikt voor landbouwactiviteiten."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Landbouwgebruiksperceel.Uitbater>;
+    shacl:description "De Agent die het Landbouwgebruiksperceel gebruikt voor landbouwactiviteiten."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "uitbater"@nl;
+    shacl:or ([shacl:class foaf:Agent] [shacl:class org:Organization] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>] [shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>]);
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#uitbater>
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#Landbouwgebruiksperceel> .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#LangStringShape> a shacl:NodeShape;
+  rdfs:label "LangString";
+  shacl:closed false;
+  shacl:targetClass rdf:langString .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#OrganisatieShape> a shacl:NodeShape;
+  rdfs:label "Organisatie"@nl;
+  rdfs:comment "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "Naam waarmee de Organisatie bij voorkeur wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Organisatie.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee de Organisatie bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "type"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Specialisatie van classificatie (naast activiteit & status)."@nl;
+    rdfs:comment "Soort organisatie."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Organisatie.Type>;
+    shacl:description "Soort organisatie."@nl;
+    shacl:name "type"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path <http://www.w3.org/ns/regorg#orgType>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "contactinfo"@nl;
+    rdfs:comment "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Organisatie.Contactinfo>;
+    shacl:class schemas:ContactPoint;
+    shacl:description "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren."@nl;
+    shacl:name "contactinfo"@nl;
+    shacl:path schemas:contactPoint
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "status"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Specialisatie van classificatie (naast type & activiteit)."@nl;
+    rdfs:comment "Toestand van de Organisatie."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Organisatie.Status>;
+    shacl:description "Toestand van de Organisatie."@nl;
+    shacl:name "status"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path <http://www.w3.org/ns/regorg#orgStatus>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "activiteit"@nl;
+    rdfs:comment "Type activiteit die door de Organisatie wordt uitgeoefend."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Organisatie.Activiteit>;
+    shacl:description "Type activiteit die door de Organisatie wordt uitgeoefend."@nl;
+    shacl:name "activiteit"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path <http://www.w3.org/ns/regorg#orgActivity>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "isGeassocieerdMet"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld om een organisatie te associëren met een andere organisatie."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Organisatie.IsGeassocieerdMet>;
+    shacl:name "isGeassocieerdMet"@nl;
+    shacl:or ([shacl:class org:Organization] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>]);
+    shacl:path org:linkedTo
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "lid"@nl;
+    rdfs:comment "Agent die lid is van een Organisatie."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Organisatie.Lid>;
+    shacl:description "Agent die lid is van een Organisatie."@nl;
+    shacl:name "lid"@nl;
+    shacl:or ([shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>]);
+    shacl:path org:member
+  ];
+  shacl:targetClass org:Organization,
+    <http://www.w3.org/ns/regorg#RegisteredOrganization> .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#OverlijdenShape> a shacl:NodeShape;
+  rdfs:label "Overlijden"@nl;
+  rdfs:comment "Het doodgaan van een Persoon."@nl;
+  shacl:closed false;
+  shacl:targetClass <https://data.vlaanderen.be/ns/persoon#Overlijden> .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#PersoonShape> a shacl:NodeShape;
+  rdfs:label "Persoon"@nl;
+  <http://purl.org/vocab/vann/usageNote> "In de rechtspraak betreft het een persoon (in de wettelijke betekenis, het is te zeggen met eigen rechtspersoonlijkheid) van de menselijke soort, het is te zeggen een fysiek persoon. Tegenhanger is de rechtspersoon, een juridische constructie die een private of publieke organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bijvoorbeeld ook schulden hebben, contracten afsluiten, aangeklaagd worden, etc.)."@nl;
+  rdfs:comment "Natuurlijk persoon."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "voornaam"@nl;
+    rdfs:comment "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Persoon.Voornaam>;
+    shacl:datatype xsd:string;
+    shacl:description "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie."@nl;
+    shacl:name "voornaam"@nl;
+    shacl:path foaf:givenName
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "alternatieveNaam"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld pseudoniem."@nl;
+    rdfs:comment "Alternatief voor de volledige naam van de Persoon."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Persoon.AlternatieveNaam>;
+    shacl:datatype xsd:string;
+    shacl:description "Alternatief voor de volledige naam van de Persoon."@nl;
+    shacl:name "alternatieveNaam"@nl;
+    shacl:path dc:alternative
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "achternaam"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt."@nl;
+    rdfs:comment "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Persoon.Achternaam>;
+    shacl:datatype xsd:string;
+    shacl:description "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie."@nl;
+    shacl:maxCount 1;
+    shacl:name "achternaam"@nl;
+    shacl:path foaf:familyName
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "contactinfo"@nl;
+    rdfs:comment "Informatie zoals email, telefoon, ... die toelaat de Persoon te contacteren."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Persoon.Contactinfo>;
+    shacl:class schemas:ContactPoint;
+    shacl:description "Informatie zoals email, telefoon, ... die toelaat de Persoon te contacteren."@nl;
+    shacl:maxCount 1;
+    shacl:name "contactinfo"@nl;
+    shacl:path schemas:contactPoint
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "heeftOverlijden"@nl;
+    rdfs:comment "Verwijst naar de overlijdensgebeurtenis van de Persoon."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Persoon.HeeftOverlijden>;
+    shacl:class <https://data.vlaanderen.be/ns/persoon#Overlijden>;
+    shacl:description "Verwijst naar de overlijdensgebeurtenis van de Persoon."@nl;
+    shacl:maxCount 1;
+    shacl:name "heeftOverlijden"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/persoon#heeftOverlijden>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "isLidVan"@nl;
+    rdfs:comment "Niet nader bepaald lidmaatschap van een Agent van een Organisatie."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Persoon.IsLidVan>;
+    shacl:description "Niet nader bepaald lidmaatschap van een Agent van een Organisatie."@nl;
+    shacl:name "isLidVan"@nl;
+    shacl:or ([shacl:class org:Organization] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>]);
+    shacl:path org:memberOf
+  ];
+  shacl:targetClass <http://www.w3.org/ns/person#Person>,
+    <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon> .
+
+<https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#StringShape> a shacl:NodeShape;
+  rdfs:label "String";
+  shacl:closed false;
+  shacl:targetClass xsd:string .

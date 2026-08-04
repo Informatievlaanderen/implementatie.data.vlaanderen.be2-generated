@@ -1,0 +1,101 @@
+{
+  "title": "Persoon",
+  "type": "object",
+  "description": "Natuurlijk persoon.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Persoon)",
+      "pattern": "^Persoon$"
+    },
+    "voornaam": {
+      "type": "array",
+      "description": "Lijst van String items.",
+      "items": {
+        "type": "object",
+        "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "minItems": 1
+    },
+    "alternatieveNaam": {
+      "type": "array",
+      "description": "Lijst van String items.",
+      "items": {
+        "type": "object",
+        "description": "Alternatief voor de volledige naam van de Persoon. Bijvoorbeeld pseudoniem.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "minItems": 1
+    },
+    "achternaam": {
+      "type": "object",
+      "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "contactinfo": {
+      "$ref": "#/components/schemas/Contactpunt"
+    },
+    "heeftOverlijden": {
+      "$ref": "#/components/schemas/Overlijden"
+    },
+    "isLidVan": {
+      "type": "array",
+      "description": "Lijst van Organisatie items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Organisatie"
+          },
+          {
+            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Organisatie": "#/components/schemas/Organisatie",
+            "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "identificator": {
+      "type": "array",
+      "description": "Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

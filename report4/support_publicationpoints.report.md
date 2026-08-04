@@ -8,6 +8,8 @@
 #||#  
 #||#   + adding supporting /home/circleci/project/config/production/kwaliteitWegenEnWegmarkeringen.publication.json
 #||#  
+#||#   + adding supporting /home/circleci/project/config/production/landbouwgebruiksperceel-im.publication.json
+#||#  
 #||#   + adding supporting /home/circleci/project/config/production/organisatie-vkbo-im.publication.json
 #||#  
 #||#   + adding supporting /home/circleci/project/config/production/persoon-magda-im.publication.json

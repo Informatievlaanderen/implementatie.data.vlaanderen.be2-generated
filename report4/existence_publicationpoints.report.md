@@ -32,6 +32,12 @@ error: missing '/tmp/generated/ns/bodem-en-ondergrond/agents//index.html'
 #||# 
 #||# index.html check
 
+#||#    + checking /home/circleci/project/config/production/landbouwgebruiksperceel-im.publication.json
+#||# 
+#||# Directory check
+#||# 
+#||# index.html check
+
 #||#    + checking /home/circleci/project/config/production/organisatie-vkbo-im.publication.json
 #||# 
 #||# Directory check
