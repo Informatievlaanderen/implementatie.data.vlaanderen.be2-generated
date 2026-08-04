@@ -12,8 +12,8 @@
       "description": "Object type (klasse GeregistreerdeOrganisatie)",
       "pattern": "^GeregistreerdeOrganisatie$"
     },
-    "rechtspersoonlijkheid": {
-      "$ref": "#/components/schemas/Rechtspersoonlijkheidtype-V1"
+    "rechtstoestand": {
+      "$ref": "#/components/schemas/OrganisatieStatus"
     },
     "registratie": {
       "type": "array",
@@ -22,9 +22,6 @@
         "$ref": "#/components/schemas/Identificator"
       },
       "minItems": 1
-    },
-    "rechtsvorm": {
-      "$ref": "#/components/schemas/Rechtsvormtype-V1"
     },
     "voorkeursnaam": {
       "type": "object",
@@ -43,6 +40,9 @@
         "@language"
       ]
     },
+    "type": {
+      "$ref": "#/components/schemas/OrganisatieType"
+    },
     "contactinfo": {
       "type": "array",
       "description": "Lijst van Contactpunt items.",
@@ -58,24 +58,7 @@
       "type": "array",
       "description": "Lijst van Activiteittype items.",
       "items": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/Activiteittype"
-          },
-          {
-            "$ref": "#/components/schemas/LandbouwActiviteit-V1"
-          },
-          {
-            "$ref": "#/components/schemas/Activiteittype"
-          }
-        ],
-        "discriminator": {
-          "propertyName": "@type",
-          "mapping": {
-            "Activiteittype": "#/components/schemas/Activiteittype",
-            "LandbouwActiviteit-V1": "#/components/schemas/LandbouwActiviteit-V1"
-          }
-        }
+        "$ref": "#/components/schemas/Activiteittype"
       },
       "minItems": 1
     },
@@ -112,8 +95,10 @@
   },
   "required": [
     "@type",
+    "rechtstoestand",
     "registratie",
     "voorkeursnaam",
+    "type",
     "status"
   ]
 }

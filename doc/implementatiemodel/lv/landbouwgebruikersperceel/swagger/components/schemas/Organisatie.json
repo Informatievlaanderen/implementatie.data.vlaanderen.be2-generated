@@ -29,6 +29,9 @@
         "@language"
       ]
     },
+    "type": {
+      "$ref": "#/components/schemas/OrganisatieType"
+    },
     "contactinfo": {
       "type": "array",
       "description": "Lijst van Contactpunt items.",
@@ -44,24 +47,7 @@
       "type": "array",
       "description": "Lijst van Activiteittype items.",
       "items": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/Activiteittype"
-          },
-          {
-            "$ref": "#/components/schemas/LandbouwActiviteit-V1"
-          },
-          {
-            "$ref": "#/components/schemas/Activiteittype"
-          }
-        ],
-        "discriminator": {
-          "propertyName": "@type",
-          "mapping": {
-            "Activiteittype": "#/components/schemas/Activiteittype",
-            "LandbouwActiviteit-V1": "#/components/schemas/LandbouwActiviteit-V1"
-          }
-        }
+        "$ref": "#/components/schemas/Activiteittype"
       },
       "minItems": 1
     },
@@ -99,6 +85,7 @@
   "required": [
     "@type",
     "voorkeursnaam",
+    "type",
     "status"
   ]
 }

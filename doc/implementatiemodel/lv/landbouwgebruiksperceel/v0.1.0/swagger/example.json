@@ -232,38 +232,10 @@
   },
   "components": {
     "schemas": {
-      "Rechtspersoonlijkheidtype-V1": {
-        "title": "Rechtspersoonlijkheidtype-V1",
+      "OrganisatieType": {
+        "title": "OrganisatieType",
         "type": "object",
-        "description": "Enumeratie van Rechtspersoonlijkheidtype-V1",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Rechtsvormtype-V1": {
-        "title": "Rechtsvormtype-V1",
-        "type": "object",
-        "description": "Enumeratie van Rechtsvormtype-V1",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "LandbouwActiviteit-V1": {
-        "title": "LandbouwActiviteit-V1",
-        "type": "object",
-        "description": "Enumeratie van LandbouwActiviteit-V1",
+        "description": "Enumeratie van OrganisatieType",
         "properties": {
           "@id": {
             "type": "string",
@@ -292,20 +264,6 @@
         "title": "OrganisatieStatus",
         "type": "object",
         "description": "Enumeratie van OrganisatieStatus",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Gebruiksperceeltype-V1": {
-        "title": "Gebruiksperceeltype-V1",
-        "type": "object",
-        "description": "Enumeratie van Gebruiksperceeltype-V1",
         "properties": {
           "@id": {
             "type": "string",
@@ -347,6 +305,9 @@
               "@language"
             ]
           },
+          "type": {
+            "$ref": "#/components/schemas/OrganisatieType"
+          },
           "contactinfo": {
             "type": "array",
             "description": "Lijst van Contactpunt items.",
@@ -362,24 +323,7 @@
             "type": "array",
             "description": "Lijst van Activiteittype items.",
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/Activiteittype"
-                },
-                {
-                  "$ref": "#/components/schemas/LandbouwActiviteit-V1"
-                },
-                {
-                  "$ref": "#/components/schemas/Activiteittype"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "@type",
-                "mapping": {
-                  "Activiteittype": "#/components/schemas/Activiteittype",
-                  "LandbouwActiviteit-V1": "#/components/schemas/LandbouwActiviteit-V1"
-                }
-              }
+              "$ref": "#/components/schemas/Activiteittype"
             },
             "minItems": 1
           },
@@ -417,6 +361,7 @@
         "required": [
           "@type",
           "voorkeursnaam",
+          "type",
           "status"
         ]
       },
@@ -645,8 +590,8 @@
             "description": "Object type (klasse GeregistreerdeOrganisatie)",
             "pattern": "^GeregistreerdeOrganisatie$"
           },
-          "rechtspersoonlijkheid": {
-            "$ref": "#/components/schemas/Rechtspersoonlijkheidtype-V1"
+          "rechtstoestand": {
+            "$ref": "#/components/schemas/OrganisatieStatus"
           },
           "registratie": {
             "type": "array",
@@ -655,9 +600,6 @@
               "$ref": "#/components/schemas/Identificator"
             },
             "minItems": 1
-          },
-          "rechtsvorm": {
-            "$ref": "#/components/schemas/Rechtsvormtype-V1"
           },
           "voorkeursnaam": {
             "type": "object",
@@ -676,6 +618,9 @@
               "@language"
             ]
           },
+          "type": {
+            "$ref": "#/components/schemas/OrganisatieType"
+          },
           "contactinfo": {
             "type": "array",
             "description": "Lijst van Contactpunt items.",
@@ -691,24 +636,7 @@
             "type": "array",
             "description": "Lijst van Activiteittype items.",
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/Activiteittype"
-                },
-                {
-                  "$ref": "#/components/schemas/LandbouwActiviteit-V1"
-                },
-                {
-                  "$ref": "#/components/schemas/Activiteittype"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "@type",
-                "mapping": {
-                  "Activiteittype": "#/components/schemas/Activiteittype",
-                  "LandbouwActiviteit-V1": "#/components/schemas/LandbouwActiviteit-V1"
-                }
-              }
+              "$ref": "#/components/schemas/Activiteittype"
             },
             "minItems": 1
           },
@@ -745,8 +673,10 @@
         },
         "required": [
           "@type",
+          "rechtstoestand",
           "registratie",
           "voorkeursnaam",
+          "type",
           "status"
         ]
       },
