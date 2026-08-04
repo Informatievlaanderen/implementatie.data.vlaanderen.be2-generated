@@ -33,7 +33,25 @@
       "type": "array",
       "description": "Lijst van OrganisatieType items.",
       "items": {
-        "$ref": "#/components/schemas/OrganisatieType"
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/OrganisatieType"
+          },
+          {
+            "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
+          },
+          {
+            "$ref": "#/components/schemas/Rechtsvormtype"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "OrganisatieType": "#/components/schemas/OrganisatieType",
+            "Rechtspersoonlijkheidtype": "#/components/schemas/Rechtspersoonlijkheidtype",
+            "Rechtsvormtype": "#/components/schemas/Rechtsvormtype"
+          }
+        }
       },
       "minItems": 1
     },

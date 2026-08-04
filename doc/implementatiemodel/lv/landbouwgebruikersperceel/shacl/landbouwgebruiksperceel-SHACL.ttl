@@ -21,6 +21,8 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#ContactpuntShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#AdresvoorstellingShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#OrganisatieTypeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#RechtspersoonlijkheidtypeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#RechtsvormtypeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#ActiviteittypeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#OrganisatieStatusShape> .
 
@@ -209,6 +211,17 @@
     shacl:path <https://data.vlaanderen.be/ns/organisatie#rechtstoestand>
   ], [
     a shacl:PropertyShape;
+    rdfs:label "rechtspersoonlijkheid"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bijvoorbeeld: vennootschappen) moeten die van rechtswege toegekend krijgen."@nl;
+    rdfs:comment "Aard van de rechtspersoonlijkheid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdeOrganisatie.Rechtspersoonlijkheid>;
+    shacl:description "Aard van de rechtspersoonlijkheid."@nl;
+    shacl:maxCount 1;
+    shacl:name "rechtspersoonlijkheid"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path <https://data.vlaanderen.be/ns/organisatie#rechtspersoonlijkheid>
+  ], [
+    a shacl:PropertyShape;
     rdfs:label "registratie"@nl;
     <http://purl.org/vocab/vann/usageNote> "In de KBO is dit het ondernemingsnummer."@nl;
     rdfs:comment "Identificator dat de organisatie verkreeg bij registratie."@nl;
@@ -218,6 +231,17 @@
     shacl:minCount 1;
     shacl:name "registratie"@nl;
     shacl:path <http://www.w3.org/ns/regorg#registration>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "rechtsvorm"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Stemt in de KBO overeen met rechtsvorm, bijvoorbeeld: NV, VZW, Stad/Gemeente, OCMW, etc."@nl;
+    rdfs:comment "Juridisch statuut van de geregistreerde organisatie."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdeOrganisatie.Rechtsvorm>;
+    shacl:description "Juridisch statuut van de geregistreerde organisatie."@nl;
+    shacl:maxCount 1;
+    shacl:name "rechtsvorm"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path <https://data.vlaanderen.be/ns/organisatie#rechtsvorm>
   ];
   shacl:targetClass <http://www.w3.org/ns/regorg#RegisteredOrganization> .
 

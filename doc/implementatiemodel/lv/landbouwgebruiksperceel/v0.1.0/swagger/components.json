@@ -21,6 +21,34 @@
           "@id"
         ]
       },
+      "Rechtspersoonlijkheidtype": {
+        "title": "Rechtspersoonlijkheidtype",
+        "type": "object",
+        "description": "Enumeratie van Rechtspersoonlijkheidtype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Rechtsvormtype": {
+        "title": "Rechtsvormtype",
+        "type": "object",
+        "description": "Enumeratie van Rechtsvormtype",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
       "Activiteittype": {
         "title": "Activiteittype",
         "type": "object",
@@ -84,7 +112,25 @@
             "type": "array",
             "description": "Lijst van OrganisatieType items.",
             "items": {
-              "$ref": "#/components/schemas/OrganisatieType"
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/OrganisatieType"
+                },
+                {
+                  "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
+                },
+                {
+                  "$ref": "#/components/schemas/Rechtsvormtype"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "OrganisatieType": "#/components/schemas/OrganisatieType",
+                  "Rechtspersoonlijkheidtype": "#/components/schemas/Rechtspersoonlijkheidtype",
+                  "Rechtsvormtype": "#/components/schemas/Rechtsvormtype"
+                }
+              }
             },
             "minItems": 1
           },
@@ -376,6 +422,9 @@
           "rechtstoestand": {
             "$ref": "#/components/schemas/OrganisatieStatus"
           },
+          "rechtspersoonlijkheid": {
+            "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
+          },
           "registratie": {
             "type": "array",
             "description": "Lijst van Identificator items.",
@@ -383,6 +432,9 @@
               "$ref": "#/components/schemas/Identificator"
             },
             "minItems": 1
+          },
+          "rechtsvorm": {
+            "$ref": "#/components/schemas/Rechtsvormtype"
           },
           "voorkeursnaam": {
             "type": "object",
@@ -405,7 +457,25 @@
             "type": "array",
             "description": "Lijst van OrganisatieType items.",
             "items": {
-              "$ref": "#/components/schemas/OrganisatieType"
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/OrganisatieType"
+                },
+                {
+                  "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
+                },
+                {
+                  "$ref": "#/components/schemas/Rechtsvormtype"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "OrganisatieType": "#/components/schemas/OrganisatieType",
+                  "Rechtspersoonlijkheidtype": "#/components/schemas/Rechtspersoonlijkheidtype",
+                  "Rechtsvormtype": "#/components/schemas/Rechtsvormtype"
+                }
+              }
             },
             "minItems": 1
           },
@@ -883,12 +953,26 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `OrganisatieStatus` op te halen."
       },
+      "GeregistreerdeOrganisatie.rechtspersoonlijkheid": {
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdeOrganisatie.rechtspersoonlijkheid/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Rechtspersoonlijkheidtype` op te halen."
+      },
       "GeregistreerdeOrganisatie.registratie": {
         "operationId": "GeregistreerdeOrganisatieGET",
         "parameters": {
           "id": "$response.body#/GeregistreerdeOrganisatie.registratie/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "GeregistreerdeOrganisatie.rechtsvorm": {
+        "operationId": "GeregistreerdeOrganisatieGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdeOrganisatie.rechtsvorm/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Rechtsvormtype` op te halen."
       },
       "GeregistreerdeOrganisatie.type": {
         "operationId": "GeregistreerdeOrganisatieGET",

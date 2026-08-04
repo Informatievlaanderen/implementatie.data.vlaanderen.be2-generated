@@ -93,6 +93,48 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
       "properties": [
         {
+          "id": "https://data.vlaanderen.be/ns/organisatie#rechtspersoonlijkheid",
+          "vocabularyLabel": {
+            "nl": "rechtspersoonlijkheid"
+          },
+          "applicationProfileLabel": {
+            "nl": "rechtspersoonlijkheid"
+          },
+          "vocabularyDefinition": {
+            "nl": "Geeft aan of de rechtspersoonlijkheid van de GeregistreerdeOrganisatie deze is van een natuurlijk persoon of van een rechtspersoon."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Aard van de rechtspersoonlijkheid."
+          },
+          "vocabularyUsageNote": {
+            "nl": "Een rechtspersoon is een juridische constructie die een organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bijvoorbeeld ook schulden hebben, contracten afsluiten, aangeklaagd worden, etc.). Voorbeelden privaatrechterlijke rechtspersonen: vennootschappen, vzw's, etc.; Voorbeelden publiekrechterlijke rechtspersonen: steden, gemeenten etc. Een feitelijke vereniging is in principe geen rechtspersoon maar wordt als ze geregistreerd is in KBO toch als dusdanig geklasseerd."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bijvoorbeeld: vennootschappen) moeten die van rechtswege toegekend krijgen."
+          },
+          "parents": [
+            {
+              "id": "http://www.w3.org/ns/regorg#orgType"
+            }
+          ],
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "http://www.w3.org/ns/regorg#RegisteredOrganization",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Rechtspersoonlijkheidtype-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "Rechtspersoonlijkheidtype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1",
+          "codelist": "https://data.vlaanderen.be/id/conceptscheme/Rechtspersoonlijkheidtype"
+        },
+        {
           "id": "https://data.vlaanderen.be/ns/organisatie#rechtstoestand",
           "vocabularyLabel": {
             "nl": "rechtstoestand"
@@ -119,6 +161,43 @@
           "minCount": "0",
           "maxCount": "1",
           "codelist": "https://data.vlaanderen.be/id/conceptscheme/Rechtstoestandtype"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/organisatie#rechtsvorm",
+          "vocabularyLabel": {
+            "nl": "rechtsvorm"
+          },
+          "applicationProfileLabel": {
+            "nl": "rechtsvorm"
+          },
+          "vocabularyDefinition": {
+            "nl": "Juridisch statuut van de geregistreerde organisatie."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Juridisch statuut van de geregistreerde organisatie."
+          },
+          "vocabularyUsageNote": {
+            "nl": "Stemt in de KBO overeen met rechtsvorm, bijvoorbeeld: NV, VZW, Stad/Gemeente, OCMW, etc."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Stemt in de KBO overeen met rechtsvorm, bijvoorbeeld: NV, VZW, Stad/Gemeente, OCMW, etc."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "http://www.w3.org/ns/regorg#RegisteredOrganization",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Rechtsvormtype-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "Rechtsvormtype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1",
+          "codelist": "https://data.vlaanderen.be/id/conceptscheme/Rechtsvormtype"
         },
         {
           "id": "http://www.w3.org/ns/regorg#registration",
@@ -747,6 +826,62 @@
           "maxCount": "*"
         }
       ]
+    },
+    {
+      "id": "http://www.w3.org/2004/02/skos/core#Concept",
+      "vocabularyLabel": {
+        "nl": "Rechtspersoonlijkheidtype-v1"
+      },
+      "applicationProfileLabel": {
+        "nl": "Rechtspersoonlijkheidtype"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Aard van de rechtspersoonlijkheid."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bijvoorbeeld venootschappen) moeten die van rechtswege toegekend krijgen."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/2004/02/skos/core#Concept",
+          "vocabularyLabel": {
+            "nl": "OrganisatieType-v1"
+          },
+          "applicationProfileLabel": {
+            "nl": "OrganisatieType"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard"
+    },
+    {
+      "id": "http://www.w3.org/2004/02/skos/core#Concept",
+      "vocabularyLabel": {
+        "nl": "Rechtsvormtype-v1"
+      },
+      "applicationProfileLabel": {
+        "nl": "Rechtsvormtype"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Juridisch statuut van een GeregistreerdeOrganisatie."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Stemt in de KBO overeen met rechtsvorm, bijvoorbeeld: NV, VZW, Stad/Gemeente, OCMW, etc."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/2004/02/skos/core#Concept",
+          "vocabularyLabel": {
+            "nl": "OrganisatieType-v1"
+          },
+          "applicationProfileLabel": {
+            "nl": "OrganisatieType"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard"
     }
   ],
   "dataTypes": [
