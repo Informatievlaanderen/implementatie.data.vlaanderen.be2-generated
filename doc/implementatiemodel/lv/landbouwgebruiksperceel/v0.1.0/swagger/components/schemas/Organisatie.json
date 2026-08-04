@@ -30,7 +30,12 @@
       ]
     },
     "type": {
-      "$ref": "#/components/schemas/OrganisatieType"
+      "type": "array",
+      "description": "Lijst van OrganisatieType items.",
+      "items": {
+        "$ref": "#/components/schemas/OrganisatieType"
+      },
+      "minItems": 1
     },
     "contactinfo": {
       "type": "array",
@@ -41,7 +46,12 @@
       "minItems": 1
     },
     "status": {
-      "$ref": "#/components/schemas/OrganisatieStatus"
+      "type": "array",
+      "description": "Lijst van OrganisatieStatus items.",
+      "items": {
+        "$ref": "#/components/schemas/OrganisatieStatus"
+      },
+      "minItems": 1
     },
     "activiteit": {
       "type": "array",
@@ -84,8 +94,6 @@
   },
   "required": [
     "@type",
-    "voorkeursnaam",
-    "type",
-    "status"
+    "voorkeursnaam"
   ]
 }
