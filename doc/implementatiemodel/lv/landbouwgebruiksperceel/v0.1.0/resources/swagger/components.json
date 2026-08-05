@@ -77,96 +77,6 @@
           "@id"
         ]
       },
-      "Problemdetail": {
-        "title": "Problemdetail",
-        "type": "object",
-        "description": "Meer gedetailleerde beschrijving van de fout in een HTTP response.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "description": "Object type (klasse Problemdetail)",
-            "pattern": "^Problemdetail$"
-          },
-          "detail": {
-            "type": "object",
-            "description": "Mensleesbare beschrijving van de fout.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
-          },
-          "instance": {
-            "type": "object",
-            "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.",
-            "properties": {
-              "@id": {
-                "type": "string",
-                "format": "uri"
-              }
-            },
-            "required": [
-              "@id"
-            ]
-          },
-          "status": {
-            "type": "object",
-            "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\".",
-            "properties": {
-              "@value": {
-                "type": "number",
-                "format": "int64"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Integer$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
-          },
-          "title": {
-            "type": "object",
-            "description": "Korte mensleesbare beschrijving van de fout.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
-          },
-          "type": {
-            "type": "object",
-            "description": "Aard van de fout.",
-            "properties": {
-              "@id": {
-                "type": "string",
-                "format": "uri"
-              }
-            },
-            "required": [
-              "@id"
-            ]
-          }
-        },
-        "required": [
-          "@type",
-          "detail",
-          "title",
-          "type"
-        ]
-      },
       "Organisatie": {
         "title": "Organisatie",
         "type": "object",
@@ -984,6 +894,51 @@
         },
         "required": [
           "@type"
+        ]
+      },
+      "Problemdetail": {
+        "title": "Problemdetail",
+        "type": "object",
+        "description": "Meer gedetailleerde beschrijving van de fout in een HTTP response.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Problemdetail)",
+            "pattern": "^Problemdetail$"
+          },
+          "type": {
+            "type": "string",
+            "format": "uri",
+            "description": "Aard van de fout."
+          },
+          "title": {
+            "type": "string",
+            "description": "Korte mensleesbare beschrijving van de fout."
+          },
+          "status": {
+            "type": "integer",
+            "format": "int64",
+            "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\"."
+          },
+          "detail": {
+            "type": "string",
+            "description": "Mensleesbare beschrijving van de fout."
+          },
+          "instance": {
+            "type": "string",
+            "format": "uri",
+            "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request."
+          }
+        },
+        "required": [
+          "@type",
+          "type",
+          "title",
+          "detail"
         ]
       }
     },
