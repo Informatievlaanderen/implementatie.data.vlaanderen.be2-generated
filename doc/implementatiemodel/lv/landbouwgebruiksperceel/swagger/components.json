@@ -371,28 +371,6 @@
           "heeftOverlijden": {
             "$ref": "#/components/schemas/Overlijden"
           },
-          "isLidVan": {
-            "type": "array",
-            "description": "Lijst van Organisatie items.",
-            "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/Organisatie"
-                },
-                {
-                  "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "@type",
-                "mapping": {
-                  "Organisatie": "#/components/schemas/Organisatie",
-                  "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
-                }
-              }
-            },
-            "minItems": 1
-          },
           "identificator": {
             "type": "array",
             "description": "Lijst van Identificator items.",
@@ -487,28 +465,6 @@
           },
           "heeftOverlijden": {
             "$ref": "#/components/schemas/Overlijden"
-          },
-          "isLidVan": {
-            "type": "array",
-            "description": "Lijst van Organisatie items.",
-            "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/Organisatie"
-                },
-                {
-                  "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "@type",
-                "mapping": {
-                  "Organisatie": "#/components/schemas/Organisatie",
-                  "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
-                }
-              }
-            },
-            "minItems": 1
           }
         },
         "required": [
@@ -1051,13 +1007,6 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Overlijden` op te halen."
       },
-      "Persoon.isLidVan": {
-        "operationId": "PersoonGET",
-        "parameters": {
-          "id": "$response.body#/Persoon.isLidVan/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Organisatie` op te halen."
-      },
       "Persoon.identificator": {
         "operationId": "PersoonGET",
         "parameters": {
@@ -1092,13 +1041,6 @@
           "id": "$response.body#/GeregistreerdPersoon.heeftOverlijden/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Overlijden` op te halen."
-      },
-      "GeregistreerdPersoon.isLidVan": {
-        "operationId": "GeregistreerdPersoonGET",
-        "parameters": {
-          "id": "$response.body#/GeregistreerdPersoon.isLidVan/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Organisatie` op te halen."
       },
       "GeregistreerdeOrganisatie.rechtstoestand": {
         "operationId": "GeregistreerdeOrganisatieGET",

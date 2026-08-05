@@ -79,28 +79,6 @@
     },
     "heeftOverlijden": {
       "$ref": "#/components/schemas/Overlijden"
-    },
-    "isLidVan": {
-      "type": "array",
-      "description": "Lijst van Organisatie items.",
-      "items": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/Organisatie"
-          },
-          {
-            "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
-          }
-        ],
-        "discriminator": {
-          "propertyName": "@type",
-          "mapping": {
-            "Organisatie": "#/components/schemas/Organisatie",
-            "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
-          }
-        }
-      },
-      "minItems": 1
     }
   },
   "required": [
