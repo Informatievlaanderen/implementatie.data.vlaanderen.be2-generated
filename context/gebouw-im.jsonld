@@ -6,17 +6,7 @@
     "2DGeometrieMethodeWaarde": {
       "@id": "https://data.vlaanderen.be/ns/gebouw#2DGeometrieMethodeWaarde"
     },
-    "AdresseerbaarObject": {
-      "@context": {
-        "toegekendAdres": {
-          "@container": "@set",
-          "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#toegekendAdres",
-          "@type": "https://data.vlaanderen.be/ns/adres#Adres"
-        }
-      },
-      "@id": "https://data.vlaanderen.be/ns/adres#AdresseerbaarObject"
-    },
-    "BelgischAdres": {
+    "Adres": {
       "@context": {
         "identificator": {
           "@id": "http://www.w3.org/ns/adms#identifier",
@@ -29,6 +19,16 @@
         }
       },
       "@id": "https://data.vlaanderen.be/ns/adres#Adres"
+    },
+    "AdresseerbaarObject": {
+      "@context": {
+        "toegekendAdres": {
+          "@container": "@set",
+          "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#toegekendAdres",
+          "@type": "https://data.vlaanderen.be/ns/adres#Adres"
+        }
+      },
+      "@id": "https://data.vlaanderen.be/ns/adres#AdresseerbaarObject"
     },
     "Boolean": {
       "@id": "http://www.w3.org/2001/XMLSchema#boolean"
@@ -70,8 +70,22 @@
       },
       "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#GebouwEnvelop"
     },
+    "GebouweenhedenEnvelop": {
+      "@context": {
+        "data": {
+          "@container": "@set",
+          "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#data",
+          "@type": "https://data.vlaanderen.be/ns/gebouw#Gebouweenheid"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#GebouweenhedenEnvelop"
+    },
     "Gebouweenheid": {
       "@context": {
+        "afwijkingVastgesteld": {
+          "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#afwijkingVastgesteld",
+          "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+        },
         "identificator": {
           "@id": "http://www.w3.org/ns/adms#identifier",
           "@type": "http://www.w3.org/ns/adms#Identifier"
@@ -80,6 +94,10 @@
           "@id": "http://purl.org/dc/terms/isPartOf",
           "@type": "https://data.vlaanderen.be/ns/gebouw#Gebouw"
         },
+        "positie": {
+          "@id": "https://data.vlaanderen.be/ns/adres#positie",
+          "@type": "https://data.vlaanderen.be/ns/generiek#GeografischePositie"
+        },
         "toegekendAdres": {
           "@container": "@set",
           "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#toegekendAdres",
@@ -87,6 +105,15 @@
         }
       },
       "@id": "https://data.vlaanderen.be/ns/gebouw#Gebouweenheid"
+    },
+    "GebouweenheidEnvelop": {
+      "@context": {
+        "data": {
+          "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#data",
+          "@type": "https://data.vlaanderen.be/ns/gebouw#Gebouweenheid"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#GebouweenheidEnvelop"
     },
     "GebouweenheidstatusWaarde": {
       "@id": "https://data.vlaanderen.be/ns/gebouw#GebouweenheidstatusWaarde"
@@ -106,10 +133,6 @@
     },
     "GeografischePositie": {
       "@context": {
-        "default": {
-          "@id": "https://data.vlaanderen.be/ns/generiek#default",
-          "@type": "http://www.w3.org/2001/XMLSchema#boolean"
-        },
         "geometrie": {
           "@id": "http://www.w3.org/ns/locn#geometry",
           "@type": "http://www.opengis.net/ont/sf#Point"

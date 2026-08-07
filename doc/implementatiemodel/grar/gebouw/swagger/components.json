@@ -63,8 +63,8 @@
           "@id"
         ]
       },
-      "BelgischAdres": {
-        "title": "BelgischAdres",
+      "Adres": {
+        "title": "Adres",
         "type": "object",
         "description": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode.",
         "properties": {
@@ -74,8 +74,8 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse BelgischAdres)",
-            "pattern": "^BelgischAdres$"
+            "description": "Object type (klasse Adres)",
+            "pattern": "^Adres$"
           },
           "isToegekendAan": {
             "type": "array",
@@ -159,14 +159,34 @@
             "description": "Object type (klasse Gebouweenheid)",
             "pattern": "^Gebouweenheid$"
           },
+          "afwijkingVastgesteld": {
+            "type": "object",
+            "description": "Wanneer de definitie van een gebouweenheid niet werd gevolgd en dus 'afwijkend' is.",
+            "properties": {
+              "@value": {
+                "type": "boolean"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Boolean$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "positie": {
+            "$ref": "#/components/schemas/GeografischePositie"
+          },
           "isDeelVan": {
             "$ref": "#/components/schemas/Gebouw"
           },
           "toegekendAdres": {
             "type": "array",
-            "description": "Lijst van BelgischAdres items.",
+            "description": "Lijst van Adres items.",
             "items": {
-              "$ref": "#/components/schemas/BelgischAdres"
+              "$ref": "#/components/schemas/Adres"
             },
             "minItems": 1
           },
@@ -194,9 +214,9 @@
           },
           "toegekendAdres": {
             "type": "array",
-            "description": "Lijst van BelgischAdres items.",
+            "description": "Lijst van Adres items.",
             "items": {
-              "$ref": "#/components/schemas/BelgischAdres"
+              "$ref": "#/components/schemas/Adres"
             },
             "minItems": 1
           },
@@ -253,7 +273,7 @@
       "GebouwenEnvelop": {
         "title": "GebouwenEnvelop",
         "type": "object",
-        "description": "De collectie van de uitgewisselde gebouwen en zijn metadata elementen.",
+        "description": "De collectie van de uitgewisselde gebouwen en hun metadata elementen.",
         "properties": {
           "@id": {
             "type": "string",
@@ -377,10 +397,10 @@
           "type"
         ]
       },
-      "GeografischePositie": {
-        "title": "GeografischePositie",
+      "GebouweenhedenEnvelop": {
+        "title": "GebouweenhedenEnvelop",
         "type": "object",
-        "description": "Geografische positie aangegeven dmv een punt.",
+        "description": "De collectie van de uitgewisselde gebouweenheden en hun metadata elementen.",
         "properties": {
           "@id": {
             "type": "string",
@@ -388,46 +408,43 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse GeografischePositie)",
-            "pattern": "^GeografischePositie$"
+            "description": "Object type (klasse GebouweenhedenEnvelop)",
+            "pattern": "^GebouweenhedenEnvelop$"
           },
-          "default": {
-            "type": "object",
-            "description": "Geeft aan of de positie een default positie is. Hieronder wordt de positie verstaan die per default moet worden gebruikt als het object meerdere posities heeft.",
-            "properties": {
-              "@value": {
-                "type": "boolean"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Boolean$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
-          },
-          "geometrie": {
+          "data": {
             "type": "array",
-            "description": "Lijst van Punt items.",
+            "description": "Lijst van Gebouweenheid items.",
             "items": {
-              "$ref": "#/components/schemas/Punt"
+              "$ref": "#/components/schemas/Gebouweenheid"
             },
-            "minItems": 1,
-            "maxItems": 2
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "GebouweenheidEnvelop": {
+        "title": "GebouweenheidEnvelop",
+        "type": "object",
+        "description": "De collectie van de uitgewisselde gebouweneenheid zijn metadata elementen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
           },
-          "methode": {
-            "$ref": "#/components/schemas/GeometrieMethodeWaarde"
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse GebouweenheidEnvelop)",
+            "pattern": "^GebouweenheidEnvelop$"
           },
-          "specificatie": {
-            "$ref": "#/components/schemas/GeometrieSpecificatieWaarde"
+          "data": {
+            "$ref": "#/components/schemas/Gebouweenheid"
           }
         },
         "required": [
           "@type",
-          "default",
-          "geometrie"
+          "data"
         ]
       },
       "Identificator": {
@@ -589,8 +606,42 @@
           }
         },
         "required": [
+          "@type"
+        ]
+      },
+      "GeografischePositie": {
+        "title": "GeografischePositie",
+        "type": "object",
+        "description": "Geografische positie aangegeven dmv een punt.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse GeografischePositie)",
+            "pattern": "^GeografischePositie$"
+          },
+          "geometrie": {
+            "type": "array",
+            "description": "Lijst van Punt items.",
+            "items": {
+              "$ref": "#/components/schemas/Punt"
+            },
+            "minItems": 1,
+            "maxItems": 2
+          },
+          "methode": {
+            "$ref": "#/components/schemas/GeometrieMethodeWaarde"
+          },
+          "specificatie": {
+            "$ref": "#/components/schemas/GeometrieSpecificatieWaarde"
+          }
+        },
+        "required": [
           "@type",
-          "gml"
+          "geometrie"
         ]
       },
       "Punt": {
@@ -625,8 +676,7 @@
           }
         },
         "required": [
-          "@type",
-          "gml"
+          "@type"
         ]
       },
       "2DGebouwgeometrie": {
@@ -680,23 +730,22 @@
           }
         },
         "required": [
-          "@type",
-          "gml"
+          "@type"
         ]
       }
     },
     "links": {
-      "BelgischAdres.isToegekendAan": {
-        "operationId": "BelgischAdresGET",
+      "Adres.isToegekendAan": {
+        "operationId": "AdresGET",
         "parameters": {
-          "id": "$response.body#/BelgischAdres.isToegekendAan/@id"
+          "id": "$response.body#/Adres.isToegekendAan/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AdresseerbaarObject` op te halen."
       },
-      "BelgischAdres.identificator": {
-        "operationId": "BelgischAdresGET",
+      "Adres.identificator": {
+        "operationId": "AdresGET",
         "parameters": {
-          "id": "$response.body#/BelgischAdres.identificator/@id"
+          "id": "$response.body#/Adres.identificator/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
       },
@@ -721,6 +770,13 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
       },
+      "Gebouweenheid.positie": {
+        "operationId": "GebouweenheidGET",
+        "parameters": {
+          "id": "$response.body#/Gebouweenheid.positie/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeografischePositie` op te halen."
+      },
       "Gebouweenheid.isDeelVan": {
         "operationId": "GebouweenheidGET",
         "parameters": {
@@ -733,7 +789,7 @@
         "parameters": {
           "id": "$response.body#/Gebouweenheid.toegekendAdres/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `BelgischAdres` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adres` op te halen."
       },
       "Gebouweenheid.identificator": {
         "operationId": "GebouweenheidGET",
@@ -747,7 +803,7 @@
         "parameters": {
           "id": "$response.body#/RuimtelijkeEenheid.toegekendAdres/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `BelgischAdres` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adres` op te halen."
       },
       "RuimtelijkeEenheid.identificator": {
         "operationId": "RuimtelijkeEenheidGET",
@@ -769,6 +825,20 @@
           "id": "$response.body#/GebouwenEnvelop.data/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gebouw` op te halen."
+      },
+      "GebouweenhedenEnvelop.data": {
+        "operationId": "GebouweenhedenEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/GebouweenhedenEnvelop.data/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gebouweenheid` op te halen."
+      },
+      "GebouweenheidEnvelop.data": {
+        "operationId": "GebouweenheidEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/GebouweenheidEnvelop.data/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gebouweenheid` op te halen."
       }
     }
   }

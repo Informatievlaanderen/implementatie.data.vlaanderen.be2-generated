@@ -12,14 +12,34 @@
       "description": "Object type (klasse Gebouweenheid)",
       "pattern": "^Gebouweenheid$"
     },
+    "afwijkingVastgesteld": {
+      "type": "object",
+      "description": "Wanneer de definitie van een gebouweenheid niet werd gevolgd en dus 'afwijkend' is.",
+      "properties": {
+        "@value": {
+          "type": "boolean"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Boolean$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "positie": {
+      "$ref": "#/components/schemas/GeografischePositie"
+    },
     "isDeelVan": {
       "$ref": "#/components/schemas/Gebouw"
     },
     "toegekendAdres": {
       "type": "array",
-      "description": "Lijst van BelgischAdres items.",
+      "description": "Lijst van Adres items.",
       "items": {
-        "$ref": "#/components/schemas/BelgischAdres"
+        "$ref": "#/components/schemas/Adres"
       },
       "minItems": 1
     },
