@@ -110,10 +110,15 @@
               "@id": {
                 "type": "string",
                 "format": "uri"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^AnyURI$"
               }
             },
             "required": [
-              "@id"
+              "@id",
+              "@type"
             ]
           },
           "status": {
@@ -153,10 +158,15 @@
               "@id": {
                 "type": "string",
                 "format": "uri"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^AnyURI$"
               }
             },
             "required": [
-              "@id"
+              "@id",
+              "@type"
             ]
           }
         },
@@ -245,28 +255,6 @@
             "description": "Lijst van Activiteittype items.",
             "items": {
               "$ref": "#/components/schemas/Activiteittype"
-            },
-            "minItems": 1
-          },
-          "isGeassocieerdMet": {
-            "type": "array",
-            "description": "Lijst van Organisatie items.",
-            "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/Organisatie"
-                },
-                {
-                  "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "@type",
-                "mapping": {
-                  "Organisatie": "#/components/schemas/Organisatie",
-                  "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
-                }
-              }
             },
             "minItems": 1
           },
@@ -570,28 +558,6 @@
             },
             "minItems": 1
           },
-          "isGeassocieerdMet": {
-            "type": "array",
-            "description": "Lijst van Organisatie items.",
-            "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/Organisatie"
-                },
-                {
-                  "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "@type",
-                "mapping": {
-                  "Organisatie": "#/components/schemas/Organisatie",
-                  "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
-                }
-              }
-            },
-            "minItems": 1
-          },
           "lid": {
             "type": "array",
             "description": "Lijst van Persoon items.",
@@ -700,6 +666,55 @@
           "uitbater"
         ]
       },
+      "Concept": {
+        "title": "Concept",
+        "type": "object",
+        "description": "Concept is een idee of code.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Concept)",
+            "pattern": "^Concept$"
+          },
+          "code": {
+            "type": "object",
+            "description": "De waarde van de code van het Concept.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "voorkeursnaam": {
+            "type": "object",
+            "description": "De naam van het Concept.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "code"
+        ]
+      },
       "Identificator": {
         "title": "Identificator",
         "type": "object",
@@ -720,10 +735,14 @@
             "properties": {
               "@value": {
                 "type": "string"
+              },
+              "@type": {
+                "type": "string"
               }
             },
             "required": [
-              "@value"
+              "@value",
+              "@type"
             ]
           },
           "toegekendDoor": {
@@ -791,10 +810,14 @@
               "properties": {
                 "@value": {
                   "type": "string"
+                },
+                "@type": {
+                  "type": "string"
                 }
               },
               "required": [
-                "@value"
+                "@value",
+                "@type"
               ]
             },
             "minItems": 1
@@ -972,13 +995,6 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Activiteittype` op te halen."
       },
-      "Organisatie.isGeassocieerdMet": {
-        "operationId": "OrganisatieGET",
-        "parameters": {
-          "id": "$response.body#/Organisatie.isGeassocieerdMet/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Organisatie` op te halen."
-      },
       "Organisatie.lid": {
         "operationId": "OrganisatieGET",
         "parameters": {
@@ -1097,13 +1113,6 @@
           "id": "$response.body#/GeregistreerdeOrganisatie.activiteit/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Activiteittype` op te halen."
-      },
-      "GeregistreerdeOrganisatie.isGeassocieerdMet": {
-        "operationId": "GeregistreerdeOrganisatieGET",
-        "parameters": {
-          "id": "$response.body#/GeregistreerdeOrganisatie.isGeassocieerdMet/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Organisatie` op te halen."
       },
       "GeregistreerdeOrganisatie.lid": {
         "operationId": "GeregistreerdeOrganisatieGET",

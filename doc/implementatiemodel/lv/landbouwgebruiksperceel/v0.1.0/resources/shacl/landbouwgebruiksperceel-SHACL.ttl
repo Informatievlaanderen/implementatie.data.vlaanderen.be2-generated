@@ -131,15 +131,15 @@
     <http://www.w3.org/ns/person#Person>,
     <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>;
   shacl:xone ([
-      shacl:not _:df_2_38;
-      shacl:property _:df_2_30
-    ] [shacl:property _:df_2_34,
-        _:df_2_38]),
+      shacl:not _:df_2_39;
+      shacl:property _:df_2_32
+    ] [shacl:property _:df_2_36,
+        _:df_2_39]),
     ([
-      shacl:not _:df_2_43;
-      shacl:property _:df_2_30
-    ] [shacl:property _:df_2_29,
-        _:df_2_43]) .
+      shacl:not _:df_2_44;
+      shacl:property _:df_2_32
+    ] [shacl:property _:df_2_31,
+        _:df_2_44]) .
 
 <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#ContactpuntShape> a shacl:NodeShape;
   rdfs:label "Contactpunt"@nl;
@@ -183,7 +183,7 @@
   <http://purl.org/vocab/vann/usageNote> "Doorgaans is dit register een bevolkingsregister maar het kan bijvoorbeeld ook een kiesregister zijn. De ingeschreven gegevens hebben betrekking op de identeit (bijvoorbeeld: naam en voornaam) en de Verblijfplaats van de persoon en op belangrijke levensgebeurtenissen zoals geboorte, huwelijk, overlijden, etc. Deze gegevens worden typisch geregistreerd door de overheid, ze bieden de ingeschreven persoon wettelijke bescherming en laten de overheid toe om basisstatistieken op te stellen over zijn bevolking."@nl;
   rdfs:comment "Persoon waarvan de gegevens zijn ingeschreven in een register."@nl;
   shacl:closed false;
-  shacl:property _:df_2_34;
+  shacl:property _:df_2_36;
   shacl:targetClass <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon> .
 
 <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdeOrganisatieShape> a shacl:NodeShape;
@@ -213,7 +213,7 @@
     shacl:nodeKind shacl:BlankNodeOrIRI;
     shacl:path <https://data.vlaanderen.be/ns/organisatie#rechtspersoonlijkheid>
   ],
-    _:df_2_29, [
+    _:df_2_31, [
     a shacl:PropertyShape;
     rdfs:label "rechtsvorm"@nl;
     <http://purl.org/vocab/vann/usageNote> "Stemt in de KBO overeen met rechtsvorm, bijvoorbeeld: NV, VZW, Stad/Gemeente, OCMW, etc."@nl;
@@ -347,16 +347,6 @@
     shacl:name "activiteit"@nl;
     shacl:nodeKind shacl:BlankNodeOrIRI;
     shacl:path <http://www.w3.org/ns/regorg#orgActivity>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "isGeassocieerdMet"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld om een organisatie te associëren met een andere organisatie."@nl;
-    rdfs:comment "Niet nader bepaalde relatie met een andere organisatie."@nl;
-    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Organisatie.IsGeassocieerdMet>;
-    shacl:description "Niet nader bepaalde relatie met een andere organisatie."@nl;
-    shacl:name "isGeassocieerdMet"@nl;
-    shacl:or ([shacl:class org:Organization] [shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization>]);
-    shacl:path org:linkedTo
   ], [
     a shacl:PropertyShape;
     rdfs:label "lid"@nl;
@@ -508,7 +498,31 @@
   shacl:closed false;
   shacl:targetClass xsd:anyURI .
 
-_:df_2_29 a shacl:PropertyShape;
+ [
+    a shacl:PropertyShape;
+    rdfs:label "code"@nl;
+    rdfs:comment "De waarde van de code van het Concept."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Concept.Code>;
+    shacl:description "De waarde van de code van het Concept."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "code"@nl;
+    shacl:path skos:notation
+  ] .
+
+ [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "De naam van het Concept."@nl;
+    rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#Concept.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "De naam van het Concept."@nl;
+    shacl:maxCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ] .
+
+_:df_2_31 a shacl:PropertyShape;
   rdfs:label "registratie"@nl;
   <http://purl.org/vocab/vann/usageNote> "In de KBO is dit het ondernemingsnummer."@nl;
   rdfs:comment "Identificator dat de organisatie verkreeg bij registratie."@nl;
@@ -519,7 +533,7 @@ _:df_2_29 a shacl:PropertyShape;
   shacl:name "registratie"@nl;
   shacl:path <http://www.w3.org/ns/regorg#registration> .
 
-_:df_2_30 a shacl:PropertyShape;
+_:df_2_32 a shacl:PropertyShape;
   rdfs:label "identificator"@nl;
   <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: klantennummer."@nl;
   rdfs:comment "Identificatiecode van de Agent."@nl;
@@ -529,7 +543,7 @@ _:df_2_30 a shacl:PropertyShape;
   shacl:name "identificator"@nl;
   shacl:path <http://www.w3.org/ns/adms#identifier> .
 
-_:df_2_34 a shacl:PropertyShape;
+_:df_2_36 a shacl:PropertyShape;
   rdfs:label "registratie"@nl;
   rdfs:comment "Identificatiecode van de persoon in het register."@nl;
   rdfs:seeAlso <https://implementatie.data.vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0#GeregistreerdPersoon.Registratie>;
@@ -539,8 +553,8 @@ _:df_2_34 a shacl:PropertyShape;
   shacl:name "registratie"@nl;
   shacl:path <https://data.vlaanderen.be/ns/persoon#registratie> .
 
-_:df_2_38 a shacl:PropertyShape;
+_:df_2_39 a shacl:PropertyShape;
   shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon> .
 
-_:df_2_43 a shacl:PropertyShape;
+_:df_2_44 a shacl:PropertyShape;
   shacl:class <http://www.w3.org/ns/regorg#RegisteredOrganization> .
