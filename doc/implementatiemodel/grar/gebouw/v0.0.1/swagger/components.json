@@ -21,6 +21,20 @@
           "@id"
         ]
       },
+      "FunctieWaarde": {
+        "title": "FunctieWaarde",
+        "type": "object",
+        "description": "Enumeratie van FunctieWaarde",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
       "GebouwstatusWaarde": {
         "title": "GebouwstatusWaarde",
         "type": "object",
@@ -463,43 +477,13 @@
           },
           "identificator": {
             "type": "object",
-            "description": "String gebruikt om het object uniek te identificeren. Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator.",
+            "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
             "properties": {
               "@value": {
                 "type": "string"
               },
               "@type": {
                 "type": "string"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
-          },
-          "toegekendDoor(String)": {
-            "type": "object",
-            "description": "Naam vd agent die de identificator heeft toegekend.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
-          },
-          "toegekendOp": {
-            "type": "object",
-            "description": "Tijdstip waarop de identificator werd uitgegeven.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^DateTime$"
               }
             },
             "required": [
@@ -509,9 +493,6 @@
           },
           "gestructureerdeIdentificator": {
             "$ref": "#/components/schemas/GestructureerdeIdentificator"
-          },
-          "toegekendDoor": {
-            "$ref": "#/components/schemas/Herkomstagent"
           }
         },
         "required": [
@@ -546,7 +527,7 @@
           },
           "naamruimte": {
             "type": "object",
-            "description": "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken. Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bv een uri samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bv https://data.vlaanderen.be/id/adres/).",
+            "description": "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken. Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bijvoorbeeld een uri samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bijvoorbeeld https://data.vlaanderen.be/id/adres/).",
             "properties": {
               "@value": {
                 "type": "string"
@@ -556,7 +537,7 @@
               "@value"
             ]
           },
-          "versie-Identificator": {
+          "versieIdentificator": {
             "type": "object",
             "description": "Identificator van de specifieke versie van een object.",
             "properties": {
@@ -578,6 +559,7 @@
       "Geometrie": {
         "title": "Geometrie",
         "type": "object",
+        "description": "Vorm- en positiekenmerken van een object.",
         "properties": {
           "@id": {
             "type": "string",
@@ -590,7 +572,7 @@
           },
           "gml": {
             "type": "object",
-            "description": "undefined",
+            "description": "Geometrie uitgedrukt in GML-formaat.",
             "properties": {
               "@value": {
                 "type": "string"
@@ -612,7 +594,7 @@
       "GeografischePositie": {
         "title": "GeografischePositie",
         "type": "object",
-        "description": "Geografische positie aangegeven dmv een punt.",
+        "description": "Geografische positie aangegeven door middel van een punt.",
         "properties": {
           "@id": {
             "type": "string",
@@ -660,7 +642,7 @@
           },
           "gml": {
             "type": "object",
-            "description": "undefined",
+            "description": "Geometrie uitgedrukt in GML-formaat.",
             "properties": {
               "@value": {
                 "type": "string"
@@ -692,10 +674,42 @@
             "type": "string",
             "description": "Object type (klasse 2DGebouwgeometrie)",
             "pattern": "^2DGebouwgeometrie$"
+          },
+          "geometrie": {
+            "type": "array",
+            "description": "Lijst van Geometrie items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Geometrie"
+                },
+                {
+                  "$ref": "#/components/schemas/Punt"
+                },
+                {
+                  "$ref": "#/components/schemas/Polygoon"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Geometrie": "#/components/schemas/Geometrie",
+                  "Punt": "#/components/schemas/Punt",
+                  "Polygoon": "#/components/schemas/Polygoon"
+                }
+              }
+            },
+            "minItems": 1,
+            "maxItems": 2
+          },
+          "methode": {
+            "$ref": "#/components/schemas/GeometrieMethodeWaarde"
           }
         },
         "required": [
-          "@type"
+          "@type",
+          "geometrie",
+          "methode"
         ]
       },
       "Polygoon": {
@@ -714,7 +728,7 @@
           },
           "gml": {
             "type": "object",
-            "description": "undefined",
+            "description": "Geometrie uitgedrukt in GML-formaat.",
             "properties": {
               "@value": {
                 "type": "string"
@@ -817,28 +831,35 @@
         "parameters": {
           "id": "$response.body#/GebouwEnvelop.data/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gebouw` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
+      },
+      "DataEnvelop.data": {
+        "operationId": "DataEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/DataEnvelop.data/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
       },
       "GebouwenEnvelop.data": {
         "operationId": "GebouwenEnvelopGET",
         "parameters": {
           "id": "$response.body#/GebouwenEnvelop.data/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gebouw` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
       },
       "GebouweenhedenEnvelop.data": {
         "operationId": "GebouweenhedenEnvelopGET",
         "parameters": {
           "id": "$response.body#/GebouweenhedenEnvelop.data/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gebouweenheid` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
       },
       "GebouweenheidEnvelop.data": {
         "operationId": "GebouweenheidEnvelopGET",
         "parameters": {
           "id": "$response.body#/GebouweenheidEnvelop.data/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gebouweenheid` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
       }
     }
   }

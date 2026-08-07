@@ -216,7 +216,7 @@
     "/id/AdresseerbaarObject/{id}": {
       "get": {
         "summary": "Geografisch object dat met een adres kan worden geïdentificeerd.",
-        "description": "Is abstract, ttz het type adresseerbaar object moet altijd worden opgegeven (vb gebouweenheid, perceel).",
+        "description": "Is abstract, het is te zeggen het type adresseerbaar object moet altijd worden opgegeven (bijvoorbeeld gebouweenheid, perceel).",
         "operationId": "AdresseerbaarObjectGET",
         "parameters": [
           {
@@ -418,7 +418,7 @@
     "/id/Adres/{id}": {
       "get": {
         "summary": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode.",
-        "description": "De definitie heeft betrekking op Belgische adressen. In andere landen kan een adres eventueel verwijzen naar andere geografisch objecten (niet gebouweenheid of perceel) of bestaan uit andere aanduidingen (verschillend van huisnummer en busnummer) of uit andere componenten dan straatnaam, gemeentenaam of postcode. Alternatieve adresaanduidingen dan huisnummer of busnummer (bv ingangaanduiding, trapaanduiding, verdiepaanduiding...) of een gebouwnaam of kamernaam ed zijn mogelijk dmv een associatie met adresuitbreiding. Uitwisseling van buitenlandse adressen moet gebeuren mbv het object adresvoorstelling.",
+        "description": "De definitie heeft betrekking op Belgische adressen. In andere landen kan een adres eventueel verwijzen naar andere geografisch objecten (niet gebouweenheid of perceel) of bestaan uit andere aanduidingen (verschillend van huisnummer en busnummer) of uit andere componenten dan straatnaam, gemeentenaam of postcode. Alternatieve adresaanduidingen dan huisnummer of busnummer (bijvoorbeeld ingangaanduiding, trapaanduiding, verdiepaanduiding...) of een gebouwnaam of kamernaam en dergelijke zijn mogelijk door middel van een associatie met adresuitbreiding. Uitwisseling van buitenlandse adressen moet gebeuren met behulp van het object adresvoorstelling.",
         "operationId": "AdresGET",
         "parameters": [
           {
@@ -632,6 +632,207 @@
         }
       }
     },
+    "/id/FunctieWaarde/{id}": {
+      "get": {
+        "summary": "Waarden die het huidig gebruik weergeven.",
+        "operationId": "FunctieWaardeGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een FunctieWaarde object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "FunctieWaarde object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FunctieWaarde"
+                }
+              }
+            },
+            "links": {}
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FunctieWaardeGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FunctieWaardeGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FunctieWaardeGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FunctieWaardeGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FunctieWaardeGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FunctieWaardeGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FunctieWaardeGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FunctieWaardeGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "FunctieWaardeGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          }
+        }
+      }
+    },
     "/id/GebouwstatusWaarde/{id}": {
       "get": {
         "summary": "Waarden die de status van een gebouw weergeven.",
@@ -835,6 +1036,7 @@
     },
     "/id/2DGeometrieMethodeWaarde/{id}": {
       "get": {
+        "summary": "Codelijst voor de geometriemethode van een polygoon.",
         "operationId": "2DGeometrieMethodeWaardeGET",
         "parameters": [
           {
@@ -1488,6 +1690,7 @@
     },
     "/id/GebouweenheidstatusWaarde/{id}": {
       "get": {
+        "summary": "Waarden die de status van een gebouweenheid weergeven.",
         "operationId": "GebouweenheidstatusWaardeGET",
         "parameters": [
           {
@@ -2134,7 +2337,7 @@
                 "parameters": {
                   "id": "$response.body#/GebouwEnvelop.data/@id"
                 },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gebouw` op te halen."
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
               }
             }
           },
@@ -2337,7 +2540,15 @@
                 }
               }
             },
-            "links": {}
+            "links": {
+              "DataEnvelop.data": {
+                "operationId": "DataEnvelopGET",
+                "parameters": {
+                  "id": "$response.body#/DataEnvelop.data/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
+              }
+            }
           },
           "400": {
             "description": "Invalid data supplied.",
@@ -2746,7 +2957,7 @@
                 "parameters": {
                   "id": "$response.body#/GebouwenEnvelop.data/@id"
                 },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gebouw` op te halen."
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
               }
             }
           },
@@ -3157,7 +3368,7 @@
                 "parameters": {
                   "id": "$response.body#/GebouweenhedenEnvelop.data/@id"
                 },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gebouweenheid` op te halen."
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
               }
             }
           },
@@ -3366,7 +3577,7 @@
                 "parameters": {
                   "id": "$response.body#/GebouweenheidEnvelop.data/@id"
                 },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gebouweenheid` op te halen."
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
               }
             }
           },
@@ -3551,6 +3762,20 @@
         "title": "Perceelstatus",
         "type": "object",
         "description": "Enumeratie van Perceelstatus",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "FunctieWaarde": {
+        "title": "FunctieWaarde",
+        "type": "object",
+        "description": "Enumeratie van FunctieWaarde",
         "properties": {
           "@id": {
             "type": "string",
@@ -4003,43 +4228,13 @@
           },
           "identificator": {
             "type": "object",
-            "description": "String gebruikt om het object uniek te identificeren. Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator.",
+            "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
             "properties": {
               "@value": {
                 "type": "string"
               },
               "@type": {
                 "type": "string"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
-          },
-          "toegekendDoor(String)": {
-            "type": "object",
-            "description": "Naam vd agent die de identificator heeft toegekend.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
-          },
-          "toegekendOp": {
-            "type": "object",
-            "description": "Tijdstip waarop de identificator werd uitgegeven.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^DateTime$"
               }
             },
             "required": [
@@ -4049,9 +4244,6 @@
           },
           "gestructureerdeIdentificator": {
             "$ref": "#/components/schemas/GestructureerdeIdentificator"
-          },
-          "toegekendDoor": {
-            "$ref": "#/components/schemas/Herkomstagent"
           }
         },
         "required": [
@@ -4086,7 +4278,7 @@
           },
           "naamruimte": {
             "type": "object",
-            "description": "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken. Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bv een uri samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bv https://data.vlaanderen.be/id/adres/).",
+            "description": "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken. Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bijvoorbeeld een uri samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bijvoorbeeld https://data.vlaanderen.be/id/adres/).",
             "properties": {
               "@value": {
                 "type": "string"
@@ -4096,7 +4288,7 @@
               "@value"
             ]
           },
-          "versie-Identificator": {
+          "versieIdentificator": {
             "type": "object",
             "description": "Identificator van de specifieke versie van een object.",
             "properties": {
@@ -4118,6 +4310,7 @@
       "Geometrie": {
         "title": "Geometrie",
         "type": "object",
+        "description": "Vorm- en positiekenmerken van een object.",
         "properties": {
           "@id": {
             "type": "string",
@@ -4130,7 +4323,7 @@
           },
           "gml": {
             "type": "object",
-            "description": "undefined",
+            "description": "Geometrie uitgedrukt in GML-formaat.",
             "properties": {
               "@value": {
                 "type": "string"
@@ -4152,7 +4345,7 @@
       "GeografischePositie": {
         "title": "GeografischePositie",
         "type": "object",
-        "description": "Geografische positie aangegeven dmv een punt.",
+        "description": "Geografische positie aangegeven door middel van een punt.",
         "properties": {
           "@id": {
             "type": "string",
@@ -4200,7 +4393,7 @@
           },
           "gml": {
             "type": "object",
-            "description": "undefined",
+            "description": "Geometrie uitgedrukt in GML-formaat.",
             "properties": {
               "@value": {
                 "type": "string"
@@ -4232,10 +4425,42 @@
             "type": "string",
             "description": "Object type (klasse 2DGebouwgeometrie)",
             "pattern": "^2DGebouwgeometrie$"
+          },
+          "geometrie": {
+            "type": "array",
+            "description": "Lijst van Geometrie items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Geometrie"
+                },
+                {
+                  "$ref": "#/components/schemas/Punt"
+                },
+                {
+                  "$ref": "#/components/schemas/Polygoon"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Geometrie": "#/components/schemas/Geometrie",
+                  "Punt": "#/components/schemas/Punt",
+                  "Polygoon": "#/components/schemas/Polygoon"
+                }
+              }
+            },
+            "minItems": 1,
+            "maxItems": 2
+          },
+          "methode": {
+            "$ref": "#/components/schemas/GeometrieMethodeWaarde"
           }
         },
         "required": [
-          "@type"
+          "@type",
+          "geometrie",
+          "methode"
         ]
       },
       "Polygoon": {
@@ -4254,7 +4479,7 @@
           },
           "gml": {
             "type": "object",
-            "description": "undefined",
+            "description": "Geometrie uitgedrukt in GML-formaat.",
             "properties": {
               "@value": {
                 "type": "string"

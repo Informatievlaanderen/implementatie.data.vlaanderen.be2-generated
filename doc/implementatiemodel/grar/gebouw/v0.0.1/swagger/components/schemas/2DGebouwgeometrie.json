@@ -11,9 +11,41 @@
       "type": "string",
       "description": "Object type (klasse 2DGebouwgeometrie)",
       "pattern": "^2DGebouwgeometrie$"
+    },
+    "geometrie": {
+      "type": "array",
+      "description": "Lijst van Geometrie items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Geometrie"
+          },
+          {
+            "$ref": "#/components/schemas/Punt"
+          },
+          {
+            "$ref": "#/components/schemas/Polygoon"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Geometrie": "#/components/schemas/Geometrie",
+            "Punt": "#/components/schemas/Punt",
+            "Polygoon": "#/components/schemas/Polygoon"
+          }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 2
+    },
+    "methode": {
+      "$ref": "#/components/schemas/GeometrieMethodeWaarde"
     }
   },
   "required": [
-    "@type"
+    "@type",
+    "geometrie",
+    "methode"
   ]
 }

@@ -2,9 +2,5 @@
 
 #||# -------------------------------------
 
-2026-08-07T14:49:38.977Z warn: Unable to find the contributor type for "Dieter De Paepe" using column "Gebouw". Please make sure this column has a value set for this person.
-
-2026-08-07T14:49:38.978Z warn: Unable to find the contributor type for "Erik Mannens" using column "Gebouw". Please make sure this column has a value set for this person.
-
-2026-08-07T14:49:38.979Z warn: Unable to find the contributor type for "Laurens De Vocht" using column "Gebouw". Please make sure this column has a value set for this person.
+2026-08-07T15:29:31.092Z error: [CsvConverterHandler] Unable to convert the provided csv into a stakeholders-file. Error: Invalid Record Length: columns length is 7, got 8 on line 2 for record Barbara,Van Broeckhoven,Informatie Vlaanderen,barbara.vanbroeckhoven@kb.vlaanderen.be,https://overheid.vlaanderen.be/informatie-vlaanderen,C,C,
 

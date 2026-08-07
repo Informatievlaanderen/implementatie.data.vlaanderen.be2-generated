@@ -27,7 +27,39 @@
         }
       ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard"
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
+      "properties": [
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/gebouw#data",
+          "vocabularyLabel": {
+            "nl": "data"
+          },
+          "applicationProfileLabel": {
+            "nl": "data"
+          },
+          "vocabularyDefinition": {
+            "nl": "De collectie data die de envelop bevat."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De collectie data die de envelop bevat."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/gebouw#DataEnvelop",
+          "range": {
+            "id": "http://www.w3.org/ns/prov#Entity",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Entiteit"
+            },
+            "applicationProfileLabel": {
+              "nl": "Object"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        }
+      ]
     },
     {
       "id": "https://implementatie.data.vlaanderen.be/ns/gebouw#GebouweenhedenEnvelop",
@@ -286,7 +318,69 @@
         "nl": "Geometrie van het gebouw en metadata over welk deel van het gebouw door de geometrie wordt voorgesteld en hoe deze werd bepaald."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard"
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/gebouw#geometrie",
+          "vocabularyLabel": {
+            "nl": "geometrie"
+          },
+          "applicationProfileLabel": {
+            "nl": "geometrie"
+          },
+          "vocabularyDefinition": {
+            "nl": "2D- of 2.5D-geometrische voorstelling van het gebouw."
+          },
+          "applicationProfileDefinition": {
+            "nl": "2D- of 2.5D-geometrische voorstelling van het gebouw."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
+          "domain": "https://data.vlaanderen.be/ns/gebouw#2DGebouwgeometrie",
+          "range": {
+            "id": "http://www.w3.org/ns/locn#Geometry",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Geometrie"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geometrie"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "2"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/gebouw#methode",
+          "vocabularyLabel": {
+            "nl": "methode"
+          },
+          "applicationProfileLabel": {
+            "nl": "methode"
+          },
+          "vocabularyDefinition": {
+            "nl": "Beschrijving van de manier waarop de geometrie aangemaakt werd."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Beschrijving van de manier waarop de geometrie aangemaakt werd."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
+          "domain": "https://data.vlaanderen.be/ns/gebouw#2DGebouwgeometrie",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "GeometrieMethodeWaarde"
+            },
+            "applicationProfileLabel": {
+              "nl": "GeometrieMethodeWaarde"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
     },
     {
       "id": "https://data.vlaanderen.be/ns/generiek#GeografischePositie",
@@ -297,10 +391,10 @@
         "nl": "Geografische Positie"
       },
       "vocabularyDefinition": {
-        "nl": "Geografische positie aangegeven dmv een punt."
+        "nl": "Geografische positie aangegeven door middel van een punt."
       },
       "applicationProfileDefinition": {
-        "nl": "Geografische positie aangegeven dmv een punt."
+        "nl": "Geografische positie aangegeven door middel van een punt."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
@@ -314,7 +408,7 @@
             "nl": "geometrie"
           },
           "applicationProfileDefinition": {
-            "nl": "De cartografische coöordinaten vh punt."
+            "nl": "De cartografische coöordinaten van het punt."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
@@ -347,10 +441,10 @@
             "nl": "De manier waarop het punt werd bepaald."
           },
           "vocabularyUsageNote": {
-            "nl": "Bvb positie afgeleid ve bestaand object (bvb door berekening vd centroïde)."
+            "nl": "Bijvoorbeeld positie afgeleid van een bestaand object (bijvoorbeeld door berekening van de centroïde)."
           },
           "applicationProfileUsageNote": {
-            "nl": "Bvb positie afgeleid ve bestaand object (bvb door berekening vd centroïde)."
+            "nl": "Bijvoorbeeld positie afgeleid van een bestaand object (bijvoorbeeld door berekening van de centroïde)."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
@@ -383,10 +477,10 @@
             "nl": "Het type object op basis waarvan het punt werd bepaald."
           },
           "vocabularyUsageNote": {
-            "nl": "Bvb perceel, gebouw..."
+            "nl": "Bijvoorbeeld perceel, gebouw..."
           },
           "applicationProfileUsageNote": {
-            "nl": "Bvb perceel, gebouw..."
+            "nl": "Bijvoorbeeld perceel, gebouw..."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
@@ -407,27 +501,39 @@
       ]
     },
     {
-      "id": "https://data.vlaanderen.be/ns/generiek#Geometrie",
+      "id": "http://www.w3.org/ns/locn#Geometry",
       "vocabularyLabel": {
         "nl": "Geometrie"
       },
       "applicationProfileLabel": {
         "nl": "Geometrie"
       },
+      "vocabularyDefinition": {
+        "nl": "Vorm- en positiekenmerken van een object."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Vorm- en positiekenmerken van een object."
+      },
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
       "properties": [
         {
-          "id": "https://data.vlaanderen.be/ns/generiek#gml",
+          "id": "http://www.opengis.net/ont/geosparql#asGML",
           "vocabularyLabel": {
             "nl": "gml"
           },
           "applicationProfileLabel": {
             "nl": "gml"
           },
+          "vocabularyDefinition": {
+            "nl": "Geometrie uitgedrukt in GML-formaat."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Geometrie uitgedrukt in GML-formaat."
+          },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
-          "domain": "https://data.vlaanderen.be/ns/generiek#Geometrie",
+          "domain": "http://www.w3.org/ns/locn#Geometry",
           "range": {
             "id": "http://www.w3.org/2000/01/rdf-schema#Literal",
             "listedInDocument": false,
@@ -496,7 +602,7 @@
             "nl": "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken."
           },
           "applicationProfileUsageNote": {
-            "nl": "Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bv een uri samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bv https://data.vlaanderen.be/id/adres/)."
+            "nl": "Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bijvoorbeeld een uri samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bijvoorbeeld https://data.vlaanderen.be/id/adres/)."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
@@ -520,7 +626,7 @@
             "nl": "versieIdentificator"
           },
           "applicationProfileLabel": {
-            "nl": "versie-identificator"
+            "nl": "versieIdentificator"
           },
           "applicationProfileDefinition": {
             "nl": "Identificator van de specifieke versie van een object."
@@ -569,7 +675,7 @@
             "nl": "gestructureerde identificator"
           },
           "applicationProfileDefinition": {
-            "nl": "Identificator vh object opgesplitst in zijn onderdelen."
+            "nl": "Identificator van het object opgesplitst in zijn onderdelen."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
@@ -588,33 +694,6 @@
           "maxCount": "1"
         },
         {
-          "id": "http://purl.org/dc/terms/creator",
-          "vocabularyLabel": {
-            "nl": "maker"
-          },
-          "applicationProfileLabel": {
-            "nl": "toegekend door"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Link naar de agent die de identificator heeft uitgegeven."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
-          "domain": "http://www.w3.org/ns/adms#Identifier",
-          "range": {
-            "id": "http://www.w3.org/ns/prov#Agent",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "Agent"
-            },
-            "applicationProfileLabel": {
-              "nl": "Herkomstagent"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1"
-        },
-        {
           "id": "http://www.w3.org/2004/02/skos/core#notation",
           "vocabularyLabel": {
             "nl": "notatie"
@@ -626,7 +705,7 @@
             "nl": "String gebruikt om het object uniek te identificeren."
           },
           "applicationProfileUsageNote": {
-            "nl": "Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator."
+            "nl": "Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
@@ -639,60 +718,6 @@
             },
             "applicationProfileLabel": {
               "nl": "Literal"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1"
-        },
-        {
-          "id": "http://www.w3.org/ns/adms#schemaAgency",
-          "vocabularyLabel": {
-            "nl": "schema agentschap"
-          },
-          "applicationProfileLabel": {
-            "nl": "toegekend door (String)"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Naam vd agent die de identificator heeft toegekend."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
-          "domain": "http://www.w3.org/ns/adms#Identifier",
-          "range": {
-            "id": "http://www.w3.org/2001/XMLSchema#string",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "String"
-            },
-            "applicationProfileLabel": {
-              "nl": "String"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1"
-        },
-        {
-          "id": "http://purl.org/dc/terms/issued",
-          "vocabularyLabel": {
-            "nl": "uitgegeven"
-          },
-          "applicationProfileLabel": {
-            "nl": "toegekend op"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Tijdstip waarop de identificator werd uitgegeven."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
-          "domain": "http://www.w3.org/ns/adms#Identifier",
-          "range": {
-            "id": "http://www.w3.org/2001/XMLSchema#dateTime",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "DateTime"
-            },
-            "applicationProfileLabel": {
-              "nl": "DateTime"
             }
           },
           "minCount": "0",
@@ -713,7 +738,7 @@
       },
       "parents": [
         {
-          "id": "https://data.vlaanderen.be/ns/generiek#Geometrie",
+          "id": "http://www.w3.org/ns/locn#Geometry",
           "vocabularyLabel": {
             "nl": "Geometrie"
           },
@@ -738,7 +763,7 @@
       },
       "parents": [
         {
-          "id": "https://data.vlaanderen.be/ns/generiek#Geometrie",
+          "id": "http://www.w3.org/ns/locn#Geometry",
           "vocabularyLabel": {
             "nl": "Geometrie"
           },
@@ -790,6 +815,36 @@
       },
       "minCount": "0",
       "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/gebouw#data",
+      "vocabularyLabel": {
+        "nl": "data"
+      },
+      "applicationProfileLabel": {
+        "nl": "data"
+      },
+      "vocabularyDefinition": {
+        "nl": "De collectie data die de envelop bevat."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De collectie data die de envelop bevat."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/gebouw#DataEnvelop",
+      "range": {
+        "id": "http://www.w3.org/ns/prov#Entity",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Entiteit"
+        },
+        "applicationProfileLabel": {
+          "nl": "Object"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
     },
     {
       "id": "https://implementatie.data.vlaanderen.be/ns/gebouw#data",
@@ -920,10 +975,10 @@
         "nl": "toegekendAdres"
       },
       "vocabularyDefinition": {
-        "nl": "het adres toegekend aan het adresseerbaar object."
+        "nl": "Het adres toegekend aan het adresseerbaar object."
       },
       "applicationProfileDefinition": {
-        "nl": "het adres toegekend aan het adresseerbaar object."
+        "nl": "Het adres toegekend aan het adresseerbaar object."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/Standaard",

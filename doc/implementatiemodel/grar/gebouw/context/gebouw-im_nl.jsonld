@@ -1,10 +1,20 @@
 {
   "@context": {
     "2DGebouwgeometrie": {
+      "@context": {
+        "geometrie": {
+          "@id": "https://data.vlaanderen.be/ns/gebouw#geometrie",
+          "@type": "http://www.w3.org/ns/locn#Geometry"
+        },
+        "methode": {
+          "@id": "https://data.vlaanderen.be/ns/gebouw#methode",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        }
+      },
       "@id": "https://data.vlaanderen.be/ns/gebouw#2DGebouwgeometrie"
     },
     "2DGeometrieMethodeWaarde": {
-      "@id": "https://data.vlaanderen.be/ns/gebouw#2DGeometrieMethodeWaarde"
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
     "Adres": {
       "@context": {
@@ -34,13 +44,20 @@
       "@id": "http://www.w3.org/2001/XMLSchema#boolean"
     },
     "DataEnvelop": {
+      "@context": {
+        "data": {
+          "@container": "@set",
+          "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#data",
+          "@type": "http://www.w3.org/ns/prov#Entity"
+        }
+      },
       "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#DataEnvelop"
-    },
-    "DateTime": {
-      "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
     },
     "Envelop": {
       "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Envelope"
+    },
+    "FunctieWaarde": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
     "Gebouw": {
       "@context": {
@@ -64,8 +81,9 @@
     "GebouwEnvelop": {
       "@context": {
         "data": {
+          "@container": "@set",
           "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#data",
-          "@type": "https://data.vlaanderen.be/ns/gebouw#Gebouw"
+          "@type": "http://www.w3.org/ns/prov#Entity"
         }
       },
       "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#GebouwEnvelop"
@@ -116,14 +134,14 @@
       "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#GebouweenheidEnvelop"
     },
     "GebouweenheidstatusWaarde": {
-      "@id": "https://data.vlaanderen.be/ns/gebouw#GebouweenheidstatusWaarde"
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
     "GebouwenEnvelop": {
       "@context": {
         "data": {
           "@container": "@set",
           "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#data",
-          "@type": "https://data.vlaanderen.be/ns/gebouw#Gebouw"
+          "@type": "http://www.w3.org/ns/prov#Entity"
         }
       },
       "@id": "https://implementatie.data.vlaanderen.be/ns/gebouw#GebouwenEnvelop"
@@ -151,11 +169,11 @@
     "Geometrie": {
       "@context": {
         "gml": {
-          "@id": "https://data.vlaanderen.be/ns/generiek#gml",
+          "@id": "http://www.opengis.net/ont/geosparql#asGML",
           "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
         }
       },
-      "@id": "https://data.vlaanderen.be/ns/generiek#Geometrie"
+      "@id": "http://www.w3.org/ns/locn#Geometry"
     },
     "GestructureerdeIdentificator": {
       "@context": {
@@ -167,7 +185,7 @@
           "@id": "https://data.vlaanderen.be/ns/generiek#naamruimte",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
-        "versie-Identificator": {
+        "versieIdentificator": {
           "@id": "https://data.vlaanderen.be/ns/generiek#versieIdentificator",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         }
@@ -183,18 +201,6 @@
         "identificator": {
           "@id": "http://www.w3.org/2004/02/skos/core#notation",
           "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
-        },
-        "toegekendDoor": {
-          "@id": "http://purl.org/dc/terms/creator",
-          "@type": "http://www.w3.org/ns/prov#Agent"
-        },
-        "toegekendDoor(String)": {
-          "@id": "http://www.w3.org/ns/adms#schemaAgency",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "toegekendOp": {
-          "@id": "http://purl.org/dc/terms/issued",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
         }
       },
       "@id": "http://www.w3.org/ns/adms#Identifier"
@@ -215,12 +221,12 @@
       "@id": "http://www.w3.org/ns/prov#Entity"
     },
     "Perceelstatus": {
-      "@id": "https://data.vlaanderen.be/doc/conceptscheme/perceelstatus"
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
     "Polygoon": {
       "@context": {
         "gml": {
-          "@id": "https://data.vlaanderen.be/ns/generiek#gml",
+          "@id": "http://www.opengis.net/ont/geosparql#asGML",
           "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
         }
       },
@@ -254,7 +260,7 @@
     "Punt": {
       "@context": {
         "gml": {
-          "@id": "https://data.vlaanderen.be/ns/generiek#gml",
+          "@id": "http://www.opengis.net/ont/geosparql#asGML",
           "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
         }
       },
