@@ -302,6 +302,106 @@
           "@id"
         ]
       },
+      "Problemdetail": {
+        "title": "Problemdetail",
+        "type": "object",
+        "description": "Meer gedetailleerde beschrijving van de fout in een HTTP response.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Problemdetail)",
+            "pattern": "^Problemdetail$"
+          },
+          "detail": {
+            "type": "object",
+            "description": "Mensleesbare beschrijving van de fout.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "instance": {
+            "type": "object",
+            "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.",
+            "properties": {
+              "@id": {
+                "type": "string",
+                "format": "uri"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^AnyURI$"
+              }
+            },
+            "required": [
+              "@id",
+              "@type"
+            ]
+          },
+          "status": {
+            "type": "object",
+            "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\".",
+            "properties": {
+              "@value": {
+                "type": "number",
+                "format": "int64"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^Integer$"
+              }
+            },
+            "required": [
+              "@value",
+              "@type"
+            ]
+          },
+          "title": {
+            "type": "object",
+            "description": "Korte mensleesbare beschrijving van de fout.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "type": {
+            "type": "object",
+            "description": "Aard van de fout.",
+            "properties": {
+              "@id": {
+                "type": "string",
+                "format": "uri"
+              },
+              "@type": {
+                "type": "string",
+                "pattern": "^AnyURI$"
+              }
+            },
+            "required": [
+              "@id",
+              "@type"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "detail",
+          "title",
+          "type"
+        ]
+      },
       "Organisatie": {
         "title": "Organisatie",
         "type": "object",
@@ -415,8 +515,7 @@
           }
         },
         "required": [
-          "@type",
-          "voorkeursnaam"
+          "@type"
         ]
       },
       "Persoon": {
@@ -485,28 +584,6 @@
           "heeftOverlijden": {
             "$ref": "#/components/schemas/Overlijden"
           },
-          "isLidVan": {
-            "type": "array",
-            "description": "Lijst van Organisatie items.",
-            "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/Organisatie"
-                },
-                {
-                  "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "@type",
-                "mapping": {
-                  "Organisatie": "#/components/schemas/Organisatie",
-                  "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
-                }
-              }
-            },
-            "minItems": 1
-          },
           "identificator": {
             "type": "array",
             "description": "Lijst van Identificator items.",
@@ -535,6 +612,14 @@
             "pattern": "^GeregistreerdPersoon$"
           },
           "registratie": {
+            "type": "array",
+            "description": "Lijst van Identificator items.",
+            "items": {
+              "$ref": "#/components/schemas/Identificator"
+            },
+            "minItems": 1
+          },
+          "identificator": {
             "type": "array",
             "description": "Lijst van Identificator items.",
             "items": {
@@ -593,36 +678,6 @@
           },
           "heeftOverlijden": {
             "$ref": "#/components/schemas/Overlijden"
-          },
-          "isLidVan": {
-            "type": "array",
-            "description": "Lijst van Organisatie items.",
-            "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/Organisatie"
-                },
-                {
-                  "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "@type",
-                "mapping": {
-                  "Organisatie": "#/components/schemas/Organisatie",
-                  "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
-                }
-              }
-            },
-            "minItems": 1
-          },
-          "identificator": {
-            "type": "array",
-            "description": "Lijst van Identificator items.",
-            "items": {
-              "$ref": "#/components/schemas/Identificator"
-            },
-            "minItems": 1
           }
         },
         "required": [
@@ -761,8 +816,7 @@
         },
         "required": [
           "@type",
-          "registratie",
-          "voorkeursnaam"
+          "registratie"
         ]
       },
       "Overlijden": {
@@ -808,13 +862,21 @@
               },
               {
                 "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
               }
             ],
             "discriminator": {
               "propertyName": "@type",
               "mapping": {
                 "Organisatie": "#/components/schemas/Organisatie",
-                "Persoon": "#/components/schemas/Persoon"
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon",
+                "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
               }
             }
           },
@@ -826,8 +888,56 @@
         },
         "required": [
           "@type",
-          "identificator",
           "uitbater"
+        ]
+      },
+      "Concept": {
+        "title": "Concept",
+        "type": "object",
+        "description": "Concept is een idee of code.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Concept)",
+            "pattern": "^Concept$"
+          },
+          "code": {
+            "type": "object",
+            "description": "De waarde van de code van het Concept.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@value"
+            ]
+          },
+          "voorkeursnaam": {
+            "type": "object",
+            "description": "De naam van het Concept.",
+            "properties": {
+              "@value": {
+                "type": "string"
+              },
+              "@language": {
+                "type": "string",
+                "pattern": "^nl$"
+              }
+            },
+            "required": [
+              "@value",
+              "@language"
+            ]
+          }
+        },
+        "required": [
+          "@type",
+          "code"
         ]
       },
       "Identificator": {
@@ -850,10 +960,14 @@
             "properties": {
               "@value": {
                 "type": "string"
+              },
+              "@type": {
+                "type": "string"
               }
             },
             "required": [
-              "@value"
+              "@value",
+              "@type"
             ]
           },
           "toegekendDoor": {
@@ -863,13 +977,21 @@
               },
               {
                 "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
               }
             ],
             "discriminator": {
               "propertyName": "@type",
               "mapping": {
                 "Organisatie": "#/components/schemas/Organisatie",
-                "Persoon": "#/components/schemas/Persoon"
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon",
+                "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
               }
             }
           }
@@ -913,10 +1035,14 @@
               "properties": {
                 "@value": {
                   "type": "string"
+                },
+                "@type": {
+                  "type": "string"
                 }
               },
               "required": [
-                "@value"
+                "@value",
+                "@type"
               ]
             },
             "minItems": 1

@@ -1,0 +1,33 @@
+{
+  "title": "Gebouweenheid",
+  "type": "object",
+  "description": "De kleinste eenheid binnen een gebouw die geschikt is voor woon-, bedrijfsmatige, of recreatieve doeleinden en die ontsloten wordt via een eigen afsluitbare toegang vanaf de openbare weg, een erf of een gedeelde circulatieruimte. Een gebouweenheid is in functioneel opzicht zelfstandig. Daarnaast kan een gebouweenheid ook een gemeenschappelijk deel zijn.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Gebouweenheid)",
+      "pattern": "^Gebouweenheid$"
+    },
+    "isDeelVan": {
+      "$ref": "#/components/schemas/Gebouw"
+    },
+    "toegekendAdres": {
+      "type": "array",
+      "description": "Lijst van BelgischAdres items.",
+      "items": {
+        "$ref": "#/components/schemas/BelgischAdres"
+      },
+      "minItems": 1
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

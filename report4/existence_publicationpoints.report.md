@@ -12,6 +12,12 @@
 #||# 
 #||# index.html check
 
+#||#    + checking /home/circleci/project/config/test/grar-gebouw-im.publication.json
+#||# 
+#||# Directory check
+#||# 
+#||# index.html check
+
 #||#    + checking /home/circleci/project/config/test/landbouwgebruiksperceel-im.publication.json
 #||# 
 #||# Directory check

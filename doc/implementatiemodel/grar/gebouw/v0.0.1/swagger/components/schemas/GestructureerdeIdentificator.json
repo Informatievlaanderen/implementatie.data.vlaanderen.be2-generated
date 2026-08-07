@@ -1,0 +1,57 @@
+{
+  "title": "GestructureerdeIdentificator",
+  "type": "object",
+  "description": "Identificator van een object opgesplitst in zijn onderdelen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse GestructureerdeIdentificator)",
+      "pattern": "^GestructureerdeIdentificator$"
+    },
+    "lokaleIdentificator": {
+      "type": "object",
+      "description": "String gebruikt om het object uniek te identificeren binnen de naamruimte.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "naamruimte": {
+      "type": "object",
+      "description": "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken. Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bv een uri samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bv https://data.vlaanderen.be/id/adres/).",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    },
+    "versie-Identificator": {
+      "type": "object",
+      "description": "Identificator van de specifieke versie van een object.",
+      "properties": {
+        "@value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@value"
+      ]
+    }
+  },
+  "required": [
+    "@type",
+    "lokaleIdentificator",
+    "naamruimte"
+  ]
+}

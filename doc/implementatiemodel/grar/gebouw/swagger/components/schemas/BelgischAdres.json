@@ -1,0 +1,44 @@
+{
+  "title": "BelgischAdres",
+  "type": "object",
+  "description": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse BelgischAdres)",
+      "pattern": "^BelgischAdres$"
+    },
+    "isToegekendAan": {
+      "type": "array",
+      "description": "Lijst van AdresseerbaarObject items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Gebouweenheid"
+          },
+          {
+            "$ref": "#/components/schemas/RuimtelijkeEenheid"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Gebouweenheid": "#/components/schemas/Gebouweenheid",
+            "RuimtelijkeEenheid": "#/components/schemas/RuimtelijkeEenheid"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

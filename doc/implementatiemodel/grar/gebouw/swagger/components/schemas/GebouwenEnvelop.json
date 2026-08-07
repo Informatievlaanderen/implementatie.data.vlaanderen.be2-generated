@@ -1,0 +1,27 @@
+{
+  "title": "GebouwenEnvelop",
+  "type": "object",
+  "description": "De collectie van de uitgewisselde gebouwen en zijn metadata elementen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse GebouwenEnvelop)",
+      "pattern": "^GebouwenEnvelop$"
+    },
+    "data": {
+      "type": "array",
+      "description": "Lijst van Gebouw items.",
+      "items": {
+        "$ref": "#/components/schemas/Gebouw"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

@@ -18,10 +18,14 @@
       "properties": {
         "@value": {
           "type": "string"
+        },
+        "@type": {
+          "type": "string"
         }
       },
       "required": [
-        "@value"
+        "@value",
+        "@type"
       ]
     },
     "toegekendDoor": {
@@ -31,13 +35,21 @@
         },
         {
           "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
         }
       ],
       "discriminator": {
         "propertyName": "@type",
         "mapping": {
           "Organisatie": "#/components/schemas/Organisatie",
-          "Persoon": "#/components/schemas/Persoon"
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon",
+          "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
         }
       }
     }

@@ -4,6 +4,8 @@
 #||#  
 #||#   + adding supporting /home/circleci/project/config/test/grar-adres-im.publication.json
 #||#  
+#||#   + adding supporting /home/circleci/project/config/test/grar-gebouw-im.publication.json
+#||#  
 #||#   + adding supporting /home/circleci/project/config/test/landbouwgebruiksperceel-im.publication.json
 #||#  
 #||#   + adding supporting /home/circleci/project/config/test/organisatie-vkbo-im.publication.json
@@ -18,6 +20,8 @@
 #||#  
 Error: the following directories are unsupported
 [
+  "/tmp/generated/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.0.1",
+  "/tmp/generated/doc/implementatiemodel/lv/landbouwgebruikersperceel",
   "/tmp/generated/doc/implementatiemodel/magda/persoon/REST",
   "/tmp/generated/doc/implementatiemodel/magda/trajectcontrole",
   "/tmp/generated/doc/implementatiemodel/magda/trajectcontrole/v0.1.0",
@@ -25,12 +29,10 @@ Error: the following directories are unsupported
   "/tmp/generated/doc/implementatiemodel/verkeersmetingverzameling",
   "/tmp/generated/doc/implementatiemodel/MAGDA/trajectcontrole",
   "/tmp/generated/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1",
-  "/tmp/generated/doc/implementatiemodel/lv/landbouwgebruikersperceel",
-  "/tmp/generated/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.0.1",
   "/tmp/generated/doc/vocabularium/voertuigregistratie",
   "/tmp/generated/doc/vocabularium/voertuigregistratie/v0.1.0",
-  "/tmp/generated/ns/lv/landbouwgebruiksperceel/v0.0.1",
-  "/tmp/generated/ns/lv/landbouwgebruiksperceel/v0.1.0",
   "/tmp/generated/ns/voertuigregistratie",
-  "/tmp/generated/ns/voertuigregistratie/v0.1.0"
+  "/tmp/generated/ns/voertuigregistratie/v0.1.0",
+  "/tmp/generated/ns/lv/landbouwgebruiksperceel/v0.0.1",
+  "/tmp/generated/ns/lv/landbouwgebruiksperceel/v0.1.0"
 ]
