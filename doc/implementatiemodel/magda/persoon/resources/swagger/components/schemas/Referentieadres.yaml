@@ -1,0 +1,32 @@
+title: Referentieadres
+type: object
+description: Adres van een andere persoon of rechtspersoon voor personen zonder vaste verblijfplaats.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse Referentieadres)
+    pattern: ^Referentieadres$
+  einddatum:
+    type: object
+    description: De datum waarop het referentieadres vervalt.
+    properties:
+      '@value':
+        type: string
+        format: date
+      '@type':
+        type: string
+        pattern: ^Date$
+    required:
+      - '@value'
+      - '@type'
+  verblijfsadres:
+    $ref: '#/components/schemas/Adresvoorstelling'
+  status:
+    $ref: '#/components/schemas/DomicilieStatus'
+  nietMededeelbaar:
+    $ref: '#/components/schemas/NietMededeelbaar'
+required:
+  - '@type'

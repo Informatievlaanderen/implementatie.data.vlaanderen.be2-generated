@@ -1,0 +1,40 @@
+{
+  "title": "Moment",
+  "type": "object",
+  "description": "Moment met omvang en duur nul.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Moment)",
+      "pattern": "^Moment$"
+    },
+    "inXSDdatum": {
+      "type": "object",
+      "description": "Positie in de tijd uitgedrukt door middel van xsd:date.",
+      "properties": {
+        "@value": {
+          "type": "string",
+          "format": "date"
+        },
+        "@type": {
+          "type": "string",
+          "pattern": "^Date$"
+        }
+      },
+      "required": [
+        "@value",
+        "@type"
+      ]
+    },
+    "inDatumTijd": {
+      "$ref": "#/components/schemas/AlgemeneDatumTijdBeschrijving"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

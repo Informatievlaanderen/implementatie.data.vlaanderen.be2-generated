@@ -1,0 +1,17 @@
+title: Periode
+type: object
+description: Temporele Entiteit waarvan de omvang en duurtijd verschilt van nul, dit wil zeggen, waarvoor de begin- en eindtijd verschillend zijn.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse Periode)
+    pattern: ^Periode$
+  tot:
+    $ref: '#/components/schemas/Moment'
+  van:
+    $ref: '#/components/schemas/Moment'
+required:
+  - '@type'

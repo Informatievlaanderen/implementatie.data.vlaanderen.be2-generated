@@ -1,0 +1,26 @@
+title: PersonEnvelope
+type: object
+description: Enveloppe om Persoon en bijhorende validatiewaarschuwingen uit te wisselen.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse PersonEnvelope)
+    pattern: ^PersonEnvelope$
+  warning:
+    type: array
+    description: Lijst van Uitzondering items.
+    items:
+      $ref: '#/components/schemas/Uitzondering'
+    minItems: 1
+  data:
+    $ref: '#/components/schemas/GeregistreerdPersoon'
+  '@context':
+    type: string
+    description: URI of the JSON-LD versioned context file for this response.
+    pattern: ^https:\/\/implementatie.data.dev-vlaanderen.be\/\/doc\/implementatiemodel\/magda\/persoon\/v0.2.0\/context\/persoon.jsonld$
+required:
+  - '@type'
+  - data

@@ -1,0 +1,43 @@
+title: Inwonerschap
+type: object
+description: Het feit dat een Persoon verblijf houdt in een plaats of land.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse Inwonerschap)
+    pattern: ^Inwonerschap$
+  jurisdictie:
+    $ref: '#/components/schemas/Jurisdictie'
+  heeftVerblijfplaats:
+    type: array
+    description: Lijst van Verblijfplaats items.
+    items:
+      oneOf:
+        - $ref: '#/components/schemas/Domicilie'
+        - $ref: '#/components/schemas/AangegevenAdres'
+        - $ref: '#/components/schemas/VoorlopigeInschrijving'
+        - $ref: '#/components/schemas/Contactadres'
+        - $ref: '#/components/schemas/Postadres'
+        - $ref: '#/components/schemas/Referentieadres'
+        - $ref: '#/components/schemas/VerblijfplaatsBuitenlandDomicilie'
+        - $ref: '#/components/schemas/VerblijfplaatsBuitenland'
+        - $ref: '#/components/schemas/WettelijkVerblijf'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Domicilie: '#/components/schemas/Domicilie'
+          AangegevenAdres: '#/components/schemas/AangegevenAdres'
+          VoorlopigeInschrijving: '#/components/schemas/VoorlopigeInschrijving'
+          Contactadres: '#/components/schemas/Contactadres'
+          Postadres: '#/components/schemas/Postadres'
+          Referentieadres: '#/components/schemas/Referentieadres'
+          VerblijfplaatsBuitenlandDomicilie: '#/components/schemas/VerblijfplaatsBuitenlandDomicilie'
+          VerblijfplaatsBuitenland: '#/components/schemas/VerblijfplaatsBuitenland'
+          WettelijkVerblijf: '#/components/schemas/WettelijkVerblijf'
+    minItems: 1
+required:
+  - '@type'
+  - jurisdictie

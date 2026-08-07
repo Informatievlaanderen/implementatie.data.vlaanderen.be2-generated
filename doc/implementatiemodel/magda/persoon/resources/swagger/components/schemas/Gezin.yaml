@@ -1,0 +1,39 @@
+title: Gezin
+type: object
+description: Samenwerkingsvorm die een herkenbare sociale eenheid vormt (bijvoorbeeld ten gevolge van een huwelijk), met al dan niet verwante personen die duurzame banden hebben en elkaar onderling steun en verzorging verlenen.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse Gezin)
+    pattern: ^Gezin$
+  gezinsadres:
+    $ref: '#/components/schemas/Adresvoorstelling'
+  woonvorm:
+    $ref: '#/components/schemas/Woonvormtype'
+  gezinshoofd:
+    oneOf:
+      - $ref: '#/components/schemas/Persoon'
+      - $ref: '#/components/schemas/GeregistreerdPersoon'
+    discriminator:
+      propertyName: '@type'
+      mapping:
+        Persoon: '#/components/schemas/Persoon'
+        GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
+  gezinslid:
+    type: array
+    description: Lijst van Persoon items.
+    items:
+      oneOf:
+        - $ref: '#/components/schemas/Persoon'
+        - $ref: '#/components/schemas/GeregistreerdPersoon'
+      discriminator:
+        propertyName: '@type'
+        mapping:
+          Persoon: '#/components/schemas/Persoon'
+          GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
+    minItems: 1
+required:
+  - '@type'

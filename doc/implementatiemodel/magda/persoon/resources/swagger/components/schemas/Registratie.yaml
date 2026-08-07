@@ -1,0 +1,23 @@
+title: Registratie
+type: object
+description: Opname van de Persoon in het register.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse Registratie)
+    pattern: ^Registratie$
+  dossierstatus:
+    type: array
+    description: Lijst van Dossierstatus items.
+    items:
+      $ref: '#/components/schemas/Dossierstatus'
+    minItems: 1
+  referentiedossier:
+    $ref: '#/components/schemas/Identificator'
+  redenAfwezigheid:
+    $ref: '#/components/schemas/RedenAfwezigheid'
+required:
+  - '@type'
