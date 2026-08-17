@@ -18,6 +18,8 @@
 #||#  
 #||#   + adding supporting /home/circleci/project/config/test/voertuigregistratie-im.publication.json
 #||#  
+#||#   + adding supporting /home/circleci/project/config/test/zwangerschapsregistratie-im.publication.json
+#||#  
 Error: the following directories are unsupported
 [
   "/tmp/generated/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.0.1",
