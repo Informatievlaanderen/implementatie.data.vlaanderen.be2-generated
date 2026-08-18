@@ -1,0 +1,68 @@
+{
+  "title": "Persoon",
+  "type": "object",
+  "description": "Natuurlijk persoon.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Persoon)",
+      "pattern": "^Persoon$"
+    },
+    "familienaam": {
+      "$ref": "#/components/schemas/Persoon.familienaam"
+    },
+    "gegevenNaam": {
+      "type": "array",
+      "description": "Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie. Lijst van String items.",
+      "items": {
+        "$ref": "#/components/schemas/Persoon.gegevenNaam"
+      },
+      "minItems": 1
+    },
+    "isLidVan": {
+      "type": "array",
+      "description": "undefined Lijst van Organisatie items.",
+      "items": {
+        "$ref": "#/components/schemas/Organisatie"
+      },
+      "minItems": 1
+    },
+    "heeftZwangerschap": {
+      "type": "array",
+      "description": "Een Persoon heeft een Zwangerschap Lijst van Zwangerschap items.",
+      "items": {
+        "$ref": "#/components/schemas/Zwangerschap"
+      },
+      "minItems": 1
+    },
+    "identificator": {
+      "type": "array",
+      "description": "Identificator van het object. Bij implementatie in RDF is de uri vh object de identificator. Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    },
+    "wordtGeobserveerdDoor": {
+      "type": "array",
+      "description": "Wie was verantwoordelijk voor het vaststellen van de waargenomen waarde als \"waar\"? Lijst van MedischeObservatie items.",
+      "items": {
+        "$ref": "#/components/schemas/MedischeObservatie"
+      },
+      "minItems": 1
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/lv\\/zwangerschapsregistratie\\/v0.1.0\\/context\\/zwangerschapsregistratie.jsonld$"
+    }
+  },
+  "required": [
+    "@type",
+    "gegevenNaam"
+  ]
+}

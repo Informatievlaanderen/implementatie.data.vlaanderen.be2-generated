@@ -1,0 +1,59 @@
+{
+  "title": "MedischeObservatie",
+  "type": "object",
+  "description": "Metingen en eenvoudige beweringen over een patiënt, apparaat of ander onderwerp.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse MedischeObservatie)",
+      "pattern": "^MedischeObservatie$"
+    },
+    "effectiefTijdstip": {
+      "$ref": "#/components/schemas/MedischeObservatie.effectiefTijdstip"
+    },
+    "identificator": {
+      "type": "array",
+      "description": "Identificator van het object. Bij implementatie in RDF is de uri vh object de identificator. Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    },
+    "uitvoerder": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        },
+        {
+          "$ref": "#/components/schemas/Zorgverlener"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "Organisatie": "#/components/schemas/Organisatie",
+          "Zorgverlener": "#/components/schemas/Zorgverlener"
+        }
+      }
+    },
+    "vastgesteld": {
+      "type": "array",
+      "description": "De Gezondheidstoestand wordt vastgesteld aan de hand van een Medische Observatie. Lijst van Zwangerschapstoestand items.",
+      "items": {
+        "$ref": "#/components/schemas/Zwangerschapstoestand"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

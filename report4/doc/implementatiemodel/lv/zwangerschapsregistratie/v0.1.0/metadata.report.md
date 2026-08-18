@@ -8,6 +8,8 @@
 
 #||# start processing  
 
+Warning: no navigation defined for this rendering  
+
 #||# Checking Namespaces  
 
 #||# Finished  

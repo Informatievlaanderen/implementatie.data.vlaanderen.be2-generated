@@ -1,0 +1,329 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shacl: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#PersoonShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#AgentShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#OrganisatieShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#ZwangerschapShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#ZorgverlenerShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#MedischeObservatieShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#FoetusShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#ZwangerschapstoestandShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#StringShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#LangStringShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#DateTimeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#PeriodeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#IdentificatorShape> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#AgentShape> a shacl:NodeShape;
+  rdfs:label "Agent"@nl;
+  rdfs:comment "Iemand die of iets dat kan handelen of een effect kan teweeg brengen."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "identificator"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bij implementatie in RDF is de uri vh object de identificator."@nl;
+    rdfs:comment "Identificator van het object."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Agent.Identificator>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificator van het object."@nl;
+    shacl:name "identificator"@nl;
+    shacl:path <http://www.w3.org/ns/adms#identifier>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "wordt geobserveerd door"@nl;
+    rdfs:comment "Wie was verantwoordelijk voor het vaststellen van de waargenomen waarde als \"waar\"?"@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Agent.WordtGeobserveerdDoor>;
+    shacl:class <https://build.fhir.org/observation-definitions.html#Observation>;
+    shacl:description "Wie was verantwoordelijk voor het vaststellen van de waargenomen waarde als \"waar\"?"@nl;
+    shacl:name "wordt geobserveerd door"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/gezondheidstoestand/#wordtGeobserveerdDoor>
+  ];
+  shacl:targetClass <http://www.w3.org/ns/person#Person>,
+    <https://hl7.org/fhir/practitioner-definitions.html#Practitioner>,
+    dc:Agent,
+    org:Organization .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#DateTimeShape> a shacl:NodeShape;
+  rdfs:label "DateTime";
+  shacl:closed false;
+  shacl:targetClass xsd:dateTime .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#FoetusShape> a shacl:NodeShape;
+  rdfs:label "Foetus"@nl;
+  rdfs:comment "De ongeboren Persoon vanaf de achtste week van de Zwangerschap tot aan de Geboorte."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "deel van"@nl;
+    rdfs:comment "Een Foetus is deel van de Zwangerschap."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Foetus.DeelVan>;
+    shacl:class <https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap>;
+    shacl:description "Een Foetus is deel van de Zwangerschap."@nl;
+    shacl:maxCount 1;
+    shacl:name "deel van"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/gezondheidstoestand#deelVan>
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/gezondheidstoestand#Foetus> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#IdentificatorShape> a shacl:NodeShape;
+  rdfs:label "Identificator"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Uitgangspunt hier is dat deze string door een organisatie wordt toegekend en dat dit gebeurt volgens een welbepaald systeem."@nl;
+  rdfs:comment "Informatie gebruikt om een object uniek te identificeren."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "identificator"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator."@nl;
+    rdfs:comment "String gebruikt om het object uniek te identificeren."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Identificator.Identificator>;
+    shacl:description "String gebruikt om het object uniek te identificeren."@nl;
+    shacl:maxCount 1;
+    shacl:name "identificator"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "toegekendDoor";
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Identificator.ToegekendDoor>;
+    shacl:maxCount 1;
+    shacl:name "toegekendDoor";
+    shacl:or ([shacl:class dc:Agent] [shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class <https://hl7.org/fhir/practitioner-definitions.html#Practitioner>] [shacl:class org:Organization]);
+    shacl:path <https://data.vlaanderen.be/ns/generiek#toegekendDoor>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "toegekend door (String)"@nl;
+    <http://purl.org/vocab/vann/usageNote> ""@nl;
+    rdfs:comment "Naam vd agent die de identificator heeft toegekend."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Identificator.ToegekendDoor(String)>;
+    shacl:description "Naam vd agent die de identificator heeft toegekend."@nl;
+    shacl:maxCount 1;
+    shacl:name "toegekend door (String)"@nl;
+    shacl:or ([shacl:class dc:Agent] [shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class <https://hl7.org/fhir/practitioner-definitions.html#Practitioner>] [shacl:class org:Organization]);
+    shacl:path <http://www.w3.org/ns/adms#schemaAgency>
+  ];
+  shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#LangStringShape> a shacl:NodeShape;
+  rdfs:label "LangString";
+  shacl:closed false;
+  shacl:targetClass rdf:langString .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#MedischeObservatieShape> a shacl:NodeShape;
+  rdfs:label "Medische Observatie"@nl;
+  rdfs:comment "Metingen en eenvoudige beweringen over een patiënt, apparaat of ander onderwerp."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "effectief tijdstip"@nl;
+    rdfs:comment "De tijd of tijdsperiode waarin de waargenomen waarde als waar wordt beschouwd."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#MedischeObservatie.EffectiefTijdstip>;
+    shacl:datatype xsd:dateTime;
+    shacl:description "De tijd of tijdsperiode waarin de waargenomen waarde als waar wordt beschouwd."@nl;
+    shacl:maxCount 1;
+    shacl:name "effectief tijdstip"@nl;
+    shacl:path <https://hl7.org/fhir/observation-definitions.html#Observation.effective>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "identificator"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bij implementatie in RDF is de uri vh object de identificator."@nl;
+    rdfs:comment "Identificator van het object."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#MedischeObservatie.Identificator>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificator van het object."@nl;
+    shacl:name "identificator"@nl;
+    shacl:path <http://www.w3.org/ns/adms#identifier>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "uitvoerder"@nl;
+    rdfs:comment "Wie was verantwoordelijk voor het vaststellen van de waargenomen waarde als \"waar\"?"@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#MedischeObservatie.Uitvoerder>;
+    shacl:description "Wie was verantwoordelijk voor het vaststellen van de waargenomen waarde als \"waar\"?"@nl;
+    shacl:maxCount 1;
+    shacl:name "uitvoerder"@nl;
+    shacl:or ([shacl:class dc:Agent] [shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class <https://hl7.org/fhir/practitioner-definitions.html#Practitioner>] [shacl:class org:Organization]);
+    shacl:path <https://hl7.org/fhir/observation-definitions.html#Observation.performer>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "vastgesteld"@nl;
+    rdfs:comment "De Gezondheidstoestand wordt vastgesteld aan de hand van een Medische Observatie."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#MedischeObservatie.Vastgesteld>;
+    shacl:class <https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschapstoestand>;
+    shacl:description "De Gezondheidstoestand wordt vastgesteld aan de hand van een Medische Observatie."@nl;
+    shacl:name "vastgesteld"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/gezondheidstoestand#vastgesteld>
+  ];
+  shacl:targetClass <https://build.fhir.org/observation-definitions.html#Observation> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#OrganisatieShape> a shacl:NodeShape;
+  rdfs:label "Organisatie"@nl;
+  rdfs:comment "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "Naam waarmee de Organisatie bij voorkeur wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Organisatie.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee de Organisatie bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ];
+  shacl:targetClass org:Organization .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#PeriodeShape> a shacl:NodeShape;
+  rdfs:label "Periode"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Typisch volgt de duur uit het opgeven ve begin- en eindtijdstip."@nl;
+  rdfs:comment "Min of meer afgebakende tijdsduur."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "begin"@nl;
+    <http://purl.org/vocab/vann/usageNote> ""@nl;
+    rdfs:comment "Aanvang van de tijdsduur."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Periode.Begin>;
+    shacl:description "Aanvang van de tijdsduur."@nl;
+    shacl:maxCount 1;
+    shacl:name "begin"@nl;
+    shacl:nodeKind shacl:Literal;
+    shacl:path <http://data.europa.eu/m8g/startTime>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "einde"@nl;
+    <http://purl.org/vocab/vann/usageNote> ""@nl;
+    rdfs:comment "Einde vd tijdsduur."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Periode.Einde>;
+    shacl:description "Einde vd tijdsduur."@nl;
+    shacl:maxCount 1;
+    shacl:name "einde"@nl;
+    shacl:nodeKind shacl:Literal;
+    shacl:path <http://data.europa.eu/m8g/endTime>
+  ];
+  shacl:targetClass <http://data.europa.eu/m8g/PeriodOfTime> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#PersoonShape> a shacl:NodeShape;
+  rdfs:label "Persoon"@nl;
+  <http://purl.org/vocab/vann/usageNote> "In de rechtspraak betreft het een persoon (in de wettelijke betekenis, ttz met eigen rechtspersoonlijkheid) van de menselijke soort, ttz een fysiek persoon. Tegenhanger is de rechtspersoon, een juridische constructie die een private of publieke organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bv ook schulden hebben, contracten afsluiten, aangeklaagd worden etc)."@nl;
+  rdfs:comment "Natuurlijk persoon."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "familienaam"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt."@nl;
+    rdfs:comment "Gedeelte van de volledige naam vd persoon ontvangen van de vorige generatie."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Persoon.Familienaam>;
+    shacl:datatype xsd:string;
+    shacl:description "Gedeelte van de volledige naam vd persoon ontvangen van de vorige generatie."@nl;
+    shacl:maxCount 1;
+    shacl:name "familienaam"@nl;
+    shacl:path foaf:familyName
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "gegeven naam"@nl;
+    <http://purl.org/vocab/vann/usageNote> ""@nl;
+    rdfs:comment "Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Persoon.GegevenNaam>;
+    shacl:datatype xsd:string;
+    shacl:description "Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie."@nl;
+    shacl:minCount 1;
+    shacl:name "gegeven naam"@nl;
+    shacl:path foaf:givenName
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "isLidVan"@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Persoon.IsLidVan>;
+    shacl:class org:Organization;
+    shacl:name "isLidVan"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/persoon#isLidVan>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "heeft zwangerschap"@nl;
+    rdfs:comment "Een Persoon heeft een Zwangerschap"@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Persoon.HeeftZwangerschap>;
+    shacl:class <https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap>;
+    shacl:description "Een Persoon heeft een Zwangerschap"@nl;
+    shacl:name "heeft zwangerschap"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/gezondheidstoestand#Persoon.heeftZwangerschap>
+  ];
+  shacl:targetClass <http://www.w3.org/ns/person#Person>,
+    <https://hl7.org/fhir/practitioner-definitions.html#Practitioner> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#StringShape> a shacl:NodeShape;
+  rdfs:label "String";
+  shacl:closed false;
+  shacl:targetClass xsd:string .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#ZorgverlenerShape> a shacl:NodeShape;
+  rdfs:label "Zorgverlener"@nl;
+  rdfs:comment "Een persoon met een formele verantwoordelijkheid bij het verlenen van gezondheidszorg of aanverwante diensten."@nl;
+  shacl:closed false;
+  shacl:targetClass <https://hl7.org/fhir/practitioner-definitions.html#Practitioner> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#ZwangerschapShape> a shacl:NodeShape;
+  rdfs:label "Zwangerschap"@nl;
+  rdfs:comment "De staat waarin een Persoon een of meerdere embryo’s of foetussen draagt in de baarmoeder, wat leidt tot de ontwikkeling van een nieuw natuurlijk Persoon."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "identificator"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bij implementatie in RDF is de uri vh object de identificator."@nl;
+    rdfs:comment "Identificator van het object."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Zwangerschap.Identificator>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificator van het object."@nl;
+    shacl:minCount 1;
+    shacl:name "identificator"@nl;
+    shacl:path <http://www.w3.org/ns/adms#identifier>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "toestand";
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Zwangerschap.Toestand>;
+    shacl:class <https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschapstoestand>;
+    shacl:maxCount 1;
+    shacl:name "toestand";
+    shacl:path <https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap.toestand>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "heeft foetus"@nl;
+    rdfs:comment "Een Zwangerschap heeft een of meerdere Foetussen."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Zwangerschap.HeeftFoetus>;
+    shacl:class <https://data.vlaanderen.be/ns/gezondheidstoestand#Foetus>;
+    shacl:description "Een Zwangerschap heeft een of meerdere Foetussen."@nl;
+    shacl:name "heeft foetus"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap.heeftFoetus>
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#ZwangerschapstoestandShape> a shacl:NodeShape;
+  rdfs:label "Zwangerschapstoestand"@nl;
+  rdfs:comment "De medische toestand bij een Zwangerschap van de Persoon"@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "duur"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Kan ofwel uitgedrukt worden in aantal weken of in aantal dagen met mogelijke conversie naar het aantal weken."@nl;
+    rdfs:comment "De periode van de Zwangerschap."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Zwangerschapstoestand.Duur>;
+    shacl:class <http://data.europa.eu/m8g/PeriodOfTime>;
+    shacl:description "De periode van de Zwangerschap."@nl;
+    shacl:maxCount 1;
+    shacl:name "duur"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschapstoestand.duur>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "vastgesteld door"@nl;
+    rdfs:comment "De Medische Observatie stelt een Gezondheidstoestand vast."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0#Zwangerschapstoestand.VastgesteldDoor>;
+    shacl:class <https://build.fhir.org/observation-definitions.html#Observation>;
+    shacl:description "De Medische Observatie stelt een Gezondheidstoestand vast."@nl;
+    shacl:name "vastgesteld door"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/gezondheidstoestand#MedischeObservatie.vastgesteldDoor>
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschapstoestand> .
