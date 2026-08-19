@@ -14,7 +14,7 @@
     },
     "warning": {
       "type": "array",
-      "description": "Lijst van Uitzondering items.",
+      "description": "Foutmeldingen die opgetreden zijn bij het afleveren van de data. Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen. Lijst van Uitzondering items.",
       "items": {
         "$ref": "#/components/schemas/Uitzondering"
       },
@@ -22,6 +22,11 @@
     },
     "data": {
       "$ref": "#/components/schemas/GeregistreerdPersoon"
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/\\/doc\\/implementatiemodel\\/magda\\/persoon\\/v0.3.0\\/context\\/persoon.jsonld$"
     }
   },
   "required": [

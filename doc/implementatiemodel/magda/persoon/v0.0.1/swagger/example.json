@@ -232,6 +232,70 @@
   },
   "components": {
     "schemas": {
+      "Persoon.voornaam": {
+        "title": "Persoon.voornaam",
+        "type": "object",
+        "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Persoon.achternaam": {
+        "title": "Persoon.achternaam",
+        "type": "object",
+        "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Persoon.creatiedatum": {
+        "title": "Persoon.creatiedatum",
+        "type": "object",
+        "description": "Datum waarop de gegevens zijn ingevoerd.",
+        "properties": {
+          "@value": {
+            "type": "string",
+            "format": "date"
+          },
+          "@type": {
+            "type": "string",
+            "pattern": "^Date$"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
+      "Persoon.modificatiedatum": {
+        "title": "Persoon.modificatiedatum",
+        "type": "object",
+        "description": "Datum waarop de gegevens werden bijgewerkt.",
+        "properties": {
+          "@value": {
+            "type": "string",
+            "format": "date"
+          },
+          "@type": {
+            "type": "string",
+            "pattern": "^Date$"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
       "Persoon": {
         "title": "Persoon",
         "type": "object",
@@ -248,35 +312,17 @@
           },
           "voornaam": {
             "type": "array",
-            "description": "Lijst van String items.",
+            "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie. Lijst van String items.",
             "items": {
-              "type": "object",
-              "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
-              "properties": {
-                "@value": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@value"
-              ]
+              "$ref": "#/components/schemas/Persoon.voornaam"
             },
             "minItems": 1
           },
           "achternaam": {
             "type": "array",
-            "description": "Lijst van String items.",
+            "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt. Lijst van String items.",
             "items": {
-              "type": "object",
-              "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
-              "properties": {
-                "@value": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@value"
-              ]
+              "$ref": "#/components/schemas/Persoon.achternaam"
             },
             "minItems": 1
           },
@@ -300,7 +346,7 @@
           },
           "heeftInwonerschap": {
             "type": "array",
-            "description": "Lijst van Inwonerschap items.",
+            "description": "Inwonerschap van de persoon. Lijst van Inwonerschap items.",
             "items": {
               "$ref": "#/components/schemas/Inwonerschap"
             },
@@ -308,7 +354,7 @@
           },
           "heeftPersoonsrelatie": {
             "type": "array",
-            "description": "Lijst van Persoonsrelatie items.",
+            "description": "Persoonsrelatie van de persoon. Lijst van Persoonsrelatie items.",
             "items": {
               "oneOf": [
                 {
@@ -338,47 +384,17 @@
           },
           "isLidVan": {
             "type": "array",
-            "description": "Lijst van Gezin items.",
+            "description": "Persoon die tot een Gezin behoort. Lijst van Gezin items.",
             "items": {
               "$ref": "#/components/schemas/Gezin"
             },
             "minItems": 1
           },
           "creatiedatum": {
-            "type": "object",
-            "description": "Datum waarop de gegevens zijn ingevoerd.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Persoon.creatiedatum"
           },
           "modificatiedatum": {
-            "type": "object",
-            "description": "Datum waarop de gegevens werden bijgewerkt.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Persoon.modificatiedatum"
           },
           "bron": {
             "$ref": "#/components/schemas/Organisatie"
@@ -388,6 +404,24 @@
           "@type",
           "creatiedatum",
           "bron"
+        ]
+      },
+      "Plaats.plaatsnaam": {
+        "title": "Plaats.plaatsnaam",
+        "type": "object",
+        "description": "Naam van de plaats of van het gebied.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
         ]
       },
       "Plaats": {
@@ -405,21 +439,7 @@
             "pattern": "^Plaats$"
           },
           "plaatsnaam": {
-            "type": "object",
-            "description": "Naam van de plaats of van het gebied.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Plaats.plaatsnaam"
           },
           "plaats": {
             "oneOf": [
@@ -501,6 +521,25 @@
           "metPersoon"
         ]
       },
+      "Overlijden.datum": {
+        "title": "Overlijden.datum",
+        "type": "object",
+        "description": "Datum waarop de gebeurtenis plaatsvond.",
+        "properties": {
+          "@value": {
+            "type": "string",
+            "format": "date"
+          },
+          "@type": {
+            "type": "string",
+            "pattern": "^Date$"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
       "Overlijden": {
         "title": "Overlijden",
         "type": "object",
@@ -516,22 +555,7 @@
             "pattern": "^Overlijden$"
           },
           "datum": {
-            "type": "object",
-            "description": "Datum waarop de gebeurtenis plaatsvond.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Overlijden.datum"
           },
           "plaats": {
             "oneOf": [
@@ -552,6 +576,25 @@
           }
         },
         "required": [
+          "@type"
+        ]
+      },
+      "Persoonsgebeurtenis.datum": {
+        "title": "Persoonsgebeurtenis.datum",
+        "type": "object",
+        "description": "Datum waarop de gebeurtenis plaatsvond.",
+        "properties": {
+          "@value": {
+            "type": "string",
+            "format": "date"
+          },
+          "@type": {
+            "type": "string",
+            "pattern": "^Date$"
+          }
+        },
+        "required": [
+          "@value",
           "@type"
         ]
       },
@@ -570,22 +613,7 @@
             "pattern": "^Persoonsgebeurtenis$"
           },
           "datum": {
-            "type": "object",
-            "description": "Datum waarop de gebeurtenis plaatsvond.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Persoonsgebeurtenis.datum"
           },
           "plaats": {
             "oneOf": [
@@ -609,6 +637,25 @@
           "@type"
         ]
       },
+      "Geboorte.datum": {
+        "title": "Geboorte.datum",
+        "type": "object",
+        "description": "Datum waarop de gebeurtenis plaatsvond.",
+        "properties": {
+          "@value": {
+            "type": "string",
+            "format": "date"
+          },
+          "@type": {
+            "type": "string",
+            "pattern": "^Date$"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
       "Geboorte": {
         "title": "Geboorte",
         "type": "object",
@@ -624,22 +671,7 @@
             "pattern": "^Geboorte$"
           },
           "datum": {
-            "type": "object",
-            "description": "Datum waarop de gebeurtenis plaatsvond.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Geboorte.datum"
           },
           "plaats": {
             "oneOf": [
@@ -735,6 +767,44 @@
           "metPersoon"
         ]
       },
+      "Versie.creatiedatum": {
+        "title": "Versie.creatiedatum",
+        "type": "object",
+        "description": "Datum waarop de gegevens zijn ingevoerd.",
+        "properties": {
+          "@value": {
+            "type": "string",
+            "format": "date"
+          },
+          "@type": {
+            "type": "string",
+            "pattern": "^Date$"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
+      "Versie.modificatiedatum": {
+        "title": "Versie.modificatiedatum",
+        "type": "object",
+        "description": "Datum waarop de gegevens werden bijgewerkt.",
+        "properties": {
+          "@value": {
+            "type": "string",
+            "format": "date"
+          },
+          "@type": {
+            "type": "string",
+            "pattern": "^Date$"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
       "Versie": {
         "title": "Versie",
         "type": "object",
@@ -750,40 +820,10 @@
             "pattern": "^Versie$"
           },
           "creatiedatum": {
-            "type": "object",
-            "description": "Datum waarop de gegevens zijn ingevoerd.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Versie.creatiedatum"
           },
           "modificatiedatum": {
-            "type": "object",
-            "description": "Datum waarop de gegevens werden bijgewerkt.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Versie.modificatiedatum"
           },
           "bron": {
             "$ref": "#/components/schemas/Organisatie"
@@ -814,6 +854,99 @@
           "@type"
         ]
       },
+      "Probleemdetail.type": {
+        "title": "Probleemdetail.type",
+        "type": "object",
+        "description": "Aard van de fout.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "pattern": "^AnyURI$"
+          }
+        },
+        "required": [
+          "@id",
+          "@type"
+        ]
+      },
+      "Probleemdetail.titel": {
+        "title": "Probleemdetail.titel",
+        "type": "object",
+        "description": "Korte mensleesbare beschrijving van de fout.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "Probleemdetail.status": {
+        "title": "Probleemdetail.status",
+        "type": "object",
+        "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">rfc7231</a>. Bvb 404 voor \"Not Found\".",
+        "properties": {
+          "@value": {
+            "type": "number",
+            "format": "int64"
+          },
+          "@type": {
+            "type": "string",
+            "pattern": "^Integer$"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
+      "Probleemdetail.detail": {
+        "title": "Probleemdetail.detail",
+        "type": "object",
+        "description": "Mensleesbare beschrijving van de fout.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "Probleemdetail.instantie": {
+        "title": "Probleemdetail.instantie",
+        "type": "object",
+        "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bvb verwijzing naar de request.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "pattern": "^AnyURI$"
+          }
+        },
+        "required": [
+          "@id",
+          "@type"
+        ]
+      },
       "Probleemdetail": {
         "title": "Probleemdetail",
         "type": "object",
@@ -829,88 +962,60 @@
             "pattern": "^Probleemdetail$"
           },
           "type": {
-            "type": "object",
-            "description": "Aard van de fout.",
-            "properties": {
-              "@id": {
-                "type": "string",
-                "format": "uri"
-              }
-            },
-            "required": [
-              "@id"
-            ]
+            "$ref": "#/components/schemas/Probleemdetail.type"
           },
           "titel": {
-            "type": "object",
-            "description": "Korte mensleesbare beschrijving van de fout.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Probleemdetail.titel"
           },
           "status": {
-            "type": "object",
-            "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">rfc7231</a>. Bvb 404 voor \"Not Found\".",
-            "properties": {
-              "@value": {
-                "type": "number",
-                "format": "int64"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Integer$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Probleemdetail.status"
           },
           "detail": {
-            "type": "object",
-            "description": "Mensleesbare beschrijving van de fout.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Probleemdetail.detail"
           },
           "instantie": {
-            "type": "object",
-            "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bvb verwijzing naar de request.",
-            "properties": {
-              "@id": {
-                "type": "string",
-                "format": "uri"
-              }
-            },
-            "required": [
-              "@id"
-            ]
+            "$ref": "#/components/schemas/Probleemdetail.instantie"
           }
         },
         "required": [
           "@type",
           "type",
           "titel"
+        ]
+      },
+      "AdministratieveEenheid.land": {
+        "title": "AdministratieveEenheid.land",
+        "type": "object",
+        "description": "Land waartoe de administratieveeenheid behoort.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
+      "AdministratieveEenheid.plaatsnaam": {
+        "title": "AdministratieveEenheid.plaatsnaam",
+        "type": "object",
+        "description": "Naam van de plaats of van het gebied.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
         ]
       },
       "AdministratieveEenheid": {
@@ -928,16 +1033,7 @@
             "pattern": "^AdministratieveEenheid$"
           },
           "land": {
-            "type": "object",
-            "description": "Land waartoe de administratieveeenheid behoort.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/AdministratieveEenheid.land"
           },
           "identificator": {
             "$ref": "#/components/schemas/Identificator"
@@ -946,21 +1042,7 @@
             "$ref": "#/components/schemas/AdministratieveEenheidniveau"
           },
           "plaatsnaam": {
-            "type": "object",
-            "description": "Naam van de plaats of van het gebied.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/AdministratieveEenheid.plaatsnaam"
           },
           "plaats": {
             "oneOf": [
@@ -1000,7 +1082,7 @@
           },
           "errors": {
             "type": "array",
-            "description": "Lijst van Probleemdetail items.",
+            "description": "Foutmeldingen die opgetreden zijn bij het afleveren van de data. Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen. Lijst van Probleemdetail items.",
             "items": {
               "$ref": "#/components/schemas/Probleemdetail"
             },
@@ -1056,7 +1138,7 @@
           },
           "heeftVerblijfplaats": {
             "type": "array",
-            "description": "Lijst van Verblijfplaats items.",
+            "description": "Plaats waar een persoon verblijft. Lijst van Verblijfplaats items.",
             "items": {
               "oneOf": [
                 {
@@ -1163,6 +1245,70 @@
           "metPersoon"
         ]
       },
+      "GeregistreerdPersoon.voornaam": {
+        "title": "GeregistreerdPersoon.voornaam",
+        "type": "object",
+        "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "GeregistreerdPersoon.achternaam": {
+        "title": "GeregistreerdPersoon.achternaam",
+        "type": "object",
+        "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "GeregistreerdPersoon.creatiedatum": {
+        "title": "GeregistreerdPersoon.creatiedatum",
+        "type": "object",
+        "description": "Datum waarop de gegevens zijn ingevoerd.",
+        "properties": {
+          "@value": {
+            "type": "string",
+            "format": "date"
+          },
+          "@type": {
+            "type": "string",
+            "pattern": "^Date$"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
+      "GeregistreerdPersoon.modificatiedatum": {
+        "title": "GeregistreerdPersoon.modificatiedatum",
+        "type": "object",
+        "description": "Datum waarop de gegevens werden bijgewerkt.",
+        "properties": {
+          "@value": {
+            "type": "string",
+            "format": "date"
+          },
+          "@type": {
+            "type": "string",
+            "pattern": "^Date$"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
       "GeregistreerdPersoon": {
         "title": "GeregistreerdPersoon",
         "type": "object",
@@ -1194,35 +1340,17 @@
           },
           "voornaam": {
             "type": "array",
-            "description": "Lijst van String items.",
+            "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie. Lijst van String items.",
             "items": {
-              "type": "object",
-              "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
-              "properties": {
-                "@value": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@value"
-              ]
+              "$ref": "#/components/schemas/GeregistreerdPersoon.voornaam"
             },
             "minItems": 1
           },
           "achternaam": {
             "type": "array",
-            "description": "Lijst van String items.",
+            "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt. Lijst van String items.",
             "items": {
-              "type": "object",
-              "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
-              "properties": {
-                "@value": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@value"
-              ]
+              "$ref": "#/components/schemas/GeregistreerdPersoon.achternaam"
             },
             "minItems": 1
           },
@@ -1246,7 +1374,7 @@
           },
           "heeftInwonerschap": {
             "type": "array",
-            "description": "Lijst van Inwonerschap items.",
+            "description": "Inwonerschap van de persoon. Lijst van Inwonerschap items.",
             "items": {
               "$ref": "#/components/schemas/Inwonerschap"
             },
@@ -1254,7 +1382,7 @@
           },
           "heeftPersoonsrelatie": {
             "type": "array",
-            "description": "Lijst van Persoonsrelatie items.",
+            "description": "Persoonsrelatie van de persoon. Lijst van Persoonsrelatie items.",
             "items": {
               "oneOf": [
                 {
@@ -1284,47 +1412,17 @@
           },
           "isLidVan": {
             "type": "array",
-            "description": "Lijst van Gezin items.",
+            "description": "Persoon die tot een Gezin behoort. Lijst van Gezin items.",
             "items": {
               "$ref": "#/components/schemas/Gezin"
             },
             "minItems": 1
           },
           "creatiedatum": {
-            "type": "object",
-            "description": "Datum waarop de gegevens zijn ingevoerd.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/GeregistreerdPersoon.creatiedatum"
           },
           "modificatiedatum": {
-            "type": "object",
-            "description": "Datum waarop de gegevens werden bijgewerkt.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/GeregistreerdPersoon.modificatiedatum"
           },
           "bron": {
             "$ref": "#/components/schemas/Organisatie"
@@ -1358,6 +1456,25 @@
           "@type"
         ]
       },
+      "Afstamming.datumVanAfstamming": {
+        "title": "Afstamming.datumVanAfstamming",
+        "type": "object",
+        "description": "De datum waarop de afstamming wordt vastgesteld.",
+        "properties": {
+          "@value": {
+            "type": "string",
+            "format": "date"
+          },
+          "@type": {
+            "type": "string",
+            "pattern": "^Date$"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
       "Afstamming": {
         "title": "Afstamming",
         "type": "object",
@@ -1373,22 +1490,7 @@
             "pattern": "^Afstamming$"
           },
           "datumVanAfstamming": {
-            "type": "object",
-            "description": "De datum waarop de afstamming wordt vastgesteld.",
-            "properties": {
-              "@value": {
-                "type": "string",
-                "format": "date"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Date$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Afstamming.datumVanAfstamming"
           },
           "afstammingstype": {
             "$ref": "#/components/schemas/Afstammingstype"
@@ -1550,7 +1652,7 @@
           },
           "gezinslid": {
             "type": "array",
-            "description": "Lijst van Persoon items.",
+            "description": "Personen waaruit het Gezin bestaat. Lijst van Persoon items.",
             "items": {
               "oneOf": [
                 {
@@ -1597,6 +1699,24 @@
           "@type"
         ]
       },
+      "Organisatie.voorkeursnaam": {
+        "title": "Organisatie.voorkeursnaam",
+        "type": "object",
+        "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
       "Organisatie": {
         "title": "Organisatie",
         "type": "object",
@@ -1612,21 +1732,7 @@
             "pattern": "^Organisatie$"
           },
           "voorkeursnaam": {
-            "type": "object",
-            "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Organisatie.voorkeursnaam"
           },
           "identificator": {
             "$ref": "#/components/schemas/Identificator"
@@ -1746,6 +1852,24 @@
           "@type"
         ]
       },
+      "AdministratiefBeheerder.voorkeursnaam": {
+        "title": "AdministratiefBeheerder.voorkeursnaam",
+        "type": "object",
+        "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
       "AdministratiefBeheerder": {
         "title": "AdministratiefBeheerder",
         "type": "object",
@@ -1764,21 +1888,7 @@
             "$ref": "#/components/schemas/AdministratiefBeheerdertype"
           },
           "voorkeursnaam": {
-            "type": "object",
-            "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/AdministratiefBeheerder.voorkeursnaam"
           },
           "identificator": {
             "$ref": "#/components/schemas/Identificator"
@@ -1824,6 +1934,233 @@
           "@type"
         ]
       },
+      "Adresvoorstelling.administratieveEenheidNiveau1": {
+        "title": "Adresvoorstelling.administratieveEenheidNiveau1",
+        "type": "object",
+        "description": "Hoogste Administratieve eenheid van het adres, doorgaans een land.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "Adresvoorstelling.administratieveEenheidNiveau2": {
+        "title": "Adresvoorstelling.administratieveEenheidNiveau2",
+        "type": "object",
+        "description": "De regio van het adres, doorgaans een provincie of deelstaat of gelijkaardig gebied dat typisch meerdere plaatsen omvat.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "Adresvoorstelling.adresgebied": {
+        "title": "Adresvoorstelling.adresgebied",
+        "type": "object",
+        "description": "Naam van een geografisch gebied of plaats die een aantal adresseerbare objecten groepeert om deze te adresseren zonder dat het gebied of de plaats een administratieve eenheid is. Bvb de naam van het gehucht waarin het adres ligt.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "Adresvoorstelling.busnummer": {
+        "title": "Adresvoorstelling.busnummer",
+        "type": "object",
+        "description": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben. Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Adresvoorstelling.gemeentenaam": {
+        "title": "Adresvoorstelling.gemeentenaam",
+        "type": "object",
+        "description": "Gemeentenaam van het adres.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "Adresvoorstelling.huisnummer": {
+        "title": "Adresvoorstelling.huisnummer",
+        "type": "object",
+        "description": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen. Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Adresvoorstelling.land": {
+        "title": "Adresvoorstelling.land",
+        "type": "object",
+        "description": "Land waarin het adres gelegen is.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "Adresvoorstelling.locatieaanduiding": {
+        "title": "Adresvoorstelling.locatieaanduiding",
+        "type": "object",
+        "description": "Alfanumerieke code die de adreslocator uniek identificeert binnen de straat, administratieve eenheid etc.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Adresvoorstelling.locatienaam": {
+        "title": "Adresvoorstelling.locatienaam",
+        "type": "object",
+        "description": "Naam of omschrijving van het het geografisch object dat de adreslocator aanduidt.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "Adresvoorstelling.postbus": {
+        "title": "Adresvoorstelling.postbus",
+        "type": "object",
+        "description": "Postbusnummer in een postkantoor.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Adresvoorstelling.postcode": {
+        "title": "Adresvoorstelling.postcode",
+        "type": "object",
+        "description": "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Adresvoorstelling.postnaam": {
+        "title": "Adresvoorstelling.postnaam",
+        "type": "object",
+        "description": "Naam waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "Adresvoorstelling.straatnaam": {
+        "title": "Adresvoorstelling.straatnaam",
+        "type": "object",
+        "description": "Straatnaam van het adres.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "Adresvoorstelling.volledigAdres": {
+        "title": "Adresvoorstelling.volledigAdres",
+        "type": "object",
+        "description": "Het complete adres in één string, al dan niet geformatteerd. Vermijdt fouten ten gevolge van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
       "Adresvoorstelling": {
         "title": "Adresvoorstelling",
         "type": "object",
@@ -1839,227 +2176,56 @@
             "pattern": "^Adresvoorstelling$"
           },
           "administratieveEenheidNiveau1": {
-            "type": "object",
-            "description": "Hoogste Administratieve eenheid van het adres, doorgaans een land.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.administratieveEenheidNiveau1"
           },
           "administratieveEenheidNiveau2": {
-            "type": "object",
-            "description": "De regio van het adres, doorgaans een provincie of deelstaat of gelijkaardig gebied dat typisch meerdere plaatsen omvat.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.administratieveEenheidNiveau2"
           },
           "adresgebied": {
-            "type": "object",
-            "description": "Naam van een geografisch gebied of plaats die een aantal adresseerbare objecten groepeert om deze te adresseren zonder dat het gebied of de plaats een administratieve eenheid is. Bvb de naam van het gehucht waarin het adres ligt.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.adresgebied"
           },
           "busnummer": {
-            "type": "object",
-            "description": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben. Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.busnummer"
           },
           "gemeentenaam": {
-            "type": "object",
-            "description": "Gemeentenaam van het adres.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.gemeentenaam"
           },
           "huisnummer": {
-            "type": "object",
-            "description": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen. Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.huisnummer"
           },
           "land": {
-            "type": "object",
-            "description": "Land waarin het adres gelegen is.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.land"
           },
           "locatieaanduiding": {
             "type": "array",
-            "description": "Lijst van String items.",
+            "description": "Alfanumerieke code die de adreslocator uniek identificeert binnen de straat, administratieve eenheid etc. Lijst van String items.",
             "items": {
-              "type": "object",
-              "description": "Alfanumerieke code die de adreslocator uniek identificeert binnen de straat, administratieve eenheid etc.",
-              "properties": {
-                "@value": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@value"
-              ]
+              "$ref": "#/components/schemas/Adresvoorstelling.locatieaanduiding"
             },
             "minItems": 1
           },
           "locatienaam": {
             "type": "array",
-            "description": "Lijst van LangString items.",
+            "description": "Naam of omschrijving van het het geografisch object dat de adreslocator aanduidt. Lijst van LangString items.",
             "items": {
-              "type": "object",
-              "description": "Naam of omschrijving van het het geografisch object dat de adreslocator aanduidt.",
-              "properties": {
-                "@value": {
-                  "type": "string"
-                },
-                "@language": {
-                  "type": "string",
-                  "pattern": "^nl$"
-                }
-              },
-              "required": [
-                "@value",
-                "@language"
-              ]
+              "$ref": "#/components/schemas/Adresvoorstelling.locatienaam"
             },
             "minItems": 1
           },
           "postbus": {
-            "type": "object",
-            "description": "Postbusnummer in een postkantoor.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.postbus"
           },
           "postcode": {
-            "type": "object",
-            "description": "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.postcode"
           },
           "postnaam": {
-            "type": "object",
-            "description": "Naam waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.postnaam"
           },
           "straatnaam": {
-            "type": "object",
-            "description": "Straatnaam van het adres.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.straatnaam"
           },
           "volledigAdres": {
-            "type": "object",
-            "description": "Het complete adres in één string, al dan niet geformatteerd. Vermijdt fouten ten gevolge van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.volledigAdres"
           },
           "verwijstNaar": {
             "$ref": "#/components/schemas/BelgischAdres"
@@ -2086,6 +2252,23 @@
           "@type"
         ]
       },
+      "Identificator.identificator": {
+        "title": "Identificator.identificator",
+        "type": "object",
+        "description": "String gebruikt om het object uniek te identificeren. Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
       "Identificator": {
         "title": "Identificator",
         "type": "object",
@@ -2101,19 +2284,99 @@
             "pattern": "^Identificator$"
           },
           "identificator": {
-            "type": "object",
-            "description": "String gebruikt om het object uniek te identificeren. Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Identificator.identificator"
           }
         },
         "required": [
+          "@type"
+        ]
+      },
+      "Contactinfo.aanschrijfvorm": {
+        "title": "Contactinfo.aanschrijfvorm",
+        "type": "object",
+        "description": "Titel waarmee iemand wordt aangeschreven of aangesproken of waarmee naar iemand wordt verwezen. Bijvoorbeeld: De heer/Mevrouw, Excellentie, Dokter, ...",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "Contactinfo.naam": {
+        "title": "Contactinfo.naam",
+        "type": "object",
+        "description": "Naam van bijvoorbeeld de persoon die men kan contacteren.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Contactinfo.email": {
+        "title": "Contactinfo.email",
+        "type": "object",
+        "description": "Email-adres waarnaar men kan mailen.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Contactinfo.faxnummer": {
+        "title": "Contactinfo.faxnummer",
+        "type": "object",
+        "description": "Faxnummer waarnaar men kan faxen.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Contactinfo.telefoon": {
+        "title": "Contactinfo.telefoon",
+        "type": "object",
+        "description": "Telefoonnummer waarop men kan bellen.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Contactinfo.website": {
+        "title": "Contactinfo.website",
+        "type": "object",
+        "description": "Website waarnaar men kan surfen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "pattern": "^AnyURI$"
+          }
+        },
+        "required": [
+          "@id",
           "@type"
         ]
       },
@@ -2132,82 +2395,22 @@
             "pattern": "^Contactinfo$"
           },
           "aanschrijfvorm": {
-            "type": "object",
-            "description": "Titel waarmee iemand wordt aangeschreven of aangesproken of waarmee naar iemand wordt verwezen. Bijvoorbeeld: De heer/Mevrouw, Excellentie, Dokter, ...",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Contactinfo.aanschrijfvorm"
           },
           "naam": {
-            "type": "object",
-            "description": "Naam van bijvoorbeeld de persoon die men kan contacteren.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Contactinfo.naam"
           },
           "email": {
-            "type": "object",
-            "description": "Email-adres waarnaar men kan mailen.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Contactinfo.email"
           },
           "faxnummer": {
-            "type": "object",
-            "description": "Faxnummer waarnaar men kan faxen.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Contactinfo.faxnummer"
           },
           "telefoon": {
-            "type": "object",
-            "description": "Telefoonnummer waarop men kan bellen.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Contactinfo.telefoon"
           },
           "website": {
-            "type": "object",
-            "description": "Website waarnaar men kan surfen.",
-            "properties": {
-              "@id": {
-                "type": "string",
-                "format": "uri"
-              }
-            },
-            "required": [
-              "@id"
-            ]
+            "$ref": "#/components/schemas/Contactinfo.website"
           },
           "adres": {
             "$ref": "#/components/schemas/Adresvoorstelling"

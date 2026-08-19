@@ -26,7 +26,7 @@
     },
     "beheerder": {
       "type": "array",
-      "description": "Lijst van AdministratiefBeheerder items.",
+      "description": "Verwijzing naar de Adminstratiefbeheerder van het dossier van de persoon. Normaal is er maar 1 beheerder aanwezig bij een persoon, maar in uitzonderlijke gevallen kunnen er meerdere beheerders zijn. Bijvoorbeeld: de persoon heeft een adres in het buitenland, is aan het verhuizen tussen gemeenten, etc. Lijst van AdministratiefBeheerder items.",
       "items": {
         "$ref": "#/components/schemas/AdministratiefBeheerder"
       },
@@ -34,35 +34,17 @@
     },
     "voornaam": {
       "type": "array",
-      "description": "Lijst van String items.",
+      "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie. Lijst van String items.",
       "items": {
-        "type": "object",
-        "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "$ref": "#/components/schemas/GeregistreerdPersoon.voornaam"
       },
       "minItems": 1
     },
     "achternaam": {
       "type": "array",
-      "description": "Lijst van String items.",
+      "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt. Lijst van String items.",
       "items": {
-        "type": "object",
-        "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "$ref": "#/components/schemas/GeregistreerdPersoon.achternaam"
       },
       "minItems": 1
     },
@@ -86,7 +68,7 @@
     },
     "heeftInwonerschap": {
       "type": "array",
-      "description": "Lijst van Inwonerschap items.",
+      "description": "Inwonerschap van de persoon. Lijst van Inwonerschap items.",
       "items": {
         "$ref": "#/components/schemas/Inwonerschap"
       },
@@ -94,7 +76,7 @@
     },
     "heeftPersoonsrelatie": {
       "type": "array",
-      "description": "Lijst van Persoonsrelatie items.",
+      "description": "Persoonsrelatie van de persoon. Lijst van Persoonsrelatie items.",
       "items": {
         "oneOf": [
           {
@@ -124,47 +106,17 @@
     },
     "isLidVan": {
       "type": "array",
-      "description": "Lijst van Gezin items.",
+      "description": "Persoon die tot een Gezin behoort. Lijst van Gezin items.",
       "items": {
         "$ref": "#/components/schemas/Gezin"
       },
       "minItems": 1
     },
     "creatiedatum": {
-      "type": "object",
-      "description": "Datum waarop de gegevens zijn ingevoerd.",
-      "properties": {
-        "@value": {
-          "type": "string",
-          "format": "date"
-        },
-        "@type": {
-          "type": "string",
-          "pattern": "^Date$"
-        }
-      },
-      "required": [
-        "@value",
-        "@type"
-      ]
+      "$ref": "#/components/schemas/GeregistreerdPersoon.creatiedatum"
     },
     "modificatiedatum": {
-      "type": "object",
-      "description": "Datum waarop de gegevens werden bijgewerkt.",
-      "properties": {
-        "@value": {
-          "type": "string",
-          "format": "date"
-        },
-        "@type": {
-          "type": "string",
-          "pattern": "^Date$"
-        }
-      },
-      "required": [
-        "@value",
-        "@type"
-      ]
+      "$ref": "#/components/schemas/GeregistreerdPersoon.modificatiedatum"
     },
     "bron": {
       "$ref": "#/components/schemas/Organisatie"

@@ -13,227 +13,56 @@
       "pattern": "^Adresvoorstelling$"
     },
     "administratieveEenheidNiveau1": {
-      "type": "object",
-      "description": "Hoogste Administratieve eenheid van het adres, doorgaans een land.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        },
-        "@language": {
-          "type": "string",
-          "pattern": "^nl$"
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
+      "$ref": "#/components/schemas/Adresvoorstelling.administratieveEenheidNiveau1"
     },
     "administratieveEenheidNiveau2": {
-      "type": "object",
-      "description": "De regio van het adres, doorgaans een provincie of deelstaat of gelijkaardig gebied dat typisch meerdere plaatsen omvat.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        },
-        "@language": {
-          "type": "string",
-          "pattern": "^nl$"
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
+      "$ref": "#/components/schemas/Adresvoorstelling.administratieveEenheidNiveau2"
     },
     "adresgebied": {
-      "type": "object",
-      "description": "Naam van een geografisch gebied of plaats die een aantal adresseerbare objecten groepeert om deze te adresseren zonder dat het gebied of de plaats een administratieve eenheid is. Bijvoorbeeld: de naam van het gehucht waarin het adres ligt.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        },
-        "@language": {
-          "type": "string",
-          "pattern": "^nl$"
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
+      "$ref": "#/components/schemas/Adresvoorstelling.adresgebied"
     },
     "busnummer": {
-      "type": "object",
-      "description": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben. Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@value"
-      ]
+      "$ref": "#/components/schemas/Adresvoorstelling.busnummer"
     },
     "gemeentenaam": {
-      "type": "object",
-      "description": "Gemeentenaam van het adres.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        },
-        "@language": {
-          "type": "string",
-          "pattern": "^nl$"
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
+      "$ref": "#/components/schemas/Adresvoorstelling.gemeentenaam"
     },
     "huisnummer": {
-      "type": "object",
-      "description": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen. Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@value"
-      ]
+      "$ref": "#/components/schemas/Adresvoorstelling.huisnummer"
     },
     "land": {
-      "type": "object",
-      "description": "Land waarin het adres gelegen is.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        },
-        "@language": {
-          "type": "string",
-          "pattern": "^nl$"
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
+      "$ref": "#/components/schemas/Adresvoorstelling.land"
     },
     "locatieaanduiding": {
       "type": "array",
-      "description": "Lijst van String items.",
+      "description": "Alfanumerieke code die de adreslocator uniek identificeert binnen de straat, administratieve eenheid etc. Lijst van String items.",
       "items": {
-        "type": "object",
-        "description": "Alfanumerieke code die de adreslocator uniek identificeert binnen de straat, administratieve eenheid etc.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "$ref": "#/components/schemas/Adresvoorstelling.locatieaanduiding"
       },
       "minItems": 1
     },
     "locatienaam": {
       "type": "array",
-      "description": "Lijst van LangString items.",
+      "description": "Naam of omschrijving van het het geografisch object dat de adreslocator aanduidt. Lijst van LangString items.",
       "items": {
-        "type": "object",
-        "description": "Naam of omschrijving van het het geografisch object dat de adreslocator aanduidt.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@language": {
-            "type": "string",
-            "pattern": "^nl$"
-          }
-        },
-        "required": [
-          "@value",
-          "@language"
-        ]
+        "$ref": "#/components/schemas/Adresvoorstelling.locatienaam"
       },
       "minItems": 1
     },
     "postbus": {
-      "type": "object",
-      "description": "Postbusnummer in een postkantoor.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@value"
-      ]
+      "$ref": "#/components/schemas/Adresvoorstelling.postbus"
     },
     "postcode": {
-      "type": "object",
-      "description": "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@value"
-      ]
+      "$ref": "#/components/schemas/Adresvoorstelling.postcode"
     },
     "postnaam": {
-      "type": "object",
-      "description": "Naam waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        },
-        "@language": {
-          "type": "string",
-          "pattern": "^nl$"
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
+      "$ref": "#/components/schemas/Adresvoorstelling.postnaam"
     },
     "straatnaam": {
-      "type": "object",
-      "description": "Straatnaam van het adres.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        },
-        "@language": {
-          "type": "string",
-          "pattern": "^nl$"
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
+      "$ref": "#/components/schemas/Adresvoorstelling.straatnaam"
     },
     "volledigAdres": {
-      "type": "object",
-      "description": "Het complete adres in één string, al dan niet geformatteerd. Vermijdt fouten ten gevolge van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        },
-        "@language": {
-          "type": "string",
-          "pattern": "^nl$"
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
+      "$ref": "#/components/schemas/Adresvoorstelling.volledigAdres"
     },
     "verwijstNaar": {
       "$ref": "#/components/schemas/BelgischAdres"

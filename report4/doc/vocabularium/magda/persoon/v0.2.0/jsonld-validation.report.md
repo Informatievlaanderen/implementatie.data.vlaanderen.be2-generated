@@ -2,15 +2,17 @@
 
 #||# -------------------------------------  
 
-2026-07-30T18:48:56.468Z info: [JsonLdValidationService]: Loaded 55 URI prefixes into whitelist
+2026-08-19T12:46:26.823Z info: [JsonLdValidationService]: Loaded 55 URI prefixes into whitelist
 
-2026-07-30T18:48:56.666Z info: [JsonLdValidationService]: Validation successful! All assigned URIs are whitelisted.
+2026-08-19T12:46:27.085Z error: [JsonLdValidationService]: Found missing class or attribute (^voorkeursnaam): [urn:oslo-toolchain:22702863f7b74ef6e2390b69dfa5f4a9a440c9fa7657367e7593134061062a39](all-persoon.jsonld#L3069) in Vocabulary
 
-2026-07-30T18:48:56.666Z info: [JsonLdValidationService]: Validation successful! All sentences seem to be valid, no spelling mistakes or abbreviations found.
+2026-08-19T12:46:27.089Z info: [JsonLdValidationService]: Validation successful! All assigned URIs are whitelisted.
 
-2026-07-30T18:48:56.666Z info: [JsonLdValidationService]: Validation successful! All labels seem to be valid, no spelling mistakes or abbreviations found.
+2026-08-19T12:46:27.089Z info: [JsonLdValidationService]: Validation successful! All sentences seem to be valid, no spelling mistakes or abbreviations found.
 
-2026-07-30T18:48:56.666Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
+2026-08-19T12:46:27.089Z info: [JsonLdValidationService]: Validation successful! All labels seem to be valid, no spelling mistakes or abbreviations found.
 
-2026-07-30T18:48:56.666Z info: [JsonLdValidationService]: Validation successful! All referenced classes and attributes seem to be included.
+2026-08-19T12:46:27.089Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
+
+2026-08-19T12:46:27.089Z info: [JsonLdValidationService]: Validation found 1 missing referenced classes or attributes.
 

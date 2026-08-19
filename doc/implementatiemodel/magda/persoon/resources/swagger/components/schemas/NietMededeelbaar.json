@@ -13,46 +13,13 @@
       "pattern": "^NietMededeelbaar$"
     },
     "sinds": {
-      "type": "object",
-      "description": "Datum wanneer de beslissing genomen is dat de informatie vertrouwelijk is.",
-      "properties": {
-        "@value": {
-          "type": "string",
-          "format": "date"
-        },
-        "@type": {
-          "type": "string",
-          "pattern": "^Date$"
-        }
-      },
-      "required": [
-        "@value",
-        "@type"
-      ]
-    },
-    "beschrijving": {
-      "type": "object",
-      "description": "De opgegeven reden die bij een procedure mogelijks hoort.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        },
-        "@language": {
-          "type": "string",
-          "pattern": "^nl$"
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
+      "$ref": "#/components/schemas/NietMededeelbaar.sinds"
     },
     "periode": {
       "$ref": "#/components/schemas/Periode"
     }
   },
   "required": [
-    "@type",
-    "beschrijving"
+    "@type"
   ]
 }

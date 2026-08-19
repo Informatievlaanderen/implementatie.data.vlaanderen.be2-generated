@@ -13,41 +13,10 @@
       "pattern": "^Afstamming$"
     },
     "datumVanAfstamming": {
-      "type": "object",
-      "description": "De datum waarop de afstamming wordt vastgesteld.",
-      "properties": {
-        "@value": {
-          "type": "string",
-          "format": "date"
-        },
-        "@type": {
-          "type": "string",
-          "pattern": "^Date$"
-        }
-      },
-      "required": [
-        "@value",
-        "@type"
-      ]
+      "$ref": "#/components/schemas/Afstamming.datumVanAfstamming"
     },
     "afstammingstype": {
-      "oneOf": [
-        {
-          "$ref": "#/components/schemas/Afstammingstype"
-        },
-        {
-          "$ref": "#/components/schemas/Afstammingstype"
-        },
-        {
-          "$ref": "#/components/schemas/Afstammingstype"
-        }
-      ],
-      "discriminator": {
-        "propertyName": "@type",
-        "mapping": {
-          "Afstammingstype": "#/components/schemas/Afstammingstype"
-        }
-      }
+      "$ref": "#/components/schemas/Afstammingstype"
     },
     "metPersoon": {
       "oneOf": [
