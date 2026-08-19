@@ -24,6 +24,8 @@ Error: the following directories are unsupported
 [
   "/tmp/generated/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.0.1",
   "/tmp/generated/doc/implementatiemodel/lv/landbouwgebruikersperceel",
+  "/tmp/generated/doc/implementatiemodel/lv/zwangerschapsregistratie",
+  "/tmp/generated/doc/implementatiemodel/lv/zwangerschapsregistratie/v0.1.0",
   "/tmp/generated/doc/implementatiemodel/magda/persoon/REST",
   "/tmp/generated/doc/implementatiemodel/magda/trajectcontrole",
   "/tmp/generated/doc/implementatiemodel/magda/trajectcontrole/v0.1.0",

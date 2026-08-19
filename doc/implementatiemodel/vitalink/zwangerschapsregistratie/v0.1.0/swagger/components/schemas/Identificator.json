@@ -1,0 +1,64 @@
+{
+  "title": "Identificator",
+  "type": "object",
+  "description": "Informatie gebruikt om een object uniek te identificeren.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Identificator)",
+      "pattern": "^Identificator$"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator.identificator"
+    },
+    "toegekendDoor": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        },
+        {
+          "$ref": "#/components/schemas/Zorgverlener"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "Organisatie": "#/components/schemas/Organisatie",
+          "Zorgverlener": "#/components/schemas/Zorgverlener"
+        }
+      }
+    },
+    "toegekendDoor(String)": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        },
+        {
+          "$ref": "#/components/schemas/Zorgverlener"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "Organisatie": "#/components/schemas/Organisatie",
+          "Zorgverlener": "#/components/schemas/Zorgverlener"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

@@ -1,0 +1,769 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "VITALINK zwangerschapsregistratie REST",
+    "description": "OSLO-conforme REST API voor informatie over zwangerschapsregistratie",
+    "version": "0.1.0"
+  },
+  "servers": [
+    {
+      "url": "https://implementatie.data.test-vlaanderen.be/",
+      "description": "Basis URL"
+    }
+  ],
+  "paths": {
+    "/id/Persoon/{id}": {
+      "get": {
+        "summary": "Natuurlijk persoon.",
+        "description": "In de rechtspraak betreft het een persoon (in de wettelijke betekenis, ttz met eigen rechtspersoonlijkheid) van de menselijke soort, ttz een fysiek persoon. Tegenhanger is de rechtspersoon, een juridische constructie die een private of publieke organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bv ook schulden hebben, contracten afsluiten, aangeklaagd worden etc).",
+        "operationId": "PersoonGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een Persoon object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Persoon object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Persoon"
+                }
+              }
+            },
+            "links": {
+              "Persoon.isLidVan": {
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "id": "$response.body#/Persoon.isLidVan/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Organisatie` op te halen."
+              },
+              "Persoon.heeftZwangerschap": {
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "id": "$response.body#/Persoon.heeftZwangerschap/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Zwangerschap` op te halen."
+              },
+              "Persoon.identificator": {
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "id": "$response.body#/Persoon.identificator/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Probleemdetail"
+                }
+              }
+            },
+            "links": {
+              "Probleemdetail.type": {
+                "operationId": "PersoonGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `ProblemDetails` op te halen."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Persoon.familienaam": {
+        "title": "Persoon.familienaam",
+        "type": "object",
+        "description": "Gedeelte van de volledige naam vd persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Persoon.gegevenNaam": {
+        "title": "Persoon.gegevenNaam",
+        "type": "object",
+        "description": "Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Persoon": {
+        "title": "Persoon",
+        "type": "object",
+        "description": "Natuurlijk persoon.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Persoon)",
+            "pattern": "^Persoon$"
+          },
+          "familienaam": {
+            "$ref": "#/components/schemas/Persoon.familienaam"
+          },
+          "gegevenNaam": {
+            "type": "array",
+            "description": "Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie. Lijst van String items.",
+            "items": {
+              "$ref": "#/components/schemas/Persoon.gegevenNaam"
+            },
+            "minItems": 1
+          },
+          "isLidVan": {
+            "type": "array",
+            "description": "undefined Lijst van Organisatie items.",
+            "items": {
+              "$ref": "#/components/schemas/Organisatie"
+            },
+            "minItems": 1
+          },
+          "heeftZwangerschap": {
+            "type": "array",
+            "description": "Een Persoon heeft een Zwangerschap Lijst van Zwangerschap items.",
+            "items": {
+              "$ref": "#/components/schemas/Zwangerschap"
+            },
+            "minItems": 1
+          },
+          "identificator": {
+            "type": "array",
+            "description": "Identificator van het object. Bij implementatie in RDF is de uri vh object de identificator. Lijst van Identificator items.",
+            "items": {
+              "$ref": "#/components/schemas/Identificator"
+            },
+            "minItems": 1
+          },
+          "@context": {
+            "type": "string",
+            "description": "URI of the JSON-LD versioned context file for this response.",
+            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vitalink\\/zwangerschapsregistratie\\/v0.1.0\\/context\\/zwangerschapsregistratie.jsonld$"
+          }
+        },
+        "required": [
+          "@type",
+          "gegevenNaam"
+        ]
+      },
+      "Organisatie.voorkeursnaam": {
+        "title": "Organisatie.voorkeursnaam",
+        "type": "object",
+        "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "Organisatie": {
+        "title": "Organisatie",
+        "type": "object",
+        "description": "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Organisatie)",
+            "pattern": "^Organisatie$"
+          },
+          "voorkeursnaam": {
+            "$ref": "#/components/schemas/Organisatie.voorkeursnaam"
+          },
+          "identificator": {
+            "type": "array",
+            "description": "Identificator van het object. Bij implementatie in RDF is de uri vh object de identificator. Lijst van Identificator items.",
+            "items": {
+              "$ref": "#/components/schemas/Identificator"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type",
+          "voorkeursnaam"
+        ]
+      },
+      "Zwangerschap": {
+        "title": "Zwangerschap",
+        "type": "object",
+        "description": "De staat waarin een Persoon een of meerdere embryo’s of foetussen draagt in de baarmoeder, wat leidt tot de ontwikkeling van een nieuw natuurlijk Persoon.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Zwangerschap)",
+            "pattern": "^Zwangerschap$"
+          },
+          "identificator": {
+            "type": "array",
+            "description": "Identificator van het object. Bij implementatie in RDF is de uri vh object de identificator. Lijst van Identificator items.",
+            "items": {
+              "$ref": "#/components/schemas/Identificator"
+            },
+            "minItems": 1
+          },
+          "toestand": {
+            "$ref": "#/components/schemas/Zwangerschapstoestand"
+          },
+          "heeftFoetus": {
+            "type": "array",
+            "description": "Een Zwangerschap heeft een of meerdere Foetussen. Lijst van Foetus items.",
+            "items": {
+              "$ref": "#/components/schemas/Foetus"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type",
+          "identificator"
+        ]
+      },
+      "Zorgverlener.familienaam": {
+        "title": "Zorgverlener.familienaam",
+        "type": "object",
+        "description": "Gedeelte van de volledige naam vd persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Zorgverlener.gegevenNaam": {
+        "title": "Zorgverlener.gegevenNaam",
+        "type": "object",
+        "description": "Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Zorgverlener": {
+        "title": "Zorgverlener",
+        "type": "object",
+        "description": "Een persoon met een formele verantwoordelijkheid bij het verlenen van gezondheidszorg of aanverwante diensten.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Zorgverlener)",
+            "pattern": "^Zorgverlener$"
+          },
+          "identificator": {
+            "type": "array",
+            "description": "Identificator van het object. Bij implementatie in RDF is de uri vh object de identificator. Lijst van Identificator items.",
+            "items": {
+              "$ref": "#/components/schemas/Identificator"
+            },
+            "minItems": 1
+          },
+          "familienaam": {
+            "$ref": "#/components/schemas/Zorgverlener.familienaam"
+          },
+          "gegevenNaam": {
+            "type": "array",
+            "description": "Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie. Lijst van String items.",
+            "items": {
+              "$ref": "#/components/schemas/Zorgverlener.gegevenNaam"
+            },
+            "minItems": 1
+          },
+          "isLidVan": {
+            "type": "array",
+            "description": "undefined Lijst van Organisatie items.",
+            "items": {
+              "$ref": "#/components/schemas/Organisatie"
+            },
+            "minItems": 1
+          },
+          "heeftZwangerschap": {
+            "type": "array",
+            "description": "Een Persoon heeft een Zwangerschap Lijst van Zwangerschap items.",
+            "items": {
+              "$ref": "#/components/schemas/Zwangerschap"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type",
+          "gegevenNaam"
+        ]
+      },
+      "MedischeObservatie.effectiefTijdstip": {
+        "title": "MedischeObservatie.effectiefTijdstip",
+        "type": "object",
+        "description": "De tijd of tijdsperiode waarin de waargenomen waarde als waar wordt beschouwd.",
+        "properties": {
+          "@value": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "@type": {
+            "type": "string",
+            "pattern": "^DateTime$"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
+      "MedischeObservatie": {
+        "title": "MedischeObservatie",
+        "type": "object",
+        "description": "Metingen en eenvoudige beweringen over een patiënt, apparaat of ander onderwerp.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse MedischeObservatie)",
+            "pattern": "^MedischeObservatie$"
+          },
+          "effectiefTijdstip": {
+            "$ref": "#/components/schemas/MedischeObservatie.effectiefTijdstip"
+          },
+          "identificator": {
+            "type": "array",
+            "description": "Identificator van het object. Bij implementatie in RDF is de uri vh object de identificator. Lijst van Identificator items.",
+            "items": {
+              "$ref": "#/components/schemas/Identificator"
+            },
+            "minItems": 1
+          },
+          "uitvoerder": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/Organisatie"
+              },
+              {
+                "$ref": "#/components/schemas/Zorgverlener"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "Organisatie": "#/components/schemas/Organisatie",
+                "Zorgverlener": "#/components/schemas/Zorgverlener"
+              }
+            }
+          },
+          "vastgesteld": {
+            "type": "array",
+            "description": "De Gezondheidstoestand wordt vastgesteld aan de hand van een Medische Observatie. Lijst van Zwangerschapstoestand items.",
+            "items": {
+              "$ref": "#/components/schemas/Zwangerschapstoestand"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Foetus": {
+        "title": "Foetus",
+        "type": "object",
+        "description": "De ongeboren Persoon vanaf de achtste week van de Zwangerschap tot aan de Geboorte.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Foetus)",
+            "pattern": "^Foetus$"
+          },
+          "deelVan": {
+            "$ref": "#/components/schemas/Zwangerschap"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Zwangerschapstoestand": {
+        "title": "Zwangerschapstoestand",
+        "type": "object",
+        "description": "De medische toestand bij een Zwangerschap van de Persoon",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Zwangerschapstoestand)",
+            "pattern": "^Zwangerschapstoestand$"
+          },
+          "duur": {
+            "$ref": "#/components/schemas/Periode"
+          },
+          "vastgesteldDoor": {
+            "type": "array",
+            "description": "De Medische Observatie stelt een Gezondheidstoestand vast. Lijst van MedischeObservatie items.",
+            "items": {
+              "$ref": "#/components/schemas/MedischeObservatie"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Periode.begin": {
+        "title": "Periode.begin",
+        "type": "object",
+        "description": "Aanvang van de tijdsduur.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
+      "Periode.einde": {
+        "title": "Periode.einde",
+        "type": "object",
+        "description": "Einde vd tijdsduur.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
+      "Periode": {
+        "title": "Periode",
+        "type": "object",
+        "description": "Min of meer afgebakende tijdsduur.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Periode)",
+            "pattern": "^Periode$"
+          },
+          "begin": {
+            "$ref": "#/components/schemas/Periode.begin"
+          },
+          "einde": {
+            "$ref": "#/components/schemas/Periode.einde"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Identificator.identificator": {
+        "title": "Identificator.identificator",
+        "type": "object",
+        "description": "String gebruikt om het object uniek te identificeren. Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
+      "Identificator": {
+        "title": "Identificator",
+        "type": "object",
+        "description": "Informatie gebruikt om een object uniek te identificeren.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Identificator)",
+            "pattern": "^Identificator$"
+          },
+          "identificator": {
+            "$ref": "#/components/schemas/Identificator.identificator"
+          },
+          "toegekendDoor": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/Organisatie"
+              },
+              {
+                "$ref": "#/components/schemas/Zorgverlener"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "Organisatie": "#/components/schemas/Organisatie",
+                "Zorgverlener": "#/components/schemas/Zorgverlener"
+              }
+            }
+          },
+          "toegekendDoor(String)": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/Organisatie"
+              },
+              {
+                "$ref": "#/components/schemas/Zorgverlener"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "Organisatie": "#/components/schemas/Organisatie",
+                "Zorgverlener": "#/components/schemas/Zorgverlener"
+              }
+            }
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      }
+    }
+  }
+}

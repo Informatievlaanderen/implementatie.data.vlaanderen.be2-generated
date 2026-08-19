@@ -1,0 +1,31 @@
+{
+  "title": "Organisatie",
+  "type": "object",
+  "description": "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Organisatie)",
+      "pattern": "^Organisatie$"
+    },
+    "voorkeursnaam": {
+      "$ref": "#/components/schemas/Organisatie.voorkeursnaam"
+    },
+    "identificator": {
+      "type": "array",
+      "description": "Identificator van het object. Bij implementatie in RDF is de uri vh object de identificator. Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "voorkeursnaam"
+  ]
+}
