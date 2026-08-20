@@ -1,0 +1,289 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shacl: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xhv: <http://www.w3.org/1999/xhtml/vocab#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#BelgischAdresShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#RuimtelijkeEenheidShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#KadastraalPlanperceelShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#LinksShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#DataEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#PerceelEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#PercelenEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#ObjectShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#GestructureerdeIdentificatorShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#StringShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#IdentificatorShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#LinkShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#StatuswaardeShape> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#BelgischAdresShape> a shacl:NodeShape;
+  rdfs:label "BelgischAdres"@nl;
+  <http://purl.org/vocab/vann/usageNote> "De definitie heeft betrekking op Belgische adressen. In andere landen kan een adres eventueel verwijzen naar andere geografisch objecten (niet gebouweenheid of perceel) of bestaan uit andere aanduidingen (verschillend van huisnummer en busnummer) of uit andere componenten dan straatnaam, gemeentenaam of postcode. Alternatieve adresaanduidingen dan huisnummer of busnummer (bijvoorbeeld ingangaanduiding, trapaanduiding, verdiepaanduiding...) of een gebouwnaam of kamernaam en dergelijke zijn mogelijk door middel van een associatie met adresuitbreiding. Uitwisseling van buitenlandse adressen moet gebeuren met behulp van het object adresvoorstelling."@nl;
+  rdfs:comment "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode."@nl;
+  shacl:closed false;
+  shacl:targetClass <https://data.vlaanderen.be/ns/adres#Adres> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#DataEnvelopShape> a shacl:NodeShape;
+  rdfs:label "DataEnvelop"@nl;
+  rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "volgende"@nl;
+    rdfs:comment "De URL waar de volgende pagina objecten kan gevonden worden."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#DataEnvelop.Volgende>;
+    shacl:class xhv:link;
+    shacl:description "De URL waar de volgende pagina objecten kan gevonden worden."@nl;
+    shacl:maxCount 1;
+    shacl:name "volgende"@nl;
+    shacl:path <http://www.w3.org/ns/adms#next>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "links";
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#DataEnvelop.Links>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/generiek#Links>;
+    shacl:maxCount 1;
+    shacl:name "links";
+    shacl:path <http://todo.com/links>
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/perceel#DataEnvelop>,
+    <https://implementatie.data.vlaanderen.be/ns/perceel#PerceelEnvelop>,
+    <https://implementatie.data.vlaanderen.be/ns/perceel#PercelenEnvelop>;
+  shacl:xone ([
+      shacl:not _:df_2_17;
+      shacl:property _:df_2_9
+    ] [shacl:property _:df_2_11,
+        _:df_2_17]),
+    ([
+      shacl:not _:df_2_22;
+      shacl:property _:df_2_9
+    ] [shacl:property _:df_2_14,
+        _:df_2_22]) .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#GestructureerdeIdentificatorShape> a shacl:NodeShape;
+  rdfs:label "GestructureerdeIdentificator"@nl;
+  rdfs:comment "Identificator van een object opgesplitst in zijn onderdelen."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "lokaleIdentificator"@nl;
+    rdfs:comment "String gebruikt om het object uniek te identificeren binnen de naamruimte."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#GestructureerdeIdentificator.LokaleIdentificator>;
+    shacl:datatype xsd:string;
+    shacl:description "String gebruikt om het object uniek te identificeren binnen de naamruimte."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "lokaleIdentificator"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#lokaleIdentificator>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "naamruimte"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bijvoorbeeld een uri samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bijvoorbeeld https://data.vlaanderen.be/id/adres/)."@nl;
+    rdfs:comment "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#GestructureerdeIdentificator.Naamruimte>;
+    shacl:datatype xsd:string;
+    shacl:description "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "naamruimte"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#naamruimte>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "versieIdentificator"@nl;
+    rdfs:comment "Identificator van de specifieke versie van een object."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#GestructureerdeIdentificator.VersieIdentificator>;
+    shacl:datatype xsd:string;
+    shacl:description "Identificator van de specifieke versie van een object."@nl;
+    shacl:maxCount 1;
+    shacl:name "versieIdentificator"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#versieIdentificator>
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#IdentificatorShape> a shacl:NodeShape;
+  rdfs:label "Identificator"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Uitgangspunt hier is dat deze string door een organisatie wordt toegekend en dat dit gebeurt volgens een welbepaald systeem."@nl;
+  rdfs:comment "Informatie gebruikt om een object uniek te identificeren."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "identificator"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator."@nl;
+    rdfs:comment "String gebruikt om het object uniek te identificeren."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#Identificator.Identificator>;
+    shacl:description "String gebruikt om het object uniek te identificeren."@nl;
+    shacl:maxCount 1;
+    shacl:name "identificator"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "gestructureerdeIdentificator"@nl;
+    rdfs:comment "Identificator van het object opgesplitst in zijn onderdelen."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#Identificator.GestructureerdeIdentificator>;
+    shacl:class <https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator>;
+    shacl:description "Identificator van het object opgesplitst in zijn onderdelen."@nl;
+    shacl:maxCount 1;
+    shacl:name "gestructureerdeIdentificator"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "toegekendDoor"@nl;
+    rdfs:comment "Link naar de agent die de identificator heeft uitgegeven."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#Identificator.ToegekendDoor>;
+    shacl:class dc:Agent;
+    shacl:description "Link naar de agent die de identificator heeft uitgegeven."@nl;
+    shacl:maxCount 1;
+    shacl:name "toegekendDoor"@nl;
+    shacl:path dc:creator
+  ];
+  shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#KadastraalPlanperceelShape> a shacl:NodeShape;
+  rdfs:label "KadastraalPlanperceel"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Kadastraal Planperceel komt overeen met de entiteit CadastralParcel uit INSPIRE Cadastral Parcel. De identificator die gedefinieerd kan worden voor een Kadastraal planperceel komt overeen met de CaPaKey (bijvoorbeeld 11111A2222/33B444)."@nl;
+  rdfs:comment "Een gedeelte van het Belgische grondgebied, geografische afgebakend en geïdentificeerd door de AAPD op het kadastraal percelenplan, dat overeenstemt met het grondoppervlak van één of meerdere kadastrale patrimoniale percelen."@nl;
+  shacl:closed false;
+  shacl:targetClass <https://data.vlaanderen.be/ns/perceel#KadastraalPlanperceel> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#LinkShape> a shacl:NodeShape;
+  rdfs:label "Link"@nl;
+  rdfs:comment "Link beschrijft een hyperlink naar een andere resource volgens HAL."@nl;
+  shacl:closed false;
+  shacl:targetClass xhv:link .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#LinksShape> a shacl:NodeShape;
+  rdfs:label "Links"@nl;
+  rdfs:comment "Een verzameling van URIs wijzende naar locaties waar info kan gevonden worden over gerelateerde objecten."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "self"@nl;
+    rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over zichzelf."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#Links.Self>;
+    shacl:class xhv:link;
+    shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over zichzelf."@nl;
+    shacl:name "self"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/generiek#self>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "gebouwen"@nl;
+    rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouwen"@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#Links.Gebouwen>;
+    shacl:class xhv:link;
+    shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouwen"@nl;
+    shacl:name "gebouwen"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/generiek#gebouweenheden>
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Links> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#ObjectShape> a shacl:NodeShape;
+  rdfs:label "Object"@nl;
+  rdfs:comment "Entiteit waarvan alle entiteiten zijn afgeleid."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "identificator"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bij implementatie in RDF is de uri van het object de identificator."@nl;
+    rdfs:comment "Identificator van het object."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#Object.Identificator>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificator van het object."@nl;
+    shacl:maxCount 1;
+    shacl:name "identificator"@nl;
+    shacl:path <http://www.w3.org/ns/adms#identifier>
+  ];
+  shacl:targetClass prov:Entity .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#PerceelEnvelopShape> a shacl:NodeShape;
+  rdfs:label "PerceelEnvelop"@nl;
+  rdfs:comment "De collectie van de uitgewisselde perceel en hun metadata elementen."@nl;
+  shacl:closed false;
+  shacl:property _:df_2_14;
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/perceel#PerceelEnvelop> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#PercelenEnvelopShape> a shacl:NodeShape;
+  rdfs:label "PercelenEnvelop"@nl;
+  rdfs:comment "De collectie van de uitgewisselde percelen en hun metadata elementen."@nl;
+  shacl:closed false;
+  shacl:property _:df_2_11;
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/perceel#PercelenEnvelop> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#RuimtelijkeEenheidShape> a shacl:NodeShape;
+  rdfs:label "RuimtelijkeEenheid"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Definitie conform ISO 19152 - Land Administration Domain Model."@nl;
+  rdfs:comment "Eén gebied (of meerdere gebieden) van land en/of water, of één enkel volume (of meerdere volumes) ruimte, afgebakend voor een bepaald doel."@nl;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "identificator"@nl;
+    rdfs:comment "De identificator van de Ruimtelijke Eenheid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#RuimtelijkeEenheid.Identificator>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "De identificator van de Ruimtelijke Eenheid."@nl;
+    shacl:maxCount 2;
+    shacl:name "identificator"@nl;
+    shacl:path <http://www.w3.org/ns/adms#identifier>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "status";
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#RuimtelijkeEenheid.Status>;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "status";
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path <https://data.vlaanderen.be/ns/perceel#status>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "toegekendAdres";
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#RuimtelijkeEenheid.ToegekendAdres>;
+    shacl:class <https://data.vlaanderen.be/ns/adres#Adres>;
+    shacl:name "toegekendAdres";
+    shacl:path <http://todo.com/toegekendAdres>
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/perceel#RuimtelijkeEenheid>,
+    <https://data.vlaanderen.be/ns/perceel#KadastraalPlanperceel> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#StringShape> a shacl:NodeShape;
+  rdfs:label "String";
+  shacl:closed false;
+  shacl:targetClass xsd:string .
+
+_:df_2_11 a shacl:PropertyShape;
+  rdfs:label "data"@nl;
+  rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#PercelenEnvelop.Data>;
+  shacl:class <https://data.vlaanderen.be/ns/perceel#KadastraalPlanperceel>;
+  shacl:description "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  shacl:name "data"@nl;
+  shacl:path <https://implementatie.data.vlaanderen.be/ns/perceel#data> .
+
+_:df_2_14 a shacl:PropertyShape;
+  rdfs:label "data"@nl;
+  rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#PerceelEnvelop.Data>;
+  shacl:class <https://data.vlaanderen.be/ns/perceel#KadastraalPlanperceel>;
+  shacl:description "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
+  shacl:maxCount 1;
+  shacl:minCount 1;
+  shacl:name "data"@nl;
+  shacl:path <https://implementatie.data.vlaanderen.be/ns/perceel#data> .
+
+_:df_2_17 a shacl:PropertyShape;
+  shacl:class <https://implementatie.data.vlaanderen.be/ns/perceel#PercelenEnvelop> .
+
+_:df_2_22 a shacl:PropertyShape;
+  shacl:class <https://implementatie.data.vlaanderen.be/ns/perceel#PerceelEnvelop> .
+
+_:df_2_9 a shacl:PropertyShape;
+  rdfs:label "data"@nl;
+  rdfs:comment "De collectie data die de envelop bevat."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#DataEnvelop.Data>;
+  shacl:class prov:Entity;
+  shacl:description "De collectie data die de envelop bevat."@nl;
+  shacl:name "data"@nl;
+  shacl:path <https://implementatie.data.vlaanderen.be/ns/perceel#data> .

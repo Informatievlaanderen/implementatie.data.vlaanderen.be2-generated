@@ -2,41 +2,39 @@
 
 #||# -------------------------------------
 
-2026-08-20T14:23:15.424Z info: [ConnectorConverterHandler]: Ignoring hidden connector (OSLO-Perceel:OSLO-GeneriekVoc!!!:FormeelKader:(FormeelKader -> Object))
+2026-08-20T14:46:15.829Z info: [ConnectorConverterHandler]: Ignoring hidden connector (OSLO-Perceel:OSLO-GeneriekVoc!!!:FormeelKader:(FormeelKader -> Object))
 
-2026-08-20T14:23:15.426Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO-Perceel:RuimtelijkeEenheid:(RuimtelijkeEenheid -> RuimtelijkeEenheid))
+2026-08-20T14:46:15.831Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO-Perceel:RuimtelijkeEenheid:(RuimtelijkeEenheid -> RuimtelijkeEenheid))
 
-2026-08-20T14:23:15.426Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO-Perceel:OSLO-Generiek:Gemeente:(Gemeente -> Object))
+2026-08-20T14:46:15.831Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO-Perceel:OSLO-Generiek:Gemeente:(Gemeente -> Object))
 
-2026-08-20T14:23:15.426Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO-Perceel:OSLO-Generiek:FormeelKader:(FormeelKader -> Object))
+2026-08-20T14:46:15.831Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO-Perceel:OSLO-Generiek:FormeelKader:(FormeelKader -> Object))
 
-2026-08-20T14:23:15.428Z info: Connector Model:OSLO-Perceel:RuimtelijkeEenheid:(RuimtelijkeEenheid -> Adres) is not an association with a source role. Ignoring this connector.
+2026-08-20T14:46:15.833Z info: Connector Model:OSLO-Perceel:RuimtelijkeEenheid:(RuimtelijkeEenheid -> Adres) is not an association with a source role. Ignoring this connector.
 
-2026-08-20T14:23:15.429Z info: Connector Model:OSLO-Perceel:OSLO-GRAR-IM:DataEnvelop:(DataEnvelop -> Links) is not an association with a source role. Ignoring this connector.
+2026-08-20T14:46:15.834Z info: Connector Model:OSLO-Perceel:OSLO-GRAR-IM:DataEnvelop:(DataEnvelop -> Links) is not an association with a source role. Ignoring this connector.
 
-2026-08-20T14:23:15.429Z info: Connector Model:OSLO-Perceel:OSLO-GRAR-IM:PerceelEnvelop:(PerceelEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-08-20T14:46:15.834Z info: Connector Model:OSLO-Perceel:OSLO-GRAR-IM:PerceelEnvelop:(PerceelEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-08-20T14:23:15.429Z info: Connector Model:OSLO-Perceel:OSLO-GRAR-IM:PercelenEnvelop:(PercelenEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-08-20T14:46:15.834Z info: Connector Model:OSLO-Perceel:OSLO-GRAR-IM:PercelenEnvelop:(PercelenEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-08-20T14:23:15.429Z info: Connector Model:OSLO-Perceel:KadastraalPlanperceel:(KadastraalPlanperceel -> RuimtelijkeEenheid) is not an association with a source role. Ignoring this connector.
+2026-08-20T14:46:15.834Z info: Connector Model:OSLO-Perceel:KadastraalPlanperceel:(KadastraalPlanperceel -> RuimtelijkeEenheid) is not an association with a source role. Ignoring this connector.
 
-2026-08-20T14:23:15.430Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+2026-08-20T14:46:15.835Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
-Error: [PackageConverterHandler]: Unable to create URL from package URI (todo.com) for package (Model:OSLO-Perceel:XSD).
+2026-08-20T14:46:15.838Z warn: [ConnectorConverterHandler]: Connector (toegekendAdres) does not have a package tag defined. Trying to determine the correct base URI based on the source and destination objects their package.
 
-    at /usr/local/lib/node_modules/@oslo-flanders/ea-converter/lib/converter-handlers/PackageConverterHandler.js:66:23
+2026-08-20T14:46:15.839Z warn: [ConnectorConverterHandler]: Can not determine the correct base URI for connector (toegekendAdres) and the fallback URI (http://todo.com/) will be assigned.
 
-    at Array.forEach (<anonymous>)
+2026-08-20T14:46:15.839Z warn: [ConnectorConverterHandler]: Connector (links) does not have a package tag defined. Trying to determine the correct base URI based on the source and destination objects their package.
 
-    at PackageConverterHandler.assignUris (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/lib/converter-handlers/PackageConverterHandler.js:41:24)
+2026-08-20T14:46:15.839Z warn: [ConnectorConverterHandler]: Can not determine the correct base URI for connector (links) and the fallback URI (http://todo.com/) will be assigned.
 
-    at ConverterHandlerService.assignUris (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/lib/ConverterHandlerService.js:34:39)
+2026-08-20T14:46:15.843Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:OSLO-Perceel:OSLO-Adres:Adres:detail).
 
-    at /usr/local/lib/node_modules/@oslo-flanders/ea-converter/lib/EaUmlConversionService.js:42:42
+2026-08-20T14:46:15.843Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:OSLO-Perceel:RuimtelijkeEenheid:detail).
 
-    at async EaUmlConversionService.run (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/lib/EaUmlConversionService.js:38:23)
+2026-08-20T14:46:15.843Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:OSLO-Perceel:OSLO-Generiek-IM:Link:href).
 
 #||# -------------------------------------
-
-file perceel-im-voc.jsonld does not exist
 
