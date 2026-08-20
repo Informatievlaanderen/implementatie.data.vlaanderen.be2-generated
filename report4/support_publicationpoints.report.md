@@ -6,6 +6,8 @@
 #||#  
 #||#   + adding supporting /home/circleci/project/config/test/grar-gebouw-im.publication.json
 #||#  
+#||#   + adding supporting /home/circleci/project/config/test/grar-perceel-im.publication.json
+#||#  
 #||#   + adding supporting /home/circleci/project/config/test/landbouwgebruiksperceel-im.publication.json
 #||#  
 #||#   + adding supporting /home/circleci/project/config/test/organisatie-vkbo-im.publication.json

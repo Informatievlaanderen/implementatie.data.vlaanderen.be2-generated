@@ -18,6 +18,22 @@
 #||# 
 #||# index.html check
 
+#||#    + checking /home/circleci/project/config/test/grar-perceel-im.publication.json
+#||# 
+#||# Directory check
+error: missing '/tmp/generated/doc/implementatiemodel/grar/perceel'
+error: missing '/tmp/generated/doc/implementatiemodel/grar/perceel/v0.0.1'
+error: missing '/tmp/generated/ns/grar/perceel'
+error: missing '/tmp/generated/doc/vocabularium/grar/perceel'
+error: missing '/tmp/generated/doc/vocabularium/grar/perceel/v0.0.1'
+#||# 
+#||# index.html check
+error: missing '/tmp/generated/doc/implementatiemodel/grar/perceel/index.html'
+error: missing '/tmp/generated/doc/implementatiemodel/grar/perceel/v0.0.1/index.html'
+error: missing '/tmp/generated/ns/grar/perceel/index.html'
+error: missing '/tmp/generated/doc/vocabularium/grar/perceel/index.html'
+error: missing '/tmp/generated/doc/vocabularium/grar/perceel/v0.0.1/index.html'
+
 #||#    + checking /home/circleci/project/config/test/landbouwgebruiksperceel-im.publication.json
 #||# 
 #||# Directory check
