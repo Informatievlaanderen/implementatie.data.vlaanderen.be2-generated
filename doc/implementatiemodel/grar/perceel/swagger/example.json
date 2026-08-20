@@ -37,6 +37,15 @@
                   "$ref": "#/components/schemas/BelgischAdres"
                 }
               }
+            },
+            "links": {
+              "BelgischAdres.detail": {
+                "operationId": "BelgischAdresGET",
+                "parameters": {
+                  "id": "$response.body#/BelgischAdres.detail/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
+              }
             }
           },
           "400": {
@@ -447,6 +456,13 @@
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
               },
+              "RuimtelijkeEenheid.detail": {
+                "operationId": "RuimtelijkeEenheidGET",
+                "parameters": {
+                  "id": "$response.body#/RuimtelijkeEenheid.detail/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
+              },
               "RuimtelijkeEenheid.status": {
                 "operationId": "RuimtelijkeEenheidGET",
                 "parameters": {
@@ -670,6 +686,13 @@
                   "id": "$response.body#/KadastraalPlanperceel.identificator/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+              },
+              "KadastraalPlanperceel.detail": {
+                "operationId": "KadastraalPlanperceelGET",
+                "parameters": {
+                  "id": "$response.body#/KadastraalPlanperceel.detail/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
               },
               "KadastraalPlanperceel.status": {
                 "operationId": "KadastraalPlanperceelGET",
@@ -1976,6 +1999,9 @@
             "type": "string",
             "description": "Object type (klasse BelgischAdres)",
             "pattern": "^BelgischAdres$"
+          },
+          "detail": {
+            "$ref": "#/components/schemas/AnyURI"
           }
         },
         "required": [
@@ -2004,6 +2030,9 @@
             },
             "minItems": 1,
             "maxItems": 2
+          },
+          "detail": {
+            "$ref": "#/components/schemas/AnyURI"
           },
           "status": {
             "$ref": "#/components/schemas/Statuswaarde"
@@ -2044,6 +2073,9 @@
             },
             "minItems": 1,
             "maxItems": 2
+          },
+          "detail": {
+            "$ref": "#/components/schemas/AnyURI"
           },
           "status": {
             "$ref": "#/components/schemas/Statuswaarde"
@@ -2298,6 +2330,25 @@
           "@type"
         ]
       },
+      "AnyURI": {
+        "title": "AnyURI",
+        "type": "object",
+        "description": "AnyURI",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse AnyURI)",
+            "pattern": "^AnyURI$"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
       "Link": {
         "title": "Link",
         "type": "object",
@@ -2311,6 +2362,9 @@
             "type": "string",
             "description": "Object type (klasse Link)",
             "pattern": "^Link$"
+          },
+          "href": {
+            "$ref": "#/components/schemas/AnyURI"
           }
         },
         "required": [

@@ -18,14 +18,32 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#GestructureerdeIdentificatorShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#StringShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#IdentificatorShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#AnyURIShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#LinkShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#StatuswaardeShape> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#AnyURIShape> a shacl:NodeShape;
+  rdfs:label "AnyURI"@nl;
+  rdfs:comment "AnyURI"@nl;
+  shacl:closed false;
+  shacl:targetClass xsd:AnyURI .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#BelgischAdresShape> a shacl:NodeShape;
   rdfs:label "BelgischAdres"@nl;
   <http://purl.org/vocab/vann/usageNote> "De definitie heeft betrekking op Belgische adressen. In andere landen kan een adres eventueel verwijzen naar andere geografisch objecten (niet gebouweenheid of perceel) of bestaan uit andere aanduidingen (verschillend van huisnummer en busnummer) of uit andere componenten dan straatnaam, gemeentenaam of postcode. Alternatieve adresaanduidingen dan huisnummer of busnummer (bijvoorbeeld ingangaanduiding, trapaanduiding, verdiepaanduiding...) of een gebouwnaam of kamernaam en dergelijke zijn mogelijk door middel van een associatie met adresuitbreiding. Uitwisseling van buitenlandse adressen moet gebeuren met behulp van het object adresvoorstelling."@nl;
   rdfs:comment "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode."@nl;
   shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "detail"@nl;
+    rdfs:comment "Een bron dat additionele info over het object bevat."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#BelgischAdres.Detail>;
+    shacl:class xsd:AnyURI;
+    shacl:description "Een bron dat additionele info over het object bevat."@nl;
+    shacl:maxCount 1;
+    shacl:name "detail"@nl;
+    shacl:path rdfs:seeAlso
+  ];
   shacl:targetClass <https://data.vlaanderen.be/ns/adres#Adres> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#DataEnvelopShape> a shacl:NodeShape;
@@ -55,15 +73,15 @@
     <https://implementatie.data.vlaanderen.be/ns/perceel#PerceelEnvelop>,
     <https://implementatie.data.vlaanderen.be/ns/perceel#PercelenEnvelop>;
   shacl:xone ([
-      shacl:not _:df_2_17;
-      shacl:property _:df_2_9
-    ] [shacl:property _:df_2_11,
-        _:df_2_17]),
-    ([
-      shacl:not _:df_2_22;
-      shacl:property _:df_2_9
+      shacl:not _:df_2_20;
+      shacl:property _:df_2_12
     ] [shacl:property _:df_2_14,
-        _:df_2_22]) .
+        _:df_2_20]),
+    ([
+      shacl:not _:df_2_25;
+      shacl:property _:df_2_12
+    ] [shacl:property _:df_2_17,
+        _:df_2_25]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#GestructureerdeIdentificatorShape> a shacl:NodeShape;
   rdfs:label "GestructureerdeIdentificator"@nl;
@@ -154,6 +172,17 @@
   rdfs:label "Link"@nl;
   rdfs:comment "Link beschrijft een hyperlink naar een andere resource volgens HAL."@nl;
   shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "href"@nl;
+    rdfs:comment "De referentie URI."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#Link.Href>;
+    shacl:class xsd:AnyURI;
+    shacl:description "De referentie URI."@nl;
+    shacl:maxCount 1;
+    shacl:name "href"@nl;
+    shacl:path dc:references
+  ];
   shacl:targetClass xhv:link .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#LinksShape> a shacl:NodeShape;
@@ -203,14 +232,14 @@
   rdfs:label "PerceelEnvelop"@nl;
   rdfs:comment "De collectie van de uitgewisselde perceel en hun metadata elementen."@nl;
   shacl:closed false;
-  shacl:property _:df_2_14;
+  shacl:property _:df_2_17;
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/perceel#PerceelEnvelop> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#PercelenEnvelopShape> a shacl:NodeShape;
   rdfs:label "PercelenEnvelop"@nl;
   rdfs:comment "De collectie van de uitgewisselde percelen en hun metadata elementen."@nl;
   shacl:closed false;
-  shacl:property _:df_2_11;
+  shacl:property _:df_2_14;
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/perceel#PercelenEnvelop> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#RuimtelijkeEenheidShape> a shacl:NodeShape;
@@ -228,6 +257,16 @@
     shacl:maxCount 2;
     shacl:name "identificator"@nl;
     shacl:path <http://www.w3.org/ns/adms#identifier>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "detail"@nl;
+    rdfs:comment "Een bron dat additionele info over het object bevat."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#RuimtelijkeEenheid.Detail>;
+    shacl:class xsd:AnyURI;
+    shacl:description "Een bron dat additionele info over het object bevat."@nl;
+    shacl:maxCount 1;
+    shacl:name "detail"@nl;
+    shacl:path rdfs:seeAlso
   ], [
     a shacl:PropertyShape;
     rdfs:label "status";
@@ -253,7 +292,16 @@
   shacl:closed false;
   shacl:targetClass xsd:string .
 
-_:df_2_11 a shacl:PropertyShape;
+_:df_2_12 a shacl:PropertyShape;
+  rdfs:label "data"@nl;
+  rdfs:comment "De collectie data die de envelop bevat."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#DataEnvelop.Data>;
+  shacl:class prov:Entity;
+  shacl:description "De collectie data die de envelop bevat."@nl;
+  shacl:name "data"@nl;
+  shacl:path <https://implementatie.data.vlaanderen.be/ns/perceel#data> .
+
+_:df_2_14 a shacl:PropertyShape;
   rdfs:label "data"@nl;
   rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#PercelenEnvelop.Data>;
@@ -262,7 +310,7 @@ _:df_2_11 a shacl:PropertyShape;
   shacl:name "data"@nl;
   shacl:path <https://implementatie.data.vlaanderen.be/ns/perceel#data> .
 
-_:df_2_14 a shacl:PropertyShape;
+_:df_2_17 a shacl:PropertyShape;
   rdfs:label "data"@nl;
   rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#PerceelEnvelop.Data>;
@@ -273,17 +321,8 @@ _:df_2_14 a shacl:PropertyShape;
   shacl:name "data"@nl;
   shacl:path <https://implementatie.data.vlaanderen.be/ns/perceel#data> .
 
-_:df_2_17 a shacl:PropertyShape;
+_:df_2_20 a shacl:PropertyShape;
   shacl:class <https://implementatie.data.vlaanderen.be/ns/perceel#PercelenEnvelop> .
 
-_:df_2_22 a shacl:PropertyShape;
+_:df_2_25 a shacl:PropertyShape;
   shacl:class <https://implementatie.data.vlaanderen.be/ns/perceel#PerceelEnvelop> .
-
-_:df_2_9 a shacl:PropertyShape;
-  rdfs:label "data"@nl;
-  rdfs:comment "De collectie data die de envelop bevat."@nl;
-  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#DataEnvelop.Data>;
-  shacl:class prov:Entity;
-  shacl:description "De collectie data die de envelop bevat."@nl;
-  shacl:name "data"@nl;
-  shacl:path <https://implementatie.data.vlaanderen.be/ns/perceel#data> .
