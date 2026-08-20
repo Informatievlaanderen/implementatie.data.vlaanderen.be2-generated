@@ -1,0 +1,30 @@
+{
+  "title": "GestructureerdeIdentificator",
+  "type": "object",
+  "description": "Identificator van een object opgesplitst in zijn onderdelen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse GestructureerdeIdentificator)",
+      "pattern": "^GestructureerdeIdentificator$"
+    },
+    "lokaleIdentificator": {
+      "$ref": "#/components/schemas/GestructureerdeIdentificator.lokaleIdentificator"
+    },
+    "naamruimte": {
+      "$ref": "#/components/schemas/GestructureerdeIdentificator.naamruimte"
+    },
+    "versieIdentificator": {
+      "$ref": "#/components/schemas/GestructureerdeIdentificator.versieIdentificator"
+    }
+  },
+  "required": [
+    "@type",
+    "lokaleIdentificator",
+    "naamruimte"
+  ]
+}

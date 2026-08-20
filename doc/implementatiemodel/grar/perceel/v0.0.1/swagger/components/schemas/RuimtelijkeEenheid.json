@@ -1,0 +1,36 @@
+{
+  "title": "RuimtelijkeEenheid",
+  "type": "object",
+  "description": "Eén gebied (of meerdere gebieden) van land en/of water, of één enkel volume (of meerdere volumes) ruimte, afgebakend voor een bepaald doel.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse RuimtelijkeEenheid)",
+      "pattern": "^RuimtelijkeEenheid$"
+    },
+    "identificator": {
+      "type": "array",
+      "description": "De identificator van de Ruimtelijke Eenheid. Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1,
+      "maxItems": 2
+    },
+    "toegekendAdres": {
+      "type": "array",
+      "description": "undefined Lijst van BelgischAdres items.",
+      "items": {
+        "$ref": "#/components/schemas/BelgischAdres"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

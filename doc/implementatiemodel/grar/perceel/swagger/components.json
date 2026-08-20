@@ -1,0 +1,442 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Components of GRAR Perceel REST",
+    "description": "GRAR OSLO-conforme REST API voor percelen",
+    "version": "3.0.0"
+  },
+  "components": {
+    "schemas": {
+      "Statuswaarde": {
+        "title": "Statuswaarde",
+        "type": "object",
+        "description": "Enumeratie van Statuswaarde",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "BelgischAdres": {
+        "title": "BelgischAdres",
+        "type": "object",
+        "description": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse BelgischAdres)",
+            "pattern": "^BelgischAdres$"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "RuimtelijkeEenheid": {
+        "title": "RuimtelijkeEenheid",
+        "type": "object",
+        "description": "Eén gebied (of meerdere gebieden) van land en/of water, of één enkel volume (of meerdere volumes) ruimte, afgebakend voor een bepaald doel.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse RuimtelijkeEenheid)",
+            "pattern": "^RuimtelijkeEenheid$"
+          },
+          "identificator": {
+            "type": "array",
+            "description": "De identificator van de Ruimtelijke Eenheid. Lijst van Identificator items.",
+            "items": {
+              "$ref": "#/components/schemas/Identificator"
+            },
+            "minItems": 1,
+            "maxItems": 2
+          },
+          "toegekendAdres": {
+            "type": "array",
+            "description": "undefined Lijst van BelgischAdres items.",
+            "items": {
+              "$ref": "#/components/schemas/BelgischAdres"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "KadastraalPlanperceel": {
+        "title": "KadastraalPlanperceel",
+        "type": "object",
+        "description": "Een gedeelte van het Belgische grondgebied, geografische afgebakend en geïdentificeerd door de AAPD op het kadastraal percelenplan, dat overeenstemt met het grondoppervlak van één of meerdere kadastrale patrimoniale percelen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse KadastraalPlanperceel)",
+            "pattern": "^KadastraalPlanperceel$"
+          },
+          "identificator": {
+            "type": "array",
+            "description": "De identificator van de Ruimtelijke Eenheid. Lijst van Identificator items.",
+            "items": {
+              "$ref": "#/components/schemas/Identificator"
+            },
+            "minItems": 1,
+            "maxItems": 2
+          },
+          "toegekendAdres": {
+            "type": "array",
+            "description": "undefined Lijst van BelgischAdres items.",
+            "items": {
+              "$ref": "#/components/schemas/BelgischAdres"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Links": {
+        "title": "Links",
+        "type": "object",
+        "description": "Een verzameling van URIs wijzende naar locaties waar info kan gevonden worden over gerelateerde objecten.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Links)",
+            "pattern": "^Links$"
+          },
+          "self": {
+            "type": "array",
+            "description": "Een verwijzing naar een locatie waar info kan gevonden worden over zichzelf. Lijst van Link items.",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "minItems": 1
+          },
+          "gebouwen": {
+            "type": "array",
+            "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouwen Lijst van Link items.",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "DataEnvelop": {
+        "title": "DataEnvelop",
+        "type": "object",
+        "description": "De collectie van de uitgewisselde data en zijn metadata elementen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse DataEnvelop)",
+            "pattern": "^DataEnvelop$"
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "PerceelEnvelop": {
+        "title": "PerceelEnvelop",
+        "type": "object",
+        "description": "De collectie van de uitgewisselde perceel en hun metadata elementen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse PerceelEnvelop)",
+            "pattern": "^PerceelEnvelop$"
+          },
+          "data": {
+            "$ref": "#/components/schemas/KadastraalPlanperceel"
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          }
+        },
+        "required": [
+          "@type",
+          "data"
+        ]
+      },
+      "PercelenEnvelop": {
+        "title": "PercelenEnvelop",
+        "type": "object",
+        "description": "De collectie van de uitgewisselde percelen en hun metadata elementen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse PercelenEnvelop)",
+            "pattern": "^PercelenEnvelop$"
+          },
+          "data": {
+            "type": "array",
+            "description": "De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van KadastraalPlanperceel items.",
+            "items": {
+              "$ref": "#/components/schemas/KadastraalPlanperceel"
+            },
+            "minItems": 1
+          },
+          "links": {
+            "$ref": "#/components/schemas/Links"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "GestructureerdeIdentificator.lokaleIdentificator": {
+        "title": "GestructureerdeIdentificator.lokaleIdentificator",
+        "type": "object",
+        "description": "String gebruikt om het object uniek te identificeren binnen de naamruimte.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "GestructureerdeIdentificator.naamruimte": {
+        "title": "GestructureerdeIdentificator.naamruimte",
+        "type": "object",
+        "description": "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken. Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bijvoorbeeld een uri samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bijvoorbeeld https://data.vlaanderen.be/id/adres/).",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "GestructureerdeIdentificator.versieIdentificator": {
+        "title": "GestructureerdeIdentificator.versieIdentificator",
+        "type": "object",
+        "description": "Identificator van de specifieke versie van een object.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "GestructureerdeIdentificator": {
+        "title": "GestructureerdeIdentificator",
+        "type": "object",
+        "description": "Identificator van een object opgesplitst in zijn onderdelen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse GestructureerdeIdentificator)",
+            "pattern": "^GestructureerdeIdentificator$"
+          },
+          "lokaleIdentificator": {
+            "$ref": "#/components/schemas/GestructureerdeIdentificator.lokaleIdentificator"
+          },
+          "naamruimte": {
+            "$ref": "#/components/schemas/GestructureerdeIdentificator.naamruimte"
+          },
+          "versieIdentificator": {
+            "$ref": "#/components/schemas/GestructureerdeIdentificator.versieIdentificator"
+          }
+        },
+        "required": [
+          "@type",
+          "lokaleIdentificator",
+          "naamruimte"
+        ]
+      },
+      "Identificator.identificator": {
+        "title": "Identificator.identificator",
+        "type": "object",
+        "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value",
+          "@type"
+        ]
+      },
+      "Identificator": {
+        "title": "Identificator",
+        "type": "object",
+        "description": "Informatie gebruikt om een object uniek te identificeren.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Identificator)",
+            "pattern": "^Identificator$"
+          },
+          "identificator": {
+            "$ref": "#/components/schemas/Identificator.identificator"
+          },
+          "gestructureerdeIdentificator": {
+            "$ref": "#/components/schemas/GestructureerdeIdentificator"
+          },
+          "toegekendDoor": {
+            "$ref": "#/components/schemas/Agent"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Link": {
+        "title": "Link",
+        "type": "object",
+        "description": "Link beschrijft een hyperlink naar een andere resource volgens HAL.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Link)",
+            "pattern": "^Link$"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      }
+    },
+    "links": {
+      "RuimtelijkeEenheid.identificator": {
+        "operationId": "RuimtelijkeEenheidGET",
+        "parameters": {
+          "id": "$response.body#/RuimtelijkeEenheid.identificator/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "RuimtelijkeEenheid.toegekendAdres": {
+        "operationId": "RuimtelijkeEenheidGET",
+        "parameters": {
+          "id": "$response.body#/RuimtelijkeEenheid.toegekendAdres/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `BelgischAdres` op te halen."
+      },
+      "KadastraalPlanperceel.identificator": {
+        "operationId": "KadastraalPlanperceelGET",
+        "parameters": {
+          "id": "$response.body#/KadastraalPlanperceel.identificator/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "KadastraalPlanperceel.toegekendAdres": {
+        "operationId": "KadastraalPlanperceelGET",
+        "parameters": {
+          "id": "$response.body#/KadastraalPlanperceel.toegekendAdres/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `BelgischAdres` op te halen."
+      },
+      "Links.self": {
+        "operationId": "LinksGET",
+        "parameters": {
+          "id": "$response.body#/Links.self/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Link` op te halen."
+      },
+      "Links.gebouwen": {
+        "operationId": "LinksGET",
+        "parameters": {
+          "id": "$response.body#/Links.gebouwen/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Link` op te halen."
+      },
+      "DataEnvelop.links": {
+        "operationId": "DataEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/DataEnvelop.links/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Links` op te halen."
+      },
+      "PerceelEnvelop.data": {
+        "operationId": "PerceelEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/PerceelEnvelop.data/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `KadastraalPlanperceel` op te halen."
+      },
+      "PerceelEnvelop.links": {
+        "operationId": "PerceelEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/PerceelEnvelop.links/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Links` op te halen."
+      },
+      "PercelenEnvelop.data": {
+        "operationId": "PercelenEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/PercelenEnvelop.data/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `KadastraalPlanperceel` op te halen."
+      },
+      "PercelenEnvelop.links": {
+        "operationId": "PercelenEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/PercelenEnvelop.links/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Links` op te halen."
+      }
+    }
+  }
+}

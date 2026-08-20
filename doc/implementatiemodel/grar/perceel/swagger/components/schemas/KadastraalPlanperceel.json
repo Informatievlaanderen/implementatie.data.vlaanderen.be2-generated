@@ -1,0 +1,36 @@
+{
+  "title": "KadastraalPlanperceel",
+  "type": "object",
+  "description": "Een gedeelte van het Belgische grondgebied, geografische afgebakend en geïdentificeerd door de AAPD op het kadastraal percelenplan, dat overeenstemt met het grondoppervlak van één of meerdere kadastrale patrimoniale percelen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse KadastraalPlanperceel)",
+      "pattern": "^KadastraalPlanperceel$"
+    },
+    "identificator": {
+      "type": "array",
+      "description": "De identificator van de Ruimtelijke Eenheid. Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1,
+      "maxItems": 2
+    },
+    "toegekendAdres": {
+      "type": "array",
+      "description": "undefined Lijst van BelgischAdres items.",
+      "items": {
+        "$ref": "#/components/schemas/BelgischAdres"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "title": "PercelenEnvelop",
+  "type": "object",
+  "description": "De collectie van de uitgewisselde percelen en hun metadata elementen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse PercelenEnvelop)",
+      "pattern": "^PercelenEnvelop$"
+    },
+    "data": {
+      "type": "array",
+      "description": "De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van KadastraalPlanperceel items.",
+      "items": {
+        "$ref": "#/components/schemas/KadastraalPlanperceel"
+      },
+      "minItems": 1
+    },
+    "links": {
+      "$ref": "#/components/schemas/Links"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

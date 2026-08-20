@@ -1,0 +1,35 @@
+{
+  "title": "Links",
+  "type": "object",
+  "description": "Een verzameling van URIs wijzende naar locaties waar info kan gevonden worden over gerelateerde objecten.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Links)",
+      "pattern": "^Links$"
+    },
+    "self": {
+      "type": "array",
+      "description": "Een verwijzing naar een locatie waar info kan gevonden worden over zichzelf. Lijst van Link items.",
+      "items": {
+        "$ref": "#/components/schemas/Link"
+      },
+      "minItems": 1
+    },
+    "gebouwen": {
+      "type": "array",
+      "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouwen Lijst van Link items.",
+      "items": {
+        "$ref": "#/components/schemas/Link"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}
