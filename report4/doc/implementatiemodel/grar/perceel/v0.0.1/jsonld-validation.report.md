@@ -2,33 +2,33 @@
 
 #||# -------------------------------------  
 
-2026-08-20T14:46:51.868Z info: [JsonLdValidationService]: Loaded 55 URI prefixes into whitelist
+2026-08-20T15:03:43.091Z info: [JsonLdValidationService]: Loaded 55 URI prefixes into whitelist
 
-2026-08-20T14:46:51.932Z warn: [JsonLdValidationService]: Found non-whitelisted assigned URI: http://todo.com/toegekendAdres for subject: [urn:oslo-toolchain:9dc38bed264802c9494aa47cefe7a8ae2d7c92a6a5d135dbcfa14c919d3975da](all-perceel-im.jsonld#L1037)
+2026-08-20T15:03:43.161Z warn: [JsonLdValidationService]: Found non-whitelisted assigned URI: http://todo.com/toegekendAdres for subject: [urn:oslo-toolchain:9dc38bed264802c9494aa47cefe7a8ae2d7c92a6a5d135dbcfa14c919d3975da](all-perceel-im.jsonld#L1037)
 
-2026-08-20T14:46:51.933Z warn: [JsonLdValidationService]: Found non-whitelisted assigned URI: http://todo.com/links for subject: [urn:oslo-toolchain:8a135e71e1df679e7a520ba1e4bc6a4f4a337d52d23484c89c0967487a1dfc98](all-perceel-im.jsonld#L1063)
+2026-08-20T15:03:43.161Z warn: [JsonLdValidationService]: Found non-whitelisted assigned URI: http://todo.com/links for subject: [urn:oslo-toolchain:8a135e71e1df679e7a520ba1e4bc6a4f4a337d52d23484c89c0967487a1dfc98](all-perceel-im.jsonld#L1063)
 
-2026-08-20T14:46:51.933Z warn: [JsonLdValidationService]: Found non-whitelisted assigned URI: http://www.w3.org/1999/xhtml/vocab#link for subject: [urn:oslo-toolchain:4a008447c07ff11b15c044c7dcd1400dbbf563634aa1cf7dd802dc5716415993](all-perceel-im.jsonld#L1091)
+2026-08-20T15:03:43.161Z warn: [JsonLdValidationService]: Found non-whitelisted assigned URI: http://www.w3.org/1999/xhtml/vocab#link for subject: [urn:oslo-toolchain:4a008447c07ff11b15c044c7dcd1400dbbf563634aa1cf7dd802dc5716415993](all-perceel-im.jsonld#L1091)
 
-2026-08-20T14:46:51.934Z warn: [JsonLdValidationService]: Found sentence without a '.': 'Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouwen' for subject: [urn:oslo-toolchain:6f4d2c97b7bab8bf6f04a1ea64b693dff9c5fd731100586b105a13a0e8429659](all-perceel-im.jsonld#L721)
+2026-08-20T15:03:43.163Z warn: [JsonLdValidationService]: Found sentence without a '.': 'Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouwen' for subject: [urn:oslo-toolchain:6f4d2c97b7bab8bf6f04a1ea64b693dff9c5fd731100586b105a13a0e8429659](all-perceel-im.jsonld#L721)
 
-2026-08-20T14:46:51.934Z warn: [JsonLdValidationService]: Found abbreviation 'Bvb' in sentence 'Bvb '20170901' als string en 'datum' als type. Laat automatische interpretatie vd string toe.' for subject: [urn:oslo-toolchain:4544b77d4c3fa56fe84fe78fb5d99b6412d84313e6bac285b9b4f203c2fe195b](all-perceel-im.jsonld#L1233), replace with 'bijvoorbeeld'
+2026-08-20T15:03:43.163Z warn: [JsonLdValidationService]: Found abbreviation 'Bvb' in sentence 'Bvb '20170901' als string en 'datum' als type. Laat automatische interpretatie vd string toe.' for subject: [urn:oslo-toolchain:4544b77d4c3fa56fe84fe78fb5d99b6412d84313e6bac285b9b4f203c2fe195b](all-perceel-im.jsonld#L1233), replace with 'bijvoorbeeld'
 
-2026-08-20T14:46:51.934Z warn: [JsonLdValidationService]: Found abbreviation 'vd' in sentence 'Bvb '20170901' als string en 'datum' als type. Laat automatische interpretatie vd string toe.' for subject: [urn:oslo-toolchain:4544b77d4c3fa56fe84fe78fb5d99b6412d84313e6bac285b9b4f203c2fe195b](all-perceel-im.jsonld#L1233), replace with 'van de'
+2026-08-20T15:03:43.163Z warn: [JsonLdValidationService]: Found abbreviation 'vd' in sentence 'Bvb '20170901' als string en 'datum' als type. Laat automatische interpretatie vd string toe.' for subject: [urn:oslo-toolchain:4544b77d4c3fa56fe84fe78fb5d99b6412d84313e6bac285b9b4f203c2fe195b](all-perceel-im.jsonld#L1233), replace with 'van de'
 
-2026-08-20T14:46:51.936Z error: [JsonLdValidationService]: Found missing class or attribute (status): [urn:oslo-toolchain:dd915532e5a3406d8a21ff00bc33bbab8ccf9998c2356f30ffeab472a9177436](all-perceel-im.jsonld#L657) in Application Profile
+2026-08-20T15:03:43.165Z error: [JsonLdValidationService]: Found missing class or attribute (status): [urn:oslo-toolchain:dd915532e5a3406d8a21ff00bc33bbab8ccf9998c2356f30ffeab472a9177436](all-perceel-im.jsonld#L657) in Application Profile
 
-2026-08-20T14:46:51.937Z error: [JsonLdValidationService]: Found missing class or attribute (toegekendAdres): [urn:oslo-toolchain:9dc38bed264802c9494aa47cefe7a8ae2d7c92a6a5d135dbcfa14c919d3975da](all-perceel-im.jsonld#L1037) in Application Profile
+2026-08-20T15:03:43.165Z error: [JsonLdValidationService]: Found missing class or attribute (toegekendAdres): [urn:oslo-toolchain:9dc38bed264802c9494aa47cefe7a8ae2d7c92a6a5d135dbcfa14c919d3975da](all-perceel-im.jsonld#L1037) in Application Profile
 
-2026-08-20T14:46:51.937Z error: [JsonLdValidationService]: Found missing class or attribute (links): [urn:oslo-toolchain:8a135e71e1df679e7a520ba1e4bc6a4f4a337d52d23484c89c0967487a1dfc98](all-perceel-im.jsonld#L1063) in Application Profile
+2026-08-20T15:03:43.166Z error: [JsonLdValidationService]: Found missing class or attribute (links): [urn:oslo-toolchain:8a135e71e1df679e7a520ba1e4bc6a4f4a337d52d23484c89c0967487a1dfc98](all-perceel-im.jsonld#L1063) in Application Profile
 
-2026-08-20T14:46:51.937Z info: [JsonLdValidationService]: Validation found 3 non-whitelisted assigned URIs
+2026-08-20T15:03:43.166Z info: [JsonLdValidationService]: Validation found 3 non-whitelisted assigned URIs
 
-2026-08-20T14:46:51.937Z info: [JsonLdValidationService]: Validation found 2 sentences with spelling mistakes or abbreviations.
+2026-08-20T15:03:43.166Z info: [JsonLdValidationService]: Validation found 2 sentences with spelling mistakes or abbreviations.
 
-2026-08-20T14:46:51.937Z info: [JsonLdValidationService]: Validation successful! All labels seem to be valid, no spelling mistakes or abbreviations found.
+2026-08-20T15:03:43.166Z info: [JsonLdValidationService]: Validation successful! All labels seem to be valid, no spelling mistakes or abbreviations found.
 
-2026-08-20T14:46:51.937Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
+2026-08-20T15:03:43.166Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
 
-2026-08-20T14:46:51.937Z info: [JsonLdValidationService]: Validation found 3 missing referenced classes or attributes.
+2026-08-20T15:03:43.166Z info: [JsonLdValidationService]: Validation found 3 missing referenced classes or attributes.
 
