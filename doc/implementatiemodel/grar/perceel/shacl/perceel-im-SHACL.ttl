@@ -24,7 +24,7 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#AnyURIShape> a shacl:NodeShape;
   rdfs:label "AnyURI"@nl;
-  rdfs:comment "AnyURI"@nl;
+  rdfs:comment "AnyURI staat voor een geïnternationaliseerde resource-identificatiereferentie (IRI)."@nl;
   shacl:closed false;
   shacl:targetClass xsd:AnyURI .
 
@@ -62,12 +62,14 @@
     shacl:path <http://www.w3.org/ns/adms#next>
   ], [
     a shacl:PropertyShape;
-    rdfs:label "links";
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#DataEnvelop.Links>;
+    rdfs:label "detail"@nl;
+    rdfs:comment "Een bron dat additionele info over het object bevat."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#DataEnvelop.Detail>;
     shacl:class <https://implementatie.data.vlaanderen.be/ns/generiek#Links>;
+    shacl:description "Een bron dat additionele info over het object bevat."@nl;
     shacl:maxCount 1;
-    shacl:name "links";
-    shacl:path <http://todo.com/links>
+    shacl:name "detail"@nl;
+    shacl:path rdfs:seeAlso
   ];
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/perceel#DataEnvelop>,
     <https://implementatie.data.vlaanderen.be/ns/perceel#PerceelEnvelop>,
@@ -201,12 +203,12 @@
   ], [
     a shacl:PropertyShape;
     rdfs:label "gebouwen"@nl;
-    rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouwen"@nl;
+    rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouwen."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#Links.Gebouwen>;
     shacl:class xhv:link;
-    shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouwen"@nl;
+    shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouwen."@nl;
     shacl:name "gebouwen"@nl;
-    shacl:path <https://implementatie.data.vlaanderen.be/ns/generiek#gebouweenheden>
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/generiek#gebouwen>
   ];
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Links> .
 
@@ -280,11 +282,13 @@
     shacl:path <https://implementatie.data.vlaanderen.be/ns/perceel#status>
   ], [
     a shacl:PropertyShape;
-    rdfs:label "toegekendAdres";
+    rdfs:label "toegekendAdres"@nl;
+    rdfs:comment "Het adres toegekend aan het adresseerbaar object."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/perceel/v0.0.1#RuimtelijkeEenheid.ToegekendAdres>;
     shacl:class <https://data.vlaanderen.be/ns/adres#Adres>;
-    shacl:name "toegekendAdres";
-    shacl:path <http://todo.com/toegekendAdres>
+    shacl:description "Het adres toegekend aan het adresseerbaar object."@nl;
+    shacl:name "toegekendAdres"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/gebouw#toegekendAdres>
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/perceel#RuimtelijkeEenheid>,
     <https://data.vlaanderen.be/ns/perceel#KadastraalPlanperceel> .
