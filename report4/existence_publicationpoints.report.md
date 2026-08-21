@@ -23,11 +23,6 @@
 #||# Directory check
 #||# 
 #||# index.html check
-error: missing '/tmp/generated/doc/implementatiemodel/grar/perceel/index.html'
-error: missing '/tmp/generated/doc/implementatiemodel/grar/perceel/v0.0.1/index.html'
-error: missing '/tmp/generated/ns/grar/perceel/index.html'
-error: missing '/tmp/generated/doc/vocabularium/grar/perceel/index.html'
-error: missing '/tmp/generated/doc/vocabularium/grar/perceel/v0.0.1/index.html'
 
 #||#    + checking /home/circleci/project/config/test/landbouwgebruiksperceel-im.publication.json
 #||# 
