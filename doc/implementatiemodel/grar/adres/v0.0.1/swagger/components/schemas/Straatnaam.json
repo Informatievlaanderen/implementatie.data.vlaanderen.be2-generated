@@ -14,40 +14,17 @@
     },
     "homoniemToevoeging": {
       "type": "array",
-      "description": "Lijst van String items.",
+      "description": "Toevoeging om dubbele straatnamen (straatnamen met dezelfde naam maar andere ligging in de gemeente en eigen adressen) van elkaar te onderscheiden. Lijst van String items.",
       "items": {
-        "type": "object",
-        "description": "Toevoeging om dubbele straatnamen (straatnamen met dezelfde naam maar andere ligging in de gemeente en eigen adressen) van elkaar te onderscheiden.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "$ref": "#/components/schemas/Straatnaam.homoniemToevoeging"
       },
       "minItems": 1
     },
     "straatnaam": {
       "type": "array",
-      "description": "Lijst van GeografischeNaam items.",
+      "description": "Naam van de straat. Lijst van GeografischeNaam items.",
       "items": {
-        "type": "object",
-        "description": "Naam van de straat.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@language": {
-            "type": "string",
-            "pattern": "^nl$"
-          }
-        },
-        "required": [
-          "@value",
-          "@language"
-        ]
+        "$ref": "#/components/schemas/Straatnaam.straatnaam"
       },
       "minItems": 1
     },
@@ -55,17 +32,7 @@
       "$ref": "#/components/schemas/Statuswaarde"
     },
     "detail": {
-      "type": "object",
-      "description": "Een bron dat additionele info over het object bevat.",
-      "properties": {
-        "@id": {
-          "type": "string",
-          "format": "uri"
-        }
-      },
-      "required": [
-        "@id"
-      ]
+      "$ref": "#/components/schemas/Link"
     },
     "isToegekendDoor": {
       "$ref": "#/components/schemas/Gemeente"

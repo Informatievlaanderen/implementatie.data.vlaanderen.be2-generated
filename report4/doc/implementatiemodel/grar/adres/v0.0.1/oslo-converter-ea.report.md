@@ -2,43 +2,53 @@
 
 #||# -------------------------------------
 
-2026-07-30T07:50:22.504Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:Implementatiemodel-GRAR-Adres:DCTerms:Agent:rapporteertAan)
+2026-08-24T11:49:15.641Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:Implementatiemodel-GRAR-Adres:DCTerms:Agent:rapporteertAan)
 
-2026-07-30T07:50:22.507Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:AdresEnvelop:(AdresEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.645Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:AdresEnvelop:(AdresEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.508Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:AdressenEnvelop:(AdressenEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.645Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:AdressenEnvelop:(AdressenEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.508Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:GemeenteEnvelop:(GemeenteEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.645Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:GemeenteEnvelop:(GemeenteEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.509Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Straatnaam:(Straatnaam -> Gemeente) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.646Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Straatnaam:(Straatnaam -> Gemeente) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.509Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Adres:(Adres -> Adresuitbreiding) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.646Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Adres:(Adres -> Adresuitbreiding) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.509Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Adres:(Adres -> Gemeentenaam) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.647Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Adres:(Adres -> Gemeentenaam) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.509Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Adres:(Adres -> Gemeente) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.647Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Adres:(Adres -> Gemeente) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.509Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Adres:(Adres -> Straatnaam) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.647Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Adres:(Adres -> Straatnaam) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.509Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Adres:(Adres -> Postinfo) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.647Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Adres:(Adres -> Postinfo) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.509Z info: Connector Model:Implementatiemodel-GRAR-Adres:SF:Punt:(Punt -> Geometrie) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.647Z info: Connector Model:Implementatiemodel-GRAR-Adres:SF:Punt:(Punt -> Geometrie) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.510Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:GemeentenEnvelop:(GemeentenEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.647Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:GemeentenEnvelop:(GemeentenEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.510Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:PostinfoEnvelop:(PostinfoEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.647Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:PostinfoEnvelop:(PostinfoEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.510Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:PostinfoLijstEnvelop:(PostinfoLijstEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.647Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:PostinfoLijstEnvelop:(PostinfoLijstEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.510Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:StraatnaamEnvelop:(StraatnaamEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.647Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:StraatnaamEnvelop:(StraatnaamEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.510Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:StraatnaamenEnvelop:(StraatnaamenEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.647Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:StraatnamenEnvelop:(StraatnamenEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.510Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Postinfo:(Postinfo -> Gemeente) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.647Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Postinfo:(Postinfo -> Gemeente) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.510Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:DataEnvelop:(DataEnvelop -> Links) is not an association with a source role. Ignoring this connector.
+2026-08-24T11:49:15.648Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:DataEnvelop:(DataEnvelop -> Links) is not an association with a source role. Ignoring this connector.
 
-2026-07-30T07:50:22.511Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+2026-08-24T11:49:15.648Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+
+2026-08-24T11:49:15.657Z warn: [ConverterHandler]: Entity with path Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:AdressenEnvelop has already a value for definition-nl in language nl, but will be overwritten.
+
+2026-08-24T11:49:15.663Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Adres:detail).
+
+2026-08-24T11:49:15.663Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Implementatiemodel-GRAR-Adres:OSLO-Generiek-IM:Link:href).
+
+2026-08-24T11:49:15.671Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:Implementatiemodel-GRAR-Adres:OSLO-Generiek:Gemeente:detail).
+
+2026-08-24T11:49:15.671Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:Referentie:detail).
 
 #||# -------------------------------------
 

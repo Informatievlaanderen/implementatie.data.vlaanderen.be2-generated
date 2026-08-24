@@ -14,23 +14,9 @@
     },
     "volledigAdres": {
       "type": "array",
-      "description": "Lijst van LangString items.",
+      "description": "Het complete adres in één string, al dan niet geformatteerd. Vermijdt fouten ten gevolgen van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer. Lijst van LangString items.",
       "items": {
-        "type": "object",
-        "description": "Het complete adres in één string, al dan niet geformatteerd. Vermijdt fouten ten gevolgen van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@language": {
-            "type": "string",
-            "pattern": "^nl$"
-          }
-        },
-        "required": [
-          "@value",
-          "@language"
-        ]
+        "$ref": "#/components/schemas/Adresuitbreiding.volledigAdres"
       },
       "minItems": 1
     }

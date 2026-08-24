@@ -12,26 +12,9 @@
       "description": "Object type (klasse GeografischePositie)",
       "pattern": "^GeografischePositie$"
     },
-    "default": {
-      "type": "object",
-      "description": "Geeft aan of de positie een default positie is. Hieronder wordt de positie verstaan die per default moet worden gebruikt als het object meerdere posities heeft.",
-      "properties": {
-        "@value": {
-          "type": "boolean"
-        },
-        "@type": {
-          "type": "string",
-          "pattern": "^Boolean$"
-        }
-      },
-      "required": [
-        "@value",
-        "@type"
-      ]
-    },
     "geometrie": {
       "type": "array",
-      "description": "Lijst van Punt items.",
+      "description": "De cartografische coöordinaten van het punt. Lijst van Punt items.",
       "items": {
         "$ref": "#/components/schemas/Punt"
       },
@@ -47,7 +30,6 @@
   },
   "required": [
     "@type",
-    "default",
     "geometrie"
   ]
 }

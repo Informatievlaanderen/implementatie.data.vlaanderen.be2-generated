@@ -13,66 +13,24 @@
       "pattern": "^Postinfo$"
     },
     "postcode": {
-      "type": "object",
-      "description": "Code waarmee het geografisch gebied dat de adressen voor postale doeleinden groepeert aanduidt.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@value"
-      ]
+      "$ref": "#/components/schemas/Postinfo.postcode"
     },
     "postnaam": {
       "type": "array",
-      "description": "Lijst van GeografischeNaam items.",
+      "description": "Naam waarmee het geografisch gebied dat de adressen voor postale doeleinden groepeert kan worden aangeduid. Typisch de namen van vroegere gemeenten waarmee het gebied samenvalt. Lijst van GeografischeNaam items.",
       "items": {
-        "type": "object",
-        "description": "Naam waarmee het geografisch gebied dat de adressen voor postale doeleinden groepeert kan worden aangeduid. Typisch de namen van vroegere gemeenten waarmee het gebied samenvalt.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@language": {
-            "type": "string",
-            "pattern": "^nl$"
-          }
-        },
-        "required": [
-          "@value",
-          "@language"
-        ]
+        "$ref": "#/components/schemas/Postinfo.postnaam"
       },
       "minItems": 1
     },
     "nuts3": {
-      "type": "object",
-      "description": "De bijhorende NUTS 3 code.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@value"
-      ]
+      "$ref": "#/components/schemas/Postinfo.nuts3"
     },
     "status": {
       "$ref": "#/components/schemas/Statuswaarde"
     },
     "detail": {
-      "type": "object",
-      "description": "Een bron dat additionele info over het object bevat.",
-      "properties": {
-        "@id": {
-          "type": "string",
-          "format": "uri"
-        }
-      },
-      "required": [
-        "@id"
-      ]
+      "$ref": "#/components/schemas/Link"
     },
     "isToegekendAan": {
       "$ref": "#/components/schemas/Gemeente"
