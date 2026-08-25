@@ -285,47 +285,18 @@
       },
       "Postinfo.postcode": {
         "title": "Postinfo.postcode",
-        "type": "object",
         "description": "Code waarmee het geografisch gebied dat de adressen voor postale doeleinden groepeert aanduidt.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "type": "string"
       },
       "Postinfo.postnaam": {
         "title": "Postinfo.postnaam",
-        "type": "object",
         "description": "Naam waarmee het geografisch gebied dat de adressen voor postale doeleinden groepeert kan worden aangeduid. Typisch de namen van vroegere gemeenten waarmee het gebied samenvalt.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@language": {
-            "type": "string",
-            "pattern": "^nl$"
-          }
-        },
-        "required": [
-          "@value",
-          "@language"
-        ]
+        "type": "string"
       },
       "Postinfo.nuts3": {
         "title": "Postinfo.nuts3",
-        "type": "object",
         "description": "De bijhorende NUTS 3 code.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "type": "string"
       },
       "Postinfo": {
         "title": "Postinfo",
@@ -359,7 +330,7 @@
             "$ref": "#/components/schemas/Statuswaarde"
           },
           "detail": {
-            "$ref": "#/components/schemas/Link"
+            "$ref": "#/components/schemas/AnyURI"
           },
           "isToegekendAan": {
             "$ref": "#/components/schemas/Gemeente"
@@ -436,34 +407,13 @@
       },
       "Straatnaam.homoniemToevoeging": {
         "title": "Straatnaam.homoniemToevoeging",
-        "type": "object",
         "description": "Toevoeging om dubbele straatnamen (straatnamen met dezelfde naam maar andere ligging in de gemeente en eigen adressen) van elkaar te onderscheiden.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "type": "string"
       },
       "Straatnaam.straatnaam": {
         "title": "Straatnaam.straatnaam",
-        "type": "object",
         "description": "Naam van de straat.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@language": {
-            "type": "string",
-            "pattern": "^nl$"
-          }
-        },
-        "required": [
-          "@value",
-          "@language"
-        ]
+        "type": "string"
       },
       "Straatnaam": {
         "title": "Straatnaam",
@@ -499,7 +449,7 @@
             "$ref": "#/components/schemas/Statuswaarde"
           },
           "detail": {
-            "$ref": "#/components/schemas/Link"
+            "$ref": "#/components/schemas/AnyURI"
           },
           "isToegekendDoor": {
             "$ref": "#/components/schemas/Gemeente"
@@ -515,21 +465,8 @@
       },
       "Gemeentenaam.gemeentenaam": {
         "title": "Gemeentenaam.gemeentenaam",
-        "type": "object",
         "description": "Naam van de gemeente.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@language": {
-            "type": "string",
-            "pattern": "^nl$"
-          }
-        },
-        "required": [
-          "@value",
-          "@language"
-        ]
+        "type": "string"
       },
       "Gemeentenaam": {
         "title": "Gemeentenaam",
@@ -564,21 +501,8 @@
       },
       "Adresuitbreiding.volledigAdres": {
         "title": "Adresuitbreiding.volledigAdres",
-        "type": "object",
         "description": "Het complete adres in één string, al dan niet geformatteerd. Vermijdt fouten ten gevolgen van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@language": {
-            "type": "string",
-            "pattern": "^nl$"
-          }
-        },
-        "required": [
-          "@value",
-          "@language"
-        ]
+        "type": "string"
       },
       "Adresuitbreiding": {
         "title": "Adresuitbreiding",
@@ -609,37 +533,13 @@
       },
       "Gemeente.officieleTaal": {
         "title": "Gemeente.officieleTaal",
-        "type": "object",
         "description": "De officiële talen van de gemeente.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value",
-          "@type"
-        ]
+        "type": "string"
       },
       "Gemeente.faciliteitenTaal": {
         "title": "Gemeente.faciliteitenTaal",
-        "type": "object",
         "description": "De faciliteiten talen van de gemeente.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value",
-          "@type"
-        ]
+        "type": "string"
       },
       "Gemeente": {
         "title": "Gemeente",
@@ -671,6 +571,9 @@
             },
             "minItems": 1
           },
+          "detail": {
+            "$ref": "#/components/schemas/AnyURI"
+          },
           "status": {
             "$ref": "#/components/schemas/Statuswaarde"
           },
@@ -687,47 +590,18 @@
       },
       "Adres.busnummer": {
         "title": "Adres.busnummer",
-        "type": "object",
         "description": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "type": "string"
       },
       "Adres.huisnummer": {
         "title": "Adres.huisnummer",
-        "type": "object",
         "description": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "type": "string"
       },
       "Adres.officieelToegekend": {
         "title": "Adres.officieelToegekend",
-        "type": "object",
         "description": "Geeft aan of het adres officieel door de adresbeheerder is toegekend. Een adres is niet-officieel wanneer het bestaan ervan niet gekend was vanuit de administratieve procedures, maar pas nadat nadat het feitelijk is vastgesteld op het terrein.",
-        "properties": {
-          "@value": {
-            "type": "boolean"
-          },
-          "@type": {
-            "type": "string",
-            "pattern": "^Boolean$"
-          }
-        },
-        "required": [
-          "@value",
-          "@type"
-        ]
+        "type": "boolean"
       },
       "Adres": {
         "title": "Adres",
@@ -751,6 +625,9 @@
           },
           "officieelToegekend": {
             "$ref": "#/components/schemas/Adres.officieelToegekend"
+          },
+          "detail": {
+            "$ref": "#/components/schemas/AnyURI"
           },
           "positie": {
             "$ref": "#/components/schemas/GeografischePositie"
@@ -820,86 +697,31 @@
       },
       "Problemdetail.detail": {
         "title": "Problemdetail.detail",
-        "type": "object",
         "description": "Mensleesbare beschrijving van de fout.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "type": "string"
       },
       "Problemdetail.instance": {
         "title": "Problemdetail.instance",
-        "type": "object",
         "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "pattern": "^AnyURI$"
-          }
-        },
-        "required": [
-          "@id",
-          "@type"
-        ]
+        "type": "string",
+        "format": "uri"
       },
       "Problemdetail.status": {
         "title": "Problemdetail.status",
-        "type": "object",
         "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\".",
-        "properties": {
-          "@value": {
-            "type": "number",
-            "format": "int64"
-          },
-          "@type": {
-            "type": "string",
-            "pattern": "^Integer$"
-          }
-        },
-        "required": [
-          "@value",
-          "@type"
-        ]
+        "type": "number",
+        "format": "int64"
       },
       "Problemdetail.title": {
         "title": "Problemdetail.title",
-        "type": "object",
         "description": "Korte mensleesbare beschrijving van de fout.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "type": "string"
       },
       "Problemdetail.type": {
         "title": "Problemdetail.type",
-        "type": "object",
         "description": "Aard van de fout.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "pattern": "^AnyURI$"
-          }
-        },
-        "required": [
-          "@id",
-          "@type"
-        ]
+        "type": "string",
+        "format": "uri"
       },
       "Problemdetail": {
         "title": "Problemdetail",
@@ -951,10 +773,14 @@
             "type": "string",
             "description": "Object type (klasse Referentie)",
             "pattern": "^Referentie$"
+          },
+          "detail": {
+            "$ref": "#/components/schemas/AnyURI"
           }
         },
         "required": [
-          "@type"
+          "@type",
+          "detail"
         ]
       },
       "Links": {
@@ -1026,52 +852,18 @@
       },
       "Concept.voorkeursnaam": {
         "title": "Concept.voorkeursnaam",
-        "type": "object",
         "description": "De naam van het Concept.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@language": {
-            "type": "string",
-            "pattern": "^nl$"
-          }
-        },
-        "required": [
-          "@value",
-          "@language"
-        ]
+        "type": "string"
       },
       "Concept.alternatieveNaam": {
         "title": "Concept.alternatieveNaam",
-        "type": "object",
         "description": "Andere naam voor het concept.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@language": {
-            "type": "string",
-            "pattern": "^nl$"
-          }
-        },
-        "required": [
-          "@value",
-          "@language"
-        ]
+        "type": "string"
       },
       "Concept.code": {
         "title": "Concept.code",
-        "type": "object",
         "description": "De waarde van de code van het Concept.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "type": "string"
       },
       "Concept": {
         "title": "Concept",
@@ -1104,20 +896,8 @@
       },
       "Locatieaanduiding.aanduiding": {
         "title": "Locatieaanduiding.aanduiding",
-        "type": "object",
         "description": "Alfanumerieke code waarmee het identificerend deel van een adreslocator wordt aangeduid.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value",
-          "@type"
-        ]
+        "type": "string"
       },
       "Locatieaanduiding": {
         "title": "Locatieaanduiding",
@@ -1148,21 +928,8 @@
       },
       "Locatienaam.naam": {
         "title": "Locatienaam.naam",
-        "type": "object",
         "description": "Naam van het geografisch object.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@language": {
-            "type": "string",
-            "pattern": "^nl$"
-          }
-        },
-        "required": [
-          "@value",
-          "@language"
-        ]
+        "type": "string"
       },
       "Locatienaam": {
         "title": "Locatienaam",
@@ -1198,52 +965,19 @@
       },
       "Identificator.identificator": {
         "title": "Identificator.identificator",
-        "type": "object",
         "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value",
-          "@type"
-        ]
+        "type": "string"
       },
       "Identificator.toegekendDoor": {
         "title": "Identificator.toegekendDoor",
-        "type": "object",
         "description": "Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "type": "string"
       },
       "Identificator.toegekendOp": {
         "title": "Identificator.toegekendOp",
-        "type": "object",
         "description": "Tijdstip waarop de identificator werd uitgegeven.",
-        "properties": {
-          "@value": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "@type": {
-            "type": "string",
-            "pattern": "^DateTime$"
-          }
-        },
-        "required": [
-          "@value",
-          "@type"
-        ]
+        "type": "string",
+        "format": "date-time"
       },
       "Identificator": {
         "title": "Identificator",
@@ -1278,42 +1012,18 @@
       },
       "GestructureerdeIdentificator.lokaleIdentificator": {
         "title": "GestructureerdeIdentificator.lokaleIdentificator",
-        "type": "object",
         "description": "String gebruikt om het object uniek te identificeren binnen de naamruimte.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "type": "string"
       },
       "GestructureerdeIdentificator.naamruimte": {
         "title": "GestructureerdeIdentificator.naamruimte",
-        "type": "object",
         "description": "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken. Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijkbijvoorbeeldeen uri samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bijvoorbeeld https://data.vlaanderen.be/id/adres/).",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "type": "string"
       },
       "GestructureerdeIdentificator.versieIdentificator": {
         "title": "GestructureerdeIdentificator.versieIdentificator",
-        "type": "object",
         "description": "Identificator van de specifieke versie van een object.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "type": "string"
       },
       "GestructureerdeIdentificator": {
         "title": "GestructureerdeIdentificator",
@@ -1347,37 +1057,13 @@
       },
       "Geometrie.gml": {
         "title": "Geometrie.gml",
-        "type": "object",
         "description": "Geometrie uitgedrukt in GML-formaat. Gebruik http://www.opengis.net/ont/geosparql#gmlLiteral als datatype.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value",
-          "@type"
-        ]
+        "type": "string"
       },
       "Geometrie.wkt": {
         "title": "Geometrie.wkt",
-        "type": "object",
         "description": "Geometrie uitgedrukt in WKT-formaat. Gebruik http://www.opengis.net/ont/geosparql#wktLiteral als datatype.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value",
-          "@type"
-        ]
+        "type": "string"
       },
       "Geometrie": {
         "title": "Geometrie",
@@ -1398,6 +1084,47 @@
           },
           "wkt": {
             "$ref": "#/components/schemas/Geometrie.wkt"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "AnyURI": {
+        "title": "AnyURI",
+        "type": "object",
+        "description": "AnyURI staat voor een geïnternationaliseerde resource-identificatiereferentie (IRI).",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse AnyURI)",
+            "pattern": "^AnyURI$"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Link": {
+        "title": "Link",
+        "type": "object",
+        "description": "Link beschrijft een hyperlink naar een andere resource volgens HAL.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Link)",
+            "pattern": "^Link$"
+          },
+          "href": {
+            "$ref": "#/components/schemas/AnyURI"
           }
         },
         "required": [
@@ -1441,37 +1168,13 @@
       },
       "Punt.gml": {
         "title": "Punt.gml",
-        "type": "object",
         "description": "Geometrie uitgedrukt in GML-formaat. Gebruik http://www.opengis.net/ont/geosparql#gmlLiteral als datatype.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value",
-          "@type"
-        ]
+        "type": "string"
       },
       "Punt.wkt": {
         "title": "Punt.wkt",
-        "type": "object",
         "description": "Geometrie uitgedrukt in WKT-formaat. Gebruik http://www.opengis.net/ont/geosparql#wktLiteral als datatype.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value",
-          "@type"
-        ]
+        "type": "string"
       },
       "Punt": {
         "title": "Punt",
@@ -1492,25 +1195,6 @@
           },
           "wkt": {
             "$ref": "#/components/schemas/Punt.wkt"
-          }
-        },
-        "required": [
-          "@type"
-        ]
-      },
-      "Link": {
-        "title": "Link",
-        "type": "object",
-        "description": "Link beschrijft een hyperlink naar een andere resource volgens HAL.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "description": "Object type (klasse Link)",
-            "pattern": "^Link$"
           }
         },
         "required": [
@@ -1657,7 +1341,7 @@
         "parameters": {
           "id": "$response.body#/Postinfo.detail/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Link` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
       },
       "Postinfo.isToegekendAan": {
         "operationId": "PostinfoGET",
@@ -1727,7 +1411,7 @@
         "parameters": {
           "id": "$response.body#/Straatnaam.detail/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Link` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
       },
       "Straatnaam.isToegekendDoor": {
         "operationId": "StraatnaamGET",
@@ -1750,6 +1434,13 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gemeente` op te halen."
       },
+      "Gemeente.detail": {
+        "operationId": "GemeenteGET",
+        "parameters": {
+          "id": "$response.body#/Gemeente.detail/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
+      },
       "Gemeente.status": {
         "operationId": "GemeenteGET",
         "parameters": {
@@ -1770,6 +1461,13 @@
           "id": "$response.body#/Gemeente.identificator/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "Adres.detail": {
+        "operationId": "AdresGET",
+        "parameters": {
+          "id": "$response.body#/Adres.detail/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
       },
       "Adres.positie": {
         "operationId": "AdresGET",
@@ -1854,6 +1552,13 @@
           "id": "$response.body#/StraatnamenEnvelop._links/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Links` op te halen."
+      },
+      "Referentie.detail": {
+        "operationId": "ReferentieGET",
+        "parameters": {
+          "id": "$response.body#/Referentie.detail/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
       },
       "Links.postinfo": {
         "operationId": "LinksGET",

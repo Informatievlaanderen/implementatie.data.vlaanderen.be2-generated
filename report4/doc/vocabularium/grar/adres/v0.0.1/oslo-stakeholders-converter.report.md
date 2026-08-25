@@ -2,5 +2,5 @@
 
 #||# -------------------------------------
 
-2026-08-24T11:53:22.034Z error: [CsvConverterHandler] Unable to convert the provided csv into a stakeholders-file. Error: Invalid Record Length: columns length is 7, got 8 on line 2 for record Barbara,Van Broeckhoven,Informatie Vlaanderen,barbara.vanbroeckhoven@kb.vlaanderen.be,https://overheid.vlaanderen.be/informatie-vlaanderen,C,C,
+2026-08-25T07:31:37.288Z error: [CsvConverterHandler] Unable to convert the provided csv into a stakeholders-file. Error: Invalid Record Length: columns length is 7, got 8 on line 2 for record Barbara,Van Broeckhoven,Informatie Vlaanderen,barbara.vanbroeckhoven@kb.vlaanderen.be,https://overheid.vlaanderen.be/informatie-vlaanderen,C,C,
 
