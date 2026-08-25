@@ -1,0 +1,34 @@
+title: Uitzondering
+type: object
+description: Uitzondering geeft miet-kritieke problemen weer bij het uitwisselen.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse Uitzondering)
+    pattern: ^Uitzondering$
+  datum:
+    $ref: '#/components/schemas/Uitzondering.datum'
+  diagnose:
+    $ref: '#/components/schemas/Uitzondering.diagnose'
+  oorsprong:
+    $ref: '#/components/schemas/UitzonderingOorsprong'
+  type:
+    $ref: '#/components/schemas/UitzonderingType'
+  omstandigheid:
+    $ref: '#/components/schemas/Omstandigheid'
+  annotatie:
+    type: array
+    description: Verwijzing naar annotaties die bij de Uitzondering horen. Lijst van Annotatie items.
+    items:
+      $ref: '#/components/schemas/Annotatie'
+    minItems: 1
+required:
+  - '@type'
+  - datum
+  - diagnose
+  - oorsprong
+  - type
+  - omstandigheid

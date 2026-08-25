@@ -18,6 +18,10 @@
           "@id": "https://data.vlaanderen.be/ns/adres#land",
           "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
         },
+        "landcode": {
+          "@id": "https://schema.org/addressCountry",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
         "postcode": {
           "@id": "http://www.w3.org/ns/locn#postCode",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
@@ -49,6 +53,19 @@
       },
       "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Annotatie"
     },
+    "Concept": {
+      "@context": {
+        "code": {
+          "@id": "http://www.w3.org/2004/02/skos/core#notation",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "voorkeursnaam": {
+          "@id": "http://www.w3.org/2004/02/skos/core#prefLabel",
+          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        }
+      },
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+    },
     "Contactpunt": {
       "@context": {
         "adres": {
@@ -63,6 +80,19 @@
     },
     "DateTime": {
       "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "Geboorte": {
+      "@context": {
+        "datum": {
+          "@id": "http://purl.org/dc/terms/date",
+          "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "plaats": {
+          "@id": "http://purl.org/dc/terms/spatial",
+          "@type": "http://purl.org/dc/terms/Location"
+        }
+      },
+      "@id": "https://data.vlaanderen.be/ns/persoon#Geboorte"
     },
     "GeregistreerdPersoon": {
       "@context": {
@@ -82,6 +112,10 @@
         "geslacht": {
           "@id": "http://data.europa.eu/m8g/gender",
           "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "heeftGeboorte": {
+          "@id": "https://data.vlaanderen.be/ns/persoon#heeftGeboorte",
+          "@type": "https://data.vlaanderen.be/ns/persoon#Geboorte"
         },
         "referentiedatum": {
           "@id": "http://purl.org/dc/terms/issued",
@@ -141,9 +175,16 @@
         "identificator": {
           "@id": "http://www.w3.org/2004/02/skos/core#notation",
           "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+        },
+        "schema": {
+          "@id": "http://www.w3.org/ns/adms#schemaAgency",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/generiek#IdentificatorSchema"
         }
       },
       "@id": "http://www.w3.org/ns/adms#Identifier"
+    },
+    "IdentificatorSchema": {
+      "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#IdentificatorSchema"
     },
     "Integer": {
       "@id": "http://www.w3.org/2001/XMLSchema#integer"
@@ -223,9 +264,9 @@
           "@id": "https://data.vlaanderen.be/ns/voertuigregistratie#nummerplaat",
           "@type": "https://data.vlaanderen.be/ns/voertuigregistratie#Nummerplaat"
         },
-        "registratiedatum": {
-          "@id": "http://www.w3.org/ns/prov#time",
-          "@type": "http://www.w3.org/2001/XMLSchema#date"
+        "taal": {
+          "@id": "http://purl.org/dc/terms/language",
+          "@type": "https://data.vlaanderen.be/ns/voertuigregistratie#Taal"
         },
         "voertuig": {
           "@id": "https://data.vlaanderen.be/ns/voertuigregistratie#voertuig",
@@ -236,6 +277,9 @@
     },
     "String": {
       "@id": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Taal": {
+      "@id": "https://data.vlaanderen.be/ns/voertuigregistratie#Taal"
     },
     "Uitzondering": {
       "@context": {
