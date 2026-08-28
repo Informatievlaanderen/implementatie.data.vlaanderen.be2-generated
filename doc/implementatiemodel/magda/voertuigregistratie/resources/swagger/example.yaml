@@ -2,7 +2,7 @@ openapi: 3.0.4
 info:
   title: MAGDA Eucaris Voertuigregistratie REST
   description: MAGDA OSLO-conforme REST API voor voertuigregistraties uit het Eucaris ecosysteem.
-  version: 0.1.1
+  version: 0.2.1
 servers:
   - url: https://implementatie.data.test-vlaanderen.be/
     description: Basis URL
@@ -174,96 +174,6 @@ components:
         - detail
         - title
         - type
-    VoertuigType:
-      title: VoertuigType
-      type: object
-      description: Enumeratie van VoertuigType
-      properties:
-        '@id':
-          type: string
-          format: uri
-      required:
-        - '@id'
-    Omstandigheid:
-      title: Omstandigheid
-      type: object
-      description: Enumeratie van Omstandigheid
-      properties:
-        '@id':
-          type: string
-          format: uri
-      required:
-        - '@id'
-    Taal:
-      title: Taal
-      type: object
-      description: Enumeratie van Taal
-      properties:
-        '@id':
-          type: string
-          format: uri
-      required:
-        - '@id'
-    IdentificatorSchema:
-      title: IdentificatorSchema
-      type: object
-      description: Enumeratie van IdentificatorSchema
-      properties:
-        '@id':
-          type: string
-          format: uri
-      required:
-        - '@id'
-    Rechtspersoonlijkheidtype:
-      title: Rechtspersoonlijkheidtype
-      type: object
-      description: Enumeratie van Rechtspersoonlijkheidtype
-      properties:
-        '@id':
-          type: string
-          format: uri
-      required:
-        - '@id'
-    Rechtsvormtype:
-      title: Rechtsvormtype
-      type: object
-      description: Enumeratie van Rechtsvormtype
-      properties:
-        '@id':
-          type: string
-          format: uri
-      required:
-        - '@id'
-    UitzonderingOorsprong:
-      title: UitzonderingOorsprong
-      type: object
-      description: Enumeratie van UitzonderingOorsprong
-      properties:
-        '@id':
-          type: string
-          format: uri
-      required:
-        - '@id'
-    UitzonderingType:
-      title: UitzonderingType
-      type: object
-      description: Enumeratie van UitzonderingType
-      properties:
-        '@id':
-          type: string
-          format: uri
-      required:
-        - '@id'
-    Geslacht:
-      title: Geslacht
-      type: object
-      description: Enumeratie van Geslacht
-      properties:
-        '@id':
-          type: string
-          format: uri
-      required:
-        - '@id'
     Problemdetail.detail:
       title: Problemdetail.detail
       description: Mensleesbare beschrijving van de fout.
@@ -317,7 +227,7 @@ components:
         '@context':
           type: string
           description: URI of the JSON-LD versioned context file for this response.
-          pattern: ^https:\/\/implementatie.data.test-vlaanderen.be\/\/doc\/implementatiemodel\/magda\/voertuigregistratie\/v0.2.0\/context\/voertuigregistratie-im.jsonld$
+          pattern: ^https:\/\/implementatie.data.test-vlaanderen.be\/\/doc\/implementatiemodel\/magda\/voertuigregistratie\/v0.2.1\/context\/voertuigregistratie-im.jsonld$
       required:
         - '@type'
     Geboorte.datum:
@@ -382,7 +292,7 @@ components:
           description: Object type (klasse Registratie)
           pattern: ^Registratie$
         taal:
-          $ref: '#/components/schemas/Taal'
+          $ref: '#/components/schemas/Concept'
         nummerplaat:
           $ref: '#/components/schemas/Nummerplaat'
         houder:
@@ -451,11 +361,11 @@ components:
         diagnose:
           $ref: '#/components/schemas/Uitzondering.diagnose'
         oorsprong:
-          $ref: '#/components/schemas/UitzonderingOorsprong'
+          $ref: '#/components/schemas/Concept'
         type:
-          $ref: '#/components/schemas/UitzonderingType'
+          $ref: '#/components/schemas/Concept'
         omstandigheid:
-          $ref: '#/components/schemas/Omstandigheid'
+          $ref: '#/components/schemas/Concept'
         annotatie:
           type: array
           description: Verwijzing naar annotaties die bij de Uitzondering horen. Lijst van Annotatie items.
@@ -524,14 +434,14 @@ components:
           $ref: '#/components/schemas/GeregistreerdeOrganisatie.voorkeursnaam'
         type:
           type: array
-          description: Juridisch statuut van de geregistreerde organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van Rechtsvormtype items.
+          description: Juridisch statuut van de geregistreerde organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van Concept items.
           items:
-            $ref: '#/components/schemas/Rechtsvormtype'
+            $ref: '#/components/schemas/Concept'
           minItems: 1
         contactinfo:
           $ref: '#/components/schemas/Contactpunt'
         rechtspersoonlijkheid:
-          $ref: '#/components/schemas/Rechtspersoonlijkheidtype'
+          $ref: '#/components/schemas/Concept'
         registratie:
           $ref: '#/components/schemas/Identificator'
       required:
@@ -571,7 +481,7 @@ components:
         fabrikantNaam:
           $ref: '#/components/schemas/Voertuig.fabrikantNaam'
         type:
-          $ref: '#/components/schemas/VoertuigType'
+          $ref: '#/components/schemas/Concept'
         vin:
           $ref: '#/components/schemas/Identificator'
         eigenaar:
@@ -665,7 +575,7 @@ components:
         registratie:
           $ref: '#/components/schemas/Identificator'
         geslacht:
-          $ref: '#/components/schemas/Geslacht'
+          $ref: '#/components/schemas/Concept'
         contactinfo:
           $ref: '#/components/schemas/Contactpunt'
         heeftGeboorte:
@@ -695,7 +605,7 @@ components:
         identificator:
           $ref: '#/components/schemas/Identificator.identificator'
         schema:
-          $ref: '#/components/schemas/IdentificatorSchema'
+          $ref: '#/components/schemas/Concept'
       required:
         - '@type'
     Adresvoorstelling.landcode:
