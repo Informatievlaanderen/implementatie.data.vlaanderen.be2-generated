@@ -7,132 +7,6 @@
   },
   "components": {
     "schemas": {
-      "VoertuigType": {
-        "title": "VoertuigType",
-        "type": "object",
-        "description": "Enumeratie van VoertuigType",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Omstandigheid": {
-        "title": "Omstandigheid",
-        "type": "object",
-        "description": "Enumeratie van Omstandigheid",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Taal": {
-        "title": "Taal",
-        "type": "object",
-        "description": "Enumeratie van Taal",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "IdentificatorSchema": {
-        "title": "IdentificatorSchema",
-        "type": "object",
-        "description": "Enumeratie van IdentificatorSchema",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Rechtspersoonlijkheidtype": {
-        "title": "Rechtspersoonlijkheidtype",
-        "type": "object",
-        "description": "Enumeratie van Rechtspersoonlijkheidtype",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Rechtsvormtype": {
-        "title": "Rechtsvormtype",
-        "type": "object",
-        "description": "Enumeratie van Rechtsvormtype",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "UitzonderingOorsprong": {
-        "title": "UitzonderingOorsprong",
-        "type": "object",
-        "description": "Enumeratie van UitzonderingOorsprong",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "UitzonderingType": {
-        "title": "UitzonderingType",
-        "type": "object",
-        "description": "Enumeratie van UitzonderingType",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Geslacht": {
-        "title": "Geslacht",
-        "type": "object",
-        "description": "Enumeratie van Geslacht",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
       "Problemdetail.detail": {
         "title": "Problemdetail.detail",
         "description": "Mensleesbare beschrijving van de fout.",
@@ -235,7 +109,7 @@
           "@context": {
             "type": "string",
             "description": "URI of the JSON-LD versioned context file for this response.",
-            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/magda\\/voertuigregistratie\\/v0.2.0\\/context\\/voertuigregistratie-im.jsonld$"
+            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/magda\\/voertuigregistratie\\/v0.2.1\\/context\\/voertuigregistratie-im.jsonld$"
           }
         },
         "required": [
@@ -323,7 +197,7 @@
             "pattern": "^Registratie$"
           },
           "taal": {
-            "$ref": "#/components/schemas/Taal"
+            "$ref": "#/components/schemas/Concept"
           },
           "nummerplaat": {
             "$ref": "#/components/schemas/Nummerplaat"
@@ -420,13 +294,13 @@
             "$ref": "#/components/schemas/Uitzondering.diagnose"
           },
           "oorsprong": {
-            "$ref": "#/components/schemas/UitzonderingOorsprong"
+            "$ref": "#/components/schemas/Concept"
           },
           "type": {
-            "$ref": "#/components/schemas/UitzonderingType"
+            "$ref": "#/components/schemas/Concept"
           },
           "omstandigheid": {
-            "$ref": "#/components/schemas/Omstandigheid"
+            "$ref": "#/components/schemas/Concept"
           },
           "annotatie": {
             "type": "array",
@@ -516,9 +390,9 @@
           },
           "type": {
             "type": "array",
-            "description": "Juridisch statuut van de geregistreerde organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van Rechtsvormtype items.",
+            "description": "Juridisch statuut van de geregistreerde organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van Concept items.",
             "items": {
-              "$ref": "#/components/schemas/Rechtsvormtype"
+              "$ref": "#/components/schemas/Concept"
             },
             "minItems": 1
           },
@@ -526,7 +400,7 @@
             "$ref": "#/components/schemas/Contactpunt"
           },
           "rechtspersoonlijkheid": {
-            "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
+            "$ref": "#/components/schemas/Concept"
           },
           "registratie": {
             "$ref": "#/components/schemas/Identificator"
@@ -579,7 +453,7 @@
             "$ref": "#/components/schemas/Voertuig.fabrikantNaam"
           },
           "type": {
-            "$ref": "#/components/schemas/VoertuigType"
+            "$ref": "#/components/schemas/Concept"
           },
           "vin": {
             "$ref": "#/components/schemas/Identificator"
@@ -708,7 +582,7 @@
             "$ref": "#/components/schemas/Identificator"
           },
           "geslacht": {
-            "$ref": "#/components/schemas/Geslacht"
+            "$ref": "#/components/schemas/Concept"
           },
           "contactinfo": {
             "$ref": "#/components/schemas/Contactpunt"
@@ -748,7 +622,7 @@
             "$ref": "#/components/schemas/Identificator.identificator"
           },
           "schema": {
-            "$ref": "#/components/schemas/IdentificatorSchema"
+            "$ref": "#/components/schemas/Concept"
           }
         },
         "required": [
@@ -888,7 +762,7 @@
         "parameters": {
           "id": "$response.body#/Registratie.taal/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Taal` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Concept` op te halen."
       },
       "Registratie.nummerplaat": {
         "operationId": "RegistratieGET",
@@ -923,21 +797,21 @@
         "parameters": {
           "id": "$response.body#/Uitzondering.oorsprong/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `UitzonderingOorsprong` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Concept` op te halen."
       },
       "Uitzondering.type": {
         "operationId": "UitzonderingGET",
         "parameters": {
           "id": "$response.body#/Uitzondering.type/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `UitzonderingType` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Concept` op te halen."
       },
       "Uitzondering.omstandigheid": {
         "operationId": "UitzonderingGET",
         "parameters": {
           "id": "$response.body#/Uitzondering.omstandigheid/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Omstandigheid` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Concept` op te halen."
       },
       "Uitzondering.annotatie": {
         "operationId": "UitzonderingGET",
@@ -951,7 +825,7 @@
         "parameters": {
           "id": "$response.body#/GeregistreerdeOrganisatie.type/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Rechtsvormtype` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Concept` op te halen."
       },
       "GeregistreerdeOrganisatie.contactinfo": {
         "operationId": "GeregistreerdeOrganisatieGET",
@@ -965,7 +839,7 @@
         "parameters": {
           "id": "$response.body#/GeregistreerdeOrganisatie.rechtspersoonlijkheid/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Rechtspersoonlijkheidtype` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Concept` op te halen."
       },
       "GeregistreerdeOrganisatie.registratie": {
         "operationId": "GeregistreerdeOrganisatieGET",
@@ -979,7 +853,7 @@
         "parameters": {
           "id": "$response.body#/Voertuig.type/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `VoertuigType` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Concept` op te halen."
       },
       "Voertuig.vin": {
         "operationId": "VoertuigGET",
@@ -1007,7 +881,7 @@
         "parameters": {
           "id": "$response.body#/GeregistreerdPersoon.geslacht/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Geslacht` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Concept` op te halen."
       },
       "GeregistreerdPersoon.contactinfo": {
         "operationId": "GeregistreerdPersoonGET",

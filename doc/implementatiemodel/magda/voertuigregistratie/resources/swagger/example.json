@@ -269,132 +269,6 @@
           "type"
         ]
       },
-      "VoertuigType": {
-        "title": "VoertuigType",
-        "type": "object",
-        "description": "Enumeratie van VoertuigType",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Omstandigheid": {
-        "title": "Omstandigheid",
-        "type": "object",
-        "description": "Enumeratie van Omstandigheid",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Taal": {
-        "title": "Taal",
-        "type": "object",
-        "description": "Enumeratie van Taal",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "IdentificatorSchema": {
-        "title": "IdentificatorSchema",
-        "type": "object",
-        "description": "Enumeratie van IdentificatorSchema",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Rechtspersoonlijkheidtype": {
-        "title": "Rechtspersoonlijkheidtype",
-        "type": "object",
-        "description": "Enumeratie van Rechtspersoonlijkheidtype",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Rechtsvormtype": {
-        "title": "Rechtsvormtype",
-        "type": "object",
-        "description": "Enumeratie van Rechtsvormtype",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "UitzonderingOorsprong": {
-        "title": "UitzonderingOorsprong",
-        "type": "object",
-        "description": "Enumeratie van UitzonderingOorsprong",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "UitzonderingType": {
-        "title": "UitzonderingType",
-        "type": "object",
-        "description": "Enumeratie van UitzonderingType",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Geslacht": {
-        "title": "Geslacht",
-        "type": "object",
-        "description": "Enumeratie van Geslacht",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
       "Problemdetail.detail": {
         "title": "Problemdetail.detail",
         "description": "Mensleesbare beschrijving van de fout.",
@@ -460,7 +334,7 @@
           "@context": {
             "type": "string",
             "description": "URI of the JSON-LD versioned context file for this response.",
-            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/magda\\/voertuigregistratie\\/v0.2.0\\/context\\/voertuigregistratie-im.jsonld$"
+            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/magda\\/voertuigregistratie\\/v0.2.1\\/context\\/voertuigregistratie-im.jsonld$"
           }
         },
         "required": [
@@ -548,7 +422,7 @@
             "pattern": "^Registratie$"
           },
           "taal": {
-            "$ref": "#/components/schemas/Taal"
+            "$ref": "#/components/schemas/Concept"
           },
           "nummerplaat": {
             "$ref": "#/components/schemas/Nummerplaat"
@@ -645,13 +519,13 @@
             "$ref": "#/components/schemas/Uitzondering.diagnose"
           },
           "oorsprong": {
-            "$ref": "#/components/schemas/UitzonderingOorsprong"
+            "$ref": "#/components/schemas/Concept"
           },
           "type": {
-            "$ref": "#/components/schemas/UitzonderingType"
+            "$ref": "#/components/schemas/Concept"
           },
           "omstandigheid": {
-            "$ref": "#/components/schemas/Omstandigheid"
+            "$ref": "#/components/schemas/Concept"
           },
           "annotatie": {
             "type": "array",
@@ -741,9 +615,9 @@
           },
           "type": {
             "type": "array",
-            "description": "Juridisch statuut van de geregistreerde organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van Rechtsvormtype items.",
+            "description": "Juridisch statuut van de geregistreerde organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van Concept items.",
             "items": {
-              "$ref": "#/components/schemas/Rechtsvormtype"
+              "$ref": "#/components/schemas/Concept"
             },
             "minItems": 1
           },
@@ -751,7 +625,7 @@
             "$ref": "#/components/schemas/Contactpunt"
           },
           "rechtspersoonlijkheid": {
-            "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
+            "$ref": "#/components/schemas/Concept"
           },
           "registratie": {
             "$ref": "#/components/schemas/Identificator"
@@ -804,7 +678,7 @@
             "$ref": "#/components/schemas/Voertuig.fabrikantNaam"
           },
           "type": {
-            "$ref": "#/components/schemas/VoertuigType"
+            "$ref": "#/components/schemas/Concept"
           },
           "vin": {
             "$ref": "#/components/schemas/Identificator"
@@ -933,7 +807,7 @@
             "$ref": "#/components/schemas/Identificator"
           },
           "geslacht": {
-            "$ref": "#/components/schemas/Geslacht"
+            "$ref": "#/components/schemas/Concept"
           },
           "contactinfo": {
             "$ref": "#/components/schemas/Contactpunt"
@@ -973,7 +847,7 @@
             "$ref": "#/components/schemas/Identificator.identificator"
           },
           "schema": {
-            "$ref": "#/components/schemas/IdentificatorSchema"
+            "$ref": "#/components/schemas/Concept"
           }
         },
         "required": [
