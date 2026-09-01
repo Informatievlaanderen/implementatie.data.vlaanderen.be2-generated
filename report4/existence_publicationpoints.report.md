@@ -76,5 +76,5 @@ error: missing '/tmp/generated/ns/vsds-verkeersmetingverzameling//index.html'
 #||# index.html check
 error: missing '/tmp/generated/ns/vitalink/zwangerschapsregistratie/index.html'
 error: missing '/tmp/generated/doc/vocabularium/vitalink/zwangerschapsregistratie/index.html'
-error: missing '/tmp/generated/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.0/index.html'
+error: missing '/tmp/generated/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.1/index.html'
 

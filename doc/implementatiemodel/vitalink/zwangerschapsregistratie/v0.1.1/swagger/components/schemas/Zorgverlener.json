@@ -1,0 +1,55 @@
+{
+  "title": "Zorgverlener",
+  "type": "object",
+  "description": "Een persoon met een formele verantwoordelijkheid bij het verlenen van gezondheidszorg of aanverwante diensten.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Zorgverlener)",
+      "pattern": "^Zorgverlener$"
+    },
+    "identificator": {
+      "type": "array",
+      "description": "Identificator van het object. Bij implementatie in RDF is de uri vh object de identificator. Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    },
+    "familienaam": {
+      "$ref": "#/components/schemas/Zorgverlener.familienaam"
+    },
+    "gegevenNaam": {
+      "type": "array",
+      "description": "Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie. Lijst van String items.",
+      "items": {
+        "$ref": "#/components/schemas/Zorgverlener.gegevenNaam"
+      },
+      "minItems": 1
+    },
+    "isLidVan": {
+      "type": "array",
+      "description": "undefined Lijst van Organisatie items.",
+      "items": {
+        "$ref": "#/components/schemas/Organisatie"
+      },
+      "minItems": 1
+    },
+    "heeftZwangerschap": {
+      "type": "array",
+      "description": "Een Persoon heeft een Zwangerschap Lijst van Zwangerschap items.",
+      "items": {
+        "$ref": "#/components/schemas/Zwangerschap"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "gegevenNaam"
+  ]
+}

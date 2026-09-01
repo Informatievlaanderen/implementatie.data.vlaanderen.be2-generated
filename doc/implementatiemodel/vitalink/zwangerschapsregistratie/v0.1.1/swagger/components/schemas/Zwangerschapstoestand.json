@@ -1,0 +1,30 @@
+{
+  "title": "Zwangerschapstoestand",
+  "type": "object",
+  "description": "De medische toestand bij een Zwangerschap van de Persoon",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Zwangerschapstoestand)",
+      "pattern": "^Zwangerschapstoestand$"
+    },
+    "duur": {
+      "$ref": "#/components/schemas/Periode"
+    },
+    "vastgesteldDoor": {
+      "type": "array",
+      "description": "De Medische Observatie stelt een Gezondheidstoestand vast. Lijst van MedischeObservatie items.",
+      "items": {
+        "$ref": "#/components/schemas/MedischeObservatie"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}
