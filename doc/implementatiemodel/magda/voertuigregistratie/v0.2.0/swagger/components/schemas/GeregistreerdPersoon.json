@@ -1,0 +1,60 @@
+{
+  "title": "GeregistreerdPersoon",
+  "type": "object",
+  "description": "Persoon waarvan de gegevens zijn ingeschreven in een register.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse GeregistreerdPersoon)",
+      "pattern": "^GeregistreerdPersoon$"
+    },
+    "volledigeNaam": {
+      "$ref": "#/components/schemas/GeregistreerdPersoon.volledigeNaam"
+    },
+    "referentiedatum": {
+      "$ref": "#/components/schemas/GeregistreerdPersoon.referentiedatum"
+    },
+    "achternaam": {
+      "$ref": "#/components/schemas/GeregistreerdPersoon.achternaam"
+    },
+    "alternatieveNaam": {
+      "type": "array",
+      "description": "Alternatief voor de volledige naam van de Persoon. Bijvoorbeeld pseudoniem. Lijst van String items.",
+      "items": {
+        "$ref": "#/components/schemas/GeregistreerdPersoon.alternatieveNaam"
+      },
+      "minItems": 1
+    },
+    "voornaam": {
+      "type": "array",
+      "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie. Lijst van String items.",
+      "items": {
+        "$ref": "#/components/schemas/GeregistreerdPersoon.voornaam"
+      },
+      "minItems": 1
+    },
+    "registratie": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "geslacht": {
+      "$ref": "#/components/schemas/Geslacht"
+    },
+    "contactinfo": {
+      "$ref": "#/components/schemas/Contactpunt"
+    },
+    "heeftGeboorte": {
+      "$ref": "#/components/schemas/Geboorte"
+    }
+  },
+  "required": [
+    "@type",
+    "volledigeNaam",
+    "referentiedatum",
+    "registratie",
+    "geslacht"
+  ]
+}

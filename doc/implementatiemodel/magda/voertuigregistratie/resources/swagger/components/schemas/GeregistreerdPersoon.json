@@ -13,78 +13,27 @@
       "pattern": "^GeregistreerdPersoon$"
     },
     "volledigeNaam": {
-      "type": "object",
-      "description": "De volledige naam van de Persoon, doorgaans de combinatie van voornamen en achternaam.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@value"
-      ]
+      "$ref": "#/components/schemas/GeregistreerdPersoon.volledigeNaam"
     },
     "referentiedatum": {
-      "type": "object",
-      "description": "Datum waarvoor de toestand van de entiteit opgevraagd is.",
-      "properties": {
-        "@value": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "@type": {
-          "type": "string",
-          "pattern": "^DateTime$"
-        }
-      },
-      "required": [
-        "@value",
-        "@type"
-      ]
+      "$ref": "#/components/schemas/GeregistreerdPersoon.referentiedatum"
     },
     "achternaam": {
-      "type": "object",
-      "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@value"
-      ]
+      "$ref": "#/components/schemas/GeregistreerdPersoon.achternaam"
     },
     "alternatieveNaam": {
       "type": "array",
-      "description": "Lijst van String items.",
+      "description": "Alternatief voor de volledige naam van de Persoon. Bijvoorbeeld pseudoniem. Lijst van String items.",
       "items": {
-        "type": "object",
-        "description": "Alternatief voor de volledige naam van de Persoon. Bijvoorbeeld pseudoniem.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "$ref": "#/components/schemas/GeregistreerdPersoon.alternatieveNaam"
       },
       "minItems": 1
     },
     "voornaam": {
       "type": "array",
-      "description": "Lijst van String items.",
+      "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie. Lijst van String items.",
       "items": {
-        "type": "object",
-        "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "$ref": "#/components/schemas/GeregistreerdPersoon.voornaam"
       },
       "minItems": 1
     },
@@ -92,10 +41,13 @@
       "$ref": "#/components/schemas/Identificator"
     },
     "geslacht": {
-      "$ref": "#/components/schemas/Geslacht"
+      "$ref": "#/components/schemas/Concept"
     },
     "contactinfo": {
       "$ref": "#/components/schemas/Contactpunt"
+    },
+    "heeftGeboorte": {
+      "$ref": "#/components/schemas/Geboorte"
     }
   },
   "required": [

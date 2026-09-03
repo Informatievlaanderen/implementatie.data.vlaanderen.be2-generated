@@ -1,0 +1,32 @@
+title: GeregistreerdeOrganisatie
+type: object
+description: Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse GeregistreerdeOrganisatie)
+    pattern: ^GeregistreerdeOrganisatie$
+  referentiedatum:
+    $ref: '#/components/schemas/GeregistreerdeOrganisatie.referentiedatum'
+  voorkeursnaam:
+    $ref: '#/components/schemas/GeregistreerdeOrganisatie.voorkeursnaam'
+  type:
+    type: array
+    description: Juridisch statuut van de geregistreerde organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van Rechtsvormtype items.
+    items:
+      $ref: '#/components/schemas/Rechtsvormtype'
+    minItems: 1
+  contactinfo:
+    $ref: '#/components/schemas/Contactpunt'
+  rechtspersoonlijkheid:
+    $ref: '#/components/schemas/Rechtspersoonlijkheidtype'
+  registratie:
+    $ref: '#/components/schemas/Identificator'
+required:
+  - '@type'
+  - referentiedatum
+  - voorkeursnaam
+  - registratie

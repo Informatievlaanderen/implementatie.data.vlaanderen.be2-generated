@@ -1,0 +1,38 @@
+title: Voertuig
+type: object
+description: Een voertuig is een apparaat dat ontworpen of gebruikt is om mensen of vracht te vervoeren over land, water, lucht, of door de ruimte.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse Voertuig)
+    pattern: ^Voertuig$
+  eersteRegistratieDatum:
+    $ref: '#/components/schemas/Voertuig.eersteRegistratieDatum'
+  commercieleNaam:
+    $ref: '#/components/schemas/Voertuig.commercieleNaam'
+  fabrikantNaam:
+    $ref: '#/components/schemas/Voertuig.fabrikantNaam'
+  type:
+    $ref: '#/components/schemas/Concept'
+  vin:
+    $ref: '#/components/schemas/Identificator'
+  eigenaar:
+    oneOf:
+      - $ref: '#/components/schemas/GeregistreerdeOrganisatie'
+      - $ref: '#/components/schemas/GeregistreerdPersoon'
+    discriminator:
+      propertyName: '@type'
+      mapping:
+        GeregistreerdeOrganisatie: '#/components/schemas/GeregistreerdeOrganisatie'
+        GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
+required:
+  - '@type'
+  - eersteRegistratieDatum
+  - commercieleNaam
+  - fabrikantNaam
+  - type
+  - vin
+  - eigenaar

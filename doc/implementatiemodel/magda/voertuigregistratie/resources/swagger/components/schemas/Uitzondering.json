@@ -13,47 +13,23 @@
       "pattern": "^Uitzondering$"
     },
     "datum": {
-      "type": "object",
-      "description": "De datum waarop de Uitzondering aangemaakt werd.",
-      "properties": {
-        "@value": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "@type": {
-          "type": "string",
-          "pattern": "^DateTime$"
-        }
-      },
-      "required": [
-        "@value",
-        "@type"
-      ]
+      "$ref": "#/components/schemas/Uitzondering.datum"
     },
     "diagnose": {
-      "type": "object",
-      "description": "Een beschrijving waarom de Uitzondering aangemaakt werd.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@value"
-      ]
+      "$ref": "#/components/schemas/Uitzondering.diagnose"
     },
     "oorsprong": {
-      "$ref": "#/components/schemas/UitzonderingOorsprong"
+      "$ref": "#/components/schemas/Concept"
     },
     "type": {
-      "$ref": "#/components/schemas/UitzonderingType"
+      "$ref": "#/components/schemas/Concept"
     },
     "omstandigheid": {
-      "$ref": "#/components/schemas/Omstandigheid"
+      "$ref": "#/components/schemas/Concept"
     },
     "annotatie": {
       "type": "array",
-      "description": "Lijst van Annotatie items.",
+      "description": "Verwijzing naar annotaties die bij de Uitzondering horen. Lijst van Annotatie items.",
       "items": {
         "$ref": "#/components/schemas/Annotatie"
       },

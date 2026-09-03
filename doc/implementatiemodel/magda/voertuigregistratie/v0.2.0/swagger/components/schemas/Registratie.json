@@ -1,0 +1,47 @@
+{
+  "title": "Registratie",
+  "type": "object",
+  "description": "Inschrijving van een Voertuig in een nationaal register.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Registratie)",
+      "pattern": "^Registratie$"
+    },
+    "taal": {
+      "$ref": "#/components/schemas/Taal"
+    },
+    "nummerplaat": {
+      "$ref": "#/components/schemas/Nummerplaat"
+    },
+    "houder": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    },
+    "voertuig": {
+      "$ref": "#/components/schemas/Voertuig"
+    }
+  },
+  "required": [
+    "@type",
+    "nummerplaat",
+    "houder"
+  ]
+}

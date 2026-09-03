@@ -1,0 +1,27 @@
+title: VehicleRegistrationEnvelope
+type: object
+description: Enveloppe om voertuigregistraties en bijhorende validatiewaarschuwing uit te wisselen.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse VehicleRegistrationEnvelope)
+    pattern: ^VehicleRegistrationEnvelope$
+  language:
+    $ref: '#/components/schemas/VehicleRegistrationEnvelope.language'
+  data:
+    $ref: '#/components/schemas/Registratie'
+  warning:
+    type: array
+    description: Foutmeldingen die opgetreden zijn bij het afleveren van de data. Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen. Lijst van Uitzondering items.
+    items:
+      $ref: '#/components/schemas/Uitzondering'
+    minItems: 1
+  '@context':
+    type: string
+    description: URI of the JSON-LD versioned context file for this response.
+    pattern: ^https:\/\/implementatie.data.vlaanderen.be\/doc\/implementatiemodel\/magda\/voertuigregistratie\/v0.2.0\/context\/voertuigregistratie-im.jsonld$
+required:
+  - '@type'

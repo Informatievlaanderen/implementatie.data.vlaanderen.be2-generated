@@ -13,29 +13,14 @@
       "pattern": "^VehicleRegistrationEnvelope$"
     },
     "language": {
-      "type": "object",
-      "description": "De taal van het antwoord.",
-      "properties": {
-        "@value": {
-          "type": "string",
-          "pattern": "^[a-z]{2,3}(-[A-Z]{2})?"
-        },
-        "@type": {
-          "type": "string",
-          "pattern": "^Language$"
-        }
-      },
-      "required": [
-        "@value",
-        "@type"
-      ]
+      "$ref": "#/components/schemas/VehicleRegistrationEnvelope.language"
     },
     "data": {
       "$ref": "#/components/schemas/Registratie"
     },
     "warning": {
       "type": "array",
-      "description": "Lijst van Uitzondering items.",
+      "description": "Foutmeldingen die opgetreden zijn bij het afleveren van de data. Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen. Lijst van Uitzondering items.",
       "items": {
         "$ref": "#/components/schemas/Uitzondering"
       },
@@ -44,7 +29,7 @@
     "@context": {
       "type": "string",
       "description": "URI of the JSON-LD versioned context file for this response.",
-      "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/\\/doc\\/implementatiemodel\\/magda\\/voertuigregistratie\\/v0.1.1\\/context\\/voertuigregistratie-im.jsonld$"
+      "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/doc\\/implementatiemodel\\/magda\\/voertuigregistratie\\/v0.1.1\\/context\\/voertuigregistratie-im.jsonld$"
     }
   },
   "required": [
