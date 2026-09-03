@@ -1,0 +1,39 @@
+{
+  "title": "Zwangerschap",
+  "type": "object",
+  "description": "De staat waarin een Persoon een of meerdere embryo’s of foetussen draagt in de baarmoeder, wat leidt tot de ontwikkeling van een nieuw natuurlijk Persoon.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Zwangerschap)",
+      "pattern": "^Zwangerschap$"
+    },
+    "identificator": {
+      "type": "array",
+      "description": "Identificator van het object. Bij implementatie in RDF is de uri vh object de identificator. Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    },
+    "toestand": {
+      "$ref": "#/components/schemas/Zwangerschapstoestand"
+    },
+    "heeftFoetus": {
+      "type": "array",
+      "description": "Een Zwangerschap heeft een of meerdere Foetussen. Lijst van Foetus items.",
+      "items": {
+        "$ref": "#/components/schemas/Foetus"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "identificator"
+  ]
+}

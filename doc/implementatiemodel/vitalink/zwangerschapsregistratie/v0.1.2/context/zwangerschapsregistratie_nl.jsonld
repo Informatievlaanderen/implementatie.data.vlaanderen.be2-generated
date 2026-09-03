@@ -1,0 +1,193 @@
+{
+  "@context": {
+    "Agent": {
+      "@context": {
+        "identificator": {
+          "@container": "@set",
+          "@id": "http://www.w3.org/ns/adms#identifier",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        }
+      },
+      "@id": "http://purl.org/dc/terms/Agent"
+    },
+    "DateTime": {
+      "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "Foetus": {
+      "@context": {
+        "deelVan": {
+          "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#deelVan",
+          "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
+        }
+      },
+      "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#Foetus"
+    },
+    "Identificator": {
+      "@context": {
+        "identificator": {
+          "@id": "http://www.w3.org/2004/02/skos/core#notation",
+          "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+        },
+        "toegekendDoor": {
+          "@id": "https://data.vlaanderen.be/ns/generiek#toegekendDoor",
+          "@type": "http://purl.org/dc/terms/Agent"
+        },
+        "toegekendDoor(String)": {
+          "@id": "http://www.w3.org/ns/adms#schemaAgency",
+          "@type": "http://purl.org/dc/terms/Agent"
+        }
+      },
+      "@id": "http://www.w3.org/ns/adms#Identifier"
+    },
+    "LangString": {
+      "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "Literal": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "MedischeObservatie": {
+      "@context": {
+        "effectiefTijdstip": {
+          "@id": "https://hl7.org/fhir/observation-definitions.html#Observation.effective",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "identificator": {
+          "@container": "@set",
+          "@id": "http://www.w3.org/ns/adms#identifier",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        },
+        "uitvoerder": {
+          "@id": "https://hl7.org/fhir/observation-definitions.html#Observation.performer",
+          "@type": "http://purl.org/dc/terms/Agent"
+        },
+        "vastgesteld": {
+          "@container": "@set",
+          "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#vastgesteld",
+          "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschapstoestand"
+        }
+      },
+      "@id": "https://build.fhir.org/observation-definitions.html#Observation"
+    },
+    "Organisatie": {
+      "@context": {
+        "identificator": {
+          "@container": "@set",
+          "@id": "http://www.w3.org/ns/adms#identifier",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        },
+        "voorkeursnaam": {
+          "@id": "http://www.w3.org/2004/02/skos/core#prefLabel",
+          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        }
+      },
+      "@id": "http://www.w3.org/ns/org#Organization"
+    },
+    "Periode": {
+      "@context": {
+        "begin": {
+          "@id": "http://data.europa.eu/m8g/startTime",
+          "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+        },
+        "einde": {
+          "@id": "http://data.europa.eu/m8g/endTime",
+          "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+        }
+      },
+      "@id": "http://data.europa.eu/m8g/PeriodOfTime"
+    },
+    "Persoon": {
+      "@context": {
+        "familienaam": {
+          "@id": "http://xmlns.com/foaf/0.1/familyName",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "gegevenNaam": {
+          "@container": "@set",
+          "@id": "http://xmlns.com/foaf/0.1/givenName",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "heeftZwangerschap": {
+          "@container": "@set",
+          "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#Persoon.heeftZwangerschap",
+          "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
+        },
+        "identificator": {
+          "@container": "@set",
+          "@id": "http://www.w3.org/ns/adms#identifier",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        },
+        "isLidVan": {
+          "@container": "@set",
+          "@id": "https://data.vlaanderen.be/ns/persoon#isLidVan",
+          "@type": "http://www.w3.org/ns/org#Organization"
+        }
+      },
+      "@id": "http://www.w3.org/ns/person#Person"
+    },
+    "String": {
+      "@id": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Zorgverlener": {
+      "@context": {
+        "familienaam": {
+          "@id": "http://xmlns.com/foaf/0.1/familyName",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "gegevenNaam": {
+          "@container": "@set",
+          "@id": "http://xmlns.com/foaf/0.1/givenName",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "heeftZwangerschap": {
+          "@container": "@set",
+          "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#Persoon.heeftZwangerschap",
+          "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
+        },
+        "identificator": {
+          "@container": "@set",
+          "@id": "http://www.w3.org/ns/adms#identifier",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        },
+        "isLidVan": {
+          "@container": "@set",
+          "@id": "https://data.vlaanderen.be/ns/persoon#isLidVan",
+          "@type": "http://www.w3.org/ns/org#Organization"
+        }
+      },
+      "@id": "https://hl7.org/fhir/practitioner-definitions.html#Practitioner"
+    },
+    "Zwangerschap": {
+      "@context": {
+        "heeftFoetus": {
+          "@container": "@set",
+          "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap.heeftFoetus",
+          "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Foetus"
+        },
+        "identificator": {
+          "@container": "@set",
+          "@id": "http://www.w3.org/ns/adms#identifier",
+          "@type": "http://www.w3.org/ns/adms#Identifier"
+        },
+        "toestand": {
+          "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap.toestand",
+          "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschapstoestand"
+        }
+      },
+      "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
+    },
+    "Zwangerschapstoestand": {
+      "@context": {
+        "duur": {
+          "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschapstoestand.duur",
+          "@type": "http://data.europa.eu/m8g/PeriodOfTime"
+        },
+        "vastgesteldDoor": {
+          "@container": "@set",
+          "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#MedischeObservatie.vastgesteldDoor",
+          "@type": "https://build.fhir.org/observation-definitions.html#Observation"
+        }
+      },
+      "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschapstoestand"
+    }
+  }
+}

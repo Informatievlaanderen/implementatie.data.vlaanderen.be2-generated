@@ -36,6 +36,7 @@ Error: the following directories are unsupported
   "/tmp/generated/doc/implementatiemodel/MAGDA/trajectcontrole",
   "/tmp/generated/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1",
   "/tmp/generated/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.0",
+  "/tmp/generated/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.1",
   "/tmp/generated/doc/vocabularium/voertuigregistratie",
   "/tmp/generated/doc/vocabularium/voertuigregistratie/v0.1.0",
   "/tmp/generated/ns/voertuigregistratie",
