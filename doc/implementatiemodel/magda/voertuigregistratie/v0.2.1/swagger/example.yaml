@@ -4,7 +4,7 @@ info:
   description: MAGDA OSLO-conforme REST API voor voertuigregistraties uit het Eucaris ecosysteem.
   version: 0.2.1
 servers:
-  - url: https://implementatie.data.test-vlaanderen.be/
+  - url: https://implementatie.data.test-vlaanderen.be
     description: Basis URL
 paths:
   /id/VehicleRegistrationEnvelope/{id}:
@@ -227,7 +227,7 @@ components:
         '@context':
           type: string
           description: URI of the JSON-LD versioned context file for this response.
-          pattern: ^https:\/\/implementatie.data.test-vlaanderen.be\/\/doc\/implementatiemodel\/magda\/voertuigregistratie\/v0.2.1\/context\/voertuigregistratie-im.jsonld$
+          pattern: ^https:\/\/implementatie.data.test-vlaanderen.be\/doc\/implementatiemodel\/magda\/voertuigregistratie\/v0.2.1\/context\/voertuigregistratie-im.jsonld$
       required:
         - '@type'
     Geboorte.datum:
@@ -432,9 +432,9 @@ components:
           $ref: '#/components/schemas/GeregistreerdeOrganisatie.referentiedatum'
         voorkeursnaam:
           $ref: '#/components/schemas/GeregistreerdeOrganisatie.voorkeursnaam'
-        type:
+        rechtsvorm:
           type: array
-          description: Juridisch statuut van de geregistreerde organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van Concept items.
+          description: 'Juridisch statuut van de geregistreerde organisatie. Stemt in de KBO overeen met rechtsvorm, bijvoorbeeld: NV, VZW, Stad/Gemeente, OCMW etc. Lijst van Concept items.'
           items:
             $ref: '#/components/schemas/Concept'
           minItems: 1

@@ -85,7 +85,7 @@ components:
         '@context':
           type: string
           description: URI of the JSON-LD versioned context file for this response.
-          pattern: ^https:\/\/implementatie.data.test-vlaanderen.be\/\/doc\/implementatiemodel\/magda\/voertuigregistratie\/v0.2.1\/context\/voertuigregistratie-im.jsonld$
+          pattern: ^https:\/\/implementatie.data.test-vlaanderen.be\/doc\/implementatiemodel\/magda\/voertuigregistratie\/v0.2.1\/context\/voertuigregistratie-im.jsonld$
       required:
         - '@type'
     Geboorte.datum:
@@ -290,9 +290,9 @@ components:
           $ref: '#/components/schemas/GeregistreerdeOrganisatie.referentiedatum'
         voorkeursnaam:
           $ref: '#/components/schemas/GeregistreerdeOrganisatie.voorkeursnaam'
-        type:
+        rechtsvorm:
           type: array
-          description: Juridisch statuut van de geregistreerde organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van Concept items.
+          description: 'Juridisch statuut van de geregistreerde organisatie. Stemt in de KBO overeen met rechtsvorm, bijvoorbeeld: NV, VZW, Stad/Gemeente, OCMW etc. Lijst van Concept items.'
           items:
             $ref: '#/components/schemas/Concept'
           minItems: 1
@@ -605,10 +605,10 @@ components:
       parameters:
         id: $response.body#/Uitzondering.annotatie/@id
       description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Annotatie` op te halen.
-    GeregistreerdeOrganisatie.type:
+    GeregistreerdeOrganisatie.rechtsvorm:
       operationId: GeregistreerdeOrganisatieGET
       parameters:
-        id: $response.body#/GeregistreerdeOrganisatie.type/@id
+        id: $response.body#/GeregistreerdeOrganisatie.rechtsvorm/@id
       description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Concept` op te halen.
     GeregistreerdeOrganisatie.contactinfo:
       operationId: GeregistreerdeOrganisatieGET
