@@ -13,31 +13,13 @@
       "pattern": "^Contactinfo$"
     },
     "email": {
-      "type": "object",
-      "description": "Email-adres waarnaar men kan mailen.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@value"
-      ]
+      "$ref": "#/components/schemas/Contactinfo.email"
     },
     "telefoon": {
       "type": "array",
-      "description": "Lijst van Literal items.",
+      "description": "Telefoonnummer waarop men kan bellen. Gebruik W3C VCard TelephoneType als datatype om het soort telefoonnummer aan te duiden. Lijst van Literal items.",
       "items": {
-        "type": "object",
-        "description": "Telefoonnummer waarop men kan bellen. Gebruik W3C VCard TelephoneType als datatype om het soort telefoonnummer aan te duiden.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "$ref": "#/components/schemas/Contactinfo.telefoon"
       },
       "minItems": 1
     },

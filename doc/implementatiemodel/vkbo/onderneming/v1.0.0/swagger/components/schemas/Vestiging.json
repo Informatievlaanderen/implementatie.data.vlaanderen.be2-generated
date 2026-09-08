@@ -13,47 +13,17 @@
       "pattern": "^Vestiging$"
     },
     "datumOprichting": {
-      "type": "object",
-      "description": "Datum waarop de Vestiging opgericht werd.",
-      "properties": {
-        "@value": {
-          "type": "string",
-          "format": "date"
-        },
-        "@type": {
-          "type": "string",
-          "pattern": "^Date$"
-        }
-      },
-      "required": [
-        "@value",
-        "@type"
-      ]
+      "$ref": "#/components/schemas/Vestiging.datumOprichting"
     },
     "datumStopzetting": {
-      "type": "object",
-      "description": "Datum waarop de vestiging werd stopgezet.",
-      "properties": {
-        "@value": {
-          "type": "string",
-          "format": "date"
-        },
-        "@type": {
-          "type": "string",
-          "pattern": "^Date$"
-        }
-      },
-      "required": [
-        "@value",
-        "@type"
-      ]
+      "$ref": "#/components/schemas/Vestiging.datumStopzetting"
     },
     "vestigingsadres": {
       "$ref": "#/components/schemas/Contactinfo"
     },
     "isBeinvloedDoor": {
       "type": "array",
-      "description": "Lijst van Activiteit items.",
+      "description": "De schrapping van een entiteit binnen het KBO. Lijst van Activiteit items.",
       "items": {
         "$ref": "#/components/schemas/Doorhaling"
       },
@@ -68,7 +38,7 @@
     "@context": {
       "type": "string",
       "description": "URI of the JSON-LD versioned context file for this response.",
-      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v1.0.0\\/context\\/onderneming.jsonld$"
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v1.0.0\\/context\\/onderneming.jsonld$"
     }
   },
   "required": [

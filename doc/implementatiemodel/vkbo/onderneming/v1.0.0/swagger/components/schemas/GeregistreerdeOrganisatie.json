@@ -13,58 +13,16 @@
       "pattern": "^GeregistreerdeOrganisatie$"
     },
     "wettelijkeNaam": {
-      "type": "object",
-      "description": "Wettelijk geregistreerde naam van de organisatie. Eventueel in verschillende talen.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        },
-        "@language": {
-          "type": "string",
-          "pattern": "^nl$"
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
+      "$ref": "#/components/schemas/GeregistreerdeOrganisatie.wettelijkeNaam"
     },
     "voorkeursnaam": {
-      "type": "object",
-      "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        },
-        "@language": {
-          "type": "string",
-          "pattern": "^nl$"
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
+      "$ref": "#/components/schemas/GeregistreerdeOrganisatie.voorkeursnaam"
     },
     "alternatieveNaam": {
       "type": "array",
-      "description": "Lijst van LangString items.",
+      "description": "Andere naam waaronder de Organisatie bekend is. Bijvoorbeeld: commerciële naam, informele naam, etc. Lijst van LangString items.",
       "items": {
-        "type": "object",
-        "description": "Andere naam waaronder de Organisatie bekend is. Bijvoorbeeld: commerciële naam, informele naam, etc.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@language": {
-            "type": "string",
-            "pattern": "^nl$"
-          }
-        },
-        "required": [
-          "@value",
-          "@language"
-        ]
+        "$ref": "#/components/schemas/GeregistreerdeOrganisatie.alternatieveNaam"
       },
       "minItems": 1
     },
@@ -85,7 +43,7 @@
     },
     "contactinfo": {
       "type": "array",
-      "description": "Lijst van Contactinfo items.",
+      "description": "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren. Lijst van Contactinfo items.",
       "items": {
         "$ref": "#/components/schemas/Contactinfo"
       },
@@ -93,7 +51,7 @@
     },
     "status": {
       "type": "array",
-      "description": "Lijst van OrganisatieStatus items.",
+      "description": "Toestand van de Organisatie. Specialisatie van classificatie (naast type en activiteit). Lijst van OrganisatieStatus items.",
       "items": {
         "$ref": "#/components/schemas/OrganisatieStatus"
       },
@@ -101,7 +59,7 @@
     },
     "isBeinvloedDoor": {
       "type": "array",
-      "description": "Lijst van Activiteit items.",
+      "description": "De schrapping van een entiteit binnen het KBO. Lijst van Activiteit items.",
       "items": {
         "$ref": "#/components/schemas/Doorhaling"
       },
@@ -129,7 +87,7 @@
     },
     "heeftGeregistreerdeVestiging": {
       "type": "array",
-      "description": "Lijst van Vestiging items.",
+      "description": "Verwijst naar de wettelijk geregistreerde Vestiging van de Organisatie. Is voor een FormeleOrganisatie doorgaans verplicht. In België verplicht voor een GeregistreerdeOrganisatie en geregistreerd in de KBO. Lijst van Vestiging items.",
       "items": {
         "$ref": "#/components/schemas/Vestiging"
       },
@@ -137,7 +95,7 @@
     },
     "isVeranderdDoor": {
       "type": "array",
-      "description": "Lijst van Veranderingsgebeurtenis items.",
+      "description": "Verwijst naar het Veranderingsmoment dat deze Organisatie heeft veranderd. Als het Veranderingsmoment bijvoorbeeld een Stopzetting is hield de Organisatie daarna op met bestaan. Merk op dat deze relatie zinloos is als het Veranderingsmoment een Oprichting is (de Organisatie bestond nog niet en kan dus niet veranderd zijn ten gevolge van de Oprichting). Lijst van Veranderingsgebeurtenis items.",
       "items": {
         "oneOf": [
           {
@@ -160,7 +118,7 @@
     "@context": {
       "type": "string",
       "description": "URI of the JSON-LD versioned context file for this response.",
-      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v1.0.0\\/context\\/onderneming.jsonld$"
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/vkbo\\/onderneming\\/v1.0.0\\/context\\/onderneming.jsonld$"
     }
   },
   "required": [
