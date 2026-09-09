@@ -1,0 +1,53 @@
+{
+  "title": "MedischVerslag",
+  "type": "object",
+  "description": "Een gedocumenteerde beschrijving van de gezondheidsstatus van een Persoon, meestal opgesteld door een Arts.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse MedischVerslag)",
+      "pattern": "^MedischVerslag$"
+    },
+    "opgesteldDoor": {
+      "type": "array",
+      "description": "Het Medisch Verslag wordt opgesteld door een Agent. Lijst van Agent items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Persoon"
+          },
+          {
+            "$ref": "#/components/schemas/Organisatie"
+          },
+          {
+            "$ref": "#/components/schemas/Zorgverlener"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Persoon": "#/components/schemas/Persoon",
+            "Organisatie": "#/components/schemas/Organisatie",
+            "Zorgverlener": "#/components/schemas/Zorgverlener"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "documenteert": {
+      "type": "array",
+      "description": "De neerslag in de vorm van een MedischVerslag die de MedischeObservatie documenteert. Lijst van MedischeObservatie items.",
+      "items": {
+        "$ref": "#/components/schemas/MedischeObservatie"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}
