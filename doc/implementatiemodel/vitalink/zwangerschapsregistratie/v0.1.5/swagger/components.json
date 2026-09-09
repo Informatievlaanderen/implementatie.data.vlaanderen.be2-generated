@@ -17,6 +17,11 @@
         "description": "Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie.",
         "type": "string"
       },
+      "Persoon.volledigeNaam": {
+        "title": "Persoon.volledigeNaam",
+        "description": "De volledige naam van de persoon, doorgaans de combinatie van voornamen en achternaam.",
+        "type": "string"
+      },
       "Persoon": {
         "title": "Persoon",
         "type": "object",
@@ -41,6 +46,9 @@
               "$ref": "#/components/schemas/Persoon.gegevenNaam"
             },
             "minItems": 1
+          },
+          "volledigeNaam": {
+            "$ref": "#/components/schemas/Persoon.volledigeNaam"
           },
           "isLidVan": {
             "type": "array",
@@ -77,7 +85,8 @@
         },
         "required": [
           "@type",
-          "gegevenNaam"
+          "gegevenNaam",
+          "volledigeNaam"
         ]
       },
       "Organisatie.voorkeursnaam": {
@@ -226,6 +235,11 @@
         "description": "Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie.",
         "type": "string"
       },
+      "Zorgverlener.volledigeNaam": {
+        "title": "Zorgverlener.volledigeNaam",
+        "description": "De volledige naam van de persoon, doorgaans de combinatie van voornamen en achternaam.",
+        "type": "string"
+      },
       "Zorgverlener": {
         "title": "Zorgverlener",
         "type": "object",
@@ -267,6 +281,9 @@
             },
             "minItems": 1
           },
+          "volledigeNaam": {
+            "$ref": "#/components/schemas/Zorgverlener.volledigeNaam"
+          },
           "isLidVan": {
             "type": "array",
             "description": "Niet nader bepaald lidmaatschap van een agent van een organisatie. Dekt elk type aansluiting of betrokkenheid van een agent bij een organisatie, niet enkel formeel lidmaatschap. Kan eventueel verder gespecialiseerd worden. Lijst van Organisatie items.",
@@ -286,7 +303,8 @@
         },
         "required": [
           "@type",
-          "gegevenNaam"
+          "gegevenNaam",
+          "volledigeNaam"
         ]
       },
       "MedischeObservatie.effectiefTijdstip": {
