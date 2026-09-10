@@ -163,6 +163,9 @@
           "toestand": {
             "$ref": "#/components/schemas/Zwangerschapstoestand"
           },
+          "heeftPersoon": {
+            "$ref": "#/components/schemas/Persoon"
+          },
           "heeftFoetus": {
             "type": "array",
             "description": "Een Zwangerschap heeft een of meerdere Foetussen. Lijst van Foetus items.",
@@ -577,6 +580,13 @@
           "id": "$response.body#/Zwangerschap.toestand/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Zwangerschapstoestand` op te halen."
+      },
+      "Zwangerschap.heeftPersoon": {
+        "operationId": "ZwangerschapGET",
+        "parameters": {
+          "id": "$response.body#/Zwangerschap.heeftPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
       },
       "Zwangerschap.heeftFoetus": {
         "operationId": "ZwangerschapGET",
