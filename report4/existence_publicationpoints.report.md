@@ -66,8 +66,14 @@ error: missing '/tmp/generated/ns/vsds-verkeersmetingverzameling//index.html'
 #||#    + checking /home/circleci/project/config/test/voertuigregistratie-im.publication.json
 #||# 
 #||# Directory check
+error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.1.1'
+error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.2.0'
+error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.2.1'
 #||# 
 #||# index.html check
+error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.1.1/index.html'
+error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.2.0/index.html'
+error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.2.1/index.html'
 
 #||#    + checking /home/circleci/project/config/test/zwangerschapsregistratie-im.publication.json
 #||# 
