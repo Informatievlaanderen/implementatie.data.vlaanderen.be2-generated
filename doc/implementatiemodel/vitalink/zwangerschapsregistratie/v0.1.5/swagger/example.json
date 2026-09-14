@@ -12,17 +12,16 @@
     }
   ],
   "paths": {
-    "/id/Persoon/{id}": {
+    "/id/Zwangerschap/{id}": {
       "get": {
-        "summary": "Natuurlijk persoon.",
-        "description": "In de rechtspraak betreft het een persoon (in de wettelijke betekenis, het is te zeggen met eigen rechtspersoonlijkheid) van de menselijke soort, het is te zeggen een fysiek persoon. Tegenhanger is de rechtspersoon, een juridische constructie die een private of publieke organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bijvoorbeeld ook schulden hebben, contracten afsluiten, aangeklaagd worden etc).",
-        "operationId": "PersoonGET",
+        "summary": "De staat waarin een Persoon een of meerdere embryo’s of foetussen draagt in de baarmoeder, wat leidt tot de ontwikkeling van een nieuw natuurlijk Persoon.",
+        "operationId": "ZwangerschapGET",
         "parameters": [
           {
             "name": "id",
             "required": true,
             "in": "path",
-            "description": "Identificator van een Persoon object.",
+            "description": "Identificator van een Zwangerschap object.",
             "schema": {
               "type": "string"
             }
@@ -30,42 +29,42 @@
         ],
         "responses": {
           "200": {
-            "description": "Persoon object gevonden.",
+            "description": "Zwangerschap object gevonden.",
             "content": {
               "application/ld+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Persoon"
+                  "$ref": "#/components/schemas/Zwangerschap"
                 }
               }
             },
             "links": {
-              "Persoon.isLidVan": {
-                "operationId": "PersoonGET",
+              "Zwangerschap.identificator": {
+                "operationId": "ZwangerschapGET",
                 "parameters": {
-                  "id": "$response.body#/Persoon.isLidVan/@id"
-                },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Organisatie` op te halen."
-              },
-              "Persoon.heeftZwangerschap": {
-                "operationId": "PersoonGET",
-                "parameters": {
-                  "id": "$response.body#/Persoon.heeftZwangerschap/@id"
-                },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Zwangerschap` op te halen."
-              },
-              "Persoon.identificator": {
-                "operationId": "PersoonGET",
-                "parameters": {
-                  "id": "$response.body#/Persoon.identificator/@id"
+                  "id": "$response.body#/Zwangerschap.identificator/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
               },
-              "Persoon.steltOp": {
-                "operationId": "PersoonGET",
+              "Zwangerschap.toestand": {
+                "operationId": "ZwangerschapGET",
                 "parameters": {
-                  "id": "$response.body#/Persoon.steltOp/@id"
+                  "id": "$response.body#/Zwangerschap.toestand/@id"
                 },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `MedischVerslag` op te halen."
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Zwangerschapstoestand` op te halen."
+              },
+              "Zwangerschap.heeftPersoon": {
+                "operationId": "ZwangerschapGET",
+                "parameters": {
+                  "id": "$response.body#/Zwangerschap.heeftPersoon/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+              },
+              "Zwangerschap.heeftFoetus": {
+                "operationId": "ZwangerschapGET",
+                "parameters": {
+                  "id": "$response.body#/Zwangerschap.heeftFoetus/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Foetus` op te halen."
               }
             }
           },
@@ -80,7 +79,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "PersoonGET",
+                "operationId": "ZwangerschapGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -99,7 +98,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "PersoonGET",
+                "operationId": "ZwangerschapGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -118,7 +117,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "PersoonGET",
+                "operationId": "ZwangerschapGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -137,7 +136,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "PersoonGET",
+                "operationId": "ZwangerschapGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -156,7 +155,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "PersoonGET",
+                "operationId": "ZwangerschapGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -175,7 +174,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "PersoonGET",
+                "operationId": "ZwangerschapGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -194,7 +193,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "PersoonGET",
+                "operationId": "ZwangerschapGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -213,7 +212,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "PersoonGET",
+                "operationId": "ZwangerschapGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -232,7 +231,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "PersoonGET",
+                "operationId": "ZwangerschapGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -345,11 +344,6 @@
               "$ref": "#/components/schemas/MedischVerslag"
             },
             "minItems": 1
-          },
-          "@context": {
-            "type": "string",
-            "description": "URI of the JSON-LD versioned context file for this response.",
-            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/vitalink\\/zwangerschapsregistratie\\/v0.1.5\\/context\\/zwangerschapsregistratie.jsonld$"
           }
         },
         "required": [
@@ -437,6 +431,11 @@
               "$ref": "#/components/schemas/Foetus"
             },
             "minItems": 1
+          },
+          "@context": {
+            "type": "string",
+            "description": "URI of the JSON-LD versioned context file for this response.",
+            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/vitalink\\/zwangerschapsregistratie\\/v0.1.5\\/context\\/zwangerschapsregistratie.jsonld$"
           }
         },
         "required": [
