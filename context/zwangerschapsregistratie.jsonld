@@ -15,8 +15,22 @@
       },
       "@id": "http://purl.org/dc/terms/Agent"
     },
+    "AnyURI": {
+      "@id": "http://www.w3.org/2001/XMLSchema#AnyURI"
+    },
     "DataEnvelop": {
-      "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#DataEnvelope"
+      "@context": {
+        "data": {
+          "@container": "@set",
+          "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#data",
+          "@type": "http://www.w3.org/ns/prov#Entity"
+        },
+        "volgende": {
+          "@id": "http://www.w3.org/ns/adms#next",
+          "@type": "http://www.w3.org/1999/xhtml/vocab#link"
+        }
+      },
+      "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#DataEnvelop"
     },
     "DateTime": {
       "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
@@ -54,6 +68,12 @@
       "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
     },
     "Link": {
+      "@context": {
+        "href": {
+          "@id": "http://purl.org/dc/terms/references",
+          "@type": "http://www.w3.org/2001/XMLSchema#AnyURI"
+        }
+      },
       "@id": "http://www.w3.org/1999/xhtml/vocab#link"
     },
     "Literal": {
@@ -173,9 +193,13 @@
         "data": {
           "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#data",
           "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
+        },
+        "volgende": {
+          "@id": "http://www.w3.org/ns/adms#next",
+          "@type": "http://www.w3.org/1999/xhtml/vocab#link"
         }
       },
-      "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapEnvelope"
+      "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapEnvelop"
     },
     "PostinfoLijstEnvelop": {
       "@context": {
@@ -183,9 +207,13 @@
           "@container": "@set",
           "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#data",
           "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
+        },
+        "volgende": {
+          "@id": "http://www.w3.org/ns/adms#next",
+          "@type": "http://www.w3.org/1999/xhtml/vocab#link"
         }
       },
-      "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapLijstEnvelope"
+      "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapLijstEnvelop"
     },
     "Problemdetail": {
       "@context": {

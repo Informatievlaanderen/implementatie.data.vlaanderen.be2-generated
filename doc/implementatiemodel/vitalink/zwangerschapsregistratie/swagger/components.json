@@ -380,6 +380,17 @@
             "type": "string",
             "description": "Object type (klasse DataEnvelop)",
             "pattern": "^DataEnvelop$"
+          },
+          "data": {
+            "type": "array",
+            "description": "De collectie data die de envelop bevat. Lijst van Object items.",
+            "items": {
+              "$ref": "#/components/schemas/Object"
+            },
+            "minItems": 1
+          },
+          "volgende": {
+            "$ref": "#/components/schemas/Link"
           }
         },
         "required": [
@@ -423,7 +434,15 @@
             "pattern": "^PostinfoEnvelop$"
           },
           "data": {
-            "$ref": "#/components/schemas/Zwangerschap"
+            "type": "array",
+            "description": "De collectie data die de envelop bevat. Lijst van Object items.",
+            "items": {
+              "$ref": "#/components/schemas/Object"
+            },
+            "minItems": 1
+          },
+          "volgende": {
+            "$ref": "#/components/schemas/Link"
           },
           "@context": {
             "type": "string",
@@ -452,11 +471,14 @@
           },
           "data": {
             "type": "array",
-            "description": "De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van Zwangerschap items.",
+            "description": "De collectie data die de envelop bevat. Lijst van Object items.",
             "items": {
-              "$ref": "#/components/schemas/Zwangerschap"
+              "$ref": "#/components/schemas/Object"
             },
             "minItems": 1
+          },
+          "volgende": {
+            "$ref": "#/components/schemas/Link"
           },
           "@context": {
             "type": "string",
@@ -680,6 +702,28 @@
             "type": "string",
             "description": "Object type (klasse Link)",
             "pattern": "^Link$"
+          },
+          "href": {
+            "$ref": "#/components/schemas/AnyURI"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "AnyURI": {
+        "title": "AnyURI",
+        "type": "object",
+        "description": "AnyURI staat voor een geïnternationaliseerde resource-identificatiereferentie (IRI).",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse AnyURI)",
+            "pattern": "^AnyURI$"
           }
         },
         "required": [
@@ -821,6 +865,20 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `MedischVerslag` op te halen."
       },
+      "DataEnvelop.data": {
+        "operationId": "DataEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/DataEnvelop.data/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
+      },
+      "DataEnvelop.volgende": {
+        "operationId": "DataEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/DataEnvelop.volgende/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Link` op te halen."
+      },
       "Foetus.deelVan": {
         "operationId": "FoetusGET",
         "parameters": {
@@ -833,14 +891,28 @@
         "parameters": {
           "id": "$response.body#/PostinfoEnvelop.data/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Zwangerschap` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
+      },
+      "PostinfoEnvelop.volgende": {
+        "operationId": "PostinfoEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/PostinfoEnvelop.volgende/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Link` op te halen."
       },
       "PostinfoLijstEnvelop.data": {
         "operationId": "PostinfoLijstEnvelopGET",
         "parameters": {
           "id": "$response.body#/PostinfoLijstEnvelop.data/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Zwangerschap` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
+      },
+      "PostinfoLijstEnvelop.volgende": {
+        "operationId": "PostinfoLijstEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/PostinfoLijstEnvelop.volgende/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Link` op te halen."
       },
       "Zwangerschapstoestand.duur": {
         "operationId": "ZwangerschapstoestandGET",
