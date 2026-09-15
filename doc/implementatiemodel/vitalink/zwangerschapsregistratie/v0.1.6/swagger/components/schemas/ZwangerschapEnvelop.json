@@ -1,0 +1,31 @@
+{
+  "title": "ZwangerschapEnvelop",
+  "type": "object",
+  "description": "De collectie van de uitgewisselde postinfo en zijn metadata elementen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse ZwangerschapEnvelop)",
+      "pattern": "^ZwangerschapEnvelop$"
+    },
+    "data": {
+      "$ref": "#/components/schemas/Zwangerschap"
+    },
+    "volgende": {
+      "$ref": "#/components/schemas/Link"
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/vitalink\\/zwangerschapsregistratie\\/v0.1.6\\/context\\/zwangerschapsregistratie.jsonld$"
+    }
+  },
+  "required": [
+    "@type",
+    "data"
+  ]
+}

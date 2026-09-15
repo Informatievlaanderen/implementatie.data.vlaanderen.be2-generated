@@ -13,13 +13,14 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#AgentShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#OrganisatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ZwangerschapShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ObjectShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#MedischVerslagShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ZorgverlenerShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#MedischeObservatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#DataEnvelopShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#FoetusShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#PostinfoEnvelopShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#PostinfoLijstEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ZwangerschapEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ZwangerschaplijstEnvelopShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ProblemdetailShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ZwangerschapstoestandShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#StringShape>,
@@ -89,15 +90,15 @@
     <https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapEnvelop>,
     <https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapLijstEnvelop>;
   shacl:xone ([
-      shacl:not _:df_2_36;
+      shacl:not _:df_2_37;
       shacl:property _:df_2_17
     ] [shacl:property _:df_2_19,
-        _:df_2_36]),
+        _:df_2_37]),
     ([
-      shacl:not _:df_2_41;
+      shacl:not _:df_2_42;
       shacl:property _:df_2_17
     ] [shacl:property _:df_2_20,
-        _:df_2_41]) .
+        _:df_2_42]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#DateTimeShape> a shacl:NodeShape;
   rdfs:label "DateTime";
@@ -264,6 +265,25 @@
   ];
   shacl:targetClass <https://build.fhir.org/observation-definitions.html#Observation> .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ObjectShape> a shacl:NodeShape;
+  rdfs:label "Object"@nl;
+  rdfs:comment "Entiteit waarvan alle entiteiten zijn afgeleid."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#Object>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "identificator"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bij implementatie in RDF is de uri vh object de identificator."@nl;
+    rdfs:comment "Identificator van het object."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#Object.Identificator>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificator van het object."@nl;
+    shacl:minCount 1;
+    shacl:name "identificator"@nl;
+    shacl:path <http://www.w3.org/ns/adms#identifier>
+  ];
+  shacl:targetClass prov:Entity .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#OrganisatieShape> a shacl:NodeShape;
   rdfs:label "Organisatie"@nl;
   rdfs:comment "Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur."@nl;
@@ -372,22 +392,6 @@
   ];
   shacl:targetClass <http://www.w3.org/ns/person#Person> .
 
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#PostinfoEnvelopShape> a shacl:NodeShape;
-  rdfs:label "PostinfoEnvelop"@nl;
-  rdfs:comment "De collectie van de uitgewisselde postinfo en zijn metadata elementen."@nl;
-  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#PostinfoEnvelop>;
-  shacl:closed false;
-  shacl:property _:df_2_19;
-  shacl:targetClass <https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapEnvelop> .
-
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#PostinfoLijstEnvelopShape> a shacl:NodeShape;
-  rdfs:label "PostinfoLijstEnvelop"@nl;
-  rdfs:comment "De collectie van de uitgewisselde postinfo en zijn metadata elementen."@nl;
-  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#PostinfoLijstEnvelop>;
-  shacl:closed false;
-  shacl:property _:df_2_20;
-  shacl:targetClass <https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapLijstEnvelop> .
-
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ProblemdetailShape> a shacl:NodeShape;
   rdfs:label "Problemdetail"@nl;
   <http://purl.org/vocab/vann/usageNote> "Dit ter aanvulling van een HTTP statuscode,bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc7807\">RFC7807</a>."@nl;
@@ -471,6 +475,14 @@
   shacl:closed false;
   shacl:targetClass <https://hl7.org/fhir/practitioner-definitions.html#Practitioner> .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ZwangerschapEnvelopShape> a shacl:NodeShape;
+  rdfs:label "ZwangerschapEnvelop"@nl;
+  rdfs:comment "De collectie van de uitgewisselde postinfo en zijn metadata elementen."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ZwangerschapEnvelop>;
+  shacl:closed false;
+  shacl:property _:df_2_19;
+  shacl:targetClass <https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapEnvelop> .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ZwangerschapShape> a shacl:NodeShape;
   rdfs:label "Zwangerschap"@nl;
   rdfs:comment "De staat waarin een Persoon een of meerdere embryo’s of foetussen draagt in de baarmoeder, wat leidt tot de ontwikkeling van een nieuw natuurlijk Persoon."@nl;
@@ -519,6 +531,14 @@
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap> .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ZwangerschaplijstEnvelopShape> a shacl:NodeShape;
+  rdfs:label "ZwangerschaplijstEnvelop"@nl;
+  rdfs:comment "De collectie van de uitgewisselde postinfo en zijn metadata elementen."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ZwangerschaplijstEnvelop>;
+  shacl:closed false;
+  shacl:property _:df_2_20;
+  shacl:targetClass <https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapLijstEnvelop> .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ZwangerschapstoestandShape> a shacl:NodeShape;
   rdfs:label "Zwangerschapstoestand"@nl;
   rdfs:comment "De medische toestand bij een Zwangerschap van de Persoon."@nl;
@@ -559,7 +579,7 @@ _:df_2_17 a shacl:PropertyShape;
 _:df_2_19 a shacl:PropertyShape;
   rdfs:label "data"@nl;
   rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
-  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#PostinfoEnvelop.Data>;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ZwangerschapEnvelop.Data>;
   shacl:class <https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap>;
   shacl:description "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
   shacl:maxCount 1;
@@ -570,14 +590,14 @@ _:df_2_19 a shacl:PropertyShape;
 _:df_2_20 a shacl:PropertyShape;
   rdfs:label "data"@nl;
   rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
-  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#PostinfoLijstEnvelop.Data>;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6#ZwangerschaplijstEnvelop.Data>;
   shacl:class <https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap>;
   shacl:description "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
   shacl:name "data"@nl;
   shacl:path <https://data.vlaanderen.be/ns/zwangerschapsregistratie#data> .
 
-_:df_2_36 a shacl:PropertyShape;
+_:df_2_37 a shacl:PropertyShape;
   shacl:class <https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapEnvelop> .
 
-_:df_2_41 a shacl:PropertyShape;
+_:df_2_42 a shacl:PropertyShape;
   shacl:class <https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapLijstEnvelop> .

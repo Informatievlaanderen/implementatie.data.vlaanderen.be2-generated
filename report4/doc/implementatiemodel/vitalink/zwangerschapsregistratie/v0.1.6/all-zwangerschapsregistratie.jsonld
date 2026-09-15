@@ -141,7 +141,7 @@
     }
   },
   "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6",
-  "generatedAtTime": "2026-09-15T11:16:01.917Z",
+  "generatedAtTime": "2026-09-15T11:35:55.548Z",
   "packages": [
     {
       "@id": "urn:oslo-toolchain:e62bafa3d1e192656e6c804ffdf262133b005e272aa2a69350a72311af855845",
@@ -312,6 +312,36 @@
           "@id": "urn:oslo-toolchain:fc13fba1f69e2a66f3de107e2c36bc7f096db7b18d8ba314755d2665a7971e98"
         }
       ],
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard"
+    },
+    {
+      "@id": "urn:oslo-toolchain:b7a3e6de38bb9fedb688bf897e99f7906b8b1cfc6ba39c9ffbba69a7d5db808b",
+      "@type": "Class",
+      "assignedURI": "http://www.w3.org/ns/prov#Entity",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "Entiteit"
+        }
+      ],
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Object"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Object"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Entiteit waarvan alle entiteiten zijn afgeleid."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard"
     },
     {
@@ -501,7 +531,7 @@
       "vocLabel": [
         {
           "@language": "nl",
-          "@value": "PostinfoEnvelop"
+          "@value": "ZwangerschapEnvelop"
         }
       ],
       "diagramLabel": [
@@ -530,7 +560,7 @@
       "vocLabel": [
         {
           "@language": "nl",
-          "@value": "PostinfoLijstEnvelop"
+          "@value": "ZwangerschaplijstEnvelop"
         }
       ],
       "diagramLabel": [
@@ -1638,6 +1668,50 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard"
     },
     {
+      "@id": "urn:oslo-toolchain:6022d4b5325e49f27ad63ee343981aed7a635daca9e9fa95a95c640820c18eff",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://www.w3.org/ns/adms#identifier",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "identificator"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "identificator"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Identificator van het object."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Bij implementatie in RDF is de uri vh object de identificator."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:b7a3e6de38bb9fedb688bf897e99f7906b8b1cfc6ba39c9ffbba69a7d5db808b"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:2f8f036441305ff6896a75ad04100c2d5e84cb0c2b68ade5bfa156253cc8449d"
+      },
+      "minCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "*",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard"
+    },
+    {
       "@id": "urn:oslo-toolchain:111ca248d4a456ae9269068160cc2f35cefc49aba9e2d063d6e1fc87708de2ac",
       "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
       "assignedURI": "http://www.w3.org/ns/adms#schemaAgency",
@@ -2675,35 +2749,6 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard"
     },
     {
-      "@id": "urn:oslo-toolchain:b7a3e6de38bb9fedb688bf897e99f7906b8b1cfc6ba39c9ffbba69a7d5db808b",
-      "assignedURI": "http://www.w3.org/ns/prov#Entity",
-      "vocLabel": [
-        {
-          "@language": "nl",
-          "@value": "Entiteit"
-        }
-      ],
-      "apLabel": [
-        {
-          "@language": "nl",
-          "@value": "Object"
-        }
-      ],
-      "diagramLabel": [
-        {
-          "@value": "Object"
-        }
-      ],
-      "apDefinition": [
-        {
-          "@language": "nl",
-          "@value": "Entiteit waarvan alle entiteiten zijn afgeleid."
-        }
-      ],
-      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard"
-    },
-    {
       "@id": "urn:oslo-toolchain:5209192840fadeed16f5fb8cf18ee80d83845b3d501f77fb4f67898f7d0a0e0a",
       "assignedURI": "http://www.w3.org/2000/01/rdf-schema#Literal",
       "apLabel": [
@@ -2760,6 +2805,10 @@
     {
       "@id": "urn:oslo-toolchain:80d8e5032c0cc277b3ea996edd1c0a441d2d41f632cc706111f8cb10d556decd",
       "@type": "AbstractClass"
+    },
+    {
+      "@id": "urn:oslo-toolchain:b7a3e6de38bb9fedb688bf897e99f7906b8b1cfc6ba39c9ffbba69a7d5db808b",
+      "@type": "AbstractClass"
     }
   ],
   "rootClasses": [
@@ -2806,14 +2855,14 @@
   "contextgenerator": {
     "parameters": "--scopedContext true --enablePolymorphism false"
   },
-  "dummy": "039",
+  "dummy": "040",
   "filename": "config/zwangerschapsregistratie-im.json",
   "repository": "https://github.com/Informatievlaanderen/OSLOthema-zwangerschapsregistratie/",
   "swaggergenerator": {
     "parameters": "--title 'VITALINK zwangerschapsregistratie REST' --description 'OSLO-conforme REST API voor informatie over zwangerschapsregistratie' --versionAPI 0.1.0 --language nl"
   },
   "urlref": "/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6",
-  "documentcommit": "739531b7564abe24f2a0bf163890f55050774a76",
-  "toolchaincommit": "229bb265ccd4be6dcb365603009bc42edf8e4adc",
+  "documentcommit": "6b17fdbaa217afb0ce0f8a475ba56b4b8d4fc037",
+  "toolchaincommit": "658f5e1222c28d9b40bfe9298d68f7e87233e909",
   "hostname": "https://implementatie.data.test-vlaanderen.be"
 }

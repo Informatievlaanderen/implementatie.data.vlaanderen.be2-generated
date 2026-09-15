@@ -2,25 +2,25 @@
 
 #||# -------------------------------------
 
-2026-09-15T11:16:01.897Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:implementatiemodel_zwangerschapsregistratie:OSLO-Generiek:Gemeente:(Gemeente -> Object))
+2026-09-15T11:35:55.526Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:implementatiemodel_zwangerschapsregistratie:OSLO-Generiek:Gemeente:(Gemeente -> Object))
 
-2026-09-15T11:16:01.899Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:implementatiemodel_zwangerschapsregistratie:OSLO-Generiek:FormeelKader:(FormeelKader -> Object))
+2026-09-15T11:35:55.528Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:implementatiemodel_zwangerschapsregistratie:OSLO-Generiek:FormeelKader:(FormeelKader -> Object))
 
-2026-09-15T11:16:01.902Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Gezondheidstoestand:Zwangerschap:(Zwangerschap -> Zwangerschapstoestand) is not an association with a source role. Ignoring this connector.
+2026-09-15T11:35:55.530Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Gezondheidstoestand:Zwangerschap:(Zwangerschap -> Zwangerschapstoestand) is not an association with a source role. Ignoring this connector.
 
-2026-09-15T11:16:01.903Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Persoon:Persoon:(Persoon -> Organisatie) is not an association with a source role. Ignoring this connector.
+2026-09-15T11:35:55.531Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Persoon:Persoon:(Persoon -> Organisatie) is not an association with a source role. Ignoring this connector.
 
-2026-09-15T11:16:01.903Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Persoon:Persoon:(Persoon -> Agent) is not an association with a source role. Ignoring this connector.
+2026-09-15T11:35:55.534Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Persoon:Persoon:(Persoon -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-09-15T11:16:01.903Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Organisatie:Organisatie:(Organisatie -> Agent) is not an association with a source role. Ignoring this connector.
+2026-09-15T11:35:55.534Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Organisatie:Organisatie:(Organisatie -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-09-15T11:16:01.903Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Gezondheidstoestand:Zorgverlener:(Zorgverlener -> Agent) is not an association with a source role. Ignoring this connector.
+2026-09-15T11:35:55.534Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Gezondheidstoestand:Zorgverlener:(Zorgverlener -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-09-15T11:16:01.903Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:Zwangerschapsregistratie:ZwangerschapEnvelop:(ZwangerschapEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-09-15T11:35:55.534Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:Zwangerschapsregistratie:ZwangerschapEnvelop:(ZwangerschapEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-09-15T11:16:01.903Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:Zwangerschapsregistratie:ZwangerschapLijstEnvelop:(ZwangerschapLijstEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-09-15T11:35:55.534Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:Zwangerschapsregistratie:ZwangerschapLijstEnvelop:(ZwangerschapLijstEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-09-15T11:16:01.904Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+2026-09-15T11:35:55.535Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
 #||# -------------------------------------
 
