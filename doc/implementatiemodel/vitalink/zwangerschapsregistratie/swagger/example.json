@@ -12,239 +12,9 @@
     }
   ],
   "paths": {
-    "/id/Zwangerschap/{id}": {
-      "get": {
-        "summary": "De staat waarin een Persoon een of meerdere embryo’s of foetussen draagt in de baarmoeder, wat leidt tot de ontwikkeling van een nieuw natuurlijk Persoon.",
-        "operationId": "ZwangerschapGET",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "description": "Identificator van een Zwangerschap object.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Zwangerschap object gevonden.",
-            "content": {
-              "application/ld+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Zwangerschap"
-                }
-              }
-            },
-            "links": {
-              "Zwangerschap.identificator": {
-                "operationId": "ZwangerschapGET",
-                "parameters": {
-                  "id": "$response.body#/Zwangerschap.identificator/@id"
-                },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
-              },
-              "Zwangerschap.toestand": {
-                "operationId": "ZwangerschapGET",
-                "parameters": {
-                  "id": "$response.body#/Zwangerschap.toestand/@id"
-                },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Zwangerschapstoestand` op te halen."
-              },
-              "Zwangerschap.heeftPersoon": {
-                "operationId": "ZwangerschapGET",
-                "parameters": {
-                  "id": "$response.body#/Zwangerschap.heeftPersoon/@id"
-                },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
-              },
-              "Zwangerschap.heeftFoetus": {
-                "operationId": "ZwangerschapGET",
-                "parameters": {
-                  "id": "$response.body#/Zwangerschap.heeftFoetus/@id"
-                },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Foetus` op te halen."
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid data supplied.",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Problemdetail"
-                }
-              }
-            },
-            "links": {
-              "Problemdetail.type": {
-                "operationId": "ZwangerschapGET",
-                "parameters": {
-                  "type": "$response.body#/type"
-                },
-                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
-              }
-            }
-          },
-          "401": {
-            "description": "Invalid authorization.",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Problemdetail"
-                }
-              }
-            },
-            "links": {
-              "Problemdetail.type": {
-                "operationId": "ZwangerschapGET",
-                "parameters": {
-                  "type": "$response.body#/type"
-                },
-                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
-              }
-            }
-          },
-          "403": {
-            "description": "Authentication failed.",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Problemdetail"
-                }
-              }
-            },
-            "links": {
-              "Problemdetail.type": {
-                "operationId": "ZwangerschapGET",
-                "parameters": {
-                  "type": "$response.body#/type"
-                },
-                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
-              }
-            }
-          },
-          "404": {
-            "description": "Resource not found.",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Problemdetail"
-                }
-              }
-            },
-            "links": {
-              "Problemdetail.type": {
-                "operationId": "ZwangerschapGET",
-                "parameters": {
-                  "type": "$response.body#/type"
-                },
-                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
-              }
-            }
-          },
-          "412": {
-            "description": "Pre-condition failed.",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Problemdetail"
-                }
-              }
-            },
-            "links": {
-              "Problemdetail.type": {
-                "operationId": "ZwangerschapGET",
-                "parameters": {
-                  "type": "$response.body#/type"
-                },
-                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
-              }
-            }
-          },
-          "500": {
-            "description": "Unexpected Server Error.",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Problemdetail"
-                }
-              }
-            },
-            "links": {
-              "Problemdetail.type": {
-                "operationId": "ZwangerschapGET",
-                "parameters": {
-                  "type": "$response.body#/type"
-                },
-                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
-              }
-            }
-          },
-          "502": {
-            "description": "Bad Gateway.",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Problemdetail"
-                }
-              }
-            },
-            "links": {
-              "Problemdetail.type": {
-                "operationId": "ZwangerschapGET",
-                "parameters": {
-                  "type": "$response.body#/type"
-                },
-                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
-              }
-            }
-          },
-          "503": {
-            "description": "Service unavailable.",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Problemdetail"
-                }
-              }
-            },
-            "links": {
-              "Problemdetail.type": {
-                "operationId": "ZwangerschapGET",
-                "parameters": {
-                  "type": "$response.body#/type"
-                },
-                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
-              }
-            }
-          },
-          "504": {
-            "description": "Gateway Timeout.",
-            "content": {
-              "application/problem+json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Problemdetail"
-                }
-              }
-            },
-            "links": {
-              "Problemdetail.type": {
-                "operationId": "ZwangerschapGET",
-                "parameters": {
-                  "type": "$response.body#/type"
-                },
-                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
-              }
-            }
-          }
-        }
-      }
-    },
     "/id/ZwangerschapEnvelop/{id}": {
       "get": {
-        "summary": "De collectie van de uitgewisselde postinfo en zijn metadata elementen.",
+        "summary": "De collectie van de uitgewisselde zwangerschapsgerelateerde informatie en zijn metadata elementen.",
         "operationId": "ZwangerschapEnvelopGET",
         "parameters": [
           {
@@ -460,7 +230,7 @@
     },
     "/id/ZwangerschaplijstEnvelop/{id}": {
       "get": {
-        "summary": "De collectie van de uitgewisselde postinfo en zijn metadata elementen.",
+        "summary": "De collectie van de uitgewisselde zwangerschapsgerelateerde informatie en zijn metadata elementen.",
         "operationId": "ZwangerschaplijstEnvelopGET",
         "parameters": [
           {
@@ -875,11 +645,6 @@
               "$ref": "#/components/schemas/Foetus"
             },
             "minItems": 1
-          },
-          "@context": {
-            "type": "string",
-            "description": "URI of the JSON-LD versioned context file for this response.",
-            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/vitalink\\/zwangerschapsregistratie\\/v0.1.6\\/context\\/zwangerschapsregistratie.jsonld$"
           }
         },
         "required": [
@@ -1121,7 +886,7 @@
       "ZwangerschapEnvelop": {
         "title": "ZwangerschapEnvelop",
         "type": "object",
-        "description": "De collectie van de uitgewisselde postinfo en zijn metadata elementen.",
+        "description": "De collectie van de uitgewisselde zwangerschapsgerelateerde informatie en zijn metadata elementen.",
         "properties": {
           "@id": {
             "type": "string",
@@ -1152,7 +917,7 @@
       "ZwangerschaplijstEnvelop": {
         "title": "ZwangerschaplijstEnvelop",
         "type": "object",
-        "description": "De collectie van de uitgewisselde postinfo en zijn metadata elementen.",
+        "description": "De collectie van de uitgewisselde zwangerschapsgerelateerde informatie en zijn metadata elementen.",
         "properties": {
           "@id": {
             "type": "string",
