@@ -1,0 +1,46 @@
+{
+  "title": "MedischeObservatie",
+  "type": "object",
+  "description": "Metingen en eenvoudige beweringen over een patiënt, apparaat of ander onderwerp.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse MedischeObservatie)",
+      "pattern": "^MedischeObservatie$"
+    },
+    "effectiefTijdstip": {
+      "$ref": "#/components/schemas/MedischeObservatie.effectiefTijdstip"
+    },
+    "identificator": {
+      "type": "array",
+      "description": "Identificator van het object. Bij implementatie in RDF is de uri van het object de identificator. Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    },
+    "vastgesteld": {
+      "type": "array",
+      "description": "De Gezondheidstoestand wordt vastgesteld aan de hand van een Medische Observatie. Lijst van Zwangerschapstoestand items.",
+      "items": {
+        "$ref": "#/components/schemas/Zwangerschapstoestand"
+      },
+      "minItems": 1
+    },
+    "gedocumenteerdDoor": {
+      "type": "array",
+      "description": "Een Medisch Verslag documenteert één of meerdere Mediche Observaties. Lijst van MedischVerslag items.",
+      "items": {
+        "$ref": "#/components/schemas/MedischVerslag"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

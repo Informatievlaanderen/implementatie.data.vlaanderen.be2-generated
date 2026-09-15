@@ -15,6 +15,9 @@
       },
       "@id": "http://purl.org/dc/terms/Agent"
     },
+    "DataEnvelop": {
+      "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#DataEnvelope"
+    },
     "DateTime": {
       "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
     },
@@ -44,8 +47,14 @@
       },
       "@id": "http://www.w3.org/ns/adms#Identifier"
     },
+    "Integer": {
+      "@id": "http://www.w3.org/2001/XMLSchema#integer"
+    },
     "LangString": {
       "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+    },
+    "Link": {
+      "@id": "http://www.w3.org/1999/xhtml/vocab#link"
     },
     "Literal": {
       "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
@@ -127,11 +136,6 @@
           "@id": "http://xmlns.com/foaf/0.1/familyName",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
-        "gegevenNaam": {
-          "@container": "@set",
-          "@id": "http://xmlns.com/foaf/0.1/givenName",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
         "heeftZwangerschap": {
           "@container": "@set",
           "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#Persoon.heeftZwangerschap",
@@ -155,12 +159,64 @@
         "volledigeNaam": {
           "@id": "https://data.vlaanderen.be/ns/persoon#volledigeNaam",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "voornaam": {
+          "@container": "@set",
+          "@id": "http://xmlns.com/foaf/0.1/givenName",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
         }
       },
       "@id": "http://www.w3.org/ns/person#Person"
     },
+    "PostinfoEnvelop": {
+      "@context": {
+        "data": {
+          "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#data",
+          "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
+        }
+      },
+      "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapEnvelope"
+    },
+    "PostinfoLijstEnvelop": {
+      "@context": {
+        "data": {
+          "@container": "@set",
+          "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#data",
+          "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
+        }
+      },
+      "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapLijstEnvelope"
+    },
+    "Problemdetail": {
+      "@context": {
+        "detail": {
+          "@id": "http://purl.org/dc/terms/description",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "instance": {
+          "@id": "http://purl.org/dc/terms/references",
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+        },
+        "status": {
+          "@id": "http://www.w3.org/ns/adms#status",
+          "@type": "http://www.w3.org/2001/XMLSchema#integer"
+        },
+        "title": {
+          "@id": "http://purl.org/dc/terms/title",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "type": {
+          "@id": "http://purl.org/dc/terms/type",
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail"
+    },
     "String": {
       "@id": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Uri": {
+      "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
     },
     "Zorgverlener": {
       "@context": {
@@ -168,11 +224,6 @@
           "@id": "http://xmlns.com/foaf/0.1/familyName",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
-        "gegevenNaam": {
-          "@container": "@set",
-          "@id": "http://xmlns.com/foaf/0.1/givenName",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
         "heeftZwangerschap": {
           "@container": "@set",
           "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#Persoon.heeftZwangerschap",
@@ -195,6 +246,11 @@
         },
         "volledigeNaam": {
           "@id": "https://data.vlaanderen.be/ns/persoon#volledigeNaam",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "voornaam": {
+          "@container": "@set",
+          "@id": "http://xmlns.com/foaf/0.1/givenName",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         }
       },
@@ -208,7 +264,7 @@
           "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Foetus"
         },
         "heeftPersoon": {
-          "@id": "https://data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#heeftPersoon",
+          "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap.heeftPersoon",
           "@type": "http://www.w3.org/ns/person#Person"
         },
         "identificator": {
