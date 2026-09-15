@@ -15,11 +15,29 @@
       },
       "@id": "http://purl.org/dc/terms/Agent"
     },
+    "Annotatie": {
+      "@context": {
+        "naam": {
+          "@id": "http://purl.org/dc/terms/title",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "waarde": {
+          "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Annotatie"
+    },
     "AnyURI": {
       "@id": "http://www.w3.org/2001/XMLSchema#AnyURI"
     },
-    "DataEnvelop": {
+    "DataEnvelope": {
       "@context": {
+        "^Warning": {
+          "@container": "@set",
+          "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#warning",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering"
+        },
         "data": {
           "@container": "@set",
           "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#data",
@@ -30,7 +48,7 @@
           "@type": "http://www.w3.org/1999/xhtml/vocab#link"
         }
       },
-      "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#DataEnvelop"
+      "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#DataEnvelope"
     },
     "DateTime": {
       "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
@@ -128,6 +146,9 @@
       },
       "@id": "http://www.w3.org/ns/prov#Entity"
     },
+    "Omstandigheid": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+    },
     "Organisatie": {
       "@context": {
         "identificator": {
@@ -198,6 +219,43 @@
       },
       "@id": "http://www.w3.org/ns/person#Person"
     },
+    "PregnancyEnvelope": {
+      "@context": {
+        "^Warning": {
+          "@container": "@set",
+          "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#warning",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering"
+        },
+        "data": {
+          "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#data",
+          "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
+        },
+        "volgende": {
+          "@id": "http://www.w3.org/ns/adms#next",
+          "@type": "http://www.w3.org/1999/xhtml/vocab#link"
+        }
+      },
+      "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#PregnancyEnvelope"
+    },
+    "PregnancyListEnvelope": {
+      "@context": {
+        "^Warning": {
+          "@container": "@set",
+          "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#warning",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering"
+        },
+        "data": {
+          "@container": "@set",
+          "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#data",
+          "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
+        },
+        "volgende": {
+          "@id": "http://www.w3.org/ns/adms#next",
+          "@type": "http://www.w3.org/1999/xhtml/vocab#link"
+        }
+      },
+      "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#PregnancyListEnvelope"
+    },
     "Problemdetail": {
       "@context": {
         "detail": {
@@ -225,6 +283,42 @@
     },
     "String": {
       "@id": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Uitzondering": {
+      "@context": {
+        "annotatie": {
+          "@container": "@set",
+          "@id": "http://purl.org/dc/terms/hasPart",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/generiek#Annotatie"
+        },
+        "datum": {
+          "@id": "http://purl.org/dc/terms/issued",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "diagnose": {
+          "@id": "http://purl.org/dc/terms/description",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "omstandigheid": {
+          "@id": "http://purl.org/dc/terms/references",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "oorsprong": {
+          "@id": "http://purl.org/dc/terms/source",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "type": {
+          "@id": "http://purl.org/dc/terms/type",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering"
+    },
+    "UitzonderingOorsprong": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+    },
+    "UitzonderingType": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
     "Uri": {
       "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
@@ -289,33 +383,6 @@
         }
       },
       "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
-    },
-    "ZwangerschapEnvelop": {
-      "@context": {
-        "data": {
-          "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#data",
-          "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
-        },
-        "volgende": {
-          "@id": "http://www.w3.org/ns/adms#next",
-          "@type": "http://www.w3.org/1999/xhtml/vocab#link"
-        }
-      },
-      "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapEnvelop"
-    },
-    "ZwangerschaplijstEnvelop": {
-      "@context": {
-        "data": {
-          "@container": "@set",
-          "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#data",
-          "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
-        },
-        "volgende": {
-          "@id": "http://www.w3.org/ns/adms#next",
-          "@type": "http://www.w3.org/1999/xhtml/vocab#link"
-        }
-      },
-      "@id": "https://data.vlaanderen.be/ns/zwangerschapsregistratie#ZwangerschapLijstEnvelop"
     },
     "Zwangerschapstoestand": {
       "@context": {
