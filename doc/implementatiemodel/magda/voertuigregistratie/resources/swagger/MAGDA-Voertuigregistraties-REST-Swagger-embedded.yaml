@@ -1,8 +1,195 @@
 openapi: 3.1.0
 info:
-  title: Components of MAGDA Eucaris Voertuigregistratie REST
-  description: MAGDA OSLO-conforme REST API voor voertuigregistraties uit het Eucaris ecosysteem.
+  title: MAGDA Eucaris voertuigregistraties REST
   version: 0.3.0
+  contact:
+    name: MAGDA Service Desk
+    url: 'https://vlaamseoverheid.atlassian.net/servicedesk/customer/portal/2038'
+  license:
+    name: Gebruiksvoorwaarden
+    url: >-
+      https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/6175818080/GET+mobility+crossborderRegistrations+-+v1#Gebruiksvoorwaarden
+servers:
+  - url: /api/v1/mobility
+    description: Basis URL
+paths:
+  /voertuigregistraties:
+    get:
+      summary: Ophalen van een voertuigregistratie uit Eucaris.
+      operationId: VoertuigregistratieGET
+      parameters:
+        - $ref: '#/components/parameters/HdrX-Correlation-Id'
+        - $ref: '#/components/parameters/HdrX-Magda-Enduser-Id'
+        - $ref: '#/components/parameters/HdrAccept-Language'
+        - in: query
+          name: overtreding
+          description: Soort overtreding waarvoor het registratiebewijs wordt opgevraagd.
+          required: true
+          schema:
+            type: string
+            pattern: ^(1|2|3|4|5|10|11|12)$
+          examples:
+            overdreven-snelheid:
+              value: '1'
+              summary: Overdreven snelheid
+            rijden-onder-invloed-van-alcohol:
+              value: '2'
+              summary: Rijden onder invloed van alcohol
+            niet-dragen-van-de-veiligheidsgordel:
+              value: '3'
+              summary: Niet dragen van de veiligheidsgordel
+            negeren-van-rood-verkeerslicht:
+              value: '4'
+              summary: Negeren van rood verkeerslicht
+            gebruik-van-verboden-rijbaan:
+              value: '5'
+              summary: Gebruik van verboden rijbaan
+            rijden-onder-invloed-van-drugs:
+              value: '10'
+              summary: Rijden onder invloed van drugs
+            niet-dragen-van-een-verplichte-helm:
+              value: '11'
+              summary: Niet-dragen van een verplichte helm
+            afleiding-achter-het-stuur:
+              value: '12'
+              summary: Afleiding achter het stuur
+        - name: land
+          in: query
+          description: >-
+            Het land waarvan de data wordt aangevraagd volgens ISO 3166 alpha-2
+            codes.
+          required: true
+          schema:
+            type: string
+          examples:
+            belgie:
+              value: BE
+              summary: België
+            nederland:
+              value: NL
+              summary: Nederland
+            duitsland:
+              value: DE
+              summary: Duitsland
+            frankrijk:
+              value: FR
+              summary: Frankrijk
+        - name: nummerplaat1
+          in: query
+          description: >-
+            Het eerste deel van de nummerplaat. In sommige landen zoals Duitsland
+            bestaat de nummerplaat uit 2 delen: district code (nummerplaat1) en
+            nummerplaat (nummerplaat2).
+          required: true
+          schema:
+            type: string
+            maxLength: 15
+          examples:
+            1ABC123:
+              value: 1ABC123
+              summary: Nummerplaat 1ABC123 (België)
+            2XYZ456:
+              value: 2XYZ456
+              summary: Nummerplaat 2XYZ456 (België)
+            B:
+              value: B
+              summary: Nummerplaat PU2189 met districtcode B van Berlijn (Duitsland)
+        - name: nummerplaat2
+          in: query
+          description: >-
+            Het tweede deel van de nummerplaat indien van toepassing.
+            In sommige landen zoals Duitsland bestaat de nummerplaat
+            uit 2 delen: district code (nummerplaat1) en nummerplaat (nummerplaat2).
+          required: false
+          schema:
+            type: string
+            maxLength: 15
+          examples:
+            PU2189:
+              value: PU2189
+              summary: Nummerplaat PU2189 met districtcode B van Berlijn (Duitsland)
+        - name: datum
+          in: query
+          description: >-
+            De datum waarop de overtreding werd vastgesteld. Indien niet
+            opgegeven wordt de huidige datum en tijd gebruikt.
+          required: false
+          schema:
+            type: string
+            format: date-time
+          examples:
+            '2023-01-01T08:00:00Z':
+              value: '2023-01-01T08:00:00Z'
+              summary: 1 januari 2023 om 8 uur 's ochtends UTC
+            '2020-04-01T10:00:00Z':
+              value: '2020-04-01T22:00:00Z'
+              summary: 1 april 2020 om 22 uur 's avonds UTC
+        - in: query
+          name: embed
+          description: >-
+            De data die moet worden opgehaald, kan worden beperkt tot een
+            bepaalde set zoals enkel het voertuig of bestuurder.
+          required: false
+          schema:
+            type: string
+            default: all
+            pattern: ^(vehicle|person|all)$
+          examples:
+            vehicle:
+              value: vehicle
+              summary: Enkel voertuig
+            person:
+              value: person
+              summary: Enkel de eigenaar en bestuurder
+            all:
+              value: all
+              summary: Alle informatie
+      responses:
+        '200':
+          description: Voertuigregistratie object gevonden.
+          content:
+            application/ld+json:
+              schema:
+                $ref: >-
+                  #/components/schemas/VehicleRegistrationEnvelope
+        '400':
+          description: Ongeldige invoer.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Problemdetail'
+        '401':
+          description: Ongeldige authenticatie of autorisatie.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Problemdetail'
+        '500':
+          description: Er is een overwachte fout opgetreden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Problemdetail'
+        '502':
+          description: Bad Gateway - foutief antwoord van de bronservice.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Problemdetail'
+        '503':
+          description: Service unavailable - de bronservice is tijdelijk niet beschikbaar.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Problemdetail'
+        '504':
+          description: >-
+            Gateway Timeout - de bronservice antwoordde niet binnen de
+            tijdslimiet.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Problemdetail'
 components:
   schemas:
     Problemdetail.detail:
@@ -647,3 +834,50 @@ components:
       parameters:
         id: $response.body#/GeregistreerdPersoon.heeftGeboorte/@id
       description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Geboorte` op te halen.
+  parameters:
+    HdrX-Correlation-Id:
+      name: X-Correlation-Id
+      in: header
+      description: ' The **X-Correlation-ID** is a free identifier created by the client to identify a request and all related requests in the context of a single transaction. It is used by the service to correlate requests and responses across multiple services and components, e.g. for logging and debugging purposes. It is recommended to use a UUID version 4 (random) string with enough entropy to avoid collisions.'
+      required: true
+      schema:
+        type: string
+        format: uuid
+        example: 7da7a728-f910-11e6-942a-68f728c1ba70
+    HdrX-Magda-Enduser-Id:
+      name: X-Magda-Enduser-Id
+      in: header
+      description: >-
+        Identification of the person who is executing the request; the
+        identification needs to be done by the users own organisation. It can be
+        a reference which allows the organisation to retrieve the user within
+        the organisation, the organisation can use the legal logging of
+        transactions where a link between this reference and the user is logged.
+        It cannot be the 11-digit national number of the user. This header is
+        kept in the loggings and when necessary (for example in case of a legal
+        investigation) the organisation needs to be able to identify the user.
+      required: true
+      schema:
+        type: string
+    HdrAccept-Language:
+      name: Accept-Language
+      in: header
+      description: Language in which valued properties of the response should be returned.
+      required: false
+      schema:
+        type: string
+        pattern: ^(nl|fr|en|de)$
+        default: nl
+      examples:
+        nl:
+          value: nl
+          summary: Nederlands
+        fr:
+          value: fr
+          summary: Frans
+        en:
+          value: en
+          summary: Engels
+        de:
+          value: de
+          summary: Duits
