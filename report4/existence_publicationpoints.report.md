@@ -69,6 +69,12 @@ error: missing '/tmp/generated/doc/vocabularium/magda/persoon/v0.0.1/index.html'
 #||#    + checking /home/circleci/project/config/production/voertuigregistratie-im.publication.json
 #||# 
 #||# Directory check
+error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.1.1'
+error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.2.0'
+error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.2.1'
 #||# 
 #||# index.html check
+error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.1.1/index.html'
+error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.2.0/index.html'
+error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.2.1/index.html'
 

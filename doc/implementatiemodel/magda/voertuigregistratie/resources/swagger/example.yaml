@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.1.0
 info:
   title: MAGDA Eucaris Voertuigregistratie REST
   description: MAGDA OSLO-conforme REST API voor voertuigregistraties uit het Eucaris ecosysteem.
-  version: 0.2.1
+  version: 0.3.0
 servers:
   - url: https://implementatie.data.vlaanderen.be
     description: Basis URL
@@ -217,7 +217,11 @@ components:
         language:
           $ref: '#/components/schemas/VehicleRegistrationEnvelope.language'
         data:
-          $ref: '#/components/schemas/Registratie'
+          type: array
+          description: De data die overgedragen werd. Lijst van Registratie items.
+          items:
+            $ref: '#/components/schemas/Registratie'
+          minItems: 1
         warning:
           type: array
           description: Foutmeldingen die opgetreden zijn bij het afleveren van de data. Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen. Lijst van Uitzondering items.
@@ -227,7 +231,7 @@ components:
         '@context':
           type: string
           description: URI of the JSON-LD versioned context file for this response.
-          pattern: ^https:\/\/implementatie.data.vlaanderen.be\/doc\/implementatiemodel\/magda\/voertuigregistratie\/v0.2.1\/context\/voertuigregistratie-im.jsonld$
+          pattern: ^https:\/\/implementatie.data.vlaanderen.be\/doc\/implementatiemodel\/magda\/voertuigregistratie\/v0.3.0\/context\/voertuigregistratie-im.jsonld$
       required:
         - '@type'
     Geboorte.datum:
@@ -308,8 +312,6 @@ components:
           $ref: '#/components/schemas/Voertuig'
       required:
         - '@type'
-        - nummerplaat
-        - houder
     Nummerplaat.referentiedatum:
       title: Nummerplaat.referentiedatum
       description: Datum waarvoor de toestand van de entiteit opgevraagd is.
@@ -333,8 +335,6 @@ components:
           $ref: '#/components/schemas/Identificator'
       required:
         - '@type'
-        - referentiedatum
-        - registratienummer
     Uitzondering.datum:
       title: Uitzondering.datum
       description: De datum waarop de Uitzondering aangemaakt werd.
@@ -446,9 +446,6 @@ components:
           $ref: '#/components/schemas/Identificator'
       required:
         - '@type'
-        - referentiedatum
-        - voorkeursnaam
-        - registratie
     Voertuig.eersteRegistratieDatum:
       title: Voertuig.eersteRegistratieDatum
       description: Eerste datum waarop het voertuig werd geregistreerd in een register.
@@ -495,12 +492,6 @@ components:
               GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
       required:
         - '@type'
-        - eersteRegistratieDatum
-        - commercieleNaam
-        - fabrikantNaam
-        - type
-        - vin
-        - eigenaar
     Plaats.plaatsnaam:
       title: Plaats.plaatsnaam
       description: Naam van de plaats of van het gebied.
@@ -582,10 +573,6 @@ components:
           $ref: '#/components/schemas/Geboorte'
       required:
         - '@type'
-        - volledigeNaam
-        - referentiedatum
-        - registratie
-        - geslacht
     Identificator.identificator:
       title: Identificator.identificator
       description: String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.
