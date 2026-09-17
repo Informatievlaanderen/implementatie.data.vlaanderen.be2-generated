@@ -41,6 +41,7 @@ Error: the following directories are unsupported
   "/tmp/generated/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.3",
   "/tmp/generated/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.4",
   "/tmp/generated/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.5",
+  "/tmp/generated/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6",
   "/tmp/generated/doc/vocabularium/vitalink/zwangerschapsregistratie",
   "/tmp/generated/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.2",
   "/tmp/generated/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.3",
