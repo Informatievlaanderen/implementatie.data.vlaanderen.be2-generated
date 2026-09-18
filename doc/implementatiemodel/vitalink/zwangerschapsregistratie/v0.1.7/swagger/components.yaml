@@ -329,11 +329,7 @@ components:
           description: Object type (klasse PregnancyListEnvelope)
           pattern: ^PregnancyListEnvelope$
         data:
-          type: array
-          description: De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van Zwangerschap items.
-          items:
-            $ref: '#/components/schemas/Zwangerschap'
-          minItems: 1
+          $ref: '#/components/schemas/Zwangerschap'
         volgende:
           $ref: '#/components/schemas/Link'
         warning:
@@ -348,6 +344,7 @@ components:
           pattern: ^https:\/\/implementatie.data.test-vlaanderen.be\/doc\/implementatiemodel\/vitalink\/zwangerschapsregistratie\/v0.1.7\/context\/zwangerschapsregistratie.jsonld$
       required:
         - '@type'
+        - data
     Uitzondering.datum:
       title: Uitzondering.datum
       description: De datum waarop de Uitzondering aangemaakt werd.
