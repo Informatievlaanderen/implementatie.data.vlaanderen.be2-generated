@@ -15,28 +15,10 @@
     "identificator": {
       "$ref": "#/components/schemas/Identificator.identificator"
     },
-    "toegekendDoor": {
-      "oneOf": [
-        {
-          "$ref": "#/components/schemas/Persoon"
-        },
-        {
-          "$ref": "#/components/schemas/Organisatie"
-        },
-        {
-          "$ref": "#/components/schemas/Zorgverlener"
-        }
-      ],
-      "discriminator": {
-        "propertyName": "@type",
-        "mapping": {
-          "Persoon": "#/components/schemas/Persoon",
-          "Organisatie": "#/components/schemas/Organisatie",
-          "Zorgverlener": "#/components/schemas/Zorgverlener"
-        }
-      }
-    },
     "toegekendDoorString": {
+      "$ref": "#/components/schemas/Identificator.toegekendDoorString"
+    },
+    "toegekendDoor": {
       "oneOf": [
         {
           "$ref": "#/components/schemas/Persoon"

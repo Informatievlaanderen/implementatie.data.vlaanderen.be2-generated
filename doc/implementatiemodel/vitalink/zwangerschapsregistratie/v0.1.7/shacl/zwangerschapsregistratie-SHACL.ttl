@@ -27,12 +27,12 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#ZwangerschapstoestandShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#StringShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#LangStringShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#DateTimeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#LinkShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#UriShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#DateTimeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#IntegerShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#PeriodeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#IdentificatorShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#LinkShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#OmstandigheidShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#UitzonderingOorsprongShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#UitzonderingTypeShape> .
@@ -125,13 +125,13 @@
     <https://data.vlaanderen.be/ns/zwangerschapsregistratie#PregnancyListEnvelope>;
   shacl:xone ([
       shacl:not _:df_2_46;
-      shacl:property _:df_2_21
-    ] [shacl:property _:df_2_23,
+      shacl:property _:df_2_23
+    ] [shacl:property _:df_2_25,
         _:df_2_46]),
     ([
       shacl:not _:df_2_51;
-      shacl:property _:df_2_21
-    ] [shacl:property _:df_2_24,
+      shacl:property _:df_2_23
+    ] [shacl:property _:df_2_26,
         _:df_2_51]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#DateTimeShape> a shacl:NodeShape;
@@ -176,6 +176,16 @@
     shacl:path skos:notation
   ], [
     a shacl:PropertyShape;
+    rdfs:label "toegekendDoorString"@nl;
+    rdfs:comment "Naam van de agent die de identificator heeft toegekend."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#Identificator.ToegekendDoorString>;
+    shacl:datatype xsd:string;
+    shacl:description "Naam van de agent die de identificator heeft toegekend."@nl;
+    shacl:maxCount 1;
+    shacl:name "toegekendDoorString"@nl;
+    shacl:path <http://www.w3.org/ns/adms#schemaAgency>
+  ], [
+    a shacl:PropertyShape;
     rdfs:label "toegekendDoor"@nl;
     rdfs:comment "Link naar de agent die de identificator heeft uitgegeven."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#Identificator.ToegekendDoor>;
@@ -184,16 +194,6 @@
     shacl:name "toegekendDoor"@nl;
     shacl:or ([shacl:class dc:Agent] [shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class org:Organization] [shacl:class <https://hl7.org/fhir/practitioner-definitions.html#Practitioner>]);
     shacl:path dc:creator
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "toegekendDoorString"@nl;
-    rdfs:comment "Naam van de agent die de identificator heeft toegekend."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#Identificator.ToegekendDoorString>;
-    shacl:description "Naam van de agent die de identificator heeft toegekend."@nl;
-    shacl:maxCount 1;
-    shacl:name "toegekendDoorString"@nl;
-    shacl:or ([shacl:class dc:Agent] [shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class org:Organization] [shacl:class <https://hl7.org/fhir/practitioner-definitions.html#Practitioner>]);
-    shacl:path <http://www.w3.org/ns/adms#schemaAgency>
   ];
   shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
 
@@ -219,7 +219,7 @@
     rdfs:label "href"@nl;
     rdfs:comment "De referentie URI."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#Link.Href>;
-    shacl:class xsd:AnyURI;
+    shacl:datatype xsd:anyURI;
     shacl:description "De referentie URI."@nl;
     shacl:maxCount 1;
     shacl:name "href"@nl;
@@ -430,7 +430,7 @@
   rdfs:comment "De collectie van de uitgewisselde zwangerschapsgerelateerde informatie en zijn metadata elementen."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#PregnancyEnvelope>;
   shacl:closed false;
-  shacl:property _:df_2_23;
+  shacl:property _:df_2_25;
   shacl:targetClass <https://data.vlaanderen.be/ns/zwangerschapsregistratie#PregnancyEnvelope> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#PregnancyListEnvelopeShape> a shacl:NodeShape;
@@ -438,7 +438,7 @@
   rdfs:comment "De collectie van de uitgewisselde zwangerschapsgerelateerde informatie en zijn metadata elementen."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#PregnancyListEnvelope>;
   shacl:closed false;
-  shacl:property _:df_2_24;
+  shacl:property _:df_2_26;
   shacl:targetClass <https://data.vlaanderen.be/ns/zwangerschapsregistratie#PregnancyListEnvelope> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#ProblemdetailShape> a shacl:NodeShape;
@@ -669,7 +669,7 @@
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschapstoestand> .
 
-_:df_2_21 a shacl:PropertyShape;
+_:df_2_23 a shacl:PropertyShape;
   rdfs:label "data"@nl;
   rdfs:comment "De collectie data die de envelop bevat."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#DataEnvelope.Data>;
@@ -678,7 +678,7 @@ _:df_2_21 a shacl:PropertyShape;
   shacl:name "data"@nl;
   shacl:path <https://data.vlaanderen.be/ns/zwangerschapsregistratie#data> .
 
-_:df_2_23 a shacl:PropertyShape;
+_:df_2_25 a shacl:PropertyShape;
   rdfs:label "data"@nl;
   rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#PregnancyEnvelope.Data>;
@@ -689,7 +689,7 @@ _:df_2_23 a shacl:PropertyShape;
   shacl:name "data"@nl;
   shacl:path <https://data.vlaanderen.be/ns/zwangerschapsregistratie#data> .
 
-_:df_2_24 a shacl:PropertyShape;
+_:df_2_26 a shacl:PropertyShape;
   rdfs:label "data"@nl;
   rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#PregnancyListEnvelope.Data>;
