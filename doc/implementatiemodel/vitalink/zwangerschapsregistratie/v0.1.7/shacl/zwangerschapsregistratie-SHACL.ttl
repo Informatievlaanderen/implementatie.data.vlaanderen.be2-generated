@@ -4,6 +4,7 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schemas: <https://schema.org/> .
 @prefix shacl: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xhv: <http://www.w3.org/1999/xhtml/vocab#> .
@@ -114,11 +115,14 @@
     shacl:path <http://www.w3.org/ns/adms#next>
   ], [
     a shacl:PropertyShape;
-    rdfs:label "^warning";
+    rdfs:label "warning"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen."@nl;
+    rdfs:comment "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#DataEnvelope.Warning>;
     shacl:class <https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering>;
-    shacl:name "^warning";
-    shacl:path <https://data.vlaanderen.be/ns/zwangerschapsregistratie#warning>
+    shacl:description "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
+    shacl:name "warning"@nl;
+    shacl:path schemas:error
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/zwangerschapsregistratie#DataEnvelope>,
     <https://data.vlaanderen.be/ns/zwangerschapsregistratie#PregnancyEnvelope>,
@@ -307,7 +311,7 @@
   shacl:property [
     a shacl:PropertyShape;
     rdfs:label "identificator"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Bij implementatie in RDF is de uri vh object de identificator."@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bij implementatie in RDF is de uri van het object de identificator."@nl;
     rdfs:comment "Identificator van het object."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#Object.Identificator>;
     shacl:class <http://www.w3.org/ns/adms#Identifier>;
@@ -621,9 +625,9 @@
   ], [
     a shacl:PropertyShape;
     rdfs:label "heeft persoon"@nl;
-    rdfs:comment "De Persoon die de Zwangerschap draagt.$ea_notes=Zwangerschap.heeftPersoon"@nl;
+    rdfs:comment "De Persoon die de Zwangerschap draagt."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7#Zwangerschap.HeeftPersoon>;
-    shacl:description "De Persoon die de Zwangerschap draagt.$ea_notes=Zwangerschap.heeftPersoon"@nl;
+    shacl:description "De Persoon die de Zwangerschap draagt."@nl;
     shacl:maxCount 1;
     shacl:name "heeft persoon"@nl;
     shacl:or ([shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class <https://hl7.org/fhir/practitioner-definitions.html#Practitioner>]);
