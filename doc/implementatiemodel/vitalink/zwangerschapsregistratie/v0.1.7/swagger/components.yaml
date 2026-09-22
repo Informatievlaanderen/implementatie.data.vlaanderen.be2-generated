@@ -271,8 +271,11 @@ components:
           items:
             $ref: '#/components/schemas/Uitzondering'
           minItems: 1
+        data:
+          $ref: '#/components/schemas/Zwangerschap'
       required:
         - '@type'
+        - data
     Foetus:
       title: Foetus
       type: object
@@ -633,7 +636,7 @@ components:
       operationId: DataEnvelopeGET
       parameters:
         id: $response.body#/DataEnvelope.data/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen.
+      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Zwangerschap` op te halen.
     DataEnvelope.volgende:
       operationId: DataEnvelopeGET
       parameters:
