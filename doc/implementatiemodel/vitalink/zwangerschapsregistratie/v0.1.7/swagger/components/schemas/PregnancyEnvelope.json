@@ -1,0 +1,39 @@
+{
+  "title": "PregnancyEnvelope",
+  "type": "object",
+  "description": "De collectie van de uitgewisselde zwangerschapsgerelateerde informatie en zijn metadata elementen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse PregnancyEnvelope)",
+      "pattern": "^PregnancyEnvelope$"
+    },
+    "data": {
+      "$ref": "#/components/schemas/Zwangerschap"
+    },
+    "volgende": {
+      "$ref": "#/components/schemas/Link"
+    },
+    "warning": {
+      "type": "array",
+      "description": "Foutmeldingen die opgetreden zijn bij het afleveren van de data. Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen. Lijst van Uitzondering items.",
+      "items": {
+        "$ref": "#/components/schemas/Uitzondering"
+      },
+      "minItems": 1
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/doc\\/implementatiemodel\\/vitalink\\/zwangerschapsregistratie\\/v0.1.7\\/context\\/zwangerschapsregistratie.jsonld$"
+    }
+  },
+  "required": [
+    "@type",
+    "data"
+  ]
+}
