@@ -2,31 +2,31 @@
 
 #||# -------------------------------------
 
-2026-09-24T16:37:57.970Z info: Connector Model:VKBO:Rechtsvormtype:(Rechtsvormtype -> OrganisatieType) is not an association with a source role. Ignoring this connector.
+2026-09-24T16:52:00.621Z info: Connector Model:VKBO:Rechtsvormtype:(Rechtsvormtype -> OrganisatieType) is not an association with a source role. Ignoring this connector.
 
-2026-09-24T16:37:57.971Z info: Connector Model:VKBO:Rechtspersoonlijkheidtype:(Rechtspersoonlijkheidtype -> OrganisatieType) is not an association with a source role. Ignoring this connector.
+2026-09-24T16:52:00.622Z info: Connector Model:VKBO:Rechtspersoonlijkheidtype:(Rechtspersoonlijkheidtype -> OrganisatieType) is not an association with a source role. Ignoring this connector.
 
-2026-09-24T16:37:57.972Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Agent) is not an association with a source role. Ignoring this connector.
+2026-09-24T16:52:00.623Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-09-24T16:37:57.972Z info: Connector Model:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Agent) is not an association with a source role. Ignoring this connector.
+2026-09-24T16:52:00.623Z info: Connector Model:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-09-24T16:37:57.972Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Organisatie) is not an association with a source role. Ignoring this connector.
+2026-09-24T16:52:00.623Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Organisatie) is not an association with a source role. Ignoring this connector.
 
-2026-09-24T16:37:57.972Z info: Connector Model:W3C-LOCN:Adresvoorstelling:(Adresvoorstelling -> Adres) is not an association with a source role. Ignoring this connector.
+2026-09-24T16:52:00.623Z info: Connector Model:W3C-LOCN:Adresvoorstelling:(Adresvoorstelling -> Adres) is not an association with a source role. Ignoring this connector.
 
-2026-09-24T16:37:57.972Z info: Connector Model:OSLO-Landbouwgebruiksperceel:Landbouwgebruiksperceel:(Landbouwgebruiksperceel -> Agent) is not an association with a source role. Ignoring this connector.
+2026-09-24T16:52:00.623Z info: Connector Model:OSLO-Landbouwgebruiksperceel:Landbouwgebruiksperceel:(Landbouwgebruiksperceel -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-09-24T16:37:57.973Z info: Connector Model:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Persoon) is not an association with a source role. Ignoring this connector.
+2026-09-24T16:52:00.624Z info: Connector Model:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Persoon) is not an association with a source role. Ignoring this connector.
 
-2026-09-24T16:37:57.973Z info: Connector Model:W3C-Person:Persoon:(Persoon -> Agent) is not an association with a source role. Ignoring this connector.
+2026-09-24T16:52:00.624Z info: Connector Model:W3C-Person:Persoon:(Persoon -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-09-24T16:37:57.973Z info: Connector Model:W3C-ORG:Organisatie:(Organisatie -> Agent) is not an association with a source role. Ignoring this connector.
+2026-09-24T16:52:00.624Z info: Connector Model:W3C-ORG:Organisatie:(Organisatie -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-09-24T16:37:57.973Z info: Connector Model:Belgif-Auth:Activiteittype-NACEBEL2025:(Activiteittype-NACEBEL2025 -> Activiteittype) is not an association with a source role. Ignoring this connector.
+2026-09-24T16:52:00.624Z info: Connector Model:Belgif-Auth:Activiteittype-NACEBEL2025:(Activiteittype-NACEBEL2025 -> Activiteittype) is not an association with a source role. Ignoring this connector.
 
-2026-09-24T16:37:57.973Z info: Connector Model:OSLO-Landbouwgebruiksperceel:LandbouwActiviteit:(LandbouwActiviteit -> Activiteittype) is not an association with a source role. Ignoring this connector.
+2026-09-24T16:52:00.624Z info: Connector Model:OSLO-Landbouwgebruiksperceel:LandbouwActiviteit:(LandbouwActiviteit -> Activiteittype) is not an association with a source role. Ignoring this connector.
 
-2026-09-24T16:37:57.974Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+2026-09-24T16:52:00.625Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
 #||# -------------------------------------
 
