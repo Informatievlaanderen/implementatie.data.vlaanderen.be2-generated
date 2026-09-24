@@ -29,6 +29,8 @@
 #||# Directory check
 #||# 
 #||# index.html check
+error: missing '/tmp/generated/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0/index.html'
+error: missing '/tmp/generated/doc/vocabularium/lv/landbouwgebruiksperceel/v0.2.0/index.html'
 
 #||#    + checking /home/circleci/project/config/test/organisatie-vkbo-im.publication.json
 #||# 

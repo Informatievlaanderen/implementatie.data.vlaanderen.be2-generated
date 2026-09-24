@@ -1,0 +1,48 @@
+#||# oslo-converter-ea for diagram Landbouwgebruiksperceel
+
+#||# -------------------------------------
+
+2026-09-24T10:08:06.941Z info: Connector Model:VKBO:Rechtsvormtype:(Rechtsvormtype -> OrganisatieType) is not an association with a source role. Ignoring this connector.
+
+2026-09-24T10:08:06.943Z info: Connector Model:VKBO:Rechtspersoonlijkheidtype:(Rechtspersoonlijkheidtype -> OrganisatieType) is not an association with a source role. Ignoring this connector.
+
+2026-09-24T10:08:06.943Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Agent) is not an association with a source role. Ignoring this connector.
+
+2026-09-24T10:08:06.943Z info: Connector Model:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Agent) is not an association with a source role. Ignoring this connector.
+
+2026-09-24T10:08:06.943Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Organisatie) is not an association with a source role. Ignoring this connector.
+
+2026-09-24T10:08:06.943Z info: Connector Model:W3C-LOCN:Adresvoorstelling:(Adresvoorstelling -> Adres) is not an association with a source role. Ignoring this connector.
+
+2026-09-24T10:08:06.944Z info: Connector Model:OSLO-Landbouwgebruiksperceel:Landbouwgebruiksperceel:(Landbouwgebruiksperceel -> Agent) is not an association with a source role. Ignoring this connector.
+
+2026-09-24T10:08:06.944Z info: Connector Model:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Persoon) is not an association with a source role. Ignoring this connector.
+
+2026-09-24T10:08:06.944Z info: Connector Model:W3C-Person:Persoon:(Persoon -> Agent) is not an association with a source role. Ignoring this connector.
+
+2026-09-24T10:08:06.944Z info: Connector Model:W3C-ORG:Organisatie:(Organisatie -> Agent) is not an association with a source role. Ignoring this connector.
+
+2026-09-24T10:08:06.945Z info: Connector Model:Belgif-Auth:Activiteittype-NACEBEL2025:(Activiteittype-NACEBEL2025 -> Activiteittype) is not an association with a source role. Ignoring this connector.
+
+2026-09-24T10:08:06.945Z info: Connector Model:OSLO-Landbouwgebruiksperceel:LandbouwActiviteit:(LandbouwActiviteit -> Activiteittype) is not an association with a source role. Ignoring this connector.
+
+2026-09-24T10:08:06.945Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+
+Error: [AttributeConverterHandler]: Unable to find domain object for attribute (Model:OSLO-Landbouwgebruiksperceel:LandbouwActiviteit:Gerelateerd).
+
+    at /usr/local/lib/node_modules/@oslo-flanders/ea-converter/lib/converter-handlers/AttributeConverterHandler.js:50:23
+
+    at Array.forEach (<anonymous>)
+
+    at AttributeConverterHandler.assignUris (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/lib/converter-handlers/AttributeConverterHandler.js:47:26)
+
+    at /usr/local/lib/node_modules/@oslo-flanders/ea-converter/lib/ConverterHandlerService.js:38:50
+
+    at Array.map (<anonymous>)
+
+    at ConverterHandlerService.assignUris (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/lib/ConverterHandlerService.js:38:37)
+
+#||# -------------------------------------
+
+file landbouwgebruiksperceel.jsonld does not exist
+

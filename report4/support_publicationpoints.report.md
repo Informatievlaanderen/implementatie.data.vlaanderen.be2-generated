@@ -24,6 +24,7 @@
 #||#  
 Error: the following directories are unsupported
 [
+  "/tmp/generated/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0",
   "/tmp/generated/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.0.1",
   "/tmp/generated/doc/implementatiemodel/lv/landbouwgebruikersperceel",
   "/tmp/generated/doc/implementatiemodel/lv/zwangerschapsregistratie",
@@ -42,6 +43,7 @@ Error: the following directories are unsupported
   "/tmp/generated/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.6",
   "/tmp/generated/doc/implementatiemodel/MAGDA/trajectcontrole",
   "/tmp/generated/doc/implementatiemodel/MAGDA/trajectcontrole/v0.0.1",
+  "/tmp/generated/doc/vocabularium/lv/landbouwgebruiksperceel/v0.1.0",
   "/tmp/generated/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.2",
   "/tmp/generated/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.3",
   "/tmp/generated/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.4",
