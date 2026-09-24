@@ -9,13 +9,16 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#ProblemdetailShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#RechtspersoonlijkheidtypeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#AdresShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#LandcoverEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#RechtsvormtypeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#OrganisatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#AgentShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#PersoonShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#GeregistreerdPersoonShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#GeregistreerdeOrganisatieShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#LandbouwActiviteitShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#LandbouwgebruiksperceelShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#BooleanShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#StringShape>,
@@ -26,9 +29,6 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#IdentificatorShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#ContactpuntShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#OrganisatieTypeShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#RechtspersoonlijkheidtypeShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#RechtsvormtypeShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#LandbouwActiviteitShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#ActiviteittypeShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#OrganisatieStatusShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#IdentificatortypeShape> .
@@ -50,7 +50,7 @@
   shacl:property [
     a shacl:PropertyShape;
     rdfs:label "gemeentecode"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: NIS-code"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: NIS-code."@nl;
     rdfs:comment "Alfanumerieke code die de gemeente identificeert."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#Adresvoorstelling.Gemeentecode>;
     shacl:datatype xsd:string;
@@ -252,6 +252,27 @@
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
+    rdfs:label "status"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Specialisatie van classificatie (naast type & activiteit)."@nl;
+    rdfs:comment "Toestand van de Organisatie."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#GeregistreerdeOrganisatie.Status>;
+    shacl:description "Toestand van de Organisatie."@nl;
+    shacl:name "status"@nl;
+    shacl:or ([shacl:nodeKind skos:Concept] [shacl:nodeKind <https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming#Rechtspersoonlijkheidtype>] [shacl:nodeKind <https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming#Rechtsvormtype>] [shacl:nodeKind <https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#LandbouwActiviteit>]);
+    shacl:path <http://www.w3.org/ns/regorg#orgStatus>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "rechtspersoonlijkheid"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bijvoorbeeld: vennootschappen) moeten die van rechtswege toegekend krijgen."@nl;
+    rdfs:comment "Aard van de rechtspersoonlijkheid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#GeregistreerdeOrganisatie.Rechtspersoonlijkheid>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming#Rechtspersoonlijkheidtype>;
+    shacl:description "Aard van de rechtspersoonlijkheid."@nl;
+    shacl:maxCount 1;
+    shacl:name "rechtspersoonlijkheid"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/organisatie#rechtspersoonlijkheid>
+  ], [
+    a shacl:PropertyShape;
     rdfs:label "registratie"@nl;
     <http://purl.org/vocab/vann/usageNote> "In de KBO is dit het ondernemingsnummer."@nl;
     rdfs:comment "Identificator dat de organisatie verkreeg bij registratie."@nl;
@@ -268,32 +289,11 @@
     <http://purl.org/vocab/vann/usageNote> "Stemt in de KBO overeen met rechtsvorm, bijvoorbeeld: NV, VZW, Stad/Gemeente, OCMW, etc."@nl;
     rdfs:comment "Juridisch statuut van de geregistreerde organisatie."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#GeregistreerdeOrganisatie.Rechtsvorm>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming#Rechtsvormtype>;
     shacl:description "Juridisch statuut van de geregistreerde organisatie."@nl;
     shacl:maxCount 1;
     shacl:name "rechtsvorm"@nl;
-    shacl:nodeKind shacl:BlankNodeOrIRI;
     shacl:path <https://data.vlaanderen.be/ns/organisatie#rechtsvorm>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "status"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Specialisatie van classificatie (naast type & activiteit)."@nl;
-    rdfs:comment "Toestand van de Organisatie."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#GeregistreerdeOrganisatie.Status>;
-    shacl:description "Toestand van de Organisatie."@nl;
-    shacl:name "status"@nl;
-    shacl:nodeKind shacl:BlankNodeOrIRI;
-    shacl:path <http://www.w3.org/ns/regorg#orgStatus>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "rechtspersoonlijkheid"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bijvoorbeeld: vennootschappen) moeten die van rechtswege toegekend krijgen."@nl;
-    rdfs:comment "Aard van de rechtspersoonlijkheid."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#GeregistreerdeOrganisatie.Rechtspersoonlijkheid>;
-    shacl:description "Aard van de rechtspersoonlijkheid."@nl;
-    shacl:maxCount 1;
-    shacl:name "rechtspersoonlijkheid"@nl;
-    shacl:nodeKind shacl:BlankNodeOrIRI;
-    shacl:path <https://data.vlaanderen.be/ns/organisatie#rechtspersoonlijkheid>
   ];
   shacl:targetClass <http://www.w3.org/ns/regorg#RegisteredOrganization> .
 
@@ -331,6 +331,13 @@
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#Integer>;
   shacl:closed false;
   shacl:targetClass xsd:integer .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#LandbouwActiviteitShape> a shacl:NodeShape;
+  rdfs:label "LandbouwActiviteit"@nl;
+  rdfs:comment "Type activiteit die door een Organisatie wordt uitgeoefend."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#LandbouwActiviteit>;
+  shacl:closed false;
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#LandbouwActiviteit> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#LandbouwgebruiksperceelShape> a shacl:NodeShape;
   rdfs:label "Landbouwgebruiksperceel"@nl;
@@ -399,7 +406,7 @@
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#Organisatie.Type>;
     shacl:description "Soort organisatie."@nl;
     shacl:name "type"@nl;
-    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:or ([shacl:nodeKind skos:Concept] [shacl:nodeKind <https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming#Rechtspersoonlijkheidtype>] [shacl:nodeKind <https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming#Rechtsvormtype>] [shacl:nodeKind <https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#LandbouwActiviteit>]);
     shacl:path <http://www.w3.org/ns/regorg#orgType>
   ], [
     a shacl:PropertyShape;
@@ -417,7 +424,7 @@
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#Organisatie.Activiteit>;
     shacl:description "Type activiteit die door de Organisatie wordt uitgeoefend."@nl;
     shacl:name "activiteit"@nl;
-    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:or ([shacl:nodeKind skos:Concept] [shacl:nodeKind <https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming#Rechtspersoonlijkheidtype>] [shacl:nodeKind <https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming#Rechtsvormtype>] [shacl:nodeKind <https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#LandbouwActiviteit>]);
     shacl:path <http://www.w3.org/ns/regorg#orgActivity>
   ], [
     a shacl:PropertyShape;
@@ -555,6 +562,22 @@
     shacl:path dc:type
   ];
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#RechtspersoonlijkheidtypeShape> a shacl:NodeShape;
+  rdfs:label "Rechtspersoonlijkheidtype"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bijvoorbeeld venootschappen) moeten die van rechtswege toegekend krijgen."@nl;
+  rdfs:comment "Aard van de rechtspersoonlijkheid."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#Rechtspersoonlijkheidtype>;
+  shacl:closed false;
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming#Rechtspersoonlijkheidtype> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#RechtsvormtypeShape> a shacl:NodeShape;
+  rdfs:label "Rechtsvormtype"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Stemt in de KBO overeen met rechtsvorm, bijvoorbeeld: NV, VZW, Stad/Gemeente, OCMW, etc."@nl;
+  rdfs:comment "Juridisch statuut van een GeregistreerdeOrganisatie."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#Rechtsvormtype>;
+  shacl:closed false;
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/vkbo/onderneming#Rechtsvormtype> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0#StringShape> a shacl:NodeShape;
   rdfs:label "String";

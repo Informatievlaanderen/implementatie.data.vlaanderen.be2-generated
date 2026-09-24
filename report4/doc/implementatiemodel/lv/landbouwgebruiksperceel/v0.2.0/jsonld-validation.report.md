@@ -2,17 +2,15 @@
 
 #||# -------------------------------------  
 
-2026-09-24T15:21:50.979Z info: [JsonLdValidationService]: Loaded 56 URI prefixes into whitelist
+2026-09-24T15:41:49.856Z info: [JsonLdValidationService]: Loaded 56 URI prefixes into whitelist
 
-2026-09-24T15:21:51.138Z warn: [JsonLdValidationService]: Found sentence without a '.': 'Bijvoorbeeld: NIS-code' for subject: [urn:oslo-toolchain:bdfd36bc92e29397d86cdaa14419aaff5c5f57db9e218b34320a636243f34ab5](all-landbouwgebruiksperceel.jsonld#L969)
+2026-09-24T15:41:49.953Z info: [JsonLdValidationService]: Validation successful! All assigned URIs are whitelisted.
 
-2026-09-24T15:21:51.143Z info: [JsonLdValidationService]: Validation successful! All assigned URIs are whitelisted.
+2026-09-24T15:41:49.953Z info: [JsonLdValidationService]: Validation successful! All sentences seem to be valid, no spelling mistakes or abbreviations found.
 
-2026-09-24T15:21:51.143Z info: [JsonLdValidationService]: Validation found 1 sentences with spelling mistakes or abbreviations.
+2026-09-24T15:41:49.953Z info: [JsonLdValidationService]: Validation successful! All labels seem to be valid, no spelling mistakes or abbreviations found.
 
-2026-09-24T15:21:51.143Z info: [JsonLdValidationService]: Validation successful! All labels seem to be valid, no spelling mistakes or abbreviations found.
+2026-09-24T15:41:49.953Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
 
-2026-09-24T15:21:51.144Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
-
-2026-09-24T15:21:51.144Z info: [JsonLdValidationService]: Validation successful! All referenced classes and attributes seem to be included.
+2026-09-24T15:41:49.953Z info: [JsonLdValidationService]: Validation successful! All referenced classes and attributes seem to be included.
 
