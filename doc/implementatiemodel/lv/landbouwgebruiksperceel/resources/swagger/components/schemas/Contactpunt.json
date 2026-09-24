@@ -13,35 +13,13 @@
       "pattern": "^Contactpunt$"
     },
     "email": {
-      "type": "object",
-      "description": "Email-adres waarnaar men kan mailen.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@value"
-      ]
+      "$ref": "#/components/schemas/Contactpunt.email"
     },
     "telefoon": {
       "type": "array",
-      "description": "Lijst van Literal items.",
+      "description": "Telefoonnummer waarop men kan bellen. Lijst van Literal items.",
       "items": {
-        "type": "object",
-        "description": "Telefoonnummer waarop men kan bellen.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          },
-          "@type": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value",
-          "@type"
-        ]
+        "$ref": "#/components/schemas/Contactpunt.telefoon"
       },
       "minItems": 1
     },

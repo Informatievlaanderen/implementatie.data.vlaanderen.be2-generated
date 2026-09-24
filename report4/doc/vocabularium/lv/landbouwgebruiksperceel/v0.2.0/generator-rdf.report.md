@@ -2,11 +2,7 @@
 
 #||# -------------------------------------  
 
-Error: No package was defined in the OSLO RDF file.
+2026-09-24T12:55:56.913Z error: Unable to find the definition for class [[urn:oslo-toolchain:8875400b575858dbd2be8ff866664c359a2d7eae974f5bee2fbf51a09e69eae1](all-landbouwgebruiksperceel.jsonld#L2487)](all-landbouwgebruiksperceel.jsonld#L287).
 
-    at RdfVocabularyGenerationService.run (/usr/local/lib/node_modules/@oslo-flanders/rdf-vocabulary-generator/lib/RdfVocabularyGenerationService.js:37:19)
-
-    at /usr/local/lib/node_modules/@oslo-flanders/rdf-vocabulary-generator/node_modules/@oslo-flanders/core/lib/interfaces/AppRunner.js:37:33
-
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-09-24T12:55:56.915Z error: Unable to find the definition for class [[urn:oslo-toolchain:7d0c74a1a85e6f13ed5c9c1239ce01e15ad4b7c4f609f7b5894147b62773e730](all-landbouwgebruiksperceel.jsonld#L2524)](all-landbouwgebruiksperceel.jsonld#L604).
 

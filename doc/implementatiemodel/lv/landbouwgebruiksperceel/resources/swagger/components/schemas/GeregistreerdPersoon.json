@@ -13,76 +13,40 @@
       "pattern": "^GeregistreerdPersoon$"
     },
     "registratie": {
-      "type": "array",
-      "description": "Lijst van Identificator items.",
-      "items": {
-        "$ref": "#/components/schemas/Identificator"
-      },
-      "minItems": 1
+      "$ref": "#/components/schemas/Identificator"
     },
     "identificator": {
-      "type": "array",
-      "description": "Lijst van Identificator items.",
-      "items": {
-        "$ref": "#/components/schemas/Identificator"
-      },
-      "minItems": 1
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "isOverleden": {
+      "$ref": "#/components/schemas/GeregistreerdPersoon.isOverleden"
     },
     "voornaam": {
       "type": "array",
-      "description": "Lijst van String items.",
+      "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie. Lijst van String items.",
       "items": {
-        "type": "object",
-        "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "$ref": "#/components/schemas/GeregistreerdPersoon.voornaam"
       },
       "minItems": 1
     },
     "alternatieveNaam": {
       "type": "array",
-      "description": "Lijst van String items.",
+      "description": "Alternatief voor de volledige naam van de Persoon. Bijvoorbeeld pseudoniem. Lijst van String items.",
       "items": {
-        "type": "object",
-        "description": "Alternatief voor de volledige naam van de Persoon. Bijvoorbeeld pseudoniem.",
-        "properties": {
-          "@value": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "@value"
-        ]
+        "$ref": "#/components/schemas/GeregistreerdPersoon.alternatieveNaam"
       },
       "minItems": 1
     },
     "achternaam": {
-      "type": "object",
-      "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "@value"
-      ]
+      "$ref": "#/components/schemas/GeregistreerdPersoon.achternaam"
     },
     "contactinfo": {
       "$ref": "#/components/schemas/Contactpunt"
-    },
-    "heeftOverlijden": {
-      "$ref": "#/components/schemas/Overlijden"
     }
   },
   "required": [
     "@type",
-    "registratie"
+    "registratie",
+    "identificator"
   ]
 }

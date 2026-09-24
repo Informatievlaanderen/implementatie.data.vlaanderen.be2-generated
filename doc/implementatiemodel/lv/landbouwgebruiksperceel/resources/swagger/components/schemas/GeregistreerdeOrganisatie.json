@@ -12,43 +12,29 @@
       "description": "Object type (klasse GeregistreerdeOrganisatie)",
       "pattern": "^GeregistreerdeOrganisatie$"
     },
-    "rechtstoestand": {
-      "$ref": "#/components/schemas/OrganisatieStatus"
+    "status": {
+      "type": "array",
+      "description": "Toestand van de Organisatie. Specialisatie van classificatie (naast type & activiteit). Lijst van OrganisatieStatus items.",
+      "items": {
+        "$ref": "#/components/schemas/OrganisatieStatus"
+      },
+      "minItems": 1
     },
     "rechtspersoonlijkheid": {
       "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
     },
     "registratie": {
-      "type": "array",
-      "description": "Lijst van Identificator items.",
-      "items": {
-        "$ref": "#/components/schemas/Identificator"
-      },
-      "minItems": 1
+      "$ref": "#/components/schemas/Identificator"
     },
     "rechtsvorm": {
       "$ref": "#/components/schemas/Rechtsvormtype"
     },
     "voorkeursnaam": {
-      "type": "object",
-      "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
-      "properties": {
-        "@value": {
-          "type": "string"
-        },
-        "@language": {
-          "type": "string",
-          "pattern": "^nl$"
-        }
-      },
-      "required": [
-        "@value",
-        "@language"
-      ]
+      "$ref": "#/components/schemas/GeregistreerdeOrganisatie.voorkeursnaam"
     },
     "type": {
       "type": "array",
-      "description": "Lijst van OrganisatieType items.",
+      "description": "Soort organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van OrganisatieType items.",
       "items": {
         "oneOf": [
           {
@@ -74,31 +60,37 @@
     },
     "contactinfo": {
       "type": "array",
-      "description": "Lijst van Contactpunt items.",
+      "description": "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren. Lijst van Contactpunt items.",
       "items": {
         "$ref": "#/components/schemas/Contactpunt"
       },
       "minItems": 1
     },
-    "status": {
-      "type": "array",
-      "description": "Lijst van OrganisatieStatus items.",
-      "items": {
-        "$ref": "#/components/schemas/OrganisatieStatus"
-      },
-      "minItems": 1
-    },
     "activiteit": {
       "type": "array",
-      "description": "Lijst van Activiteittype items.",
+      "description": "Type activiteit die door de Organisatie wordt uitgeoefend. Lijst van Activiteittype items.",
       "items": {
-        "$ref": "#/components/schemas/Activiteittype"
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Activiteittype"
+          },
+          {
+            "$ref": "#/components/schemas/LandbouwActiviteit"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Activiteittype": "#/components/schemas/Activiteittype",
+            "LandbouwActiviteit": "#/components/schemas/LandbouwActiviteit"
+          }
+        }
       },
       "minItems": 1
     },
     "lid": {
       "type": "array",
-      "description": "Lijst van Persoon items.",
+      "description": "Agent die lid is van een Organisatie. Lijst van Persoon items.",
       "items": {
         "oneOf": [
           {
@@ -119,16 +111,12 @@
       "minItems": 1
     },
     "identificator": {
-      "type": "array",
-      "description": "Lijst van Identificator items.",
-      "items": {
-        "$ref": "#/components/schemas/Identificator"
-      },
-      "minItems": 1
+      "$ref": "#/components/schemas/Identificator"
     }
   },
   "required": [
     "@type",
-    "registratie"
+    "registratie",
+    "identificator"
   ]
 }
