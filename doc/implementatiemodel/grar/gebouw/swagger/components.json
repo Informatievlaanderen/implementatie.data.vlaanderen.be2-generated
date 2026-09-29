@@ -93,7 +93,7 @@
           },
           "isToegekendAan": {
             "type": "array",
-            "description": "Lijst van AdresseerbaarObject items.",
+            "description": "Adresseerbaar object waaraan het adres is toegekend. Lijst van AdresseerbaarObject items.",
             "items": {
               "oneOf": [
                 {
@@ -137,7 +137,7 @@
           },
           "bestaatUit": {
             "type": "array",
-            "description": "Lijst van Gebouweenheid items.",
+            "description": "Gebouweenheid die deel uitmaakt van het gebouw. Lijst van Gebouweenheid items.",
             "items": {
               "$ref": "#/components/schemas/Gebouweenheid"
             },
@@ -145,7 +145,7 @@
           },
           "ligtOp": {
             "type": "array",
-            "description": "Lijst van RuimtelijkeEenheid items.",
+            "description": "Perceel waarop het gebouw gelegen is. Lijst van RuimtelijkeEenheid items.",
             "items": {
               "$ref": "#/components/schemas/RuimtelijkeEenheid"
             },
@@ -158,6 +158,11 @@
         "required": [
           "@type"
         ]
+      },
+      "Gebouweenheid.afwijkingVastgesteld": {
+        "title": "Gebouweenheid.afwijkingVastgesteld",
+        "description": "Wanneer de definitie van een gebouweenheid niet werd gevolgd en dus 'afwijkend' is.",
+        "type": "boolean"
       },
       "Gebouweenheid": {
         "title": "Gebouweenheid",
@@ -174,21 +179,7 @@
             "pattern": "^Gebouweenheid$"
           },
           "afwijkingVastgesteld": {
-            "type": "object",
-            "description": "Wanneer de definitie van een gebouweenheid niet werd gevolgd en dus 'afwijkend' is.",
-            "properties": {
-              "@value": {
-                "type": "boolean"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Boolean$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Gebouweenheid.afwijkingVastgesteld"
           },
           "positie": {
             "$ref": "#/components/schemas/GeografischePositie"
@@ -198,7 +189,7 @@
           },
           "toegekendAdres": {
             "type": "array",
-            "description": "Lijst van Adres items.",
+            "description": "Het adres toegekend aan het adresseerbaar object. Lijst van Adres items.",
             "items": {
               "$ref": "#/components/schemas/Adres"
             },
@@ -228,7 +219,7 @@
           },
           "toegekendAdres": {
             "type": "array",
-            "description": "Lijst van Adres items.",
+            "description": "Het adres toegekend aan het adresseerbaar object. Lijst van Adres items.",
             "items": {
               "$ref": "#/components/schemas/Adres"
             },
@@ -300,7 +291,7 @@
           },
           "data": {
             "type": "array",
-            "description": "Lijst van Gebouw items.",
+            "description": "De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van Gebouw items.",
             "items": {
               "$ref": "#/components/schemas/Gebouw"
             },
@@ -310,6 +301,34 @@
         "required": [
           "@type"
         ]
+      },
+      "Problemdetail.detail": {
+        "title": "Problemdetail.detail",
+        "description": "Mensleesbare beschrijving van de fout.",
+        "type": "string"
+      },
+      "Problemdetail.instance": {
+        "title": "Problemdetail.instance",
+        "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.",
+        "type": "string",
+        "format": "uri"
+      },
+      "Problemdetail.status": {
+        "title": "Problemdetail.status",
+        "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\".",
+        "type": "number",
+        "format": "int64"
+      },
+      "Problemdetail.title": {
+        "title": "Problemdetail.title",
+        "description": "Korte mensleesbare beschrijving van de fout.",
+        "type": "string"
+      },
+      "Problemdetail.type": {
+        "title": "Problemdetail.type",
+        "description": "Aard van de fout.",
+        "type": "string",
+        "format": "uri"
       },
       "Problemdetail": {
         "title": "Problemdetail",
@@ -326,82 +345,19 @@
             "pattern": "^Problemdetail$"
           },
           "detail": {
-            "type": "object",
-            "description": "Mensleesbare beschrijving van de fout.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Problemdetail.detail"
           },
           "instance": {
-            "type": "object",
-            "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.",
-            "properties": {
-              "@id": {
-                "type": "string",
-                "format": "uri"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^AnyURI$"
-              }
-            },
-            "required": [
-              "@id",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Problemdetail.instance"
           },
           "status": {
-            "type": "object",
-            "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\".",
-            "properties": {
-              "@value": {
-                "type": "number",
-                "format": "int64"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Integer$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Problemdetail.status"
           },
           "title": {
-            "type": "object",
-            "description": "Korte mensleesbare beschrijving van de fout.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Problemdetail.title"
           },
           "type": {
-            "type": "object",
-            "description": "Aard van de fout.",
-            "properties": {
-              "@id": {
-                "type": "string",
-                "format": "uri"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^AnyURI$"
-              }
-            },
-            "required": [
-              "@id",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Problemdetail.type"
           }
         },
         "required": [
@@ -427,7 +383,7 @@
           },
           "data": {
             "type": "array",
-            "description": "Lijst van Gebouweenheid items.",
+            "description": "De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van Gebouweenheid items.",
             "items": {
               "$ref": "#/components/schemas/Gebouweenheid"
             },
@@ -461,6 +417,11 @@
           "data"
         ]
       },
+      "Identificator.identificator": {
+        "title": "Identificator.identificator",
+        "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
+        "type": "string"
+      },
       "Identificator": {
         "title": "Identificator",
         "type": "object",
@@ -476,20 +437,7 @@
             "pattern": "^Identificator$"
           },
           "identificator": {
-            "type": "object",
-            "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Identificator.identificator"
           },
           "gestructureerdeIdentificator": {
             "$ref": "#/components/schemas/GestructureerdeIdentificator"
@@ -498,6 +446,21 @@
         "required": [
           "@type"
         ]
+      },
+      "GestructureerdeIdentificator.lokaleIdentificator": {
+        "title": "GestructureerdeIdentificator.lokaleIdentificator",
+        "description": "String gebruikt om het object uniek te identificeren binnen de naamruimte.",
+        "type": "string"
+      },
+      "GestructureerdeIdentificator.naamruimte": {
+        "title": "GestructureerdeIdentificator.naamruimte",
+        "description": "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken. Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bijvoorbeeld een uri samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bijvoorbeeld https://data.vlaanderen.be/id/adres/).",
+        "type": "string"
+      },
+      "GestructureerdeIdentificator.versieIdentificator": {
+        "title": "GestructureerdeIdentificator.versieIdentificator",
+        "description": "Identificator van de specifieke versie van een object.",
+        "type": "string"
       },
       "GestructureerdeIdentificator": {
         "title": "GestructureerdeIdentificator",
@@ -514,40 +477,13 @@
             "pattern": "^GestructureerdeIdentificator$"
           },
           "lokaleIdentificator": {
-            "type": "object",
-            "description": "String gebruikt om het object uniek te identificeren binnen de naamruimte.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/GestructureerdeIdentificator.lokaleIdentificator"
           },
           "naamruimte": {
-            "type": "object",
-            "description": "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken. Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bijvoorbeeld een uri samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bijvoorbeeld https://data.vlaanderen.be/id/adres/).",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/GestructureerdeIdentificator.naamruimte"
           },
           "versieIdentificator": {
-            "type": "object",
-            "description": "Identificator van de specifieke versie van een object.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/GestructureerdeIdentificator.versieIdentificator"
           }
         },
         "required": [
@@ -555,6 +491,11 @@
           "lokaleIdentificator",
           "naamruimte"
         ]
+      },
+      "Geometrie.gml": {
+        "title": "Geometrie.gml",
+        "description": "Geometrie uitgedrukt in GML-formaat.",
+        "type": "string"
       },
       "Geometrie": {
         "title": "Geometrie",
@@ -571,20 +512,7 @@
             "pattern": "^Geometrie$"
           },
           "gml": {
-            "type": "object",
-            "description": "Geometrie uitgedrukt in GML-formaat.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Geometrie.gml"
           }
         },
         "required": [
@@ -607,7 +535,7 @@
           },
           "geometrie": {
             "type": "array",
-            "description": "Lijst van Punt items.",
+            "description": "De cartografische coöordinaten van het punt. Lijst van Punt items.",
             "items": {
               "$ref": "#/components/schemas/Punt"
             },
@@ -626,6 +554,11 @@
           "geometrie"
         ]
       },
+      "Punt.gml": {
+        "title": "Punt.gml",
+        "description": "Geometrie uitgedrukt in GML-formaat.",
+        "type": "string"
+      },
       "Punt": {
         "title": "Punt",
         "type": "object",
@@ -641,20 +574,7 @@
             "pattern": "^Punt$"
           },
           "gml": {
-            "type": "object",
-            "description": "Geometrie uitgedrukt in GML-formaat.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Punt.gml"
           }
         },
         "required": [
@@ -677,7 +597,7 @@
           },
           "geometrie": {
             "type": "array",
-            "description": "Lijst van Geometrie items.",
+            "description": "2D- of 2.5D-geometrische voorstelling van het gebouw. Lijst van Geometrie items.",
             "items": {
               "oneOf": [
                 {
@@ -712,6 +632,11 @@
           "methode"
         ]
       },
+      "Polygoon.gml": {
+        "title": "Polygoon.gml",
+        "description": "Geometrie uitgedrukt in GML-formaat.",
+        "type": "string"
+      },
       "Polygoon": {
         "title": "Polygoon",
         "type": "object",
@@ -727,20 +652,7 @@
             "pattern": "^Polygoon$"
           },
           "gml": {
-            "type": "object",
-            "description": "Geometrie uitgedrukt in GML-formaat.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Polygoon.gml"
           }
         },
         "required": [
