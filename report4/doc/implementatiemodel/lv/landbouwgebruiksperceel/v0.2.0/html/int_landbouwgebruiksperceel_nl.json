@@ -2,20 +2,6 @@
   "baseURI": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#",
   "classes": [
     {
-      "id": "http://www.w3.org/2004/02/skos/core#Concept",
-      "vocabularyLabel": {
-        "nl": "Activiteittype"
-      },
-      "applicationProfileLabel": {
-        "nl": "Activiteittype"
-      },
-      "applicationProfileDefinition": {
-        "nl": "Type activiteit die door een Organisatie wordt uitgeoefend."
-      },
-      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
-    },
-    {
       "id": "https://data.vlaanderen.be/ns/adres#Adres",
       "vocabularyLabel": {
         "nl": "Adres"
@@ -482,34 +468,6 @@
       ]
     },
     {
-      "id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#LandcoverEnvelop",
-      "vocabularyLabel": {
-        "nl": "LandcoverEnvelop"
-      },
-      "applicationProfileLabel": {
-        "nl": "LandcoverEnvelop"
-      },
-      "vocabularyDefinition": {
-        "nl": "De collectie van de landbouwgebruiksperceelgerelateerde informatie en zijn metadata elementen."
-      },
-      "applicationProfileDefinition": {
-        "nl": "De collectie van de landbouwgebruiksperceelgerelateerde informatie en zijn metadata elementen."
-      },
-      "parents": [
-        {
-          "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Envelope",
-          "vocabularyLabel": {
-            "nl": "envelop"
-          },
-          "applicationProfileLabel": {
-            "nl": "envelop"
-          }
-        }
-      ],
-      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
-    },
-    {
       "id": "http://www.w3.org/ns/org#Organization",
       "vocabularyLabel": {
         "nl": "Organisatie"
@@ -549,13 +507,13 @@
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
           "domain": "http://www.w3.org/ns/org#Organization",
           "range": {
-            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "id": "https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#LandbouwActiviteit",
             "listedInDocument": true,
             "vocabularyLabel": {
-              "nl": "Activiteittype"
+              "nl": "LandbouwActiviteit"
             },
             "applicationProfileLabel": {
-              "nl": "Activiteittype"
+              "nl": "LandbouwActiviteit"
             }
           },
           "minCount": "0",
@@ -704,6 +662,20 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     },
     {
+      "id": "https://data.vlaanderen.be/ns/persoon#Overlijden",
+      "vocabularyLabel": {
+        "nl": "Overlijden"
+      },
+      "applicationProfileLabel": {
+        "nl": "Overlijden"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het doodgaan van een Persoon."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
       "id": "http://www.w3.org/ns/person#Person",
       "vocabularyLabel": {
         "nl": "Persoon"
@@ -813,6 +785,36 @@
             },
             "applicationProfileLabel": {
               "nl": "Contactpunt"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/persoon#heeftOverlijden",
+          "vocabularyLabel": {
+            "nl": "heeftOverlijden"
+          },
+          "applicationProfileLabel": {
+            "nl": "heeftOverlijden"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijst naar de overlijdensgebeurtenis van de Persoon."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Bevat vaak de overlijdensgegevens van de Persoon."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/person#Person",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/persoon#Overlijden",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Overlijden"
+            },
+            "applicationProfileLabel": {
+              "nl": "Overlijden"
             }
           },
           "minCount": "0",
@@ -1066,17 +1068,6 @@
       "applicationProfileUsageNote": {
         "nl": "Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bijvoorbeeld venootschappen) moeten die van rechtswege toegekend krijgen."
       },
-      "parents": [
-        {
-          "id": "http://www.w3.org/2004/02/skos/core#Concept",
-          "vocabularyLabel": {
-            "nl": "OrganisatieType"
-          },
-          "applicationProfileLabel": {
-            "nl": "OrganisatieType"
-          }
-        }
-      ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/inPublicationNamespace",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     },
@@ -1097,17 +1088,6 @@
       "applicationProfileUsageNote": {
         "nl": "Stemt in de KBO overeen met rechtsvorm, bijvoorbeeld: NV, VZW, Stad/Gemeente, OCMW, etc."
       },
-      "parents": [
-        {
-          "id": "http://www.w3.org/2004/02/skos/core#Concept",
-          "vocabularyLabel": {
-            "nl": "OrganisatieType"
-          },
-          "applicationProfileLabel": {
-            "nl": "OrganisatieType"
-          }
-        }
-      ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/inPublicationNamespace",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     }

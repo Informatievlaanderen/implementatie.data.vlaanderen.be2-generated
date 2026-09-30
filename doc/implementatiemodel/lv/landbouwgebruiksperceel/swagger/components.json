@@ -3,7 +3,7 @@
   "info": {
     "title": "Components of MAGDA landbouw.landbouwgebruikspercelen REST",
     "description": "MAGDA OSLO-conforme REST API voor informatie over landbouwgebruikspercelen",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "components": {
     "schemas": {
@@ -53,20 +53,6 @@
         "title": "LandbouwActiviteit",
         "type": "object",
         "description": "Enumeratie van LandbouwActiviteit",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": [
-          "@id"
-        ]
-      },
-      "Activiteittype": {
-        "title": "Activiteittype",
-        "type": "object",
-        "description": "Enumeratie van Activiteittype",
         "properties": {
           "@id": {
             "type": "string",
@@ -189,30 +175,6 @@
           "@type"
         ]
       },
-      "LandcoverEnvelop": {
-        "title": "LandcoverEnvelop",
-        "type": "object",
-        "description": "De collectie van de landbouwgebruiksperceelgerelateerde informatie en zijn metadata elementen.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "description": "Object type (klasse LandcoverEnvelop)",
-            "pattern": "^LandcoverEnvelop$"
-          },
-          "@context": {
-            "type": "string",
-            "description": "URI of the JSON-LD versioned context file for this response.",
-            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/lv\\/landbouwgebruiksperceel\\/v0.2.0\\/context\\/landbouwgebruiksperceel.jsonld$"
-          }
-        },
-        "required": [
-          "@type"
-        ]
-      },
       "Organisatie.voorkeursnaam": {
         "title": "Organisatie.voorkeursnaam",
         "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
@@ -239,25 +201,7 @@
             "type": "array",
             "description": "Soort organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van OrganisatieType items.",
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/OrganisatieType"
-                },
-                {
-                  "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
-                },
-                {
-                  "$ref": "#/components/schemas/Rechtsvormtype"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "@type",
-                "mapping": {
-                  "OrganisatieType": "#/components/schemas/OrganisatieType",
-                  "Rechtspersoonlijkheidtype": "#/components/schemas/Rechtspersoonlijkheidtype",
-                  "Rechtsvormtype": "#/components/schemas/Rechtsvormtype"
-                }
-              }
+              "$ref": "#/components/schemas/OrganisatieType"
             },
             "minItems": 1
           },
@@ -271,23 +215,9 @@
           },
           "activiteit": {
             "type": "array",
-            "description": "Type activiteit die door de Organisatie wordt uitgeoefend. Lijst van Activiteittype items.",
+            "description": "Type activiteit die door de Organisatie wordt uitgeoefend. Lijst van LandbouwActiviteit items.",
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/Activiteittype"
-                },
-                {
-                  "$ref": "#/components/schemas/LandbouwActiviteit"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "@type",
-                "mapping": {
-                  "Activiteittype": "#/components/schemas/Activiteittype",
-                  "LandbouwActiviteit": "#/components/schemas/LandbouwActiviteit"
-                }
-              }
+              "$ref": "#/components/schemas/LandbouwActiviteit"
             },
             "minItems": 1
           },
@@ -377,6 +307,9 @@
           "achternaam": {
             "$ref": "#/components/schemas/Persoon.achternaam"
           },
+          "heeftOverlijden": {
+            "$ref": "#/components/schemas/Overlijden"
+          },
           "contactinfo": {
             "$ref": "#/components/schemas/Contactpunt"
           },
@@ -450,6 +383,9 @@
           "achternaam": {
             "$ref": "#/components/schemas/GeregistreerdPersoon.achternaam"
           },
+          "heeftOverlijden": {
+            "$ref": "#/components/schemas/Overlijden"
+          },
           "contactinfo": {
             "$ref": "#/components/schemas/Contactpunt"
           }
@@ -502,25 +438,7 @@
             "type": "array",
             "description": "Soort organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van OrganisatieType items.",
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/OrganisatieType"
-                },
-                {
-                  "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
-                },
-                {
-                  "$ref": "#/components/schemas/Rechtsvormtype"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "@type",
-                "mapping": {
-                  "OrganisatieType": "#/components/schemas/OrganisatieType",
-                  "Rechtspersoonlijkheidtype": "#/components/schemas/Rechtspersoonlijkheidtype",
-                  "Rechtsvormtype": "#/components/schemas/Rechtsvormtype"
-                }
-              }
+              "$ref": "#/components/schemas/OrganisatieType"
             },
             "minItems": 1
           },
@@ -534,23 +452,9 @@
           },
           "activiteit": {
             "type": "array",
-            "description": "Type activiteit die door de Organisatie wordt uitgeoefend. Lijst van Activiteittype items.",
+            "description": "Type activiteit die door de Organisatie wordt uitgeoefend. Lijst van LandbouwActiviteit items.",
             "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/Activiteittype"
-                },
-                {
-                  "$ref": "#/components/schemas/LandbouwActiviteit"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "@type",
-                "mapping": {
-                  "Activiteittype": "#/components/schemas/Activiteittype",
-                  "LandbouwActiviteit": "#/components/schemas/LandbouwActiviteit"
-                }
-              }
+              "$ref": "#/components/schemas/LandbouwActiviteit"
             },
             "minItems": 1
           },
@@ -583,6 +487,25 @@
         "required": [
           "@type",
           "registratie"
+        ]
+      },
+      "Overlijden": {
+        "title": "Overlijden",
+        "type": "object",
+        "description": "Het doodgaan van een Persoon.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Overlijden)",
+            "pattern": "^Overlijden$"
+          }
+        },
+        "required": [
+          "@type"
         ]
       },
       "Landbouwgebruiksperceel": {
@@ -880,7 +803,7 @@
         "parameters": {
           "id": "$response.body#/Organisatie.activiteit/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Activiteittype` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `LandbouwActiviteit` op te halen."
       },
       "Organisatie.lid": {
         "operationId": "OrganisatieGET",
@@ -895,6 +818,13 @@
           "id": "$response.body#/Organisatie.identificator/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "Persoon.heeftOverlijden": {
+        "operationId": "PersoonGET",
+        "parameters": {
+          "id": "$response.body#/Persoon.heeftOverlijden/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Overlijden` op te halen."
       },
       "Persoon.contactinfo": {
         "operationId": "PersoonGET",
@@ -923,6 +853,13 @@
           "id": "$response.body#/GeregistreerdPersoon.identificator/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "GeregistreerdPersoon.heeftOverlijden": {
+        "operationId": "GeregistreerdPersoonGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdPersoon.heeftOverlijden/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Overlijden` op te halen."
       },
       "GeregistreerdPersoon.contactinfo": {
         "operationId": "GeregistreerdPersoonGET",
@@ -978,7 +915,7 @@
         "parameters": {
           "id": "$response.body#/GeregistreerdeOrganisatie.activiteit/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Activiteittype` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `LandbouwActiviteit` op te halen."
       },
       "GeregistreerdeOrganisatie.lid": {
         "operationId": "GeregistreerdeOrganisatieGET",

@@ -36,25 +36,7 @@
       "type": "array",
       "description": "Soort organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van OrganisatieType items.",
       "items": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/OrganisatieType"
-          },
-          {
-            "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
-          },
-          {
-            "$ref": "#/components/schemas/Rechtsvormtype"
-          }
-        ],
-        "discriminator": {
-          "propertyName": "@type",
-          "mapping": {
-            "OrganisatieType": "#/components/schemas/OrganisatieType",
-            "Rechtspersoonlijkheidtype": "#/components/schemas/Rechtspersoonlijkheidtype",
-            "Rechtsvormtype": "#/components/schemas/Rechtsvormtype"
-          }
-        }
+        "$ref": "#/components/schemas/OrganisatieType"
       },
       "minItems": 1
     },
@@ -68,23 +50,9 @@
     },
     "activiteit": {
       "type": "array",
-      "description": "Type activiteit die door de Organisatie wordt uitgeoefend. Lijst van Activiteittype items.",
+      "description": "Type activiteit die door de Organisatie wordt uitgeoefend. Lijst van LandbouwActiviteit items.",
       "items": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/Activiteittype"
-          },
-          {
-            "$ref": "#/components/schemas/LandbouwActiviteit"
-          }
-        ],
-        "discriminator": {
-          "propertyName": "@type",
-          "mapping": {
-            "Activiteittype": "#/components/schemas/Activiteittype",
-            "LandbouwActiviteit": "#/components/schemas/LandbouwActiviteit"
-          }
-        }
+        "$ref": "#/components/schemas/LandbouwActiviteit"
       },
       "minItems": 1
     },
