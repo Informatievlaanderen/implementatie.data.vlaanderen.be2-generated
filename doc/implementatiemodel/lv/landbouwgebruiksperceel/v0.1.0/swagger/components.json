@@ -77,6 +77,34 @@
           "@id"
         ]
       },
+      "Problemdetail.detail": {
+        "title": "Problemdetail.detail",
+        "description": "Mensleesbare beschrijving van de fout.",
+        "type": "string"
+      },
+      "Problemdetail.instance": {
+        "title": "Problemdetail.instance",
+        "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.",
+        "type": "string",
+        "format": "uri"
+      },
+      "Problemdetail.status": {
+        "title": "Problemdetail.status",
+        "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\".",
+        "type": "number",
+        "format": "int64"
+      },
+      "Problemdetail.title": {
+        "title": "Problemdetail.title",
+        "description": "Korte mensleesbare beschrijving van de fout.",
+        "type": "string"
+      },
+      "Problemdetail.type": {
+        "title": "Problemdetail.type",
+        "description": "Aard van de fout.",
+        "type": "string",
+        "format": "uri"
+      },
       "Problemdetail": {
         "title": "Problemdetail",
         "type": "object",
@@ -92,82 +120,19 @@
             "pattern": "^Problemdetail$"
           },
           "detail": {
-            "type": "object",
-            "description": "Mensleesbare beschrijving van de fout.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Problemdetail.detail"
           },
           "instance": {
-            "type": "object",
-            "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.",
-            "properties": {
-              "@id": {
-                "type": "string",
-                "format": "uri"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^AnyURI$"
-              }
-            },
-            "required": [
-              "@id",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Problemdetail.instance"
           },
           "status": {
-            "type": "object",
-            "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\".",
-            "properties": {
-              "@value": {
-                "type": "number",
-                "format": "int64"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^Integer$"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Problemdetail.status"
           },
           "title": {
-            "type": "object",
-            "description": "Korte mensleesbare beschrijving van de fout.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Problemdetail.title"
           },
           "type": {
-            "type": "object",
-            "description": "Aard van de fout.",
-            "properties": {
-              "@id": {
-                "type": "string",
-                "format": "uri"
-              },
-              "@type": {
-                "type": "string",
-                "pattern": "^AnyURI$"
-              }
-            },
-            "required": [
-              "@id",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Problemdetail.type"
           }
         },
         "required": [
@@ -176,6 +141,11 @@
           "title",
           "type"
         ]
+      },
+      "Organisatie.voorkeursnaam": {
+        "title": "Organisatie.voorkeursnaam",
+        "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
+        "type": "string"
       },
       "Organisatie": {
         "title": "Organisatie",
@@ -192,25 +162,11 @@
             "pattern": "^Organisatie$"
           },
           "voorkeursnaam": {
-            "type": "object",
-            "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Organisatie.voorkeursnaam"
           },
           "type": {
             "type": "array",
-            "description": "Lijst van OrganisatieType items.",
+            "description": "Soort organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van OrganisatieType items.",
             "items": {
               "oneOf": [
                 {
@@ -236,7 +192,7 @@
           },
           "contactinfo": {
             "type": "array",
-            "description": "Lijst van Contactpunt items.",
+            "description": "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren. Lijst van Contactpunt items.",
             "items": {
               "$ref": "#/components/schemas/Contactpunt"
             },
@@ -244,7 +200,7 @@
           },
           "status": {
             "type": "array",
-            "description": "Lijst van OrganisatieStatus items.",
+            "description": "Toestand van de Organisatie. Specialisatie van classificatie (naast type & activiteit). Lijst van OrganisatieStatus items.",
             "items": {
               "$ref": "#/components/schemas/OrganisatieStatus"
             },
@@ -252,7 +208,7 @@
           },
           "activiteit": {
             "type": "array",
-            "description": "Lijst van Activiteittype items.",
+            "description": "Type activiteit die door de Organisatie wordt uitgeoefend. Lijst van Activiteittype items.",
             "items": {
               "$ref": "#/components/schemas/Activiteittype"
             },
@@ -260,7 +216,7 @@
           },
           "lid": {
             "type": "array",
-            "description": "Lijst van Persoon items.",
+            "description": "Agent die lid is van een Organisatie. Lijst van Persoon items.",
             "items": {
               "oneOf": [
                 {
@@ -282,7 +238,7 @@
           },
           "identificator": {
             "type": "array",
-            "description": "Lijst van Identificator items.",
+            "description": "Identificatiecode van de Agent. Bijvoorbeeld: klantennummer. Lijst van Identificator items.",
             "items": {
               "$ref": "#/components/schemas/Identificator"
             },
@@ -292,6 +248,21 @@
         "required": [
           "@type"
         ]
+      },
+      "Persoon.voornaam": {
+        "title": "Persoon.voornaam",
+        "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
+        "type": "string"
+      },
+      "Persoon.alternatieveNaam": {
+        "title": "Persoon.alternatieveNaam",
+        "description": "Alternatief voor de volledige naam van de Persoon. Bijvoorbeeld pseudoniem.",
+        "type": "string"
+      },
+      "Persoon.achternaam": {
+        "title": "Persoon.achternaam",
+        "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
+        "type": "string"
       },
       "Persoon": {
         "title": "Persoon",
@@ -309,49 +280,22 @@
           },
           "voornaam": {
             "type": "array",
-            "description": "Lijst van String items.",
+            "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie. Lijst van String items.",
             "items": {
-              "type": "object",
-              "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
-              "properties": {
-                "@value": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@value"
-              ]
+              "$ref": "#/components/schemas/Persoon.voornaam"
             },
             "minItems": 1
           },
           "alternatieveNaam": {
             "type": "array",
-            "description": "Lijst van String items.",
+            "description": "Alternatief voor de volledige naam van de Persoon. Bijvoorbeeld pseudoniem. Lijst van String items.",
             "items": {
-              "type": "object",
-              "description": "Alternatief voor de volledige naam van de Persoon. Bijvoorbeeld pseudoniem.",
-              "properties": {
-                "@value": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@value"
-              ]
+              "$ref": "#/components/schemas/Persoon.alternatieveNaam"
             },
             "minItems": 1
           },
           "achternaam": {
-            "type": "object",
-            "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Persoon.achternaam"
           },
           "contactinfo": {
             "$ref": "#/components/schemas/Contactpunt"
@@ -361,7 +305,7 @@
           },
           "identificator": {
             "type": "array",
-            "description": "Lijst van Identificator items.",
+            "description": "Identificatiecode van de Agent. Bijvoorbeeld: klantennummer. Lijst van Identificator items.",
             "items": {
               "$ref": "#/components/schemas/Identificator"
             },
@@ -371,6 +315,21 @@
         "required": [
           "@type"
         ]
+      },
+      "GeregistreerdPersoon.voornaam": {
+        "title": "GeregistreerdPersoon.voornaam",
+        "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
+        "type": "string"
+      },
+      "GeregistreerdPersoon.alternatieveNaam": {
+        "title": "GeregistreerdPersoon.alternatieveNaam",
+        "description": "Alternatief voor de volledige naam van de Persoon. Bijvoorbeeld pseudoniem.",
+        "type": "string"
+      },
+      "GeregistreerdPersoon.achternaam": {
+        "title": "GeregistreerdPersoon.achternaam",
+        "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
+        "type": "string"
       },
       "GeregistreerdPersoon": {
         "title": "GeregistreerdPersoon",
@@ -388,7 +347,7 @@
           },
           "registratie": {
             "type": "array",
-            "description": "Lijst van Identificator items.",
+            "description": "Identificatiecode van de persoon in het register. Lijst van Identificator items.",
             "items": {
               "$ref": "#/components/schemas/Identificator"
             },
@@ -396,7 +355,7 @@
           },
           "identificator": {
             "type": "array",
-            "description": "Lijst van Identificator items.",
+            "description": "Identificatiecode van de Agent. Bijvoorbeeld: klantennummer. Lijst van Identificator items.",
             "items": {
               "$ref": "#/components/schemas/Identificator"
             },
@@ -404,49 +363,22 @@
           },
           "voornaam": {
             "type": "array",
-            "description": "Lijst van String items.",
+            "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie. Lijst van String items.",
             "items": {
-              "type": "object",
-              "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.",
-              "properties": {
-                "@value": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@value"
-              ]
+              "$ref": "#/components/schemas/GeregistreerdPersoon.voornaam"
             },
             "minItems": 1
           },
           "alternatieveNaam": {
             "type": "array",
-            "description": "Lijst van String items.",
+            "description": "Alternatief voor de volledige naam van de Persoon. Bijvoorbeeld pseudoniem. Lijst van String items.",
             "items": {
-              "type": "object",
-              "description": "Alternatief voor de volledige naam van de Persoon. Bijvoorbeeld pseudoniem.",
-              "properties": {
-                "@value": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@value"
-              ]
+              "$ref": "#/components/schemas/GeregistreerdPersoon.alternatieveNaam"
             },
             "minItems": 1
           },
           "achternaam": {
-            "type": "object",
-            "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/GeregistreerdPersoon.achternaam"
           },
           "contactinfo": {
             "$ref": "#/components/schemas/Contactpunt"
@@ -459,6 +391,11 @@
           "@type",
           "registratie"
         ]
+      },
+      "GeregistreerdeOrganisatie.voorkeursnaam": {
+        "title": "GeregistreerdeOrganisatie.voorkeursnaam",
+        "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
+        "type": "string"
       },
       "GeregistreerdeOrganisatie": {
         "title": "GeregistreerdeOrganisatie",
@@ -482,7 +419,7 @@
           },
           "registratie": {
             "type": "array",
-            "description": "Lijst van Identificator items.",
+            "description": "Identificator dat de organisatie verkreeg bij registratie. In de KBO is dit het ondernemingsnummer. Lijst van Identificator items.",
             "items": {
               "$ref": "#/components/schemas/Identificator"
             },
@@ -492,25 +429,11 @@
             "$ref": "#/components/schemas/Rechtsvormtype"
           },
           "voorkeursnaam": {
-            "type": "object",
-            "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/GeregistreerdeOrganisatie.voorkeursnaam"
           },
           "type": {
             "type": "array",
-            "description": "Lijst van OrganisatieType items.",
+            "description": "Soort organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van OrganisatieType items.",
             "items": {
               "oneOf": [
                 {
@@ -536,7 +459,7 @@
           },
           "contactinfo": {
             "type": "array",
-            "description": "Lijst van Contactpunt items.",
+            "description": "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren. Lijst van Contactpunt items.",
             "items": {
               "$ref": "#/components/schemas/Contactpunt"
             },
@@ -544,7 +467,7 @@
           },
           "status": {
             "type": "array",
-            "description": "Lijst van OrganisatieStatus items.",
+            "description": "Toestand van de Organisatie. Specialisatie van classificatie (naast type & activiteit). Lijst van OrganisatieStatus items.",
             "items": {
               "$ref": "#/components/schemas/OrganisatieStatus"
             },
@@ -552,7 +475,7 @@
           },
           "activiteit": {
             "type": "array",
-            "description": "Lijst van Activiteittype items.",
+            "description": "Type activiteit die door de Organisatie wordt uitgeoefend. Lijst van Activiteittype items.",
             "items": {
               "$ref": "#/components/schemas/Activiteittype"
             },
@@ -560,7 +483,7 @@
           },
           "lid": {
             "type": "array",
-            "description": "Lijst van Persoon items.",
+            "description": "Agent die lid is van een Organisatie. Lijst van Persoon items.",
             "items": {
               "oneOf": [
                 {
@@ -582,7 +505,7 @@
           },
           "identificator": {
             "type": "array",
-            "description": "Lijst van Identificator items.",
+            "description": "Identificatiecode van de Agent. Bijvoorbeeld: klantennummer. Lijst van Identificator items.",
             "items": {
               "$ref": "#/components/schemas/Identificator"
             },
@@ -658,13 +581,23 @@
           "@context": {
             "type": "string",
             "description": "URI of the JSON-LD versioned context file for this response.",
-            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/\\/doc\\/implementatiemodel\\/lv\\/landbouwgebruiksperceel\\/v0.1.0\\/context\\/landbouwgebruiksperceel.jsonld$"
+            "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/lv\\/landbouwgebruiksperceel\\/v0.1.0\\/context\\/landbouwgebruiksperceel.jsonld$"
           }
         },
         "required": [
           "@type",
           "uitbater"
         ]
+      },
+      "Concept.code": {
+        "title": "Concept.code",
+        "description": "De waarde van de code van het Concept.",
+        "type": "string"
+      },
+      "Concept.voorkeursnaam": {
+        "title": "Concept.voorkeursnaam",
+        "description": "De naam van het Concept.",
+        "type": "string"
       },
       "Concept": {
         "title": "Concept",
@@ -681,39 +614,21 @@
             "pattern": "^Concept$"
           },
           "code": {
-            "type": "object",
-            "description": "De waarde van de code van het Concept.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Concept.code"
           },
           "voorkeursnaam": {
-            "type": "object",
-            "description": "De naam van het Concept.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Concept.voorkeursnaam"
           }
         },
         "required": [
           "@type",
           "code"
         ]
+      },
+      "Identificator.identificator": {
+        "title": "Identificator.identificator",
+        "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
+        "type": "string"
       },
       "Identificator": {
         "title": "Identificator",
@@ -730,20 +645,7 @@
             "pattern": "^Identificator$"
           },
           "identificator": {
-            "type": "object",
-            "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@type": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value",
-              "@type"
-            ]
+            "$ref": "#/components/schemas/Identificator.identificator"
           },
           "toegekendDoor": {
             "oneOf": [
@@ -775,6 +677,16 @@
           "@type"
         ]
       },
+      "Contactpunt.email": {
+        "title": "Contactpunt.email",
+        "description": "Email-adres waarnaar men kan mailen.",
+        "type": "string"
+      },
+      "Contactpunt.telefoon": {
+        "title": "Contactpunt.telefoon",
+        "description": "Telefoonnummer waarop men kan bellen.",
+        "type": "string"
+      },
       "Contactpunt": {
         "title": "Contactpunt",
         "type": "object",
@@ -790,35 +702,13 @@
             "pattern": "^Contactpunt$"
           },
           "email": {
-            "type": "object",
-            "description": "Email-adres waarnaar men kan mailen.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Contactpunt.email"
           },
           "telefoon": {
             "type": "array",
-            "description": "Lijst van Literal items.",
+            "description": "Telefoonnummer waarop men kan bellen. Lijst van Literal items.",
             "items": {
-              "type": "object",
-              "description": "Telefoonnummer waarop men kan bellen.",
-              "properties": {
-                "@value": {
-                  "type": "string"
-                },
-                "@type": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@value",
-                "@type"
-              ]
+              "$ref": "#/components/schemas/Contactpunt.telefoon"
             },
             "minItems": 1
           },
@@ -829,6 +719,46 @@
         "required": [
           "@type"
         ]
+      },
+      "Adresvoorstelling.busnummer": {
+        "title": "Adresvoorstelling.busnummer",
+        "description": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben. Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen.",
+        "type": "string"
+      },
+      "Adresvoorstelling.gemeentenaam": {
+        "title": "Adresvoorstelling.gemeentenaam",
+        "description": "Gemeentenaam van het adres.",
+        "type": "string"
+      },
+      "Adresvoorstelling.huisnummer": {
+        "title": "Adresvoorstelling.huisnummer",
+        "description": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen. Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen.",
+        "type": "string"
+      },
+      "Adresvoorstelling.land": {
+        "title": "Adresvoorstelling.land",
+        "description": "Land waarin het adres gelegen is.",
+        "type": "string"
+      },
+      "Adresvoorstelling.postbus": {
+        "title": "Adresvoorstelling.postbus",
+        "description": "Postbusnummer in een postkantoor.",
+        "type": "string"
+      },
+      "Adresvoorstelling.postcode": {
+        "title": "Adresvoorstelling.postcode",
+        "description": "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid.",
+        "type": "string"
+      },
+      "Adresvoorstelling.straatnaam": {
+        "title": "Adresvoorstelling.straatnaam",
+        "description": "Straatnaam van het adres.",
+        "type": "string"
+      },
+      "Adresvoorstelling.volledigAdres": {
+        "title": "Adresvoorstelling.volledigAdres",
+        "description": "Het complete adres in één string, al dan niet geformatteerd. Vermijdt fouten ten gevolge van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer.",
+        "type": "string"
       },
       "Adresvoorstelling": {
         "title": "Adresvoorstelling",
@@ -845,120 +775,28 @@
             "pattern": "^Adresvoorstelling$"
           },
           "busnummer": {
-            "type": "object",
-            "description": "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben. Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.busnummer"
           },
           "gemeentenaam": {
-            "type": "object",
-            "description": "Gemeentenaam van het adres.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.gemeentenaam"
           },
           "huisnummer": {
-            "type": "object",
-            "description": "Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen. Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.huisnummer"
           },
           "land": {
-            "type": "object",
-            "description": "Land waarin het adres gelegen is.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.land"
           },
           "postbus": {
-            "type": "object",
-            "description": "Postbusnummer in een postkantoor.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.postbus"
           },
           "postcode": {
-            "type": "object",
-            "description": "Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@value"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.postcode"
           },
           "straatnaam": {
-            "type": "object",
-            "description": "Straatnaam van het adres.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.straatnaam"
           },
           "volledigAdres": {
-            "type": "object",
-            "description": "Het complete adres in één string, al dan niet geformatteerd. Vermijdt fouten ten gevolge van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer.",
-            "properties": {
-              "@value": {
-                "type": "string"
-              },
-              "@language": {
-                "type": "string",
-                "pattern": "^nl$"
-              }
-            },
-            "required": [
-              "@value",
-              "@language"
-            ]
+            "$ref": "#/components/schemas/Adresvoorstelling.volledigAdres"
           }
         },
         "required": [
