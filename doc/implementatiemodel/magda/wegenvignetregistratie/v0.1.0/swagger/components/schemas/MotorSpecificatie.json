@@ -1,0 +1,28 @@
+{
+  "title": "MotorSpecificatie",
+  "type": "object",
+  "description": "Informatie over de motor van een Voertuig.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse MotorSpecificatie)",
+      "pattern": "^MotorSpecificatie$"
+    },
+    "brandstofType": {
+      "type": "array",
+      "description": "Het type brandstof dat de motor aandrijft. Lijst van Brandstoftype items.",
+      "items": {
+        "$ref": "#/components/schemas/Brandstoftype"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "brandstofType"
+  ]
+}

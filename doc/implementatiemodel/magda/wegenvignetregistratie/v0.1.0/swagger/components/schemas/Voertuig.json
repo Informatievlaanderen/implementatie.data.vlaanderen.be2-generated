@@ -1,0 +1,36 @@
+{
+  "title": "Voertuig",
+  "type": "object",
+  "description": "Een voertuig is een apparaat dat ontworpen of gebruikt is om mensen of vracht te vervoeren over land, water, lucht, of door de ruimte.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Voertuig)",
+      "pattern": "^Voertuig$"
+    },
+    "eersteRegistratieDatum": {
+      "$ref": "#/components/schemas/Voertuig.eersteRegistratieDatum"
+    },
+    "emissienorm": {
+      "$ref": "#/components/schemas/EuroNormCode"
+    },
+    "vin": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "voertuigMotor": {
+      "type": "array",
+      "description": "De motor of motoren van het Voertuig. Lijst van MotorSpecificatie items.",
+      "items": {
+        "$ref": "#/components/schemas/MotorSpecificatie"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

@@ -1,14 +1,16 @@
-#||# oslo-converter-ea for diagram wegenvignetregistratie
+#||# oslo-converter-ea for diagram Wegenvignetregistratie
 
 #||# -------------------------------------
 
-Error: UML model does not contain a diagram with name wegenvignetregistratie.
+2026-10-02T19:33:01.702Z info: Connector Model:Wegenvignetregistratie:OSLO-Voertuigregistratie:Registratie:(Registratie -> Nummerplaat) is not an association with a source role. Ignoring this connector.
 
-    at DataRegistry.setTargetDiagram (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/node_modules/@oslo-flanders/ea-uml-extractor/lib/DataRegistry.js:15:19)
+2026-10-02T19:33:01.704Z info: Connector Model:Wegenvignetregistratie:Schema.org:Voertuig:(Voertuig -> MotorSpecificatie) is not an association with a source role. Ignoring this connector.
 
-    at EaUmlConversionService.run (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/lib/EaUmlConversionService.js:37:15)
+2026-10-02T19:33:01.705Z info: Connector Model:Wegenvignetregistratie:OSLO-Wegenvignetregistratie:Wegenvignetregistratie:(Wegenvignetregistratie -> Registratie) is not an association with a source role. Ignoring this connector.
+
+2026-10-02T19:33:01.705Z info: Connector Model:Wegenvignetregistratie:OSLO-Voertuigregistratie:Registratie:(Registratie -> Voertuig) is not an association with a source role. Ignoring this connector.
+
+2026-10-02T19:33:01.706Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
 #||# -------------------------------------
-
-file wegenvignetregistratie.jsonld does not exist
 

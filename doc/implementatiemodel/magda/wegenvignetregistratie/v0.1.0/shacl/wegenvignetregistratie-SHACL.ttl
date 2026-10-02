@@ -1,0 +1,502 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schemas: <https://schema.org/> .
+@prefix shacl: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#ProblemdetailShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#WegenvignetRegistratieEnvelopShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#RegistratieShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#NummerplaatShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#UitzonderingShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#AnnotatieShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#VoertuigShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#MotorSpecificatieShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#WegenvignetregistratieShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#LanguageShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#StringShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#UriShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#IntegerShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#GestructureerdeIdentificatorShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#DateTimeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#LangStringShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#DateShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#IdentificatorShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#ConceptShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#EuroNormCodeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#BrandstoftypeShape> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#AnnotatieShape> a shacl:NodeShape;
+  rdfs:label "Annotatie"@nl;
+  rdfs:comment "Detailinformatie die meegegeven is bij een Uitzondering."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Annotatie>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "naam"@nl;
+    rdfs:comment "Naam van het veld."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Annotatie.Naam>;
+    shacl:datatype xsd:string;
+    shacl:description "Naam van het veld."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "naam"@nl;
+    shacl:path dc:title
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "waarde"@nl;
+    rdfs:comment "De waarde van het veld."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Annotatie.Waarde>;
+    shacl:datatype xsd:string;
+    shacl:description "De waarde van het veld."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "waarde"@nl;
+    shacl:path rdf:value
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Annotatie> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#ConceptShape> shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "code"@nl;
+    rdfs:comment "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Concept.Code>;
+    shacl:description "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "code"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Concept.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ] .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#DateShape> a shacl:NodeShape;
+  rdfs:label "Date";
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Date>;
+  shacl:closed false;
+  shacl:targetClass xsd:date .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#DateTimeShape> a shacl:NodeShape;
+  rdfs:label "DateTime";
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#DateTime>;
+  shacl:closed false;
+  shacl:targetClass xsd:dateTime .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#GestructureerdeIdentificatorShape> a shacl:NodeShape;
+  rdfs:label "GestructureerdeIdentificator"@nl;
+  rdfs:comment "Identificator van een object opgesplitst in zijn onderdelen."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#GestructureerdeIdentificator>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "lokaleIdentificator"@nl;
+    rdfs:comment "String gebruikt om het object uniek te identificeren binnen de naamruimte."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#GestructureerdeIdentificator.LokaleIdentificator>;
+    shacl:datatype xsd:string;
+    shacl:description "String gebruikt om het object uniek te identificeren binnen de naamruimte."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "lokaleIdentificator"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#lokaleIdentificator>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "versieIdentificator"@nl;
+    rdfs:comment "Identificator van de specifieke versie van een object."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#GestructureerdeIdentificator.VersieIdentificator>;
+    shacl:datatype xsd:string;
+    shacl:description "Identificator van de specifieke versie van een object."@nl;
+    shacl:maxCount 1;
+    shacl:name "versieIdentificator"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#versieIdentificator>
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#IdentificatorShape> a shacl:NodeShape;
+  rdfs:label "Identificator"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Uitgangspunt hier is dat deze string door een organisatie wordt toegekend en dat dit gebeurt volgens een welbepaald systeem."@nl;
+  rdfs:comment "Informatie gebruikt om een object uniek te identificeren."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Identificator>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "identificator"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator."@nl;
+    rdfs:comment "String gebruikt om het object uniek te identificeren."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Identificator.Identificator>;
+    shacl:description "String gebruikt om het object uniek te identificeren."@nl;
+    shacl:maxCount 1;
+    shacl:name "identificator"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "gestructureerdeIdentificator"@nl;
+    rdfs:comment "Identificator van het object opgesplitst in zijn onderdelen."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Identificator.GestructureerdeIdentificator>;
+    shacl:class <https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator>;
+    shacl:description "Identificator van het object opgesplitst in zijn onderdelen."@nl;
+    shacl:maxCount 1;
+    shacl:name "gestructureerdeIdentificator"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator>
+  ];
+  shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#IntegerShape> a shacl:NodeShape;
+  rdfs:label "Integer";
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Integer>;
+  shacl:closed false;
+  shacl:targetClass xsd:integer .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#LangStringShape> a shacl:NodeShape;
+  rdfs:label "LangString";
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#LangString>;
+  shacl:closed false;
+  shacl:targetClass rdf:langString .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#LanguageShape> a shacl:NodeShape;
+  rdfs:label "Language";
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Language>;
+  shacl:closed false;
+  shacl:targetClass xsd:language .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#MotorSpecificatieShape> a shacl:NodeShape;
+  rdfs:label "MotorSpecificatie"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Een Voertuig kan meerdere motoren hebben, die elk door een aparte MotorSpecificatie beschreven worden."@nl;
+  rdfs:comment "Informatie over de motor van een Voertuig."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#MotorSpecificatie>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "brandstofType"@nl;
+    rdfs:comment "Het type brandstof dat de motor aandrijft."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#MotorSpecificatie.BrandstofType>;
+    shacl:description "Het type brandstof dat de motor aandrijft."@nl;
+    shacl:minCount 1;
+    shacl:name "brandstofType"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path schemas:fuelType
+  ];
+  shacl:targetClass schemas:EngineSpecification .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#NummerplaatShape> a shacl:NodeShape;
+  rdfs:label "Nummerplaat"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Uitgegeven door de overheid bevoegd voor de inschrijving van het Voertuig."@nl;
+  rdfs:comment "Fysieke drager van het registratienummer van het Voertuig."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Nummerplaat>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "registratienummer"@nl;
+    rdfs:comment "Het nummer waaronder het voertuig gekend is bij het register."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Nummerplaat.Registratienummer>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Het nummer waaronder het voertuig gekend is bij het register."@nl;
+    shacl:maxCount 1;
+    shacl:name "registratienummer"@nl;
+    shacl:path <http://www.w3.org/ns/adms#identifier>
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/voertuigregistratie#Nummerplaat> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#ProblemdetailShape> a shacl:NodeShape;
+  rdfs:label "Problemdetail"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Dit ter aanvulling van een HTTP statuscode,bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc7807\">RFC7807</a>."@nl;
+  rdfs:comment "Meer gedetailleerde beschrijving van de fout in een HTTP response."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Problemdetail>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "detail"@nl;
+    rdfs:comment "Mensleesbare beschrijving van de fout."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Problemdetail.Detail>;
+    shacl:datatype xsd:string;
+    shacl:description "Mensleesbare beschrijving van de fout."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "detail"@nl;
+    shacl:path dc:description
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "instance"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: de verwijzing naar de request."@nl;
+    rdfs:comment "Verwijzing naar de instantie van het object waarop de fout betrekking heeft."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Problemdetail.Instance>;
+    shacl:datatype xsd:anyURI;
+    shacl:description "Verwijzing naar de instantie van het object waarop de fout betrekking heeft."@nl;
+    shacl:maxCount 1;
+    shacl:name "instance"@nl;
+    shacl:path dc:references
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "status"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\"."@nl;
+    rdfs:comment "HTTP foutcode."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Problemdetail.Status>;
+    shacl:datatype xsd:integer;
+    shacl:description "HTTP foutcode."@nl;
+    shacl:maxCount 1;
+    shacl:name "status"@nl;
+    shacl:path <http://www.w3.org/ns/adms#status>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "title"@nl;
+    rdfs:comment "Korte mensleesbare beschrijving van de fout."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Problemdetail.Title>;
+    shacl:datatype xsd:string;
+    shacl:description "Korte mensleesbare beschrijving van de fout."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "title"@nl;
+    shacl:path dc:title
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "type"@nl;
+    rdfs:comment "Aard van de fout."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Problemdetail.Type>;
+    shacl:datatype xsd:anyURI;
+    shacl:description "Aard van de fout."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "type"@nl;
+    shacl:path dc:type
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#RegistratieShape> a shacl:NodeShape;
+  rdfs:label "Registratie"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Het Voertuig krijgt daarbij een registratienummer en wordt gekoppeld aan een Persoon of Organisatie (al dan niet eigenaar van het Voertuig). De datum vanaf wanneer de inschrijving geldt wordt vastgelegd. Het registratienummer wordt weergegeven op een Nummerplaat."@nl;
+  rdfs:comment "Inschrijving van een Voertuig in een nationaal register."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Registratie>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "nummerplaat"@nl;
+    rdfs:comment "Een fysieke drager die het registratienummer bevat van het voertuig waaronder het voertuig geregistreerd werd."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Registratie.Nummerplaat>;
+    shacl:class <https://data.vlaanderen.be/ns/voertuigregistratie#Nummerplaat>;
+    shacl:description "Een fysieke drager die het registratienummer bevat van het voertuig waaronder het voertuig geregistreerd werd."@nl;
+    shacl:maxCount 1;
+    shacl:name "nummerplaat"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/voertuigregistratie#nummerplaat>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voertuig"@nl;
+    rdfs:comment "Het voertuig dat gekoppeld is aan het Registratiebewijs."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Registratie.Voertuig>;
+    shacl:class schemas:Vehicle;
+    shacl:description "Het voertuig dat gekoppeld is aan het Registratiebewijs."@nl;
+    shacl:maxCount 1;
+    shacl:name "voertuig"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/voertuigregistratie#voertuig>
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/voertuigregistratie#Registratie> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#StringShape> a shacl:NodeShape;
+  rdfs:label "String";
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#String>;
+  shacl:closed false;
+  shacl:targetClass xsd:string .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#UitzonderingShape> a shacl:NodeShape;
+  rdfs:label "Uitzondering"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: nieuwe INSZ nummer bij het Rijksregister."@nl;
+  rdfs:comment "Uitzondering geeft niet-kritieke problemen weer bij het uitwisselen."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Uitzondering>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "datum"@nl;
+    rdfs:comment "De datum waarop de Uitzondering aangemaakt werd."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Uitzondering.Datum>;
+    shacl:datatype xsd:dateTime;
+    shacl:description "De datum waarop de Uitzondering aangemaakt werd."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "datum"@nl;
+    shacl:path dc:issued
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "diagnose"@nl;
+    rdfs:comment "Een beschrijving waarom de Uitzondering aangemaakt werd."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Uitzondering.Diagnose>;
+    shacl:datatype xsd:string;
+    shacl:description "Een beschrijving waarom de Uitzondering aangemaakt werd."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "diagnose"@nl;
+    shacl:path dc:description
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "oorsprong"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bedoeld om kennis te organiseren, Bijvoorbeeld: in een codelijst of taxonomie (een zgn ConceptScheme). Zie <a href=\"https://www.w3.org/TR/skos-reference/\">SKOS</a> voor meer informatie."@nl;
+    rdfs:comment "De entiteit die de Uitzondering aangemaakt heeft."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Uitzondering.Oorsprong>;
+    shacl:description "De entiteit die de Uitzondering aangemaakt heeft."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "oorsprong"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path dc:source
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "type"@nl;
+    rdfs:comment "Het soort Uitzondering."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Uitzondering.Type>;
+    shacl:description "Het soort Uitzondering."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "type"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path dc:type
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "omstandigheid"@nl;
+    <http://purl.org/vocab/vann/usageNote> "De foutcode van de bron die tot de Uitzondering heeft geleid."@nl;
+    rdfs:comment "De omstandigheden waarin de Uitzondering werd aangemaakt."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Uitzondering.Omstandigheid>;
+    shacl:description "De omstandigheden waarin de Uitzondering werd aangemaakt."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "omstandigheid"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path dc:references
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "annotatie"@nl;
+    rdfs:comment "Verwijzing naar annotaties die bij de Uitzondering horen."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Uitzondering.Annotatie>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/generiek#Annotatie>;
+    shacl:description "Verwijzing naar annotaties die bij de Uitzondering horen."@nl;
+    shacl:name "annotatie"@nl;
+    shacl:path dc:hasPart
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#UriShape> a shacl:NodeShape;
+  rdfs:label "Uri";
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Uri>;
+  shacl:closed false;
+  shacl:targetClass xsd:anyURI .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#VoertuigShape> a shacl:NodeShape;
+  rdfs:label "Voertuig"@nl;
+  rdfs:comment "Een voertuig is een apparaat dat ontworpen of gebruikt is om mensen of vracht te vervoeren over land, water, lucht, of door de ruimte."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Voertuig>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "eersteRegistratieDatum"@nl;
+    rdfs:comment "Eerste datum waarop het voertuig werd geregistreerd in een register."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Voertuig.EersteRegistratieDatum>;
+    shacl:datatype xsd:date;
+    shacl:description "Eerste datum waarop het voertuig werd geregistreerd in een register."@nl;
+    shacl:maxCount 1;
+    shacl:name "eersteRegistratieDatum"@nl;
+    shacl:path schemas:dateVehicleFirstRegistered
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "emissienorm"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: Euro 6d. De waarde komt uit een codelijst, zodat ook andere of toekomstige emissienormen dan de Euronorm uitgedrukt kunnen worden."@nl;
+    rdfs:comment "De emissienorm waaraan het Voertuig voldoet."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Voertuig.Emissienorm>;
+    shacl:description "De emissienorm waaraan het Voertuig voldoet."@nl;
+    shacl:maxCount 1;
+    shacl:name "emissienorm"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path schemas:meetsEmissionStandard
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "vin"@nl;
+    rdfs:comment "Het Vehicle Identification Number (VIN) is een unieke serienummer die toegepast is in de autoindustrie om individuele voertuigen van elkaar te onderscheiden."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Voertuig.Vin>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Het Vehicle Identification Number (VIN) is een unieke serienummer die toegepast is in de autoindustrie om individuele voertuigen van elkaar te onderscheiden."@nl;
+    shacl:maxCount 1;
+    shacl:name "vin"@nl;
+    shacl:path schemas:vehicleIdentificationNumber
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voertuigMotor"@nl;
+    rdfs:comment "De motor of motoren van het Voertuig."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Voertuig.VoertuigMotor>;
+    shacl:class schemas:EngineSpecification;
+    shacl:description "De motor of motoren van het Voertuig."@nl;
+    shacl:name "voertuigMotor"@nl;
+    shacl:path schemas:vehicleEngine
+  ];
+  shacl:targetClass schemas:Vehicle .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#WegenvignetRegistratieEnvelopShape> a shacl:NodeShape;
+  rdfs:label "WegenvignetRegistratieEnvelop"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."@nl;
+  rdfs:comment "Enveloppe om wegenvignetregistraties en bijhorende validatiewaarschuwing uit te wisselen."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#WegenvignetRegistratieEnvelop>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "language"@nl;
+    rdfs:comment "De taal van het antwoord."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#WegenvignetRegistratieEnvelop.Language>;
+    shacl:datatype xsd:language;
+    shacl:description "De taal van het antwoord."@nl;
+    shacl:maxCount 1;
+    shacl:name "language"@nl;
+    shacl:path dc:language
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "data"@nl;
+    rdfs:comment "De data die overgedragen werd."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#WegenvignetRegistratieEnvelop.Data>;
+    shacl:class <https://data.vlaanderen.be/ns/wegenvignetregistratie#Wegenvignetregistratie>;
+    shacl:description "De data die overgedragen werd."@nl;
+    shacl:name "data"@nl;
+    shacl:path schemas:data
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "warning"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen."@nl;
+    rdfs:comment "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#WegenvignetRegistratieEnvelop.Warning>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering>;
+    shacl:description "Foutmeldingen die opgetreden zijn bij het afleveren van de data."@nl;
+    shacl:name "warning"@nl;
+    shacl:path schemas:error
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/wegenvignetregistratie#WegenvignetRegistratieEnvelop> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#WegenvignetregistratieShape> a shacl:NodeShape;
+  rdfs:label "Wegenvignetregistratie"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Verwijst naar de Registratie van het Voertuig in het nationale register."@nl;
+  rdfs:comment "Inschrijving van een Voertuig voor een wegenvignet, dat het recht geeft om gedurende een bepaalde periode gebruik te maken van het wegennet."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Wegenvignetregistratie>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "registratieDatum"@nl;
+    rdfs:comment "Tijdstip waarop de Wegenvignetregistratie werd opgemaakt."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Wegenvignetregistratie.RegistratieDatum>;
+    shacl:datatype xsd:date;
+    shacl:description "Tijdstip waarop de Wegenvignetregistratie werd opgemaakt."@nl;
+    shacl:maxCount 1;
+    shacl:name "registratieDatum"@nl;
+    shacl:path dc:issued
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "heeftVoertuigregistratie"@nl;
+    rdfs:comment "De Registratie van het Voertuig waarvoor de Wegenvignetregistratie geldt."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Wegenvignetregistratie.HeeftVoertuigregistratie>;
+    shacl:class <https://data.vlaanderen.be/ns/voertuigregistratie#Registratie>;
+    shacl:description "De Registratie van het Voertuig waarvoor de Wegenvignetregistratie geldt."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "heeftVoertuigregistratie"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/wegenvignetregistratie#heeftVoertuigregistratie>
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/wegenvignetregistratie#Wegenvignetregistratie> .
