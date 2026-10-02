@@ -1,42 +1,64 @@
 | Execution | Existence | Support |
 | --- | --- | --- |
-| [commit 3481d9c8b16449e6d317756aaaad9e67e277cf6c](https://github.com/Informatievlaanderen/implementatie.data.vlaanderen.be2/commit/3481d9c8b16449e6d317756aaaad9e67e277cf6c) | [&#9736;](/report4/existence_publicationpoints.report.md)| [&#9736;](/report4/support_publicationpoints.report.md)|
+| [commit 1a0b5e8d1f063bff81383da74ef32d5744c075c3](https://github.com/Informatievlaanderen/implementatie.data.vlaanderen.be2/commit/1a0b5e8d1f063bff81383da74ef32d5744c075c3) | [&#9736;](/report4/existence_publicationpoints.report.md)| [&#9736;](/report4/support_publicationpoints.report.md)|
  
-### Legende
+# Calculate statistics
 
-<details>
+This repository holds a number of scripts to calculate the statistics of a generated repository.
 
-| Term | Betekenis |
-| --- | --- |
-| mrg | Merge translations to create for each language a single source of truth |
-| aut | Autotranslate the translation files, if active |
-| uml | Extraction of the data out of the UML |
-| rdf | RDF file generation |
-| issu | Open Issues |
-| trns | Translation files generation, based on existing translation files |
-| shcl | SHACL file generation |
-| web | Extract all data model for html rendering  |
-| rspc | Render html using specific RESPEC integration  |
-| stak | Validate and convert the stakeholders |
-| tag | Branchtag check |
-| val | Validate the jsonld |
-| ctx | JSON-LD Context file generation |
-| bundle | Resource bundling |
-| met | Extract metadata for html rendering |
-| html | Render html using generic nunjuncks |
-| swag | Swagger file generation |
+There are 2 Dockers defined in this:
 
-</details>
+1. A testing docker to evaluate the scripts locally
+2. A CircleCI docker that can be used to evaluate a repository
 
 
-| Specification | tag | uml | val | stak | trns | aut | mrg | web | met | html | rspc | ctx | rdf | shcl | swag | bundle | issu |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [implementatiemodel/magda/ wegenvignetregistratie/v0.1.0](https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0) <br/> [&#9883;](/report4/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0) [&#9884;](https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0) |  | [&#9736;](/report4/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0/oslo-converter-ea.report.md) | [&#9728;](/report4/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0/jsonld-validation.report.md) | [&#9729;](/report4/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0/oslo-stakeholders-converter.report.md) | [&#9728;](/report4/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0/translate.report.md) |  | [&#9728;](/report4/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0/merge.report.md) | [&#9736;](/report4/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0/generator-webuniversum-json.report.md) | [&#9728;](/report4/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0/metadata.report.md) | [&#9736;](/report4/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0/generator-html.report.md) | [&#9728;](/report4/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0/generator-respec.report.md) | [&#9728;](/report4/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0/generator-jsonld-context.report.md) |  | [&#9728;](/report4/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0/generator-shacl.report.md) | [&#9728;](/report4/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0/generator-swagger.report.md) |  | [  ](https://github.com/Informatievlaanderen/OSLOthema-wegenvignetregistratie//issues) |
-| [implementatiemodel/lv/ landbouwgebruiksperceel/v0.1.0](https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0) <br/> [&#9883;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0) [&#9884;](https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0) |  | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0/oslo-converter-ea.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0/jsonld-validation.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0/oslo-stakeholders-converter.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0/translate.report.md) |  | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0/merge.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0/generator-webuniversum-json.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0/metadata.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0/generator-html.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0/generator-respec.report.md) | [&#9729;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0/generator-jsonld-context.report.md) |  | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0/generator-shacl.report.md) | [&#9729;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0/generator-swagger.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.1.0/bundle.report.md) | [  ](https://github.com/Informatievlaanderen/OSLOthema-landbouwgebruiksperceel//issues) |
-| [implementatiemodel/lv/ landbouwgebruiksperceel/v0.2.0](https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0) <br/> [&#9883;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0) [&#9884;](https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0) |  | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0/oslo-converter-ea.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0/jsonld-validation.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0/oslo-stakeholders-converter.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0/translate.report.md) |  | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0/merge.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0/generator-webuniversum-json.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0/metadata.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0/generator-html.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0/generator-respec.report.md) | [&#9729;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0/generator-jsonld-context.report.md) |  | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0/generator-shacl.report.md) | [&#9729;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0/generator-swagger.report.md) | [&#9728;](/report4/doc/implementatiemodel/lv/landbouwgebruiksperceel/v0.2.0/bundle.report.md) | [  ](https://github.com/Informatievlaanderen/OSLOthema-landbouwgebruiksperceel//issues) |
-| [vocabularium/lv/ landbouwgebruiksperceel/v0.1.0](https://implementatie.data.test-vlaanderen.be/doc/vocabularium/lv/landbouwgebruiksperceel/v0.1.0) <br/> [&#9883;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.1.0) [&#9884;](https://implementatie.data.test-vlaanderen.be/doc/vocabularium/lv/landbouwgebruiksperceel/v0.1.0) |  | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.1.0/oslo-converter-ea.report.md) | [&#9736;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.1.0/jsonld-validation.report.md) | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.1.0/oslo-stakeholders-converter.report.md) | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.1.0/translate.report.md) |  | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.1.0/merge.report.md) | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.1.0/generator-webuniversum-json.report.md) | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.1.0/metadata.report.md) | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.1.0/generator-html.report.md) | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.1.0/generator-respec.report.md) |  | [&#9736;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.1.0/generator-rdf.report.md) |  |  |  | [  ](https://github.com/Informatievlaanderen/OSLOthema-landbouwgebruiksperceel//issues) |
-| [vocabularium/lv/ landbouwgebruiksperceel/v0.2.0](https://implementatie.data.test-vlaanderen.be/doc/vocabularium/lv/landbouwgebruiksperceel/v0.2.0) <br/> [&#9883;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.2.0) [&#9884;](https://implementatie.data.test-vlaanderen.be/doc/vocabularium/lv/landbouwgebruiksperceel/v0.2.0) |  | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.2.0/oslo-converter-ea.report.md) | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.2.0/jsonld-validation.report.md) | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.2.0/oslo-stakeholders-converter.report.md) | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.2.0/translate.report.md) |  | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.2.0/merge.report.md) | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.2.0/generator-webuniversum-json.report.md) | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.2.0/metadata.report.md) | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.2.0/generator-html.report.md) | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.2.0/generator-respec.report.md) |  | [&#9728;](/report4/doc/vocabularium/lv/landbouwgebruiksperceel/v0.2.0/generator-rdf.report.md) |  |  |  | [  ](https://github.com/Informatievlaanderen/OSLOthema-landbouwgebruiksperceel//issues) |
-| [implementatiemodel/grar/ gebouw/v0.0.1](https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.1) <br/> [&#9883;](/report4/doc/implementatiemodel/grar/gebouw/v0.0.1) [&#9884;](https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.1) | [&#9736;](/report4/doc/implementatiemodel/grar/gebouw/v0.0.1/branchtag.report.md) | [&#9736;](/report4/doc/implementatiemodel/grar/gebouw/v0.0.1/oslo-converter-ea.report.md) | [&#9736;](/report4/doc/implementatiemodel/grar/gebouw/v0.0.1/jsonld-validation.report.md) | [&#9728;](/report4/doc/implementatiemodel/grar/gebouw/v0.0.1/oslo-stakeholders-converter.report.md) | [&#9728;](/report4/doc/implementatiemodel/grar/gebouw/v0.0.1/translate.report.md) |  | [&#9728;](/report4/doc/implementatiemodel/grar/gebouw/v0.0.1/merge.report.md) | [&#9728;](/report4/doc/implementatiemodel/grar/gebouw/v0.0.1/generator-webuniversum-json.report.md) | [&#9728;](/report4/doc/implementatiemodel/grar/gebouw/v0.0.1/metadata.report.md) | [&#9728;](/report4/doc/implementatiemodel/grar/gebouw/v0.0.1/generator-html.report.md) | [&#9728;](/report4/doc/implementatiemodel/grar/gebouw/v0.0.1/generator-respec.report.md) | [&#9728;](/report4/doc/implementatiemodel/grar/gebouw/v0.0.1/generator-jsonld-context.report.md) |  | [&#9728;](/report4/doc/implementatiemodel/grar/gebouw/v0.0.1/generator-shacl.report.md) | [&#9728;](/report4/doc/implementatiemodel/grar/gebouw/v0.0.1/generator-swagger.report.md) |  | [  ](https://github.com/informatievlaanderen/oslothema-gebouwEnAdres/issues) |
-| [vocabularium/grar/ gebouw/v0.0.1](https://implementatie.data.test-vlaanderen.be/doc/vocabularium/grar/gebouw/v0.0.1) <br/> [&#9883;](/report4/doc/vocabularium/grar/gebouw/v0.0.1) [&#9884;](https://implementatie.data.test-vlaanderen.be/doc/vocabularium/grar/gebouw/v0.0.1) | [&#9736;](/report4/doc/vocabularium/grar/gebouw/v0.0.1/branchtag.report.md) | [&#9736;](/report4/doc/vocabularium/grar/gebouw/v0.0.1/oslo-converter-ea.report.md) | [&#9729;](/report4/doc/vocabularium/grar/gebouw/v0.0.1/jsonld-validation.report.md) | [&#9728;](/report4/doc/vocabularium/grar/gebouw/v0.0.1/oslo-stakeholders-converter.report.md) | [&#9728;](/report4/doc/vocabularium/grar/gebouw/v0.0.1/translate.report.md) |  | [&#9728;](/report4/doc/vocabularium/grar/gebouw/v0.0.1/merge.report.md) | [&#9728;](/report4/doc/vocabularium/grar/gebouw/v0.0.1/generator-webuniversum-json.report.md) | [&#9728;](/report4/doc/vocabularium/grar/gebouw/v0.0.1/metadata.report.md) | [&#9728;](/report4/doc/vocabularium/grar/gebouw/v0.0.1/generator-html.report.md) | [&#9728;](/report4/doc/vocabularium/grar/gebouw/v0.0.1/generator-respec.report.md) |  | [&#9728;](/report4/doc/vocabularium/grar/gebouw/v0.0.1/generator-rdf.report.md) |  |  |  | [  ](https://github.com/informatievlaanderen/oslothema-gebouwEnAdres/issues) |
-| [implementatiemodel/vitalink/ zwangerschapsregistratie/v0.1.7](https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7) <br/> [&#9883;](/report4/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7) [&#9884;](https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7) |  | [&#9728;](/report4/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7/oslo-converter-ea.report.md) | [&#9729;](/report4/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7/jsonld-validation.report.md) | [&#9728;](/report4/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7/oslo-stakeholders-converter.report.md) | [&#9728;](/report4/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7/translate.report.md) |  | [&#9728;](/report4/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7/merge.report.md) | [&#9728;](/report4/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7/generator-webuniversum-json.report.md) | [&#9728;](/report4/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7/metadata.report.md) | [&#9728;](/report4/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7/generator-html.report.md) | [&#9728;](/report4/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7/generator-respec.report.md) | [&#9728;](/report4/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7/generator-jsonld-context.report.md) |  | [&#9728;](/report4/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7/generator-shacl.report.md) | [&#9728;](/report4/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7/generator-swagger.report.md) | [&#9728;](/report4/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.7/bundle.report.md) | [  ](https://github.com/Informatievlaanderen/OSLOthema-zwangerschapsregistratie//issues) |
-| [vocabularium/vitalink/ zwangerschapsregistratie/v0.1.7](https://implementatie.data.test-vlaanderen.be/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.7) <br/> [&#9883;](/report4/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.7) [&#9884;](https://implementatie.data.test-vlaanderen.be/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.7) |  | [&#9728;](/report4/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.7/oslo-converter-ea.report.md) | [&#9729;](/report4/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.7/jsonld-validation.report.md) | [&#9728;](/report4/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.7/oslo-stakeholders-converter.report.md) | [&#9728;](/report4/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.7/translate.report.md) |  | [&#9728;](/report4/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.7/merge.report.md) | [&#9728;](/report4/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.7/generator-webuniversum-json.report.md) | [&#9728;](/report4/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.7/metadata.report.md) | [&#9728;](/report4/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.7/generator-html.report.md) | [&#9728;](/report4/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.7/generator-respec.report.md) |  | [&#9728;](/report4/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.7/generator-rdf.report.md) |  |  |  | [  ](https://github.com/Informatievlaanderen/OSLOthema-zwangerschapsregistratie//issues) |
+# Deployment of CircleCI solution
+
+Let GENERATED be the source generated repository.
+For that repository a new repository STATISTICS has to be created.
+The objective is that the CircleCI that will be deployed in the GENERATED repository will store the resulting statistics on the STATISTICS repository.
+
+It also may be an option to use for STATISTICS a branch on the GENERATED.
+
+
+# the supported statistics
+
+
+Let NAMESPACE be the namespace on which the terms of GENERATED are published.
+
+
+1. the number of classes published in NAMESPACE 
+2. the number of properties publised in NAMESPACE 
+3. the number of classes using a different namespace as NAMESPACE (external terms)
+4. the number of properties using a different namespace as NAMESPACE (external terms)
+5. the total number of terms (sum of the above)
+6. the number of authors
+7. the number of editors
+8. the number of contributors
+9. the total number of participants (less of equal to the sum of the above)
+10. the organisations and their number of participants (grouped by their name)
+11. the total number of organisations contributing
+12. the number of specifications per status and per year / month (only for the aggregation)
+
+
+## considerations
+
+The statistics are calculated per specifications and as an aggregated statistic.
+The aggregated statistic is not equal to the mathematical sum of the numbers of each specification specific statistic.
+This is because there is an high overlap between the values between the specifications.
+The aggregated statistics are therefore substantially lower than the mathematical sum.
+
+The aggregated statistics also contain an overview per specification status.
+Each status provides the number of specifications in a year and then per month.
+This allows to picture a evolutionary figure.
+
+If there is interest this aggregation could be augemented with the references to the specifications.
+
+## limitations
+These scripts are designed to run upon a GENERATED repository. 
+For specifications that are listed in the standardsregisters outside this repository are not included in the overview.
+
+
+
+
+
