@@ -75,6 +75,14 @@ error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.1.1/index.html'
 error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.2.0/index.html'
 error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.2.1/index.html'
 
+#||#    + checking /home/circleci/project/config/test/wegenvignetregistratie-im.publication.json
+#||# 
+#||# Directory check
+#||# 
+#||# index.html check
+error: missing '/tmp/generated/doc/implementatiemodel/magda/wegenvignetregistratie/index.html'
+error: missing '/tmp/generated/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0/index.html'
+
 #||#    + checking /home/circleci/project/config/test/zwangerschapsregistratie-im.publication.json
 #||# 
 #||# Directory check
