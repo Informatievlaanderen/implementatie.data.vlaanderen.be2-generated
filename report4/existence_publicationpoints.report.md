@@ -80,7 +80,6 @@ error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.2.1/index.html'
 #||# Directory check
 #||# 
 #||# index.html check
-error: missing '/tmp/generated/doc/implementatiemodel/magda/wegenvignetregistratie/index.html'
 
 #||#    + checking /home/circleci/project/config/test/zwangerschapsregistratie-im.publication.json
 #||# 

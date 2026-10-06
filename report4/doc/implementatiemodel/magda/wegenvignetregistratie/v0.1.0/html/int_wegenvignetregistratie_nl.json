@@ -83,7 +83,7 @@
         "nl": "Brandstoftype"
       },
       "applicationProfileDefinition": {
-        "nl": "Het type brandstof dat de motor aandrijft."
+        "nl": "Het type brandstof dat geschikt is voor de motor of motoren van een voertuig."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
@@ -167,10 +167,10 @@
         "nl": "Euronorm"
       },
       "applicationProfileLabel": {
-        "nl": "EuroNormCode"
+        "nl": "Euronorm"
       },
       "applicationProfileDefinition": {
-        "nl": "De emissienorm waaraan het Voertuig voldoet volgens de referentietabel die de FOD Mobiliteit en Vervoer (DIV) in België gebruikt om de emissienormcode (Euronorm) van voertuigen in de Kruispuntbank Voertuigen te registreren en te koppelen."
+        "nl": "De emissienorm waaraan een Voertuig voldoet volgens de referentietabel die de FOD Mobiliteit en Vervoer (DIV) in België gebruikt om de emissienormcode (Euronorm) van voertuigen in de Kruispuntbank Voertuigen te registreren en te koppelen."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
@@ -184,10 +184,10 @@
         "nl": "MotorSpecificatie"
       },
       "applicationProfileDefinition": {
-        "nl": "Informatie over de motor van een Voertuig."
+        "nl": "Informatie over de motor of motoren van een Voertuig."
       },
       "applicationProfileUsageNote": {
-        "nl": "Een Voertuig kan meerdere motoren hebben, die elk door een aparte MotorSpecificatie beschreven worden."
+        "nl": "Een motorspecificatie komt overeen met één geregistreerde motor in de bron en niet noodzakelijk met één fysieke motor. Eén motorspecificatie kan een combinatie van een verbrandingsmotor en een elektromotor beschrijven, bijvoorbeeld bij een hybride voertuig. Het aantal motorspecificaties van een voertuig is daarom geen betrouwbare aanduiding van het werkelijke aantal motoren."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
@@ -201,7 +201,10 @@
             "nl": "brandstofType"
           },
           "applicationProfileDefinition": {
-            "nl": "Het type brandstof dat de motor aandrijft."
+            "nl": "Het type brandstof dat geschikt is voor de motor of motoren van het voertuig."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "De waarde komt uit de codelijst Brandstoftype, die de IVI-brandstofcodes overneemt. Een motorspecificatie kan meerdere brandstoftypes hebben, bijvoorbeeld benzine en LPG."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
@@ -216,10 +219,56 @@
               "nl": "Brandstoftype"
             }
           },
-          "minCount": "1",
-          "maxCount": "*"
+          "minCount": "0",
+          "maxCount": "*",
+          "codelist": "https://data.vlaanderen.be/doc/conceptscheme/Brandstoftype"
+        },
+        {
+          "id": "https://schema.org/engineType",
+          "vocabularyLabel": {
+            "nl": "motorType"
+          },
+          "applicationProfileLabel": {
+            "nl": "motorType"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Het type motor of motoren dat het voertuig aandrijft."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "De waarde komt uit de codelijst Motortype: verbrandingsmotor of elektromotor. Een motorSpecificatie kan meerdere motorTypes hebben om aan te geven dat één geregistreerde motorSpecificatie in werkelijkheid betrekking heeft op meerdere fysieke motoren. Tevens kan het motortype ook ontbreken wanneer het niet uit de bron kan worden afgeleid."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://schema.org/EngineSpecification",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Motortype"
+            },
+            "applicationProfileLabel": {
+              "nl": "Motortype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*",
+          "codelist": "https://data.vlaanderen.be/doc/conceptscheme/Motortype"
         }
       ]
+    },
+    {
+      "id": "http://www.w3.org/2004/02/skos/core#Concept",
+      "vocabularyLabel": {
+        "nl": "Motortype"
+      },
+      "applicationProfileLabel": {
+        "nl": "Motortype"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het type motor of motoren dat een voertuig aandrijft."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     },
     {
       "id": "https://data.vlaanderen.be/ns/voertuigregistratie#Nummerplaat",
@@ -782,11 +831,12 @@
               "nl": "Euronorm"
             },
             "applicationProfileLabel": {
-              "nl": "EuroNormCode"
+              "nl": "Euronorm"
             }
           },
           "minCount": "0",
-          "maxCount": "1"
+          "maxCount": "1",
+          "codelist": "https://data.vlaanderen.be/doc/conceptscheme/Euronorm"
         },
         {
           "id": "https://schema.org/vehicleIdentificationNumber",

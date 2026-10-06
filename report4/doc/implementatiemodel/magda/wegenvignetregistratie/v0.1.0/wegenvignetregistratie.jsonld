@@ -141,7 +141,7 @@
     }
   },
   "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0",
-  "generatedAtTime": "2026-10-02T19:33:01.717Z",
+  "generatedAtTime": "2026-10-06T16:49:57.584Z",
   "packages": [
     {
       "@id": "urn:oslo-toolchain:96ed7c61da928ab1b1baf7dd4fe043404140ace6754f65a942922a2d709d7954",
@@ -505,13 +505,13 @@
       "apDefinition": [
         {
           "@language": "nl",
-          "@value": "Informatie over de motor van een Voertuig."
+          "@value": "Informatie over de motor of motoren van een Voertuig."
         }
       ],
       "apUsageNote": [
         {
           "@language": "nl",
-          "@value": "Een Voertuig kan meerdere motoren hebben, die elk door een aparte MotorSpecificatie beschreven worden."
+          "@value": "Een motorspecificatie komt overeen met één geregistreerde motor in de bron en niet noodzakelijk met één fysieke motor. Eén motorspecificatie kan een combinatie van een verbrandingsmotor en een elektromotor beschrijven, bijvoorbeeld bij een hybride voertuig. Het aantal motorspecificaties van een voertuig is daarom geen betrouwbare aanduiding van het werkelijke aantal motoren."
         }
       ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
@@ -572,7 +572,7 @@
       "apLabel": [
         {
           "@language": "nl",
-          "@value": "EuroNormCode"
+          "@value": "Euronorm"
         }
       ],
       "diagramLabel": [
@@ -583,7 +583,7 @@
       "apDefinition": [
         {
           "@language": "nl",
-          "@value": "De emissienorm waaraan het Voertuig voldoet volgens de referentietabel die de FOD Mobiliteit en Vervoer (DIV) in België gebruikt om de emissienormcode (Euronorm) van voertuigen in de Kruispuntbank Voertuigen te registreren en te koppelen."
+          "@value": "De emissienorm waaraan een Voertuig voldoet volgens de referentietabel die de FOD Mobiliteit en Vervoer (DIV) in België gebruikt om de emissienormcode (Euronorm) van voertuigen in de Kruispuntbank Voertuigen te registreren en te koppelen."
         }
       ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
@@ -607,7 +607,31 @@
       "apDefinition": [
         {
           "@language": "nl",
-          "@value": "Het type brandstof dat de motor aandrijft."
+          "@value": "Het type brandstof dat geschikt is voor de motor of motoren van een voertuig."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:09c529540de90e39fbbd56f521f183e5119ebaf8fc0eeabbded3e18c7b3feffe",
+      "@type": "Class",
+      "assignedURI": "http://www.w3.org/2004/02/skos/core#Concept",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "Motortype"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "Motortype"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Het type motor of motoren dat een voertuig aandrijft."
         }
       ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
@@ -1587,7 +1611,13 @@
       "apDefinition": [
         {
           "@language": "nl",
-          "@value": "Het type brandstof dat de motor aandrijft."
+          "@value": "Het type brandstof dat geschikt is voor de motor of motoren van het voertuig."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "De waarde komt uit de codelijst Brandstoftype, die de IVI-brandstofcodes overneemt. Een motorspecificatie kan meerdere brandstoftypes hebben, bijvoorbeeld benzine en LPG."
         }
       ],
       "domain": {
@@ -1597,7 +1627,7 @@
         "@id": "urn:oslo-toolchain:a474af8a143fe5c7c9986b1d5a668492940461d5fe8dfd47cd200175681bdadc"
       },
       "minCount": {
-        "@value": "1",
+        "@value": "0",
         "@type": "http://www.w3.org/2001/XMLSchema#integer"
       },
       "maxCount": {
@@ -1605,6 +1635,7 @@
         "@type": "http://www.w3.org/2001/XMLSchema#integer"
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "codelist": "https://data.vlaanderen.be/doc/conceptscheme/Brandstoftype",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     },
     {
@@ -1649,6 +1680,52 @@
         "@type": "http://www.w3.org/2001/XMLSchema#integer"
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "codelist": "https://data.vlaanderen.be/doc/conceptscheme/Euronorm",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:8291a204ed28f2d2d04dd801142bb4554670cacb75cecf5de0ba01e7e729d1de",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "https://schema.org/engineType",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "motorType"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "motorType"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Het type motor of motoren dat het voertuig aandrijft."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "De waarde komt uit de codelijst Motortype: verbrandingsmotor of elektromotor. Een motorSpecificatie kan meerdere motorTypes hebben om aan te geven dat één geregistreerde motorSpecificatie in werkelijkheid betrekking heeft op meerdere fysieke motoren. Tevens kan het motortype ook ontbreken wanneer het niet uit de bron kan worden afgeleid."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:c9cdcadeac08498302dece0e6c221d9d91f64602ecc8a93b593fd32dc55ebd0b"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:09c529540de90e39fbbd56f521f183e5119ebaf8fc0eeabbded3e18c7b3feffe"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "*",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "codelist": "https://data.vlaanderen.be/doc/conceptscheme/Motortype",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     },
     {
@@ -2117,6 +2194,12 @@
     },
     {
       "@id": "urn:oslo-toolchain:a474af8a143fe5c7c9986b1d5a668492940461d5fe8dfd47cd200175681bdadc",
+      "@type": "Enumeration",
+      "assignedURI": "http://www.w3.org/2004/02/skos/core#Concept",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:09c529540de90e39fbbd56f521f183e5119ebaf8fc0eeabbded3e18c7b3feffe",
       "@type": "Enumeration",
       "assignedURI": "http://www.w3.org/2004/02/skos/core#Concept",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"

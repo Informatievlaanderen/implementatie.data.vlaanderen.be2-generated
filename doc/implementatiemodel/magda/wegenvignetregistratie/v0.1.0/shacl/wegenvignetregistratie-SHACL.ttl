@@ -25,8 +25,9 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#DateShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#IdentificatorShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#ConceptShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#EuroNormCodeShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#BrandstoftypeShape> .
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#EuronormShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#BrandstoftypeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#MotortypeShape> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#AnnotatieShape> a shacl:NodeShape;
   rdfs:label "Annotatie"@nl;
@@ -169,20 +170,30 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#MotorSpecificatieShape> a shacl:NodeShape;
   rdfs:label "MotorSpecificatie"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Een Voertuig kan meerdere motoren hebben, die elk door een aparte MotorSpecificatie beschreven worden."@nl;
-  rdfs:comment "Informatie over de motor van een Voertuig."@nl;
+  <http://purl.org/vocab/vann/usageNote> "Een motorspecificatie komt overeen met één geregistreerde motor in de bron en niet noodzakelijk met één fysieke motor. Eén motorspecificatie kan een combinatie van een verbrandingsmotor en een elektromotor beschrijven, bijvoorbeeld bij een hybride voertuig. Het aantal motorspecificaties van een voertuig is daarom geen betrouwbare aanduiding van het werkelijke aantal motoren."@nl;
+  rdfs:comment "Informatie over de motor of motoren van een Voertuig."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#MotorSpecificatie>;
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
     rdfs:label "brandstofType"@nl;
-    rdfs:comment "Het type brandstof dat de motor aandrijft."@nl;
+    <http://purl.org/vocab/vann/usageNote> "De waarde komt uit de codelijst Brandstoftype, die de IVI-brandstofcodes overneemt. Een motorspecificatie kan meerdere brandstoftypes hebben, bijvoorbeeld benzine en LPG."@nl;
+    rdfs:comment "Het type brandstof dat geschikt is voor de motor of motoren van het voertuig."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#MotorSpecificatie.BrandstofType>;
-    shacl:description "Het type brandstof dat de motor aandrijft."@nl;
-    shacl:minCount 1;
+    shacl:description "Het type brandstof dat geschikt is voor de motor of motoren van het voertuig."@nl;
     shacl:name "brandstofType"@nl;
     shacl:nodeKind shacl:BlankNodeOrIRI;
     shacl:path schemas:fuelType
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "motorType"@nl;
+    <http://purl.org/vocab/vann/usageNote> "De waarde komt uit de codelijst Motortype: verbrandingsmotor of elektromotor. Een motorSpecificatie kan meerdere motorTypes hebben om aan te geven dat één geregistreerde motorSpecificatie in werkelijkheid betrekking heeft op meerdere fysieke motoren. Tevens kan het motortype ook ontbreken wanneer het niet uit de bron kan worden afgeleid."@nl;
+    rdfs:comment "Het type motor of motoren dat het voertuig aandrijft."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#MotorSpecificatie.MotorType>;
+    shacl:description "Het type motor of motoren dat het voertuig aandrijft."@nl;
+    shacl:name "motorType"@nl;
+    shacl:nodeKind shacl:BlankNodeOrIRI;
+    shacl:path schemas:engineType
   ];
   shacl:targetClass schemas:EngineSpecification .
 

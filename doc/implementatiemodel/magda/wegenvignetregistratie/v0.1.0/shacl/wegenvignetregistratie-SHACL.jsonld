@@ -60,10 +60,13 @@
         "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#ConceptShape"
       },
       {
-        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#EuroNormCodeShape"
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#EuronormShape"
       },
       {
         "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#BrandstoftypeShape"
+      },
+      {
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#MotortypeShape"
       }
     ]
   },
@@ -255,7 +258,7 @@
         "@id": "_:df_2_15"
       },
       {
-        "@id": "_:df_2_26"
+        "@id": "_:df_2_27"
       }
     ],
     "http://www.w3.org/ns/shacl#targetClass": [
@@ -353,13 +356,13 @@
     "http://purl.org/vocab/vann/usageNote": [
       {
         "@language": "nl",
-        "@value": "Een Voertuig kan meerdere motoren hebben, die elk door een aparte MotorSpecificatie beschreven worden."
+        "@value": "Een motorspecificatie komt overeen met één geregistreerde motor in de bron en niet noodzakelijk met één fysieke motor. Eén motorspecificatie kan een combinatie van een verbrandingsmotor en een elektromotor beschrijven, bijvoorbeeld bij een hybride voertuig. Het aantal motorspecificaties van een voertuig is daarom geen betrouwbare aanduiding van het werkelijke aantal motoren."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "nl",
-        "@value": "Informatie over de motor van een Voertuig."
+        "@value": "Informatie over de motor of motoren van een Voertuig."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -382,6 +385,9 @@
     "http://www.w3.org/ns/shacl#property": [
       {
         "@id": "_:df_2_24"
+      },
+      {
+        "@id": "_:df_2_26"
       }
     ],
     "http://www.w3.org/ns/shacl#targetClass": [
@@ -528,10 +534,10 @@
     ],
     "http://www.w3.org/ns/shacl#property": [
       {
-        "@id": "_:df_2_28"
+        "@id": "_:df_2_29"
       },
       {
-        "@id": "_:df_2_31"
+        "@id": "_:df_2_32"
       }
     ],
     "http://www.w3.org/ns/shacl#targetClass": [
@@ -690,10 +696,10 @@
         "@id": "_:df_2_25"
       },
       {
-        "@id": "_:df_2_27"
+        "@id": "_:df_2_28"
       },
       {
-        "@id": "_:df_2_29"
+        "@id": "_:df_2_30"
       }
     ],
     "http://www.w3.org/ns/shacl#targetClass": [
@@ -792,7 +798,7 @@
         "@id": "_:df_2_13"
       },
       {
-        "@id": "_:df_2_30"
+        "@id": "_:df_2_31"
       }
     ],
     "http://www.w3.org/ns/shacl#targetClass": [
@@ -1705,10 +1711,16 @@
     "@type": [
       "http://www.w3.org/ns/shacl#PropertyShape"
     ],
+    "http://purl.org/vocab/vann/usageNote": [
+      {
+        "@language": "nl",
+        "@value": "De waarde komt uit de codelijst Brandstoftype, die de IVI-brandstofcodes overneemt. Een motorspecificatie kan meerdere brandstoftypes hebben, bijvoorbeeld benzine en LPG."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "nl",
-        "@value": "Het type brandstof dat de motor aandrijft."
+        "@value": "Het type brandstof dat geschikt is voor de motor of motoren van het voertuig."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1725,13 +1737,7 @@
     "http://www.w3.org/ns/shacl#description": [
       {
         "@language": "nl",
-        "@value": "Het type brandstof dat de motor aandrijft."
-      }
-    ],
-    "http://www.w3.org/ns/shacl#minCount": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": "1"
+        "@value": "Het type brandstof dat geschikt is voor de motor of motoren van het voertuig."
       }
     ],
     "http://www.w3.org/ns/shacl#name": [
@@ -1813,6 +1819,57 @@
     "@type": [
       "http://www.w3.org/ns/shacl#PropertyShape"
     ],
+    "http://purl.org/vocab/vann/usageNote": [
+      {
+        "@language": "nl",
+        "@value": "De waarde komt uit de codelijst Motortype: verbrandingsmotor of elektromotor. Een motorSpecificatie kan meerdere motorTypes hebben om aan te geven dat één geregistreerde motorSpecificatie in werkelijkheid betrekking heeft op meerdere fysieke motoren. Tevens kan het motortype ook ontbreken wanneer het niet uit de bron kan worden afgeleid."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "nl",
+        "@value": "Het type motor of motoren dat het voertuig aandrijft."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "nl",
+        "@value": "motorType"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#MotorSpecificatie.MotorType"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@language": "nl",
+        "@value": "Het type motor of motoren dat het voertuig aandrijft."
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@language": "nl",
+        "@value": "motorType"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#nodeKind": [
+      {
+        "@id": "http://www.w3.org/ns/shacl#BlankNodeOrIRI"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "https://schema.org/engineType"
+      }
+    ]
+  },
+  {
+    "@id": "_:df_2_27",
+    "@type": [
+      "http://www.w3.org/ns/shacl#PropertyShape"
+    ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "nl",
@@ -1860,7 +1917,7 @@
     ]
   },
   {
-    "@id": "_:df_2_27",
+    "@id": "_:df_2_28",
     "@type": [
       "http://www.w3.org/ns/shacl#PropertyShape"
     ],
@@ -1911,7 +1968,7 @@
     ]
   },
   {
-    "@id": "_:df_2_28",
+    "@id": "_:df_2_29",
     "@type": [
       "http://www.w3.org/ns/shacl#PropertyShape"
     ],
@@ -1958,51 +2015,6 @@
     "http://www.w3.org/ns/shacl#path": [
       {
         "@id": "https://data.vlaanderen.be/ns/voertuigregistratie#nummerplaat"
-      }
-    ]
-  },
-  {
-    "@id": "_:df_2_29",
-    "@type": [
-      "http://www.w3.org/ns/shacl#PropertyShape"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "nl",
-        "@value": "De motor of motoren van het Voertuig."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "nl",
-        "@value": "voertuigMotor"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
-      {
-        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Voertuig.VoertuigMotor"
-      }
-    ],
-    "http://www.w3.org/ns/shacl#class": [
-      {
-        "@id": "https://schema.org/EngineSpecification"
-      }
-    ],
-    "http://www.w3.org/ns/shacl#description": [
-      {
-        "@language": "nl",
-        "@value": "De motor of motoren van het Voertuig."
-      }
-    ],
-    "http://www.w3.org/ns/shacl#name": [
-      {
-        "@language": "nl",
-        "@value": "voertuigMotor"
-      }
-    ],
-    "http://www.w3.org/ns/shacl#path": [
-      {
-        "@id": "https://schema.org/vehicleEngine"
       }
     ]
   },
@@ -2071,6 +2083,51 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "nl",
+        "@value": "De motor of motoren van het Voertuig."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "nl",
+        "@value": "voertuigMotor"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Voertuig.VoertuigMotor"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#class": [
+      {
+        "@id": "https://schema.org/EngineSpecification"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@language": "nl",
+        "@value": "De motor of motoren van het Voertuig."
+      }
+    ],
+    "http://www.w3.org/ns/shacl#name": [
+      {
+        "@language": "nl",
+        "@value": "voertuigMotor"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#path": [
+      {
+        "@id": "https://schema.org/vehicleEngine"
+      }
+    ]
+  },
+  {
+    "@id": "_:df_2_31",
+    "@type": [
+      "http://www.w3.org/ns/shacl#PropertyShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "nl",
         "@value": "De Registratie van het Voertuig waarvoor de Wegenvignetregistratie geldt."
       }
     ],
@@ -2121,7 +2178,7 @@
     ]
   },
   {
-    "@id": "_:df_2_31",
+    "@id": "_:df_2_32",
     "@type": [
       "http://www.w3.org/ns/shacl#PropertyShape"
     ],

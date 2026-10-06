@@ -5,10 +5,10 @@ info:
   version: 0.1.0
 components:
   schemas:
-    EuroNormCode:
-      title: EuroNormCode
+    Euronorm:
+      title: Euronorm
       type: object
-      description: Enumeratie van EuroNormCode
+      description: Enumeratie van Euronorm
       properties:
         '@id':
           type: string
@@ -19,6 +19,16 @@ components:
       title: Brandstoftype
       type: object
       description: Enumeratie van Brandstoftype
+      properties:
+        '@id':
+          type: string
+          format: uri
+      required:
+        - '@id'
+    Motortype:
+      title: Motortype
+      type: object
+      description: Enumeratie van Motortype
       properties:
         '@id':
           type: string
@@ -264,7 +274,7 @@ components:
         eersteRegistratieDatum:
           $ref: '#/components/schemas/Voertuig.eersteRegistratieDatum'
         emissienorm:
-          $ref: '#/components/schemas/EuroNormCode'
+          $ref: '#/components/schemas/Euronorm'
         vin:
           $ref: '#/components/schemas/Identificator'
         voertuigMotor:
@@ -278,7 +288,7 @@ components:
     MotorSpecificatie:
       title: MotorSpecificatie
       type: object
-      description: Informatie over de motor van een Voertuig.
+      description: Informatie over de motor of motoren van een Voertuig.
       properties:
         '@id':
           type: string
@@ -289,13 +299,18 @@ components:
           pattern: ^MotorSpecificatie$
         brandstofType:
           type: array
-          description: Het type brandstof dat de motor aandrijft. Lijst van Brandstoftype items.
+          description: Het type brandstof dat geschikt is voor de motor of motoren van het voertuig. De waarde komt uit de codelijst Brandstoftype, die de IVI-brandstofcodes overneemt. Een motorspecificatie kan meerdere brandstoftypes hebben, bijvoorbeeld benzine en LPG. Lijst van Brandstoftype items.
           items:
             $ref: '#/components/schemas/Brandstoftype'
           minItems: 1
+        motorType:
+          type: array
+          description: 'Het type motor of motoren dat het voertuig aandrijft. De waarde komt uit de codelijst Motortype: verbrandingsmotor of elektromotor. Een motorSpecificatie kan meerdere motorTypes hebben om aan te geven dat één geregistreerde motorSpecificatie in werkelijkheid betrekking heeft op meerdere fysieke motoren. Tevens kan het motortype ook ontbreken wanneer het niet uit de bron kan worden afgeleid. Lijst van Motortype items.'
+          items:
+            $ref: '#/components/schemas/Motortype'
+          minItems: 1
       required:
         - '@type'
-        - brandstofType
     Wegenvignetregistratie.registratieDatum:
       title: Wegenvignetregistratie.registratieDatum
       description: Tijdstip waarop de Wegenvignetregistratie werd opgemaakt.
@@ -419,7 +434,7 @@ components:
       operationId: VoertuigGET
       parameters:
         id: $response.body#/Voertuig.emissienorm/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `EuroNormCode` op te halen.
+      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Euronorm` op te halen.
     Voertuig.vin:
       operationId: VoertuigGET
       parameters:
@@ -435,6 +450,11 @@ components:
       parameters:
         id: $response.body#/MotorSpecificatie.brandstofType/@id
       description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Brandstoftype` op te halen.
+    MotorSpecificatie.motorType:
+      operationId: MotorSpecificatieGET
+      parameters:
+        id: $response.body#/MotorSpecificatie.motorType/@id
+      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Motortype` op te halen.
     Wegenvignetregistratie.heeftVoertuigregistratie:
       operationId: WegenvignetregistratieGET
       parameters:
