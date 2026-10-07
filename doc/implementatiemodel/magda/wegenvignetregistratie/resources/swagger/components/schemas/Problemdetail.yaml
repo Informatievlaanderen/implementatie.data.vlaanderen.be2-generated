@@ -1,0 +1,26 @@
+title: Problemdetail
+type: object
+description: Meer gedetailleerde beschrijving van de fout in een HTTP response.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse Problemdetail)
+    pattern: ^Problemdetail$
+  detail:
+    $ref: '#/components/schemas/Problemdetail.detail'
+  instance:
+    $ref: '#/components/schemas/Problemdetail.instance'
+  status:
+    $ref: '#/components/schemas/Problemdetail.status'
+  title:
+    $ref: '#/components/schemas/Problemdetail.title'
+  type:
+    $ref: '#/components/schemas/Problemdetail.type'
+required:
+  - '@type'
+  - detail
+  - title
+  - type

@@ -1,0 +1,26 @@
+{
+  "title": "Wegenvignetregistratie",
+  "type": "object",
+  "description": "Inschrijving van een Voertuig voor een wegenvignet, dat het recht geeft om gedurende een bepaalde periode gebruik te maken van het wegennet.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Wegenvignetregistratie)",
+      "pattern": "^Wegenvignetregistratie$"
+    },
+    "registratieDatum": {
+      "$ref": "#/components/schemas/Wegenvignetregistratie.registratieDatum"
+    },
+    "heeftVoertuigregistratie": {
+      "$ref": "#/components/schemas/Registratie"
+    }
+  },
+  "required": [
+    "@type",
+    "heeftVoertuigregistratie"
+  ]
+}
