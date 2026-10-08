@@ -15,7 +15,6 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#VoertuigShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#MotorSpecificatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#WegenvignetregistratieShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#LanguageShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#StringShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#UriShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#IntegerShape>,
@@ -161,12 +160,6 @@
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#LangString>;
   shacl:closed false;
   shacl:targetClass rdf:langString .
-
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#LanguageShape> a shacl:NodeShape;
-  rdfs:label "Language";
-  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#Language>;
-  shacl:closed false;
-  shacl:targetClass xsd:language .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#MotorSpecificatieShape> a shacl:NodeShape;
   rdfs:label "MotorSpecificatie"@nl;
@@ -452,20 +445,10 @@
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
-    rdfs:label "language"@nl;
-    rdfs:comment "De taal van het antwoord."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#WegenvignetRegistratieEnvelop.Language>;
-    shacl:datatype xsd:language;
-    shacl:description "De taal van het antwoord."@nl;
-    shacl:maxCount 1;
-    shacl:name "language"@nl;
-    shacl:path dc:language
-  ], [
-    a shacl:PropertyShape;
     rdfs:label "data"@nl;
     rdfs:comment "De data die overgedragen werd."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#WegenvignetRegistratieEnvelop.Data>;
-    shacl:class <https://data.vlaanderen.be/ns/wegenvignetregistratie#Wegenvignetregistratie>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/wegenvignetregistratie#Wegenvignetregistratie>;
     shacl:description "De data die overgedragen werd."@nl;
     shacl:name "data"@nl;
     shacl:path schemas:data
@@ -480,7 +463,7 @@
     shacl:name "warning"@nl;
     shacl:path schemas:error
   ];
-  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/wegenvignetregistratie#WegenvignetRegistratieEnvelop> .
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/wegenvignetregistratie#WegenvignetregistratieEnvelop> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/wegenvignetregistratie/v0.1.0#WegenvignetregistratieShape> a shacl:NodeShape;
   rdfs:label "Wegenvignetregistratie"@nl;
@@ -508,6 +491,6 @@
     shacl:maxCount 1;
     shacl:minCount 1;
     shacl:name "heeftVoertuigregistratie"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/magda/wegenvignetregistratie#heeftVoertuigregistratie>
+    shacl:path <https://data.vlaanderen.be/ns/voertuigregistratie#heeftVoertuigregistratie>
   ];
-  shacl:targetClass <https://data.vlaanderen.be/ns/wegenvignetregistratie#Wegenvignetregistratie> .
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/wegenvignetregistratie#Wegenvignetregistratie> .
