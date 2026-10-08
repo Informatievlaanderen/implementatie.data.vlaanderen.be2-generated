@@ -1,6 +1,182 @@
 {
-  "baseURI": "https://data.vlaanderen.be/ns/wegenvignetregistratie#",
-  "classes": [],
+  "baseURI": "https://implementatie.data.vlaanderen.be/ns/magda/wegenvignetregistratie#",
+  "classes": [
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/wegenvignetregistratie#Wegenvignetregistratie",
+      "vocabularyLabel": {
+        "nl": "Wegenvignetregistratie"
+      },
+      "applicationProfileLabel": {
+        "nl": "Wegenvignetregistratie"
+      },
+      "vocabularyDefinition": {
+        "nl": "Inschrijving van een Voertuig voor een wegenvignet, dat het recht geeft om gedurende een bepaalde periode gebruik te maken van het wegennet."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Inschrijving van een Voertuig voor een wegenvignet, dat het recht geeft om gedurende een bepaalde periode gebruik te maken van het wegennet."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Verwijst naar de Registratie van het Voertuig in het nationale register."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Verwijst naar de Registratie van het Voertuig in het nationale register."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/voertuigregistratie#heeftVoertuigregistratie",
+          "vocabularyLabel": {
+            "nl": "heeftVoertuigregistratie"
+          },
+          "applicationProfileLabel": {
+            "nl": "heeftVoertuigregistratie"
+          },
+          "vocabularyDefinition": {
+            "nl": "De Registratie van het Voertuig waarvoor de Wegenvignetregistratie geldt."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De Registratie van het Voertuig waarvoor de Wegenvignetregistratie geldt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/wegenvignetregistratie#Wegenvignetregistratie",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/voertuigregistratie#Registratie",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Registratie"
+            },
+            "applicationProfileLabel": {
+              "nl": "Registratie"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/issued",
+          "vocabularyLabel": {
+            "nl": "registratieDatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "registratieDatum"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Tijdstip waarop de Wegenvignetregistratie werd opgemaakt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/wegenvignetregistratie#Wegenvignetregistratie",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/wegenvignetregistratie#WegenvignetregistratieEnvelope",
+      "vocabularyLabel": {
+        "nl": "WegenvignetRegistratieEnvelope"
+      },
+      "applicationProfileLabel": {
+        "nl": "WegenvignetRegistratieEnvelope"
+      },
+      "vocabularyDefinition": {
+        "nl": "Enveloppe om wegenvignetregistraties en bijhorende validatiewaarschuwing uit te wisselen."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Enveloppe om wegenvignetregistraties en bijhorende validatiewaarschuwing uit te wisselen."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."
+      },
+      "parents": [
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Envelope",
+          "vocabularyLabel": {
+            "nl": "Envelop"
+          },
+          "applicationProfileLabel": {
+            "nl": "Envelop"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "https://schema.org/data",
+          "vocabularyLabel": {
+            "nl": "^data"
+          },
+          "applicationProfileLabel": {
+            "nl": "data"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De data die overgedragen werd."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/wegenvignetregistratie#WegenvignetregistratieEnvelope",
+          "range": {
+            "id": "https://implementatie.data.vlaanderen.be/ns/magda/wegenvignetregistratie#Wegenvignetregistratie",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Wegenvignetregistratie"
+            },
+            "applicationProfileLabel": {
+              "nl": "Wegenvignetregistratie"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "https://schema.org/error",
+          "vocabularyLabel": {
+            "nl": "^warning"
+          },
+          "applicationProfileLabel": {
+            "nl": "warning"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Foutmeldingen die opgetreden zijn bij het afleveren van de data."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/wegenvignetregistratie#WegenvignetregistratieEnvelope",
+          "range": {
+            "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Uitzondering"
+            },
+            "applicationProfileLabel": {
+              "nl": "Uitzondering"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        }
+      ]
+    }
+  ],
   "dataTypes": [
     {
       "id": "https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator",

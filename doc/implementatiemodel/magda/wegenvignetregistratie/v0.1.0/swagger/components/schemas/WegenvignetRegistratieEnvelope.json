@@ -1,0 +1,40 @@
+{
+  "title": "WegenvignetRegistratieEnvelope",
+  "type": "object",
+  "description": "Enveloppe om wegenvignetregistraties en bijhorende validatiewaarschuwing uit te wisselen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse WegenvignetRegistratieEnvelope)",
+      "pattern": "^WegenvignetRegistratieEnvelope$"
+    },
+    "data": {
+      "type": "array",
+      "description": "De data die overgedragen werd. Lijst van Wegenvignetregistratie items.",
+      "items": {
+        "$ref": "#/components/schemas/Wegenvignetregistratie"
+      },
+      "minItems": 1
+    },
+    "warning": {
+      "type": "array",
+      "description": "Foutmeldingen die opgetreden zijn bij het afleveren van de data. Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen. Lijst van Uitzondering items.",
+      "items": {
+        "$ref": "#/components/schemas/Uitzondering"
+      },
+      "minItems": 1
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/magda\\/wegenvignetregistratie\\/v0.1.0\\/context\\/wegenvignetregistratie.jsonld$"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

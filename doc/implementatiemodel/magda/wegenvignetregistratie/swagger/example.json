@@ -12,17 +12,17 @@
     }
   ],
   "paths": {
-    "/id/WegenvignetRegistratieEnvelop/{id}": {
+    "/id/WegenvignetRegistratieEnvelope/{id}": {
       "get": {
         "summary": "Enveloppe om wegenvignetregistraties en bijhorende validatiewaarschuwing uit te wisselen.",
         "description": "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP.",
-        "operationId": "WegenvignetRegistratieEnvelopGET",
+        "operationId": "WegenvignetRegistratieEnvelopeGET",
         "parameters": [
           {
             "name": "id",
             "required": true,
             "in": "path",
-            "description": "Identificator van een WegenvignetRegistratieEnvelop object.",
+            "description": "Identificator van een WegenvignetRegistratieEnvelope object.",
             "schema": {
               "type": "string"
             }
@@ -30,26 +30,26 @@
         ],
         "responses": {
           "200": {
-            "description": "WegenvignetRegistratieEnvelop object gevonden.",
+            "description": "WegenvignetRegistratieEnvelope object gevonden.",
             "content": {
               "application/ld+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WegenvignetRegistratieEnvelop"
+                  "$ref": "#/components/schemas/WegenvignetRegistratieEnvelope"
                 }
               }
             },
             "links": {
-              "WegenvignetRegistratieEnvelop.data": {
-                "operationId": "WegenvignetRegistratieEnvelopGET",
+              "WegenvignetRegistratieEnvelope.data": {
+                "operationId": "WegenvignetRegistratieEnvelopeGET",
                 "parameters": {
-                  "id": "$response.body#/WegenvignetRegistratieEnvelop.data/@id"
+                  "id": "$response.body#/WegenvignetRegistratieEnvelope.data/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Wegenvignetregistratie` op te halen."
               },
-              "WegenvignetRegistratieEnvelop.warning": {
-                "operationId": "WegenvignetRegistratieEnvelopGET",
+              "WegenvignetRegistratieEnvelope.warning": {
+                "operationId": "WegenvignetRegistratieEnvelopeGET",
                 "parameters": {
-                  "id": "$response.body#/WegenvignetRegistratieEnvelop.warning/@id"
+                  "id": "$response.body#/WegenvignetRegistratieEnvelope.warning/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Uitzondering` op te halen."
               }
@@ -66,7 +66,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "WegenvignetRegistratieEnvelopGET",
+                "operationId": "WegenvignetRegistratieEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -85,7 +85,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "WegenvignetRegistratieEnvelopGET",
+                "operationId": "WegenvignetRegistratieEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -104,7 +104,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "WegenvignetRegistratieEnvelopGET",
+                "operationId": "WegenvignetRegistratieEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -123,7 +123,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "WegenvignetRegistratieEnvelopGET",
+                "operationId": "WegenvignetRegistratieEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -142,7 +142,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "WegenvignetRegistratieEnvelopGET",
+                "operationId": "WegenvignetRegistratieEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -161,7 +161,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "WegenvignetRegistratieEnvelopGET",
+                "operationId": "WegenvignetRegistratieEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -180,7 +180,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "WegenvignetRegistratieEnvelopGET",
+                "operationId": "WegenvignetRegistratieEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -199,7 +199,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "WegenvignetRegistratieEnvelopGET",
+                "operationId": "WegenvignetRegistratieEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -218,7 +218,7 @@
             },
             "links": {
               "Problemdetail.type": {
-                "operationId": "WegenvignetRegistratieEnvelopGET",
+                "operationId": "WegenvignetRegistratieEnvelopeGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -339,8 +339,8 @@
         "type": "string",
         "format": "uri"
       },
-      "WegenvignetRegistratieEnvelop": {
-        "title": "WegenvignetRegistratieEnvelop",
+      "WegenvignetRegistratieEnvelope": {
+        "title": "WegenvignetRegistratieEnvelope",
         "type": "object",
         "description": "Enveloppe om wegenvignetregistraties en bijhorende validatiewaarschuwing uit te wisselen.",
         "properties": {
@@ -350,8 +350,8 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse WegenvignetRegistratieEnvelop)",
-            "pattern": "^WegenvignetRegistratieEnvelop$"
+            "description": "Object type (klasse WegenvignetRegistratieEnvelope)",
+            "pattern": "^WegenvignetRegistratieEnvelope$"
           },
           "data": {
             "type": "array",
