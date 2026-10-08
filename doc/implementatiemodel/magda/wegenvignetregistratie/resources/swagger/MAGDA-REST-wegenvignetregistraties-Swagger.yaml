@@ -1,4 +1,4 @@
-openapi: 3.0.4
+openapi: 3.1.0
 info:
   title: magda wegenvignetregistraties REST
   description: OSLO-conforme REST API voor informatie over wegenvignetregistratie
@@ -39,7 +39,7 @@ paths:
           content:
             application/ld+json:
               schema:
-                $ref: '#/components/schemas/WegenvignetRegistratieEnvelop'
+                $ref: '#/components/schemas/WegenvignetRegistratieEnvelope'
         '400':
           description: Invalid data supplied.
           content:
@@ -176,13 +176,8 @@ components:
       description: Aard van de fout.
       type: string
       format: uri
-    WegenvignetRegistratieEnvelop.language:
-      title: WegenvignetRegistratieEnvelop.language
-      description: De taal van het antwoord.
-      type: string
-      pattern: ^[a-z]{2,3}(-[A-Z]{2})?
-    WegenvignetRegistratieEnvelop:
-      title: WegenvignetRegistratieEnvelop
+    WegenvignetRegistratieEnvelope:
+      title: WegenvignetRegistratieEnvelope
       type: object
       description: Enveloppe om wegenvignetregistraties en bijhorende validatiewaarschuwing uit te wisselen.
       properties:
@@ -191,10 +186,8 @@ components:
           format: uri
         '@type':
           type: string
-          description: Object type (klasse WegenvignetRegistratieEnvelop)
-          pattern: ^WegenvignetRegistratieEnvelop$
-        language:
-          $ref: '#/components/schemas/WegenvignetRegistratieEnvelop.language'
+          description: Object type (klasse WegenvignetRegistratieEnvelope)
+          pattern: ^WegenvignetRegistratieEnvelope$
         data:
           type: array
           description: De data die overgedragen werd. Lijst van Wegenvignetregistratie items.
