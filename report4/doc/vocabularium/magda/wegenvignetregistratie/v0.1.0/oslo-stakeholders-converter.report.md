@@ -2,9 +2,15 @@
 
 #||# -------------------------------------
 
-2026-10-08T20:56:18.276Z warn: Unable to find the contributor type for "AuteurVoornaam AuteurNaam" using column "Rol". Please make sure this column has a value set for this person.
+2026-10-09T13:26:04.128Z warn: Unable to find the contributor type for "Stijn Denis" using column "Rol". Please make sure this column has a value set for this person.
 
-2026-10-08T20:56:18.277Z warn: Unable to find the contributor type for "EditorVoornaam EditorNaam" using column "Rol". Please make sure this column has a value set for this person.
+2026-10-09T13:26:04.129Z warn: Unable to find the contributor type for "Dylan Van Assche" using column "Rol". Please make sure this column has a value set for this person.
 
-2026-10-08T20:56:18.278Z warn: Unable to find the contributor type for "MedewerkerVoornaam MedewerkerNaam" using column "Rol". Please make sure this column has a value set for this person.
+2026-10-09T13:26:04.129Z warn: Unable to find the contributor type for "Emiel Dhondt" using column "Rol". Please make sure this column has a value set for this person.
+
+2026-10-09T13:26:04.130Z warn: Unable to find the contributor type for "Geert Thijs" using column "Rol". Please make sure this column has a value set for this person.
+
+2026-10-09T13:26:04.130Z warn: Unable to find the contributor type for "Nathalie Tang" using column "Rol". Please make sure this column has a value set for this person.
+
+2026-10-09T13:26:04.130Z warn: Unable to find the contributor type for "Stijn Michiels" using column "Rol". Please make sure this column has a value set for this person.
 

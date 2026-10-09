@@ -1,17 +1,17 @@
 openapi: 3.1.0
 info:
-  title: magda wegenvignetregistraties REST
+  title: MAGDA Wegenvignetregistraties REST
   description: OSLO-conforme REST API voor informatie over wegenvignetregistratie
   version: 0.1.0
 servers:
   - url: https://implementatie.data.test-vlaanderen.be
     description: Basis URL
 paths:
-  /id/WegenvignetRegistratieEnvelop/{Nummerplaat}:
+  /WegenvignetRegistratieEnvelope:
     get:
       summary: Enveloppe om wegenvignetregistraties en bijhorende validatiewaarschuwing uit te wisselen.
       description: Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP.
-      operationId: WegenvignetRegistratieEnvelopGET
+      operationId: WegenvignetRegistratieEnvelopeGET
       parameters:
         - name: X-Correlation-Id
           required: true
@@ -35,7 +35,7 @@ paths:
             type: string
       responses:
         '200':
-          description: WegenvignetRegistratieEnvelop object gevonden.
+          description: WegenvignetRegistratieEnvelope object gevonden.
           content:
             application/ld+json:
               schema:
@@ -131,8 +131,16 @@ components:
         '@id':
           type: string
           format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Euronorm)
+          pattern: ^Euronorm$
+        code:
+          $ref: '#/components/schemas/Euronorm.code'
+        voorkeursnaam:
+          $ref: '#/components/schemas/Euronorm.voorkeursnaam'
       required:
-        - '@id'
+        - '@type'
     Brandstoftype:
       title: Brandstoftype
       type: object
@@ -141,8 +149,16 @@ components:
         '@id':
           type: string
           format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Brandstoftype)
+          pattern: ^Brandstoftype$
+        code:
+          $ref: '#/components/schemas/Brandstoftype.code'
+        voorkeursnaam:
+          $ref: '#/components/schemas/Brandstoftype.voorkeursnaam'
       required:
-        - '@id'
+        - '@type'
     Motortype:
       title: Motortype
       type: object
@@ -151,8 +167,16 @@ components:
         '@id':
           type: string
           format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Motortype)
+          pattern: ^Motortype$
+        code:
+          $ref: '#/components/schemas/Motortype.code'
+        voorkeursnaam:
+          $ref: '#/components/schemas/Motortype.voorkeursnaam'
       required:
-        - '@id'
+        - '@type'
     Problemdetail.detail:
       title: Problemdetail.detail
       description: Mensleesbare beschrijving van de fout.
@@ -206,6 +230,30 @@ components:
           pattern: ^https:\/\/implementatie.data.test-vlaanderen.be\/doc\/implementatiemodel\/magda\/wegenvignetregistratie\/v0.1.0\/context\/wegenvignetregistratie.jsonld$
       required:
         - '@type'
+    Motortype.code:
+      title: Motortype.code
+      description: Code waarmee het concept binnen de codelijst wordt aangeduid.
+      type: string
+    Motortype.voorkeursnaam:
+      title: Motortype.voorkeursnaam
+      description: Naam waarmee het concept bij voorkeur wordt aangeduid.
+      type: string
+    Euronorm.code:
+      title: Euronorm.code
+      description: Code waarmee het concept binnen de codelijst wordt aangeduid.
+      type: string
+    Euronorm.voorkeursnaam:
+      title: Euronorm.voorkeursnaam
+      description: Naam waarmee het concept bij voorkeur wordt aangeduid.
+      type: string
+    Brandstoftype.code:
+      title: Brandstoftype.code
+      description: Code waarmee het concept binnen de codelijst wordt aangeduid.
+      type: string
+    Brandstoftype.voorkeursnaam:
+      title: Brandstoftype.voorkeursnaam
+      description: Naam waarmee het concept bij voorkeur wordt aangeduid.
+      type: string
     Concept.code:
       title: Concept.code
       description: Code waarmee het concept binnen de codelijst wordt aangeduid.
@@ -358,7 +406,7 @@ components:
         eersteRegistratieDatum:
           $ref: '#/components/schemas/Voertuig.eersteRegistratieDatum'
         emissienorm:
-          $ref: '#/components/schemas/Concept'
+          $ref: '#/components/schemas/Euronorm'
         vin:
           $ref: '#/components/schemas/Identificator'
         voertuigMotor:
@@ -385,13 +433,13 @@ components:
           type: array
           description: Het type brandstof dat geschikt is voor de motor of motoren van het voertuig. De waarde komt uit de codelijst Brandstoftype, die de IVI-brandstofcodes overneemt. Een motorspecificatie kan meerdere brandstoftypes hebben, bijvoorbeeld benzine en LPG. Lijst van Brandstoftype items.
           items:
-            $ref: '#/components/schemas/Concept'
+            $ref: '#/components/schemas/Brandstoftype'
           minItems: 1
         motorType:
           type: array
           description: 'Het type motor of motoren dat het voertuig aandrijft. De waarde komt uit de codelijst Motortype: verbrandingsmotor of elektromotor. Een motorSpecificatie kan meerdere motorTypes hebben om aan te geven dat één geregistreerde motorSpecificatie in werkelijkheid betrekking heeft op meerdere fysieke motoren. Tevens kan het motortype ook ontbreken wanneer het niet uit de bron kan worden afgeleid. Lijst van Motortype items.'
           items:
-            $ref: '#/components/schemas/Concept'
+            $ref: '#/components/schemas/Motortype'
           minItems: 1
       required:
         - '@type'

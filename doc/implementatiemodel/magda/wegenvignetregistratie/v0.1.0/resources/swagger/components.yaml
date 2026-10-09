@@ -1,63 +1,10 @@
-openapi: 3.0.4
+openapi: 3.1.0
 info:
-  title: Components of magda wegenvignetregistratie REST
+  title: Components of MAGDA Wegenvignetregistratie REST
   description: OSLO-conforme REST API voor informatie over wegenvignetregistratie
   version: 0.1.0
 components:
   schemas:
-    Euronorm:
-      title: Euronorm
-      type: object
-      description: Enumeratie van Euronorm
-      properties:
-        '@id':
-          type: string
-          format: uri
-      required:
-        - '@id'
-    Brandstoftype:
-      title: Brandstoftype
-      type: object
-      description: Enumeratie van Brandstoftype
-      properties:
-        '@id':
-          type: string
-          format: uri
-      required:
-        - '@id'
-    Motortype:
-      title: Motortype
-      type: object
-      description: Enumeratie van Motortype
-      properties:
-        '@id':
-          type: string
-          format: uri
-      required:
-        - '@id'
-    Problemdetail.detail:
-      title: Problemdetail.detail
-      description: Mensleesbare beschrijving van de fout.
-      type: string
-    Problemdetail.instance:
-      title: Problemdetail.instance
-      description: 'Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.'
-      type: string
-      format: uri
-    Problemdetail.status:
-      title: Problemdetail.status
-      description: 'HTTP foutcode. Zoals beschreven in <a href="https://www.rfc-editor.org/rfc/rfc7231">RFC7231</a>. Bijvoorbeeld: 404 voor "Not Found".'
-      type: number
-      format: int64
-    Problemdetail.title:
-      title: Problemdetail.title
-      description: Korte mensleesbare beschrijving van de fout.
-      type: string
-    Problemdetail.type:
-      title: Problemdetail.type
-      description: Aard van de fout.
-      type: string
-      format: uri
     Problemdetail:
       title: Problemdetail
       type: object
@@ -85,6 +32,83 @@ components:
         - detail
         - title
         - type
+    Euronorm:
+      title: Euronorm
+      type: object
+      description: Enumeratie van Euronorm
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Euronorm)
+          pattern: ^Euronorm$
+        code:
+          $ref: '#/components/schemas/Euronorm.code'
+        voorkeursnaam:
+          $ref: '#/components/schemas/Euronorm.voorkeursnaam'
+      required:
+        - '@type'
+    Brandstoftype:
+      title: Brandstoftype
+      type: object
+      description: Enumeratie van Brandstoftype
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Brandstoftype)
+          pattern: ^Brandstoftype$
+        code:
+          $ref: '#/components/schemas/Brandstoftype.code'
+        voorkeursnaam:
+          $ref: '#/components/schemas/Brandstoftype.voorkeursnaam'
+      required:
+        - '@type'
+    Motortype:
+      title: Motortype
+      type: object
+      description: Enumeratie van Motortype
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Motortype)
+          pattern: ^Motortype$
+        code:
+          $ref: '#/components/schemas/Motortype.code'
+        voorkeursnaam:
+          $ref: '#/components/schemas/Motortype.voorkeursnaam'
+      required:
+        - '@type'
+    Problemdetail.detail:
+      title: Problemdetail.detail
+      description: Mensleesbare beschrijving van de fout.
+      type: string
+    Problemdetail.instance:
+      title: Problemdetail.instance
+      description: 'Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.'
+      type: string
+      format: uri
+    Problemdetail.status:
+      title: Problemdetail.status
+      description: 'HTTP foutcode. Zoals beschreven in <a href="https://www.rfc-editor.org/rfc/rfc7231">RFC7231</a>. Bijvoorbeeld: 404 voor "Not Found".'
+      type: number
+      format: int64
+    Problemdetail.title:
+      title: Problemdetail.title
+      description: Korte mensleesbare beschrijving van de fout.
+      type: string
+    Problemdetail.type:
+      title: Problemdetail.type
+      description: Aard van de fout.
+      type: string
+      format: uri
     WegenvignetRegistratieEnvelope:
       title: WegenvignetRegistratieEnvelope
       type: object
@@ -115,6 +139,30 @@ components:
           pattern: ^https:\/\/implementatie.data.test-vlaanderen.be\/doc\/implementatiemodel\/magda\/wegenvignetregistratie\/v0.1.0\/context\/wegenvignetregistratie.jsonld$
       required:
         - '@type'
+    Motortype.code:
+      title: Motortype.code
+      description: Code waarmee het concept binnen de codelijst wordt aangeduid.
+      type: string
+    Motortype.voorkeursnaam:
+      title: Motortype.voorkeursnaam
+      description: Naam waarmee het concept bij voorkeur wordt aangeduid.
+      type: string
+    Euronorm.code:
+      title: Euronorm.code
+      description: Code waarmee het concept binnen de codelijst wordt aangeduid.
+      type: string
+    Euronorm.voorkeursnaam:
+      title: Euronorm.voorkeursnaam
+      description: Naam waarmee het concept bij voorkeur wordt aangeduid.
+      type: string
+    Brandstoftype.code:
+      title: Brandstoftype.code
+      description: Code waarmee het concept binnen de codelijst wordt aangeduid.
+      type: string
+    Brandstoftype.voorkeursnaam:
+      title: Brandstoftype.voorkeursnaam
+      description: Naam waarmee het concept bij voorkeur wordt aangeduid.
+      type: string
     Concept.code:
       title: Concept.code
       description: Code waarmee het concept binnen de codelijst wordt aangeduid.
@@ -377,79 +425,3 @@ components:
           $ref: '#/components/schemas/GestructureerdeIdentificator'
       required:
         - '@type'
-  links:
-    WegenvignetRegistratieEnvelope.data:
-      operationId: WegenvignetRegistratieEnvelopeGET
-      parameters:
-        id: $response.body#/WegenvignetRegistratieEnvelope.data/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Wegenvignetregistratie` op te halen.
-    WegenvignetRegistratieEnvelope.warning:
-      operationId: WegenvignetRegistratieEnvelopeGET
-      parameters:
-        id: $response.body#/WegenvignetRegistratieEnvelope.warning/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Uitzondering` op te halen.
-    Registratie.nummerplaat:
-      operationId: RegistratieGET
-      parameters:
-        id: $response.body#/Registratie.nummerplaat/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Nummerplaat` op te halen.
-    Registratie.voertuig:
-      operationId: RegistratieGET
-      parameters:
-        id: $response.body#/Registratie.voertuig/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Voertuig` op te halen.
-    Nummerplaat.registratienummer:
-      operationId: NummerplaatGET
-      parameters:
-        id: $response.body#/Nummerplaat.registratienummer/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen.
-    Uitzondering.oorsprong:
-      operationId: UitzonderingGET
-      parameters:
-        id: $response.body#/Uitzondering.oorsprong/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Concept` op te halen.
-    Uitzondering.type:
-      operationId: UitzonderingGET
-      parameters:
-        id: $response.body#/Uitzondering.type/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Concept` op te halen.
-    Uitzondering.omstandigheid:
-      operationId: UitzonderingGET
-      parameters:
-        id: $response.body#/Uitzondering.omstandigheid/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Concept` op te halen.
-    Uitzondering.annotatie:
-      operationId: UitzonderingGET
-      parameters:
-        id: $response.body#/Uitzondering.annotatie/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Annotatie` op te halen.
-    Voertuig.emissienorm:
-      operationId: VoertuigGET
-      parameters:
-        id: $response.body#/Voertuig.emissienorm/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Euronorm` op te halen.
-    Voertuig.vin:
-      operationId: VoertuigGET
-      parameters:
-        id: $response.body#/Voertuig.vin/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen.
-    Voertuig.voertuigMotor:
-      operationId: VoertuigGET
-      parameters:
-        id: $response.body#/Voertuig.voertuigMotor/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `MotorSpecificatie` op te halen.
-    MotorSpecificatie.brandstofType:
-      operationId: MotorSpecificatieGET
-      parameters:
-        id: $response.body#/MotorSpecificatie.brandstofType/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Brandstoftype` op te halen.
-    MotorSpecificatie.motorType:
-      operationId: MotorSpecificatieGET
-      parameters:
-        id: $response.body#/MotorSpecificatie.motorType/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Motortype` op te halen.
-    Wegenvignetregistratie.heeftVoertuigregistratie:
-      operationId: WegenvignetregistratieGET
-      parameters:
-        id: $response.body#/Wegenvignetregistratie.heeftVoertuigregistratie/@id
-      description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Registratie` op te halen.
