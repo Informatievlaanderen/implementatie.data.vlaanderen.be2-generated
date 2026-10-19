@@ -1,5 +1,7 @@
 #||# checking publication points in directory /home/circleci/project/config/dev
 #||# 
+#||#   + adding supporting /home/circleci/project/config/dev/landbouwgebruiksperceel-im.publication.json
+#||#  
 #||#   + adding supporting /home/circleci/project/config/dev/persoon-im.publication.json
 #||#  
 #||#   + adding supporting /home/circleci/project/config/dev/wegenvignetregistratie-im.publication.json

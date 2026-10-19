@@ -1,0 +1,89 @@
+{
+  "title": "GeregistreerdeOrganisatie",
+  "type": "object",
+  "description": "Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse GeregistreerdeOrganisatie)",
+      "pattern": "^GeregistreerdeOrganisatie$"
+    },
+    "status": {
+      "type": "array",
+      "description": "Toestand van de Organisatie. Specialisatie van classificatie (naast type & activiteit). Lijst van OrganisatieStatus items.",
+      "items": {
+        "$ref": "#/components/schemas/OrganisatieStatus"
+      },
+      "minItems": 1
+    },
+    "rechtspersoonlijkheid": {
+      "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
+    },
+    "registratie": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "rechtsvorm": {
+      "$ref": "#/components/schemas/Rechtsvormtype"
+    },
+    "voorkeursnaam": {
+      "$ref": "#/components/schemas/GeregistreerdeOrganisatie.voorkeursnaam"
+    },
+    "type": {
+      "type": "array",
+      "description": "Soort organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van OrganisatieType items.",
+      "items": {
+        "$ref": "#/components/schemas/OrganisatieType"
+      },
+      "minItems": 1
+    },
+    "contactinfo": {
+      "type": "array",
+      "description": "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren. Lijst van Contactpunt items.",
+      "items": {
+        "$ref": "#/components/schemas/Contactpunt"
+      },
+      "minItems": 1
+    },
+    "activiteit": {
+      "type": "array",
+      "description": "Type activiteit die door de Organisatie wordt uitgeoefend. Lijst van LandbouwActiviteit items.",
+      "items": {
+        "$ref": "#/components/schemas/LandbouwActiviteit"
+      },
+      "minItems": 1
+    },
+    "lid": {
+      "type": "array",
+      "description": "Agent die lid is van een Organisatie. Lijst van Persoon items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Persoon"
+          },
+          {
+            "$ref": "#/components/schemas/GeregistreerdPersoon"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Persoon": "#/components/schemas/Persoon",
+            "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    }
+  },
+  "required": [
+    "@type",
+    "registratie"
+  ]
+}
