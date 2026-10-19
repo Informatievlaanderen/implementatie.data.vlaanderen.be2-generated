@@ -48,6 +48,17 @@
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
+    rdfs:label "gemeentecode"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: NIS-code. Afgeleid veld van de identificator van OSLO Generiek <a href=\"https://data.vlaanderen.be/ns/generiek/#Gemeente\">Gemeente</a>."@nl;
+    rdfs:comment "Alfanumerieke code die de gemeente identificeert."@nl;
+    rdfs:seeAlso <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#Adresvoorstelling.Gemeentecode>;
+    shacl:datatype xsd:string;
+    shacl:description "Alfanumerieke code die de gemeente identificeert."@nl;
+    shacl:maxCount 1;
+    shacl:name "gemeentecode"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#gemeentecode>
+  ], [
+    a shacl:PropertyShape;
     rdfs:label "busnummer"@nl;
     <http://purl.org/vocab/vann/usageNote> "Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen."@nl;
     rdfs:comment "Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben."@nl;
@@ -140,17 +151,6 @@
     shacl:maxCount 1;
     shacl:name "verwijstNaar"@nl;
     shacl:path <https://data.vlaanderen.be/ns/adres#verwijstNaar>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "gemeentecode"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: NIS-code. Afgeleid veld van de identificator van OSLO Generiek <a href=\"https://data.vlaanderen.be/ns/generiek/#Gemeente\">Gemeente</a>."@nl;
-    rdfs:comment "Alfanumerieke code die de gemeente identificeert."@nl;
-    rdfs:seeAlso <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#Adresvoorstelling.Gemeentecode>;
-    shacl:datatype xsd:string;
-    shacl:description "Alfanumerieke code die de gemeente identificeert."@nl;
-    shacl:maxCount 1;
-    shacl:name "gemeentecode"@nl;
-    shacl:path <https://implementatie.data.vlaanderen.be/ns/lv/landbouwgebruiksperceel#gemeentecode>
   ];
   shacl:targetClass <http://www.w3.org/ns/locn#Address> .
 
@@ -324,11 +324,53 @@
   ];
   shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
 
+<https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#IdentificatortypeShape> shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "code"@nl;
+    rdfs:comment "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#Identificatortype.Code>;
+    shacl:description "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "code"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#Identificatortype.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ] .
+
 <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#IntegerShape> a shacl:NodeShape;
   rdfs:label "Integer";
   rdfs:seeAlso <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#Integer>;
   shacl:closed false;
   shacl:targetClass xsd:integer .
+
+<https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#LandbouwActiviteitShape> shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "code"@nl;
+    rdfs:comment "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#LandbouwActiviteit.Code>;
+    shacl:description "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "code"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#LandbouwActiviteit.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ] .
 
 <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#LandbouwgebruiksperceelShape> a shacl:NodeShape;
   rdfs:label "Landbouwgebruiksperceel"@nl;
@@ -423,6 +465,48 @@
   ];
   shacl:targetClass org:Organization,
     <http://www.w3.org/ns/regorg#RegisteredOrganization> .
+
+<https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#OrganisatieStatusShape> shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "code"@nl;
+    rdfs:comment "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#OrganisatieStatus.Code>;
+    shacl:description "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "code"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#OrganisatieStatus.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ] .
+
+<https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#OrganisatieTypeShape> shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "code"@nl;
+    rdfs:comment "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#OrganisatieType.Code>;
+    shacl:description "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "code"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#OrganisatieType.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ] .
 
 <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#OverlijdenShape> a shacl:NodeShape;
   rdfs:label "Overlijden"@nl;
@@ -566,6 +650,48 @@
     shacl:path dc:type
   ];
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail> .
+
+<https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#RechtspersoonlijkheidtypeShape> shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "code"@nl;
+    rdfs:comment "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#Rechtspersoonlijkheidtype.Code>;
+    shacl:description "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "code"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#Rechtspersoonlijkheidtype.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ] .
+
+<https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#RechtsvormtypeShape> shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "code"@nl;
+    rdfs:comment "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#Rechtsvormtype.Code>;
+    shacl:description "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "code"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#Rechtsvormtype.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ] .
 
 <https://implementatie.data.dev-vlaanderen.be/doc/implementatiemodel/lv/landbouwgebruiksperceel/kristof#StringShape> a shacl:NodeShape;
   rdfs:label "String";
