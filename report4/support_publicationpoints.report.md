@@ -2,6 +2,8 @@
 #||# 
 #||#   + adding supporting /home/circleci/project/config/dev/persoon-im.publication.json
 #||#  
+#||#   + adding supporting /home/circleci/project/config/dev/wegenvignetregistratie-im.publication.json
+#||#  
 Error: the following directories are unsupported
 [
   "/tmp/generated/doc/implementatiemodel/magda/persoon/v0.0.1",

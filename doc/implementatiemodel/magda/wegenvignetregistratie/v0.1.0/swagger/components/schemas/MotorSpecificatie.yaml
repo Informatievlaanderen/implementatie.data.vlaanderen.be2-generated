@@ -1,0 +1,25 @@
+title: MotorSpecificatie
+type: object
+description: Informatie over de motor of motoren van een Voertuig.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse MotorSpecificatie)
+    pattern: ^MotorSpecificatie$
+  brandstofType:
+    type: array
+    description: Het type brandstof dat geschikt is voor de motor of motoren van het voertuig. De waarde komt uit de codelijst Brandstoftype, die de IVI-brandstofcodes overneemt. Een motorspecificatie kan meerdere brandstoftypes hebben, bijvoorbeeld benzine en LPG. Lijst van Brandstoftype items.
+    items:
+      $ref: '#/components/schemas/Brandstoftype'
+    minItems: 1
+  motorType:
+    type: array
+    description: 'Het type motor of motoren dat het voertuig aandrijft. De waarde komt uit de codelijst Motortype: verbrandingsmotor of elektromotor. Een motorSpecificatie kan meerdere motorTypes hebben om aan te geven dat één geregistreerde motorSpecificatie in werkelijkheid betrekking heeft op meerdere fysieke motoren. Tevens kan het motortype ook ontbreken wanneer het niet uit de bron kan worden afgeleid. Lijst van Motortype items.'
+    items:
+      $ref: '#/components/schemas/Motortype'
+    minItems: 1
+required:
+  - '@type'

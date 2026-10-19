@@ -1,0 +1,16 @@
+#||# oslo-converter-ea for diagram Wegenvignetregistratie
+
+#||# -------------------------------------
+
+2026-10-19T08:54:19.966Z info: Connector Model:Wegenvignetregistratie:OSLO-Voertuigregistratie:Registratie:(Registratie -> Nummerplaat) is not an association with a source role. Ignoring this connector.
+
+2026-10-19T08:54:19.968Z info: Connector Model:Wegenvignetregistratie:Schema.org:Voertuig:(Voertuig -> MotorSpecificatie) is not an association with a source role. Ignoring this connector.
+
+2026-10-19T08:54:19.969Z info: Connector Model:Wegenvignetregistratie:OSLO-Wegenvignetregistratie:Wegenvignetregistratie:(Wegenvignetregistratie -> Registratie) is not an association with a source role. Ignoring this connector.
+
+2026-10-19T08:54:19.969Z info: Connector Model:Wegenvignetregistratie:OSLO-Voertuigregistratie:Registratie:(Registratie -> Voertuig) is not an association with a source role. Ignoring this connector.
+
+2026-10-19T08:54:19.970Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+
+#||# -------------------------------------
+

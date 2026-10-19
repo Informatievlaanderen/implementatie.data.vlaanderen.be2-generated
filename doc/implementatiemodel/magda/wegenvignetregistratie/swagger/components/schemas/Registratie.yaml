@@ -1,0 +1,17 @@
+title: Registratie
+type: object
+description: Inschrijving van een Voertuig in een nationaal register.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse Registratie)
+    pattern: ^Registratie$
+  nummerplaat:
+    $ref: '#/components/schemas/Nummerplaat'
+  voertuig:
+    $ref: '#/components/schemas/Voertuig'
+required:
+  - '@type'
