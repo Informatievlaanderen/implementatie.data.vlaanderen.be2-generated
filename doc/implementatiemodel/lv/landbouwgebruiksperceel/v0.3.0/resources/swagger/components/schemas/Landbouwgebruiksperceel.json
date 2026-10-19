@@ -1,0 +1,54 @@
+{
+  "title": "Landbouwgebruiksperceel",
+  "type": "object",
+  "description": "Een landbouwgebruiksperceel is een aaneengesloten stuk grond dat door een landbouwer wordt gebruikt voor landbouwactiviteiten.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Landbouwgebruiksperceel)",
+      "pattern": "^Landbouwgebruiksperceel$"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "gebruiker": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        },
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Organisatie": "#/components/schemas/Organisatie",
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon",
+          "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
+        }
+      }
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/lv\\/landbouwgebruiksperceel\\/v0.3.0\\/context\\/landbouwgebruiksperceel.jsonld$"
+    }
+  },
+  "required": [
+    "@type",
+    "identificator",
+    "gebruiker"
+  ]
+}

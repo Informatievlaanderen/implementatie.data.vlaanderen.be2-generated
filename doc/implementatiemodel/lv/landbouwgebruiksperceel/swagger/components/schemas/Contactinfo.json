@@ -1,0 +1,33 @@
+{
+  "title": "Contactinfo",
+  "type": "object",
+  "description": "Informatie zoals email, telefoon, adres die toelaat om iemand of iets te contacteren.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Contactinfo)",
+      "pattern": "^Contactinfo$"
+    },
+    "email": {
+      "$ref": "#/components/schemas/Contactinfo.email"
+    },
+    "telefoon": {
+      "type": "array",
+      "description": "Telefoonnummer waarop men kan bellen. Lijst van Literal items.",
+      "items": {
+        "$ref": "#/components/schemas/Contactinfo.telefoon"
+      },
+      "minItems": 1
+    },
+    "adres": {
+      "$ref": "#/components/schemas/Adresvoorstelling"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}
