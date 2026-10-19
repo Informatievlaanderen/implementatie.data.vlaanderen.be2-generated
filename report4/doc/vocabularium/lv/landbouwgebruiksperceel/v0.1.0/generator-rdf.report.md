@@ -2,5 +2,5 @@
 
 #||# -------------------------------------  
 
-2026-10-19T13:31:53.202Z error: Unable to find the definition for class [[urn:oslo-toolchain:7d0c74a1a85e6f13ed5c9c1239ce01e15ad4b7c4f609f7b5894147b62773e730](all-landbouwgebruiksperceel.jsonld#L2346)](all-landbouwgebruiksperceel.jsonld#L522).
+2026-10-19T14:19:26.204Z error: Unable to find the definition for class [[urn:oslo-toolchain:7d0c74a1a85e6f13ed5c9c1239ce01e15ad4b7c4f609f7b5894147b62773e730](all-landbouwgebruiksperceel.jsonld#L2346)](all-landbouwgebruiksperceel.jsonld#L522).
 
