@@ -36,17 +36,30 @@
       "type": "array",
       "description": "Soort organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van OrganisatieType items.",
       "items": {
-        "$ref": "#/components/schemas/OrganisatieType"
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/OrganisatieType"
+          },
+          {
+            "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
+          },
+          {
+            "$ref": "#/components/schemas/Rechtsvormtype"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "OrganisatieType": "#/components/schemas/OrganisatieType",
+            "Rechtspersoonlijkheidtype": "#/components/schemas/Rechtspersoonlijkheidtype",
+            "Rechtsvormtype": "#/components/schemas/Rechtsvormtype"
+          }
+        }
       },
       "minItems": 1
     },
     "contactinfo": {
-      "type": "array",
-      "description": "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren. Lijst van Contactpunt items.",
-      "items": {
-        "$ref": "#/components/schemas/Contactpunt"
-      },
-      "minItems": 1
+      "$ref": "#/components/schemas/Contactinfo"
     },
     "activiteit": {
       "type": "array",

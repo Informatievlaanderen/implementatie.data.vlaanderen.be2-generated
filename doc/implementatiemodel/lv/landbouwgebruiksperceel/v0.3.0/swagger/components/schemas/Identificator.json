@@ -1,0 +1,47 @@
+{
+  "title": "Identificator",
+  "type": "object",
+  "description": "Informatie gebruikt om een object uniek te identificeren.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Identificator)",
+      "pattern": "^Identificator$"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator.identificator"
+    },
+    "toegekendDoor": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        },
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdeOrganisatie"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Organisatie": "#/components/schemas/Organisatie",
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon",
+          "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

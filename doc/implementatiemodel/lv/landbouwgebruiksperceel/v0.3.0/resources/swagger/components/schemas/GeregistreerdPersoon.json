@@ -1,0 +1,54 @@
+{
+  "title": "GeregistreerdPersoon",
+  "type": "object",
+  "description": "Persoon waarvan de gegevens zijn ingeschreven in een register.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse GeregistreerdPersoon)",
+      "pattern": "^GeregistreerdPersoon$"
+    },
+    "registratie": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "isOverleden": {
+      "$ref": "#/components/schemas/GeregistreerdPersoon.isOverleden"
+    },
+    "voornaam": {
+      "type": "array",
+      "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie. Lijst van String items.",
+      "items": {
+        "$ref": "#/components/schemas/GeregistreerdPersoon.voornaam"
+      },
+      "minItems": 1
+    },
+    "alternatieveNaam": {
+      "type": "array",
+      "description": "Alternatief voor de volledige naam van de Persoon. Bijvoorbeeld pseudoniem. Lijst van String items.",
+      "items": {
+        "$ref": "#/components/schemas/GeregistreerdPersoon.alternatieveNaam"
+      },
+      "minItems": 1
+    },
+    "achternaam": {
+      "$ref": "#/components/schemas/GeregistreerdPersoon.achternaam"
+    },
+    "heeftOverlijden": {
+      "$ref": "#/components/schemas/Overlijden"
+    },
+    "contactinfo": {
+      "$ref": "#/components/schemas/Contactinfo"
+    }
+  },
+  "required": [
+    "@type",
+    "registratie"
+  ]
+}

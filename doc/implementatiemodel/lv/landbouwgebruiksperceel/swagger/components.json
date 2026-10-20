@@ -1,12 +1,35 @@
 {
-  "openapi": "3.0.4",
+  "openapi": "3.1.0",
   "info": {
     "title": "Components of MAGDA landbouw.landbouwgebruikspercelen REST",
     "description": "MAGDA OSLO-conforme REST API voor informatie over landbouwgebruikspercelen",
-    "version": "0.2.0"
+    "version": "0.3.0"
   },
   "components": {
     "schemas": {
+      "OrganisatieType.code": {
+        "title": "OrganisatieType.code",
+        "description": "Code waarmee het concept binnen de codelijst wordt aangeduid.",
+        "type": "string"
+      },
+      "OrganisatieType.voorkeursnaam": {
+        "title": "OrganisatieType.voorkeursnaam",
+        "description": "Naam waarmee het concept bij voorkeur wordt aangeduid.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
       "OrganisatieType": {
         "title": "OrganisatieType",
         "type": "object",
@@ -15,10 +38,44 @@
           "@id": {
             "type": "string",
             "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse OrganisatieType)",
+            "pattern": "^OrganisatieType$"
+          },
+          "code": {
+            "$ref": "#/components/schemas/OrganisatieType.code"
+          },
+          "voorkeursnaam": {
+            "$ref": "#/components/schemas/OrganisatieType.voorkeursnaam"
           }
         },
         "required": [
-          "@id"
+          "@type"
+        ]
+      },
+      "Rechtspersoonlijkheidtype.code": {
+        "title": "Rechtspersoonlijkheidtype.code",
+        "description": "De waarde van de code van het Concept.",
+        "type": "string"
+      },
+      "Rechtspersoonlijkheidtype.voorkeursnaam": {
+        "title": "Rechtspersoonlijkheidtype.voorkeursnaam",
+        "description": "De naam van het Concept.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
         ]
       },
       "Rechtspersoonlijkheidtype": {
@@ -29,10 +86,45 @@
           "@id": {
             "type": "string",
             "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Rechtspersoonlijkheidtype)",
+            "pattern": "^Rechtspersoonlijkheidtype$"
+          },
+          "code": {
+            "$ref": "#/components/schemas/Rechtspersoonlijkheidtype.code"
+          },
+          "voorkeursnaam": {
+            "$ref": "#/components/schemas/Rechtspersoonlijkheidtype.voorkeursnaam"
           }
         },
         "required": [
-          "@id"
+          "@type",
+          "code"
+        ]
+      },
+      "Rechtsvormtype.code": {
+        "title": "Rechtsvormtype.code",
+        "description": "De waarde van de code van het Concept.",
+        "type": "string"
+      },
+      "Rechtsvormtype.voorkeursnaam": {
+        "title": "Rechtsvormtype.voorkeursnaam",
+        "description": "De naam van het Concept.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
         ]
       },
       "Rechtsvormtype": {
@@ -43,10 +135,45 @@
           "@id": {
             "type": "string",
             "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Rechtsvormtype)",
+            "pattern": "^Rechtsvormtype$"
+          },
+          "code": {
+            "$ref": "#/components/schemas/Rechtsvormtype.code"
+          },
+          "voorkeursnaam": {
+            "$ref": "#/components/schemas/Rechtsvormtype.voorkeursnaam"
           }
         },
         "required": [
-          "@id"
+          "@type",
+          "code"
+        ]
+      },
+      "LandbouwActiviteit.code": {
+        "title": "LandbouwActiviteit.code",
+        "description": "De waarde van de code van het Concept.",
+        "type": "string"
+      },
+      "LandbouwActiviteit.voorkeursnaam": {
+        "title": "LandbouwActiviteit.voorkeursnaam",
+        "description": "De naam van het Concept.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
         ]
       },
       "LandbouwActiviteit": {
@@ -57,10 +184,45 @@
           "@id": {
             "type": "string",
             "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse LandbouwActiviteit)",
+            "pattern": "^LandbouwActiviteit$"
+          },
+          "code": {
+            "$ref": "#/components/schemas/LandbouwActiviteit.code"
+          },
+          "voorkeursnaam": {
+            "$ref": "#/components/schemas/LandbouwActiviteit.voorkeursnaam"
           }
         },
         "required": [
-          "@id"
+          "@type",
+          "code"
+        ]
+      },
+      "OrganisatieStatus.code": {
+        "title": "OrganisatieStatus.code",
+        "description": "Code waarmee het concept binnen de codelijst wordt aangeduid.",
+        "type": "string"
+      },
+      "OrganisatieStatus.voorkeursnaam": {
+        "title": "OrganisatieStatus.voorkeursnaam",
+        "description": "Naam waarmee het concept bij voorkeur wordt aangeduid.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
         ]
       },
       "OrganisatieStatus": {
@@ -71,10 +233,44 @@
           "@id": {
             "type": "string",
             "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse OrganisatieStatus)",
+            "pattern": "^OrganisatieStatus$"
+          },
+          "code": {
+            "$ref": "#/components/schemas/OrganisatieStatus.code"
+          },
+          "voorkeursnaam": {
+            "$ref": "#/components/schemas/OrganisatieStatus.voorkeursnaam"
           }
         },
         "required": [
-          "@id"
+          "@type"
+        ]
+      },
+      "Identificatortype.code": {
+        "title": "Identificatortype.code",
+        "description": "Code waarmee het concept binnen de codelijst wordt aangeduid.",
+        "type": "string"
+      },
+      "Identificatortype.voorkeursnaam": {
+        "title": "Identificatortype.voorkeursnaam",
+        "description": "Naam waarmee het concept bij voorkeur wordt aangeduid.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
         ]
       },
       "Identificatortype": {
@@ -85,10 +281,21 @@
           "@id": {
             "type": "string",
             "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Identificatortype)",
+            "pattern": "^Identificatortype$"
+          },
+          "code": {
+            "$ref": "#/components/schemas/Identificatortype.code"
+          },
+          "voorkeursnaam": {
+            "$ref": "#/components/schemas/Identificatortype.voorkeursnaam"
           }
         },
         "required": [
-          "@id"
+          "@type"
         ]
       },
       "Problemdetail.detail": {
@@ -105,7 +312,7 @@
       "Problemdetail.status": {
         "title": "Problemdetail.status",
         "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\".",
-        "type": "number",
+        "type": "integer",
         "format": "int64"
       },
       "Problemdetail.title": {
@@ -178,7 +385,20 @@
       "Organisatie.voorkeursnaam": {
         "title": "Organisatie.voorkeursnaam",
         "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
       },
       "Organisatie": {
         "title": "Organisatie",
@@ -201,17 +421,30 @@
             "type": "array",
             "description": "Soort organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van OrganisatieType items.",
             "items": {
-              "$ref": "#/components/schemas/OrganisatieType"
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/OrganisatieType"
+                },
+                {
+                  "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
+                },
+                {
+                  "$ref": "#/components/schemas/Rechtsvormtype"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "OrganisatieType": "#/components/schemas/OrganisatieType",
+                  "Rechtspersoonlijkheidtype": "#/components/schemas/Rechtspersoonlijkheidtype",
+                  "Rechtsvormtype": "#/components/schemas/Rechtsvormtype"
+                }
+              }
             },
             "minItems": 1
           },
           "contactinfo": {
-            "type": "array",
-            "description": "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren. Lijst van Contactpunt items.",
-            "items": {
-              "$ref": "#/components/schemas/Contactpunt"
-            },
-            "minItems": 1
+            "$ref": "#/components/schemas/Contactinfo"
           },
           "activiteit": {
             "type": "array",
@@ -311,7 +544,7 @@
             "$ref": "#/components/schemas/Overlijden"
           },
           "contactinfo": {
-            "$ref": "#/components/schemas/Contactpunt"
+            "$ref": "#/components/schemas/Contactinfo"
           },
           "identificator": {
             "$ref": "#/components/schemas/Identificator"
@@ -387,7 +620,7 @@
             "$ref": "#/components/schemas/Overlijden"
           },
           "contactinfo": {
-            "$ref": "#/components/schemas/Contactpunt"
+            "$ref": "#/components/schemas/Contactinfo"
           }
         },
         "required": [
@@ -398,7 +631,20 @@
       "GeregistreerdeOrganisatie.voorkeursnaam": {
         "title": "GeregistreerdeOrganisatie.voorkeursnaam",
         "description": "Naam waarmee de Organisatie bij voorkeur wordt aangeduid.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
       },
       "GeregistreerdeOrganisatie": {
         "title": "GeregistreerdeOrganisatie",
@@ -438,17 +684,30 @@
             "type": "array",
             "description": "Soort organisatie. Specialisatie van classificatie (naast activiteit & status). Lijst van OrganisatieType items.",
             "items": {
-              "$ref": "#/components/schemas/OrganisatieType"
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/OrganisatieType"
+                },
+                {
+                  "$ref": "#/components/schemas/Rechtspersoonlijkheidtype"
+                },
+                {
+                  "$ref": "#/components/schemas/Rechtsvormtype"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "OrganisatieType": "#/components/schemas/OrganisatieType",
+                  "Rechtspersoonlijkheidtype": "#/components/schemas/Rechtspersoonlijkheidtype",
+                  "Rechtsvormtype": "#/components/schemas/Rechtsvormtype"
+                }
+              }
             },
             "minItems": 1
           },
           "contactinfo": {
-            "type": "array",
-            "description": "Informatie zoals email, telefoon... die toelaat de Organisatie te contacteren. Lijst van Contactpunt items.",
-            "items": {
-              "$ref": "#/components/schemas/Contactpunt"
-            },
-            "minItems": 1
+            "$ref": "#/components/schemas/Contactinfo"
           },
           "activiteit": {
             "type": "array",
@@ -549,6 +808,11 @@
                 "GeregistreerdeOrganisatie": "#/components/schemas/GeregistreerdeOrganisatie"
               }
             }
+          },
+          "@context": {
+            "type": "string",
+            "description": "URI of the JSON-LD versioned context file for this response.",
+            "pattern": "^https:\\/\\/implementatie.data.vlaanderen.be\\/doc\\/implementatiemodel\\/lv\\/landbouwgebruiksperceel\\/v0.3.0\\/context\\/landbouwgebruiksperceel.jsonld$"
           }
         },
         "required": [
@@ -565,7 +829,20 @@
       "Concept.voorkeursnaam": {
         "title": "Concept.voorkeursnaam",
         "description": "De naam van het Concept.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
       },
       "Concept": {
         "title": "Concept",
@@ -606,7 +883,20 @@
       "Adresvoorstelling.gemeentenaam": {
         "title": "Adresvoorstelling.gemeentenaam",
         "description": "Gemeentenaam van het adres.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
       },
       "Adresvoorstelling.huisnummer": {
         "title": "Adresvoorstelling.huisnummer",
@@ -616,7 +906,20 @@
       "Adresvoorstelling.land": {
         "title": "Adresvoorstelling.land",
         "description": "Land waarin het adres gelegen is.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
       },
       "Adresvoorstelling.postbus": {
         "title": "Adresvoorstelling.postbus",
@@ -631,12 +934,38 @@
       "Adresvoorstelling.straatnaam": {
         "title": "Adresvoorstelling.straatnaam",
         "description": "Straatnaam van het adres.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
       },
       "Adresvoorstelling.volledigAdres": {
         "title": "Adresvoorstelling.volledigAdres",
         "description": "Het complete adres in één string, al dan niet geformatteerd. Vermijdt fouten ten gevolge van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
       },
       "Adresvoorstelling": {
         "title": "Adresvoorstelling",
@@ -690,7 +1019,18 @@
       "Identificator.identificator": {
         "title": "Identificator.identificator",
         "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
       },
       "Identificator": {
         "title": "Identificator",
@@ -739,18 +1079,29 @@
           "@type"
         ]
       },
-      "Contactpunt.email": {
-        "title": "Contactpunt.email",
+      "Contactinfo.email": {
+        "title": "Contactinfo.email",
         "description": "Email-adres waarnaar men kan mailen.",
         "type": "string"
       },
-      "Contactpunt.telefoon": {
-        "title": "Contactpunt.telefoon",
+      "Contactinfo.telefoon": {
+        "title": "Contactinfo.telefoon",
         "description": "Telefoonnummer waarop men kan bellen.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
       },
-      "Contactpunt": {
-        "title": "Contactpunt",
+      "Contactinfo": {
+        "title": "Contactinfo",
         "type": "object",
         "description": "Informatie zoals email, telefoon, adres die toelaat om iemand of iets te contacteren.",
         "properties": {
@@ -760,17 +1111,17 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse Contactpunt)",
-            "pattern": "^Contactpunt$"
+            "description": "Object type (klasse Contactinfo)",
+            "pattern": "^Contactinfo$"
           },
           "email": {
-            "$ref": "#/components/schemas/Contactpunt.email"
+            "$ref": "#/components/schemas/Contactinfo.email"
           },
           "telefoon": {
             "type": "array",
             "description": "Telefoonnummer waarop men kan bellen. Lijst van Literal items.",
             "items": {
-              "$ref": "#/components/schemas/Contactpunt.telefoon"
+              "$ref": "#/components/schemas/Contactinfo.telefoon"
             },
             "minItems": 1
           },
@@ -796,7 +1147,7 @@
         "parameters": {
           "id": "$response.body#/Organisatie.contactinfo/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactpunt` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactinfo` op te halen."
       },
       "Organisatie.activiteit": {
         "operationId": "OrganisatieGET",
@@ -831,7 +1182,7 @@
         "parameters": {
           "id": "$response.body#/Persoon.contactinfo/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactpunt` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactinfo` op te halen."
       },
       "Persoon.identificator": {
         "operationId": "PersoonGET",
@@ -866,7 +1217,7 @@
         "parameters": {
           "id": "$response.body#/GeregistreerdPersoon.contactinfo/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactpunt` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactinfo` op te halen."
       },
       "GeregistreerdeOrganisatie.status": {
         "operationId": "GeregistreerdeOrganisatieGET",
@@ -908,7 +1259,7 @@
         "parameters": {
           "id": "$response.body#/GeregistreerdeOrganisatie.contactinfo/@id"
         },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactpunt` op te halen."
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Contactinfo` op te halen."
       },
       "GeregistreerdeOrganisatie.activiteit": {
         "operationId": "GeregistreerdeOrganisatieGET",

@@ -2,17 +2,17 @@
 
 #||# -------------------------------------  
 
-2026-10-01T16:35:43.512Z info: [JsonLdValidationService]: Loaded 56 URI prefixes into whitelist
+2026-10-20T11:13:48.909Z info: [JsonLdValidationService]: Loaded 56 URI prefixes into whitelist
 
-2026-10-01T16:35:43.621Z error: [JsonLdValidationService]: Found missing class or attribute (Landbouwgebruiksperceel): [[urn:oslo-toolchain:7d0c74a1a85e6f13ed5c9c1239ce01e15ad4b7c4f609f7b5894147b62773e730](all-landbouwgebruiksperceel.jsonld#L2346)](all-landbouwgebruiksperceel.jsonld#L522) in Vocabulary
+2026-10-20T11:13:49.025Z error: [JsonLdValidationService]: Found missing class or attribute (Landbouwgebruiksperceel): [[urn:oslo-toolchain:7d0c74a1a85e6f13ed5c9c1239ce01e15ad4b7c4f609f7b5894147b62773e730](all-landbouwgebruiksperceel.jsonld#L2346)](all-landbouwgebruiksperceel.jsonld#L522) in Vocabulary
 
-2026-10-01T16:35:43.622Z info: [JsonLdValidationService]: Validation successful! All assigned URIs are whitelisted.
+2026-10-20T11:13:49.027Z info: [JsonLdValidationService]: Validation successful! All assigned URIs are whitelisted.
 
-2026-10-01T16:35:43.622Z info: [JsonLdValidationService]: Validation successful! All sentences seem to be valid, no spelling mistakes or abbreviations found.
+2026-10-20T11:13:49.027Z info: [JsonLdValidationService]: Validation successful! All sentences seem to be valid, no spelling mistakes or abbreviations found.
 
-2026-10-01T16:35:43.622Z info: [JsonLdValidationService]: Validation successful! All labels seem to be valid, no spelling mistakes or abbreviations found.
+2026-10-20T11:13:49.027Z info: [JsonLdValidationService]: Validation successful! All labels seem to be valid, no spelling mistakes or abbreviations found.
 
-2026-10-01T16:35:43.622Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
+2026-10-20T11:13:49.027Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
 
-2026-10-01T16:35:43.622Z info: [JsonLdValidationService]: Validation found 1 missing referenced classes or attributes.
+2026-10-20T11:13:49.027Z info: [JsonLdValidationService]: Validation found 1 missing referenced classes or attributes.
 
