@@ -2,23 +2,23 @@
 
 #||# -------------------------------------
 
-2026-10-20T08:55:49.281Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Agent) is not an association with a source role. Ignoring this connector.
+2026-10-20T11:11:05.060Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-10-20T08:55:49.283Z info: Connector Model:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Agent) is not an association with a source role. Ignoring this connector.
+2026-10-20T11:11:05.062Z info: Connector Model:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-10-20T08:55:49.284Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Organisatie) is not an association with a source role. Ignoring this connector.
+2026-10-20T11:11:05.062Z info: Connector Model:W3C-REGORG:GeregistreerdeOrganisatie:(GeregistreerdeOrganisatie -> Organisatie) is not an association with a source role. Ignoring this connector.
 
-2026-10-20T08:55:49.284Z info: Connector Model:W3C-LOCN:Adresvoorstelling:(Adresvoorstelling -> Adres) is not an association with a source role. Ignoring this connector.
+2026-10-20T11:11:05.062Z info: Connector Model:W3C-LOCN:Adresvoorstelling:(Adresvoorstelling -> Adres) is not an association with a source role. Ignoring this connector.
 
-2026-10-20T08:55:49.285Z info: Connector Model:OSLO-Landbouwgebruiksperceel:Landbouwgebruiksperceel:(Landbouwgebruiksperceel -> Agent) is not an association with a source role. Ignoring this connector.
+2026-10-20T11:11:05.063Z info: Connector Model:OSLO-Landbouwgebruiksperceel:Landbouwgebruiksperceel:(Landbouwgebruiksperceel -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-10-20T08:55:49.285Z info: Connector Model:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Persoon) is not an association with a source role. Ignoring this connector.
+2026-10-20T11:11:05.063Z info: Connector Model:OSLO-Persoon:GeregistreerdPersoon:(GeregistreerdPersoon -> Persoon) is not an association with a source role. Ignoring this connector.
 
-2026-10-20T08:55:49.285Z info: Connector Model:W3C-Person:Persoon:(Persoon -> Agent) is not an association with a source role. Ignoring this connector.
+2026-10-20T11:11:05.063Z info: Connector Model:W3C-Person:Persoon:(Persoon -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-10-20T08:55:49.285Z info: Connector Model:W3C-ORG:Organisatie:(Organisatie -> Agent) is not an association with a source role. Ignoring this connector.
+2026-10-20T11:11:05.063Z info: Connector Model:W3C-ORG:Organisatie:(Organisatie -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-10-20T08:55:49.286Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+2026-10-20T11:11:05.064Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
 #||# -------------------------------------
 
