@@ -1,0 +1,574 @@
+openapi: 3.0.4
+info:
+  title: Components of VITALINK zwangerschapsregistratie REST
+  description: OSLO-conforme REST API voor informatie over zwangerschapsregistratie
+  version: 0.1.7
+paths: {}
+components:
+  schemas:
+    Omstandigheid:
+      title: Omstandigheid
+      type: object
+      description: Enumeratie van Omstandigheid
+      properties:
+        '@id':
+          type: string
+          format: uri
+      required:
+        - '@id'
+    UitzonderingOorsprong:
+      title: UitzonderingOorsprong
+      type: object
+      description: Enumeratie van UitzonderingOorsprong
+      properties:
+        '@id':
+          type: string
+          format: uri
+      required:
+        - '@id'
+    UitzonderingType:
+      title: UitzonderingType
+      type: object
+      description: Enumeratie van UitzonderingType
+      properties:
+        '@id':
+          type: string
+          format: uri
+      required:
+        - '@id'
+    Persoon.familienaam:
+      title: Persoon.familienaam
+      description: Gedeelte van de volledige naam van de persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.
+      type: string
+    Persoon.voornaam:
+      title: Persoon.voornaam
+      description: Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie.
+      type: string
+    Persoon.volledigeNaam:
+      title: Persoon.volledigeNaam
+      description: De volledige naam van de persoon, doorgaans de combinatie van voornamen en achternaam.
+      type: string
+    Persoon:
+      title: Persoon
+      type: object
+      description: Natuurlijk persoon.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Persoon)
+          pattern: ^Persoon$
+        familienaam:
+          $ref: '#/components/schemas/Persoon.familienaam'
+        voornaam:
+          type: array
+          description: Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie. Lijst van String items.
+          items:
+            $ref: '#/components/schemas/Persoon.voornaam'
+          minItems: 1
+        volledigeNaam:
+          $ref: '#/components/schemas/Persoon.volledigeNaam'
+        isLidVan:
+          type: array
+          description: Niet nader bepaald lidmaatschap van een agent van een organisatie. Dekt elk type aansluiting of betrokkenheid van een agent bij een organisatie, niet enkel formeel lidmaatschap. Kan eventueel verder gespecialiseerd worden. Lijst van Organisatie items.
+          items:
+            $ref: '#/components/schemas/Organisatie'
+          minItems: 1
+        identificator:
+          type: array
+          description: Identificator van het object. Bij implementatie in RDF is de uri van het object de identificator. Lijst van Identificator items.
+          items:
+            $ref: '#/components/schemas/Identificator'
+          minItems: 1
+      required:
+        - '@type'
+    Organisatie.voorkeursnaam:
+      title: Organisatie.voorkeursnaam
+      description: Naam waarmee de Organisatie bij voorkeur wordt aangeduid.
+      type: string
+    Organisatie:
+      title: Organisatie
+      type: object
+      description: Een aantal mensen georganiseerd in een gemeenschap of andere sociale, commerciële of politieke structuur. De groep heeft een gemeenschappelijk doel of bestaansreden die de individuele leden ervan overstijgt en kan handelen als agent. Een Organisatie heeft dikwijls een hiërarchische structuur.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Organisatie)
+          pattern: ^Organisatie$
+        voorkeursnaam:
+          $ref: '#/components/schemas/Organisatie.voorkeursnaam'
+        identificator:
+          type: array
+          description: Identificator van het object. Bij implementatie in RDF is de uri van het object de identificator. Lijst van Identificator items.
+          items:
+            $ref: '#/components/schemas/Identificator'
+          minItems: 1
+      required:
+        - '@type'
+        - voorkeursnaam
+    Zwangerschap:
+      title: Zwangerschap
+      type: object
+      description: De staat waarin een Persoon een of meerdere embryo’s of foetussen draagt in de baarmoeder, wat leidt tot de ontwikkeling van een nieuw natuurlijk Persoon.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Zwangerschap)
+          pattern: ^Zwangerschap$
+        identificator:
+          type: array
+          description: Identificator van het object. Bij implementatie in RDF is de uri van het object de identificator. Lijst van Identificator items.
+          items:
+            $ref: '#/components/schemas/Identificator'
+          minItems: 1
+        toestand:
+          $ref: '#/components/schemas/Zwangerschapstoestand'
+        heeftPersoon:
+          $ref: '#/components/schemas/Persoon'
+        heeftFoetus:
+          type: array
+          description: Een Zwangerschap heeft een of meerdere Foetussen. Lijst van Foetus items.
+          items:
+            $ref: '#/components/schemas/Foetus'
+          minItems: 1
+      required:
+        - '@type'
+        - identificator
+    MedischVerslag:
+      title: MedischVerslag
+      type: object
+      description: Een gedocumenteerde beschrijving van de gezondheidsstatus van een Persoon, meestal opgesteld door een Arts.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse MedischVerslag)
+          pattern: ^MedischVerslag$
+        opgesteldDoor:
+          type: array
+          description: Het Medisch Verslag wordt opgesteld door een Agent. Lijst van Agent items.
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/Persoon'
+              - $ref: '#/components/schemas/Organisatie'
+              - $ref: '#/components/schemas/Zorgverlener'
+            discriminator:
+              propertyName: '@type'
+              mapping:
+                Persoon: '#/components/schemas/Persoon'
+                Organisatie: '#/components/schemas/Organisatie'
+                Zorgverlener: '#/components/schemas/Zorgverlener'
+          minItems: 1
+      required:
+        - '@type'
+    Zorgverlener.familienaam:
+      title: Zorgverlener.familienaam
+      description: Gedeelte van de volledige naam van de persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.
+      type: string
+    Zorgverlener.voornaam:
+      title: Zorgverlener.voornaam
+      description: Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie.
+      type: string
+    Zorgverlener.volledigeNaam:
+      title: Zorgverlener.volledigeNaam
+      description: De volledige naam van de persoon, doorgaans de combinatie van voornamen en achternaam.
+      type: string
+    Zorgverlener:
+      title: Zorgverlener
+      type: object
+      description: Een persoon met een formele verantwoordelijkheid bij het verlenen van gezondheidszorg of aanverwante diensten.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Zorgverlener)
+          pattern: ^Zorgverlener$
+        identificator:
+          type: array
+          description: Identificator van het object. Bij implementatie in RDF is de uri van het object de identificator. Lijst van Identificator items.
+          items:
+            $ref: '#/components/schemas/Identificator'
+          minItems: 1
+        familienaam:
+          $ref: '#/components/schemas/Zorgverlener.familienaam'
+        voornaam:
+          type: array
+          description: Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie. Lijst van String items.
+          items:
+            $ref: '#/components/schemas/Zorgverlener.voornaam'
+          minItems: 1
+        volledigeNaam:
+          $ref: '#/components/schemas/Zorgverlener.volledigeNaam'
+        isLidVan:
+          type: array
+          description: Niet nader bepaald lidmaatschap van een agent van een organisatie. Dekt elk type aansluiting of betrokkenheid van een agent bij een organisatie, niet enkel formeel lidmaatschap. Kan eventueel verder gespecialiseerd worden. Lijst van Organisatie items.
+          items:
+            $ref: '#/components/schemas/Organisatie'
+          minItems: 1
+      required:
+        - '@type'
+    MedischeObservatie.effectiefTijdstip:
+      title: MedischeObservatie.effectiefTijdstip
+      description: De tijd of tijdsperiode waarin de waargenomen waarde als waar wordt beschouwd.
+      type: string
+      format: date-time
+    MedischeObservatie:
+      title: MedischeObservatie
+      type: object
+      description: Metingen en eenvoudige beweringen over een patiënt, apparaat of ander onderwerp.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse MedischeObservatie)
+          pattern: ^MedischeObservatie$
+        effectiefTijdstip:
+          $ref: '#/components/schemas/MedischeObservatie.effectiefTijdstip'
+        identificator:
+          type: array
+          description: Identificator van het object. Bij implementatie in RDF is de uri van het object de identificator. Lijst van Identificator items.
+          items:
+            $ref: '#/components/schemas/Identificator'
+          minItems: 1
+        gedocumenteerdDoor:
+          type: array
+          description: Een Medisch Verslag documenteert één of meerdere Mediche Observaties. Lijst van MedischVerslag items.
+          items:
+            $ref: '#/components/schemas/MedischVerslag'
+          minItems: 1
+      required:
+        - '@type'
+    DataEnvelope:
+      title: DataEnvelope
+      type: object
+      description: De collectie van de uitgewisselde data en zijn metadata elementen.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse DataEnvelope)
+          pattern: ^DataEnvelope$
+        volgende:
+          $ref: '#/components/schemas/Link'
+        warning:
+          type: array
+          description: undefined Lijst van Uitzondering items.
+          items:
+            $ref: '#/components/schemas/Uitzondering'
+          minItems: 1
+      required:
+        - '@type'
+    Foetus:
+      title: Foetus
+      type: object
+      description: De ongeboren Persoon vanaf de achtste week van de Zwangerschap tot aan de Geboorte.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Foetus)
+          pattern: ^Foetus$
+      required:
+        - '@type'
+    PregnancyEnvelope:
+      title: PregnancyEnvelope
+      type: object
+      description: De collectie van de uitgewisselde zwangerschapsgerelateerde informatie en zijn metadata elementen.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse PregnancyEnvelope)
+          pattern: ^PregnancyEnvelope$
+        data:
+          $ref: '#/components/schemas/Zwangerschap'
+        volgende:
+          $ref: '#/components/schemas/Link'
+        warning:
+          type: array
+          description: undefined Lijst van Uitzondering items.
+          items:
+            $ref: '#/components/schemas/Uitzondering'
+          minItems: 1
+        '@context':
+          type: string
+          description: URI of the JSON-LD versioned context file for this response.
+          pattern: ^https:\/\/implementatie.data.test-vlaanderen.be\/doc\/implementatiemodel\/vitalink\/zwangerschapsregistratie\/v0.1.7\/context\/zwangerschapsregistratie.jsonld$
+      required:
+        - '@type'
+        - data
+    PregnancyListEnvelope:
+      title: PregnancyListEnvelope
+      type: object
+      description: De collectie van de uitgewisselde zwangerschapsgerelateerde informatie en zijn metadata elementen.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse PregnancyListEnvelope)
+          pattern: ^PregnancyListEnvelope$
+        data:
+          type: array
+          description: De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van Zwangerschap items.
+          items:
+            $ref: '#/components/schemas/Zwangerschap'
+          minItems: 1
+        volgende:
+          $ref: '#/components/schemas/Link'
+        warning:
+          type: array
+          description: undefined Lijst van Uitzondering items.
+          items:
+            $ref: '#/components/schemas/Uitzondering'
+          minItems: 1
+        '@context':
+          type: string
+          description: URI of the JSON-LD versioned context file for this response.
+          pattern: ^https:\/\/implementatie.data.test-vlaanderen.be\/doc\/implementatiemodel\/vitalink\/zwangerschapsregistratie\/v0.1.7\/context\/zwangerschapsregistratie.jsonld$
+      required:
+        - '@type'
+    Uitzondering.datum:
+      title: Uitzondering.datum
+      description: De datum waarop de Uitzondering aangemaakt werd.
+      type: string
+      format: date-time
+    Uitzondering.diagnose:
+      title: Uitzondering.diagnose
+      description: Een beschrijving waarom de Uitzondering aangemaakt werd.
+      type: string
+    Uitzondering:
+      title: Uitzondering
+      type: object
+      description: Uitzondering geeft niet-kritieke problemen weer bij het uitwisselen.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Uitzondering)
+          pattern: ^Uitzondering$
+        datum:
+          $ref: '#/components/schemas/Uitzondering.datum'
+        diagnose:
+          $ref: '#/components/schemas/Uitzondering.diagnose'
+        oorsprong:
+          $ref: '#/components/schemas/UitzonderingOorsprong'
+        type:
+          $ref: '#/components/schemas/UitzonderingType'
+        omstandigheid:
+          $ref: '#/components/schemas/Omstandigheid'
+        annotatie:
+          type: array
+          description: Verwijzing naar annotaties die bij de Uitzondering horen. Lijst van Annotatie items.
+          items:
+            $ref: '#/components/schemas/Annotatie'
+          minItems: 1
+      required:
+        - '@type'
+    Annotatie.naam:
+      title: Annotatie.naam
+      description: Naam van het veld.
+      type: string
+    Annotatie.waarde:
+      title: Annotatie.waarde
+      description: De waarde van het veld.
+      type: string
+    Annotatie:
+      title: Annotatie
+      type: object
+      description: Detailinformatie die meegegeven is bij een Uitzondering.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Annotatie)
+          pattern: ^Annotatie$
+        naam:
+          $ref: '#/components/schemas/Annotatie.naam'
+        waarde:
+          $ref: '#/components/schemas/Annotatie.waarde'
+      required:
+        - '@type'
+        - naam
+        - waarde
+    Problemdetail.detail:
+      title: Problemdetail.detail
+      description: Mensleesbare beschrijving van de fout.
+      type: string
+    Problemdetail.instance:
+      title: Problemdetail.instance
+      description: 'Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.'
+      type: string
+      format: uri
+    Problemdetail.status:
+      title: Problemdetail.status
+      description: 'HTTP foutcode. Zoals beschreven in <a href="https://www.rfc-editor.org/rfc/rfc7231">RFC7231</a>. Bijvoorbeeld: 404 voor "Not Found".'
+      type: number
+      format: int64
+    Problemdetail.title:
+      title: Problemdetail.title
+      description: Korte mensleesbare beschrijving van de fout.
+      type: string
+    Problemdetail.type:
+      title: Problemdetail.type
+      description: Aard van de fout.
+      type: string
+      format: uri
+    Problemdetail:
+      title: Problemdetail
+      type: object
+      description: Meer gedetailleerde beschrijving van de fout in een HTTP response.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Problemdetail)
+          pattern: ^Problemdetail$
+        detail:
+          $ref: '#/components/schemas/Problemdetail.detail'
+        instance:
+          $ref: '#/components/schemas/Problemdetail.instance'
+        status:
+          $ref: '#/components/schemas/Problemdetail.status'
+        title:
+          $ref: '#/components/schemas/Problemdetail.title'
+        type:
+          $ref: '#/components/schemas/Problemdetail.type'
+      required:
+        - '@type'
+        - detail
+        - title
+        - type
+    Zwangerschapstoestand:
+      title: Zwangerschapstoestand
+      type: object
+      description: De medische toestand bij een Zwangerschap van de Persoon.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Zwangerschapstoestand)
+          pattern: ^Zwangerschapstoestand$
+        duur:
+          $ref: '#/components/schemas/Periode'
+        vastgesteldDoor:
+          type: array
+          description: De Medische Observatie stelt een Gezondheidstoestand vast. Lijst van MedischeObservatie items.
+          items:
+            $ref: '#/components/schemas/MedischeObservatie'
+          minItems: 1
+      required:
+        - '@type'
+    Link.href:
+      title: Link.href
+      description: De referentie URI.
+      type: string
+      format: uri
+    Link:
+      title: Link
+      type: object
+      description: Link beschrijft een hyperlink naar een andere resource volgens HAL.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Link)
+          pattern: ^Link$
+        href:
+          $ref: '#/components/schemas/Link.href'
+      required:
+        - '@type'
+    Periode.begin:
+      title: Periode.begin
+      description: Aanvang van de tijdsduur.
+      type: string
+    Periode.einde:
+      title: Periode.einde
+      description: Einde van de tijdsduur.
+      type: string
+    Periode:
+      title: Periode
+      type: object
+      description: Min of meer afgebakende tijdsduur.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Periode)
+          pattern: ^Periode$
+        begin:
+          $ref: '#/components/schemas/Periode.begin'
+        einde:
+          $ref: '#/components/schemas/Periode.einde'
+      required:
+        - '@type'
+    Identificator.identificator:
+      title: Identificator.identificator
+      description: String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.
+      type: string
+    Identificator.toegekendDoorString:
+      title: Identificator.toegekendDoorString
+      description: Naam van de agent die de identificator heeft toegekend.
+      type: string
+    Identificator:
+      title: Identificator
+      type: object
+      description: Informatie gebruikt om een object uniek te identificeren.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Identificator)
+          pattern: ^Identificator$
+        identificator:
+          $ref: '#/components/schemas/Identificator.identificator'
+        toegekendDoorString:
+          $ref: '#/components/schemas/Identificator.toegekendDoorString'
+        toegekendDoor:
+          oneOf:
+            - $ref: '#/components/schemas/Persoon'
+            - $ref: '#/components/schemas/Organisatie'
+            - $ref: '#/components/schemas/Zorgverlener'
+          discriminator:
+            propertyName: '@type'
+            mapping:
+              Persoon: '#/components/schemas/Persoon'
+              Organisatie: '#/components/schemas/Organisatie'
+              Zorgverlener: '#/components/schemas/Zorgverlener'
+      required:
+        - '@type'

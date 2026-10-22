@@ -12,11 +12,16 @@
       "description": "Object type (klasse PregnancyListEnvelope)",
       "pattern": "^PregnancyListEnvelope$"
     },
-    "data": {
-      "$ref": "#/components/schemas/Zwangerschap"
+    "ontvangstReferte": {
+      "$ref": "#/components/schemas/PregnancyListEnvelope.ontvangstReferte"
     },
-    "volgende": {
-      "$ref": "#/components/schemas/Link"
+    "data": {
+      "type": "array",
+      "description": "De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van Zwangerschap items.",
+      "items": {
+        "$ref": "#/components/schemas/Zwangerschap"
+      },
+      "minItems": 1
     },
     "warning": {
       "type": "array",
@@ -29,11 +34,10 @@
     "@context": {
       "type": "string",
       "description": "URI of the JSON-LD versioned context file for this response.",
-      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/vitalink\\/zwangerschapsregistratie\\/v0.1.7\\/context\\/zwangerschapsregistratie.jsonld$"
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/vitalink\\/zwangerschapsregistratie\\/v0.1.8\\/context\\/zwangerschapsregistratie.jsonld$"
     }
   },
   "required": [
-    "@type",
-    "data"
+    "@type"
   ]
 }
