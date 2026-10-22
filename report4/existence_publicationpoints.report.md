@@ -85,13 +85,9 @@ error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.2.1/index.html'
 #||# 
 #||# Directory check
 error: missing '/tmp/generated/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.8'
-error: missing '/tmp/generated/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.8'
-error: missing '/tmp/generated/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.8'
 error: missing '/tmp/generated/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.8'
 #||# 
 #||# index.html check
 error: missing '/tmp/generated/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.8/index.html'
-error: missing '/tmp/generated/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.8/index.html'
-error: missing '/tmp/generated/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.8/index.html'
 error: missing '/tmp/generated/doc/vocabularium/vitalink/zwangerschapsregistratie/v0.1.8/index.html'
 

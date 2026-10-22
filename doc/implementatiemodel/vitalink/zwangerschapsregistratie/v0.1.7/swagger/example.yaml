@@ -401,7 +401,16 @@ components:
     Organisatie.voorkeursnaam:
       title: Organisatie.voorkeursnaam
       description: Naam waarmee de Organisatie bij voorkeur wordt aangeduid.
-      type: string
+      type: object
+      properties:
+        '@value':
+          type: string
+        '@language':
+          type: string
+          pattern: ^nl$
+      required:
+        - '@value'
+        - '@language'
     Organisatie:
       title: Organisatie
       type: object
@@ -739,7 +748,7 @@ components:
     Problemdetail.status:
       title: Problemdetail.status
       description: 'HTTP foutcode. Zoals beschreven in <a href="https://www.rfc-editor.org/rfc/rfc7231">RFC7231</a>. Bijvoorbeeld: 404 voor "Not Found".'
-      type: number
+      type: integer
       format: int64
     Problemdetail.title:
       title: Problemdetail.title
@@ -796,11 +805,25 @@ components:
     Periode.begin:
       title: Periode.begin
       description: Aanvang van de tijdsduur.
-      type: string
+      type: object
+      properties:
+        '@value':
+          type: string
+        '@type':
+          type: string
+      required:
+        - '@value'
     Periode.einde:
       title: Periode.einde
       description: Einde van de tijdsduur.
-      type: string
+      type: object
+      properties:
+        '@value':
+          type: string
+        '@type':
+          type: string
+      required:
+        - '@value'
     Periode:
       title: Periode
       type: object
@@ -822,7 +845,14 @@ components:
     Identificator.identificator:
       title: Identificator.identificator
       description: String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.
-      type: string
+      type: object
+      properties:
+        '@value':
+          type: string
+        '@type':
+          type: string
+      required:
+        - '@value'
     Identificator.toegekendDoorString:
       title: Identificator.toegekendDoorString
       description: Naam van de agent die de identificator heeft toegekend.
