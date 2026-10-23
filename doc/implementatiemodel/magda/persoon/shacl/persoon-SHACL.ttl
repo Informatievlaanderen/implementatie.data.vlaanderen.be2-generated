@@ -52,6 +52,7 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#AfstammingDalendeLijnShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#AfstammingOpgaandeLijnShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#PersoonReferentieShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#GeregistreerdPersoonReferentieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#LocatieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#AdresvoorstellingShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#LangStringShape>,
@@ -586,6 +587,26 @@
   shacl:closed false;
   shacl:targetClass <https://data.vlaanderen.be/ns/persoon#Geboorte> .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#GeregistreerdPersoonReferentieShape> a shacl:NodeShape;
+  rdfs:label "GeregistreerdPersoonReferentie"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Identiek aan GeregistreerdPersoon maar met beperkte set van attributen."@nl;
+  rdfs:comment "Persoon waarvan de gegevens zijn ingeschreven in een register."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#GeregistreerdPersoonReferentie>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "registratie"@nl;
+    rdfs:comment "Identificatiecode van de persoon in het register."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#GeregistreerdPersoonReferentie.Registratie>;
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificatiecode van de persoon in het register."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "registratie"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/persoon#registratie>
+  ];
+  shacl:targetClass <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon> .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#GeregistreerdPersoonShape> a shacl:NodeShape;
   rdfs:label "GeregistreerdPersoon"@nl;
   <http://purl.org/vocab/vann/usageNote> "Doorgaans is dit register een bevolkingsregister maar het kan bijvoorbeeld ook een kiesregister zijn. De ingeschreven gegevens hebben betrekking op de identeit (voorbeeld: naam en voornaam) en de Verblijfplaats van de persoon en op belangrijke levensgebeurtenissen zoals geboorte, huwelijk, overlijden etc. Deze gegevens worden typisch geregistreerd door de overheid, ze bieden de ingeschreven persoon wettelijke bescherming en laten de overheid toe om basisstatistieken op te stellen over zijn bevolking."@nl;
@@ -613,17 +634,6 @@
     shacl:maxCount 1;
     shacl:name "registratiedetail"@nl;
     shacl:path <https://data.vlaanderen.be/ns/persoon#registratiedetail>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "registratie"@nl;
-    rdfs:comment "Identificatiecode van de persoon in het register."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#GeregistreerdPersoon.Registratie>;
-    shacl:class <http://www.w3.org/ns/adms#Identifier>;
-    shacl:description "Identificatiecode van de persoon in het register."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "registratie"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/persoon#registratie>
   ], [
     a shacl:PropertyShape;
     rdfs:label "beheerder"@nl;

@@ -320,12 +320,12 @@ components:
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/PersoonReferentie'
-            - $ref: '#/components/schemas/GeregistreerdPersoon'
+            - $ref: '#/components/schemas/GeregistreerdPersoonReferentie'
           discriminator:
             propertyName: '@type'
             mapping:
               PersoonReferentie: '#/components/schemas/PersoonReferentie'
-              GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
+              GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
       required:
         - '@type'
         - metPersoon
@@ -400,12 +400,12 @@ components:
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/PersoonReferentie'
-            - $ref: '#/components/schemas/GeregistreerdPersoon'
+            - $ref: '#/components/schemas/GeregistreerdPersoonReferentie'
           discriminator:
             propertyName: '@type'
             mapping:
               PersoonReferentie: '#/components/schemas/PersoonReferentie'
-              GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
+              GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
       required:
         - '@type'
         - metPersoon
@@ -697,12 +697,12 @@ components:
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/PersoonReferentie'
-            - $ref: '#/components/schemas/GeregistreerdPersoon'
+            - $ref: '#/components/schemas/GeregistreerdPersoonReferentie'
           discriminator:
             propertyName: '@type'
             mapping:
               PersoonReferentie: '#/components/schemas/PersoonReferentie'
-              GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
+              GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
       required:
         - '@type'
         - metPersoon
@@ -766,17 +766,25 @@ components:
           pattern: ^GeregistreerdPersoon$
         registratie:
           $ref: '#/components/schemas/Identificator'
-        achternaam:
+        registratiedetail:
+          $ref: '#/components/schemas/Registratie'
+        beheerder:
           type: array
-          description: Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt. Lijst van String items.
+          description: 'Verwijzing naar de Adminstratiefbeheerder van het dossier van de persoon. Normaal is er maar 1 beheerder aanwezig bij een persoon, maar in uitzonderlijke gevallen kunnen er meerdere beheerders zijn. Bijvoorbeeld: de persoon heeft een adres in het buitenland, is aan het verhuizen tussen gemeenten, etc. Lijst van AdministratiefBeheerder items.'
           items:
-            $ref: '#/components/schemas/GeregistreerdPersoon.achternaam'
+            $ref: '#/components/schemas/AdministratiefBeheerder'
           minItems: 1
         voornaam:
           type: array
           description: Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie. Lijst van String items.
           items:
             $ref: '#/components/schemas/GeregistreerdPersoon.voornaam'
+          minItems: 1
+        achternaam:
+          type: array
+          description: Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt. Lijst van String items.
+          items:
+            $ref: '#/components/schemas/GeregistreerdPersoon.achternaam'
           minItems: 1
         contactinfo:
           $ref: '#/components/schemas/Contactinfo'
@@ -1299,12 +1307,12 @@ components:
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/PersoonReferentie'
-            - $ref: '#/components/schemas/GeregistreerdPersoon'
+            - $ref: '#/components/schemas/GeregistreerdPersoonReferentie'
           discriminator:
             propertyName: '@type'
             mapping:
               PersoonReferentie: '#/components/schemas/PersoonReferentie'
-              GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
+              GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
       required:
         - '@type'
         - vanPersoon
@@ -1351,12 +1359,12 @@ components:
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/PersoonReferentie'
-            - $ref: '#/components/schemas/GeregistreerdPersoon'
+            - $ref: '#/components/schemas/GeregistreerdPersoonReferentie'
           discriminator:
             propertyName: '@type'
             mapping:
               PersoonReferentie: '#/components/schemas/PersoonReferentie'
-              GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
+              GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
       required:
         - '@type'
         - vanPersoon
@@ -1409,6 +1417,128 @@ components:
           $ref: '#/components/schemas/Geslacht'
       required:
         - '@type'
+    GeregistreerdPersoonReferentie.achternaam:
+      title: GeregistreerdPersoonReferentie.achternaam
+      type: object
+      description: Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.
+      properties:
+        '@value':
+          type: string
+      required:
+        - '@value'
+    GeregistreerdPersoonReferentie.voornaam:
+      title: GeregistreerdPersoonReferentie.voornaam
+      type: object
+      description: Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie.
+      properties:
+        '@value':
+          type: string
+      required:
+        - '@value'
+    GeregistreerdPersoonReferentie.creatiedatum:
+      title: GeregistreerdPersoonReferentie.creatiedatum
+      type: object
+      description: Datum waarop de gegevens zijn ingevoerd.
+      properties:
+        '@value':
+          type: string
+          format: date
+        '@type':
+          type: string
+          pattern: ^Date$
+      required:
+        - '@value'
+        - '@type'
+    GeregistreerdPersoonReferentie.modificatiedatum:
+      title: GeregistreerdPersoonReferentie.modificatiedatum
+      type: object
+      description: Datum waarop de gegevens werden bijgewerkt.
+      properties:
+        '@value':
+          type: string
+          format: date
+        '@type':
+          type: string
+          pattern: ^Date$
+      required:
+        - '@value'
+        - '@type'
+    GeregistreerdPersoonReferentie:
+      title: GeregistreerdPersoonReferentie
+      type: object
+      description: Persoon waarvan de gegevens zijn ingeschreven in een register.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse GeregistreerdPersoonReferentie)
+          pattern: ^GeregistreerdPersoonReferentie$
+        registratie:
+          $ref: '#/components/schemas/Identificator'
+        achternaam:
+          type: array
+          description: Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt. Lijst van String items.
+          items:
+            $ref: '#/components/schemas/GeregistreerdPersoonReferentie.achternaam'
+          minItems: 1
+        voornaam:
+          type: array
+          description: Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie. Lijst van String items.
+          items:
+            $ref: '#/components/schemas/GeregistreerdPersoonReferentie.voornaam'
+          minItems: 1
+        contactinfo:
+          $ref: '#/components/schemas/Contactinfo'
+        geslacht:
+          $ref: '#/components/schemas/Geslacht'
+        isHoofdVan:
+          $ref: '#/components/schemas/Gezin'
+        heeftBurgerlijkeStaat:
+          $ref: '#/components/schemas/BurgerlijkeStaat'
+        heeftGeboorte:
+          $ref: '#/components/schemas/Geboorte'
+        heeftOverlijden:
+          $ref: '#/components/schemas/Overlijden'
+        heeftInwonerschap:
+          type: array
+          description: Inwonerschap van de persoon. Lijst van Inwonerschap items.
+          items:
+            $ref: '#/components/schemas/Inwonerschap'
+          minItems: 1
+        heeftPersoonsrelatie:
+          type: array
+          description: Persoonsrelatie van de persoon. Lijst van Persoonsrelatie items.
+          items:
+            oneOf:
+              - $ref: '#/components/schemas/Gezinsrelatie'
+              - $ref: '#/components/schemas/Huwelijk'
+              - $ref: '#/components/schemas/Samenwonen'
+              - $ref: '#/components/schemas/Afstamming'
+            discriminator:
+              propertyName: '@type'
+              mapping:
+                Gezinsrelatie: '#/components/schemas/Gezinsrelatie'
+                Huwelijk: '#/components/schemas/Huwelijk'
+                Samenwonen: '#/components/schemas/Samenwonen'
+                Afstamming: '#/components/schemas/Afstamming'
+          minItems: 1
+        isLidVan:
+          type: array
+          description: Persoon die tot een Gezin behoort. Lijst van Gezin items.
+          items:
+            $ref: '#/components/schemas/Gezin'
+          minItems: 1
+        creatiedatum:
+          $ref: '#/components/schemas/GeregistreerdPersoonReferentie.creatiedatum'
+        modificatiedatum:
+          $ref: '#/components/schemas/GeregistreerdPersoonReferentie.modificatiedatum'
+        bron:
+          $ref: '#/components/schemas/Organisatie'
+      required:
+        - '@type'
+        - registratie
     Locatie:
       title: Locatie
       type: object

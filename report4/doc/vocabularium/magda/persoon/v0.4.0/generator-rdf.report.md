@@ -2,9 +2,9 @@
 
 #||# -------------------------------------  
 
-2026-10-23T08:27:34.743Z error: Unable to find the definition for class [urn:oslo-toolchain:255dba68da5d243701d10258080aeb4e94d90bbeacb830850358a3f896b8d9a4](all-persoon.jsonld#L1634).
+2026-10-23T11:40:16.686Z error: Unable to find the definition for class [urn:oslo-toolchain:255dba68da5d243701d10258080aeb4e94d90bbeacb830850358a3f896b8d9a4](all-persoon.jsonld#L1634).
 
-2026-10-23T08:27:34.744Z error: Unable to find the definition for class [urn:oslo-toolchain:65e004f564a3571d14ac10bb18b3a34aa2dca29ecf16e8d5cd6fe07bf2841859](all-persoon.jsonld#L1663).
+2026-10-23T11:40:16.687Z error: Unable to find the definition for class [urn:oslo-toolchain:65e004f564a3571d14ac10bb18b3a34aa2dca29ecf16e8d5cd6fe07bf2841859](all-persoon.jsonld#L1663).
 
-2026-10-23T08:27:34.745Z error: Unable to find the definition for property [urn:oslo-toolchain:22702863f7b74ef6e2390b69dfa5f4a9a440c9fa7657367e7593134061062a39](all-persoon.jsonld#L3386).
+2026-10-23T11:40:16.689Z error: Unable to find the definition for property [urn:oslo-toolchain:22702863f7b74ef6e2390b69dfa5f4a9a440c9fa7657367e7593134061062a39](all-persoon.jsonld#L3386).
 
