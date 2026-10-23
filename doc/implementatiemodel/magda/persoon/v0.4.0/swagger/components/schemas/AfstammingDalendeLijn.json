@@ -1,0 +1,61 @@
+{
+  "title": "AfstammingDalendeLijn",
+  "type": "object",
+  "description": "Het bloedverwantschap tussen een persoon en kinderen van de persoon.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse AfstammingDalendeLijn)",
+      "pattern": "^AfstammingDalendeLijn$"
+    },
+    "afstammingstype": {
+      "$ref": "#/components/schemas/Afstammingstype"
+    },
+    "datumVanAfstamming": {
+      "$ref": "#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming"
+    },
+    "vanPersoon": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    },
+    "metPersoon": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/PersoonReferentie"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "PersoonReferentie": "#/components/schemas/PersoonReferentie",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type",
+    "vanPersoon",
+    "metPersoon"
+  ]
+}

@@ -7,12 +7,38 @@
   },
   "servers": [
     {
-      "url": "https://implementatie.data.test-vlaanderen.be/",
+      "url": "https://implementatie.data.test-vlaanderen.be",
       "description": "Basis URL"
     }
   ],
   "paths": {},
   "components": {
-    "schemas": {}
+    "schemas": {
+      "Problemdetail": {
+        "title": "Problemdetail",
+        "type": "object",
+        "description": "Meer gedetailleerde beschrijving van de fout in een HTTP response.",
+        "properties": {
+          "type": {
+            "type": "string",
+            "format": "uri"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    }
   }
 }

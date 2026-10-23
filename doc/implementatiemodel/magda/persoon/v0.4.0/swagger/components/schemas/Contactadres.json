@@ -1,0 +1,28 @@
+{
+  "title": "Contactadres",
+  "type": "object",
+  "description": "Het domicillie adres voor personen die in het BIS, RAD of RAN register geregistreerd zijn bij KSZ.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Contactadres)",
+      "pattern": "^Contactadres$"
+    },
+    "verblijfsadres": {
+      "$ref": "#/components/schemas/Adresvoorstelling"
+    },
+    "status": {
+      "$ref": "#/components/schemas/DomicilieStatus"
+    },
+    "nietMededeelbaar": {
+      "$ref": "#/components/schemas/NietMededeelbaar"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

@@ -7,7 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### [0.3.0] - 2026-08-19
+## [0.4.0] - 2026-10-22
+
+### Added
+- Subklassen AfstammingOpgaandeLijn en AfstammingDalendeLijn die overerven van Afstamming.
+- `errors` veld toegevoegd aan ProblemDetail klasse die een beperkte variant van Problemdetail bevat (Error)
+
+### Changed
+- Klasse Afstamming is nu abstract.
+- PersoonReferentie en GeregistreerdPersoonReferentie klassen voor de persoonsrelaties omdat de metPersoon beperkt is in aantal attributen.
+
+## [0.3.2] - 2026-09-30
+
+### Changed
+- MAGDA Uitzonderingen URIs zijn nu domein-specifiek.
+
+## [0.3.1] - 2026-09-24
+
+### Changed
+- Embedded personen in Swagger zijn beperkt tot een aantal velden samen met een referentie via @id.
+
+## [0.3.0] - 2026-08-19
 
 ### Added
 - IT024
