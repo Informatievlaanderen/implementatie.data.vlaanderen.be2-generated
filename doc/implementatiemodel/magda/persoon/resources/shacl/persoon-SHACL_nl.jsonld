@@ -84,6 +84,9 @@
         "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#AnnotatieShape"
       },
       {
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#ErrorShape"
+      },
+      {
         "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#JurisdictieShape"
       },
       {
@@ -960,6 +963,51 @@
     "http://www.w3.org/ns/shacl#xone": [
       {
         "@id": "_:df_2_113"
+      }
+    ]
+  },
+  {
+    "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#ErrorShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "nl",
+        "@value": "Beschrijving van de fout die is opgetreden."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "nl",
+        "@value": "Error"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Error"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#closed": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": "false"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:df_2_34"
+      },
+      {
+        "@id": "_:df_2_36"
+      },
+      {
+        "@id": "_:df_2_37"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Error"
       }
     ]
   },
@@ -2142,10 +2190,6 @@
       {
         "@language": "nl",
         "@value": "Dit ter aanvulling van een HTTP statuscode, bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc9457\">RFC9457</a>."
-      },
-      {
-        "@language": "nl",
-        "@value": "Dit ter aanvulling van een HTTP statuscode,bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc7807\">RFC7807</a>."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
@@ -2173,15 +2217,6 @@
     ],
     "http://www.w3.org/ns/shacl#property": [
       {
-        "@id": "_:df_2_34"
-      },
-      {
-        "@id": "_:df_2_36"
-      },
-      {
-        "@id": "_:df_2_37"
-      },
-      {
         "@id": "_:df_2_44"
       },
       {
@@ -2203,9 +2238,6 @@
     "http://www.w3.org/ns/shacl#targetClass": [
       {
         "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail"
-      },
-      {
-        "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Error"
       }
     ]
   },
@@ -5063,7 +5095,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Problemdetail.Status"
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Error.Status"
       }
     ],
     "http://www.w3.org/ns/shacl#datatype": [
@@ -5165,7 +5197,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Problemdetail.Title"
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Error.Title"
       }
     ],
     "http://www.w3.org/ns/shacl#datatype": [
@@ -5222,7 +5254,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Problemdetail.Type"
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Error.Type"
       }
     ],
     "http://www.w3.org/ns/shacl#datatype": [
@@ -7866,8 +7898,15 @@
     "@type": [
       "http://www.w3.org/ns/shacl#PropertyShape"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "nl",
+        "@value": "Mogelijke validatie-fouten die de aanleiding geven voor het probleem."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
+        "@language": "nl",
         "@value": "errors"
       }
     ],
@@ -7881,20 +7920,15 @@
         "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Error"
       }
     ],
-    "http://www.w3.org/ns/shacl#maxCount": [
+    "http://www.w3.org/ns/shacl#description": [
       {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": "1"
-      }
-    ],
-    "http://www.w3.org/ns/shacl#minCount": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#integer",
-        "@value": "1"
+        "@language": "nl",
+        "@value": "Mogelijke validatie-fouten die de aanleiding geven voor het probleem."
       }
     ],
     "http://www.w3.org/ns/shacl#name": [
       {
+        "@language": "nl",
         "@value": "errors"
       }
     ],

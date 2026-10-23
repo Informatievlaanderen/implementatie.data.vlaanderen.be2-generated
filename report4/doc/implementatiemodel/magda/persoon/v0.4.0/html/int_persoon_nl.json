@@ -724,6 +724,109 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     },
     {
+      "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Error",
+      "vocabularyLabel": {
+        "nl": "Error"
+      },
+      "applicationProfileLabel": {
+        "nl": "Error"
+      },
+      "vocabularyDefinition": {
+        "nl": "Beschrijving van de fout die is opgetreden."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Beschrijving van de fout die is opgetreden."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/inPublicationNamespace",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "http://www.w3.org/ns/adms#status",
+          "vocabularyLabel": {
+            "nl": "detail"
+          },
+          "applicationProfileLabel": {
+            "nl": "status"
+          },
+          "applicationProfileDefinition": {
+            "nl": "HTTP foutcode."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\"."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/generiek#Error",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#integer",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Integer"
+            },
+            "applicationProfileLabel": {
+              "nl": "Integer"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/title",
+          "vocabularyLabel": {
+            "nl": "title"
+          },
+          "applicationProfileLabel": {
+            "nl": "title"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Korte mensleesbare beschrijving van de fout."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/generiek#Error",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/type",
+          "vocabularyLabel": {
+            "nl": "type"
+          },
+          "applicationProfileLabel": {
+            "nl": "type"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Aard van de fout."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/generiek#Error",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#anyURI",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "URI"
+            },
+            "applicationProfileLabel": {
+              "nl": "URI"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
       "id": "http://www.w3.org/ns/org#FormalOrganization",
       "vocabularyLabel": {
         "nl": "FormeleOrganisatie"
@@ -2501,6 +2604,12 @@
           "applicationProfileLabel": {
             "nl": "errors"
           },
+          "vocabularyDefinition": {
+            "nl": "Mogelijke validatie-fouten die de aanleiding geven voor het probleem."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Mogelijke validatie-fouten die de aanleiding geven voor het probleem."
+          },
           "scope": "https://data.vlaanderen.be/id/concept/scope/inPublicationNamespace",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
           "domain": "https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail",
@@ -2508,14 +2617,14 @@
             "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Error",
             "listedInDocument": true,
             "vocabularyLabel": {
-              "nl": "Problemdetail"
+              "nl": "Error"
             },
             "applicationProfileLabel": {
-              "nl": "Problemdetail"
+              "nl": "Error"
             }
           },
-          "minCount": "1",
-          "maxCount": "1"
+          "minCount": "0",
+          "maxCount": "*"
         },
         {
           "id": "http://purl.org/dc/terms/references",
@@ -2618,115 +2727,6 @@
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
           "domain": "https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail",
-          "range": {
-            "id": "http://www.w3.org/2001/XMLSchema#anyURI",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "URI"
-            },
-            "applicationProfileLabel": {
-              "nl": "URI"
-            }
-          },
-          "minCount": "1",
-          "maxCount": "1"
-        }
-      ]
-    },
-    {
-      "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Error",
-      "vocabularyLabel": {
-        "nl": "Problemdetail"
-      },
-      "applicationProfileLabel": {
-        "nl": "Problemdetail"
-      },
-      "vocabularyDefinition": {
-        "nl": "Meer gedetailleerde beschrijving van de fout in een HTTP response."
-      },
-      "applicationProfileDefinition": {
-        "nl": "Meer gedetailleerde beschrijving van de fout in een HTTP response."
-      },
-      "vocabularyUsageNote": {
-        "nl": "Dit ter aanvulling van een HTTP statuscode,bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc7807\">RFC7807</a>."
-      },
-      "applicationProfileUsageNote": {
-        "nl": "Dit ter aanvulling van een HTTP statuscode,bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc7807\">RFC7807</a>."
-      },
-      "scope": "https://data.vlaanderen.be/id/concept/scope/inPublicationNamespace",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
-      "properties": [
-        {
-          "id": "http://www.w3.org/ns/adms#status",
-          "vocabularyLabel": {
-            "nl": "detail"
-          },
-          "applicationProfileLabel": {
-            "nl": "status"
-          },
-          "applicationProfileDefinition": {
-            "nl": "HTTP foutcode."
-          },
-          "applicationProfileUsageNote": {
-            "nl": "Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\"."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/generiek#Error",
-          "range": {
-            "id": "http://www.w3.org/2001/XMLSchema#integer",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "Integer"
-            },
-            "applicationProfileLabel": {
-              "nl": "Integer"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1"
-        },
-        {
-          "id": "http://purl.org/dc/terms/title",
-          "vocabularyLabel": {
-            "nl": "title"
-          },
-          "applicationProfileLabel": {
-            "nl": "title"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Korte mensleesbare beschrijving van de fout."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/generiek#Error",
-          "range": {
-            "id": "http://www.w3.org/2001/XMLSchema#string",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "String"
-            },
-            "applicationProfileLabel": {
-              "nl": "String"
-            }
-          },
-          "minCount": "1",
-          "maxCount": "1"
-        },
-        {
-          "id": "http://purl.org/dc/terms/type",
-          "vocabularyLabel": {
-            "nl": "type"
-          },
-          "applicationProfileLabel": {
-            "nl": "type"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Aard van de fout."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/generiek#Error",
           "range": {
             "id": "http://www.w3.org/2001/XMLSchema#anyURI",
             "listedInDocument": false,

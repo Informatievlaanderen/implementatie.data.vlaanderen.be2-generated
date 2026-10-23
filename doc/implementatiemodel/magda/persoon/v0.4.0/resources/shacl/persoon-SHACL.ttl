@@ -38,6 +38,7 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#UitzonderingShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#BelgischAdresShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#AnnotatieShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#ErrorShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#JurisdictieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#AgentShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#GezinShape>,
@@ -571,6 +572,47 @@
       shacl:property _:df_2_50
     ] [shacl:property _:df_2_64,
         _:df_2_110]) .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#ErrorShape> a shacl:NodeShape;
+  rdfs:label "Error"@nl;
+  rdfs:comment "Beschrijving van de fout die is opgetreden."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Error>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "status"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\"."@nl;
+    rdfs:comment "HTTP foutcode."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Error.Status>;
+    shacl:datatype xsd:integer;
+    shacl:description "HTTP foutcode."@nl;
+    shacl:maxCount 1;
+    shacl:name "status"@nl;
+    shacl:path <http://www.w3.org/ns/adms#status>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "title"@nl;
+    rdfs:comment "Korte mensleesbare beschrijving van de fout."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Error.Title>;
+    shacl:datatype xsd:string;
+    shacl:description "Korte mensleesbare beschrijving van de fout."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "title"@nl;
+    shacl:path dc:title
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "type"@nl;
+    rdfs:comment "Aard van de fout."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Error.Type>;
+    shacl:datatype xsd:anyURI;
+    shacl:description "Aard van de fout."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "type"@nl;
+    shacl:path dc:type
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Error> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#FormeleOrganisatieShape> a shacl:NodeShape;
   rdfs:label "FormeleOrganisatie"@nl;
@@ -1268,45 +1310,11 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#ProblemdetailShape> a shacl:NodeShape;
   rdfs:label "Problemdetail"@nl;
-  <http://purl.org/vocab/vann/usageNote> "Dit ter aanvulling van een HTTP statuscode, bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc9457\">RFC9457</a>."@nl,
-    "Dit ter aanvulling van een HTTP statuscode,bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc7807\">RFC7807</a>."@nl;
+  <http://purl.org/vocab/vann/usageNote> "Dit ter aanvulling van een HTTP statuscode, bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc9457\">RFC9457</a>."@nl;
   rdfs:comment "Meer gedetailleerde beschrijving van de fout in een HTTP response."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Problemdetail>;
   shacl:closed false;
   shacl:property [
-    a shacl:PropertyShape;
-    rdfs:label "status"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\"."@nl;
-    rdfs:comment "HTTP foutcode."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Problemdetail.Status>;
-    shacl:datatype xsd:integer;
-    shacl:description "HTTP foutcode."@nl;
-    shacl:maxCount 1;
-    shacl:name "status"@nl;
-    shacl:path <http://www.w3.org/ns/adms#status>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "title"@nl;
-    rdfs:comment "Korte mensleesbare beschrijving van de fout."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Problemdetail.Title>;
-    shacl:datatype xsd:string;
-    shacl:description "Korte mensleesbare beschrijving van de fout."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "title"@nl;
-    shacl:path dc:title
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "type"@nl;
-    rdfs:comment "Aard van de fout."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Problemdetail.Type>;
-    shacl:datatype xsd:anyURI;
-    shacl:description "Aard van de fout."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "type"@nl;
-    shacl:path dc:type
-  ], [
     a shacl:PropertyShape;
     rdfs:label "type"@nl;
     rdfs:comment "Aard van de fout."@nl;
@@ -1363,16 +1371,15 @@
     shacl:path dc:references
   ], [
     a shacl:PropertyShape;
-    rdfs:label "errors";
+    rdfs:label "errors"@nl;
+    rdfs:comment "Mogelijke validatie-fouten die de aanleiding geven voor het probleem."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#Problemdetail.Errors>;
     shacl:class <https://implementatie.data.vlaanderen.be/ns/generiek#Error>;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "errors";
+    shacl:description "Mogelijke validatie-fouten die de aanleiding geven voor het probleem."@nl;
+    shacl:name "errors"@nl;
     shacl:path <https://implementatie.data.vlaanderen.be/ns/generiek#errors>
   ];
-  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail>,
-    <https://implementatie.data.vlaanderen.be/ns/generiek#Error> .
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0#ReferentieadresShape> a shacl:NodeShape;
   rdfs:label "Referentieadres"@nl;

@@ -567,16 +567,27 @@ components:
           type: string
           description: Object type (klasse Problemdetail)
           pattern: ^Problemdetail$
-        status:
-          $ref: '#/components/schemas/Problemdetail.status'
-        title:
-          $ref: '#/components/schemas/Problemdetail.title'
         type:
           $ref: '#/components/schemas/Problemdetail.type'
+        title:
+          $ref: '#/components/schemas/Problemdetail.title'
+        status:
+          $ref: '#/components/schemas/Problemdetail.status'
+        detail:
+          $ref: '#/components/schemas/Problemdetail.detail'
+        instance:
+          $ref: '#/components/schemas/Problemdetail.instance'
+        errors:
+          type: array
+          description: Mogelijke validatie-fouten die de aanleiding geven voor het probleem. Lijst van Error items.
+          items:
+            $ref: '#/components/schemas/Error'
+          minItems: 1
       required:
         - '@type'
-        - title
         - type
+        - title
+        - detail
     PersonEnvelope:
       title: PersonEnvelope
       type: object
@@ -1025,6 +1036,65 @@ components:
         - '@type'
         - waarde
         - naam
+    Error.status:
+      title: Error.status
+      type: object
+      description: 'HTTP foutcode. Zoals beschreven in <a href="https://www.rfc-editor.org/rfc/rfc7231">RFC7231</a>. Bijvoorbeeld: 404 voor "Not Found".'
+      properties:
+        '@value':
+          type: integer
+          format: int64
+        '@type':
+          type: string
+          pattern: ^Integer$
+      required:
+        - '@value'
+        - '@type'
+    Error.title:
+      title: Error.title
+      type: object
+      description: Korte mensleesbare beschrijving van de fout.
+      properties:
+        '@value':
+          type: string
+      required:
+        - '@value'
+    Error.type:
+      title: Error.type
+      type: object
+      description: Aard van de fout.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          pattern: ^AnyURI$
+      required:
+        - '@id'
+        - '@type'
+    Error:
+      title: Error
+      type: object
+      description: Beschrijving van de fout die is opgetreden.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Error)
+          pattern: ^Error$
+        status:
+          $ref: '#/components/schemas/Error.status'
+        title:
+          $ref: '#/components/schemas/Error.title'
+        type:
+          $ref: '#/components/schemas/Error.type'
+      required:
+        - '@type'
+        - title
+        - type
     Jurisdictie:
       title: Jurisdictie
       type: object

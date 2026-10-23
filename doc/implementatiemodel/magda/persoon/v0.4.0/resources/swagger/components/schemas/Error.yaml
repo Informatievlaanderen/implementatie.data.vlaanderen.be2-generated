@@ -1,0 +1,21 @@
+title: Error
+type: object
+description: Beschrijving van de fout die is opgetreden.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse Error)
+    pattern: ^Error$
+  status:
+    $ref: '#/components/schemas/Error.status'
+  title:
+    $ref: '#/components/schemas/Error.title'
+  type:
+    $ref: '#/components/schemas/Error.type'
+required:
+  - '@type'
+  - title
+  - type
