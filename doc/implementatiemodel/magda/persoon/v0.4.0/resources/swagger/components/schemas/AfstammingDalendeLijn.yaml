@@ -13,15 +13,6 @@ properties:
     $ref: '#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming'
   afstammingstype:
     $ref: '#/components/schemas/AfstammingDalendelijnstype'
-  vanPersoon:
-    oneOf:
-      - $ref: '#/components/schemas/Persoon'
-      - $ref: '#/components/schemas/GeregistreerdPersoon'
-    discriminator:
-      propertyName: '@type'
-      mapping:
-        Persoon: '#/components/schemas/Persoon'
-        GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
   metPersoon:
     oneOf:
       - $ref: '#/components/schemas/PersoonReferentie'
@@ -33,5 +24,4 @@ properties:
         GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
 required:
   - '@type'
-  - vanPersoon
   - metPersoon

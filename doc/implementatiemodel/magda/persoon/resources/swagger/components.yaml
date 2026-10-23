@@ -1379,15 +1379,6 @@ components:
           $ref: '#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming'
         afstammingstype:
           $ref: '#/components/schemas/AfstammingDalendelijnstype'
-        vanPersoon:
-          oneOf:
-            - $ref: '#/components/schemas/Persoon'
-            - $ref: '#/components/schemas/GeregistreerdPersoon'
-          discriminator:
-            propertyName: '@type'
-            mapping:
-              Persoon: '#/components/schemas/Persoon'
-              GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/PersoonReferentie'
@@ -1399,7 +1390,6 @@ components:
               GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
       required:
         - '@type'
-        - vanPersoon
         - metPersoon
     AfstammingOpgaandeLijn.datumVanAfstamming:
       title: AfstammingOpgaandeLijn.datumVanAfstamming
@@ -1431,15 +1421,6 @@ components:
           $ref: '#/components/schemas/AfstammingOpgaandeLijn.datumVanAfstamming'
         afstammingstype:
           $ref: '#/components/schemas/AfstammingStijgendelijnstype'
-        vanPersoon:
-          oneOf:
-            - $ref: '#/components/schemas/Persoon'
-            - $ref: '#/components/schemas/GeregistreerdPersoon'
-          discriminator:
-            propertyName: '@type'
-            mapping:
-              Persoon: '#/components/schemas/Persoon'
-              GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/PersoonReferentie'
@@ -1451,7 +1432,6 @@ components:
               GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
       required:
         - '@type'
-        - vanPersoon
         - metPersoon
     PersoonReferentie.achternaam:
       title: PersoonReferentie.achternaam
