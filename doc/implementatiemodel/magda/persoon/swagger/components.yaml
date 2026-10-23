@@ -237,14 +237,16 @@ components:
               - $ref: '#/components/schemas/Gezinsrelatie'
               - $ref: '#/components/schemas/Huwelijk'
               - $ref: '#/components/schemas/Samenwonen'
-              - $ref: '#/components/schemas/Afstamming'
+              - $ref: '#/components/schemas/AfstammingDalendeLijn'
+              - $ref: '#/components/schemas/AfstammingOpgaandeLijn'
             discriminator:
               propertyName: '@type'
               mapping:
                 Gezinsrelatie: '#/components/schemas/Gezinsrelatie'
                 Huwelijk: '#/components/schemas/Huwelijk'
                 Samenwonen: '#/components/schemas/Samenwonen'
-                Afstamming: '#/components/schemas/Afstamming'
+                AfstammingDalendeLijn: '#/components/schemas/AfstammingDalendeLijn'
+                AfstammingOpgaandeLijn: '#/components/schemas/AfstammingOpgaandeLijn'
           minItems: 1
         isLidVan:
           type: array
@@ -823,14 +825,16 @@ components:
               - $ref: '#/components/schemas/Gezinsrelatie'
               - $ref: '#/components/schemas/Huwelijk'
               - $ref: '#/components/schemas/Samenwonen'
-              - $ref: '#/components/schemas/Afstamming'
+              - $ref: '#/components/schemas/AfstammingDalendeLijn'
+              - $ref: '#/components/schemas/AfstammingOpgaandeLijn'
             discriminator:
               propertyName: '@type'
               mapping:
                 Gezinsrelatie: '#/components/schemas/Gezinsrelatie'
                 Huwelijk: '#/components/schemas/Huwelijk'
                 Samenwonen: '#/components/schemas/Samenwonen'
-                Afstamming: '#/components/schemas/Afstamming'
+                AfstammingDalendeLijn: '#/components/schemas/AfstammingDalendeLijn'
+                AfstammingOpgaandeLijn: '#/components/schemas/AfstammingOpgaandeLijn'
           minItems: 1
         isLidVan:
           type: array
@@ -1361,10 +1365,10 @@ components:
           type: string
           description: Object type (klasse AfstammingDalendeLijn)
           pattern: ^AfstammingDalendeLijn$
-        afstammingstype:
-          $ref: '#/components/schemas/Afstammingstype'
         datumVanAfstamming:
           $ref: '#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming'
+        afstammingstype:
+          $ref: '#/components/schemas/AfstammingDalendelijnstype'
         vanPersoon:
           oneOf:
             - $ref: '#/components/schemas/Persoon'
@@ -1413,10 +1417,10 @@ components:
           type: string
           description: Object type (klasse AfstammingOpgaandeLijn)
           pattern: ^AfstammingOpgaandeLijn$
-        afstammingstype:
-          $ref: '#/components/schemas/Afstammingstype'
         datumVanAfstamming:
           $ref: '#/components/schemas/AfstammingOpgaandeLijn.datumVanAfstamming'
+        afstammingstype:
+          $ref: '#/components/schemas/AfstammingStijgendelijnstype'
         vanPersoon:
           oneOf:
             - $ref: '#/components/schemas/Persoon'
@@ -1585,14 +1589,16 @@ components:
               - $ref: '#/components/schemas/Gezinsrelatie'
               - $ref: '#/components/schemas/Huwelijk'
               - $ref: '#/components/schemas/Samenwonen'
-              - $ref: '#/components/schemas/Afstamming'
+              - $ref: '#/components/schemas/AfstammingDalendeLijn'
+              - $ref: '#/components/schemas/AfstammingOpgaandeLijn'
             discriminator:
               propertyName: '@type'
               mapping:
                 Gezinsrelatie: '#/components/schemas/Gezinsrelatie'
                 Huwelijk: '#/components/schemas/Huwelijk'
                 Samenwonen: '#/components/schemas/Samenwonen'
-                Afstamming: '#/components/schemas/Afstamming'
+                AfstammingDalendeLijn: '#/components/schemas/AfstammingDalendeLijn'
+                AfstammingOpgaandeLijn: '#/components/schemas/AfstammingOpgaandeLijn'
           minItems: 1
         isLidVan:
           type: array
