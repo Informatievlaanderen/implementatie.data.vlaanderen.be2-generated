@@ -1,0 +1,29 @@
+title: PersoonReferentie
+type: object
+description: Natuurlijk persoon.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse PersoonReferentie)
+    pattern: ^PersoonReferentie$
+  achternaam:
+    type: array
+    description: Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt. Lijst van String items.
+    items:
+      $ref: '#/components/schemas/PersoonReferentie.achternaam'
+    minItems: 1
+  voornaam:
+    type: array
+    description: Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie. Lijst van String items.
+    items:
+      $ref: '#/components/schemas/PersoonReferentie.voornaam'
+    minItems: 1
+  contactinfo:
+    $ref: '#/components/schemas/Contactinfo'
+  geslacht:
+    $ref: '#/components/schemas/Geslacht'
+required:
+  - '@type'
