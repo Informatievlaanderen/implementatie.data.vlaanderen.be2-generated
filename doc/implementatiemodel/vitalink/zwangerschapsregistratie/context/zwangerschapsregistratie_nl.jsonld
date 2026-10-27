@@ -35,10 +35,6 @@
           "@id": "https://data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#data",
           "@type": "http://www.w3.org/ns/prov#Entity"
         },
-        "volgende": {
-          "@id": "http://www.w3.org/ns/adms#next",
-          "@type": "http://www.w3.org/1999/xhtml/vocab#link"
-        },
         "warning": {
           "@container": "@set",
           "@id": "https://schema.org/error",
@@ -81,15 +77,6 @@
     },
     "LangString": {
       "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-    },
-    "Link": {
-      "@context": {
-        "href": {
-          "@id": "http://purl.org/dc/terms/references",
-          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
-        }
-      },
-      "@id": "http://www.w3.org/1999/xhtml/vocab#link"
     },
     "Literal": {
       "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
@@ -169,11 +156,11 @@
       "@context": {
         "begin": {
           "@id": "http://data.europa.eu/m8g/startTime",
-          "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
         },
         "einde": {
           "@id": "http://data.europa.eu/m8g/endTime",
-          "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
         }
       },
       "@id": "http://data.europa.eu/m8g/PeriodOfTime"
@@ -216,33 +203,16 @@
       },
       "@id": "http://www.w3.org/ns/person#Person"
     },
-    "PregnancyEnvelope": {
-      "@context": {
-        "data": {
-          "@id": "https://data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#data",
-          "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
-        },
-        "volgende": {
-          "@id": "http://www.w3.org/ns/adms#next",
-          "@type": "http://www.w3.org/1999/xhtml/vocab#link"
-        },
-        "warning": {
-          "@container": "@set",
-          "@id": "https://schema.org/error",
-          "@type": "https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering"
-        }
-      },
-      "@id": "https://data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#PregnancyEnvelope"
-    },
     "PregnancyListEnvelope": {
       "@context": {
         "data": {
+          "@container": "@set",
           "@id": "https://data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#data",
           "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
         },
-        "volgende": {
-          "@id": "http://www.w3.org/ns/adms#next",
-          "@type": "http://www.w3.org/1999/xhtml/vocab#link"
+        "ontvangstReferte": {
+          "@id": "https://data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#ontvangstReferte",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
         "warning": {
           "@container": "@set",

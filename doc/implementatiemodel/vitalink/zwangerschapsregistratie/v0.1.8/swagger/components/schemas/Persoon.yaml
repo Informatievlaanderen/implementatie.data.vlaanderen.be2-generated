@@ -1,0 +1,35 @@
+title: Persoon
+type: object
+description: Natuurlijk persoon.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse Persoon)
+    pattern: ^Persoon$
+  familienaam:
+    $ref: '#/components/schemas/Persoon.familienaam'
+  voornaam:
+    type: array
+    description: Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie. Lijst van String items.
+    items:
+      $ref: '#/components/schemas/Persoon.voornaam'
+    minItems: 1
+  volledigeNaam:
+    $ref: '#/components/schemas/Persoon.volledigeNaam'
+  isLidVan:
+    type: array
+    description: Niet nader bepaald lidmaatschap van een agent van een organisatie. Dekt elk type aansluiting of betrokkenheid van een agent bij een organisatie, niet enkel formeel lidmaatschap. Kan eventueel verder gespecialiseerd worden. Lijst van Organisatie items.
+    items:
+      $ref: '#/components/schemas/Organisatie'
+    minItems: 1
+  identificator:
+    type: array
+    description: Identificator van het object. Bij implementatie in RDF is de uri van het object de identificator. Lijst van Identificator items.
+    items:
+      $ref: '#/components/schemas/Identificator'
+    minItems: 1
+required:
+  - '@type'

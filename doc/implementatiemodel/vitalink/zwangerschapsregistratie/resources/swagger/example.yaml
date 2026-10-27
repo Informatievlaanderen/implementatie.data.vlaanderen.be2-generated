@@ -1,154 +1,12 @@
-openapi: 3.0.4
+openapi: 3.1.0
 info:
   title: VITALINK zwangerschapsregistratie REST
   description: OSLO-conforme REST API voor informatie over zwangerschapsregistratie
-  version: 0.1.0
+  version: 0.1.8
 servers:
   - url: https://implementatie.data.vlaanderen.be
     description: Basis URL
 paths:
-  /id/PregnancyEnvelope/{id}:
-    get:
-      summary: De collectie van de uitgewisselde zwangerschapsgerelateerde informatie en zijn metadata elementen.
-      operationId: PregnancyEnvelopeGET
-      parameters:
-        - name: id
-          required: true
-          in: path
-          description: Identificator van een PregnancyEnvelope object.
-          schema:
-            type: string
-      responses:
-        '200':
-          description: PregnancyEnvelope object gevonden.
-          content:
-            application/ld+json:
-              schema:
-                $ref: '#/components/schemas/PregnancyEnvelope'
-          links:
-            PregnancyEnvelope.data:
-              operationId: PregnancyEnvelopeGET
-              parameters:
-                id: $response.body#/PregnancyEnvelope.data/@id
-              description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen.
-            PregnancyEnvelope.volgende:
-              operationId: PregnancyEnvelopeGET
-              parameters:
-                id: $response.body#/PregnancyEnvelope.volgende/@id
-              description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Link` op te halen.
-            PregnancyEnvelope.warning:
-              operationId: PregnancyEnvelopeGET
-              parameters:
-                id: $response.body#/PregnancyEnvelope.warning/@id
-              description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Uitzondering` op te halen.
-        '400':
-          description: Invalid data supplied.
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problemdetail'
-          links:
-            Problemdetail.type:
-              operationId: PregnancyEnvelopeGET
-              parameters:
-                type: $response.body#/type
-              description: De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen.
-        '401':
-          description: Invalid authorization.
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problemdetail'
-          links:
-            Problemdetail.type:
-              operationId: PregnancyEnvelopeGET
-              parameters:
-                type: $response.body#/type
-              description: De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen.
-        '403':
-          description: Authentication failed.
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problemdetail'
-          links:
-            Problemdetail.type:
-              operationId: PregnancyEnvelopeGET
-              parameters:
-                type: $response.body#/type
-              description: De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen.
-        '404':
-          description: Resource not found.
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problemdetail'
-          links:
-            Problemdetail.type:
-              operationId: PregnancyEnvelopeGET
-              parameters:
-                type: $response.body#/type
-              description: De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen.
-        '412':
-          description: Pre-condition failed.
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problemdetail'
-          links:
-            Problemdetail.type:
-              operationId: PregnancyEnvelopeGET
-              parameters:
-                type: $response.body#/type
-              description: De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen.
-        '500':
-          description: Unexpected Server Error.
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problemdetail'
-          links:
-            Problemdetail.type:
-              operationId: PregnancyEnvelopeGET
-              parameters:
-                type: $response.body#/type
-              description: De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen.
-        '502':
-          description: Bad Gateway.
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problemdetail'
-          links:
-            Problemdetail.type:
-              operationId: PregnancyEnvelopeGET
-              parameters:
-                type: $response.body#/type
-              description: De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen.
-        '503':
-          description: Service unavailable.
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problemdetail'
-          links:
-            Problemdetail.type:
-              operationId: PregnancyEnvelopeGET
-              parameters:
-                type: $response.body#/type
-              description: De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen.
-        '504':
-          description: Gateway Timeout.
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problemdetail'
-          links:
-            Problemdetail.type:
-              operationId: PregnancyEnvelopeGET
-              parameters:
-                type: $response.body#/type
-              description: De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen.
   /id/PregnancyListEnvelope/{id}:
     get:
       summary: De collectie van de uitgewisselde zwangerschapsgerelateerde informatie en zijn metadata elementen.
@@ -167,22 +25,6 @@ paths:
             application/ld+json:
               schema:
                 $ref: '#/components/schemas/PregnancyListEnvelope'
-          links:
-            PregnancyListEnvelope.data:
-              operationId: PregnancyListEnvelopeGET
-              parameters:
-                id: $response.body#/PregnancyListEnvelope.data/@id
-              description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen.
-            PregnancyListEnvelope.volgende:
-              operationId: PregnancyListEnvelopeGET
-              parameters:
-                id: $response.body#/PregnancyListEnvelope.volgende/@id
-              description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Link` op te halen.
-            PregnancyListEnvelope.warning:
-              operationId: PregnancyListEnvelopeGET
-              parameters:
-                id: $response.body#/PregnancyListEnvelope.warning/@id
-              description: De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Uitzondering` op te halen.
         '400':
           description: Invalid data supplied.
           content:
@@ -401,7 +243,16 @@ components:
     Organisatie.voorkeursnaam:
       title: Organisatie.voorkeursnaam
       description: Naam waarmee de Organisatie bij voorkeur wordt aangeduid.
-      type: string
+      type: object
+      properties:
+        '@value':
+          type: string
+        '@language':
+          type: string
+          pattern: ^nl$
+      required:
+        - '@value'
+        - '@language'
     Organisatie:
       title: Organisatie
       type: object
@@ -566,28 +417,6 @@ components:
           minItems: 1
       required:
         - '@type'
-    DataEnvelope:
-      title: DataEnvelope
-      type: object
-      description: De collectie van de uitgewisselde data en zijn metadata elementen.
-      properties:
-        '@id':
-          type: string
-          format: uri
-        '@type':
-          type: string
-          description: Object type (klasse DataEnvelope)
-          pattern: ^DataEnvelope$
-        volgende:
-          $ref: '#/components/schemas/Link'
-        warning:
-          type: array
-          description: Foutmeldingen die opgetreden zijn bij het afleveren van de data. Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen. Lijst van Uitzondering items.
-          items:
-            $ref: '#/components/schemas/Uitzondering'
-          minItems: 1
-      required:
-        - '@type'
     Foetus:
       title: Foetus
       type: object
@@ -602,35 +431,10 @@ components:
           pattern: ^Foetus$
       required:
         - '@type'
-    PregnancyEnvelope:
-      title: PregnancyEnvelope
-      type: object
-      description: De collectie van de uitgewisselde zwangerschapsgerelateerde informatie en zijn metadata elementen.
-      properties:
-        '@id':
-          type: string
-          format: uri
-        '@type':
-          type: string
-          description: Object type (klasse PregnancyEnvelope)
-          pattern: ^PregnancyEnvelope$
-        data:
-          $ref: '#/components/schemas/Zwangerschap'
-        volgende:
-          $ref: '#/components/schemas/Link'
-        warning:
-          type: array
-          description: Foutmeldingen die opgetreden zijn bij het afleveren van de data. Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen. Lijst van Uitzondering items.
-          items:
-            $ref: '#/components/schemas/Uitzondering'
-          minItems: 1
-        '@context':
-          type: string
-          description: URI of the JSON-LD versioned context file for this response.
-          pattern: ^https:\/\/implementatie.data.vlaanderen.be\/doc\/implementatiemodel\/vitalink\/zwangerschapsregistratie\/v0.1.7\/context\/zwangerschapsregistratie.jsonld$
-      required:
-        - '@type'
-        - data
+    PregnancyListEnvelope.ontvangstReferte:
+      title: PregnancyListEnvelope.ontvangstReferte
+      description: De referentie naar de ontvangst van de data.
+      type: string
     PregnancyListEnvelope:
       title: PregnancyListEnvelope
       type: object
@@ -643,10 +447,14 @@ components:
           type: string
           description: Object type (klasse PregnancyListEnvelope)
           pattern: ^PregnancyListEnvelope$
+        ontvangstReferte:
+          $ref: '#/components/schemas/PregnancyListEnvelope.ontvangstReferte'
         data:
-          $ref: '#/components/schemas/Zwangerschap'
-        volgende:
-          $ref: '#/components/schemas/Link'
+          type: array
+          description: De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van Zwangerschap items.
+          items:
+            $ref: '#/components/schemas/Zwangerschap'
+          minItems: 1
         warning:
           type: array
           description: Foutmeldingen die opgetreden zijn bij het afleveren van de data. Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen. Lijst van Uitzondering items.
@@ -656,10 +464,9 @@ components:
         '@context':
           type: string
           description: URI of the JSON-LD versioned context file for this response.
-          pattern: ^https:\/\/implementatie.data.vlaanderen.be\/doc\/implementatiemodel\/vitalink\/zwangerschapsregistratie\/v0.1.7\/context\/zwangerschapsregistratie.jsonld$
+          pattern: ^https:\/\/implementatie.data.vlaanderen.be\/doc\/implementatiemodel\/vitalink\/zwangerschapsregistratie\/v0.1.8\/context\/zwangerschapsregistratie.jsonld$
       required:
         - '@type'
-        - data
     Uitzondering.datum:
       title: Uitzondering.datum
       description: De datum waarop de Uitzondering aangemaakt werd.
@@ -739,7 +546,7 @@ components:
     Problemdetail.status:
       title: Problemdetail.status
       description: 'HTTP foutcode. Zoals beschreven in <a href="https://www.rfc-editor.org/rfc/rfc7231">RFC7231</a>. Bijvoorbeeld: 404 voor "Not Found".'
-      type: number
+      type: integer
       format: int64
     Problemdetail.title:
       title: Problemdetail.title
@@ -772,35 +579,16 @@ components:
           minItems: 1
       required:
         - '@type'
-    Link.href:
-      title: Link.href
-      description: De referentie URI.
-      type: string
-      format: uri
-    Link:
-      title: Link
-      type: object
-      description: Link beschrijft een hyperlink naar een andere resource volgens HAL.
-      properties:
-        '@id':
-          type: string
-          format: uri
-        '@type':
-          type: string
-          description: Object type (klasse Link)
-          pattern: ^Link$
-        href:
-          $ref: '#/components/schemas/Link.href'
-      required:
-        - '@type'
     Periode.begin:
       title: Periode.begin
       description: Aanvang van de tijdsduur.
       type: string
+      format: date-time
     Periode.einde:
       title: Periode.einde
       description: Einde van de tijdsduur.
       type: string
+      format: date-time
     Periode:
       title: Periode
       type: object
@@ -822,7 +610,14 @@ components:
     Identificator.identificator:
       title: Identificator.identificator
       description: String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.
-      type: string
+      type: object
+      properties:
+        '@value':
+          type: string
+        '@type':
+          type: string
+      required:
+        - '@value'
     Identificator.toegekendDoorString:
       title: Identificator.toegekendDoorString
       description: Naam van de agent die de identificator heeft toegekend.
