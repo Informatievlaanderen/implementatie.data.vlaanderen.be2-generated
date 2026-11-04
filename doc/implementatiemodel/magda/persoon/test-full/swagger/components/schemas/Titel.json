@@ -1,0 +1,32 @@
+{
+  "title": "Titel",
+  "type": "object",
+  "description": "Officiële, erfelijke of verkregen aanduiding die aan de naam van een Persoon is toegevoegd en die zijn sociale positie, adeldom, ambt, beroep of behaalde onderwijsgraden aangeeft.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Titel)",
+      "pattern": "^Titel$"
+    },
+    "beschrijving": {
+      "$ref": "#/components/schemas/Titel.beschrijving"
+    },
+    "begindatum": {
+      "$ref": "#/components/schemas/Titel.begindatum"
+    },
+    "einddatum": {
+      "$ref": "#/components/schemas/Titel.einddatum"
+    },
+    "type": {
+      "$ref": "#/components/schemas/AdellijkeTitel"
+    }
+  },
+  "required": [
+    "@type",
+    "begindatum"
+  ]
+}

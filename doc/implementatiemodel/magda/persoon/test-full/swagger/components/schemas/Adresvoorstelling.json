@@ -1,0 +1,74 @@
+{
+  "title": "Adresvoorstelling",
+  "type": "object",
+  "description": "Meer leesbare voorstelling met enkel de basisgegevens van het adres, bedoeld voor het gebruik van een adres als attribuut van een ander object.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Adresvoorstelling)",
+      "pattern": "^Adresvoorstelling$"
+    },
+    "administratieveEenheidNiveau1": {
+      "$ref": "#/components/schemas/Adresvoorstelling.administratieveEenheidNiveau1"
+    },
+    "administratieveEenheidNiveau2": {
+      "$ref": "#/components/schemas/Adresvoorstelling.administratieveEenheidNiveau2"
+    },
+    "adresgebied": {
+      "$ref": "#/components/schemas/Adresvoorstelling.adresgebied"
+    },
+    "busnummer": {
+      "$ref": "#/components/schemas/Adresvoorstelling.busnummer"
+    },
+    "gemeentenaam": {
+      "$ref": "#/components/schemas/Adresvoorstelling.gemeentenaam"
+    },
+    "huisnummer": {
+      "$ref": "#/components/schemas/Adresvoorstelling.huisnummer"
+    },
+    "land": {
+      "$ref": "#/components/schemas/Adresvoorstelling.land"
+    },
+    "locatieaanduiding": {
+      "type": "array",
+      "description": "Alfanumerieke code die de adreslocator uniek identificeert binnen de straat, administratieve eenheid etc. Lijst van String items.",
+      "items": {
+        "$ref": "#/components/schemas/Adresvoorstelling.locatieaanduiding"
+      },
+      "minItems": 1
+    },
+    "locatienaam": {
+      "type": "array",
+      "description": "Naam of omschrijving van het het geografisch object dat de adreslocator aanduidt. Lijst van LangString items.",
+      "items": {
+        "$ref": "#/components/schemas/Adresvoorstelling.locatienaam"
+      },
+      "minItems": 1
+    },
+    "postbus": {
+      "$ref": "#/components/schemas/Adresvoorstelling.postbus"
+    },
+    "postcode": {
+      "$ref": "#/components/schemas/Adresvoorstelling.postcode"
+    },
+    "postnaam": {
+      "$ref": "#/components/schemas/Adresvoorstelling.postnaam"
+    },
+    "straatnaam": {
+      "$ref": "#/components/schemas/Adresvoorstelling.straatnaam"
+    },
+    "volledigAdres": {
+      "$ref": "#/components/schemas/Adresvoorstelling.volledigAdres"
+    },
+    "verwijstNaar": {
+      "$ref": "#/components/schemas/BelgischAdres"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

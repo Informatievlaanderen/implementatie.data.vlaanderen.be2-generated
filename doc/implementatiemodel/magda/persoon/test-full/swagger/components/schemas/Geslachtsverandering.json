@@ -1,0 +1,38 @@
+{
+  "title": "Geslachtsverandering",
+  "type": "object",
+  "description": "Gebeurtenis waarbij een Persoon van officiële verblijfplaats verandert.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Geslachtsverandering)",
+      "pattern": "^Geslachtsverandering$"
+    },
+    "beschrijving": {
+      "$ref": "#/components/schemas/Geslachtsverandering.beschrijving"
+    },
+    "type": {
+      "$ref": "#/components/schemas/Geslachtsveranderingtype"
+    },
+    "begindatum": {
+      "$ref": "#/components/schemas/Geslachtsverandering.begindatum"
+    },
+    "einddatum": {
+      "$ref": "#/components/schemas/Geslachtsverandering.einddatum"
+    },
+    "plaats": {
+      "$ref": "#/components/schemas/Plaats"
+    },
+    "datum": {
+      "$ref": "#/components/schemas/Moment"
+    }
+  },
+  "required": [
+    "@type",
+    "begindatum"
+  ]
+}

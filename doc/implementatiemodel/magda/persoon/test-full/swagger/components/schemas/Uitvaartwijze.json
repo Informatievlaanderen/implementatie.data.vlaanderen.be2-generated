@@ -1,0 +1,62 @@
+{
+  "title": "Uitvaartwijze",
+  "type": "object",
+  "description": "Wilsuiting mbt de uitvaart van de Persoon.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Uitvaartwijze)",
+      "pattern": "^Uitvaartwijze$"
+    },
+    "lijkbezorging": {
+      "$ref": "#/components/schemas/Lijkbezorgingtype"
+    },
+    "ritueel": {
+      "$ref": "#/components/schemas/Uitvaartplachtigheidritueeltype"
+    },
+    "begraafplaats": {
+      "$ref": "#/components/schemas/Plaats"
+    },
+    "contract": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Contract"
+        },
+        {
+          "$ref": "#/components/schemas/Samenlevingscontract"
+        },
+        {
+          "$ref": "#/components/schemas/Uitvaartcontract"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Contract": "#/components/schemas/Contract",
+          "Samenlevingscontract": "#/components/schemas/Samenlevingscontract",
+          "Uitvaartcontract": "#/components/schemas/Uitvaartcontract"
+        }
+      }
+    },
+    "wettelijkeVertegenwoordiger": {
+      "$ref": "#/components/schemas/GeregistreerdPersoon"
+    },
+    "begindatum": {
+      "$ref": "#/components/schemas/Uitvaartwijze.begindatum"
+    },
+    "einddatum": {
+      "$ref": "#/components/schemas/Uitvaartwijze.einddatum"
+    },
+    "verklaring": {
+      "$ref": "#/components/schemas/Verklaring"
+    }
+  },
+  "required": [
+    "@type",
+    "begindatum"
+  ]
+}

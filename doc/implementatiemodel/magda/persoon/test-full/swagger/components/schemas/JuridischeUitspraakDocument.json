@@ -1,0 +1,47 @@
+{
+  "title": "JuridischeUitspraakDocument",
+  "type": "object",
+  "description": "Document dat de beslissing van een rechterlijke instantie vastlegt.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse JuridischeUitspraakDocument)",
+      "pattern": "^JuridischeUitspraakDocument$"
+    },
+    "datum": {
+      "$ref": "#/components/schemas/JuridischeUitspraakDocument.datum"
+    },
+    "rechtbank": {
+      "$ref": "#/components/schemas/Rechtbank"
+    },
+    "plaats": {
+      "$ref": "#/components/schemas/Plaats"
+    },
+    "beschrijving": {
+      "$ref": "#/components/schemas/JuridischeUitspraakDocument.beschrijving"
+    },
+    "identificator": {
+      "type": "array",
+      "description": "Identificator van het Document. Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    },
+    "onderwerp": {
+      "type": "array",
+      "description": "Datgene waarop het Document betrekking heeft. Lijst van Resource items.",
+      "items": {
+        "$ref": "#/components/schemas/Resource"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

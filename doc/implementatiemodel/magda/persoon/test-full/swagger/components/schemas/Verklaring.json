@@ -1,0 +1,38 @@
+{
+  "title": "Verklaring",
+  "type": "object",
+  "description": "Document dat een uiting van wil, kennisname of bevestiging door één of meer personen vastlegt.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Verklaring)",
+      "pattern": "^Verklaring$"
+    },
+    "datum": {
+      "$ref": "#/components/schemas/Verklaring.datum"
+    },
+    "identificator": {
+      "type": "array",
+      "description": "Identificator van de Verklaring. Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    },
+    "onderwerp": {
+      "type": "array",
+      "description": "Datgene waarop  de Verklaring betrekking heeft. Lijst van Resource items.",
+      "items": {
+        "$ref": "#/components/schemas/Resource"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

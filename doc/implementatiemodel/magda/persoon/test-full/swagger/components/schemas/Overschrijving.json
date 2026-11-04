@@ -1,0 +1,50 @@
+{
+  "title": "Overschrijving",
+  "type": "object",
+  "description": "Formele opname van een juridisch document in een officieel Register.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Overschrijving)",
+      "pattern": "^Overschrijving$"
+    },
+    "datum": {
+      "$ref": "#/components/schemas/Overschrijving.datum"
+    },
+    "plaats": {
+      "$ref": "#/components/schemas/Plaats"
+    },
+    "overschrijvingVan": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Document"
+        },
+        {
+          "$ref": "#/components/schemas/JuridischeUitspraakDocument"
+        },
+        {
+          "$ref": "#/components/schemas/Akte"
+        },
+        {
+          "$ref": "#/components/schemas/AdministratieveBeslissingDocument"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Document": "#/components/schemas/Document",
+          "JuridischeUitspraakDocument": "#/components/schemas/JuridischeUitspraakDocument",
+          "Akte": "#/components/schemas/Akte",
+          "AdministratieveBeslissingDocument": "#/components/schemas/AdministratieveBeslissingDocument"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

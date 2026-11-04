@@ -1,0 +1,90 @@
+{
+  "title": "Inwonerschap",
+  "type": "object",
+  "description": "Het feit dat een Persoon verblijf houdt in een plaats of land.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Inwonerschap)",
+      "pattern": "^Inwonerschap$"
+    },
+    "begindatum": {
+      "$ref": "#/components/schemas/Inwonerschap.begindatum"
+    },
+    "einddatum": {
+      "$ref": "#/components/schemas/Inwonerschap.einddatum"
+    },
+    "persoon": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    },
+    "jurisdictie": {
+      "$ref": "#/components/schemas/Jurisdictie"
+    },
+    "heeftVerblijfplaats": {
+      "type": "array",
+      "description": "Plaats waar een persoon verblijft. Lijst van Verblijfplaats items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Domicilie"
+          },
+          {
+            "$ref": "#/components/schemas/Afwezig"
+          },
+          {
+            "$ref": "#/components/schemas/Postadres"
+          },
+          {
+            "$ref": "#/components/schemas/VerblijfplaatsBuitenland"
+          },
+          {
+            "$ref": "#/components/schemas/WettelijkVerblijf"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Domicilie": "#/components/schemas/Domicilie",
+            "Afwezig": "#/components/schemas/Afwezig",
+            "Postadres": "#/components/schemas/Postadres",
+            "VerblijfplaatsBuitenland": "#/components/schemas/VerblijfplaatsBuitenland",
+            "WettelijkVerblijf": "#/components/schemas/WettelijkVerblijf"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "status": {
+      "type": "array",
+      "description": "Status van het Inwonerschap. Lijst van Inwonerschapstatus items.",
+      "items": {
+        "$ref": "#/components/schemas/Inwonerschapstatus"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "begindatum",
+    "persoon",
+    "jurisdictie"
+  ]
+}

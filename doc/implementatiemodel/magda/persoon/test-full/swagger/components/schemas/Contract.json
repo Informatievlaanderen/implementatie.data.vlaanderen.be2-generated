@@ -1,0 +1,70 @@
+{
+  "title": "Contract",
+  "type": "object",
+  "description": "Een vrijwillige, bewuste overeenkomst tussen handelingsbekwame partijen waarbij de partijen zich juridisch binden en een tegenprestatie van waarde leveren.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Contract)",
+      "pattern": "^Contract$"
+    },
+    "datum": {
+      "$ref": "#/components/schemas/Contract.datum"
+    },
+    "plaats": {
+      "$ref": "#/components/schemas/Plaats"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "vanAgent": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Agent"
+        },
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Agent": "#/components/schemas/Agent",
+          "Persoon": "#/components/schemas/Persoon",
+          "Organisatie": "#/components/schemas/Organisatie"
+        }
+      }
+    },
+    "metAgent": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Agent"
+        },
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Agent": "#/components/schemas/Agent",
+          "Persoon": "#/components/schemas/Persoon",
+          "Organisatie": "#/components/schemas/Organisatie"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

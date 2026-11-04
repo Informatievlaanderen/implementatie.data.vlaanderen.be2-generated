@@ -1,0 +1,28 @@
+{
+  "title": "Afwezig",
+  "type": "object",
+  "description": "Verblijfplaats van een Persoon die tijdelijk afwezig is.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Afwezig)",
+      "pattern": "^Afwezig$"
+    },
+    "beschrijving": {
+      "$ref": "#/components/schemas/Afwezig.beschrijving"
+    },
+    "redenAfwezigheid": {
+      "$ref": "#/components/schemas/RedenAfwezigheid"
+    },
+    "verblijfsadres": {
+      "$ref": "#/components/schemas/Adresvoorstelling"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

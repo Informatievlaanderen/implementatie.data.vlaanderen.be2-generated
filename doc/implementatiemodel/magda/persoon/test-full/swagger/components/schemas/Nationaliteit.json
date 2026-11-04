@@ -1,0 +1,32 @@
+{
+  "title": "Nationaliteit",
+  "type": "object",
+  "description": "De relatie tussen een Persoon en een staat, cultuur, of loyaliteit.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Nationaliteit)",
+      "pattern": "^Nationaliteit$"
+    },
+    "begindatum": {
+      "$ref": "#/components/schemas/Nationaliteit.begindatum"
+    },
+    "einddatum": {
+      "$ref": "#/components/schemas/Nationaliteit.einddatum"
+    },
+    "nationaliteit": {
+      "$ref": "#/components/schemas/STATBELNationaliteitscode"
+    },
+    "verwerving": {
+      "$ref": "#/components/schemas/Nationaliteitsverwerving"
+    }
+  },
+  "required": [
+    "@type",
+    "begindatum"
+  ]
+}

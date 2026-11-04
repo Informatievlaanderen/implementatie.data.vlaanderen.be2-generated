@@ -1,0 +1,61 @@
+{
+  "title": "Huisvestingsrelatie",
+  "type": "object",
+  "description": "Persoonsrelatie waarbij de ene Persoon huisvesting verleent aan de andere Persoon.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Huisvestingsrelatie)",
+      "pattern": "^Huisvestingsrelatie$"
+    },
+    "datum": {
+      "$ref": "#/components/schemas/Huisvestingsrelatie.datum"
+    },
+    "rol": {
+      "$ref": "#/components/schemas/Roltype"
+    },
+    "vanPersoon": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    },
+    "metPersoon": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type",
+    "vanPersoon",
+    "metPersoon"
+  ]
+}

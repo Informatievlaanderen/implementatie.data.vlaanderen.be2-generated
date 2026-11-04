@@ -1,0 +1,73 @@
+{
+  "title": "Uitvaartcontract",
+  "type": "object",
+  "description": "Contract dat voor de uitvaart van een Persoon is afgesloten met een uitvaartonderneming.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Uitvaartcontract)",
+      "pattern": "^Uitvaartcontract$"
+    },
+    "onderneming": {
+      "$ref": "#/components/schemas/Organisatie"
+    },
+    "datum": {
+      "$ref": "#/components/schemas/Uitvaartcontract.datum"
+    },
+    "plaats": {
+      "$ref": "#/components/schemas/Plaats"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "vanAgent": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Agent"
+        },
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Agent": "#/components/schemas/Agent",
+          "Persoon": "#/components/schemas/Persoon",
+          "Organisatie": "#/components/schemas/Organisatie"
+        }
+      }
+    },
+    "metAgent": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Agent"
+        },
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Agent": "#/components/schemas/Agent",
+          "Persoon": "#/components/schemas/Persoon",
+          "Organisatie": "#/components/schemas/Organisatie"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

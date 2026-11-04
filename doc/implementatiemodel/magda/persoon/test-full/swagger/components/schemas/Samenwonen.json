@@ -1,0 +1,73 @@
+{
+  "title": "Samenwonen",
+  "type": "object",
+  "description": "Regeling waarbij twee personen die niet getrouwd zijn samenleven.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Samenwonen)",
+      "pattern": "^Samenwonen$"
+    },
+    "datum": {
+      "$ref": "#/components/schemas/Samenwonen.datum"
+    },
+    "plaats": {
+      "$ref": "#/components/schemas/Plaats"
+    },
+    "uitspraak": {
+      "$ref": "#/components/schemas/JuridischeUitspraakDocument"
+    },
+    "verklaring": {
+      "$ref": "#/components/schemas/Verklaring"
+    },
+    "verklaringBeëIndiging": {
+      "$ref": "#/components/schemas/Verklaring"
+    },
+    "contract": {
+      "$ref": "#/components/schemas/Samenlevingscontract"
+    },
+    "vanPersoon": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    },
+    "metPersoon": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type",
+    "vanPersoon",
+    "metPersoon"
+  ]
+}

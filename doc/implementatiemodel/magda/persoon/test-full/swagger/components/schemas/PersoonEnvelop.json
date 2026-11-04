@@ -1,0 +1,36 @@
+{
+  "title": "PersoonEnvelop",
+  "type": "object",
+  "description": "Enveloppe om Persoon en bijhorende validatiewaarschuwingen uit te wisselen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse PersoonEnvelop)",
+      "pattern": "^PersoonEnvelop$"
+    },
+    "warning": {
+      "type": "array",
+      "description": "Foutmeldingen die opgetreden zijn bij het afleveren van de data. Foutmeldingen kunnen ook optreden bij HTTP 200 waarbij validatiefouten worden meegegeven zoals MAGDA Uitzonderingen. Lijst van Uitzondering items.",
+      "items": {
+        "$ref": "#/components/schemas/Uitzondering"
+      },
+      "minItems": 1
+    },
+    "data": {
+      "$ref": "#/components/schemas/GeregistreerdPersoon"
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/magda\\/persoon\\/test-full\\/context\\/persoon.jsonld$"
+    }
+  },
+  "required": [
+    "@type",
+    "data"
+  ]
+}

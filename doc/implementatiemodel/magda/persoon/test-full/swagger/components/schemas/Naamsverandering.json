@@ -1,0 +1,38 @@
+{
+  "title": "Naamsverandering",
+  "type": "object",
+  "description": "Gebeurtenis waarbij de naam van een Persoon wordt veranderd.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Naamsverandering)",
+      "pattern": "^Naamsverandering$"
+    },
+    "beschrijving": {
+      "$ref": "#/components/schemas/Naamsverandering.beschrijving"
+    },
+    "type": {
+      "$ref": "#/components/schemas/Naamsveranderingtype"
+    },
+    "begindatum": {
+      "$ref": "#/components/schemas/Naamsverandering.begindatum"
+    },
+    "einddatum": {
+      "$ref": "#/components/schemas/Naamsverandering.einddatum"
+    },
+    "plaats": {
+      "$ref": "#/components/schemas/Plaats"
+    },
+    "datum": {
+      "$ref": "#/components/schemas/Moment"
+    }
+  },
+  "required": [
+    "@type",
+    "begindatum"
+  ]
+}

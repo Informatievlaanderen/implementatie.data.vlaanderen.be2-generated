@@ -1,0 +1,38 @@
+{
+  "title": "AlternatieveNaam",
+  "type": "object",
+  "description": "Naam die verwijst naar dezelfde Persoon als de officiële naam, maar daarvan afwijkt door gebruik, spelling, identiteit etc.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse AlternatieveNaam)",
+      "pattern": "^AlternatieveNaam$"
+    },
+    "naam": {
+      "$ref": "#/components/schemas/AlternatieveNaam.naam"
+    },
+    "begindatum": {
+      "$ref": "#/components/schemas/AlternatieveNaam.begindatum"
+    },
+    "einddatum": {
+      "$ref": "#/components/schemas/AlternatieveNaam.einddatum"
+    },
+    "type": {
+      "$ref": "#/components/schemas/AlternatieveNaamtype"
+    },
+    "geboorte": {
+      "$ref": "#/components/schemas/Geboorte"
+    },
+    "nationaliteit": {
+      "$ref": "#/components/schemas/Nationaliteit"
+    }
+  },
+  "required": [
+    "@type",
+    "begindatum"
+  ]
+}

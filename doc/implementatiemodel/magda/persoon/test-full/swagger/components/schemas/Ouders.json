@@ -1,0 +1,61 @@
+{
+  "title": "Ouders",
+  "type": "object",
+  "description": "Personen waartoe de Persoon zich juridisch op grond van afstamming of adoptie als kind verhoudt.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Ouders)",
+      "pattern": "^Ouders$"
+    },
+    "begindatum": {
+      "$ref": "#/components/schemas/Ouders.begindatum"
+    },
+    "einddatum": {
+      "$ref": "#/components/schemas/Ouders.einddatum"
+    },
+    "datumVanAfstamming": {
+      "$ref": "#/components/schemas/Ouders.datumVanAfstamming"
+    },
+    "type": {
+      "$ref": "#/components/schemas/Afstammingstype"
+    },
+    "ouder": {
+      "type": "array",
+      "description": "Verwijzing naar de Persoon die zijn ouder is. Lijst van Persoon items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Persoon"
+          },
+          {
+            "$ref": "#/components/schemas/GeregistreerdPersoon"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Persoon": "#/components/schemas/Persoon",
+            "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+          }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 2
+    },
+    "plaats": {
+      "$ref": "#/components/schemas/Plaats"
+    },
+    "overschrijving": {
+      "$ref": "#/components/schemas/Overschrijving"
+    }
+  },
+  "required": [
+    "@type",
+    "begindatum"
+  ]
+}

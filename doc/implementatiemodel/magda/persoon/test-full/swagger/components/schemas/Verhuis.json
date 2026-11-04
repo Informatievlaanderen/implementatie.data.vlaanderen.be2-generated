@@ -1,0 +1,35 @@
+{
+  "title": "Verhuis",
+  "type": "object",
+  "description": "Gebeurtenis waarbij een Persoon verandert van verblijfplaats.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Verhuis)",
+      "pattern": "^Verhuis$"
+    },
+    "beschrijving": {
+      "$ref": "#/components/schemas/Verhuis.beschrijving"
+    },
+    "begindatum": {
+      "$ref": "#/components/schemas/Verhuis.begindatum"
+    },
+    "einddatum": {
+      "$ref": "#/components/schemas/Verhuis.einddatum"
+    },
+    "plaats": {
+      "$ref": "#/components/schemas/Plaats"
+    },
+    "datum": {
+      "$ref": "#/components/schemas/Moment"
+    }
+  },
+  "required": [
+    "@type",
+    "begindatum"
+  ]
+}

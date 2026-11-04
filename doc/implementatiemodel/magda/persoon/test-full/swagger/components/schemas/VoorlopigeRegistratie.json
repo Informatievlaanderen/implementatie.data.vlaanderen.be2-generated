@@ -1,0 +1,54 @@
+{
+  "title": "VoorlopigeRegistratie",
+  "type": "object",
+  "description": "Registratie van voorlopige aard.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse VoorlopigeRegistratie)",
+      "pattern": "^VoorlopigeRegistratie$"
+    },
+    "vervaldatum": {
+      "$ref": "#/components/schemas/VoorlopigeRegistratie.vervaldatum"
+    },
+    "procedure": {
+      "$ref": "#/components/schemas/ProcedureType"
+    },
+    "begindatum": {
+      "$ref": "#/components/schemas/VoorlopigeRegistratie.begindatum"
+    },
+    "einddatum": {
+      "$ref": "#/components/schemas/VoorlopigeRegistratie.einddatum"
+    },
+    "dossierstatus": {
+      "type": "array",
+      "description": "Toestand van het dossier van de Registratie. In het Rijksregister gebruikt wanneer de inschrijving in het register niet meer geldig is, bijvoorbeeld: omdat de persoon uit het register is geschrapt of een eerdere registratie werd geannuleerd of de persoon is overleden, etc. Lijst van Dossierstatus items.",
+      "items": {
+        "$ref": "#/components/schemas/Dossierstatus"
+      },
+      "minItems": 1
+    },
+    "referentiedossier": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "register": {
+      "$ref": "#/components/schemas/Registertype"
+    },
+    "geannuleerdDossier": {
+      "type": "array",
+      "description": "De voorgaande registratie van een Persoon in het register. Enkel van toepassing indien er een nieuwe Registratie bestaat. Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "begindatum"
+  ]
+}

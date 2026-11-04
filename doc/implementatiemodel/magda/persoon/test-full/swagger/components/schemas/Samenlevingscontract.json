@@ -1,0 +1,87 @@
+{
+  "title": "Samenlevingscontract",
+  "type": "object",
+  "description": "Contract met afspraken tussen twee samenwonenden.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Samenlevingscontract)",
+      "pattern": "^Samenlevingscontract$"
+    },
+    "notaris": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    },
+    "datum": {
+      "$ref": "#/components/schemas/Samenlevingscontract.datum"
+    },
+    "plaats": {
+      "$ref": "#/components/schemas/Plaats"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "vanAgent": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Agent"
+        },
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Agent": "#/components/schemas/Agent",
+          "Persoon": "#/components/schemas/Persoon",
+          "Organisatie": "#/components/schemas/Organisatie"
+        }
+      }
+    },
+    "metAgent": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Agent"
+        },
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Agent": "#/components/schemas/Agent",
+          "Persoon": "#/components/schemas/Persoon",
+          "Organisatie": "#/components/schemas/Organisatie"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

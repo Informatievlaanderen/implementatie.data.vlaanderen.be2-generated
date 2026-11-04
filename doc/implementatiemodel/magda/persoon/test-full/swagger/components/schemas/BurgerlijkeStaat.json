@@ -1,0 +1,32 @@
+{
+  "title": "BurgerlijkeStaat",
+  "type": "object",
+  "description": "De formeel geregistreerde juridische relatiestatus van een Persoon.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse BurgerlijkeStaat)",
+      "pattern": "^BurgerlijkeStaat$"
+    },
+    "begindatum": {
+      "$ref": "#/components/schemas/BurgerlijkeStaat.begindatum"
+    },
+    "einddatum": {
+      "$ref": "#/components/schemas/BurgerlijkeStaat.einddatum"
+    },
+    "type": {
+      "$ref": "#/components/schemas/BurgerlijkeStaatType"
+    },
+    "huwelijk": {
+      "$ref": "#/components/schemas/Huwelijk"
+    }
+  },
+  "required": [
+    "@type",
+    "begindatum"
+  ]
+}

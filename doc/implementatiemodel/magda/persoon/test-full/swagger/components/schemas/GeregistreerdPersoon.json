@@ -1,0 +1,263 @@
+{
+  "title": "GeregistreerdPersoon",
+  "type": "object",
+  "description": "Persoon waarvan de gegevens zijn ingeschreven in een register.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse GeregistreerdPersoon)",
+      "pattern": "^GeregistreerdPersoon$"
+    },
+    "registratie": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "beheerder": {
+      "type": "array",
+      "description": "Verwijzing naar de Adminstratiefbeheerder van het dossier van de persoon. Normaal is er maar 1 beheerder aanwezig bij een persoon, maar in uitzonderlijke gevallen kunnen er meerdere beheerders zijn. Bijvoorbeeld: de persoon heeft een adres in het buitenland, is aan het verhuizen tussen gemeenten, etc. Lijst van AdministratiefBeheerder items.",
+      "items": {
+        "$ref": "#/components/schemas/AdministratiefBeheerder"
+      },
+      "minItems": 1
+    },
+    "registratiedetail": {
+      "type": "array",
+      "description": "Verwijzing naar detail mbt de Registratie van de Persoon. Lijst van Registratietoestand items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Registratietoestand"
+          },
+          {
+            "$ref": "#/components/schemas/VoorlopigeRegistratie"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Registratietoestand": "#/components/schemas/Registratietoestand",
+            "VoorlopigeRegistratie": "#/components/schemas/VoorlopigeRegistratie"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "voornaam": {
+      "type": "array",
+      "description": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie. Lijst van String items.",
+      "items": {
+        "$ref": "#/components/schemas/GeregistreerdPersoon.voornaam"
+      },
+      "minItems": 1
+    },
+    "gebruikteVoornaam": {
+      "$ref": "#/components/schemas/GeregistreerdPersoon.gebruikteVoornaam"
+    },
+    "achternaam": {
+      "type": "array",
+      "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt. Lijst van String items.",
+      "items": {
+        "$ref": "#/components/schemas/GeregistreerdPersoon.achternaam"
+      },
+      "minItems": 1
+    },
+    "alternatieveNaam": {
+      "type": "array",
+      "description": "Andere naam waarmee de Persoon wordt aangeduid. Lijst van AlternatieveNaam items.",
+      "items": {
+        "$ref": "#/components/schemas/AlternatieveNaam"
+      },
+      "minItems": 1
+    },
+    "contactinfo": {
+      "$ref": "#/components/schemas/Contactinfo"
+    },
+    "geslacht": {
+      "type": "array",
+      "description": "Verwijzing naar het geslacht van de Persoon. Lijst van Geslacht items.",
+      "items": {
+        "$ref": "#/components/schemas/Geslacht"
+      },
+      "minItems": 1
+    },
+    "isHoofdVan": {
+      "$ref": "#/components/schemas/Gezin"
+    },
+    "heeftBurgerlijkeStaat": {
+      "type": "array",
+      "description": "Burgerlijke Staat van de Persoon. Lijst van BurgerlijkeStaat items.",
+      "items": {
+        "$ref": "#/components/schemas/BurgerlijkeStaat"
+      },
+      "minItems": 1
+    },
+    "heeftOverlijden": {
+      "type": "array",
+      "description": "Verwijst naar de overlijdensgebeurtenis van de Persoon. Bevat vaak de overlijdensgegevens van de Persoon. Lijst van Overlijden items.",
+      "items": {
+        "$ref": "#/components/schemas/Overlijden"
+      },
+      "minItems": 1
+    },
+    "heeftNationaliteit": {
+      "type": "array",
+      "description": "Natioinaliteit van de persoon. Lijst van Nationaliteit items.",
+      "items": {
+        "$ref": "#/components/schemas/Nationaliteit"
+      },
+      "minItems": 1
+    },
+    "heeftInwonerschap": {
+      "type": "array",
+      "description": "Inwonerschap van de persoon. Lijst van Inwonerschap items.",
+      "items": {
+        "$ref": "#/components/schemas/Inwonerschap"
+      },
+      "minItems": 1
+    },
+    "heeftPersoonsrelatie": {
+      "type": "array",
+      "description": "Persoonsrelatie van de persoon. Lijst van Persoonsrelatie items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Persoonsrelatie"
+          },
+          {
+            "$ref": "#/components/schemas/Gezinsrelatie"
+          },
+          {
+            "$ref": "#/components/schemas/Huwelijk"
+          },
+          {
+            "$ref": "#/components/schemas/Samenwonen"
+          },
+          {
+            "$ref": "#/components/schemas/Afstamming"
+          },
+          {
+            "$ref": "#/components/schemas/Huisvestingsrelatie"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Persoonsrelatie": "#/components/schemas/Persoonsrelatie",
+            "Gezinsrelatie": "#/components/schemas/Gezinsrelatie",
+            "Huwelijk": "#/components/schemas/Huwelijk",
+            "Samenwonen": "#/components/schemas/Samenwonen",
+            "Afstamming": "#/components/schemas/Afstamming",
+            "Huisvestingsrelatie": "#/components/schemas/Huisvestingsrelatie"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "isLidVan": {
+      "type": "array",
+      "description": "Persoon die tot een Gezin behoort. Lijst van Gezin items.",
+      "items": {
+        "$ref": "#/components/schemas/Gezin"
+      },
+      "minItems": 1
+    },
+    "heeftNaamsverandering": {
+      "type": "array",
+      "description": "Verwijzing naar een Naamsverandering van de Persoon. Lijst van Naamsverandering items.",
+      "items": {
+        "$ref": "#/components/schemas/Naamsverandering"
+      },
+      "minItems": 1
+    },
+    "heeftGeboorte": {
+      "type": "array",
+      "description": "Verwijst naar de geboortegebeurtenis van de Persoon. Bevat vaak de geboortegevens van de Persoon. Lijst van Geboorte items.",
+      "items": {
+        "$ref": "#/components/schemas/Geboorte"
+      },
+      "minItems": 1
+    },
+    "titel": {
+      "type": "array",
+      "description": "Verwijzing naar de Titel van een Persoon. Lijst van Titel items.",
+      "items": {
+        "$ref": "#/components/schemas/Titel"
+      },
+      "minItems": 1
+    },
+    "ouders": {
+      "type": "array",
+      "description": "Verwijzing naar de ouders van de Persoon. Lijst van Ouders items.",
+      "items": {
+        "$ref": "#/components/schemas/Ouders"
+      },
+      "minItems": 1
+    },
+    "naam": {
+      "type": "array",
+      "description": "Verwijzing naar de naam van de Persoon. Lijst van Naam items.",
+      "items": {
+        "$ref": "#/components/schemas/Naam"
+      },
+      "minItems": 1
+    },
+    "heeftGeslachtsverandering": {
+      "type": "array",
+      "description": "Verwijst naar de Geslachtsverandering van een Persoon. Lijst van Geslachtsverandering items.",
+      "items": {
+        "$ref": "#/components/schemas/Geslachtsverandering"
+      },
+      "minItems": 1
+    },
+    "heeftVerhuis": {
+      "type": "array",
+      "description": "Verwijzing naar de Verhuis die een Persoon heeft gehad. Lijst van Verhuis items.",
+      "items": {
+        "$ref": "#/components/schemas/Verhuis"
+      },
+      "minItems": 1
+    },
+    "heeftHerkomst": {
+      "type": "array",
+      "description": "Verwijzing naar de Herkomst van de Persoon. Lijst van Herkomst items.",
+      "items": {
+        "$ref": "#/components/schemas/Herkomst"
+      },
+      "minItems": 1
+    },
+    "heeftWilsuiting": {
+      "type": "array",
+      "description": "Verwijzing naar de Wilsuiting van de Persoon. Lijst van Wilsuiting items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Wilsuiting"
+          },
+          {
+            "$ref": "#/components/schemas/Uitvaartwijze"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Wilsuiting": "#/components/schemas/Wilsuiting",
+            "Uitvaartwijze": "#/components/schemas/Uitvaartwijze"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/magda\\/persoon\\/test-full\\/context\\/persoon.jsonld$"
+    }
+  },
+  "required": [
+    "@type",
+    "registratie"
+  ]
+}

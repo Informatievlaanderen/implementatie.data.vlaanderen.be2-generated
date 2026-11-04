@@ -1,0 +1,47 @@
+{
+  "title": "AdministratieveBeslissingDocument",
+  "type": "object",
+  "description": "Document dat de beslissing van een overheid vastlegt.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse AdministratieveBeslissingDocument)",
+      "pattern": "^AdministratieveBeslissingDocument$"
+    },
+    "datum": {
+      "$ref": "#/components/schemas/AdministratieveBeslissingDocument.datum"
+    },
+    "administratie": {
+      "$ref": "#/components/schemas/Administratietype"
+    },
+    "plaats": {
+      "$ref": "#/components/schemas/Plaats"
+    },
+    "beschrijving": {
+      "$ref": "#/components/schemas/AdministratieveBeslissingDocument.beschrijving"
+    },
+    "identificator": {
+      "type": "array",
+      "description": "Identificator van het Document. Lijst van Identificator items.",
+      "items": {
+        "$ref": "#/components/schemas/Identificator"
+      },
+      "minItems": 1
+    },
+    "onderwerp": {
+      "type": "array",
+      "description": "Datgene waarop het Document betrekking heeft. Lijst van Resource items.",
+      "items": {
+        "$ref": "#/components/schemas/Resource"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

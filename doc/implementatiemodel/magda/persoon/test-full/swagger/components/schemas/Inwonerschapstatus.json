@@ -1,0 +1,50 @@
+{
+  "title": "Inwonerschapstatus",
+  "type": "object",
+  "description": "Geeft de toestand van het Inwonerschap weer.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Inwonerschapstatus)",
+      "pattern": "^Inwonerschapstatus$"
+    },
+    "geldigheid": {
+      "$ref": "#/components/schemas/Periode"
+    },
+    "type": {
+      "$ref": "#/components/schemas/Inwonerschapstatustype"
+    },
+    "beslissing": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Document"
+        },
+        {
+          "$ref": "#/components/schemas/JuridischeUitspraakDocument"
+        },
+        {
+          "$ref": "#/components/schemas/Akte"
+        },
+        {
+          "$ref": "#/components/schemas/AdministratieveBeslissingDocument"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Document": "#/components/schemas/Document",
+          "JuridischeUitspraakDocument": "#/components/schemas/JuridischeUitspraakDocument",
+          "Akte": "#/components/schemas/Akte",
+          "AdministratieveBeslissingDocument": "#/components/schemas/AdministratieveBeslissingDocument"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}
