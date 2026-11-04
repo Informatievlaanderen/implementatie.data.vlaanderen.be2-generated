@@ -1,0 +1,68 @@
+{
+  "title": "AfstammingDalendeLijn",
+  "type": "object",
+  "description": "Juridische band tussen een kind en zijn ouder vanuit het standpunt van de ouder.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse AfstammingDalendeLijn)",
+      "pattern": "^AfstammingDalendeLijn$"
+    },
+    "afstammingstype": {
+      "$ref": "#/components/schemas/Afstammingstype"
+    },
+    "datumVanAfstamming": {
+      "$ref": "#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming"
+    },
+    "begindatum": {
+      "$ref": "#/components/schemas/AfstammingDalendeLijn.begindatum"
+    },
+    "einddatum": {
+      "$ref": "#/components/schemas/AfstammingDalendeLijn.einddatum"
+    },
+    "vanPersoon": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    },
+    "metPersoon": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type",
+    "begindatum",
+    "vanPersoon",
+    "metPersoon"
+  ]
+}

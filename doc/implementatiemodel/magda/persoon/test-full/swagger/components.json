@@ -120,9 +120,6 @@
             "items": {
               "oneOf": [
                 {
-                  "$ref": "#/components/schemas/Persoonsrelatie"
-                },
-                {
                   "$ref": "#/components/schemas/Gezinsrelatie"
                 },
                 {
@@ -141,7 +138,6 @@
               "discriminator": {
                 "propertyName": "@type",
                 "mapping": {
-                  "Persoonsrelatie": "#/components/schemas/Persoonsrelatie",
                   "Gezinsrelatie": "#/components/schemas/Gezinsrelatie",
                   "Huwelijk": "#/components/schemas/Huwelijk",
                   "Samenwonen": "#/components/schemas/Samenwonen",
@@ -318,6 +314,18 @@
           "@type"
         ]
       },
+      "Gezinsrelatie.begindatum": {
+        "title": "Gezinsrelatie.begindatum",
+        "description": "Moment vanaf wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
+      "Gezinsrelatie.einddatum": {
+        "title": "Gezinsrelatie.einddatum",
+        "description": "Moment tot wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
       "Gezinsrelatie": {
         "title": "Gezinsrelatie",
         "type": "object",
@@ -337,6 +345,12 @@
           },
           "woonvorm": {
             "$ref": "#/components/schemas/Woonvormtype"
+          },
+          "begindatum": {
+            "$ref": "#/components/schemas/Gezinsrelatie.begindatum"
+          },
+          "einddatum": {
+            "$ref": "#/components/schemas/Gezinsrelatie.einddatum"
           },
           "vanPersoon": {
             "oneOf": [
@@ -375,6 +389,7 @@
         },
         "required": [
           "@type",
+          "begindatum",
           "vanPersoon",
           "metPersoon"
         ]
@@ -594,6 +609,18 @@
         "type": "string",
         "format": "date"
       },
+      "Huwelijk.begindatum": {
+        "title": "Huwelijk.begindatum",
+        "description": "Moment vanaf wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
+      "Huwelijk.einddatum": {
+        "title": "Huwelijk.einddatum",
+        "description": "Moment tot wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
       "Huwelijk": {
         "title": "Huwelijk",
         "type": "object",
@@ -622,6 +649,12 @@
           },
           "overschrijving": {
             "$ref": "#/components/schemas/Overschrijving"
+          },
+          "begindatum": {
+            "$ref": "#/components/schemas/Huwelijk.begindatum"
+          },
+          "einddatum": {
+            "$ref": "#/components/schemas/Huwelijk.einddatum"
           },
           "vanPersoon": {
             "oneOf": [
@@ -660,6 +693,7 @@
         },
         "required": [
           "@type",
+          "begindatum",
           "vanPersoon",
           "metPersoon"
         ]
@@ -741,71 +775,6 @@
         },
         "required": [
           "@type"
-        ]
-      },
-      "Probleemdetail.type": {
-        "title": "Probleemdetail.type",
-        "description": "Aard van de fout.",
-        "type": "string",
-        "format": "uri"
-      },
-      "Probleemdetail.titel": {
-        "title": "Probleemdetail.titel",
-        "description": "Korte mensleesbare beschrijving van de fout.",
-        "type": "string"
-      },
-      "Probleemdetail.status": {
-        "title": "Probleemdetail.status",
-        "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\".",
-        "type": "integer",
-        "format": "int64"
-      },
-      "Probleemdetail.detail": {
-        "title": "Probleemdetail.detail",
-        "description": "Mensleesbare beschrijving van de fout.",
-        "type": "string"
-      },
-      "Probleemdetail.instantie": {
-        "title": "Probleemdetail.instantie",
-        "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.",
-        "type": "string",
-        "format": "uri"
-      },
-      "Probleemdetail": {
-        "title": "Probleemdetail",
-        "type": "object",
-        "description": "Meer gedetailleerde beschrijving van de fout in een HTTP response.",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "format": "uri"
-          },
-          "@type": {
-            "type": "string",
-            "description": "Object type (klasse Probleemdetail)",
-            "pattern": "^Probleemdetail$"
-          },
-          "type": {
-            "$ref": "#/components/schemas/Probleemdetail.type"
-          },
-          "titel": {
-            "$ref": "#/components/schemas/Probleemdetail.titel"
-          },
-          "status": {
-            "$ref": "#/components/schemas/Probleemdetail.status"
-          },
-          "detail": {
-            "$ref": "#/components/schemas/Probleemdetail.detail"
-          },
-          "instantie": {
-            "$ref": "#/components/schemas/Probleemdetail.instantie"
-          }
-        },
-        "required": [
-          "@type",
-          "type",
-          "titel",
-          "detail"
         ]
       },
       "PersoonEnvelop": {
@@ -1068,6 +1037,18 @@
         "type": "string",
         "format": "date"
       },
+      "Samenwonen.begindatum": {
+        "title": "Samenwonen.begindatum",
+        "description": "Moment vanaf wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
+      "Samenwonen.einddatum": {
+        "title": "Samenwonen.einddatum",
+        "description": "Moment tot wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
       "Samenwonen": {
         "title": "Samenwonen",
         "type": "object",
@@ -1099,6 +1080,12 @@
           },
           "contract": {
             "$ref": "#/components/schemas/Samenlevingscontract"
+          },
+          "begindatum": {
+            "$ref": "#/components/schemas/Samenwonen.begindatum"
+          },
+          "einddatum": {
+            "$ref": "#/components/schemas/Samenwonen.einddatum"
           },
           "vanPersoon": {
             "oneOf": [
@@ -1137,6 +1124,7 @@
         },
         "required": [
           "@type",
+          "begindatum",
           "vanPersoon",
           "metPersoon"
         ]
@@ -1287,9 +1275,6 @@
             "items": {
               "oneOf": [
                 {
-                  "$ref": "#/components/schemas/Persoonsrelatie"
-                },
-                {
                   "$ref": "#/components/schemas/Gezinsrelatie"
                 },
                 {
@@ -1308,7 +1293,6 @@
               "discriminator": {
                 "propertyName": "@type",
                 "mapping": {
-                  "Persoonsrelatie": "#/components/schemas/Persoonsrelatie",
                   "Gezinsrelatie": "#/components/schemas/Gezinsrelatie",
                   "Huwelijk": "#/components/schemas/Huwelijk",
                   "Samenwonen": "#/components/schemas/Samenwonen",
@@ -1664,6 +1648,71 @@
           "@type",
           "waarde",
           "naam"
+        ]
+      },
+      "Problemdetail.detail": {
+        "title": "Problemdetail.detail",
+        "description": "Mensleesbare beschrijving van de fout.",
+        "type": "string"
+      },
+      "Problemdetail.instance": {
+        "title": "Problemdetail.instance",
+        "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.",
+        "type": "string",
+        "format": "uri"
+      },
+      "Problemdetail.status": {
+        "title": "Problemdetail.status",
+        "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\".",
+        "type": "integer",
+        "format": "int64"
+      },
+      "Problemdetail.title": {
+        "title": "Problemdetail.title",
+        "description": "Korte mensleesbare beschrijving van de fout.",
+        "type": "string"
+      },
+      "Problemdetail.type": {
+        "title": "Problemdetail.type",
+        "description": "Aard van de fout.",
+        "type": "string",
+        "format": "uri"
+      },
+      "Problemdetail": {
+        "title": "Problemdetail",
+        "type": "object",
+        "description": "Meer gedetailleerde beschrijving van de fout in een HTTP response.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Problemdetail)",
+            "pattern": "^Problemdetail$"
+          },
+          "detail": {
+            "$ref": "#/components/schemas/Problemdetail.detail"
+          },
+          "instance": {
+            "$ref": "#/components/schemas/Problemdetail.instance"
+          },
+          "status": {
+            "$ref": "#/components/schemas/Problemdetail.status"
+          },
+          "title": {
+            "$ref": "#/components/schemas/Problemdetail.title"
+          },
+          "type": {
+            "$ref": "#/components/schemas/Problemdetail.type"
+          }
+        },
+        "required": [
+          "@type",
+          "detail",
+          "title",
+          "type"
         ]
       },
       "Jurisdictie.begindatum": {
@@ -3091,6 +3140,92 @@
           "begindatum"
         ]
       },
+      "AfstammingOpgaandeLijn.datumVanAfstamming": {
+        "title": "AfstammingOpgaandeLijn.datumVanAfstamming",
+        "description": "De datum waarop de afstamming wordt vastgesteld.",
+        "type": "string",
+        "format": "date"
+      },
+      "AfstammingOpgaandeLijn.begindatum": {
+        "title": "AfstammingOpgaandeLijn.begindatum",
+        "description": "Moment vanaf wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
+      "AfstammingOpgaandeLijn.einddatum": {
+        "title": "AfstammingOpgaandeLijn.einddatum",
+        "description": "Moment tot wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
+      "AfstammingOpgaandeLijn": {
+        "title": "AfstammingOpgaandeLijn",
+        "type": "object",
+        "description": "Juridische band tussen een kind en zijn ouder vanuit het standpunt van het kind.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse AfstammingOpgaandeLijn)",
+            "pattern": "^AfstammingOpgaandeLijn$"
+          },
+          "afstammingstype": {
+            "$ref": "#/components/schemas/Afstammingstype"
+          },
+          "datumVanAfstamming": {
+            "$ref": "#/components/schemas/AfstammingOpgaandeLijn.datumVanAfstamming"
+          },
+          "begindatum": {
+            "$ref": "#/components/schemas/AfstammingOpgaandeLijn.begindatum"
+          },
+          "einddatum": {
+            "$ref": "#/components/schemas/AfstammingOpgaandeLijn.einddatum"
+          },
+          "vanPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          },
+          "metPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          }
+        },
+        "required": [
+          "@type",
+          "begindatum",
+          "vanPersoon",
+          "metPersoon"
+        ]
+      },
       "Naamsverandering.beschrijving": {
         "title": "Naamsverandering.beschrijving",
         "description": "Beschrijving van de Naamsverandering. In deze context wordt hiermee verwezen naar het vonnis, arrest, kninklijk besluit etc.",
@@ -3480,6 +3615,18 @@
         "type": "string",
         "format": "date"
       },
+      "Huisvestingsrelatie.begindatum": {
+        "title": "Huisvestingsrelatie.begindatum",
+        "description": "Moment vanaf wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
+      "Huisvestingsrelatie.einddatum": {
+        "title": "Huisvestingsrelatie.einddatum",
+        "description": "Moment tot wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
       "Huisvestingsrelatie": {
         "title": "Huisvestingsrelatie",
         "type": "object",
@@ -3499,6 +3646,12 @@
           },
           "rol": {
             "$ref": "#/components/schemas/Roltype"
+          },
+          "begindatum": {
+            "$ref": "#/components/schemas/Huisvestingsrelatie.begindatum"
+          },
+          "einddatum": {
+            "$ref": "#/components/schemas/Huisvestingsrelatie.einddatum"
           },
           "vanPersoon": {
             "oneOf": [
@@ -3537,6 +3690,93 @@
         },
         "required": [
           "@type",
+          "begindatum",
+          "vanPersoon",
+          "metPersoon"
+        ]
+      },
+      "AfstammingDalendeLijn.datumVanAfstamming": {
+        "title": "AfstammingDalendeLijn.datumVanAfstamming",
+        "description": "De datum waarop de afstamming wordt vastgesteld.",
+        "type": "string",
+        "format": "date"
+      },
+      "AfstammingDalendeLijn.begindatum": {
+        "title": "AfstammingDalendeLijn.begindatum",
+        "description": "Moment vanaf wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
+      "AfstammingDalendeLijn.einddatum": {
+        "title": "AfstammingDalendeLijn.einddatum",
+        "description": "Moment tot wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
+      "AfstammingDalendeLijn": {
+        "title": "AfstammingDalendeLijn",
+        "type": "object",
+        "description": "Juridische band tussen een kind en zijn ouder vanuit het standpunt van de ouder.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse AfstammingDalendeLijn)",
+            "pattern": "^AfstammingDalendeLijn$"
+          },
+          "afstammingstype": {
+            "$ref": "#/components/schemas/Afstammingstype"
+          },
+          "datumVanAfstamming": {
+            "$ref": "#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming"
+          },
+          "begindatum": {
+            "$ref": "#/components/schemas/AfstammingDalendeLijn.begindatum"
+          },
+          "einddatum": {
+            "$ref": "#/components/schemas/AfstammingDalendeLijn.einddatum"
+          },
+          "vanPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          },
+          "metPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          }
+        },
+        "required": [
+          "@type",
+          "begindatum",
           "vanPersoon",
           "metPersoon"
         ]
@@ -5237,6 +5477,27 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
       },
+      "AfstammingOpgaandeLijn.afstammingstype": {
+        "operationId": "AfstammingOpgaandeLijnGET",
+        "parameters": {
+          "id": "$response.body#/AfstammingOpgaandeLijn.afstammingstype/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Afstammingstype` op te halen."
+      },
+      "AfstammingOpgaandeLijn.vanPersoon": {
+        "operationId": "AfstammingOpgaandeLijnGET",
+        "parameters": {
+          "id": "$response.body#/AfstammingOpgaandeLijn.vanPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
+      "AfstammingOpgaandeLijn.metPersoon": {
+        "operationId": "AfstammingOpgaandeLijnGET",
+        "parameters": {
+          "id": "$response.body#/AfstammingOpgaandeLijn.metPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
       "Naamsverandering.type": {
         "operationId": "NaamsveranderingGET",
         "parameters": {
@@ -5409,6 +5670,27 @@
         "operationId": "HuisvestingsrelatieGET",
         "parameters": {
           "id": "$response.body#/Huisvestingsrelatie.metPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
+      "AfstammingDalendeLijn.afstammingstype": {
+        "operationId": "AfstammingDalendeLijnGET",
+        "parameters": {
+          "id": "$response.body#/AfstammingDalendeLijn.afstammingstype/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Afstammingstype` op te halen."
+      },
+      "AfstammingDalendeLijn.vanPersoon": {
+        "operationId": "AfstammingDalendeLijnGET",
+        "parameters": {
+          "id": "$response.body#/AfstammingDalendeLijn.vanPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
+      "AfstammingDalendeLijn.metPersoon": {
+        "operationId": "AfstammingDalendeLijnGET",
+        "parameters": {
+          "id": "$response.body#/AfstammingDalendeLijn.metPersoon/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
       }
