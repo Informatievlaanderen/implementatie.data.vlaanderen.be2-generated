@@ -32,46 +32,10 @@
     },
     "einddatum": {
       "$ref": "#/components/schemas/Huwelijk.einddatum"
-    },
-    "vanPersoon": {
-      "oneOf": [
-        {
-          "$ref": "#/components/schemas/Persoon"
-        },
-        {
-          "$ref": "#/components/schemas/GeregistreerdPersoon"
-        }
-      ],
-      "discriminator": {
-        "propertyName": "@type",
-        "mapping": {
-          "Persoon": "#/components/schemas/Persoon",
-          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-        }
-      }
-    },
-    "metPersoon": {
-      "oneOf": [
-        {
-          "$ref": "#/components/schemas/Persoon"
-        },
-        {
-          "$ref": "#/components/schemas/GeregistreerdPersoon"
-        }
-      ],
-      "discriminator": {
-        "propertyName": "@type",
-        "mapping": {
-          "Persoon": "#/components/schemas/Persoon",
-          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-        }
-      }
     }
   },
   "required": [
     "@type",
-    "begindatum",
-    "vanPersoon",
-    "metPersoon"
+    "begindatum"
   ]
 }

@@ -378,18 +378,7 @@
   rdfs:comment "Juridische band tussen een kind en zijn ouder vanuit het standpunt van de ouder."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#AfstammingDalendeLijn>;
   shacl:closed false;
-  shacl:property [
-    a shacl:PropertyShape;
-    rdfs:label "afstammingstype"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: geadopteerd, kind uit huwelijk, erkend door de vader, etc."@nl;
-    rdfs:comment "Aard van de afstamming in dalende lijn."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#AfstammingDalendeLijn.Afstammingstype>;
-    shacl:description "Aard van de afstamming in dalende lijn."@nl;
-    shacl:maxCount 1;
-    shacl:name "afstammingstype"@nl;
-    shacl:nodeKind shacl:BlankNodeOrIRI;
-    shacl:path <https://data.vlaanderen.be/ns/persoon#afstammingsType>
-  ];
+  shacl:property _:df_2_114;
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingDalendeLijn> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#AfstammingOpgaandeLijnShape> a shacl:NodeShape;
@@ -397,18 +386,7 @@
   rdfs:comment "Juridische band tussen een kind en zijn ouder vanuit het standpunt van het kind."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#AfstammingOpgaandeLijn>;
   shacl:closed false;
-  shacl:property [
-    a shacl:PropertyShape;
-    rdfs:label "afstammingstype"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: geadopteerd, kind uit huwelijk, erkend door de vader, etc."@nl;
-    rdfs:comment "Aard van de afstamming in stigende lijn."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#AfstammingOpgaandeLijn.Afstammingstype>;
-    shacl:description "Aard van de afstamming in stigende lijn."@nl;
-    shacl:maxCount 1;
-    shacl:name "afstammingstype"@nl;
-    shacl:nodeKind shacl:BlankNodeOrIRI;
-    shacl:path <https://data.vlaanderen.be/ns/persoon#afstammingsType>
-  ];
+  shacl:property _:df_2_149;
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingOpgaandeLijn> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#AfstammingShape> a shacl:NodeShape;
@@ -427,21 +405,20 @@
     shacl:maxCount 1;
     shacl:name "datumVanAfstamming"@nl;
     shacl:path <https://data.vlaanderen.be/ns/persoon#datumVanAfstamming>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "afstammingstype"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: geadopteerd, kind uit huwelijk, erkend door de vader, etc."@nl;
-    rdfs:comment "Aard van de afstamming."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Afstamming.Afstammingstype>;
-    shacl:description "Aard van de afstamming."@nl;
-    shacl:maxCount 1;
-    shacl:name "afstammingstype"@nl;
-    shacl:nodeKind shacl:BlankNodeOrIRI;
-    shacl:path <https://data.vlaanderen.be/ns/persoon#afstammingsType>
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/persoon#Afstamming>,
     <https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingOpgaandeLijn>,
-    <https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingDalendeLijn> .
+    <https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingDalendeLijn>;
+  shacl:xone ([
+      shacl:not _:df_2_238;
+      shacl:property _:df_2_107
+    ] [shacl:property _:df_2_149,
+        _:df_2_238]),
+    ([
+      shacl:not _:df_2_253;
+      shacl:property _:df_2_107
+    ] [shacl:property _:df_2_114,
+        _:df_2_253]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#AfwezigShape> a shacl:NodeShape;
   rdfs:label "Afwezig"@nl;
@@ -841,15 +818,15 @@
     <https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract>,
     <https://implementatie.data.vlaanderen.be/ns/magda/persoon#UitvaartContract>;
   shacl:xone ([
-      shacl:not _:df_2_241;
+      shacl:not _:df_2_243;
       shacl:property _:df_2_198
     ] [shacl:property _:df_2_161,
-        _:df_2_241]),
+        _:df_2_243]),
     ([
-      shacl:not _:df_2_246;
+      shacl:not _:df_2_248;
       shacl:property _:df_2_198
     ] [shacl:property _:df_2_199,
-        _:df_2_246]) .
+        _:df_2_248]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#DateShape> a shacl:NodeShape;
   rdfs:label "Date";
@@ -936,10 +913,10 @@
     <https://implementatie.data.vlaanderen.be/ns/magda/persoon#Referentieadres>,
     <https://implementatie.data.vlaanderen.be/ns/magda/persoon#VerblijfplaatsBuitenlandDomicilie>;
   shacl:xone ([
-      shacl:not _:df_2_231;
+      shacl:not _:df_2_228;
       shacl:property _:df_2_101
     ] [shacl:property _:df_2_116,
-        _:df_2_231]) .
+        _:df_2_228]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#GeboorteShape> a shacl:NodeShape;
   rdfs:label "Geboorte"@nl;
@@ -2151,15 +2128,6 @@
     shacl:path <https://data.vlaanderen.be/ns/persoon#heeftInwonerschap>
   ], [
     a shacl:PropertyShape;
-    rdfs:label "heeftPersoonsrelatie"@nl;
-    rdfs:comment "Persoonsrelatie van de persoon."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Persoon.HeeftPersoonsrelatie>;
-    shacl:description "Persoonsrelatie van de persoon."@nl;
-    shacl:name "heeftPersoonsrelatie"@nl;
-    shacl:or ([shacl:class <https://data.vlaanderen.be/ns/persoon#Persoonsrelatie>] [shacl:class <https://data.vlaanderen.be/ns/persoon#Gezinsrelatie>] [shacl:class <https://data.vlaanderen.be/ns/persoon#Huwelijk>] [shacl:class <https://data.vlaanderen.be/ns/persoon#Samenwonen>] [shacl:class <https://data.vlaanderen.be/ns/persoon#Afstamming>] [shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingOpgaandeLijn>] [shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingDalendeLijn>] [shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/persoon#Huisvestingsrelatie>]);
-    shacl:path <https://data.vlaanderen.be/ns/persoon#heeftPersoonsrelatie>
-  ], [
-    a shacl:PropertyShape;
     rdfs:label "isLidVan"@nl;
     rdfs:comment "Persoon die tot een Gezin behoort."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Persoon.IsLidVan>;
@@ -2352,28 +2320,6 @@
     shacl:maxCount 1;
     shacl:name "einddatum"@nl;
     shacl:path prov:invalidatedAtTime
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "vanPersoon"@nl;
-    rdfs:comment "Persoon die een persoonsrelatie heeft."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Persoonsrelatie.VanPersoon>;
-    shacl:description "Persoon die een persoonsrelatie heeft."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "vanPersoon"@nl;
-    shacl:or ([shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>]);
-    shacl:path <https://data.vlaanderen.be/ns/persoon#Persoonsrelatie.persoon>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "metPersoon"@nl;
-    rdfs:comment "De persoon waarmee de persoon een relatie heeft."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Persoonsrelatie.MetPersoon>;
-    shacl:description "De persoon waarmee de persoon een relatie heeft."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "metPersoon"@nl;
-    shacl:or ([shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>]);
-    shacl:path <https://data.vlaanderen.be/ns/persoon#isRelatieMet>
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/persoon#Gezinsrelatie>,
     <https://data.vlaanderen.be/ns/persoon#Persoonsrelatie>,
@@ -2948,7 +2894,7 @@
     <https://implementatie.data.vlaanderen.be/ns/magda/persoon#VerblijfplaatsBuitenland>,
     <https://implementatie.data.vlaanderen.be/ns/magda/persoon#WettelijkVerblijf>;
   shacl:xone ([
-      shacl:not _:df_2_236;
+      shacl:not _:df_2_233;
       shacl:property [
         a shacl:PropertyShape;
         rdfs:label "verblijfsadres"@nl;
@@ -2961,7 +2907,7 @@
         shacl:path <https://data.vlaanderen.be/ns/persoon#verblijfsadres>
       ]
     ] [shacl:property _:df_2_101,
-        _:df_2_236]) .
+        _:df_2_233]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#VerhuisShape> a shacl:NodeShape;
   rdfs:label "Verhuis"@nl;
@@ -3120,6 +3066,28 @@ _:df_2_101 a shacl:PropertyShape;
   shacl:name "verblijfsadres"@nl;
   shacl:path <https://data.vlaanderen.be/ns/persoon#verblijfsadres> .
 
+_:df_2_107 a shacl:PropertyShape;
+  rdfs:label "afstammingstype"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: geadopteerd, kind uit huwelijk, erkend door de vader, etc."@nl;
+  rdfs:comment "Aard van de afstamming."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Afstamming.Afstammingstype>;
+  shacl:description "Aard van de afstamming."@nl;
+  shacl:maxCount 1;
+  shacl:name "afstammingstype"@nl;
+  shacl:nodeKind shacl:BlankNodeOrIRI;
+  shacl:path <https://data.vlaanderen.be/ns/persoon#afstammingsType> .
+
+_:df_2_114 a shacl:PropertyShape;
+  rdfs:label "afstammingstype"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: geadopteerd, kind uit huwelijk, erkend door de vader, etc."@nl;
+  rdfs:comment "Aard van de afstamming in dalende lijn."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#AfstammingDalendeLijn.Afstammingstype>;
+  shacl:description "Aard van de afstamming in dalende lijn."@nl;
+  shacl:maxCount 1;
+  shacl:name "afstammingstype"@nl;
+  shacl:nodeKind shacl:BlankNodeOrIRI;
+  shacl:path <https://data.vlaanderen.be/ns/persoon#afstammingsType> .
+
 _:df_2_116 a shacl:PropertyShape;
   rdfs:label "verblijfsadres"@nl;
   rdfs:comment "Adres van de hoofdverblijfplaats."@nl;
@@ -3129,6 +3097,17 @@ _:df_2_116 a shacl:PropertyShape;
   shacl:maxCount 1;
   shacl:name "verblijfsadres"@nl;
   shacl:path <https://data.vlaanderen.be/ns/persoon#verblijfsadres> .
+
+_:df_2_149 a shacl:PropertyShape;
+  rdfs:label "afstammingstype"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: geadopteerd, kind uit huwelijk, erkend door de vader, etc."@nl;
+  rdfs:comment "Aard van de afstamming in stigende lijn."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#AfstammingOpgaandeLijn.Afstammingstype>;
+  shacl:description "Aard van de afstamming in stigende lijn."@nl;
+  shacl:maxCount 1;
+  shacl:name "afstammingstype"@nl;
+  shacl:nodeKind shacl:BlankNodeOrIRI;
+  shacl:path <https://data.vlaanderen.be/ns/persoon#afstammingsType> .
 
 _:df_2_161 a shacl:PropertyShape;
   rdfs:label "notaris"@nl;
@@ -3160,14 +3139,20 @@ _:df_2_199 a shacl:PropertyShape;
   shacl:or ([shacl:class org:Organization] [shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/persoon#AdministratiefBeheerder>]);
   shacl:path <https://implementatie.data.vlaanderen.be/ns/magda/persoon#onderneming> .
 
-_:df_2_231 a shacl:PropertyShape;
+_:df_2_228 a shacl:PropertyShape;
   shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/persoon#VerblijfplaatsBuitenlandDomicilie> .
 
-_:df_2_236 a shacl:PropertyShape;
+_:df_2_233 a shacl:PropertyShape;
   shacl:class <https://data.vlaanderen.be/ns/persoon#Domicilie> .
 
-_:df_2_241 a shacl:PropertyShape;
+_:df_2_238 a shacl:PropertyShape;
+  shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingOpgaandeLijn> .
+
+_:df_2_243 a shacl:PropertyShape;
   shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/persoon#Samenlevingscontract> .
 
-_:df_2_246 a shacl:PropertyShape;
+_:df_2_248 a shacl:PropertyShape;
   shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/persoon#UitvaartContract> .
+
+_:df_2_253 a shacl:PropertyShape;
+  shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingDalendeLijn> .

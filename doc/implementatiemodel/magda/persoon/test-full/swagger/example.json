@@ -326,13 +326,6 @@
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Inwonerschap` op te halen."
               },
-              "GeregistreerdPersoon.heeftPersoonsrelatie": {
-                "operationId": "GeregistreerdPersoonGET",
-                "parameters": {
-                  "id": "$response.body#/GeregistreerdPersoon.heeftPersoonsrelatie/@id"
-                },
-                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoonsrelatie` op te halen."
-              },
               "GeregistreerdPersoon.isLidVan": {
                 "operationId": "GeregistreerdPersoonGET",
                 "parameters": {
@@ -733,40 +726,6 @@
             },
             "minItems": 1
           },
-          "heeftPersoonsrelatie": {
-            "type": "array",
-            "description": "Persoonsrelatie van de persoon. Lijst van Persoonsrelatie items.",
-            "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/Gezinsrelatie"
-                },
-                {
-                  "$ref": "#/components/schemas/Huwelijk"
-                },
-                {
-                  "$ref": "#/components/schemas/Samenwonen"
-                },
-                {
-                  "$ref": "#/components/schemas/Afstamming"
-                },
-                {
-                  "$ref": "#/components/schemas/Huisvestingsrelatie"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "@type",
-                "mapping": {
-                  "Gezinsrelatie": "#/components/schemas/Gezinsrelatie",
-                  "Huwelijk": "#/components/schemas/Huwelijk",
-                  "Samenwonen": "#/components/schemas/Samenwonen",
-                  "Afstamming": "#/components/schemas/Afstamming",
-                  "Huisvestingsrelatie": "#/components/schemas/Huisvestingsrelatie"
-                }
-              }
-            },
-            "minItems": 1
-          },
           "isLidVan": {
             "type": "array",
             "description": "Persoon die tot een Gezin behoort. Lijst van Gezin items.",
@@ -970,47 +929,11 @@
           },
           "einddatum": {
             "$ref": "#/components/schemas/Gezinsrelatie.einddatum"
-          },
-          "vanPersoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
-          },
-          "metPersoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
           }
         },
         "required": [
           "@type",
-          "begindatum",
-          "vanPersoon",
-          "metPersoon"
+          "begindatum"
         ]
       },
       "Document.beschrijving": {
@@ -1274,47 +1197,11 @@
           },
           "einddatum": {
             "$ref": "#/components/schemas/Huwelijk.einddatum"
-          },
-          "vanPersoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
-          },
-          "metPersoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
           }
         },
         "required": [
           "@type",
-          "begindatum",
-          "vanPersoon",
-          "metPersoon"
+          "begindatum"
         ]
       },
       "Registratietoestand.begindatum": {
@@ -1705,47 +1592,11 @@
           },
           "einddatum": {
             "$ref": "#/components/schemas/Samenwonen.einddatum"
-          },
-          "vanPersoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
-          },
-          "metPersoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
           }
         },
         "required": [
           "@type",
-          "begindatum",
-          "vanPersoon",
-          "metPersoon"
+          "begindatum"
         ]
       },
       "GeregistreerdPersoon.voornaam": {
@@ -1885,40 +1736,6 @@
             "description": "Inwonerschap van de persoon. Lijst van Inwonerschap items.",
             "items": {
               "$ref": "#/components/schemas/Inwonerschap"
-            },
-            "minItems": 1
-          },
-          "heeftPersoonsrelatie": {
-            "type": "array",
-            "description": "Persoonsrelatie van de persoon. Lijst van Persoonsrelatie items.",
-            "items": {
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/Gezinsrelatie"
-                },
-                {
-                  "$ref": "#/components/schemas/Huwelijk"
-                },
-                {
-                  "$ref": "#/components/schemas/Samenwonen"
-                },
-                {
-                  "$ref": "#/components/schemas/Afstamming"
-                },
-                {
-                  "$ref": "#/components/schemas/Huisvestingsrelatie"
-                }
-              ],
-              "discriminator": {
-                "propertyName": "@type",
-                "mapping": {
-                  "Gezinsrelatie": "#/components/schemas/Gezinsrelatie",
-                  "Huwelijk": "#/components/schemas/Huwelijk",
-                  "Samenwonen": "#/components/schemas/Samenwonen",
-                  "Afstamming": "#/components/schemas/Afstamming",
-                  "Huisvestingsrelatie": "#/components/schemas/Huisvestingsrelatie"
-                }
-              }
             },
             "minItems": 1
           },
@@ -3765,47 +3582,11 @@
           },
           "einddatum": {
             "$ref": "#/components/schemas/AfstammingOpgaandeLijn.einddatum"
-          },
-          "vanPersoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
-          },
-          "metPersoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
           }
         },
         "required": [
           "@type",
-          "begindatum",
-          "vanPersoon",
-          "metPersoon"
+          "begindatum"
         ]
       },
       "Naamsverandering.beschrijving": {
@@ -4234,47 +4015,11 @@
           },
           "einddatum": {
             "$ref": "#/components/schemas/Huisvestingsrelatie.einddatum"
-          },
-          "vanPersoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
-          },
-          "metPersoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
           }
         },
         "required": [
           "@type",
-          "begindatum",
-          "vanPersoon",
-          "metPersoon"
+          "begindatum"
         ]
       },
       "AfstammingDalendeLijn.datumVanAfstamming": {
@@ -4320,47 +4065,11 @@
           },
           "einddatum": {
             "$ref": "#/components/schemas/AfstammingDalendeLijn.einddatum"
-          },
-          "vanPersoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
-          },
-          "metPersoon": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
           }
         },
         "required": [
           "@type",
-          "begindatum",
-          "vanPersoon",
-          "metPersoon"
+          "begindatum"
         ]
       },
       "Locatie": {
