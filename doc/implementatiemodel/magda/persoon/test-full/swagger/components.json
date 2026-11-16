@@ -114,6 +114,40 @@
             },
             "minItems": 1
           },
+          "heeftPersoonsrelatie": {
+            "type": "array",
+            "description": "Persoonsrelatie van de persoon. Lijst van Persoonsrelatie items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Gezinsrelatie"
+                },
+                {
+                  "$ref": "#/components/schemas/Huwelijk"
+                },
+                {
+                  "$ref": "#/components/schemas/Samenwonen"
+                },
+                {
+                  "$ref": "#/components/schemas/Afstamming"
+                },
+                {
+                  "$ref": "#/components/schemas/Huisvestingsrelatie"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Gezinsrelatie": "#/components/schemas/Gezinsrelatie",
+                  "Huwelijk": "#/components/schemas/Huwelijk",
+                  "Samenwonen": "#/components/schemas/Samenwonen",
+                  "Afstamming": "#/components/schemas/Afstamming",
+                  "Huisvestingsrelatie": "#/components/schemas/Huisvestingsrelatie"
+                }
+              }
+            },
+            "minItems": 1
+          },
           "isLidVan": {
             "type": "array",
             "description": "Persoon die tot een Gezin behoort. Lijst van Gezin items.",
@@ -317,11 +351,47 @@
           },
           "einddatum": {
             "$ref": "#/components/schemas/Gezinsrelatie.einddatum"
+          },
+          "vanPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          },
+          "metPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
           }
         },
         "required": [
           "@type",
-          "begindatum"
+          "begindatum",
+          "vanPersoon",
+          "metPersoon"
         ]
       },
       "Document.beschrijving": {
@@ -585,11 +655,47 @@
           },
           "einddatum": {
             "$ref": "#/components/schemas/Huwelijk.einddatum"
+          },
+          "vanPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          },
+          "metPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
           }
         },
         "required": [
           "@type",
-          "begindatum"
+          "begindatum",
+          "vanPersoon",
+          "metPersoon"
         ]
       },
       "Registratietoestand.begindatum": {
@@ -980,11 +1086,47 @@
           },
           "einddatum": {
             "$ref": "#/components/schemas/Samenwonen.einddatum"
+          },
+          "vanPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          },
+          "metPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
           }
         },
         "required": [
           "@type",
-          "begindatum"
+          "begindatum",
+          "vanPersoon",
+          "metPersoon"
         ]
       },
       "GeregistreerdPersoon.voornaam": {
@@ -1124,6 +1266,40 @@
             "description": "Inwonerschap van de persoon. Lijst van Inwonerschap items.",
             "items": {
               "$ref": "#/components/schemas/Inwonerschap"
+            },
+            "minItems": 1
+          },
+          "heeftPersoonsrelatie": {
+            "type": "array",
+            "description": "Persoonsrelatie van de persoon. Lijst van Persoonsrelatie items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Gezinsrelatie"
+                },
+                {
+                  "$ref": "#/components/schemas/Huwelijk"
+                },
+                {
+                  "$ref": "#/components/schemas/Samenwonen"
+                },
+                {
+                  "$ref": "#/components/schemas/Afstamming"
+                },
+                {
+                  "$ref": "#/components/schemas/Huisvestingsrelatie"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Gezinsrelatie": "#/components/schemas/Gezinsrelatie",
+                  "Huwelijk": "#/components/schemas/Huwelijk",
+                  "Samenwonen": "#/components/schemas/Samenwonen",
+                  "Afstamming": "#/components/schemas/Afstamming",
+                  "Huisvestingsrelatie": "#/components/schemas/Huisvestingsrelatie"
+                }
+              }
             },
             "minItems": 1
           },
@@ -3007,11 +3183,47 @@
           },
           "einddatum": {
             "$ref": "#/components/schemas/AfstammingOpgaandeLijn.einddatum"
+          },
+          "vanPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          },
+          "metPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
           }
         },
         "required": [
           "@type",
-          "begindatum"
+          "begindatum",
+          "vanPersoon",
+          "metPersoon"
         ]
       },
       "Naamsverandering.beschrijving": {
@@ -3440,11 +3652,47 @@
           },
           "einddatum": {
             "$ref": "#/components/schemas/Huisvestingsrelatie.einddatum"
+          },
+          "vanPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          },
+          "metPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
           }
         },
         "required": [
           "@type",
-          "begindatum"
+          "begindatum",
+          "vanPersoon",
+          "metPersoon"
         ]
       },
       "AfstammingDalendeLijn.datumVanAfstamming": {
@@ -3490,11 +3738,47 @@
           },
           "einddatum": {
             "$ref": "#/components/schemas/AfstammingDalendeLijn.einddatum"
+          },
+          "vanPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          },
+          "metPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
           }
         },
         "required": [
           "@type",
-          "begindatum"
+          "begindatum",
+          "vanPersoon",
+          "metPersoon"
         ]
       },
       "Locatie": {
@@ -4087,6 +4371,13 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Inwonerschap` op te halen."
       },
+      "Persoon.heeftPersoonsrelatie": {
+        "operationId": "PersoonGET",
+        "parameters": {
+          "id": "$response.body#/Persoon.heeftPersoonsrelatie/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoonsrelatie` op te halen."
+      },
       "Persoon.isLidVan": {
         "operationId": "PersoonGET",
         "parameters": {
@@ -4184,6 +4475,20 @@
           "id": "$response.body#/Gezinsrelatie.woonvorm/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Woonvormtype` op te halen."
+      },
+      "Gezinsrelatie.vanPersoon": {
+        "operationId": "GezinsrelatieGET",
+        "parameters": {
+          "id": "$response.body#/Gezinsrelatie.vanPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
+      "Gezinsrelatie.metPersoon": {
+        "operationId": "GezinsrelatieGET",
+        "parameters": {
+          "id": "$response.body#/Gezinsrelatie.metPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
       },
       "Document.identificator": {
         "operationId": "DocumentGET",
@@ -4318,6 +4623,20 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Overschrijving` op te halen."
       },
+      "Huwelijk.vanPersoon": {
+        "operationId": "HuwelijkGET",
+        "parameters": {
+          "id": "$response.body#/Huwelijk.vanPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
+      "Huwelijk.metPersoon": {
+        "operationId": "HuwelijkGET",
+        "parameters": {
+          "id": "$response.body#/Huwelijk.metPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
       "Registratietoestand.dossierstatus": {
         "operationId": "RegistratietoestandGET",
         "parameters": {
@@ -4451,6 +4770,20 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Samenlevingscontract` op te halen."
       },
+      "Samenwonen.vanPersoon": {
+        "operationId": "SamenwonenGET",
+        "parameters": {
+          "id": "$response.body#/Samenwonen.vanPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
+      "Samenwonen.metPersoon": {
+        "operationId": "SamenwonenGET",
+        "parameters": {
+          "id": "$response.body#/Samenwonen.metPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
       "GeregistreerdPersoon.registratie": {
         "operationId": "GeregistreerdPersoonGET",
         "parameters": {
@@ -4520,6 +4853,13 @@
           "id": "$response.body#/GeregistreerdPersoon.heeftInwonerschap/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Inwonerschap` op te halen."
+      },
+      "GeregistreerdPersoon.heeftPersoonsrelatie": {
+        "operationId": "GeregistreerdPersoonGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdPersoon.heeftPersoonsrelatie/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoonsrelatie` op te halen."
       },
       "GeregistreerdPersoon.isLidVan": {
         "operationId": "GeregistreerdPersoonGET",
@@ -5144,6 +5484,20 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Afstammingstype` op te halen."
       },
+      "AfstammingOpgaandeLijn.vanPersoon": {
+        "operationId": "AfstammingOpgaandeLijnGET",
+        "parameters": {
+          "id": "$response.body#/AfstammingOpgaandeLijn.vanPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
+      "AfstammingOpgaandeLijn.metPersoon": {
+        "operationId": "AfstammingOpgaandeLijnGET",
+        "parameters": {
+          "id": "$response.body#/AfstammingOpgaandeLijn.metPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
       "Naamsverandering.type": {
         "operationId": "NaamsveranderingGET",
         "parameters": {
@@ -5305,12 +5659,40 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Roltype` op te halen."
       },
+      "Huisvestingsrelatie.vanPersoon": {
+        "operationId": "HuisvestingsrelatieGET",
+        "parameters": {
+          "id": "$response.body#/Huisvestingsrelatie.vanPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
+      "Huisvestingsrelatie.metPersoon": {
+        "operationId": "HuisvestingsrelatieGET",
+        "parameters": {
+          "id": "$response.body#/Huisvestingsrelatie.metPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
       "AfstammingDalendeLijn.afstammingstype": {
         "operationId": "AfstammingDalendeLijnGET",
         "parameters": {
           "id": "$response.body#/AfstammingDalendeLijn.afstammingstype/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Afstammingstype` op te halen."
+      },
+      "AfstammingDalendeLijn.vanPersoon": {
+        "operationId": "AfstammingDalendeLijnGET",
+        "parameters": {
+          "id": "$response.body#/AfstammingDalendeLijn.vanPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
+      "AfstammingDalendeLijn.metPersoon": {
+        "operationId": "AfstammingDalendeLijnGET",
+        "parameters": {
+          "id": "$response.body#/AfstammingDalendeLijn.metPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
       }
     }
   }
