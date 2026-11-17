@@ -2,11 +2,13 @@
 
 #||# -------------------------------------  
 
-Error: Child ([urn:oslo-toolchain:66a64b69887b8b2492649233c4f59418148f7982ea49a6a0bd8780c30246bc2a](all-persoon.jsonld#L4645)) or parent (urn:oslo-toolchain:20456e9d3fd1e3c70b8b01010b25982db5c4c6640701f6ac93106c7b8953804f) domain is missing!
+Error: Unable to find a label for the domain "urn:oslo-toolchain:1d6e8c84f8d3be4b4232ede6ba95f73cf3cd1b097128ea37c82e5d89c2301319" of subject "[urn:oslo-toolchain:941a9a101a91a2f88c0508b02fcf972f1209b5fc49f149e09dae332382380c5a](all-persoon.jsonld#L5267)".
 
-    at ShaclTemplateGenerationService.handleRedefinedProperties (/usr/local/lib/node_modules/@oslo-flanders/shacl-template-generator/lib/ShaclTemplateGenerationService.js:195:23)
+    at PropertyShapeBaseHandler.handle (/usr/local/lib/node_modules/@oslo-flanders/shacl-template-generator/lib/handlers/PropertyShapeBaseHandler.js:141:23)
 
-    at ShaclTemplateGenerationService.run (/usr/local/lib/node_modules/@oslo-flanders/shacl-template-generator/lib/ShaclTemplateGenerationService.js:97:14)
+    at Pipeline.handle (/usr/local/lib/node_modules/@oslo-flanders/shacl-template-generator/lib/types/Pipeline.js:21:28)
+
+    at ShaclTemplateGenerationService.run (/usr/local/lib/node_modules/@oslo-flanders/shacl-template-generator/lib/ShaclTemplateGenerationService.js:89:51)
 
     at /usr/local/lib/node_modules/@oslo-flanders/shacl-template-generator/node_modules/@oslo-flanders/core/lib/interfaces/AppRunner.js:37:33
 
