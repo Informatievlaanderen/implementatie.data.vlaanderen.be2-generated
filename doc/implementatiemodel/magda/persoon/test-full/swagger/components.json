@@ -80,7 +80,12 @@
             "minItems": 1
           },
           "isHoofdVan": {
-            "$ref": "#/components/schemas/Gezin"
+            "type": "array",
+            "description": "Persoon die standaard het Gezin vertegenwoordigt. Lijst van Gezin items.",
+            "items": {
+              "$ref": "#/components/schemas/Gezin"
+            },
+            "minItems": 1
           },
           "heeftBurgerlijkeStaat": {
             "type": "array",
@@ -1235,7 +1240,12 @@
             "minItems": 1
           },
           "isHoofdVan": {
-            "$ref": "#/components/schemas/Gezin"
+            "type": "array",
+            "description": "Persoon die standaard het Gezin vertegenwoordigt. Lijst van Gezin items.",
+            "items": {
+              "$ref": "#/components/schemas/Gezin"
+            },
+            "minItems": 1
           },
           "heeftBurgerlijkeStaat": {
             "type": "array",
@@ -1795,21 +1805,26 @@
             "$ref": "#/components/schemas/Woonvormtype"
           },
           "gezinshoofd": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Persoon"
-              },
-              {
-                "$ref": "#/components/schemas/GeregistreerdPersoon"
+            "type": "array",
+            "description": "De standaard vertegenwoordiger van het Gezin. Lijst van Persoon items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Persoon"
+                },
+                {
+                  "$ref": "#/components/schemas/GeregistreerdPersoon"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Persoon": "#/components/schemas/Persoon",
+                  "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+                }
               }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Persoon": "#/components/schemas/Persoon",
-                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-              }
-            }
+            },
+            "minItems": 1
           },
           "gezinslid": {
             "type": "array",
