@@ -2,17 +2,17 @@
 
 #||# -------------------------------------  
 
-2026-11-17T12:58:32.830Z info: [JsonLdValidationService]: Loaded 57 URI prefixes into whitelist
+2026-11-17T14:00:16.840Z info: [JsonLdValidationService]: Loaded 57 URI prefixes into whitelist
 
-2026-11-17T12:58:33.090Z error: [JsonLdValidationService]: Found missing class or attribute (^voorkeursnaam): [urn:oslo-toolchain:22702863f7b74ef6e2390b69dfa5f4a9a440c9fa7657367e7593134061062a39](all-persoon.jsonld#L3069) in Vocabulary
+2026-11-17T14:00:17.149Z error: [JsonLdValidationService]: Found missing class or attribute (^voorkeursnaam): [urn:oslo-toolchain:22702863f7b74ef6e2390b69dfa5f4a9a440c9fa7657367e7593134061062a39](all-persoon.jsonld#L3069) in Vocabulary
 
-2026-11-17T12:58:33.091Z info: [JsonLdValidationService]: Validation successful! All assigned URIs are whitelisted.
+2026-11-17T14:00:17.150Z info: [JsonLdValidationService]: Validation successful! All assigned URIs are whitelisted.
 
-2026-11-17T12:58:33.091Z info: [JsonLdValidationService]: Validation successful! All sentences seem to be valid, no spelling mistakes or abbreviations found.
+2026-11-17T14:00:17.150Z info: [JsonLdValidationService]: Validation successful! All sentences seem to be valid, no spelling mistakes or abbreviations found.
 
-2026-11-17T12:58:33.091Z info: [JsonLdValidationService]: Validation successful! All labels seem to be valid, no spelling mistakes or abbreviations found.
+2026-11-17T14:00:17.150Z info: [JsonLdValidationService]: Validation successful! All labels seem to be valid, no spelling mistakes or abbreviations found.
 
-2026-11-17T12:58:33.091Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
+2026-11-17T14:00:17.150Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
 
-2026-11-17T12:58:33.091Z info: [JsonLdValidationService]: Validation found 1 missing referenced classes or attributes.
+2026-11-17T14:00:17.150Z info: [JsonLdValidationService]: Validation found 1 missing referenced classes or attributes.
 

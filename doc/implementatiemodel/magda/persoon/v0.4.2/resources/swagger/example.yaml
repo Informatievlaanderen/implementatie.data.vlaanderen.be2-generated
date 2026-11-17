@@ -381,6 +381,12 @@ components:
           $ref: '#/components/schemas/Geboorte'
         heeftOverlijden:
           $ref: '#/components/schemas/Overlijden'
+        heeftInwonerschap:
+          type: array
+          description: Inwonerschap van de persoon. Lijst van Inwonerschap items.
+          items:
+            $ref: '#/components/schemas/Inwonerschap'
+          minItems: 1
         heeftPersoonsrelatie:
           type: array
           description: Persoonsrelatie van de persoon. Lijst van Persoonsrelatie items.
@@ -389,16 +395,14 @@ components:
               - $ref: '#/components/schemas/Gezinsrelatie'
               - $ref: '#/components/schemas/Huwelijk'
               - $ref: '#/components/schemas/Samenwonen'
-              - $ref: '#/components/schemas/AfstammingDalendeLijn'
-              - $ref: '#/components/schemas/AfstammingOpgaandeLijn'
+              - $ref: '#/components/schemas/Afstamming'
             discriminator:
               propertyName: '@type'
               mapping:
                 Gezinsrelatie: '#/components/schemas/Gezinsrelatie'
                 Huwelijk: '#/components/schemas/Huwelijk'
                 Samenwonen: '#/components/schemas/Samenwonen'
-                AfstammingDalendeLijn: '#/components/schemas/AfstammingDalendeLijn'
-                AfstammingOpgaandeLijn: '#/components/schemas/AfstammingOpgaandeLijn'
+                Afstamming: '#/components/schemas/Afstamming'
           minItems: 1
         isLidVan:
           type: array
@@ -780,6 +784,8 @@ components:
           type: string
           description: Object type (klasse Inwonerschap)
           pattern: ^Inwonerschap$
+        jurisdictie:
+          $ref: '#/components/schemas/Jurisdictie'
         heeftVerblijfplaats:
           type: array
           description: Plaats waar een persoon verblijft. Lijst van Verblijfplaats items.
@@ -809,6 +815,7 @@ components:
           minItems: 1
       required:
         - '@type'
+        - jurisdictie
     Samenwonen:
       title: Samenwonen
       type: object
@@ -927,6 +934,12 @@ components:
           $ref: '#/components/schemas/Geboorte'
         heeftOverlijden:
           $ref: '#/components/schemas/Overlijden'
+        heeftInwonerschap:
+          type: array
+          description: Inwonerschap van de persoon. Lijst van Inwonerschap items.
+          items:
+            $ref: '#/components/schemas/Inwonerschap'
+          minItems: 1
         heeftPersoonsrelatie:
           type: array
           description: Persoonsrelatie van de persoon. Lijst van Persoonsrelatie items.
@@ -935,16 +948,14 @@ components:
               - $ref: '#/components/schemas/Gezinsrelatie'
               - $ref: '#/components/schemas/Huwelijk'
               - $ref: '#/components/schemas/Samenwonen'
-              - $ref: '#/components/schemas/AfstammingDalendeLijn'
-              - $ref: '#/components/schemas/AfstammingOpgaandeLijn'
+              - $ref: '#/components/schemas/Afstamming'
             discriminator:
               propertyName: '@type'
               mapping:
                 Gezinsrelatie: '#/components/schemas/Gezinsrelatie'
                 Huwelijk: '#/components/schemas/Huwelijk'
                 Samenwonen: '#/components/schemas/Samenwonen'
-                AfstammingDalendeLijn: '#/components/schemas/AfstammingDalendeLijn'
-                AfstammingOpgaandeLijn: '#/components/schemas/AfstammingOpgaandeLijn'
+                Afstamming: '#/components/schemas/Afstamming'
           minItems: 1
         isLidVan:
           type: array
@@ -1407,7 +1418,7 @@ components:
     AfstammingDalendeLijn:
       title: AfstammingDalendeLijn
       type: object
-      description: Het bloedverwantschap tussen een persoon en kinderen van de persoon.
+      description: Juridische band tussen een kind en zijn ouder vanuit het standpunt van de ouder.
       properties:
         '@id':
           type: string
@@ -1416,10 +1427,10 @@ components:
           type: string
           description: Object type (klasse AfstammingDalendeLijn)
           pattern: ^AfstammingDalendeLijn$
+        afstammingstype:
+          $ref: '#/components/schemas/Afstammingstype'
         datumVanAfstamming:
           $ref: '#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming'
-        afstammingstype:
-          $ref: '#/components/schemas/AfstammingDalendelijnstype'
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/Persoon'
@@ -1449,7 +1460,7 @@ components:
     AfstammingOpgaandeLijn:
       title: AfstammingOpgaandeLijn
       type: object
-      description: Het bloedverwantschap tussen een persoon en ouders van de persoon.
+      description: Juridische band tussen een kind en zijn ouder vanuit het standpunt van het kind.
       properties:
         '@id':
           type: string
@@ -1458,10 +1469,10 @@ components:
           type: string
           description: Object type (klasse AfstammingOpgaandeLijn)
           pattern: ^AfstammingOpgaandeLijn$
+        afstammingstype:
+          $ref: '#/components/schemas/Afstammingstype'
         datumVanAfstamming:
           $ref: '#/components/schemas/AfstammingOpgaandeLijn.datumVanAfstamming'
-        afstammingstype:
-          $ref: '#/components/schemas/AfstammingStijgendelijnstype'
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/Persoon'
