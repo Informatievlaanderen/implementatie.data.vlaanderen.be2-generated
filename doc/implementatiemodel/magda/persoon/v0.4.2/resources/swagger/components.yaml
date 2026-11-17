@@ -237,14 +237,16 @@ components:
               - $ref: '#/components/schemas/Gezinsrelatie'
               - $ref: '#/components/schemas/Huwelijk'
               - $ref: '#/components/schemas/Samenwonen'
-              - $ref: '#/components/schemas/Afstamming'
+              - $ref: '#/components/schemas/AfstammingDalendeLijn'
+              - $ref: '#/components/schemas/AfstammingOpgaandeLijn'
             discriminator:
               propertyName: '@type'
               mapping:
                 Gezinsrelatie: '#/components/schemas/Gezinsrelatie'
                 Huwelijk: '#/components/schemas/Huwelijk'
                 Samenwonen: '#/components/schemas/Samenwonen'
-                Afstamming: '#/components/schemas/Afstamming'
+                AfstammingDalendeLijn: '#/components/schemas/AfstammingDalendeLijn'
+                AfstammingOpgaandeLijn: '#/components/schemas/AfstammingOpgaandeLijn'
           minItems: 1
         isLidVan:
           type: array
@@ -817,14 +819,16 @@ components:
               - $ref: '#/components/schemas/Gezinsrelatie'
               - $ref: '#/components/schemas/Huwelijk'
               - $ref: '#/components/schemas/Samenwonen'
-              - $ref: '#/components/schemas/Afstamming'
+              - $ref: '#/components/schemas/AfstammingDalendeLijn'
+              - $ref: '#/components/schemas/AfstammingOpgaandeLijn'
             discriminator:
               propertyName: '@type'
               mapping:
                 Gezinsrelatie: '#/components/schemas/Gezinsrelatie'
                 Huwelijk: '#/components/schemas/Huwelijk'
                 Samenwonen: '#/components/schemas/Samenwonen'
-                Afstamming: '#/components/schemas/Afstamming'
+                AfstammingDalendeLijn: '#/components/schemas/AfstammingDalendeLijn'
+                AfstammingOpgaandeLijn: '#/components/schemas/AfstammingOpgaandeLijn'
           minItems: 1
         isLidVan:
           type: array
@@ -1270,20 +1274,6 @@ components:
           $ref: '#/components/schemas/Identificator'
       required:
         - '@type'
-    AfstammingDalendeLijn.datumVanAfstamming:
-      title: AfstammingDalendeLijn.datumVanAfstamming
-      type: object
-      description: De datum waarop de afstamming wordt vastgesteld.
-      properties:
-        '@value':
-          type: string
-          format: date
-        '@type':
-          type: string
-          pattern: ^Date$
-      required:
-        - '@value'
-        - '@type'
     AfstammingDalendeLijn:
       title: AfstammingDalendeLijn
       type: object
@@ -1297,9 +1287,7 @@ components:
           description: Object type (klasse AfstammingDalendeLijn)
           pattern: ^AfstammingDalendeLijn$
         afstammingstype:
-          $ref: '#/components/schemas/Afstammingstype'
-        datumVanAfstamming:
-          $ref: '#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming'
+          $ref: '#/components/schemas/AfstammingDalendelijnstype'
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/Persoon'
@@ -1312,20 +1300,6 @@ components:
       required:
         - '@type'
         - metPersoon
-    AfstammingOpgaandeLijn.datumVanAfstamming:
-      title: AfstammingOpgaandeLijn.datumVanAfstamming
-      type: object
-      description: De datum waarop de afstamming wordt vastgesteld.
-      properties:
-        '@value':
-          type: string
-          format: date
-        '@type':
-          type: string
-          pattern: ^Date$
-      required:
-        - '@value'
-        - '@type'
     AfstammingOpgaandeLijn:
       title: AfstammingOpgaandeLijn
       type: object
@@ -1339,9 +1313,7 @@ components:
           description: Object type (klasse AfstammingOpgaandeLijn)
           pattern: ^AfstammingOpgaandeLijn$
         afstammingstype:
-          $ref: '#/components/schemas/Afstammingstype'
-        datumVanAfstamming:
-          $ref: '#/components/schemas/AfstammingOpgaandeLijn.datumVanAfstamming'
+          $ref: '#/components/schemas/AfstammingStijgendelijnstype'
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/Persoon'
