@@ -1626,34 +1626,6 @@ components:
           type: string
       required:
         - '@value'
-    GeregistreerdPersoonReferentie.creatiedatum:
-      title: GeregistreerdPersoonReferentie.creatiedatum
-      type: object
-      description: Datum waarop de gegevens zijn ingevoerd.
-      properties:
-        '@value':
-          type: string
-          format: date
-        '@type':
-          type: string
-          pattern: ^Date$
-      required:
-        - '@value'
-        - '@type'
-    GeregistreerdPersoonReferentie.modificatiedatum:
-      title: GeregistreerdPersoonReferentie.modificatiedatum
-      type: object
-      description: Datum waarop de gegevens werden bijgewerkt.
-      properties:
-        '@value':
-          type: string
-          format: date
-        '@type':
-          type: string
-          pattern: ^Date$
-      required:
-        - '@value'
-        - '@type'
     GeregistreerdPersoonReferentie:
       title: GeregistreerdPersoonReferentie
       type: object
@@ -1684,51 +1656,6 @@ components:
           $ref: '#/components/schemas/Contactinfo'
         geslacht:
           $ref: '#/components/schemas/Geslacht'
-        isHoofdVan:
-          $ref: '#/components/schemas/Gezin'
-        heeftBurgerlijkeStaat:
-          $ref: '#/components/schemas/BurgerlijkeStaat'
-        heeftGeboorte:
-          $ref: '#/components/schemas/Geboorte'
-        heeftOverlijden:
-          $ref: '#/components/schemas/Overlijden'
-        heeftInwonerschap:
-          type: array
-          description: Inwonerschap van de persoon. Lijst van Inwonerschap items.
-          items:
-            $ref: '#/components/schemas/Inwonerschap'
-          minItems: 1
-        heeftPersoonsrelatie:
-          type: array
-          description: Persoonsrelatie van de persoon. Lijst van Persoonsrelatie items.
-          items:
-            oneOf:
-              - $ref: '#/components/schemas/Gezinsrelatie'
-              - $ref: '#/components/schemas/Huwelijk'
-              - $ref: '#/components/schemas/Samenwonen'
-              - $ref: '#/components/schemas/AfstammingDalendeLijn'
-              - $ref: '#/components/schemas/AfstammingOpgaandeLijn'
-            discriminator:
-              propertyName: '@type'
-              mapping:
-                Gezinsrelatie: '#/components/schemas/Gezinsrelatie'
-                Huwelijk: '#/components/schemas/Huwelijk'
-                Samenwonen: '#/components/schemas/Samenwonen'
-                AfstammingDalendeLijn: '#/components/schemas/AfstammingDalendeLijn'
-                AfstammingOpgaandeLijn: '#/components/schemas/AfstammingOpgaandeLijn'
-          minItems: 1
-        isLidVan:
-          type: array
-          description: Persoon die tot een Gezin behoort. Lijst van Gezin items.
-          items:
-            $ref: '#/components/schemas/Gezin'
-          minItems: 1
-        creatiedatum:
-          $ref: '#/components/schemas/GeregistreerdPersoonReferentie.creatiedatum'
-        modificatiedatum:
-          $ref: '#/components/schemas/GeregistreerdPersoonReferentie.modificatiedatum'
-        bron:
-          $ref: '#/components/schemas/Organisatie'
       required:
         - '@type'
         - registratie

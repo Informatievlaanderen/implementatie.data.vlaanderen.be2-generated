@@ -1,0 +1,27 @@
+title: Afstamming
+type: object
+description: "Afstamming\_is de dalende lijn van\_bloedverwantschap\_tussen verschillende\_generaties."
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse Afstamming)
+    pattern: ^Afstamming$
+  datumVanAfstamming:
+    $ref: '#/components/schemas/Afstamming.datumVanAfstamming'
+  afstammingstype:
+    $ref: '#/components/schemas/Afstammingstype'
+  metPersoon:
+    oneOf:
+      - $ref: '#/components/schemas/Persoon'
+      - $ref: '#/components/schemas/GeregistreerdPersoon'
+    discriminator:
+      propertyName: '@type'
+      mapping:
+        Persoon: '#/components/schemas/Persoon'
+        GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
+required:
+  - '@type'
+  - metPersoon
