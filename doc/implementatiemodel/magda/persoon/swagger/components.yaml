@@ -8,7 +8,7 @@ info:
   license:
     name: Gebruiksvoorwaarden
     url: https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/9056387121/persoon.personen+-+v1#Gebruiksvoorwaarden
-  version: 0.4.0
+  version: 0.4.3
 components:
   schemas:
     Woonvormtype:
@@ -35,6 +35,16 @@ components:
       title: AfstammingDalendelijnstype
       type: object
       description: Enumeratie van AfstammingDalendelijnstype
+      properties:
+        '@id':
+          type: string
+          format: uri
+      required:
+        - '@id'
+    Afstammingstype:
+      title: Afstammingstype
+      type: object
+      description: Enumeratie van Afstammingstype
       properties:
         '@id':
           type: string
@@ -111,10 +121,10 @@ components:
           format: uri
       required:
         - '@id'
-    AfstammingStijgendelijnstype:
-      title: AfstammingStijgendelijnstype
+    AfstammingOpgaandelijntype:
+      title: AfstammingOpgaandelijntype
       type: object
-      description: Enumeratie van AfstammingStijgendelijnstype
+      description: Enumeratie van AfstammingOpgaandelijntype
       properties:
         '@id':
           type: string
@@ -589,12 +599,6 @@ components:
           $ref: '#/components/schemas/Problemdetail.detail'
         instance:
           $ref: '#/components/schemas/Problemdetail.instance'
-        errors:
-          type: array
-          description: Mogelijke validatie-fouten die de aanleiding geven voor het probleem. Lijst van Error items.
-          items:
-            $ref: '#/components/schemas/Error'
-          minItems: 1
       required:
         - '@type'
         - type
@@ -623,7 +627,7 @@ components:
         '@context':
           type: string
           description: URI of the JSON-LD versioned context file for this response.
-          pattern: ^https:\/\/implementatie.data.test-vlaanderen.be\/doc\/implementatiemodel\/magda\/persoon\/v0.4.0\/context\/persoon.jsonld$
+          pattern: ^https:\/\/implementatie.data.test-vlaanderen.be\/doc\/implementatiemodel\/magda\/persoon\/v0.4.3\/context\/persoon.jsonld$
       required:
         - '@type'
         - data
@@ -1050,61 +1054,6 @@ components:
         - '@type'
         - waarde
         - naam
-    Error.detail:
-      title: Error.detail
-      type: object
-      description: Mensleesbare beschrijving van de fout.
-      properties:
-        '@value':
-          type: string
-      required:
-        - '@value'
-    Error.title:
-      title: Error.title
-      type: object
-      description: Korte mensleesbare beschrijving van de fout.
-      properties:
-        '@value':
-          type: string
-      required:
-        - '@value'
-    Error.type:
-      title: Error.type
-      type: object
-      description: Aard van de fout.
-      properties:
-        '@id':
-          type: string
-          format: uri
-        '@type':
-          type: string
-          pattern: ^AnyURI$
-      required:
-        - '@id'
-        - '@type'
-    Error:
-      title: Error
-      type: object
-      description: Beschrijving van de fout die is opgetreden.
-      properties:
-        '@id':
-          type: string
-          format: uri
-        '@type':
-          type: string
-          description: Object type (klasse Error)
-          pattern: ^Error$
-        detail:
-          $ref: '#/components/schemas/Error.detail'
-        title:
-          $ref: '#/components/schemas/Error.title'
-        type:
-          $ref: '#/components/schemas/Error.type'
-      required:
-        - '@type'
-        - detail
-        - title
-        - type
     Jurisdictie:
       title: Jurisdictie
       type: object
@@ -1345,24 +1294,10 @@ components:
           $ref: '#/components/schemas/Identificator'
       required:
         - '@type'
-    AfstammingDalendeLijn.datumVanAfstamming:
-      title: AfstammingDalendeLijn.datumVanAfstamming
-      type: object
-      description: De datum waarop de afstamming wordt vastgesteld.
-      properties:
-        '@value':
-          type: string
-          format: date
-        '@type':
-          type: string
-          pattern: ^Date$
-      required:
-        - '@value'
-        - '@type'
     AfstammingDalendeLijn:
       title: AfstammingDalendeLijn
       type: object
-      description: Het bloedverwantschap tussen een persoon en kinderen van de persoon.
+      description: Juridische band tussen een kind en zijn ouder vanuit het standpunt van de ouder.
       properties:
         '@id':
           type: string
@@ -1371,8 +1306,6 @@ components:
           type: string
           description: Object type (klasse AfstammingDalendeLijn)
           pattern: ^AfstammingDalendeLijn$
-        datumVanAfstamming:
-          $ref: '#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming'
         afstammingstype:
           $ref: '#/components/schemas/AfstammingDalendelijnstype'
         metPersoon:
@@ -1387,24 +1320,10 @@ components:
       required:
         - '@type'
         - metPersoon
-    AfstammingOpgaandeLijn.datumVanAfstamming:
-      title: AfstammingOpgaandeLijn.datumVanAfstamming
-      type: object
-      description: De datum waarop de afstamming wordt vastgesteld.
-      properties:
-        '@value':
-          type: string
-          format: date
-        '@type':
-          type: string
-          pattern: ^Date$
-      required:
-        - '@value'
-        - '@type'
     AfstammingOpgaandeLijn:
       title: AfstammingOpgaandeLijn
       type: object
-      description: Het bloedverwantschap tussen een persoon en ouders van de persoon.
+      description: Juridische band tussen een kind en zijn ouder vanuit het standpunt van het kind.
       properties:
         '@id':
           type: string
@@ -1413,10 +1332,8 @@ components:
           type: string
           description: Object type (klasse AfstammingOpgaandeLijn)
           pattern: ^AfstammingOpgaandeLijn$
-        datumVanAfstamming:
-          $ref: '#/components/schemas/AfstammingOpgaandeLijn.datumVanAfstamming'
         afstammingstype:
-          $ref: '#/components/schemas/AfstammingStijgendelijnstype'
+          $ref: '#/components/schemas/AfstammingOpgaandelijntype'
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/PersoonReferentie'
@@ -1447,6 +1364,34 @@ components:
           type: string
       required:
         - '@value'
+    PersoonReferentie.creatiedatum:
+      title: PersoonReferentie.creatiedatum
+      type: object
+      description: Datum waarop de gegevens zijn ingevoerd.
+      properties:
+        '@value':
+          type: string
+          format: date
+        '@type':
+          type: string
+          pattern: ^Date$
+      required:
+        - '@value'
+        - '@type'
+    PersoonReferentie.modificatiedatum:
+      title: PersoonReferentie.modificatiedatum
+      type: object
+      description: Datum waarop de gegevens werden bijgewerkt.
+      properties:
+        '@value':
+          type: string
+          format: date
+        '@type':
+          type: string
+          pattern: ^Date$
+      required:
+        - '@value'
+        - '@type'
     PersoonReferentie:
       title: PersoonReferentie
       type: object
@@ -1471,10 +1416,18 @@ components:
           items:
             $ref: '#/components/schemas/PersoonReferentie.voornaam'
           minItems: 1
-        contactinfo:
-          $ref: '#/components/schemas/Contactinfo'
         geslacht:
           $ref: '#/components/schemas/Geslacht'
+        heeftGeboorte:
+          $ref: '#/components/schemas/Geboorte'
+        heeftOverlijden:
+          $ref: '#/components/schemas/Overlijden'
+        creatiedatum:
+          $ref: '#/components/schemas/PersoonReferentie.creatiedatum'
+        modificatiedatum:
+          $ref: '#/components/schemas/PersoonReferentie.modificatiedatum'
+        bron:
+          $ref: '#/components/schemas/Organisatie'
       required:
         - '@type'
     GeregistreerdPersoonReferentie.achternaam:
@@ -1549,49 +1502,12 @@ components:
           items:
             $ref: '#/components/schemas/GeregistreerdPersoonReferentie.voornaam'
           minItems: 1
-        contactinfo:
-          $ref: '#/components/schemas/Contactinfo'
         geslacht:
           $ref: '#/components/schemas/Geslacht'
-        isHoofdVan:
-          $ref: '#/components/schemas/Gezin'
-        heeftBurgerlijkeStaat:
-          $ref: '#/components/schemas/BurgerlijkeStaat'
         heeftGeboorte:
           $ref: '#/components/schemas/Geboorte'
         heeftOverlijden:
           $ref: '#/components/schemas/Overlijden'
-        heeftInwonerschap:
-          type: array
-          description: Inwonerschap van de persoon. Lijst van Inwonerschap items.
-          items:
-            $ref: '#/components/schemas/Inwonerschap'
-          minItems: 1
-        heeftPersoonsrelatie:
-          type: array
-          description: Persoonsrelatie van de persoon. Lijst van Persoonsrelatie items.
-          items:
-            oneOf:
-              - $ref: '#/components/schemas/Gezinsrelatie'
-              - $ref: '#/components/schemas/Huwelijk'
-              - $ref: '#/components/schemas/Samenwonen'
-              - $ref: '#/components/schemas/AfstammingDalendeLijn'
-              - $ref: '#/components/schemas/AfstammingOpgaandeLijn'
-            discriminator:
-              propertyName: '@type'
-              mapping:
-                Gezinsrelatie: '#/components/schemas/Gezinsrelatie'
-                Huwelijk: '#/components/schemas/Huwelijk'
-                Samenwonen: '#/components/schemas/Samenwonen'
-                AfstammingDalendeLijn: '#/components/schemas/AfstammingDalendeLijn'
-                AfstammingOpgaandeLijn: '#/components/schemas/AfstammingOpgaandeLijn'
-          minItems: 1
-        isLidVan:
-          type: array
-          description: Persoon die tot een Gezin behoort. Lijst van Gezin items.
-          items:
-            $ref: '#/components/schemas/Gezin'
-          minItems: 1
         creatiedatum:
           $ref: '#/components/schemas/GeregistreerdPersoonReferentie.creatiedatum'
         modificatiedatum:

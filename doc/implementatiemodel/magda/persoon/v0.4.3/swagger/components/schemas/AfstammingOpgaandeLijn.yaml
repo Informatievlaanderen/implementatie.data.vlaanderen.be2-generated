@@ -1,0 +1,25 @@
+title: AfstammingOpgaandeLijn
+type: object
+description: Juridische band tussen een kind en zijn ouder vanuit het standpunt van het kind.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse AfstammingOpgaandeLijn)
+    pattern: ^AfstammingOpgaandeLijn$
+  afstammingstype:
+    $ref: '#/components/schemas/AfstammingOpgaandelijntype'
+  metPersoon:
+    oneOf:
+      - $ref: '#/components/schemas/PersoonReferentie'
+      - $ref: '#/components/schemas/GeregistreerdPersoonReferentie'
+    discriminator:
+      propertyName: '@type'
+      mapping:
+        PersoonReferentie: '#/components/schemas/PersoonReferentie'
+        GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
+required:
+  - '@type'
+  - metPersoon

@@ -1,0 +1,25 @@
+title: AfstammingDalendeLijn
+type: object
+description: Juridische band tussen een kind en zijn ouder vanuit het standpunt van de ouder.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse AfstammingDalendeLijn)
+    pattern: ^AfstammingDalendeLijn$
+  afstammingstype:
+    $ref: '#/components/schemas/AfstammingDalendelijnstype'
+  metPersoon:
+    oneOf:
+      - $ref: '#/components/schemas/PersoonReferentie'
+      - $ref: '#/components/schemas/GeregistreerdPersoonReferentie'
+    discriminator:
+      propertyName: '@type'
+      mapping:
+        PersoonReferentie: '#/components/schemas/PersoonReferentie'
+        GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
+required:
+  - '@type'
+  - metPersoon
