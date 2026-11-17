@@ -8,7 +8,7 @@ info:
   license:
     name: Gebruiksvoorwaarden
     url: https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/9056387121/persoon.personen+-+v1#Gebruiksvoorwaarden
-  version: 0.4.3
+  version: 0.4.4
 servers:
   - url: https://implementatie.data.test-vlaanderen.be
     description: Basis URL
@@ -164,6 +164,12 @@ components:
           $ref: '#/components/schemas/Problemdetail.detail'
         instance:
           $ref: '#/components/schemas/Problemdetail.instance'
+        errors:
+          type: array
+          description: Mogelijke validatie-fouten die de aanleiding geven voor het probleem. Lijst van Error items.
+          items:
+            $ref: '#/components/schemas/Error'
+          minItems: 1
       required:
         - '@type'
         - type
@@ -675,66 +681,6 @@ components:
           pattern: ^FormeleOrganisatie$
       required:
         - '@type'
-    Problemdetail.type:
-      title: Problemdetail.type
-      type: object
-      description: Aard van de fout.
-      properties:
-        '@id':
-          type: string
-          format: uri
-        '@type':
-          type: string
-          pattern: ^AnyURI$
-      required:
-        - '@id'
-        - '@type'
-    Problemdetail.title:
-      title: Problemdetail.title
-      type: object
-      description: Korte mensleesbare beschrijving van de fout.
-      properties:
-        '@value':
-          type: string
-      required:
-        - '@value'
-    Problemdetail.status:
-      title: Problemdetail.status
-      type: object
-      description: 'HTTP foutcode. Zoals beschreven in <a href="https://www.rfc-editor.org/rfc/rfc7231">RFC7231</a>. Bijvoorbeeld: 404 voor "Not Found".'
-      properties:
-        '@value':
-          type: integer
-          format: int64
-        '@type':
-          type: string
-          pattern: ^Integer$
-      required:
-        - '@value'
-        - '@type'
-    Problemdetail.detail:
-      title: Problemdetail.detail
-      type: object
-      description: Mensleesbare beschrijving van de fout.
-      properties:
-        '@value':
-          type: string
-      required:
-        - '@value'
-    Problemdetail.instance:
-      title: Problemdetail.instance
-      type: object
-      description: 'Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.'
-      properties:
-        '@id':
-          type: string
-          format: uri
-        '@type':
-          type: string
-          pattern: ^AnyURI$
-      required:
-        - '@id'
-        - '@type'
     PersonEnvelope:
       title: PersonEnvelope
       type: object
@@ -758,7 +704,7 @@ components:
         '@context':
           type: string
           description: URI of the JSON-LD versioned context file for this response.
-          pattern: ^https:\/\/implementatie.data.test-vlaanderen.be\/doc\/implementatiemodel\/magda\/persoon\/v0.4.3\/context\/persoon.jsonld$
+          pattern: ^https:\/\/implementatie.data.test-vlaanderen.be\/doc\/implementatiemodel\/magda\/persoon\/v0.4.4\/context\/persoon.jsonld$
       required:
         - '@type'
         - data
@@ -1648,6 +1594,121 @@ components:
       required:
         - '@type'
         - registratie
+    Problemdetail.type:
+      title: Problemdetail.type
+      type: object
+      description: Aard van de fout.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          pattern: ^AnyURI$
+      required:
+        - '@id'
+        - '@type'
+    Problemdetail.title:
+      title: Problemdetail.title
+      type: object
+      description: Korte mensleesbare beschrijving van de fout.
+      properties:
+        '@value':
+          type: string
+      required:
+        - '@value'
+    Problemdetail.status:
+      title: Problemdetail.status
+      type: object
+      description: 'HTTP foutcode. Zoals beschreven in <a href="https://www.rfc-editor.org/rfc/rfc7231">RFC7231</a>. Bijvoorbeeld: 404 voor "Not Found".'
+      properties:
+        '@value':
+          type: integer
+          format: int64
+        '@type':
+          type: string
+          pattern: ^Integer$
+      required:
+        - '@value'
+        - '@type'
+    Problemdetail.detail:
+      title: Problemdetail.detail
+      type: object
+      description: Mensleesbare beschrijving van de fout.
+      properties:
+        '@value':
+          type: string
+      required:
+        - '@value'
+    Problemdetail.instance:
+      title: Problemdetail.instance
+      type: object
+      description: 'Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.'
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          pattern: ^AnyURI$
+      required:
+        - '@id'
+        - '@type'
+    Error.detail:
+      title: Error.detail
+      type: object
+      description: Mensleesbare beschrijving van de fout.
+      properties:
+        '@value':
+          type: string
+      required:
+        - '@value'
+    Error.title:
+      title: Error.title
+      type: object
+      description: Korte mensleesbare beschrijving van de fout.
+      properties:
+        '@value':
+          type: string
+      required:
+        - '@value'
+    Error.type:
+      title: Error.type
+      type: object
+      description: Aard van de fout.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          pattern: ^AnyURI$
+      required:
+        - '@id'
+        - '@type'
+    Error:
+      title: Error
+      type: object
+      description: Beschrijving van de fout die is opgetreden.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Error)
+          pattern: ^Error$
+        detail:
+          $ref: '#/components/schemas/Error.detail'
+        title:
+          $ref: '#/components/schemas/Error.title'
+        type:
+          $ref: '#/components/schemas/Error.type'
+      required:
+        - '@type'
+        - detail
+        - title
+        - type
     Locatie:
       title: Locatie
       type: object
