@@ -1,0 +1,71 @@
+{
+  "title": "Voogdij",
+  "type": "object",
+  "description": "Juridische beschermings- en vertegenwoordigingsregeling waarbij een voogd wordt aangesteld om het gezag over en de belangenbehartiging van een minderjarige uit te oefenen wanneer die niet onder het ouderlijk gezag van zijn ouders staat.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Voogdij)",
+      "pattern": "^Voogdij$"
+    },
+    "beschrijving": {
+      "$ref": "#/components/schemas/Voogdij.beschrijving"
+    },
+    "type": {
+      "$ref": "#/components/schemas/Voogdtype"
+    },
+    "rechtvaardiging": {
+      "$ref": "#/components/schemas/IT111/113-Rechtvaardingingtype-V1"
+    },
+    "begindatum": {
+      "$ref": "#/components/schemas/Voogdij.begindatum"
+    },
+    "einddatum": {
+      "$ref": "#/components/schemas/Voogdij.einddatum"
+    },
+    "vanPersoon": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    },
+    "metPersoon": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type",
+    "begindatum",
+    "vanPersoon",
+    "metPersoon"
+  ]
+}

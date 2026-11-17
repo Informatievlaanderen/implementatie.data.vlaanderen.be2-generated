@@ -1,0 +1,71 @@
+{
+  "title": "Bewindvoering",
+  "type": "object",
+  "description": "Bewindvoering is een juridische beschermings- en vertegenwoordigingsregeling waarbij een bewindvoerder wordt aangesteld om een meerderjarige persoon bij te staan of te vertegenwoordigen bij het beheer van diens persoonlijke en/of vermogensrechtelijke belangen, wanneer die persoon daartoe geheel of gedeeltelijk niet in staat is.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Bewindvoering)",
+      "pattern": "^Bewindvoering$"
+    },
+    "beschrijving": {
+      "$ref": "#/components/schemas/Bewindvoering.beschrijving"
+    },
+    "type": {
+      "$ref": "#/components/schemas/Bewindvoerdertype"
+    },
+    "rechtvaardiging": {
+      "$ref": "#/components/schemas/IT111/113-Rechtvaardingingtype-V1"
+    },
+    "begindatum": {
+      "$ref": "#/components/schemas/Bewindvoering.begindatum"
+    },
+    "einddatum": {
+      "$ref": "#/components/schemas/Bewindvoering.einddatum"
+    },
+    "vanPersoon": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    },
+    "metPersoon": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type",
+    "begindatum",
+    "vanPersoon",
+    "metPersoon"
+  ]
+}

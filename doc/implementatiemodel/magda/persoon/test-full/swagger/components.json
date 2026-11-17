@@ -137,7 +137,13 @@
                   "$ref": "#/components/schemas/Afstamming"
                 },
                 {
+                  "$ref": "#/components/schemas/Bewindvoering"
+                },
+                {
                   "$ref": "#/components/schemas/Huisvestingsrelatie"
+                },
+                {
+                  "$ref": "#/components/schemas/Voogdij"
                 }
               ],
               "discriminator": {
@@ -147,7 +153,9 @@
                   "Huwelijk": "#/components/schemas/Huwelijk",
                   "Samenwonen": "#/components/schemas/Samenwonen",
                   "Afstamming": "#/components/schemas/Afstamming",
-                  "Huisvestingsrelatie": "#/components/schemas/Huisvestingsrelatie"
+                  "Bewindvoering": "#/components/schemas/Bewindvoering",
+                  "Huisvestingsrelatie": "#/components/schemas/Huisvestingsrelatie",
+                  "Voogdij": "#/components/schemas/Voogdij"
                 }
               }
             },
@@ -158,6 +166,14 @@
             "description": "Persoon die tot een Gezin behoort. Lijst van Gezin items.",
             "items": {
               "$ref": "#/components/schemas/Gezin"
+            },
+            "minItems": 1
+          },
+          "juridischStatuut": {
+            "type": "array",
+            "description": "JuridischStatuut van de persoon. Lijst van JuridischStatuut items.",
+            "items": {
+              "$ref": "#/components/schemas/JuridischStatuut"
             },
             "minItems": 1
           },
@@ -1297,7 +1313,13 @@
                   "$ref": "#/components/schemas/Afstamming"
                 },
                 {
+                  "$ref": "#/components/schemas/Bewindvoering"
+                },
+                {
                   "$ref": "#/components/schemas/Huisvestingsrelatie"
+                },
+                {
+                  "$ref": "#/components/schemas/Voogdij"
                 }
               ],
               "discriminator": {
@@ -1307,7 +1329,9 @@
                   "Huwelijk": "#/components/schemas/Huwelijk",
                   "Samenwonen": "#/components/schemas/Samenwonen",
                   "Afstamming": "#/components/schemas/Afstamming",
-                  "Huisvestingsrelatie": "#/components/schemas/Huisvestingsrelatie"
+                  "Bewindvoering": "#/components/schemas/Bewindvoering",
+                  "Huisvestingsrelatie": "#/components/schemas/Huisvestingsrelatie",
+                  "Voogdij": "#/components/schemas/Voogdij"
                 }
               }
             },
@@ -1318,6 +1342,14 @@
             "description": "Persoon die tot een Gezin behoort. Lijst van Gezin items.",
             "items": {
               "$ref": "#/components/schemas/Gezin"
+            },
+            "minItems": 1
+          },
+          "juridischStatuut": {
+            "type": "array",
+            "description": "JuridischStatuut van de persoon. Lijst van JuridischStatuut items.",
+            "items": {
+              "$ref": "#/components/schemas/JuridischStatuut"
             },
             "minItems": 1
           },
@@ -2479,6 +2511,71 @@
           "begindatum"
         ]
       },
+      "JuridischStatuut.begindatum": {
+        "title": "JuridischStatuut.begindatum",
+        "description": "Moment vanaf wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
+      "JuridischStatuut.einddatum": {
+        "title": "JuridischStatuut.einddatum",
+        "description": "Moment tot wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
+      "JuridischStatuut.beschrijving": {
+        "title": "JuridischStatuut.beschrijving",
+        "description": "Beschrijving van het JuridischStatuut.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "JuridischStatuut": {
+        "title": "JuridischStatuut",
+        "type": "object",
+        "description": "De juridisch vastgestelde toestand van een persoon die bepaalt in welke mate die persoon zelfstandig bepaalde rechtshandelingen of handelingen met rechtsgevolgen kan stellen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse JuridischStatuut)",
+            "pattern": "^JuridischStatuut$"
+          },
+          "begindatum": {
+            "$ref": "#/components/schemas/JuridischStatuut.begindatum"
+          },
+          "einddatum": {
+            "$ref": "#/components/schemas/JuridischStatuut.einddatum"
+          },
+          "beschrijving": {
+            "$ref": "#/components/schemas/JuridischStatuut.beschrijving"
+          },
+          "type": {
+            "$ref": "#/components/schemas/JuridischStatuuttype"
+          },
+          "rechtvaardiging": {
+            "$ref": "#/components/schemas/IT111/113-Rechtvaardingingtype-V1"
+          }
+        },
+        "required": [
+          "@type",
+          "begindatum"
+        ]
+      },
       "Nationaliteitsverwerving.beschrijving": {
         "title": "Nationaliteitsverwerving.beschrijving",
         "description": "Commentaar bij de Nationaliteitsverwerving.",
@@ -3471,6 +3568,107 @@
           "begindatum"
         ]
       },
+      "Bewindvoering.beschrijving": {
+        "title": "Bewindvoering.beschrijving",
+        "description": "Beschrijving van de Bewindvoering.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "Bewindvoering.begindatum": {
+        "title": "Bewindvoering.begindatum",
+        "description": "Moment vanaf wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
+      "Bewindvoering.einddatum": {
+        "title": "Bewindvoering.einddatum",
+        "description": "Moment tot wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
+      "Bewindvoering": {
+        "title": "Bewindvoering",
+        "type": "object",
+        "description": "Bewindvoering is een juridische beschermings- en vertegenwoordigingsregeling waarbij een bewindvoerder wordt aangesteld om een meerderjarige persoon bij te staan of te vertegenwoordigen bij het beheer van diens persoonlijke en/of vermogensrechtelijke belangen, wanneer die persoon daartoe geheel of gedeeltelijk niet in staat is.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Bewindvoering)",
+            "pattern": "^Bewindvoering$"
+          },
+          "beschrijving": {
+            "$ref": "#/components/schemas/Bewindvoering.beschrijving"
+          },
+          "type": {
+            "$ref": "#/components/schemas/Bewindvoerdertype"
+          },
+          "rechtvaardiging": {
+            "$ref": "#/components/schemas/IT111/113-Rechtvaardingingtype-V1"
+          },
+          "begindatum": {
+            "$ref": "#/components/schemas/Bewindvoering.begindatum"
+          },
+          "einddatum": {
+            "$ref": "#/components/schemas/Bewindvoering.einddatum"
+          },
+          "vanPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          },
+          "metPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          }
+        },
+        "required": [
+          "@type",
+          "begindatum",
+          "vanPersoon",
+          "metPersoon"
+        ]
+      },
       "Uitvaartwijze.begindatum": {
         "title": "Uitvaartwijze.begindatum",
         "description": "Moment vanaf wanneer de instantie van deze klasse op het terrein van toepassing was.",
@@ -3753,6 +3951,107 @@
           },
           "einddatum": {
             "$ref": "#/components/schemas/AfstammingDalendeLijn.einddatum"
+          },
+          "vanPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          },
+          "metPersoon": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Persoon"
+              },
+              {
+                "$ref": "#/components/schemas/GeregistreerdPersoon"
+              }
+            ],
+            "discriminator": {
+              "propertyName": "@type",
+              "mapping": {
+                "Persoon": "#/components/schemas/Persoon",
+                "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+              }
+            }
+          }
+        },
+        "required": [
+          "@type",
+          "begindatum",
+          "vanPersoon",
+          "metPersoon"
+        ]
+      },
+      "Voogdij.beschrijving": {
+        "title": "Voogdij.beschrijving",
+        "description": "Beschrijving van de Voogdij.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
+      "Voogdij.begindatum": {
+        "title": "Voogdij.begindatum",
+        "description": "Moment vanaf wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
+      "Voogdij.einddatum": {
+        "title": "Voogdij.einddatum",
+        "description": "Moment tot wanneer de instantie van deze klasse op het terrein van toepassing was.",
+        "type": "string",
+        "format": "date"
+      },
+      "Voogdij": {
+        "title": "Voogdij",
+        "type": "object",
+        "description": "Juridische beschermings- en vertegenwoordigingsregeling waarbij een voogd wordt aangesteld om het gezag over en de belangenbehartiging van een minderjarige uit te oefenen wanneer die niet onder het ouderlijk gezag van zijn ouders staat.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Voogdij)",
+            "pattern": "^Voogdij$"
+          },
+          "beschrijving": {
+            "$ref": "#/components/schemas/Voogdij.beschrijving"
+          },
+          "type": {
+            "$ref": "#/components/schemas/Voogdtype"
+          },
+          "rechtvaardiging": {
+            "$ref": "#/components/schemas/IT111/113-Rechtvaardingingtype-V1"
+          },
+          "begindatum": {
+            "$ref": "#/components/schemas/Voogdij.begindatum"
+          },
+          "einddatum": {
+            "$ref": "#/components/schemas/Voogdij.einddatum"
           },
           "vanPersoon": {
             "oneOf": [
@@ -4400,6 +4699,13 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gezin` op te halen."
       },
+      "Persoon.juridischStatuut": {
+        "operationId": "PersoonGET",
+        "parameters": {
+          "id": "$response.body#/Persoon.juridischStatuut/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `JuridischStatuut` op te halen."
+      },
       "Persoon.heeftNaamsverandering": {
         "operationId": "PersoonGET",
         "parameters": {
@@ -4883,6 +5189,13 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gezin` op te halen."
       },
+      "GeregistreerdPersoon.juridischStatuut": {
+        "operationId": "GeregistreerdPersoonGET",
+        "parameters": {
+          "id": "$response.body#/GeregistreerdPersoon.juridischStatuut/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `JuridischStatuut` op te halen."
+      },
       "GeregistreerdPersoon.heeftNaamsverandering": {
         "operationId": "GeregistreerdPersoonGET",
         "parameters": {
@@ -5310,6 +5623,20 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Overschrijving` op te halen."
       },
+      "JuridischStatuut.type": {
+        "operationId": "JuridischStatuutGET",
+        "parameters": {
+          "id": "$response.body#/JuridischStatuut.type/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `JuridischStatuuttype` op te halen."
+      },
+      "JuridischStatuut.rechtvaardiging": {
+        "operationId": "JuridischStatuutGET",
+        "parameters": {
+          "id": "$response.body#/JuridischStatuut.rechtvaardiging/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `IT111/113-Rechtvaardingingtype-V1` op te halen."
+      },
       "Nationaliteitsverwerving.type": {
         "operationId": "NationaliteitsverwervingGET",
         "parameters": {
@@ -5590,6 +5917,34 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Verklaring` op te halen."
       },
+      "Bewindvoering.type": {
+        "operationId": "BewindvoeringGET",
+        "parameters": {
+          "id": "$response.body#/Bewindvoering.type/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Bewindvoerdertype` op te halen."
+      },
+      "Bewindvoering.rechtvaardiging": {
+        "operationId": "BewindvoeringGET",
+        "parameters": {
+          "id": "$response.body#/Bewindvoering.rechtvaardiging/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `IT111/113-Rechtvaardingingtype-V1` op te halen."
+      },
+      "Bewindvoering.vanPersoon": {
+        "operationId": "BewindvoeringGET",
+        "parameters": {
+          "id": "$response.body#/Bewindvoering.vanPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
+      "Bewindvoering.metPersoon": {
+        "operationId": "BewindvoeringGET",
+        "parameters": {
+          "id": "$response.body#/Bewindvoering.metPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
       "Uitvaartwijze.lijkbezorging": {
         "operationId": "UitvaartwijzeGET",
         "parameters": {
@@ -5706,6 +6061,34 @@
         "operationId": "AfstammingDalendeLijnGET",
         "parameters": {
           "id": "$response.body#/AfstammingDalendeLijn.metPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
+      "Voogdij.type": {
+        "operationId": "VoogdijGET",
+        "parameters": {
+          "id": "$response.body#/Voogdij.type/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Voogdtype` op te halen."
+      },
+      "Voogdij.rechtvaardiging": {
+        "operationId": "VoogdijGET",
+        "parameters": {
+          "id": "$response.body#/Voogdij.rechtvaardiging/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `IT111/113-Rechtvaardingingtype-V1` op te halen."
+      },
+      "Voogdij.vanPersoon": {
+        "operationId": "VoogdijGET",
+        "parameters": {
+          "id": "$response.body#/Voogdij.vanPersoon/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
+      },
+      "Voogdij.metPersoon": {
+        "operationId": "VoogdijGET",
+        "parameters": {
+          "id": "$response.body#/Voogdij.metPersoon/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Persoon` op te halen."
       }

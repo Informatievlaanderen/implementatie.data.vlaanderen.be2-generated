@@ -108,7 +108,13 @@
             "$ref": "#/components/schemas/Afstamming"
           },
           {
+            "$ref": "#/components/schemas/Bewindvoering"
+          },
+          {
             "$ref": "#/components/schemas/Huisvestingsrelatie"
+          },
+          {
+            "$ref": "#/components/schemas/Voogdij"
           }
         ],
         "discriminator": {
@@ -118,7 +124,9 @@
             "Huwelijk": "#/components/schemas/Huwelijk",
             "Samenwonen": "#/components/schemas/Samenwonen",
             "Afstamming": "#/components/schemas/Afstamming",
-            "Huisvestingsrelatie": "#/components/schemas/Huisvestingsrelatie"
+            "Bewindvoering": "#/components/schemas/Bewindvoering",
+            "Huisvestingsrelatie": "#/components/schemas/Huisvestingsrelatie",
+            "Voogdij": "#/components/schemas/Voogdij"
           }
         }
       },
@@ -129,6 +137,14 @@
       "description": "Persoon die tot een Gezin behoort. Lijst van Gezin items.",
       "items": {
         "$ref": "#/components/schemas/Gezin"
+      },
+      "minItems": 1
+    },
+    "juridischStatuut": {
+      "type": "array",
+      "description": "JuridischStatuut van de persoon. Lijst van JuridischStatuut items.",
+      "items": {
+        "$ref": "#/components/schemas/JuridischStatuut"
       },
       "minItems": 1
     },
