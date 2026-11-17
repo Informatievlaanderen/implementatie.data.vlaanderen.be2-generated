@@ -1,0 +1,17 @@
+title: Persoonsgebeurtenis
+type: object
+description: Belangrijke gebeurtenis in het leven van een Persoon.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse Persoonsgebeurtenis)
+    pattern: ^Persoonsgebeurtenis$
+  plaats:
+    $ref: '#/components/schemas/Plaats'
+  datum:
+    $ref: '#/components/schemas/Moment'
+required:
+  - '@type'

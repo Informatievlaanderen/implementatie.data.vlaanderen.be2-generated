@@ -2,5 +2,5 @@
 
 #||# -------------------------------------  
 
-2026-11-17T10:45:51.529Z error: Unable to find the definition for property [urn:oslo-toolchain:22702863f7b74ef6e2390b69dfa5f4a9a440c9fa7657367e7593134061062a39](all-persoon.jsonld#L3069).
+2026-11-17T10:59:42.179Z error: Unable to find the definition for property [urn:oslo-toolchain:22702863f7b74ef6e2390b69dfa5f4a9a440c9fa7657367e7593134061062a39](all-persoon.jsonld#L3069).
 
