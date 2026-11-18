@@ -104,11 +104,28 @@
       },
       "@id": "http://www.w3.org/ns/locn#Address"
     },
+    "Afstamming": {
+      "@context": {
+        "afstammingstype": {
+          "@id": "https://data.vlaanderen.be/ns/persoon#afstammingsType",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "datumVanAfstamming": {
+          "@id": "https://data.vlaanderen.be/ns/persoon#datumVanAfstamming",
+          "@type": "http://www.w3.org/2001/XMLSchema#date"
+        }
+      },
+      "@id": "https://data.vlaanderen.be/ns/persoon#Afstamming"
+    },
     "AfstammingDalendeLijn": {
       "@context": {
         "afstammingstype": {
           "@id": "https://data.vlaanderen.be/ns/persoon#afstammingsType",
           "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "datumVanAfstamming": {
+          "@id": "https://data.vlaanderen.be/ns/persoon#datumVanAfstamming",
+          "@type": "http://www.w3.org/2001/XMLSchema#date"
         },
         "metPersoon": {
           "@id": "https://data.vlaanderen.be/ns/persoon#isRelatieMet",
@@ -129,6 +146,10 @@
         "afstammingstype": {
           "@id": "https://data.vlaanderen.be/ns/persoon#afstammingsType",
           "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "datumVanAfstamming": {
+          "@id": "https://data.vlaanderen.be/ns/persoon#datumVanAfstamming",
+          "@type": "http://www.w3.org/2001/XMLSchema#date"
         },
         "metPersoon": {
           "@id": "https://data.vlaanderen.be/ns/persoon#isRelatieMet",
@@ -273,6 +294,23 @@
     },
     "Dossierstatus": {
       "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+    },
+    "Error": {
+      "@context": {
+        "detail": {
+          "@id": "http://purl.org/dc/terms/description",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "title": {
+          "@id": "http://purl.org/dc/terms/title",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "type": {
+          "@id": "http://purl.org/dc/terms/type",
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Error"
     },
     "FormeleOrganisatie": {
       "@id": "http://www.w3.org/ns/org#FormalOrganization"
@@ -766,6 +804,11 @@
           "@id": "http://purl.org/dc/terms/description",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
+        "errors": {
+          "@container": "@set",
+          "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#errors",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/generiek#Error"
+        },
         "instance": {
           "@id": "http://purl.org/dc/terms/references",
           "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
@@ -783,7 +826,7 @@
           "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         }
       },
-      "@id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail"
+      "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail"
     },
     "ProcedureType": {
       "@id": "http://www.w3.org/2004/02/skos/core#Concept"

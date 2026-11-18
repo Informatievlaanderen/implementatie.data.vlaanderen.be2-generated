@@ -10,16 +10,27 @@ properties:
     description: Object type (klasse AfstammingDalendeLijn)
     pattern: ^AfstammingDalendeLijn$
   afstammingstype:
-    $ref: '#/components/schemas/AfstammingDalendelijnstype'
-  metPersoon:
     oneOf:
-      - $ref: '#/components/schemas/Persoon'
-      - $ref: '#/components/schemas/GeregistreerdPersoon'
+      - $ref: '#/components/schemas/Afstammingstype'
+      - $ref: '#/components/schemas/AfstammingDalendelijnstype'
+      - $ref: '#/components/schemas/AfstammingOpgaandelijntype'
     discriminator:
       propertyName: '@type'
       mapping:
-        Persoon: '#/components/schemas/Persoon'
-        GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
+        Afstammingstype: '#/components/schemas/Afstammingstype'
+        AfstammingDalendelijnstype: '#/components/schemas/AfstammingDalendelijnstype'
+        AfstammingOpgaandelijntype: '#/components/schemas/AfstammingOpgaandelijntype'
+  metPersoon:
+    oneOf:
+      - $ref: '#/components/schemas/PersoonReferentie'
+      - $ref: '#/components/schemas/GeregistreerdPersoonReferentie'
+    discriminator:
+      propertyName: '@type'
+      mapping:
+        PersoonReferentie: '#/components/schemas/PersoonReferentie'
+        GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
+  datumVanAfstamming:
+    $ref: '#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming'
 required:
   - '@type'
   - metPersoon

@@ -205,6 +205,16 @@ components:
           format: uri
       required:
         - '@id'
+    Afstammingstype:
+      title: Afstammingstype
+      type: object
+      description: Enumeratie van Afstammingstype
+      properties:
+        '@id':
+          type: string
+          format: uri
+      required:
+        - '@id'
     Geslacht:
       title: Geslacht
       type: object
@@ -275,10 +285,10 @@ components:
           format: uri
       required:
         - '@id'
-    AfstammingStijgendelijnstype:
-      title: AfstammingStijgendelijnstype
+    AfstammingOpgaandelijntype:
+      title: AfstammingOpgaandelijntype
       type: object
-      description: Enumeratie van AfstammingStijgendelijnstype
+      description: Enumeratie van AfstammingOpgaandelijntype
       properties:
         '@id':
           type: string
@@ -670,66 +680,6 @@ components:
           description: Object type (klasse FormeleOrganisatie)
           pattern: ^FormeleOrganisatie$
       required:
-        - '@type'
-    Problemdetail.type:
-      title: Problemdetail.type
-      type: object
-      description: Aard van de fout.
-      properties:
-        '@id':
-          type: string
-          format: uri
-        '@type':
-          type: string
-          pattern: ^AnyURI$
-      required:
-        - '@id'
-        - '@type'
-    Problemdetail.title:
-      title: Problemdetail.title
-      type: object
-      description: Korte mensleesbare beschrijving van de fout.
-      properties:
-        '@value':
-          type: string
-      required:
-        - '@value'
-    Problemdetail.status:
-      title: Problemdetail.status
-      type: object
-      description: 'HTTP foutcode. Zoals beschreven in <a href="https://www.rfc-editor.org/rfc/rfc7231">RFC7231</a>. Bijvoorbeeld: 404 voor "Not Found".'
-      properties:
-        '@value':
-          type: integer
-          format: int64
-        '@type':
-          type: string
-          pattern: ^Integer$
-      required:
-        - '@value'
-        - '@type'
-    Problemdetail.detail:
-      title: Problemdetail.detail
-      type: object
-      description: Mensleesbare beschrijving van de fout.
-      properties:
-        '@value':
-          type: string
-      required:
-        - '@value'
-    Problemdetail.instance:
-      title: Problemdetail.instance
-      type: object
-      description: 'Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.'
-      properties:
-        '@id':
-          type: string
-          format: uri
-        '@type':
-          type: string
-          pattern: ^AnyURI$
-      required:
-        - '@id'
         - '@type'
     PersonEnvelope:
       title: PersonEnvelope
@@ -1181,61 +1131,6 @@ components:
         - '@type'
         - waarde
         - naam
-    Error.detail:
-      title: Error.detail
-      type: object
-      description: Mensleesbare beschrijving van de fout.
-      properties:
-        '@value':
-          type: string
-      required:
-        - '@value'
-    Error.title:
-      title: Error.title
-      type: object
-      description: Korte mensleesbare beschrijving van de fout.
-      properties:
-        '@value':
-          type: string
-      required:
-        - '@value'
-    Error.type:
-      title: Error.type
-      type: object
-      description: Aard van de fout.
-      properties:
-        '@id':
-          type: string
-          format: uri
-        '@type':
-          type: string
-          pattern: ^AnyURI$
-      required:
-        - '@id'
-        - '@type'
-    Error:
-      title: Error
-      type: object
-      description: Beschrijving van de fout die is opgetreden.
-      properties:
-        '@id':
-          type: string
-          format: uri
-        '@type':
-          type: string
-          description: Object type (klasse Error)
-          pattern: ^Error$
-        detail:
-          $ref: '#/components/schemas/Error.detail'
-        title:
-          $ref: '#/components/schemas/Error.title'
-        type:
-          $ref: '#/components/schemas/Error.type'
-      required:
-        - '@type'
-        - detail
-        - title
-        - type
     Jurisdictie:
       title: Jurisdictie
       type: object
@@ -1493,7 +1388,7 @@ components:
     AfstammingDalendeLijn:
       title: AfstammingDalendeLijn
       type: object
-      description: Het bloedverwantschap tussen een persoon en kinderen van de persoon.
+      description: Juridische band tussen een kind en zijn ouder vanuit het standpunt van de ouder.
       properties:
         '@id':
           type: string
@@ -1502,10 +1397,17 @@ components:
           type: string
           description: Object type (klasse AfstammingDalendeLijn)
           pattern: ^AfstammingDalendeLijn$
-        datumVanAfstamming:
-          $ref: '#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming'
         afstammingstype:
-          $ref: '#/components/schemas/AfstammingDalendelijnstype'
+          oneOf:
+            - $ref: '#/components/schemas/Afstammingstype'
+            - $ref: '#/components/schemas/AfstammingDalendelijnstype'
+            - $ref: '#/components/schemas/AfstammingOpgaandelijntype'
+          discriminator:
+            propertyName: '@type'
+            mapping:
+              Afstammingstype: '#/components/schemas/Afstammingstype'
+              AfstammingDalendelijnstype: '#/components/schemas/AfstammingDalendelijnstype'
+              AfstammingOpgaandelijntype: '#/components/schemas/AfstammingOpgaandelijntype'
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/PersoonReferentie'
@@ -1515,6 +1417,8 @@ components:
             mapping:
               PersoonReferentie: '#/components/schemas/PersoonReferentie'
               GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
+        datumVanAfstamming:
+          $ref: '#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming'
       required:
         - '@type'
         - metPersoon
@@ -1535,7 +1439,7 @@ components:
     AfstammingOpgaandeLijn:
       title: AfstammingOpgaandeLijn
       type: object
-      description: Het bloedverwantschap tussen een persoon en ouders van de persoon.
+      description: Juridische band tussen een kind en zijn ouder vanuit het standpunt van het kind.
       properties:
         '@id':
           type: string
@@ -1544,10 +1448,17 @@ components:
           type: string
           description: Object type (klasse AfstammingOpgaandeLijn)
           pattern: ^AfstammingOpgaandeLijn$
-        datumVanAfstamming:
-          $ref: '#/components/schemas/AfstammingOpgaandeLijn.datumVanAfstamming'
         afstammingstype:
-          $ref: '#/components/schemas/AfstammingStijgendelijnstype'
+          oneOf:
+            - $ref: '#/components/schemas/Afstammingstype'
+            - $ref: '#/components/schemas/AfstammingDalendelijnstype'
+            - $ref: '#/components/schemas/AfstammingOpgaandelijntype'
+          discriminator:
+            propertyName: '@type'
+            mapping:
+              Afstammingstype: '#/components/schemas/Afstammingstype'
+              AfstammingDalendelijnstype: '#/components/schemas/AfstammingDalendelijnstype'
+              AfstammingOpgaandelijntype: '#/components/schemas/AfstammingOpgaandelijntype'
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/PersoonReferentie'
@@ -1557,6 +1468,8 @@ components:
             mapping:
               PersoonReferentie: '#/components/schemas/PersoonReferentie'
               GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
+        datumVanAfstamming:
+          $ref: '#/components/schemas/AfstammingOpgaandeLijn.datumVanAfstamming'
       required:
         - '@type'
         - metPersoon
@@ -1578,6 +1491,34 @@ components:
           type: string
       required:
         - '@value'
+    PersoonReferentie.creatiedatum:
+      title: PersoonReferentie.creatiedatum
+      type: object
+      description: Datum waarop de gegevens zijn ingevoerd.
+      properties:
+        '@value':
+          type: string
+          format: date
+        '@type':
+          type: string
+          pattern: ^Date$
+      required:
+        - '@value'
+        - '@type'
+    PersoonReferentie.modificatiedatum:
+      title: PersoonReferentie.modificatiedatum
+      type: object
+      description: Datum waarop de gegevens werden bijgewerkt.
+      properties:
+        '@value':
+          type: string
+          format: date
+        '@type':
+          type: string
+          pattern: ^Date$
+      required:
+        - '@value'
+        - '@type'
     PersoonReferentie:
       title: PersoonReferentie
       type: object
@@ -1602,10 +1543,18 @@ components:
           items:
             $ref: '#/components/schemas/PersoonReferentie.voornaam'
           minItems: 1
-        contactinfo:
-          $ref: '#/components/schemas/Contactinfo'
         geslacht:
           $ref: '#/components/schemas/Geslacht'
+        heeftGeboorte:
+          $ref: '#/components/schemas/Geboorte'
+        heeftOverlijden:
+          $ref: '#/components/schemas/Overlijden'
+        creatiedatum:
+          $ref: '#/components/schemas/PersoonReferentie.creatiedatum'
+        modificatiedatum:
+          $ref: '#/components/schemas/PersoonReferentie.modificatiedatum'
+        bron:
+          $ref: '#/components/schemas/Organisatie'
       required:
         - '@type'
     GeregistreerdPersoonReferentie.achternaam:
@@ -1626,6 +1575,34 @@ components:
           type: string
       required:
         - '@value'
+    GeregistreerdPersoonReferentie.creatiedatum:
+      title: GeregistreerdPersoonReferentie.creatiedatum
+      type: object
+      description: Datum waarop de gegevens zijn ingevoerd.
+      properties:
+        '@value':
+          type: string
+          format: date
+        '@type':
+          type: string
+          pattern: ^Date$
+      required:
+        - '@value'
+        - '@type'
+    GeregistreerdPersoonReferentie.modificatiedatum:
+      title: GeregistreerdPersoonReferentie.modificatiedatum
+      type: object
+      description: Datum waarop de gegevens werden bijgewerkt.
+      properties:
+        '@value':
+          type: string
+          format: date
+        '@type':
+          type: string
+          pattern: ^Date$
+      required:
+        - '@value'
+        - '@type'
     GeregistreerdPersoonReferentie:
       title: GeregistreerdPersoonReferentie
       type: object
@@ -1652,13 +1629,136 @@ components:
           items:
             $ref: '#/components/schemas/GeregistreerdPersoonReferentie.voornaam'
           minItems: 1
-        contactinfo:
-          $ref: '#/components/schemas/Contactinfo'
         geslacht:
           $ref: '#/components/schemas/Geslacht'
+        heeftGeboorte:
+          $ref: '#/components/schemas/Geboorte'
+        heeftOverlijden:
+          $ref: '#/components/schemas/Overlijden'
+        creatiedatum:
+          $ref: '#/components/schemas/GeregistreerdPersoonReferentie.creatiedatum'
+        modificatiedatum:
+          $ref: '#/components/schemas/GeregistreerdPersoonReferentie.modificatiedatum'
+        bron:
+          $ref: '#/components/schemas/Organisatie'
       required:
         - '@type'
         - registratie
+    Problemdetail.type:
+      title: Problemdetail.type
+      type: object
+      description: Aard van de fout.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          pattern: ^AnyURI$
+      required:
+        - '@id'
+        - '@type'
+    Problemdetail.title:
+      title: Problemdetail.title
+      type: object
+      description: Korte mensleesbare beschrijving van de fout.
+      properties:
+        '@value':
+          type: string
+      required:
+        - '@value'
+    Problemdetail.status:
+      title: Problemdetail.status
+      type: object
+      description: 'HTTP foutcode. Zoals beschreven in <a href="https://www.rfc-editor.org/rfc/rfc7231">RFC7231</a>. Bijvoorbeeld: 404 voor "Not Found".'
+      properties:
+        '@value':
+          type: integer
+          format: int64
+        '@type':
+          type: string
+          pattern: ^Integer$
+      required:
+        - '@value'
+        - '@type'
+    Problemdetail.detail:
+      title: Problemdetail.detail
+      type: object
+      description: Mensleesbare beschrijving van de fout.
+      properties:
+        '@value':
+          type: string
+      required:
+        - '@value'
+    Problemdetail.instance:
+      title: Problemdetail.instance
+      type: object
+      description: 'Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.'
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          pattern: ^AnyURI$
+      required:
+        - '@id'
+        - '@type'
+    Error.detail:
+      title: Error.detail
+      type: object
+      description: Mensleesbare beschrijving van de fout.
+      properties:
+        '@value':
+          type: string
+      required:
+        - '@value'
+    Error.title:
+      title: Error.title
+      type: object
+      description: Korte mensleesbare beschrijving van de fout.
+      properties:
+        '@value':
+          type: string
+      required:
+        - '@value'
+    Error.type:
+      title: Error.type
+      type: object
+      description: Aard van de fout.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          pattern: ^AnyURI$
+      required:
+        - '@id'
+        - '@type'
+    Error:
+      title: Error
+      type: object
+      description: Beschrijving van de fout die is opgetreden.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Error)
+          pattern: ^Error$
+        detail:
+          $ref: '#/components/schemas/Error.detail'
+        title:
+          $ref: '#/components/schemas/Error.title'
+        type:
+          $ref: '#/components/schemas/Error.type'
+      required:
+        - '@type'
+        - detail
+        - title
+        - type
     Locatie:
       title: Locatie
       type: object

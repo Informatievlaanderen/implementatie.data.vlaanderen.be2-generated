@@ -19,6 +19,12 @@ properties:
     $ref: '#/components/schemas/Problemdetail.detail'
   instance:
     $ref: '#/components/schemas/Problemdetail.instance'
+  errors:
+    type: array
+    description: Mogelijke validatie-fouten die de aanleiding geven voor het probleem. Lijst van Error items.
+    items:
+      $ref: '#/components/schemas/Error'
+    minItems: 1
 required:
   - '@type'
   - type
