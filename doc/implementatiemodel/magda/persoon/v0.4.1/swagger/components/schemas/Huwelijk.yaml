@@ -13,13 +13,13 @@ properties:
     $ref: '#/components/schemas/Plaats'
   metPersoon:
     oneOf:
-      - $ref: '#/components/schemas/PersoonReferentie'
-      - $ref: '#/components/schemas/GeregistreerdPersoonReferentie'
+      - $ref: '#/components/schemas/Persoon'
+      - $ref: '#/components/schemas/GeregistreerdPersoon'
     discriminator:
       propertyName: '@type'
       mapping:
-        PersoonReferentie: '#/components/schemas/PersoonReferentie'
-        GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
+        Persoon: '#/components/schemas/Persoon'
+        GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
 required:
   - '@type'
   - metPersoon

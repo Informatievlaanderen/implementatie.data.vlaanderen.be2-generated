@@ -2,17 +2,21 @@
 
 #||# -------------------------------------  
 
-2026-11-18T14:22:42.322Z info: [JsonLdValidationService]: Loaded 57 URI prefixes into whitelist
+2026-11-18T14:37:02.063Z info: [JsonLdValidationService]: Loaded 57 URI prefixes into whitelist
 
-2026-11-18T14:22:42.635Z error: [JsonLdValidationService]: Found missing class or attribute (^voorkeursnaam): [urn:oslo-toolchain:22702863f7b74ef6e2390b69dfa5f4a9a440c9fa7657367e7593134061062a39](all-persoon.jsonld#L3271) in Vocabulary
+2026-11-18T14:37:02.477Z error: [JsonLdValidationService]: Found missing class or attribute (AfstammingDalendeLijn): [[urn:oslo-toolchain:255dba68da5d243701d10258080aeb4e94d90bbeacb830850358a3f896b8d9a4](all-persoon.jsonld#L6719)](all-persoon.jsonld#L1621) in Vocabulary
 
-2026-11-18T14:22:42.637Z info: [JsonLdValidationService]: Validation successful! All assigned URIs are whitelisted.
+2026-11-18T14:37:02.477Z error: [JsonLdValidationService]: Found missing class or attribute (AfstammingOpgaandelLijn): [[urn:oslo-toolchain:65e004f564a3571d14ac10bb18b3a34aa2dca29ecf16e8d5cd6fe07bf2841859](all-persoon.jsonld#L6752)](all-persoon.jsonld#L1653) in Vocabulary
 
-2026-11-18T14:22:42.637Z info: [JsonLdValidationService]: Validation successful! All sentences seem to be valid, no spelling mistakes or abbreviations found.
+2026-11-18T14:37:02.479Z error: [JsonLdValidationService]: Found missing class or attribute (^voorkeursnaam): [urn:oslo-toolchain:22702863f7b74ef6e2390b69dfa5f4a9a440c9fa7657367e7593134061062a39](all-persoon.jsonld#L3332) in Vocabulary
 
-2026-11-18T14:22:42.637Z info: [JsonLdValidationService]: Validation successful! All labels seem to be valid, no spelling mistakes or abbreviations found.
+2026-11-18T14:37:02.483Z info: [JsonLdValidationService]: Validation successful! All assigned URIs are whitelisted.
 
-2026-11-18T14:22:42.637Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
+2026-11-18T14:37:02.483Z info: [JsonLdValidationService]: Validation successful! All sentences seem to be valid, no spelling mistakes or abbreviations found.
 
-2026-11-18T14:22:42.637Z info: [JsonLdValidationService]: Validation found 1 missing referenced classes or attributes.
+2026-11-18T14:37:02.483Z info: [JsonLdValidationService]: Validation successful! All labels seem to be valid, no spelling mistakes or abbreviations found.
+
+2026-11-18T14:37:02.483Z info: [JsonLdValidationService]: Validation successful! All base URIs seem to be valid.
+
+2026-11-18T14:37:02.483Z info: [JsonLdValidationService]: Validation found 3 missing referenced classes or attributes.
 

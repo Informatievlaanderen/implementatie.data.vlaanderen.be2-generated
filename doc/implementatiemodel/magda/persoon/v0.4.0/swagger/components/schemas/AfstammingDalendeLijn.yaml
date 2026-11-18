@@ -1,6 +1,6 @@
 title: AfstammingDalendeLijn
 type: object
-description: Juridische band tussen een kind en zijn ouder vanuit het standpunt van de ouder.
+description: Het bloedverwantschap tussen een persoon en kinderen van de persoon.
 properties:
   '@id':
     type: string
@@ -9,17 +9,10 @@ properties:
     type: string
     description: Object type (klasse AfstammingDalendeLijn)
     pattern: ^AfstammingDalendeLijn$
+  datumVanAfstamming:
+    $ref: '#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming'
   afstammingstype:
-    oneOf:
-      - $ref: '#/components/schemas/Afstammingstype'
-      - $ref: '#/components/schemas/AfstammingDalendelijnstype'
-      - $ref: '#/components/schemas/AfstammingOpgaandelijntype'
-    discriminator:
-      propertyName: '@type'
-      mapping:
-        Afstammingstype: '#/components/schemas/Afstammingstype'
-        AfstammingDalendelijnstype: '#/components/schemas/AfstammingDalendelijnstype'
-        AfstammingOpgaandelijntype: '#/components/schemas/AfstammingOpgaandelijntype'
+    $ref: '#/components/schemas/AfstammingDalendelijnstype'
   metPersoon:
     oneOf:
       - $ref: '#/components/schemas/PersoonReferentie'
@@ -29,8 +22,6 @@ properties:
       mapping:
         PersoonReferentie: '#/components/schemas/PersoonReferentie'
         GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
-  datumVanAfstamming:
-    $ref: '#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming'
 required:
   - '@type'
   - metPersoon

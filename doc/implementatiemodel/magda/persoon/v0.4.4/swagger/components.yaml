@@ -1207,20 +1207,6 @@ components:
           $ref: '#/components/schemas/Identificator'
       required:
         - '@type'
-    AfstammingDalendeLijn.datumVanAfstamming:
-      title: AfstammingDalendeLijn.datumVanAfstamming
-      type: object
-      description: De datum waarop de afstamming wordt vastgesteld.
-      properties:
-        '@value':
-          type: string
-          format: date
-        '@type':
-          type: string
-          pattern: ^Date$
-      required:
-        - '@value'
-        - '@type'
     AfstammingDalendeLijn:
       title: AfstammingDalendeLijn
       type: object
@@ -1234,16 +1220,7 @@ components:
           description: Object type (klasse AfstammingDalendeLijn)
           pattern: ^AfstammingDalendeLijn$
         afstammingstype:
-          oneOf:
-            - $ref: '#/components/schemas/Afstammingstype'
-            - $ref: '#/components/schemas/AfstammingDalendelijnstype'
-            - $ref: '#/components/schemas/AfstammingOpgaandelijntype'
-          discriminator:
-            propertyName: '@type'
-            mapping:
-              Afstammingstype: '#/components/schemas/Afstammingstype'
-              AfstammingDalendelijnstype: '#/components/schemas/AfstammingDalendelijnstype'
-              AfstammingOpgaandelijntype: '#/components/schemas/AfstammingOpgaandelijntype'
+          $ref: '#/components/schemas/AfstammingDalendelijnstype'
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/PersoonReferentie'
@@ -1253,25 +1230,9 @@ components:
             mapping:
               PersoonReferentie: '#/components/schemas/PersoonReferentie'
               GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
-        datumVanAfstamming:
-          $ref: '#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming'
       required:
         - '@type'
         - metPersoon
-    AfstammingOpgaandeLijn.datumVanAfstamming:
-      title: AfstammingOpgaandeLijn.datumVanAfstamming
-      type: object
-      description: De datum waarop de afstamming wordt vastgesteld.
-      properties:
-        '@value':
-          type: string
-          format: date
-        '@type':
-          type: string
-          pattern: ^Date$
-      required:
-        - '@value'
-        - '@type'
     AfstammingOpgaandeLijn:
       title: AfstammingOpgaandeLijn
       type: object
@@ -1285,16 +1246,7 @@ components:
           description: Object type (klasse AfstammingOpgaandeLijn)
           pattern: ^AfstammingOpgaandeLijn$
         afstammingstype:
-          oneOf:
-            - $ref: '#/components/schemas/Afstammingstype'
-            - $ref: '#/components/schemas/AfstammingDalendelijnstype'
-            - $ref: '#/components/schemas/AfstammingOpgaandelijntype'
-          discriminator:
-            propertyName: '@type'
-            mapping:
-              Afstammingstype: '#/components/schemas/Afstammingstype'
-              AfstammingDalendelijnstype: '#/components/schemas/AfstammingDalendelijnstype'
-              AfstammingOpgaandelijntype: '#/components/schemas/AfstammingOpgaandelijntype'
+          $ref: '#/components/schemas/AfstammingOpgaandelijntype'
         metPersoon:
           oneOf:
             - $ref: '#/components/schemas/PersoonReferentie'
@@ -1304,8 +1256,6 @@ components:
             mapping:
               PersoonReferentie: '#/components/schemas/PersoonReferentie'
               GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
-        datumVanAfstamming:
-          $ref: '#/components/schemas/AfstammingOpgaandeLijn.datumVanAfstamming'
       required:
         - '@type'
         - metPersoon

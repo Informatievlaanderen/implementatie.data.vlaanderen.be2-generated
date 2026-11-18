@@ -126,7 +126,7 @@
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
             "listedInDocument": true,
             "vocabularyLabel": {
-              "nl": "IT001-AdministratiefBeheerdertype-v1"
+              "nl": "IT001-AdministratiefBeheerdertype"
             },
             "applicationProfileLabel": {
               "nl": "AdministratiefBeheerdertype"
@@ -146,11 +146,8 @@
       "applicationProfileLabel": {
         "nl": "AfstammingDalendeLijn"
       },
-      "vocabularyDefinition": {
-        "nl": "Juridische band tussen een kind en zijn ouder vanuit het standpunt van de ouder."
-      },
       "applicationProfileDefinition": {
-        "nl": "Juridische band tussen een kind en zijn ouder vanuit het standpunt van de ouder."
+        "nl": "Het bloedverwantschap tussen een persoon en kinderen van de persoon."
       },
       "parents": [
         {
@@ -178,13 +175,13 @@
         {
           "id": "https://data.vlaanderen.be/ns/persoon#afstammingsType",
           "vocabularyLabel": {
-            "nl": "afstammingstype"
+            "nl": "^afstammingstype"
           },
           "applicationProfileLabel": {
             "nl": "afstammingstype"
           },
           "applicationProfileDefinition": {
-            "nl": "Aard van de afstamming in dalende lijn."
+            "nl": "Aard van de afstamming."
           },
           "applicationProfileUsageNote": {
             "nl": "Bijvoorbeeld: geadopteerd, kind uit huwelijk, erkend door de vader, etc."
@@ -196,7 +193,7 @@
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
             "listedInDocument": true,
             "vocabularyLabel": {
-              "nl": "IT114-Afstammingstype-v1"
+              "nl": "IT114-Afstammingstype"
             },
             "applicationProfileLabel": {
               "nl": "AfstammingDalendelijnstype"
@@ -205,22 +202,51 @@
           "minCount": "0",
           "maxCount": "1",
           "codelist": "https://data.vlaanderen.be/id/conceptscheme/IT110-IT114"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/persoon#datumVanAfstamming",
+          "vocabularyLabel": {
+            "nl": "^datumVanAfstamming"
+          },
+          "applicationProfileLabel": {
+            "nl": "datumVanAfstamming"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De datum waarop de afstamming wordt vastgesteld."
+          },
+          "parents": [
+            {
+              "id": "http://purl.org/dc/terms/date"
+            }
+          ],
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingDalendeLijn",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
         }
       ]
     },
     {
       "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingOpgaandeLijn",
       "vocabularyLabel": {
-        "nl": "AfstammingOpgaandeLijn"
+        "nl": "AfstammingOpgaandelLijn"
       },
       "applicationProfileLabel": {
         "nl": "AfstammingOpgaandeLijn"
       },
-      "vocabularyDefinition": {
-        "nl": "Juridische band tussen een kind en zijn ouder vanuit het standpunt van het kind."
-      },
       "applicationProfileDefinition": {
-        "nl": "Juridische band tussen een kind en zijn ouder vanuit het standpunt van het kind."
+        "nl": "Het bloedverwantschap tussen een persoon en ouders van de persoon."
       },
       "parents": [
         {
@@ -248,13 +274,13 @@
         {
           "id": "https://data.vlaanderen.be/ns/persoon#afstammingsType",
           "vocabularyLabel": {
-            "nl": "afstammingstype"
+            "nl": "^afstammingstype"
           },
           "applicationProfileLabel": {
             "nl": "afstammingstype"
           },
           "applicationProfileDefinition": {
-            "nl": "Aard van de afstamming in stigende lijn."
+            "nl": "Aard van de afstamming."
           },
           "applicationProfileUsageNote": {
             "nl": "Bijvoorbeeld: geadopteerd, kind uit huwelijk, erkend door de vader, etc."
@@ -266,15 +292,47 @@
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
             "listedInDocument": true,
             "vocabularyLabel": {
-              "nl": "IT110-Afstammingstype-v1"
+              "nl": "IT110-Afstammingstype"
             },
             "applicationProfileLabel": {
-              "nl": "AfstammingOpgaandelijntype"
+              "nl": "AfstammingStijgendelijnstype"
             }
           },
           "minCount": "0",
           "maxCount": "1",
           "codelist": "https://data.vlaanderen.be/id/conceptscheme/IT110-IT114"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/persoon#datumVanAfstamming",
+          "vocabularyLabel": {
+            "nl": "^datumVanAfstamming"
+          },
+          "applicationProfileLabel": {
+            "nl": "datumVanAfstamming"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De datum waarop de afstamming wordt vastgesteld."
+          },
+          "parents": [
+            {
+              "id": "http://purl.org/dc/terms/date"
+            }
+          ],
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingOpgaandeLijn",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
         }
       ]
     },
@@ -567,7 +625,7 @@
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
             "listedInDocument": true,
             "vocabularyLabel": {
-              "nl": "IT001-Dossierstatus-v1"
+              "nl": "IT001-Dossierstatus"
             },
             "applicationProfileLabel": {
               "nl": "Dossierstatus"
@@ -598,7 +656,7 @@
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
             "listedInDocument": true,
             "vocabularyLabel": {
-              "nl": "IT026-RedenAfwezigheid-v1"
+              "nl": "IT026-RedenAfwezigheid"
             },
             "applicationProfileLabel": {
               "nl": "RedenAfwezigheid"
@@ -846,7 +904,7 @@
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
             "listedInDocument": true,
             "vocabularyLabel": {
-              "nl": "IT028-ProcedureType-v1"
+              "nl": "IT028-ProcedureType"
             },
             "applicationProfileLabel": {
               "nl": "ProcedureType"
@@ -2045,7 +2103,7 @@
         "id": "http://www.w3.org/2004/02/skos/core#Concept",
         "listedInDocument": true,
         "vocabularyLabel": {
-          "nl": "IT028-ProcedureType-v1"
+          "nl": "IT028-ProcedureType"
         },
         "applicationProfileLabel": {
           "nl": "ProcedureType"
@@ -2076,7 +2134,7 @@
         "id": "http://www.w3.org/2004/02/skos/core#Concept",
         "listedInDocument": true,
         "vocabularyLabel": {
-          "nl": "IT026-RedenAfwezigheid-v1"
+          "nl": "IT026-RedenAfwezigheid"
         },
         "applicationProfileLabel": {
           "nl": "RedenAfwezigheid"
