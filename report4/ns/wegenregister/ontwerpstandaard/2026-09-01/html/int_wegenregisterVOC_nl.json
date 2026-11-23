@@ -1,0 +1,696 @@
+{
+  "baseURI": "https://implementatie.data.vlaanderen.be/ns/wegenregister#",
+  "classes": [
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/wegenregister#GelijkgrondseKruising",
+      "vocabularyLabel": {
+        "nl": "GelijkgrondseKruising"
+      },
+      "applicationProfileLabel": {
+        "nl": "GelijkgrondseKruising"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Kruising van twee of meer Wegsegmenten die op gelijke hoogte gelegen zijn."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Bedoeld voor gevallen waarin de Kruising niet in een Wegknoop is geresulteerd."
+      },
+      "parents": [
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/wegenregister#Kruising",
+          "vocabularyLabel": {
+            "nl": "Kruising"
+          },
+          "applicationProfileLabel": {
+            "nl": "Kruising"
+          }
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/netwerk#Netwerkelement",
+          "vocabularyLabel": {
+            "nl": "Netwerkelement"
+          },
+          "applicationProfileLabel": {
+            "nl": "Netwerkelement"
+          }
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/generiek#VersieVolgensTransactietijd",
+          "vocabularyLabel": {
+            "nl": "Versie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Versie"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/wegenregister#kruisingVan",
+          "vocabularyLabel": {
+            "nl": "kruisingVan"
+          },
+          "applicationProfileLabel": {
+            "nl": "kruisingVan"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Links die gelijkgronds kruisen."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/wegenregister#GelijkgrondseKruising",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/weg#Wegsegment",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Wegsegment"
+            },
+            "applicationProfileLabel": {
+              "nl": "Wegsegment"
+            }
+          },
+          "minCount": "2",
+          "maxCount": "*"
+        },
+        {
+          "id": "http://purl.org/dc/terms/created",
+          "vocabularyLabel": {
+            "nl": "versiedatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "versiedatum"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Moment waarop de versie van het object is ontstaan."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/wegenregister#GelijkgrondseKruising",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/wegenregister#Kruising",
+      "vocabularyLabel": {
+        "nl": "Kruising"
+      },
+      "applicationProfileLabel": {
+        "nl": "Kruising"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Punt in een Netwerk waarbij twee of meer Links of Linksequenties elkaar snijden."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard"
+    }
+  ],
+  "dataTypes": [
+    {
+      "id": "http://www.opengis.net/ont/sf#Curve",
+      "vocabularyLabel": {
+        "nl": "Curve"
+      },
+      "applicationProfileLabel": {
+        "nl": "Curve"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een 1-dimensionele geometrische primitieve."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Dimensie is te verstaan in wiskundige zin: het minimum aantal coördinaten nodig om een willekeurig punt voor te stellen dat deel uitmaakt van de primitieve. In het coördinaatsysteem dat door een Curve zelf gevormd wordt volstaat 1 coördinaat om een punt op de Curve te lokaliseren, bv de afstand langs de Curve vanaf het vertrekpunt. Een Curve heeft een lengte maar geen breedte of hoogte, wat niet wegneemt dat ze door de 3D ruimte kan kronkelen. Curves worden doorgaans voorgesteld door polylijnen, dit zijn sets van opeenvolgende punten waarbij de tussenliggende punten van de Curve bekomen worden dmv interpolatie. Als de interpolatiemethode lineair is krijg je een Lijnstring (een hoekige lijn die de opeenvolgende punten verbindt middels een rechte lijn), andere manieren om te interpoleren resulteren in circulaire bogen, cubic splines, Bézier curves etc (waarbij de controlepunten niet noodzakelijk op de Curve liggen). Een Curve wordt begrensd door zijn begin- en eindpunt."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/ns/locn#Geometry",
+          "vocabularyLabel": {
+            "nl": "Geometrie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Geometrie"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard"
+    },
+    {
+      "id": "http://www.w3.org/ns/locn#Geometry",
+      "vocabularyLabel": {
+        "nl": "Geometrie"
+      },
+      "applicationProfileLabel": {
+        "nl": "Geometrie"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Vorm- en positiekenmerken van een object."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "http://www.opengis.net/ont/geosparql#asGML",
+          "vocabularyLabel": {
+            "nl": "gml"
+          },
+          "applicationProfileLabel": {
+            "nl": "gml"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Geometrie uitgedrukt in gml-formaat."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Gebruik <a href=\"http://www.opengis.net/ont/geosparql#gmlLiteral\">gmlliteral</a> als datatype."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "http://www.w3.org/ns/locn#Geometry",
+          "range": {
+            "id": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Literal"
+            },
+            "applicationProfileLabel": {
+              "nl": "Literal"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/generiek#opmeting",
+          "vocabularyLabel": {
+            "nl": "inwinning"
+          },
+          "applicationProfileLabel": {
+            "nl": "inwinning"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Manier waarop de geometrie werd bepaald."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "http://www.w3.org/ns/locn#Geometry",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/generiek#Opmeting",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Inwinning"
+            },
+            "applicationProfileLabel": {
+              "nl": "Inwinning"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "http://www.w3.org/ns/adms#Identifier",
+      "vocabularyLabel": {
+        "nl": "Identificator"
+      },
+      "applicationProfileLabel": {
+        "nl": "Identificator"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Informatie gebruikt om een object uniek te identificeren."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Uitgangspunt hier is dat deze string door een organisatie wordt toegekend en dat dit gebeurt volgens een welbepaald systeem."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "http://www.w3.org/2004/02/skos/core#notation",
+          "vocabularyLabel": {
+            "nl": "notatie"
+          },
+          "applicationProfileLabel": {
+            "nl": "identificator"
+          },
+          "applicationProfileDefinition": {
+            "nl": "String gebruikt om het object uniek te identificeren."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Type vd string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "http://www.w3.org/ns/adms#Identifier",
+          "range": {
+            "id": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Literal"
+            },
+            "applicationProfileLabel": {
+              "nl": "Literal"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/generiek#Opmeting",
+      "vocabularyLabel": {
+        "nl": "Inwinning"
+      },
+      "applicationProfileLabel": {
+        "nl": "Inwinning"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Geeft aan hoe de geometrie is ingewonnen."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "http://www.w3.org/ns/prov#hadPlan",
+          "vocabularyLabel": {
+            "nl": "methode"
+          },
+          "applicationProfileLabel": {
+            "nl": "methode"
+          },
+          "vocabularyDefinition": {
+            "nl": "Aard van de gebruikte methode."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Aard van de gebruikte methode."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://data.vlaanderen.be/ns/generiek#Opmeting",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Opmetingmethode"
+            },
+            "applicationProfileLabel": {
+              "nl": "Opmetingmethode"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://schema.org/QuantitativeValue",
+      "vocabularyLabel": {
+        "nl": "KwantitatieveWaarde"
+      },
+      "applicationProfileLabel": {
+        "nl": "KwantitatieveWaarde"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Aanduiding van de kwantiteit van een bepaald kenmerk van een object."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Bv de hoogte van een object,het gewicht,de temperatuur etc. Het gaat om een kenmerk dat numeriek uitgedrukt kan worden en in een bepaalde eenheid. Kwalitatieve aanduidingen zoals hoog,laag ed vallen hier dus niet onder."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "https://schema.org/unitCode",
+          "vocabularyLabel": {
+            "nl": "eenheid"
+          },
+          "applicationProfileLabel": {
+            "nl": "eenheid"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De eenheid waarin de waarde is uitgedrukt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://schema.org/QuantitativeValue",
+          "range": {
+            "id": "https://qudt.org/schema/qudt/Unit",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Eenheid"
+            },
+            "applicationProfileLabel": {
+              "nl": "Eenheid"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://schema.org/value",
+          "vocabularyLabel": {
+            "nl": "waarde"
+          },
+          "applicationProfileLabel": {
+            "nl": "waarde"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Getal waarmee de kwantiteit van het kenmerk kan worden uitgedrukt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://schema.org/QuantitativeValue",
+          "range": {
+            "id": "http://www.w3.org/2000/01/rdf-schema#Literal",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Literal"
+            },
+            "applicationProfileLabel": {
+              "nl": "Literal"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/netwerk#LineaireReferentie",
+      "vocabularyLabel": {
+        "nl": "LineaireReferentie"
+      },
+      "applicationProfileLabel": {
+        "nl": "LineaireReferentie"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Linkreferentie die verwijst naar een deel van het lineair netwerkelement."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Meer specifiek het deel twee opeenvolgende posities op de Lijn. Bvb op een Lijn van 500 meter het deel tussen de 100 en 400 meter."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/netwerk#Linkreferentie",
+          "vocabularyLabel": {
+            "nl": "Linkreferentie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Linkreferentie"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/netwerk#totPositie",
+          "vocabularyLabel": {
+            "nl": "totPositie"
+          },
+          "applicationProfileLabel": {
+            "nl": "totPositie"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Einde van het deel van de Lijn."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Uitgedrukt in afstand tov het begin van het netwerkelement. Bvb 400 meter gerekend vanaf het begin van het netwerkelement. Moet groter zijn dan de vanPositie en kleiner dan de totale lengte van de Lijn."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://data.vlaanderen.be/ns/netwerk#LineaireReferentie",
+          "range": {
+            "id": "https://schema.org/QuantitativeValue",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "KwantitatieveWaarde"
+            },
+            "applicationProfileLabel": {
+              "nl": "KwantitatieveWaarde"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/netwerk#vanPositie",
+          "vocabularyLabel": {
+            "nl": "vanPositie"
+          },
+          "applicationProfileLabel": {
+            "nl": "vanPositie"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Start van het deel van de Lijn."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Uitgedrukt in afstand tov het begin van het netwerkelement. Bvb 100meter gerekend vanaf het begin van het netwerkelement. Moet kleiner zijn dan de totPositie en kleiner dan de totale lengte van de Lijn."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://data.vlaanderen.be/ns/netwerk#LineaireReferentie",
+          "range": {
+            "id": "https://schema.org/QuantitativeValue",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "KwantitatieveWaarde"
+            },
+            "applicationProfileLabel": {
+              "nl": "KwantitatieveWaarde"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/netwerk#Linkreferentie",
+      "vocabularyLabel": {
+        "nl": "Linkreferentie"
+      },
+      "applicationProfileLabel": {
+        "nl": "Linkreferentie"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Netwerkreferentie die verwijst naar een lineair netwerkelement."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/netwerk#Netwerkreferentie",
+          "vocabularyLabel": {
+            "nl": "Netwerkreferentie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Netwerkreferentie"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/netwerk#toepassingsRichting",
+          "vocabularyLabel": {
+            "nl": "toepassingsRichting"
+          },
+          "applicationProfileLabel": {
+            "nl": "toepassingsrichting"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Richting van de link waarop de referentie van toepassing is."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Onder richting wordt de digitalisatierichting van de Link verstaan tov waarvan het fenomeen op of langs de weg wordt beschouwd. Loopt het fenomeen mee met de digitalisatierichting dan is de richting \"meelopend\", in tegenzin is het \"tegengesteld\". Dit kan zowel longitudonaal als transversaal bekeken worden: longitudonaal in de richting van de link (met waarden heen en terug) maar ook transversaal of dwars op de Link. In het tweede geval betekent meelopend de rechterkant van de Link en tegengesteld de linkerkant. In dit model beperken we de waarden per default tot links en rechts (bvb voor de linker- en rechterstraatnaam) en is heen en terug voorbehouden voor specifieke gevallen (bvb autoverkeer heen en terug)."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://data.vlaanderen.be/ns/netwerk#Linkreferentie",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Kanttype"
+            },
+            "applicationProfileLabel": {
+              "nl": "Kanttype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://data.vlaanderen.be/ns/netwerk#Netwerkreferentie",
+      "vocabularyLabel": {
+        "nl": "Netwerkreferentie"
+      },
+      "applicationProfileLabel": {
+        "nl": "Netwerkreferentie"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een Netwerkelement."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Laat toe om een Netwerkeigenschap aan een Netwerkelement te koppelen,bvb om aan te geven op welk wegsegment een snelheidsbeperking van toepassing is of langs welke wegsegmenten een fietspad ligt."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/netwerk#eigenschap",
+          "vocabularyLabel": {
+            "nl": "eigenschap"
+          },
+          "applicationProfileLabel": {
+            "nl": "eigenschap"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de Netwerkeigenschap die aan een Netwerkelement is gekoppeld."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://data.vlaanderen.be/ns/netwerk#Netwerkreferentie",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/netwerk#Netwerkeigenschap",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Netwerkeigenschap"
+            },
+            "applicationProfileLabel": {
+              "nl": "Netwerkeigenschap"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "http://www.opengis.net/ont/sf#Point",
+      "vocabularyLabel": {
+        "nl": "Punt"
+      },
+      "applicationProfileLabel": {
+        "nl": "Punt"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een 0-dimensioneel geometrisch object dat een bepaalde locatie in een coördinaatruimte voorstelt. Heeft een x-coördinaat en een y-coördinaat. Kan ook een z-coördinaat (hoogte) en een m-coördinaat (afstand langs een curve) hebben."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/ns/locn#Geometry",
+          "vocabularyLabel": {
+            "nl": "Geometrie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Geometrie"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard"
+    }
+  ],
+  "properties": [
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/wegenregister#kruising",
+      "vocabularyLabel": {
+        "nl": "kruising"
+      },
+      "applicationProfileLabel": {
+        "nl": "kruising"
+      },
+      "vocabularyDefinition": {
+        "nl": "GelijkgrondseKruising waartoe het Wegsegment behoort."
+      },
+      "applicationProfileDefinition": {
+        "nl": "GelijkgrondseKruising waartoe het Wegsegment behoort."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://data.vlaanderen.be/ns/weg#Wegsegment",
+      "range": {
+        "id": "https://implementatie.data.vlaanderen.be/ns/wegenregister#GelijkgrondseKruising",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "GelijkgrondseKruising"
+        },
+        "applicationProfileLabel": {
+          "nl": "GelijkgrondseKruising"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/wegenregister#kruisingVan",
+      "vocabularyLabel": {
+        "nl": "kruisingVan"
+      },
+      "applicationProfileLabel": {
+        "nl": "kruisingVan"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Links die gelijkgronds kruisen."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/wegenregister#GelijkgrondseKruising",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/weg#Wegsegment",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Wegsegment"
+        },
+        "applicationProfileLabel": {
+          "nl": "Wegsegment"
+        }
+      },
+      "minCount": "2",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/wegenregister#verkeerstype",
+      "vocabularyLabel": {
+        "nl": "verkeerstype"
+      },
+      "applicationProfileLabel": {
+        "nl": "verkeerstype"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Type verkeer waarop de richting betrekking heeft."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/doc/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://data.vlaanderen.be/ns/transportnetwerk#RichtingVerkeer",
+      "range": {
+        "id": "http://www.w3.org/2004/02/skos/core#Concept",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "Verkeerstype"
+        },
+        "applicationProfileLabel": {
+          "nl": "Verkeerstype"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    }
+  ]
+}

@@ -6,15 +6,13 @@
 
 #||# done  
 
-[Error: ENOENT: no such file or directory, open '/tmp/workspace/report4/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01/all-*.jsonld'] {
+#||# start processing  
 
-  errno: -2,
+#||# Checking Namespaces  
 
-  code: 'ENOENT',
+#||# Finished  
 
-  syscall: 'open',
+#||# start writing  
 
-  path: '/tmp/workspace/report4/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01/all-*.jsonld'
-
-}
+#||# The file has been saved to /tmp/workspace/report4/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01/html/meta_wegenregisterIM_nl.json  
 
