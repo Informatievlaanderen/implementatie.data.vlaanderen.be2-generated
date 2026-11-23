@@ -1,8 +1,8 @@
-INPUTTRANSLATIONFILE: /tmp/workspace/src/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01/translation/wegenregister_nl.json
+INPUTTRANSLATIONFILE: /tmp/workspace/src/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01/translation/_nl.json
 
-OUTPUTTRANSLATIONFILE: /tmp/workspace/report4/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01/translation/wegenregister_nl.json
+OUTPUTTRANSLATIONFILE: /tmp/workspace/report4/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01/translation/_nl.json
 
-TRANSLATIONFILE: wegenregister_nl.json
+TRANSLATIONFILE: _nl.json
 
 #||# translate for language nl  
 
@@ -12,11 +12,15 @@ TRANSLATIONFILE: wegenregister_nl.json
 
 #||# done  
 
-#||# start processing  
+[Error: ENOENT: no such file or directory, open '/tmp/workspace/report4/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01/all-*.jsonld'] {
 
-WARNING The entered language values are the same!  
+  errno: -2,
 
-#||# Write complete  
+  code: 'ENOENT',
 
-#||# the file was saved to: /tmp/workspace/report4/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01/translation/wegenregister_nl.json  
+  syscall: 'open',
+
+  path: '/tmp/workspace/report4/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01/all-*.jsonld'
+
+}
 
