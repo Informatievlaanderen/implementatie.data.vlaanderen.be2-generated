@@ -80,7 +80,7 @@ error: missing '/tmp/generated/ns/magda/voertuigregistratie/v0.2.1/index.html'
 #||# Directory check
 #||# 
 #||# index.html check
-error: missing '/tmp/generated/doc/vocabularium/wegenregister/ontwerpstandaard/2026-09-01/index.html'
+error: missing '/tmp/generated/ns/wegenregister/ontwerpstandaard/2026-09-01/index.html'
 
 #||#    + checking /home/circleci/project/config/test/wegenvignetregistratie-im.publication.json
 #||# 
