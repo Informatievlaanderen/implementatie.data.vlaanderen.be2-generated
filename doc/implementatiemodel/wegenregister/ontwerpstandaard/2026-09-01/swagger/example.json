@@ -1502,8 +1502,8 @@
           "@type"
         ]
       },
-      "Toegangsbeperking": {
-        "title": "Toegangsbeperking",
+      "Toegang": {
+        "title": "Toegang",
         "type": "object",
         "description": "Beperking op de toegankelijkheid van het Transportobject.",
         "properties": {
@@ -1513,16 +1513,16 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse Toegangsbeperking)",
-            "pattern": "^Toegangsbeperking$"
+            "description": "Object type (klasse Toegang)",
+            "pattern": "^Toegang$"
           },
-          "restrictie": {
-            "$ref": "#/components/schemas/Toegangsbeperkingtype"
+          "type": {
+            "$ref": "#/components/schemas/Toegangstype"
           }
         },
         "required": [
           "@type",
-          "restrictie"
+          "type"
         ]
       },
       "Connectie": {
@@ -1548,15 +1548,9 @@
           "type"
         ]
       },
-      "OngelijkgrondseKruising.creatiedatum": {
-        "title": "OngelijkgrondseKruising.creatiedatum",
-        "description": "Datum waarop de gegevens zijn ingevoerd.",
-        "type": "string",
-        "format": "date"
-      },
-      "OngelijkgrondseKruising.modificatiedatum": {
-        "title": "OngelijkgrondseKruising.modificatiedatum",
-        "description": "Datum waarop de gegevens werden bijgewerkt.",
+      "OngelijkgrondseKruising.versiedatum": {
+        "title": "OngelijkgrondseKruising.versiedatum",
+        "description": "Moment waarop deze versie van het object n is ontstaan.",
         "type": "string",
         "format": "date"
       },
@@ -1574,11 +1568,8 @@
             "description": "Object type (klasse OngelijkgrondseKruising)",
             "pattern": "^OngelijkgrondseKruising$"
           },
-          "creatiedatum": {
-            "$ref": "#/components/schemas/OngelijkgrondseKruising.creatiedatum"
-          },
-          "modificatiedatum": {
-            "$ref": "#/components/schemas/OngelijkgrondseKruising.modificatiedatum"
+          "versiedatum": {
+            "$ref": "#/components/schemas/OngelijkgrondseKruising.versiedatum"
           },
           "type": {
             "$ref": "#/components/schemas/OngelijkgrondseKruisingtype"
@@ -1599,7 +1590,7 @@
         },
         "required": [
           "@type",
-          "creatiedatum",
+          "versiedatum",
           "type"
         ]
       },
@@ -1819,15 +1810,9 @@
           "@type"
         ]
       },
-      "GelijkgrondseKruising.creatiedatum": {
-        "title": "GelijkgrondseKruising.creatiedatum",
-        "description": "Datum waarop de gegevens zijn ingevoerd.",
-        "type": "string",
-        "format": "date"
-      },
-      "GelijkgrondseKruising.modificatiedatum": {
-        "title": "GelijkgrondseKruising.modificatiedatum",
-        "description": "Datum waarop de gegevens werden bijgewerkt.",
+      "GelijkgrondseKruising.versiedatum": {
+        "title": "GelijkgrondseKruising.versiedatum",
+        "description": "Moment waarop deze versie van het object n is ontstaan.",
         "type": "string",
         "format": "date"
       },
@@ -1845,11 +1830,8 @@
             "description": "Object type (klasse GelijkgrondseKruising)",
             "pattern": "^GelijkgrondseKruising$"
           },
-          "creatiedatum": {
-            "$ref": "#/components/schemas/GelijkgrondseKruising.creatiedatum"
-          },
-          "modificatiedatum": {
-            "$ref": "#/components/schemas/GelijkgrondseKruising.modificatiedatum"
+          "versiedatum": {
+            "$ref": "#/components/schemas/GelijkgrondseKruising.versiedatum"
           },
           "kruisingVan": {
             "type": "array",
@@ -1867,7 +1849,7 @@
         },
         "required": [
           "@type",
-          "creatiedatum"
+          "versiedatum"
         ]
       },
       "Kruising": {
@@ -1889,15 +1871,9 @@
           "@type"
         ]
       },
-      "Weg.creatiedatum": {
-        "title": "Weg.creatiedatum",
-        "description": "Datum waarop de gegevens zijn ingevoerd.",
-        "type": "string",
-        "format": "date"
-      },
-      "Weg.modificatiedatum": {
-        "title": "Weg.modificatiedatum",
-        "description": "Datum waarop de gegevens werden bijgewerkt.",
+      "Weg.versiedatum": {
+        "title": "Weg.versiedatum",
+        "description": "Moment waarop deze versie van het object n is ontstaan.",
         "type": "string",
         "format": "date"
       },
@@ -1920,11 +1896,8 @@
             "description": "Object type (klasse Weg)",
             "pattern": "^Weg$"
           },
-          "creatiedatum": {
-            "$ref": "#/components/schemas/Weg.creatiedatum"
-          },
-          "modificatiedatum": {
-            "$ref": "#/components/schemas/Weg.modificatiedatum"
+          "versiedatum": {
+            "$ref": "#/components/schemas/Weg.versiedatum"
           },
           "nationaleCode": {
             "$ref": "#/components/schemas/Weg.nationaleCode"
@@ -1984,20 +1957,14 @@
         },
         "required": [
           "@type",
-          "creatiedatum",
+          "versiedatum",
           "nationaleCode",
           "link"
         ]
       },
-      "EuropeseWeg.creatiedatum": {
-        "title": "EuropeseWeg.creatiedatum",
-        "description": "Datum waarop de gegevens zijn ingevoerd.",
-        "type": "string",
-        "format": "date"
-      },
-      "EuropeseWeg.modificatiedatum": {
-        "title": "EuropeseWeg.modificatiedatum",
-        "description": "Datum waarop de gegevens werden bijgewerkt.",
+      "EuropeseWeg.versiedatum": {
+        "title": "EuropeseWeg.versiedatum",
+        "description": "Moment waarop deze versie van het object n is ontstaan.",
         "type": "string",
         "format": "date"
       },
@@ -2020,11 +1987,8 @@
             "description": "Object type (klasse EuropeseWeg)",
             "pattern": "^EuropeseWeg$"
           },
-          "creatiedatum": {
-            "$ref": "#/components/schemas/EuropeseWeg.creatiedatum"
-          },
-          "modificatiedatum": {
-            "$ref": "#/components/schemas/EuropeseWeg.modificatiedatum"
+          "versiedatum": {
+            "$ref": "#/components/schemas/EuropeseWeg.versiedatum"
           },
           "europeesWegnummer": {
             "$ref": "#/components/schemas/EuropeseWeg.europeesWegnummer"
@@ -2084,20 +2048,14 @@
         },
         "required": [
           "@type",
-          "creatiedatum",
+          "versiedatum",
           "europeesWegnummer",
           "link"
         ]
       },
-      "Wegsegment.creatiedatum": {
-        "title": "Wegsegment.creatiedatum",
-        "description": "Datum waarop de gegevens zijn ingevoerd.",
-        "type": "string",
-        "format": "date"
-      },
-      "Wegsegment.modificatiedatum": {
-        "title": "Wegsegment.modificatiedatum",
-        "description": "Datum waarop de gegevens werden bijgewerkt.",
+      "Wegsegment.versiedatum": {
+        "title": "Wegsegment.versiedatum",
+        "description": "Moment waarop deze versie van het object n is ontstaan.",
         "type": "string",
         "format": "date"
       },
@@ -2115,11 +2073,8 @@
             "description": "Object type (klasse Wegsegment)",
             "pattern": "^Wegsegment$"
           },
-          "creatiedatum": {
-            "$ref": "#/components/schemas/Wegsegment.creatiedatum"
-          },
-          "modificatiedatum": {
-            "$ref": "#/components/schemas/Wegsegment.modificatiedatum"
+          "versiedatum": {
+            "$ref": "#/components/schemas/Wegsegment.versiedatum"
           },
           "linkset": {
             "type": "array",
@@ -2186,19 +2141,13 @@
         },
         "required": [
           "@type",
-          "creatiedatum",
+          "versiedatum",
           "geometriemiddenlijn"
         ]
       },
-      "Wegknoop.creatiedatum": {
-        "title": "Wegknoop.creatiedatum",
-        "description": "Datum waarop de gegevens zijn ingevoerd.",
-        "type": "string",
-        "format": "date"
-      },
-      "Wegknoop.modificatiedatum": {
-        "title": "Wegknoop.modificatiedatum",
-        "description": "Datum waarop de gegevens werden bijgewerkt.",
+      "Wegknoop.versiedatum": {
+        "title": "Wegknoop.versiedatum",
+        "description": "Moment waarop deze versie van het object n is ontstaan.",
         "type": "string",
         "format": "date"
       },
@@ -2216,11 +2165,8 @@
             "description": "Object type (klasse Wegknoop)",
             "pattern": "^Wegknoop$"
           },
-          "creatiedatum": {
-            "$ref": "#/components/schemas/Wegknoop.creatiedatum"
-          },
-          "modificatiedatum": {
-            "$ref": "#/components/schemas/Wegknoop.modificatiedatum"
+          "versiedatum": {
+            "$ref": "#/components/schemas/Wegknoop.versiedatum"
           },
           "connectie": {
             "type": "array",
@@ -2285,7 +2231,7 @@
         },
         "required": [
           "@type",
-          "creatiedatum",
+          "versiedatum",
           "type",
           "geometrie"
         ]
@@ -2432,8 +2378,8 @@
           "gml": {
             "$ref": "#/components/schemas/Geometrie.gml"
           },
-          "opmeting": {
-            "$ref": "#/components/schemas/Opmeting"
+          "inwinning": {
+            "$ref": "#/components/schemas/Inwinning"
           }
         },
         "required": [
@@ -2520,10 +2466,10 @@
           "@type"
         ]
       },
-      "Opmeting": {
-        "title": "Opmeting",
+      "Inwinning": {
+        "title": "Inwinning",
         "type": "object",
-        "description": "Het bepalen van de precieze omvang van iets door het te meten.",
+        "description": "Geeft aan hoe de geometrie is ingewonnen.",
         "properties": {
           "@id": {
             "type": "string",
@@ -2531,8 +2477,8 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse Opmeting)",
-            "pattern": "^Opmeting$"
+            "description": "Object type (klasse Inwinning)",
+            "pattern": "^Inwinning$"
           },
           "methode": {
             "$ref": "#/components/schemas/Opmetingmethode"
@@ -2701,8 +2647,8 @@
           "gml": {
             "$ref": "#/components/schemas/Curve.gml"
           },
-          "opmeting": {
-            "$ref": "#/components/schemas/Opmeting"
+          "inwinning": {
+            "$ref": "#/components/schemas/Inwinning"
           }
         },
         "required": [
@@ -2742,8 +2688,8 @@
           "gml": {
             "$ref": "#/components/schemas/Punt.gml"
           },
-          "opmeting": {
-            "$ref": "#/components/schemas/Opmeting"
+          "inwinning": {
+            "$ref": "#/components/schemas/Inwinning"
           }
         },
         "required": [
