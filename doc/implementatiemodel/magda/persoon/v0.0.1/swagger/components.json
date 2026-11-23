@@ -173,23 +173,6 @@
           },
           "plaatsnaam": {
             "$ref": "#/components/schemas/Plaats.plaatsnaam"
-          },
-          "plaats": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Plaats"
-              },
-              {
-                "$ref": "#/components/schemas/AdministratieveEenheid"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Plaats": "#/components/schemas/Plaats",
-                "AdministratieveEenheid": "#/components/schemas/AdministratieveEenheid"
-              }
-            }
           }
         },
         "required": [
@@ -671,23 +654,6 @@
           },
           "plaatsnaam": {
             "$ref": "#/components/schemas/AdministratieveEenheid.plaatsnaam"
-          },
-          "plaats": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Plaats"
-              },
-              {
-                "$ref": "#/components/schemas/AdministratieveEenheid"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Plaats": "#/components/schemas/Plaats",
-                "AdministratieveEenheid": "#/components/schemas/AdministratieveEenheid"
-              }
-            }
           }
         },
         "required": [
@@ -1484,23 +1450,6 @@
             "type": "string",
             "description": "Object type (klasse Locatie)",
             "pattern": "^Locatie$"
-          },
-          "plaats": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Plaats"
-              },
-              {
-                "$ref": "#/components/schemas/AdministratieveEenheid"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Plaats": "#/components/schemas/Plaats",
-                "AdministratieveEenheid": "#/components/schemas/AdministratieveEenheid"
-              }
-            }
           }
         },
         "required": [
@@ -1762,23 +1711,6 @@
           },
           "verwijstNaar": {
             "$ref": "#/components/schemas/BelgischAdres"
-          },
-          "plaats": {
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Plaats"
-              },
-              {
-                "$ref": "#/components/schemas/AdministratieveEenheid"
-              }
-            ],
-            "discriminator": {
-              "propertyName": "@type",
-              "mapping": {
-                "Plaats": "#/components/schemas/Plaats",
-                "AdministratieveEenheid": "#/components/schemas/AdministratieveEenheid"
-              }
-            }
           }
         },
         "required": [
@@ -1979,13 +1911,6 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Organisatie` op te halen."
       },
-      "Plaats.plaats": {
-        "operationId": "PlaatsGET",
-        "parameters": {
-          "id": "$response.body#/Plaats.plaats/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen."
-      },
       "Gezinsrelatie.gezinsrelatietype": {
         "operationId": "GezinsrelatieGET",
         "parameters": {
@@ -2069,13 +1994,6 @@
           "id": "$response.body#/AdministratieveEenheid.niveau/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AdministratieveEenheidniveau` op te halen."
-      },
-      "AdministratieveEenheid.plaats": {
-        "operationId": "AdministratieveEenheidGET",
-        "parameters": {
-          "id": "$response.body#/AdministratieveEenheid.plaats/@id"
-        },
-        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Plaats` op te halen."
       },
       "VdipEnvelope.errors": {
         "operationId": "VdipEnvelopeGET",

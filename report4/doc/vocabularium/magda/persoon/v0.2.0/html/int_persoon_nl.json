@@ -33,7 +33,39 @@
         }
       ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard"
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#beheerdertype",
+          "vocabularyLabel": {
+            "nl": "beheerdertype"
+          },
+          "applicationProfileLabel": {
+            "nl": "beheerdertype"
+          },
+          "vocabularyDefinition": {
+            "nl": "Type Organisatie dat het AangegevenAdres ingeeft of bewerkt."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Type Organisatie dat het AangegevenAdres ingeeft of bewerkt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AangegevenAdres",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "IT214-Beheerdertype-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "Beheerdertype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
     },
     {
       "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AdministratiefBeheerder",
@@ -63,6 +95,15 @@
           },
           "applicationProfileLabel": {
             "nl": "Organisatie"
+          }
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/generiek#VersieVolgensGeldigeTijd",
+          "vocabularyLabel": {
+            "nl": "Versie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Versie"
           }
         }
       ],
@@ -154,14 +195,17 @@
           "maxCount": "1"
         },
         {
-          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#identificator",
+          "id": "http://www.w3.org/ns/adms#identifier",
           "vocabularyLabel": {
             "nl": "identificator"
           },
           "applicationProfileLabel": {
             "nl": "identificator"
           },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "applicationProfileDefinition": {
+            "nl": "Identificator van de AdministratiefBeheerder."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AdministratiefBeheerder",
           "range": {
@@ -193,7 +237,7 @@
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AdministratiefBeheerder",
           "range": {
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "IT001-AdministratiefBeheerdertype-v1"
             },
@@ -208,6 +252,67 @@
       ]
     },
     {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingDalendeLijn",
+      "vocabularyLabel": {
+        "nl": "AfstammingDalendeLijn"
+      },
+      "applicationProfileLabel": {
+        "nl": "AfstammingDalendeLijn"
+      },
+      "vocabularyDefinition": {
+        "nl": "Juridische band tussen een kind en zijn ouder vanuit het standpunt van de ouder."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Juridische band tussen een kind en zijn ouder vanuit het standpunt van de ouder."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/persoon#Afstamming",
+          "vocabularyLabel": {
+            "nl": "Afstamming"
+          },
+          "applicationProfileLabel": {
+            "nl": "Afstamming"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/persoon#afstammingsType",
+          "vocabularyLabel": {
+            "nl": "afstammingstype"
+          },
+          "applicationProfileLabel": {
+            "nl": "afstammingstype"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Aard van de afstamming in dalende lijn."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Bijvoorbeeld: geadopteerd, kind uit huwelijk, erkend door de vader, etc."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingDalendeLijn",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "IT110-AfstammingInDalendeLijntype-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "AfstammingInDalendeLijntype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1",
+          "codelist": "https://data.vlaanderen.be/id/conceptscheme/IT110-IT114"
+        }
+      ]
+    },
+    {
       "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingOpgaandeLijn",
       "vocabularyLabel": {
         "nl": "AfstammingOpgaandeLijn"
@@ -216,154 +321,55 @@
         "nl": "AfstammingOpgaandeLijn"
       },
       "vocabularyDefinition": {
-        "nl": "De opgaande lijn van bloedverwantschap tussen generaties."
+        "nl": "Juridische band tussen een kind en zijn ouder vanuit het standpunt van het kind."
       },
       "applicationProfileDefinition": {
-        "nl": "De opgaande lijn van bloedverwantschap tussen generaties."
+        "nl": "Juridische band tussen een kind en zijn ouder vanuit het standpunt van het kind."
       },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/persoon#Afstamming",
+          "vocabularyLabel": {
+            "nl": "Afstamming"
+          },
+          "applicationProfileLabel": {
+            "nl": "Afstamming"
+          }
+        }
+      ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
       "properties": [
         {
-          "id": "http://purl.org/dc/terms/date",
+          "id": "https://data.vlaanderen.be/ns/persoon#afstammingsType",
           "vocabularyLabel": {
-            "nl": "datumVanAfstamming"
+            "nl": "afstammingstype"
           },
           "applicationProfileLabel": {
-            "nl": "datumVanAfstamming"
+            "nl": "afstammingstype"
           },
           "applicationProfileDefinition": {
-            "nl": "Datum waarop de afstamming wordt vastgesteld."
+            "nl": "Aard van de afstamming in stigende lijn."
           },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingOpgaandeLijn",
-          "range": {
-            "id": "http://www.w3.org/2001/XMLSchema#date",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "Date"
-            },
-            "applicationProfileLabel": {
-              "nl": "Date"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1"
-        },
-        {
-          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#ouder",
-          "vocabularyLabel": {
-            "nl": "ouder"
-          },
-          "applicationProfileLabel": {
-            "nl": "ouder"
-          },
-          "vocabularyDefinition": {
-            "nl": "Persoon waarvan de Persoon afstamt."
-          },
-          "applicationProfileDefinition": {
-            "nl": "Persoon waarvan de Persoon afstamt."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingOpgaandeLijn",
-          "range": {
-            "id": "http://www.w3.org/ns/person#Person",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "Persoon"
-            },
-            "applicationProfileLabel": {
-              "nl": "Persoon"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "2"
-        },
-        {
-          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#overschrijving",
-          "vocabularyLabel": {
-            "nl": "overschrijving"
-          },
-          "applicationProfileLabel": {
-            "nl": "overschrijving"
-          },
-          "vocabularyDefinition": {
-            "nl": "Verwijzing naar de Overschrijving van een Akte of Uitspraak in het Register van de Burgerlijke Stand."
-          },
-          "applicationProfileDefinition": {
-            "nl": "Verwijzing naar de Overschrijving van een Akte of Uitspraak in het Register van de Burgerlijke Stand."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingOpgaandeLijn",
-          "range": {
-            "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Overschrijving",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "Overschrijving"
-            },
-            "applicationProfileLabel": {
-              "nl": "Overschrijving"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1"
-        },
-        {
-          "id": "http://purl.org/dc/terms/spatial",
-          "vocabularyLabel": {
-            "nl": "plaats"
-          },
-          "applicationProfileLabel": {
-            "nl": "plaats"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Plaats van geboorte of overschrijving."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingOpgaandeLijn",
-          "range": {
-            "id": "http://purl.org/dc/terms/Location",
-            "listedInDocument": true,
-            "vocabularyLabel": {
-              "nl": "Plaats"
-            },
-            "applicationProfileLabel": {
-              "nl": "Plaats"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1"
-        },
-        {
-          "id": "http://purl.org/dc/terms/type",
-          "vocabularyLabel": {
-            "nl": "type"
-          },
-          "applicationProfileLabel": {
-            "nl": "type"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Wijze van afstamming."
+          "applicationProfileUsageNote": {
+            "nl": "Bijvoorbeeld: geadopteerd, kind uit huwelijk, erkend door de vader, etc."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingOpgaandeLijn",
           "range": {
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
+            "listedInDocument": false,
             "vocabularyLabel": {
-              "nl": "IT110-IT114-Afstammingstype-v1"
+              "nl": "IT110-AfstammingInStijgendeLijntype-v1"
             },
             "applicationProfileLabel": {
-              "nl": "Afstammingstype"
+              "nl": "AfstammingStijgendelijntype"
             }
           },
           "minCount": "0",
-          "maxCount": "1"
+          "maxCount": "1",
+          "codelist": "https://data.vlaanderen.be/id/conceptscheme/IT110-IT114"
         }
       ]
     },
@@ -402,20 +408,20 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
       "properties": [
         {
-          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#beschrijving",
+          "id": "http://purl.org/dc/terms/description",
           "vocabularyLabel": {
             "nl": "beschrijving"
           },
           "applicationProfileLabel": {
-            "nl": "TijdelijkeAfwezigheid"
+            "nl": "beschrijving"
           },
           "applicationProfileDefinition": {
             "nl": "Beschrijving van de TijdelijkeAfwezigheid."
           },
           "applicationProfileUsageNote": {
-            "nl": "Adres (indien niet te beschrijven dmv verblijfsadres), land of andere commentaar (bvb verdwijning minderjarige)."
+            "nl": "Adres (indien niet te beschrijven door middel van verblijfsadres), land of andere commentaar (bijvoorbeeld verdwijning minderjarige)."
           },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#TijdelijkeAfwezigheid",
           "range": {
@@ -450,7 +456,7 @@
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#TijdelijkeAfwezigheid",
           "range": {
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "IT026-RedenAfwezigheid-v1"
             },
@@ -478,6 +484,17 @@
       "applicationProfileDefinition": {
         "nl": "Naam die verwijst naar dezelfde Persoon als de officiële naam, maar daarvan afwijkt door gebruik, spelling, identiteit etc."
       },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/generiek#VersieVolgensGeldigeTijd",
+          "vocabularyLabel": {
+            "nl": "Versie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Versie"
+          }
+        }
+      ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
       "properties": [
@@ -543,6 +560,9 @@
           "applicationProfileLabel": {
             "nl": "geboorte"
           },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de Geboorte van de fictieve identiteit die door de AlternatieveNaam wordt voorgesteld."
+          },
           "applicationProfileDefinition": {
             "nl": "Verwijzing naar de Geboorte van de fictieve identiteit die door de AlternatieveNaam wordt voorgesteld."
           },
@@ -597,6 +617,9 @@
           "applicationProfileLabel": {
             "nl": "nationaliteit"
           },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de Nationaliteit van de fictieve identiteit die door de AlternatieveNaam wordt voorgesteld."
+          },
           "applicationProfileDefinition": {
             "nl": "Verwijzing naar de Nationaliteit van de fictieve identiteit die door de AlternatieveNaam wordt voorgesteld."
           },
@@ -632,12 +655,135 @@
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AlternatieveNaam",
           "range": {
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "IT011/213-AlternatieveNaamtype-v1"
             },
             "applicationProfileLabel": {
-              "nl": "IT011/213-AlternatieveNaamtype-v1"
+              "nl": "AlternatieveNaamtype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Bewindvoering",
+      "vocabularyLabel": {
+        "nl": "Bewindvoering"
+      },
+      "applicationProfileLabel": {
+        "nl": "Bewindvoering"
+      },
+      "vocabularyDefinition": {
+        "nl": "Bewindvoering is een juridische beschermings- en vertegenwoordigingsregeling waarbij een bewindvoerder wordt aangesteld om een meerderjarige persoon bij te staan of te vertegenwoordigen bij het beheer van diens persoonlijke en/of vermogensrechtelijke belangen, wanneer die persoon daartoe geheel of gedeeltelijk niet in staat is."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Bewindvoering is een juridische beschermings- en vertegenwoordigingsregeling waarbij een bewindvoerder wordt aangesteld om een meerderjarige persoon bij te staan of te vertegenwoordigen bij het beheer van diens persoonlijke en/of vermogensrechtelijke belangen, wanneer die persoon daartoe geheel of gedeeltelijk niet in staat is."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Concreet geeft de Persoonsrelatie aan welke Persoon de bewindvoerderis, m.a.w. de Persoon die de Bewindvoering over de Persoon uitoefent."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Concreet geeft de Persoonsrelatie aan welke Persoon de bewindvoerderis, m.a.w. de Persoon die de Bewindvoering over de Persoon uitoefent."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/persoon#Persoonsrelatie",
+          "vocabularyLabel": {
+            "nl": "Persoonsrelatie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Persoonsrelatie"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "http://purl.org/dc/elements/1.1/description",
+          "vocabularyLabel": {
+            "nl": "beschrijving"
+          },
+          "applicationProfileLabel": {
+            "nl": "beschrijving"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Beschrijving van de Bewindvoering."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Bewindvoering",
+          "range": {
+            "id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "LangString"
+            },
+            "applicationProfileLabel": {
+              "nl": "LangString"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Bewindvoering.rechtvaardiging",
+          "vocabularyLabel": {
+            "nl": "rechtvaardiging"
+          },
+          "applicationProfileLabel": {
+            "nl": "rechtvaardiging"
+          },
+          "vocabularyDefinition": {
+            "nl": "Reden voor de Bewindvoering over de Persoon."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Reden voor de Bewindvoering over de Persoon."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Bewindvoering",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "IT111/113-Rechtvaardingingtype-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "Rechtvaardingingtype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/type",
+          "vocabularyLabel": {
+            "nl": "type"
+          },
+          "applicationProfileLabel": {
+            "nl": "type"
+          },
+          "vocabularyDefinition": {
+            "nl": "Soort Bewindvoering die door de bewindvoerder van de Persoon wordt uitgeoefend."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Soort Bewindvoering die door de bewindvoerder van de Persoon wordt uitgeoefend."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Bewindvoering",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "IT113-Bewindvoerdertype-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "Bewindvoerdertype"
             }
           },
           "minCount": "0",
@@ -693,6 +839,17 @@
       "applicationProfileDefinition": {
         "nl": "Classificatie of identificatie van de Persoon volgens biologische, juridische of gendergerelateerde kenmerken."
       },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/generiek#VersieVolgensGeldigeTijd",
+          "vocabularyLabel": {
+            "nl": "Versie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Versie"
+          }
+        }
+      ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
       "properties": [
@@ -766,7 +923,7 @@
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Geslacht",
           "range": {
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "IT000-Geslacht-v1"
             },
@@ -850,12 +1007,12 @@
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Geslachtsverandering",
           "range": {
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
+            "listedInDocument": false,
             "vocabularyLabel": {
-              "nl": "IT004-Geslachtsveranderingtype-v1"
+              "nl": "Geslachtsveranderingtype"
             },
             "applicationProfileLabel": {
-              "nl": "IT004-Geslachtsveranderingtype-v1"
+              "nl": "Geslachtsveranderingtype"
             }
           },
           "minCount": "0",
@@ -878,11 +1035,22 @@
         "nl": "Plaats waarvan een Persoon afkomstig is."
       },
       "vocabularyUsageNote": {
-        "nl": "Waarbij afkomst bvb bepaald wordt op basis van de nationaliteit van de Persoon of deze van zijn ouders."
+        "nl": "Waarbij afkomst bijvoorbeeld bepaald wordt op basis van de nationaliteit van de Persoon of deze van zijn ouders."
       },
       "applicationProfileUsageNote": {
-        "nl": "Waarbij afkomst bvb bepaald wordt op basis van de nationaliteit van de Persoon of deze van zijn ouders."
+        "nl": "Waarbij afkomst bijvoorbeeld bepaald wordt op basis van de nationaliteit van de Persoon of deze van zijn ouders."
       },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/generiek#VersieVolgensGeldigeTijd",
+          "vocabularyLabel": {
+            "nl": "Versie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Versie"
+          }
+        }
+      ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
       "properties": [
@@ -970,6 +1138,105 @@
       ]
     },
     {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Huisvestingsrelatie",
+      "vocabularyLabel": {
+        "nl": "Huisvestingsrelatie"
+      },
+      "applicationProfileLabel": {
+        "nl": "Huisvestingsrelatie"
+      },
+      "vocabularyDefinition": {
+        "nl": "Persoonsrelatie waarbij de ene Persoon huisvesting verleent aan de andere Persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Persoonsrelatie waarbij de ene Persoon huisvesting verleent aan de andere Persoon."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Typisch om aan te geven bij welke ouder een kind deeltijds nog woont naast de ouder op wiens domicilie-adres het is ingeschreven.Of omgekeerd om aan te geven dat men een kind huisvest dat op het domicilie-adres van de andere ouder is ingeschreven."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Typisch om aan te geven bij welke ouder een kind deeltijds nog woont naast de ouder op wiens domicilie-adres het is ingeschreven.Of omgekeerd om aan te geven dat men een kind huisvest dat op het domicilie-adres van de andere ouder is ingeschreven."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/persoon#Persoonsrelatie",
+          "vocabularyLabel": {
+            "nl": "Persoonsrelatie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Persoonsrelatie"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "http://purl.org/dc/terms/date",
+          "vocabularyLabel": {
+            "nl": "datum"
+          },
+          "applicationProfileLabel": {
+            "nl": "datum"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Datum waarop de relatie een aanvang neemt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Huisvestingsrelatie",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#rol",
+          "vocabularyLabel": {
+            "nl": "rol"
+          },
+          "applicationProfileLabel": {
+            "nl": "rol"
+          },
+          "vocabularyDefinition": {
+            "nl": "Rol van de Persoon in de huisvestingsrelatie."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Rol van de Persoon in de huisvestingsrelatie."
+          },
+          "vocabularyUsageNote": {
+            "nl": "Zoals: wie verleent de huisvestingof wie ontvangt ze (typisch resp de ouder en het kind)."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Zoals: wie verleent de huisvestingof wie ontvangt ze (typisch resp de ouder en het kind)."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Huisvestingsrelatie",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "IT021-Roltype-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "Roltype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
       "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Inwonerschapstatus",
       "vocabularyLabel": {
         "nl": "Inwonerschapstatus"
@@ -984,10 +1251,10 @@
         "nl": "Geeft de toestand van het Inwonerschap weer."
       },
       "vocabularyUsageNote": {
-        "nl": "Typisch tgv onderzoek naar de voorwaarden van Inwonerschap zoals werkelijkheid van en recht op verblijf."
+        "nl": "Typisch ten gevolge van onderzoek naar de voorwaarden van Inwonerschap zoals werkelijkheid van en recht op verblijf."
       },
       "applicationProfileUsageNote": {
-        "nl": "Typisch tgv onderzoek naar de voorwaarden van Inwonerschap zoals werkelijkheid van en recht op verblijf."
+        "nl": "Typisch ten gevolge van onderzoek naar de voorwaarden van Inwonerschap zoals werkelijkheid van en recht op verblijf."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
@@ -1017,7 +1284,7 @@
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Inwonerschapstatus",
           "range": {
             "id": "http://xmlns.com/foaf/0.1/Document",
-            "listedInDocument": false,
+            "listedInDocument": true,
             "vocabularyLabel": {
               "nl": "Document"
             },
@@ -1036,17 +1303,11 @@
           "applicationProfileLabel": {
             "nl": "geldigheid"
           },
-          "vocabularyDefinition": {
-            "nl": "Perdiode waarop de status van toepassing is."
-          },
           "applicationProfileDefinition": {
             "nl": "Perdiode waarop de status van toepassing is."
           },
-          "vocabularyUsageNote": {
-            "nl": "Bvb in het geval van een inreisverbod de periode waarvoor dat geldt."
-          },
           "applicationProfileUsageNote": {
-            "nl": "Bvb in het geval van een inreisverbod de periode waarvoor dat geldt."
+            "nl": "Bijvoorbeeld in het geval van een inreisverbod de periode waarvoor dat geldt."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
@@ -1065,36 +1326,210 @@
           "maxCount": "1"
         },
         {
-          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#type",
+          "id": "http://purl.org/dc/terms/type",
           "vocabularyLabel": {
             "nl": "type"
           },
           "applicationProfileLabel": {
             "nl": "type"
           },
-          "vocabularyDefinition": {
-            "nl": "De status van het inwonerschap."
-          },
           "applicationProfileDefinition": {
             "nl": "De status van het inwonerschap."
           },
-          "vocabularyUsageNote": {
-            "nl": "Bvb besluit genomen door een overheid, woonstcontrole aan de gang etc."
-          },
           "applicationProfileUsageNote": {
-            "nl": "Bvb besluit genomen door een overheid, woonstcontrole aan de gang etc."
+            "nl": "Bijvoorbeeld besluit genomen door een overheid, woonstcontrole aan de gang etc."
           },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Inwonerschapstatus",
           "range": {
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "IT003-Inwonerschapstatustype-v1"
             },
             "applicationProfileLabel": {
-              "nl": "IT003-Inwonerschapstatustype-v1"
+              "nl": "Inwonerschapstatustype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#JuridischStatuut",
+      "vocabularyLabel": {
+        "nl": "JuridischStatuut"
+      },
+      "applicationProfileLabel": {
+        "nl": "JuridischStatuut"
+      },
+      "vocabularyDefinition": {
+        "nl": "De juridisch vastgestelde toestand van een persoon die bepaalt in welke mate die persoon zelfstandig bepaalde rechtshandelingen of handelingen met rechtsgevolgen kan stellen."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De juridisch vastgestelde toestand van een persoon die bepaalt in welke mate die persoon zelfstandig bepaalde rechtshandelingen of handelingen met rechtsgevolgen kan stellen."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Typische toestanden zijn ontvoogd (voor minderjarigen) en beschermd (voor meerderjarigen)."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Typische toestanden zijn ontvoogd (voor minderjarigen) en beschermd (voor meerderjarigen)."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/generiek#VersieVolgensGeldigeTijd",
+          "vocabularyLabel": {
+            "nl": "Versie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Versie"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "http://www.w3.org/ns/prov#generatedAtTime",
+          "vocabularyLabel": {
+            "nl": "begindatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "begindatum"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Moment vanaf wanneer de instantie van deze klasse op het terrein van toepassing was."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#JuridischStatuut",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/elements/1.1/description",
+          "vocabularyLabel": {
+            "nl": "beschrijving"
+          },
+          "applicationProfileLabel": {
+            "nl": "beschrijving"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Beschrijving van het JuridischStatuut."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#JuridischStatuut",
+          "range": {
+            "id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "LangString"
+            },
+            "applicationProfileLabel": {
+              "nl": "LangString"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://www.w3.org/ns/prov#invalidatedAtTime",
+          "vocabularyLabel": {
+            "nl": "einddatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "einddatum"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Moment tot wanneer de instantie van deze klasse op het terrein van toepassing was."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#JuridischStatuut",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#JuridischStatuut.rechtvaardiging",
+          "vocabularyLabel": {
+            "nl": "rechtvaardiging"
+          },
+          "applicationProfileLabel": {
+            "nl": "rechtvaardiging"
+          },
+          "vocabularyDefinition": {
+            "nl": "Reden voor het stauut van de Persoon."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Reden voor het stauut van de Persoon."
+          },
+          "vocabularyUsageNote": {
+            "nl": "Bijvoorbeeld dat het statuut per vonnis is vastgelegd of op bevel van een vrederechter of de beschikking tot bescherming."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Bijvoorbeeld dat het statuut per vonnis is vastgelegd of op bevel van een vrederechter of de beschikking tot bescherming."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#JuridischStatuut",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "IT111/113-Rechtvaardingingtype-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "Rechtvaardingingtype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/elements/1.1/type",
+          "vocabularyLabel": {
+            "nl": "type"
+          },
+          "applicationProfileLabel": {
+            "nl": "type"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Soort JuridischStatuut."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#JuridischStatuut",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "IT111-JuridischStatuuttype-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "JuridischStatuuttype"
             }
           },
           "minCount": "0",
@@ -1116,6 +1551,17 @@
       "applicationProfileDefinition": {
         "nl": "Namen of combinatie van namen toegekend aan een Persoon."
       },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/generiek#VersieVolgensGeldigeTijd",
+          "vocabularyLabel": {
+            "nl": "Versie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Versie"
+          }
+        }
+      ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
       "properties": [
@@ -1344,19 +1790,19 @@
             "nl": "Aard van de naamsverandering."
           },
           "applicationProfileUsageNote": {
-            "nl": "In deze context of dit per arrest of vonnis, koninklijk besluit etc gebeurde waarmee indirect ook wordt aangegeven of de naamsverandering betrekking heeft op de achternaam (allerlei methodes bvb vonnis of arrest, knonklijk besluit), de voornaam (ambtenaar burgerlijke stand) of adellijke titel."
+            "nl": "In deze context of dit per arrest of vonnis, koninklijk besluit etc gebeurde waarmee indirect ook wordt aangegeven of de naamsverandering betrekking heeft op de achternaam (allerlei methodes bijvoorbeeld vonnis of arrest, knonklijk besluit), de voornaam (ambtenaar burgerlijke stand) of adellijke titel."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Naamsverandering",
           "range": {
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "IT013-Naamsveranderingtype-v1"
             },
             "applicationProfileLabel": {
-              "nl": "IT013-Naamsveranderingtype-v1"
+              "nl": "Naamsveranderingtype"
             }
           },
           "minCount": "0",
@@ -1451,12 +1897,12 @@
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Nationaliteitsverwerving",
           "range": {
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "IT031/032-Nationaliteitsverwervingstype"
             },
             "applicationProfileLabel": {
-              "nl": "IT31/32-Nationaliteitsverwervingstype"
+              "nl": "Nationaliteitsverwervingstype"
             }
           },
           "minCount": "0",
@@ -1465,12 +1911,346 @@
       ]
     },
     {
-      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#PersonEnvelope",
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Ouders",
       "vocabularyLabel": {
-        "nl": "PersonEnvelope"
+        "nl": "Ouders"
       },
       "applicationProfileLabel": {
-        "nl": "PersonEnvelope"
+        "nl": "Ouders"
+      },
+      "vocabularyDefinition": {
+        "nl": "Personen waartoe de Persoon zich juridisch op grond van afstamming of adoptie als kind verhoudt."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Personen waartoe de Persoon zich juridisch op grond van afstamming of adoptie als kind verhoudt."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/generiek#VersieVolgensGeldigeTijd",
+          "vocabularyLabel": {
+            "nl": "Versie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Versie"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "http://www.w3.org/ns/prov#generatedAtTime",
+          "vocabularyLabel": {
+            "nl": "begindatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "begindatum"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Moment vanaf wanneer de instantie van deze klasse op het terrein van toepassing was."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Ouders",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/date",
+          "vocabularyLabel": {
+            "nl": "datumVanAfstamming"
+          },
+          "applicationProfileLabel": {
+            "nl": "datumVanAfstamming"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Datum waarop de ouderschapsband is vastgesteld."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Ouders",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://www.w3.org/ns/prov#invalidatedAtTime",
+          "vocabularyLabel": {
+            "nl": "einddatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "einddatum"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Moment tot wanneer de instantie van deze klasse op het terrein van toepassing was."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Ouders",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#ouder",
+          "vocabularyLabel": {
+            "nl": "ouder"
+          },
+          "applicationProfileLabel": {
+            "nl": "ouder"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de Persoon die zijn ouder is."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de Persoon die zijn ouder is."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Ouders",
+          "range": {
+            "id": "http://www.w3.org/ns/person#Person",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Persoon"
+            },
+            "applicationProfileLabel": {
+              "nl": "Persoon"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "2"
+        },
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Ouders.overschrijving",
+          "vocabularyLabel": {
+            "nl": "overschrijving"
+          },
+          "applicationProfileLabel": {
+            "nl": "overschrijving"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de Overschrijving van een Akte of JuridischeBeslissing in het register van de burgerlijke stand  die betrekking heeft op de ouderschapsband."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de Overschrijving van een Akte of JuridischeBeslissing in het register van de burgerlijke stand  die betrekking heeft op de ouderschapsband."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Ouders",
+          "range": {
+            "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Overschrijving",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Overschrijving"
+            },
+            "applicationProfileLabel": {
+              "nl": "Overschrijving"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/spatial",
+          "vocabularyLabel": {
+            "nl": "plaats"
+          },
+          "applicationProfileLabel": {
+            "nl": "plaats"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Plaats van geboorte of Overschrijving."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Ouders",
+          "range": {
+            "id": "http://purl.org/dc/terms/Location",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Plaats"
+            },
+            "applicationProfileLabel": {
+              "nl": "Plaats"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/type",
+          "vocabularyLabel": {
+            "nl": "type"
+          },
+          "applicationProfileLabel": {
+            "nl": "type"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Soort afstamming of adoptie."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Ouders",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "IT110-IT114-Afstammingstype-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "Afstammingstype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Overschrijving",
+      "vocabularyLabel": {
+        "nl": "Overschrijving"
+      },
+      "applicationProfileLabel": {
+        "nl": "Overschrijving"
+      },
+      "vocabularyDefinition": {
+        "nl": "Formele opname van een juridisch document in een officieel Register."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Formele opname van een juridisch document in een officieel Register."
+      },
+      "vocabularyUsageNote": {
+        "nl": "In deze context van een akte of vonnis. bijvoorbeeld de Uitspraak van de rechtbank bij echtscheiding. Het officieel register waarvan sprake is dan het Register van de Burgerlijke Stand."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "In deze context van een akte of vonnis. bijvoorbeeld de Uitspraak van de rechtbank bij echtscheiding. Het officieel register waarvan sprake is dan het Register van de Burgerlijke Stand."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "http://purl.org/dc/terms/date",
+          "vocabularyLabel": {
+            "nl": "datum"
+          },
+          "applicationProfileLabel": {
+            "nl": "datum"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Datum waarop de Overschrijving plaatsvindt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Overschrijving",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/references",
+          "vocabularyLabel": {
+            "nl": "overschrijvingVan"
+          },
+          "applicationProfileLabel": {
+            "nl": "overschrijvingVan"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar het document dat wordt overgeschreven."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Overschrijving",
+          "range": {
+            "id": "http://xmlns.com/foaf/0.1/Document",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Document"
+            },
+            "applicationProfileLabel": {
+              "nl": "Document"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/spatial",
+          "vocabularyLabel": {
+            "nl": "plaats"
+          },
+          "applicationProfileLabel": {
+            "nl": "plaats"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Plaats waar de Overschrijving plaatsvindt."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "In praktijk de gemeente van het Register van de Burgerlijke Stand waarin de Uitspraak wordt overgeschreven."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Overschrijving",
+          "range": {
+            "id": "http://purl.org/dc/terms/Location",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Plaats"
+            },
+            "applicationProfileLabel": {
+              "nl": "Plaats"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#PersoonEnvelop",
+      "vocabularyLabel": {
+        "nl": "PersoonEnvelop"
+      },
+      "applicationProfileLabel": {
+        "nl": "PersoonEnvelop"
       },
       "vocabularyDefinition": {
         "nl": "Enveloppe om Persoon en bijhorende validatiewaarschuwingen uit te wisselen."
@@ -1486,7 +2266,7 @@
       },
       "parents": [
         {
-          "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Envelope",
+          "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Envelop",
           "vocabularyLabel": {
             "nl": "envelop"
           },
@@ -1511,7 +2291,7 @@
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#PersonEnvelope",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#PersoonEnvelop",
           "range": {
             "id": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
             "listedInDocument": true,
@@ -1541,7 +2321,7 @@
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#PersonEnvelope",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#PersoonEnvelop",
           "range": {
             "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering",
             "listedInDocument": true,
@@ -1590,172 +2370,6 @@
       ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard"
-    },
-    {
-      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail",
-      "vocabularyLabel": {
-        "nl": "Problemdetail"
-      },
-      "applicationProfileLabel": {
-        "nl": "Problemdetail"
-      },
-      "vocabularyDefinition": {
-        "nl": "Meer gedetailleerde beschrijving van de fout in een HTTP response."
-      },
-      "applicationProfileDefinition": {
-        "nl": "Meer gedetailleerde beschrijving van de fout in een HTTP response."
-      },
-      "vocabularyUsageNote": {
-        "nl": "Dit ter aanvulling van een HTTP statuscode, bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc9457\">RFC9457</a>."
-      },
-      "applicationProfileUsageNote": {
-        "nl": "Dit ter aanvulling van een HTTP statuscode, bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc9457\">RFC9457</a>."
-      },
-      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-      "properties": [
-        {
-          "id": "http://purl.org/dc/terms/description",
-          "vocabularyLabel": {
-            "nl": "detail"
-          },
-          "applicationProfileLabel": {
-            "nl": "detail"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Mensleesbare beschrijving van de fout."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail",
-          "range": {
-            "id": "http://www.w3.org/2001/XMLSchema#string",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "String"
-            },
-            "applicationProfileLabel": {
-              "nl": "String"
-            }
-          },
-          "minCount": "1",
-          "maxCount": "1"
-        },
-        {
-          "id": "http://purl.org/dc/terms/references",
-          "vocabularyLabel": {
-            "nl": "instance"
-          },
-          "applicationProfileLabel": {
-            "nl": "instance"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft."
-          },
-          "applicationProfileUsageNote": {
-            "nl": "Bijvoorbeeld: de verwijzing naar de request."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail",
-          "range": {
-            "id": "http://www.w3.org/2001/XMLSchema#anyURI",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "URI"
-            },
-            "applicationProfileLabel": {
-              "nl": "URI"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1"
-        },
-        {
-          "id": "http://www.w3.org/ns/adms#status",
-          "vocabularyLabel": {
-            "nl": "status"
-          },
-          "applicationProfileLabel": {
-            "nl": "status"
-          },
-          "applicationProfileDefinition": {
-            "nl": "HTTP foutcode."
-          },
-          "applicationProfileUsageNote": {
-            "nl": "Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\"."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail",
-          "range": {
-            "id": "http://www.w3.org/2001/XMLSchema#integer",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "Integer"
-            },
-            "applicationProfileLabel": {
-              "nl": "Integer"
-            }
-          },
-          "minCount": "0",
-          "maxCount": "1"
-        },
-        {
-          "id": "http://purl.org/dc/terms/title",
-          "vocabularyLabel": {
-            "nl": "title"
-          },
-          "applicationProfileLabel": {
-            "nl": "title"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Korte mensleesbare beschrijving van de fout."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail",
-          "range": {
-            "id": "http://www.w3.org/2001/XMLSchema#string",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "String"
-            },
-            "applicationProfileLabel": {
-              "nl": "String"
-            }
-          },
-          "minCount": "1",
-          "maxCount": "1"
-        },
-        {
-          "id": "http://purl.org/dc/terms/type",
-          "vocabularyLabel": {
-            "nl": "type"
-          },
-          "applicationProfileLabel": {
-            "nl": "type"
-          },
-          "applicationProfileDefinition": {
-            "nl": "Aard van de fout."
-          },
-          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Problemdetail",
-          "range": {
-            "id": "http://www.w3.org/2001/XMLSchema#anyURI",
-            "listedInDocument": false,
-            "vocabularyLabel": {
-              "nl": "URI"
-            },
-            "applicationProfileLabel": {
-              "nl": "URI"
-            }
-          },
-          "minCount": "1",
-          "maxCount": "1"
-        }
-      ]
     },
     {
       "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Referentieadres",
@@ -1840,6 +2454,17 @@
       "applicationProfileUsageNote": {
         "nl": "Geeft detail over de registratie zelf, bijvoorbeeld of de registratie nog geldig is en eventueel is gevolgd door een nieuwe registratie. Dat laatste gebeurt in het Rijksregister bijvoorbeeld bij fouten in of veranderingen aan de identificator (bijvoorbeeld bij geslachtsverandering) waardoor de registratie opnieuw moet gebeuren."
       },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/generiek#VersieVolgensGeldigeTijd",
+          "vocabularyLabel": {
+            "nl": "Versie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Versie"
+          }
+        }
+      ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
       "properties": [
@@ -1881,9 +2506,6 @@
           "applicationProfileDefinition": {
             "nl": "Toestand van het dossier van de Registratie."
           },
-          "vocabularyUsageNote": {
-            "nl": "In het Rijksregister gebruikt wanneer de inschrijving in het register niet meer geldig is, bijvoorbeeld: omdat de persoon uit het register is geschrapt of een eerdere registratie werd geannuleerd of de persoon is overleden, etc."
-          },
           "applicationProfileUsageNote": {
             "nl": "In het Rijksregister gebruikt wanneer de inschrijving in het register niet meer geldig is, bijvoorbeeld: omdat de persoon uit het register is geschrapt of een eerdere registratie werd geannuleerd of de persoon is overleden, etc."
           },
@@ -1892,7 +2514,7 @@
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Registratie",
           "range": {
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "IT001-Dossierstatus-v1"
             },
@@ -1939,6 +2561,18 @@
           "applicationProfileLabel": {
             "nl": "geannuleerdDossier"
           },
+          "vocabularyDefinition": {
+            "nl": "De voorgaande registratie van een Persoon in het register."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De voorgaande registratie van een Persoon in het register."
+          },
+          "vocabularyUsageNote": {
+            "nl": "Enkel van toepassing indien er een nieuwe Registratie bestaat."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Enkel van toepassing indien er een nieuwe Registratie bestaat."
+          },
           "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Registratie",
@@ -1970,10 +2604,10 @@
             "nl": "De nieuwe registratie van een Persoon in het register."
           },
           "vocabularyUsageNote": {
-            "nl": "Enkel van toepassing indien er een referentiedossier bestaat volgens IT002."
+            "nl": "Enkel van toepassing indien er al een Registratie bestaat."
           },
           "applicationProfileUsageNote": {
-            "nl": "Enkel van toepassing indien er een referentiedossier bestaat volgens IT002."
+            "nl": "Enkel van toepassing indien er al een Registratie bestaat."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
@@ -2010,12 +2644,72 @@
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Registratie",
           "range": {
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "IT210-Registertype-v1"
             },
             "applicationProfileLabel": {
               "nl": "Registertype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Samenlevingscontract",
+      "vocabularyLabel": {
+        "nl": "Samenlevingscontract"
+      },
+      "applicationProfileLabel": {
+        "nl": "Samenlevingscontract"
+      },
+      "vocabularyDefinition": {
+        "nl": "Contract met afspraken tussen twee samenwonenden."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Contract met afspraken tussen twee samenwonenden."
+      },
+      "parents": [
+        {
+          "id": "https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract",
+          "vocabularyLabel": {
+            "nl": "Contract"
+          },
+          "applicationProfileLabel": {
+            "nl": "Contract"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#notaris",
+          "vocabularyLabel": {
+            "nl": "notaris"
+          },
+          "applicationProfileLabel": {
+            "nl": "notaris"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de notaris die het Samenlevingscontract heeft genoteerd."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de notaris die het Samenlevingscontract heeft genoteerd."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Samenlevingscontract",
+          "range": {
+            "id": "http://www.w3.org/ns/person#Person",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Persoon"
+            },
+            "applicationProfileLabel": {
+              "nl": "Persoon"
             }
           },
           "minCount": "0",
@@ -2037,6 +2731,17 @@
       "applicationProfileDefinition": {
         "nl": "Officiële, erfelijke of verkregen aanduiding die aan de naam van een Persoon is toegevoegd en die zijn sociale positie, adeldom, ambt, beroep of behaalde onderwijsgraden aangeeft."
       },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/generiek#VersieVolgensGeldigeTijd",
+          "vocabularyLabel": {
+            "nl": "Versie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Versie"
+          }
+        }
+      ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
       "properties": [
@@ -2137,12 +2842,264 @@
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Titel",
           "range": {
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "IT012-AdellijkeTitel-v1"
             },
             "applicationProfileLabel": {
-              "nl": "IT012-AdellijkeTitel-v1"
+              "nl": "AdellijkeTitel"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#UitvaartContract",
+      "vocabularyLabel": {
+        "nl": "Uitvaartcontract"
+      },
+      "applicationProfileLabel": {
+        "nl": "Uitvaartcontract"
+      },
+      "vocabularyDefinition": {
+        "nl": "Contract dat voor de uitvaart van een Persoon is afgesloten met een uitvaartonderneming."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Contract dat voor de uitvaart van een Persoon is afgesloten met een uitvaartonderneming."
+      },
+      "parents": [
+        {
+          "id": "https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract",
+          "vocabularyLabel": {
+            "nl": "Contract"
+          },
+          "applicationProfileLabel": {
+            "nl": "Contract"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#onderneming",
+          "vocabularyLabel": {
+            "nl": "onderneming"
+          },
+          "applicationProfileLabel": {
+            "nl": "onderneming"
+          },
+          "vocabularyDefinition": {
+            "nl": "Onderneming waarmee het Uitvaartcontract is afgesloten."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Onderneming waarmee het Uitvaartcontract is afgesloten."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#UitvaartContract",
+          "range": {
+            "id": "http://www.w3.org/ns/org#Organization",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Organisatie"
+            },
+            "applicationProfileLabel": {
+              "nl": "Organisatie"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Uitvaartwijze",
+      "vocabularyLabel": {
+        "nl": "Uitvaartwijze"
+      },
+      "applicationProfileLabel": {
+        "nl": "Uitvaartwijze"
+      },
+      "vocabularyDefinition": {
+        "nl": "Wilsuiting mbt de uitvaart van de Persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Wilsuiting mbt de uitvaart van de Persoon."
+      },
+      "parents": [
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Wilsuiting",
+          "vocabularyLabel": {
+            "nl": "Wilsuiting"
+          },
+          "applicationProfileLabel": {
+            "nl": "Wilsuiting"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#begraafplaats",
+          "vocabularyLabel": {
+            "nl": "begraafplaats"
+          },
+          "applicationProfileLabel": {
+            "nl": "begraafplaats"
+          },
+          "vocabularyDefinition": {
+            "nl": "Plaats waar de Persoon begraven wil worden, of de waar de as begraven, bijgezet of uitgestrooid moet worden."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Plaats waar de Persoon begraven wil worden, of de waar de as begraven, bijgezet of uitgestrooid moet worden."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Uitvaartwijze",
+          "range": {
+            "id": "http://purl.org/dc/terms/Location",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Plaats"
+            },
+            "applicationProfileLabel": {
+              "nl": "Plaats"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#contract",
+          "vocabularyLabel": {
+            "nl": "contract"
+          },
+          "applicationProfileLabel": {
+            "nl": "contract"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar het Uitvaartcontract."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar het Uitvaartcontract."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Uitvaartwijze",
+          "range": {
+            "id": "https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Contract"
+            },
+            "applicationProfileLabel": {
+              "nl": "Contract"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#lijkbezorging",
+          "vocabularyLabel": {
+            "nl": "lijkbezorging"
+          },
+          "applicationProfileLabel": {
+            "nl": "lijkbezorging"
+          },
+          "vocabularyDefinition": {
+            "nl": "De door de Persoon gekozen bestemming van het stoffelijk overschot na diens overlijden."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De door de Persoon gekozen bestemming van het stoffelijk overschot na diens overlijden."
+          },
+          "vocabularyUsageNote": {
+            "nl": "Begraving of crematie en, in geval van crematie, de bestemming van de as."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Begraving of crematie en, in geval van crematie, de bestemming van de as."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Uitvaartwijze",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "IT153-Lijkbezorgingtype-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "Lijkbezorgingtype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#ritueel",
+          "vocabularyLabel": {
+            "nl": "ritueel"
+          },
+          "applicationProfileLabel": {
+            "nl": "ritueel"
+          },
+          "vocabularyDefinition": {
+            "nl": "De door de Persoon gekozen levensbeschouwelijke of niet-levensbeschouwelijke vorm volgens welke de uitvaartplechtigheid na diens overlijden moet worden gehouden."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De door de Persoon gekozen levensbeschouwelijke of niet-levensbeschouwelijke vorm volgens welke de uitvaartplechtigheid na diens overlijden moet worden gehouden."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Uitvaartwijze",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "IT153-Uitvaartplechtigheidritueeltype-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "Uitvaartplachtigheidritueeltype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#wettelijkVertegenwoordiger",
+          "vocabularyLabel": {
+            "nl": "wettelijkeVertegenwoordiger"
+          },
+          "applicationProfileLabel": {
+            "nl": "wettelijkeVertegenwoordiger"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naarde Persoon door wie de Persoon wettelijk gezien wordt vertegenwoordigd."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naarde Persoon door wie de Persoon wettelijk gezien wordt vertegenwoordigd."
+          },
+          "vocabularyUsageNote": {
+            "nl": "Bijvoorbeeld voor Personen minder dan 16 jaar."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Bijvoorbeeld voor Personen minder dan 16 jaar."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Uitvaartwijze",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "GeregistreerdPersoon"
+            },
+            "applicationProfileLabel": {
+              "nl": "GeregistreerdPersoon"
             }
           },
           "minCount": "0",
@@ -2202,7 +3159,7 @@
         "nl": "Persoon in het buitenland gedomicilieerd bij een diplomatieke post in plaats van op een BelgischAdres, het is te zeggen zonder nog een hoofdverblijfplaats in België en dus ook niet daar tijdelijk afwezig."
       },
       "applicationProfileUsageNote": {
-        "nl": "Plaats waar de Persoon het grootste deel van de tijd verblijft binnen de jurisdictie waarvan hij Inwoner is. Dit wordt doorgaans officieel vastgesteld en geregistreerd in het bevolkingsregister. Kan in praktijk verschillend zijn van de feitelijke verblijfplaats."
+        "nl": "Persoon in het buitenland gedomicilieerd bij een diplomatieke post in plaats van op een BelgischAdres, het is te zeggen zonder nog een hoofdverblijfplaats in België en dus ook niet daar tijdelijk afwezig."
       },
       "parents": [
         {
@@ -2225,9 +3182,6 @@
           },
           "applicationProfileLabel": {
             "nl": "verblijfsadres"
-          },
-          "vocabularyDefinition": {
-            "nl": "Adres van de hoofdverblijfplaats."
           },
           "applicationProfileDefinition": {
             "nl": "Adres van de hoofdverblijfplaats."
@@ -2296,7 +3250,7 @@
             "nl": "Bijkomende informatie over de Verhuis."
           },
           "applicationProfileUsageNote": {
-            "nl": "In praktijk bedoeld voor oa de tekstuele weergave van het adres."
+            "nl": "In praktijk bedoeld voor onder andere de tekstuele weergave van het adres."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/External",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
@@ -2309,6 +3263,126 @@
             },
             "applicationProfileLabel": {
               "nl": "LangString"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Voogdij",
+      "vocabularyLabel": {
+        "nl": "Voogdij"
+      },
+      "applicationProfileLabel": {
+        "nl": "Voogdij"
+      },
+      "vocabularyDefinition": {
+        "nl": "Juridische beschermings- en vertegenwoordigingsregeling waarbij een voogd wordt aangesteld om het gezag over en de belangenbehartiging van een minderjarige uit te oefenen wanneer die niet onder het ouderlijk gezag van zijn ouders staat."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Juridische beschermings- en vertegenwoordigingsregeling waarbij een voogd wordt aangesteld om het gezag over en de belangenbehartiging van een minderjarige uit te oefenen wanneer die niet onder het ouderlijk gezag van zijn ouders staat."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Concreet geeft de Persoonsrelatie aan welke Persoon de voogd is, m.a.w. de Persoon die de Voogdij over de Persoon uitoefent."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Concreet geeft de Persoonsrelatie aan welke Persoon de voogd is, m.a.w. de Persoon die de Voogdij over de Persoon uitoefent."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/persoon#Persoonsrelatie",
+          "vocabularyLabel": {
+            "nl": "Persoonsrelatie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Persoonsrelatie"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "http://purl.org/dc/elements/1.1/description",
+          "vocabularyLabel": {
+            "nl": "beschrijving"
+          },
+          "applicationProfileLabel": {
+            "nl": "beschrijving"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Beschrijving van de Voogdij."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Voogdij",
+          "range": {
+            "id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "LangString"
+            },
+            "applicationProfileLabel": {
+              "nl": "LangString"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Voogdij.rechtvaardiging",
+          "vocabularyLabel": {
+            "nl": "rechtvaardiging"
+          },
+          "applicationProfileLabel": {
+            "nl": "rechtvaardiging"
+          },
+          "vocabularyDefinition": {
+            "nl": "Reden voor de Voogdij over de Persoon."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Reden voor de Voogdij over de Persoon."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Voogdij",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "IT111/113-Rechtvaardingingtype-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "Rechtvaardingingtype"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://purl.org/dc/terms/type",
+          "vocabularyLabel": {
+            "nl": "type"
+          },
+          "applicationProfileLabel": {
+            "nl": "type"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Soort Voogdij die door de voogd van de Persoon wordt uitgeoefend."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Voogdij",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "IT113-Voogdtype-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "Voogdtype"
             }
           },
           "minCount": "0",
@@ -2352,9 +3426,6 @@
           "applicationProfileLabel": {
             "nl": "procedure"
           },
-          "vocabularyDefinition": {
-            "nl": "De juridische procedure die toegepast wordt om de onregelmatige omstandigheid ongedaan te maken."
-          },
           "applicationProfileDefinition": {
             "nl": "De juridische procedure die toegepast wordt om de onregelmatige omstandigheid ongedaan te maken."
           },
@@ -2363,7 +3434,7 @@
           "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#VoorlopigeRegistratie",
           "range": {
             "id": "http://www.w3.org/2004/02/skos/core#Concept",
-            "listedInDocument": true,
+            "listedInDocument": false,
             "vocabularyLabel": {
               "nl": "IT028-ProcedureType-v1"
             },
@@ -2440,6 +3511,120 @@
       ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Wilsuiting",
+      "vocabularyLabel": {
+        "nl": "Wilsuiting"
+      },
+      "applicationProfileLabel": {
+        "nl": "Wilsuiting"
+      },
+      "vocabularyDefinition": {
+        "nl": "Het kenbaar maken door een persoon van een keuze, voorkeur of beslissing over een aangelegenheid die hem of haar persoonlijk betreft."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Het kenbaar maken door een persoon van een keuze, voorkeur of beslissing over een aangelegenheid die hem of haar persoonlijk betreft."
+      },
+      "parents": [
+        {
+          "id": "https://data.vlaanderen.be/ns/generiek#VersieVolgensGeldigeTijd",
+          "vocabularyLabel": {
+            "nl": "Versie"
+          },
+          "applicationProfileLabel": {
+            "nl": "Versie"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "properties": [
+        {
+          "id": "http://www.w3.org/ns/prov#generatedAtTime",
+          "vocabularyLabel": {
+            "nl": "begindatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "begindatum"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Moment vanaf wanneer de instantie van deze klasse op het terrein van toepassing was."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Wilsuiting",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://www.w3.org/ns/prov#invalidatedAtTime",
+          "vocabularyLabel": {
+            "nl": "einddatum"
+          },
+          "applicationProfileLabel": {
+            "nl": "einddatum"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Moment tot wanneer de instantie van deze klasse op het terrein van toepassing was."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Wilsuiting",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#date",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "Date"
+            },
+            "applicationProfileLabel": {
+              "nl": "Date"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#verklaring",
+          "vocabularyLabel": {
+            "nl": "verklaring"
+          },
+          "applicationProfileLabel": {
+            "nl": "verklaring"
+          },
+          "vocabularyDefinition": {
+            "nl": "Verwijzing naar de Verklaring waarmee de Wilsuiting kenbaar is gemaakt."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijzing naar de Verklaring waarmee de Wilsuiting kenbaar is gemaakt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+          "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Wilsuiting",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/generiek/Verklaring",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Verklaring"
+            },
+            "applicationProfileLabel": {
+              "nl": "Verklaring"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        }
+      ]
     }
   ],
   "dataTypes": [
@@ -3295,17 +4480,6 @@
       "applicationProfileUsageNote": {
         "nl": "Te gebruiken als de manier waarop de geografische positie wordt aangeduid pas zal worden vastgelegd bij implementatie. Is deze manier nu al gekend dan moet direct gewerkt worden met Geometrie, GeografischeNaam, Adres, etc."
       },
-      "parents": [
-        {
-          "id": "http://purl.org/dc/terms/LocationPeriodOrJurisdiction",
-          "vocabularyLabel": {
-            "nl": "LocatiePeriodeOfJurisdictie"
-          },
-          "applicationProfileLabel": {
-            "nl": "LocatiePeriodeOfJurisdictie"
-          }
-        }
-      ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard"
     },
@@ -3544,6 +4718,126 @@
       "maxCount": "*"
     },
     {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Geboorte.akte",
+      "vocabularyLabel": {
+        "nl": "akte"
+      },
+      "applicationProfileLabel": {
+        "nl": "akte"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de geboorte-akte."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de geboorte-akte."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#Geboorte",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/generiek/Akte",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Akte"
+        },
+        "applicationProfileLabel": {
+          "nl": "Akte"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Overlijden.akte",
+      "vocabularyLabel": {
+        "nl": "akte"
+      },
+      "applicationProfileLabel": {
+        "nl": "akte"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de overlijdensakte."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de overlijdensakte."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#Overlijden",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/generiek/Akte",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Akte"
+        },
+        "applicationProfileLabel": {
+          "nl": "Akte"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#alternatieveNaam",
+      "vocabularyLabel": {
+        "nl": "alternatieveNaam"
+      },
+      "applicationProfileLabel": {
+        "nl": "alternatieveNaam"
+      },
+      "vocabularyDefinition": {
+        "nl": "Andere naam waarmee de Persoon wordt aangeduid."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Andere naam waarmee de Persoon wordt aangeduid."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "http://www.w3.org/ns/person#Person",
+      "range": {
+        "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AlternatieveNaam",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Alternatieve naam"
+        },
+        "applicationProfileLabel": {
+          "nl": "Alternatieve naam"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#begraafplaats",
+      "vocabularyLabel": {
+        "nl": "begraafplaats"
+      },
+      "applicationProfileLabel": {
+        "nl": "begraafplaats"
+      },
+      "vocabularyDefinition": {
+        "nl": "Plaats waar de Persoon begraven wil worden, of de waar de as begraven, bijgezet of uitgestrooid moet worden."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Plaats waar de Persoon begraven wil worden, of de waar de as begraven, bijgezet of uitgestrooid moet worden."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Uitvaartwijze",
+      "range": {
+        "id": "http://purl.org/dc/terms/Location",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Plaats"
+        },
+        "applicationProfileLabel": {
+          "nl": "Plaats"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
       "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#beheerder",
       "vocabularyLabel": {
         "nl": "beheerder"
@@ -3580,30 +4874,30 @@
       "maxCount": "*"
     },
     {
-      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#beschrijving",
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#beheerdertype",
       "vocabularyLabel": {
-        "nl": "beschrijving"
+        "nl": "beheerdertype"
       },
       "applicationProfileLabel": {
-        "nl": "TijdelijkeAfwezigheid"
+        "nl": "beheerdertype"
+      },
+      "vocabularyDefinition": {
+        "nl": "Type Organisatie dat het AangegevenAdres ingeeft of bewerkt."
       },
       "applicationProfileDefinition": {
-        "nl": "Beschrijving van de TijdelijkeAfwezigheid."
-      },
-      "applicationProfileUsageNote": {
-        "nl": "Adres (indien niet te beschrijven dmv verblijfsadres), land of andere commentaar (bvb verdwijning minderjarige)."
+        "nl": "Type Organisatie dat het AangegevenAdres ingeeft of bewerkt."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#TijdelijkeAfwezigheid",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AangegevenAdres",
       "range": {
-        "id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString",
+        "id": "http://www.w3.org/2004/02/skos/core#Concept",
         "listedInDocument": false,
         "vocabularyLabel": {
-          "nl": "LangString"
+          "nl": "IT214-Beheerdertype-v1"
         },
         "applicationProfileLabel": {
-          "nl": "LangString"
+          "nl": "Beheerdertype"
         }
       },
       "minCount": "0",
@@ -3634,12 +4928,108 @@
       "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Inwonerschapstatus",
       "range": {
         "id": "http://xmlns.com/foaf/0.1/Document",
-        "listedInDocument": false,
+        "listedInDocument": true,
         "vocabularyLabel": {
           "nl": "Document"
         },
         "applicationProfileLabel": {
           "nl": "Document"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#bronDatum",
+      "vocabularyLabel": {
+        "nl": "bronDatum"
+      },
+      "applicationProfileLabel": {
+        "nl": "bronDatum"
+      },
+      "vocabularyDefinition": {
+        "nl": "Oorsprong van de geboortedatum ."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Oorsprong van de geboortedatum ."
+      },
+      "vocabularyUsageNote": {
+        "nl": "In het geval van het Rijksregister van bijzonder belang omdat de geboortedatum identificerend is en zelfs is verwerkt in het Rijksregisternummer."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "In het geval van het Rijksregister van bijzonder belang omdat de geboortedatum identificerend is en zelfs is verwerkt in het Rijksregisternummer."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#Geboorte",
+      "range": {
+        "id": "http://www.w3.org/2004/02/skos/core#Concept",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "IT101-BronGeboortedatumType-v1"
+        },
+        "applicationProfileLabel": {
+          "nl": "BronGeboortedatumType"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#brontype",
+      "vocabularyLabel": {
+        "nl": "brontype"
+      },
+      "applicationProfileLabel": {
+        "nl": "brontype"
+      },
+      "vocabularyDefinition": {
+        "nl": "Type bron van de overlijdensgegevens."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Type bron van de overlijdensgegevens."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#Overlijden",
+      "range": {
+        "id": "http://www.w3.org/2004/02/skos/core#Concept",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "IT150-BronOverlijdenType-v1"
+        },
+        "applicationProfileLabel": {
+          "nl": "BronOverlijdenType"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#contract",
+      "vocabularyLabel": {
+        "nl": "contract"
+      },
+      "applicationProfileLabel": {
+        "nl": "contract"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar het Uitvaartcontract."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar het Uitvaartcontract."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Uitvaartwijze",
+      "range": {
+        "id": "https://spec.edmcouncil.org/fibo/ontology/FND/Agreements/Contracts/Contract",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Contract"
+        },
+        "applicationProfileLabel": {
+          "nl": "Contract"
         }
       },
       "minCount": "0",
@@ -3652,6 +5042,18 @@
       },
       "applicationProfileLabel": {
         "nl": "geannuleerdDossier"
+      },
+      "vocabularyDefinition": {
+        "nl": "De voorgaande registratie van een Persoon in het register."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De voorgaande registratie van een Persoon in het register."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Enkel van toepassing indien er een nieuwe Registratie bestaat."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Enkel van toepassing indien er een nieuwe Registratie bestaat."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
@@ -3677,6 +5079,9 @@
       "applicationProfileLabel": {
         "nl": "geboorte"
       },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de Geboorte van de fictieve identiteit die door de AlternatieveNaam wordt voorgesteld."
+      },
       "applicationProfileDefinition": {
         "nl": "Verwijzing naar de Geboorte van de fictieve identiteit die door de AlternatieveNaam wordt voorgesteld."
       },
@@ -3697,28 +5102,310 @@
       "maxCount": "1"
     },
     {
-      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#identificator",
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#geslacht",
       "vocabularyLabel": {
-        "nl": "identificator"
+        "nl": "geslacht"
       },
       "applicationProfileLabel": {
-        "nl": "identificator"
+        "nl": "geslacht"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar het geslacht van de Persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar het geslacht van de Persoon."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AdministratiefBeheerder",
+      "domain": "http://www.w3.org/ns/person#Person",
       "range": {
-        "id": "http://www.w3.org/ns/adms#Identifier",
+        "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Geslacht",
         "listedInDocument": true,
         "vocabularyLabel": {
-          "nl": "Identificator"
+          "nl": "Geslacht"
         },
         "applicationProfileLabel": {
-          "nl": "Identificator"
+          "nl": "Geslacht"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#heeftGeslachtsverandering",
+      "vocabularyLabel": {
+        "nl": "heeftGeslachtsverandering"
+      },
+      "applicationProfileLabel": {
+        "nl": "heeftGeslachtsverandering"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijst naar de Geslachtsverandering van een Persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijst naar de Geslachtsverandering van een Persoon."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "http://www.w3.org/ns/person#Person",
+      "range": {
+        "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Geslachtsverandering",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Geslachtsverandering"
+        },
+        "applicationProfileLabel": {
+          "nl": "Geslachtsverandering"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#heeftHerkomst",
+      "vocabularyLabel": {
+        "nl": "heeftHerkomst"
+      },
+      "applicationProfileLabel": {
+        "nl": "heeftHerkomst"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de Herkomst van de Persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de Herkomst van de Persoon."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "http://www.w3.org/ns/person#Person",
+      "range": {
+        "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Herkomst",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Herkomst"
+        },
+        "applicationProfileLabel": {
+          "nl": "Herkomst"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#heeftNaamsverandering",
+      "vocabularyLabel": {
+        "nl": "heeftNaamsverandering"
+      },
+      "applicationProfileLabel": {
+        "nl": "heeftNaamsverandering"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar een Naamsverandering van de Persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar een Naamsverandering van de Persoon."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "http://www.w3.org/ns/person#Person",
+      "range": {
+        "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Naamsverandering",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Naamsverandering"
+        },
+        "applicationProfileLabel": {
+          "nl": "Naamsverandering"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#heeftVerhuis",
+      "vocabularyLabel": {
+        "nl": "heeftVerhuis"
+      },
+      "applicationProfileLabel": {
+        "nl": "heeftVerhuis"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de Verhuis die een Persoon heeft gehad."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de Verhuis die een Persoon heeft gehad."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "http://www.w3.org/ns/person#Person",
+      "range": {
+        "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Verhuis",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Verhuis"
+        },
+        "applicationProfileLabel": {
+          "nl": "Verhuis"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#heeftWilsuiting",
+      "vocabularyLabel": {
+        "nl": "heeftWilsuiting"
+      },
+      "applicationProfileLabel": {
+        "nl": "heeftWilsuiting"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de Wilsuiting van de Persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de Wilsuiting van de Persoon."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "http://www.w3.org/ns/person#Person",
+      "range": {
+        "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Wilsuiting",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Wilsuiting"
+        },
+        "applicationProfileLabel": {
+          "nl": "Wilsuiting"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#huwelijk",
+      "vocabularyLabel": {
+        "nl": "huwelijk"
+      },
+      "applicationProfileLabel": {
+        "nl": "huwelijk"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar het Huwelijk waarop de BurgerlijkeStaat gebaseerd is."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar het Huwelijk waarop de BurgerlijkeStaat gebaseerd is."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#BurgerlijkeStaat",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/persoon#Huwelijk",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Huwelijk"
+        },
+        "applicationProfileLabel": {
+          "nl": "Huwelijk"
         }
       },
       "minCount": "0",
       "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#juridischStatuut",
+      "vocabularyLabel": {
+        "nl": "juridischStatuut"
+      },
+      "applicationProfileLabel": {
+        "nl": "juridischStatuut"
+      },
+      "vocabularyDefinition": {
+        "nl": "JuridischStatuut van de persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "JuridischStatuut van de persoon."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "http://www.w3.org/ns/person#Person",
+      "range": {
+        "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#JuridischStatuut",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "JuridischStatuut"
+        },
+        "applicationProfileLabel": {
+          "nl": "JuridischStatuut"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#lijkbezorging",
+      "vocabularyLabel": {
+        "nl": "lijkbezorging"
+      },
+      "applicationProfileLabel": {
+        "nl": "lijkbezorging"
+      },
+      "vocabularyDefinition": {
+        "nl": "De door de Persoon gekozen bestemming van het stoffelijk overschot na diens overlijden."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De door de Persoon gekozen bestemming van het stoffelijk overschot na diens overlijden."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Begraving of crematie en, in geval van crematie, de bestemming van de as."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Begraving of crematie en, in geval van crematie, de bestemming van de as."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Uitvaartwijze",
+      "range": {
+        "id": "http://www.w3.org/2004/02/skos/core#Concept",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "IT153-Lijkbezorgingtype-v1"
+        },
+        "applicationProfileLabel": {
+          "nl": "Lijkbezorgingtype"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#naam",
+      "vocabularyLabel": {
+        "nl": "naam"
+      },
+      "applicationProfileLabel": {
+        "nl": "naam"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de naam van de Persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de naam van de Persoon."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "http://www.w3.org/ns/person#Person",
+      "range": {
+        "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Naam",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Naam"
+        },
+        "applicationProfileLabel": {
+          "nl": "Naam"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
     },
     {
       "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#nationaliteit",
@@ -3727,6 +5414,9 @@
       },
       "applicationProfileLabel": {
         "nl": "nationaliteit"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de Nationaliteit van de fictieve identiteit die door de AlternatieveNaam wordt voorgesteld."
       },
       "applicationProfileDefinition": {
         "nl": "Verwijzing naar de Nationaliteit van de fictieve identiteit die door de AlternatieveNaam wordt voorgesteld."
@@ -3748,6 +5438,96 @@
       "maxCount": "1"
     },
     {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#nietMededeelbaar",
+      "vocabularyLabel": {
+        "nl": "nietMededeelbaar"
+      },
+      "applicationProfileLabel": {
+        "nl": "nietMededeelbaar"
+      },
+      "vocabularyDefinition": {
+        "nl": "Domicilie die niet kan worden meegedeeld."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Domicilie die niet kan worden meegedeeld."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#Domicilie",
+      "range": {
+        "id": "https://w3id.org/dpv#ConfidentialData",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "NietMededeelbaar"
+        },
+        "applicationProfileLabel": {
+          "nl": "NietMededeelbaar"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#notaris",
+      "vocabularyLabel": {
+        "nl": "notaris"
+      },
+      "applicationProfileLabel": {
+        "nl": "notaris"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de notaris die het Samenlevingscontract heeft genoteerd."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de notaris die het Samenlevingscontract heeft genoteerd."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Samenlevingscontract",
+      "range": {
+        "id": "http://www.w3.org/ns/person#Person",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Persoon"
+        },
+        "applicationProfileLabel": {
+          "nl": "Persoon"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#onderneming",
+      "vocabularyLabel": {
+        "nl": "onderneming"
+      },
+      "applicationProfileLabel": {
+        "nl": "onderneming"
+      },
+      "vocabularyDefinition": {
+        "nl": "Onderneming waarmee het Uitvaartcontract is afgesloten."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Onderneming waarmee het Uitvaartcontract is afgesloten."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#UitvaartContract",
+      "range": {
+        "id": "http://www.w3.org/ns/org#Organization",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Organisatie"
+        },
+        "applicationProfileLabel": {
+          "nl": "Organisatie"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
       "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#ouder",
       "vocabularyLabel": {
         "nl": "ouder"
@@ -3756,14 +5536,14 @@
         "nl": "ouder"
       },
       "vocabularyDefinition": {
-        "nl": "Persoon waarvan de Persoon afstamt."
+        "nl": "Verwijzing naar de Persoon die zijn ouder is."
       },
       "applicationProfileDefinition": {
-        "nl": "Persoon waarvan de Persoon afstamt."
+        "nl": "Verwijzing naar de Persoon die zijn ouder is."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingOpgaandeLijn",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Ouders",
       "range": {
         "id": "http://www.w3.org/ns/person#Person",
         "listedInDocument": true,
@@ -3778,7 +5558,37 @@
       "maxCount": "2"
     },
     {
-      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#overschrijving",
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#ouders",
+      "vocabularyLabel": {
+        "nl": "ouders"
+      },
+      "applicationProfileLabel": {
+        "nl": "ouders"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de ouders van de Persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de ouders van de Persoon."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "http://www.w3.org/ns/person#Person",
+      "range": {
+        "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Ouders",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Ouders"
+        },
+        "applicationProfileLabel": {
+          "nl": "Ouders"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Ouders.overschrijving",
       "vocabularyLabel": {
         "nl": "overschrijving"
       },
@@ -3786,22 +5596,148 @@
         "nl": "overschrijving"
       },
       "vocabularyDefinition": {
-        "nl": "Verwijzing naar de Overschrijving van een Akte of Uitspraak in het Register van de Burgerlijke Stand."
+        "nl": "Verwijzing naar de Overschrijving van een Akte of JuridischeBeslissing in het register van de burgerlijke stand  die betrekking heeft op de ouderschapsband."
       },
       "applicationProfileDefinition": {
-        "nl": "Verwijzing naar de Overschrijving van een Akte of Uitspraak in het Register van de Burgerlijke Stand."
+        "nl": "Verwijzing naar de Overschrijving van een Akte of JuridischeBeslissing in het register van de burgerlijke stand  die betrekking heeft op de ouderschapsband."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#AfstammingOpgaandeLijn",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Ouders",
       "range": {
-        "id": "https://implementatie.data.vlaanderen.be/ns/generiek#Overschrijving",
+        "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Overschrijving",
         "listedInDocument": true,
         "vocabularyLabel": {
           "nl": "Overschrijving"
         },
         "applicationProfileLabel": {
           "nl": "Overschrijving"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Overlijden.overschrijving",
+      "vocabularyLabel": {
+        "nl": "overschrijving"
+      },
+      "applicationProfileLabel": {
+        "nl": "overschrijving"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de Overschrijving van een JuridischeBeslissing die betrekking heeft op het Overlijden in het register van de burgerlijke stand."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de Overschrijving van een JuridischeBeslissing die betrekking heeft op het Overlijden in het register van de burgerlijke stand."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#Overlijden",
+      "range": {
+        "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Overschrijving",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Overschrijving"
+        },
+        "applicationProfileLabel": {
+          "nl": "Overschrijving"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Bewindvoering.rechtvaardiging",
+      "vocabularyLabel": {
+        "nl": "rechtvaardiging"
+      },
+      "applicationProfileLabel": {
+        "nl": "rechtvaardiging"
+      },
+      "vocabularyDefinition": {
+        "nl": "Reden voor de Bewindvoering over de Persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Reden voor de Bewindvoering over de Persoon."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Bewindvoering",
+      "range": {
+        "id": "http://www.w3.org/2004/02/skos/core#Concept",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "IT111/113-Rechtvaardingingtype-v1"
+        },
+        "applicationProfileLabel": {
+          "nl": "Rechtvaardingingtype"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#JuridischStatuut.rechtvaardiging",
+      "vocabularyLabel": {
+        "nl": "rechtvaardiging"
+      },
+      "applicationProfileLabel": {
+        "nl": "rechtvaardiging"
+      },
+      "vocabularyDefinition": {
+        "nl": "Reden voor het stauut van de Persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Reden voor het stauut van de Persoon."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Bijvoorbeeld dat het statuut per vonnis is vastgelegd of op bevel van een vrederechter of de beschikking tot bescherming."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Bijvoorbeeld dat het statuut per vonnis is vastgelegd of op bevel van een vrederechter of de beschikking tot bescherming."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#JuridischStatuut",
+      "range": {
+        "id": "http://www.w3.org/2004/02/skos/core#Concept",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "IT111/113-Rechtvaardingingtype-v1"
+        },
+        "applicationProfileLabel": {
+          "nl": "Rechtvaardingingtype"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Voogdij.rechtvaardiging",
+      "vocabularyLabel": {
+        "nl": "rechtvaardiging"
+      },
+      "applicationProfileLabel": {
+        "nl": "rechtvaardiging"
+      },
+      "vocabularyDefinition": {
+        "nl": "Reden voor de Voogdij over de Persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Reden voor de Voogdij over de Persoon."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Voogdij",
+      "range": {
+        "id": "http://www.w3.org/2004/02/skos/core#Concept",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "IT111/113-Rechtvaardingingtype-v1"
+        },
+        "applicationProfileLabel": {
+          "nl": "Rechtvaardingingtype"
         }
       },
       "minCount": "0",
@@ -3826,7 +5762,7 @@
       "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#TijdelijkeAfwezigheid",
       "range": {
         "id": "http://www.w3.org/2004/02/skos/core#Concept",
-        "listedInDocument": true,
+        "listedInDocument": false,
         "vocabularyLabel": {
           "nl": "IT026-RedenAfwezigheid-v1"
         },
@@ -3853,10 +5789,10 @@
         "nl": "De nieuwe registratie van een Persoon in het register."
       },
       "vocabularyUsageNote": {
-        "nl": "Enkel van toepassing indien er een referentiedossier bestaat volgens IT002."
+        "nl": "Enkel van toepassing indien er al een Registratie bestaat."
       },
       "applicationProfileUsageNote": {
-        "nl": "Enkel van toepassing indien er een referentiedossier bestaat volgens IT002."
+        "nl": "Enkel van toepassing indien er al een Registratie bestaat."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
@@ -3893,7 +5829,7 @@
       "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Registratie",
       "range": {
         "id": "http://www.w3.org/2004/02/skos/core#Concept",
-        "listedInDocument": true,
+        "listedInDocument": false,
         "vocabularyLabel": {
           "nl": "IT210-Registertype-v1"
         },
@@ -3905,36 +5841,222 @@
       "maxCount": "1"
     },
     {
-      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#type",
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#registratiedetail",
       "vocabularyLabel": {
-        "nl": "type"
+        "nl": "registratiedetail"
       },
       "applicationProfileLabel": {
-        "nl": "type"
+        "nl": "registratiedetail"
       },
       "vocabularyDefinition": {
-        "nl": "De status van het inwonerschap."
+        "nl": "Verwijzing naar detail mbt de Registratie van de Persoon."
       },
       "applicationProfileDefinition": {
-        "nl": "De status van het inwonerschap."
-      },
-      "vocabularyUsageNote": {
-        "nl": "Bvb besluit genomen door een overheid, woonstcontrole aan de gang etc."
-      },
-      "applicationProfileUsageNote": {
-        "nl": "Bvb besluit genomen door een overheid, woonstcontrole aan de gang etc."
+        "nl": "Verwijzing naar detail mbt de Registratie van de Persoon."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
-      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Inwonerschapstatus",
+      "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
       "range": {
-        "id": "http://www.w3.org/2004/02/skos/core#Concept",
+        "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Registratie",
         "listedInDocument": true,
         "vocabularyLabel": {
-          "nl": "IT003-Inwonerschapstatustype-v1"
+          "nl": "Registratietoestand"
         },
         "applicationProfileLabel": {
-          "nl": "IT003-Inwonerschapstatustype-v1"
+          "nl": "Registratietoestand"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#ritueel",
+      "vocabularyLabel": {
+        "nl": "ritueel"
+      },
+      "applicationProfileLabel": {
+        "nl": "ritueel"
+      },
+      "vocabularyDefinition": {
+        "nl": "De door de Persoon gekozen levensbeschouwelijke of niet-levensbeschouwelijke vorm volgens welke de uitvaartplechtigheid na diens overlijden moet worden gehouden."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De door de Persoon gekozen levensbeschouwelijke of niet-levensbeschouwelijke vorm volgens welke de uitvaartplechtigheid na diens overlijden moet worden gehouden."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Uitvaartwijze",
+      "range": {
+        "id": "http://www.w3.org/2004/02/skos/core#Concept",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "IT153-Uitvaartplechtigheidritueeltype-v1"
+        },
+        "applicationProfileLabel": {
+          "nl": "Uitvaartplachtigheidritueeltype"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#rol",
+      "vocabularyLabel": {
+        "nl": "rol"
+      },
+      "applicationProfileLabel": {
+        "nl": "rol"
+      },
+      "vocabularyDefinition": {
+        "nl": "Rol van de Persoon in de huisvestingsrelatie."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Rol van de Persoon in de huisvestingsrelatie."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Zoals: wie verleent de huisvestingof wie ontvangt ze (typisch resp de ouder en het kind)."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Zoals: wie verleent de huisvestingof wie ontvangt ze (typisch resp de ouder en het kind)."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Huisvestingsrelatie",
+      "range": {
+        "id": "http://www.w3.org/2004/02/skos/core#Concept",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "IT021-Roltype-v1"
+        },
+        "applicationProfileLabel": {
+          "nl": "Roltype"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#titel",
+      "vocabularyLabel": {
+        "nl": "titel"
+      },
+      "applicationProfileLabel": {
+        "nl": "titel"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de Titel van een Persoon."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de Titel van een Persoon."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "http://www.w3.org/ns/person#Person",
+      "range": {
+        "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Titel",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Titel"
+        },
+        "applicationProfileLabel": {
+          "nl": "Titel"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "*"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#uitspraak",
+      "vocabularyLabel": {
+        "nl": "uitspraak"
+      },
+      "applicationProfileLabel": {
+        "nl": "uitspraak"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de Uitsprak van een rechtbank mbt het Overlijden."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de Uitsprak van een rechtbank mbt het Overlijden."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#Overlijden",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/generiek/JuridischeBeslissingDocument",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "JuridischeUitspraakDocument"
+        },
+        "applicationProfileLabel": {
+          "nl": "JuridischeUitspraakDocument"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#uitspraaktype",
+      "vocabularyLabel": {
+        "nl": "uitspraaktype"
+      },
+      "applicationProfileLabel": {
+        "nl": "uitspraaktype"
+      },
+      "vocabularyDefinition": {
+        "nl": "Soort Uitspraak."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Soort Uitspraak."
+      },
+      "vocabularyUsageNote": {
+        "nl": "In deze context of het een Uitspraak betreft die de Persoon overleden verklaart OF een eerdere Uitspraak in die zin ongedaan maakt."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "In deze context of het een Uitspraak betreft die de Persoon overleden verklaart OF een eerdere Uitspraak in die zin ongedaan maakt."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#Overlijden",
+      "range": {
+        "id": "http://www.w3.org/2004/02/skos/core#Concept",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "IT150-Uitspraaktype-v1"
+        },
+        "applicationProfileLabel": {
+          "nl": "Uitspraaktype"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#verklaring",
+      "vocabularyLabel": {
+        "nl": "verklaring"
+      },
+      "applicationProfileLabel": {
+        "nl": "verklaring"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naar de Verklaring waarmee de Wilsuiting kenbaar is gemaakt."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naar de Verklaring waarmee de Wilsuiting kenbaar is gemaakt."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Wilsuiting",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/generiek/Verklaring",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Verklaring"
+        },
+        "applicationProfileLabel": {
+          "nl": "Verklaring"
         }
       },
       "minCount": "0",
@@ -3971,6 +6093,36 @@
       "maxCount": "1"
     },
     {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#verwerving",
+      "vocabularyLabel": {
+        "nl": "verwerving"
+      },
+      "applicationProfileLabel": {
+        "nl": "verwerving"
+      },
+      "vocabularyDefinition": {
+        "nl": "Hoe en waar de Nationaliteit werd verworven."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Hoe en waar de Nationaliteit werd verworven."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#Nationaliteit",
+      "range": {
+        "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Nationaliteitsverwerving",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Nationaliteitsverwerving"
+        },
+        "applicationProfileLabel": {
+          "nl": "Nationaliteitsverwerving"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
       "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#voornaam",
       "vocabularyLabel": {
         "nl": "voornaam"
@@ -3999,6 +6151,73 @@
       },
       "minCount": "0",
       "maxCount": "*"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#wettelijkVertegenwoordiger",
+      "vocabularyLabel": {
+        "nl": "wettelijkeVertegenwoordiger"
+      },
+      "applicationProfileLabel": {
+        "nl": "wettelijkeVertegenwoordiger"
+      },
+      "vocabularyDefinition": {
+        "nl": "Verwijzing naarde Persoon door wie de Persoon wettelijk gezien wordt vertegenwoordigd."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Verwijzing naarde Persoon door wie de Persoon wettelijk gezien wordt vertegenwoordigd."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Bijvoorbeeld voor Personen minder dan 16 jaar."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Bijvoorbeeld voor Personen minder dan 16 jaar."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#Uitvaartwijze",
+      "range": {
+        "id": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "GeregistreerdPersoon"
+        },
+        "applicationProfileLabel": {
+          "nl": "GeregistreerdPersoon"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://implementatie.data.vlaanderen.be/ns/magda/persoon#woonvorm",
+      "vocabularyLabel": {
+        "nl": "woonvorm"
+      },
+      "applicationProfileLabel": {
+        "nl": "woonvorm"
+      },
+      "vocabularyDefinition": {
+        "nl": "Woonvorm van het Gezin."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Woonvorm van het Gezin."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/OntwerpStandaard",
+      "domain": "https://data.vlaanderen.be/ns/persoon#Gezin",
+      "range": {
+        "id": "http://www.w3.org/2004/02/skos/core#Concept",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "IT141-Woonvormtype-v1"
+        },
+        "applicationProfileLabel": {
+          "nl": "Woonvormtype"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1",
+      "codelist": "https://data.vlaanderen.be/id/conceptscheme/IT141/Woonvorm/v1"
     }
   ]
 }
