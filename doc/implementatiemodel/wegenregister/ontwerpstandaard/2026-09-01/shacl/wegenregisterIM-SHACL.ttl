@@ -296,7 +296,7 @@ nummer."""@nl;
   rdfs:comment "Punt in een Netwerk waarbij twee of meer Links of Linksequenties elkaar snijden."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01#Kruising>;
   shacl:closed false;
-  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/wegenregister#Kruising> .
+  shacl:targetClass <http://todo.com/Kruising> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01#KwantitatieveWaardeShape> a shacl:NodeShape;
   rdfs:label "KwantitatieveWaarde"@nl;
@@ -515,7 +515,6 @@ nummer."""@nl;
   shacl:property [
     a shacl:PropertyShape;
     rdfs:label "voorkeursnaam"@nl;
-    <http://purl.org/vocab/vann/usageNote> ""@nl;
     rdfs:comment "Naam waarmee de organisatie bij voorkeur wordt aangeduid."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01#Organisatie.Voorkeursnaam>;
     shacl:datatype rdf:langString;
@@ -547,7 +546,6 @@ nummer."""@nl;
   ], [
     a shacl:PropertyShape;
     rdfs:label "voornaam"@nl;
-    <http://purl.org/vocab/vann/usageNote> ""@nl;
     rdfs:comment "Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01#Persoon.Voornaam>;
     shacl:datatype xsd:string;
@@ -611,10 +609,10 @@ nummer."""@nl;
   shacl:property [
     a shacl:PropertyShape;
     rdfs:label "straatnaam"@nl;
-    rdfs:comment "Naam vd straat."@nl;
+    rdfs:comment "Naam van de straat."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01#Straatnaam.Straatnaam>;
     shacl:datatype rdf:langString;
-    shacl:description "Naam vd straat."@nl;
+    shacl:description "Naam van de straat."@nl;
     shacl:minCount 1;
     shacl:name "straatnaam"@nl;
     shacl:path rdfs:label
@@ -629,7 +627,7 @@ nummer."""@nl;
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01#ToegangShape> a shacl:NodeShape;
   rdfs:label "Toegang"@nl;
-  <http://purl.org/vocab/vann/usageNote> "bijvoorbeeld privaatweg, verbode toegang, openbaar toegankelijk, ontoegankelijk, tolweg."@nl;
+  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld privaatweg, verboden toegang, openbaar toegankelijk, ontoegankelijk, tolweg."@nl;
   rdfs:comment "Beperking op de toegankelijkheid van het Transportobject."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01#Toegang>;
   shacl:closed false;
@@ -809,7 +807,7 @@ rol die de weg vervult in het wegennetwerk."""@nl;
   ], [
     a shacl:PropertyShape;
     rdfs:label "connectie"@nl;
-    <http://purl.org/vocab/vann/usageNote> "In deze context bedoeld om aan te geven dat een Wegknoop een grensknoop is, ttz een knoop bedoeld om te connecteren met een Wegknoop in een ander Netwerk. OPMERKING: deze andere knoop moet niet worden opgegeven."@nl;
+    <http://purl.org/vocab/vann/usageNote> "In deze context bedoeld om aan te geven dat een Wegknoop een grensknoop is, het is te zeggen een knoop bedoeld om te connecteren met een Wegknoop in een ander Netwerk. OPMERKING: deze andere knoop moet niet worden opgegeven."@nl;
     rdfs:comment "Connectie waarvan de Wegknoop deel uitmaakt."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01#Wegknoop.Connectie>;
     shacl:class <https://data.vlaanderen.be/ns/netwerk#Connectie>;
@@ -953,6 +951,8 @@ rol die de weg vervult in het wegennetwerk."""@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01#Wegsegment.Beginknoop>;
     shacl:class <https://data.vlaanderen.be/ns/weg#Wegknoop>;
     shacl:description "Knoop die het begin is van de Link."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
     shacl:name "beginknoop"@nl;
     shacl:path <https://data.vlaanderen.be/ns/netwerk#beginknoop>
   ], [
@@ -962,6 +962,8 @@ rol die de weg vervult in het wegennetwerk."""@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/wegenregister/ontwerpstandaard/2026-09-01#Wegsegment.Eindknoop>;
     shacl:class <https://data.vlaanderen.be/ns/weg#Wegknoop>;
     shacl:description "Knoop die het einde is van de Link."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
     shacl:name "eindknoop"@nl;
     shacl:path <https://data.vlaanderen.be/ns/netwerk#eindknoop>
   ], [

@@ -1439,7 +1439,7 @@
       },
       "Straatnaam.straatnaam": {
         "title": "Straatnaam.straatnaam",
-        "description": "Naam vd straat.",
+        "description": "Naam van de straat.",
         "type": "object",
         "properties": {
           "@value": {
@@ -1471,7 +1471,7 @@
           },
           "straatnaam": {
             "type": "array",
-            "description": "Naam vd straat. Lijst van LangString items.",
+            "description": "Naam van de straat. Lijst van LangString items.",
             "items": {
               "$ref": "#/components/schemas/Straatnaam.straatnaam"
             },
@@ -2133,6 +2133,12 @@
           "kruising": {
             "$ref": "#/components/schemas/GelijkgrondseKruising"
           },
+          "beginknoop": {
+            "$ref": "#/components/schemas/Wegknoop"
+          },
+          "eindknoop": {
+            "$ref": "#/components/schemas/Wegknoop"
+          },
           "@context": {
             "type": "string",
             "description": "URI of the JSON-LD versioned context file for this response.",
@@ -2142,7 +2148,9 @@
         "required": [
           "@type",
           "versiedatum",
-          "geometriemiddenlijn"
+          "geometriemiddenlijn",
+          "beginknoop",
+          "eindknoop"
         ]
       },
       "Wegknoop.versiedatum": {
@@ -2170,7 +2178,7 @@
           },
           "connectie": {
             "type": "array",
-            "description": "Connectie waarvan de Wegknoop deel uitmaakt. In deze context bedoeld om aan te geven dat een Wegknoop een grensknoop is, ttz een knoop bedoeld om te connecteren met een Wegknoop in een ander Netwerk. OPMERKING: deze andere knoop moet niet worden opgegeven. Lijst van Connectie items.",
+            "description": "Connectie waarvan de Wegknoop deel uitmaakt. In deze context bedoeld om aan te geven dat een Wegknoop een grensknoop is, het is te zeggen een knoop bedoeld om te connecteren met een Wegknoop in een ander Netwerk. OPMERKING: deze andere knoop moet niet worden opgegeven. Lijst van Connectie items.",
             "items": {
               "$ref": "#/components/schemas/Connectie"
             },
