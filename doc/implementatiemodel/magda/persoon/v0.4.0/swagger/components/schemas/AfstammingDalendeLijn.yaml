@@ -1,6 +1,6 @@
 title: AfstammingDalendeLijn
 type: object
-description: Het bloedverwantschap tussen een persoon en kinderen van de persoon.
+description: Juridische band tussen een kind en zijn ouder vanuit het standpunt van de ouder.
 properties:
   '@id':
     type: string
@@ -9,19 +9,28 @@ properties:
     type: string
     description: Object type (klasse AfstammingDalendeLijn)
     pattern: ^AfstammingDalendeLijn$
-  datumVanAfstamming:
-    $ref: '#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming'
   afstammingstype:
-    $ref: '#/components/schemas/AfstammingDalendelijnstype'
-  metPersoon:
     oneOf:
-      - $ref: '#/components/schemas/PersoonReferentie'
-      - $ref: '#/components/schemas/GeregistreerdPersoonReferentie'
+      - $ref: '#/components/schemas/Afstammingstype'
+      - $ref: '#/components/schemas/AfstammingDalendelijnstype'
+      - $ref: '#/components/schemas/AfstammingOpgaandelijntype'
     discriminator:
       propertyName: '@type'
       mapping:
-        PersoonReferentie: '#/components/schemas/PersoonReferentie'
-        GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
+        Afstammingstype: '#/components/schemas/Afstammingstype'
+        AfstammingDalendelijnstype: '#/components/schemas/AfstammingDalendelijnstype'
+        AfstammingOpgaandelijntype: '#/components/schemas/AfstammingOpgaandelijntype'
+  metPersoon:
+    oneOf:
+      - $ref: '#/components/schemas/Persoon'
+      - $ref: '#/components/schemas/GeregistreerdPersoon'
+    discriminator:
+      propertyName: '@type'
+      mapping:
+        Persoon: '#/components/schemas/Persoon'
+        GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
+  datumVanAfstamming:
+    $ref: '#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming'
 required:
   - '@type'
   - metPersoon
