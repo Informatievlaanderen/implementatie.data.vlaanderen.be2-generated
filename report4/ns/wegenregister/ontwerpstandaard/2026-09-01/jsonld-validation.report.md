@@ -2,7 +2,7 @@
 
 #||# -------------------------------------  
 
-2026-11-23T14:49:26.358Z info: [JsonLdValidationService]: Loaded 75 URI prefixes into whitelist
+2026-11-23T15:11:13.359Z info: [JsonLdValidationService]: Loaded 75 URI prefixes into whitelist
 
 Error: Path does not refer to a valid file: /tmp/workspace/report4/ns/wegenregister/ontwerpstandaard/2026-09-01/all-*.jsonld
 
