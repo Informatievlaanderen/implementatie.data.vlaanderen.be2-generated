@@ -1,0 +1,37 @@
+{
+  "title": "Beheerder",
+  "type": "object",
+  "description": "Agent verantwoordelijk voor het beheer van het Transportobject.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Beheerder)",
+      "pattern": "^Beheerder$"
+    },
+    "autoriteit": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "Organisatie": "#/components/schemas/Organisatie"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type",
+    "autoriteit"
+  ]
+}

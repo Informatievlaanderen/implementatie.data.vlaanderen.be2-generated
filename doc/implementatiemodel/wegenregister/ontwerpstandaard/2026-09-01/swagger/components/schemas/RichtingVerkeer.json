@@ -1,0 +1,31 @@
+{
+  "title": "RichtingVerkeer",
+  "type": "object",
+  "description": "Geeft de richting aan van de verkeerstroom.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse RichtingVerkeer)",
+      "pattern": "^RichtingVerkeer$"
+    },
+    "verkeerstype": {
+      "type": "array",
+      "description": "Type verkeer waarop de richting betrekking heeft. Lijst van Verkeerstype items.",
+      "items": {
+        "$ref": "#/components/schemas/Verkeerstype"
+      },
+      "minItems": 1
+    },
+    "richting": {
+      "$ref": "#/components/schemas/Richtingtype"
+    }
+  },
+  "required": [
+    "@type",
+    "richting"
+  ]
+}

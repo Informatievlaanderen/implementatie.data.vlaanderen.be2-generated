@@ -20,6 +20,8 @@
 #||#  
 #||#   + adding supporting /home/circleci/project/config/test/voertuigregistratie-im.publication.json
 #||#  
+#||#   + adding supporting /home/circleci/project/config/test/wegenregister.publication.json
+#||#  
 #||#   + adding supporting /home/circleci/project/config/test/wegenvignetregistratie-im.publication.json
 #||#  
 #||#   + adding supporting /home/circleci/project/config/test/zwangerschapsregistratie-im.publication.json

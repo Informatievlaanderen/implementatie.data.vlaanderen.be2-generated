@@ -1,0 +1,83 @@
+{
+  "title": "EuropeseWeg",
+  "type": "object",
+  "description": "Een verzameling Wegsegmenten of  Weglinksequenties die een route vertegenwoordigt die deel uitmaakt van het internationale E-wegennetwerk, gekenmerkt door het Europese wegummer.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse EuropeseWeg)",
+      "pattern": "^EuropeseWeg$"
+    },
+    "creatiedatum": {
+      "$ref": "#/components/schemas/EuropeseWeg.creatiedatum"
+    },
+    "modificatiedatum": {
+      "$ref": "#/components/schemas/EuropeseWeg.modificatiedatum"
+    },
+    "europeesWegnummer": {
+      "$ref": "#/components/schemas/EuropeseWeg.europeesWegnummer"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "link": {
+      "type": "array",
+      "description": "Link die deel uitmaakt van de Linkset. Lijst van GeneriekeLink items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/GeneriekeLink"
+          },
+          {
+            "$ref": "#/components/schemas/Wegsegment"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "GeneriekeLink": "#/components/schemas/GeneriekeLink",
+            "Wegsegment": "#/components/schemas/Wegsegment"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "referentie": {
+      "type": "array",
+      "description": "Netwerkreferentie waarnaar het Netwerkelement verwijst. Lijst van Netwerkreferentie items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Netwerkreferentie"
+          },
+          {
+            "$ref": "#/components/schemas/Linkreferentie"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Netwerkreferentie": "#/components/schemas/Netwerkreferentie",
+            "Linkreferentie": "#/components/schemas/Linkreferentie"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/wegenregister\\/ontwerpstandaard\\/2026-09-01\\/context\\/wegenregister.jsonld$"
+    }
+  },
+  "required": [
+    "@type",
+    "creatiedatum",
+    "europeesWegnummer",
+    "link"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "title": "Wegsegment",
+  "type": "object",
+  "description": "Lineair ruimtelijk object dat de geometrie en connectiviteit beschrijft tussen twee punten in een wegennetwerk.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Wegsegment)",
+      "pattern": "^Wegsegment$"
+    },
+    "creatiedatum": {
+      "$ref": "#/components/schemas/Wegsegment.creatiedatum"
+    },
+    "modificatiedatum": {
+      "$ref": "#/components/schemas/Wegsegment.modificatiedatum"
+    },
+    "linkset": {
+      "type": "array",
+      "description": "Linkset waarvan het Wegsegment deel uitmaakt. Bedoeld voor de nationale of andere Weg of EuropeseWeg waartoe het Wegsegment behoort. Lijst van Linkset items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Linkset"
+          },
+          {
+            "$ref": "#/components/schemas/Weg"
+          },
+          {
+            "$ref": "#/components/schemas/EuropeseWeg"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Linkset": "#/components/schemas/Linkset",
+            "Weg": "#/components/schemas/Weg",
+            "EuropeseWeg": "#/components/schemas/EuropeseWeg"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "geometriemiddenlijn": {
+      "$ref": "#/components/schemas/Curve"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "referentie": {
+      "type": "array",
+      "description": "Netwerkreferentie waarnaar het Netwerkelement verwijst. Lijst van Netwerkreferentie items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Netwerkreferentie"
+          },
+          {
+            "$ref": "#/components/schemas/Linkreferentie"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Netwerkreferentie": "#/components/schemas/Netwerkreferentie",
+            "Linkreferentie": "#/components/schemas/Linkreferentie"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "kruising": {
+      "$ref": "#/components/schemas/GelijkgrondseKruising"
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/wegenregister\\/ontwerpstandaard\\/2026-09-01\\/context\\/wegenregister.jsonld$"
+    }
+  },
+  "required": [
+    "@type",
+    "creatiedatum",
+    "geometriemiddenlijn"
+  ]
+}

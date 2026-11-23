@@ -1,0 +1,48 @@
+{
+  "title": "LineaireReferentie",
+  "type": "object",
+  "description": "Linkreferentie die verwijst naar een deel van het lineair netwerkelement.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse LineaireReferentie)",
+      "pattern": "^LineaireReferentie$"
+    },
+    "vanPositie": {
+      "$ref": "#/components/schemas/KwantitatieveWaarde"
+    },
+    "totPositie": {
+      "$ref": "#/components/schemas/KwantitatieveWaarde"
+    },
+    "toepassingsrichting": {
+      "$ref": "#/components/schemas/Kanttype"
+    },
+    "eigenschap": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Netwerkeigenschap"
+        },
+        {
+          "$ref": "#/components/schemas/Transporteigenschap"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Netwerkeigenschap": "#/components/schemas/Netwerkeigenschap",
+          "Transporteigenschap": "#/components/schemas/Transporteigenschap"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type",
+    "vanPositie",
+    "totPositie",
+    "eigenschap"
+  ]
+}

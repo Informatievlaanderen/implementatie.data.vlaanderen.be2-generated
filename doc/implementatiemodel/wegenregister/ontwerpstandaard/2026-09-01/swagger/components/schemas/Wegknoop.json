@@ -1,0 +1,88 @@
+{
+  "title": "Wegknoop",
+  "type": "object",
+  "description": "Significante positie in het wegennet die het begin of einde van een Wegsegment markeert.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Wegknoop)",
+      "pattern": "^Wegknoop$"
+    },
+    "creatiedatum": {
+      "$ref": "#/components/schemas/Wegknoop.creatiedatum"
+    },
+    "modificatiedatum": {
+      "$ref": "#/components/schemas/Wegknoop.modificatiedatum"
+    },
+    "connectie": {
+      "type": "array",
+      "description": "Connectie waarvan de Wegknoop deel uitmaakt. In deze context bedoeld om aan te geven dat een Wegknoop een grensknoop is, ttz een knoop bedoeld om te connecteren met een Wegknoop in een ander Netwerk. OPMERKING: deze andere knoop moet niet worden opgegeven. Lijst van Connectie items.",
+      "items": {
+        "$ref": "#/components/schemas/Connectie"
+      },
+      "minItems": 1
+    },
+    "type": {
+      "$ref": "#/components/schemas/Wegknooptype"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "referentie": {
+      "type": "array",
+      "description": "Netwerkreferentie waarnaar het Netwerkelement verwijst. Lijst van Netwerkreferentie items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Netwerkreferentie"
+          },
+          {
+            "$ref": "#/components/schemas/Linkreferentie"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Netwerkreferentie": "#/components/schemas/Netwerkreferentie",
+            "Linkreferentie": "#/components/schemas/Linkreferentie"
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "geometrie": {
+      "$ref": "#/components/schemas/Punt"
+    },
+    "beginvertakking": {
+      "type": "array",
+      "description": "Link die vanuit de beginknoop vertrekt. Lijst van Wegsegment items.",
+      "items": {
+        "$ref": "#/components/schemas/Wegsegment"
+      },
+      "minItems": 1
+    },
+    "eindvertakking": {
+      "type": "array",
+      "description": "Link die vanuit de eindknoop vertrekt. Lijst van Wegsegment items.",
+      "items": {
+        "$ref": "#/components/schemas/Wegsegment"
+      },
+      "minItems": 1
+    },
+    "@context": {
+      "type": "string",
+      "description": "URI of the JSON-LD versioned context file for this response.",
+      "pattern": "^https:\\/\\/implementatie.data.test-vlaanderen.be\\/doc\\/implementatiemodel\\/wegenregister\\/ontwerpstandaard\\/2026-09-01\\/context\\/wegenregister.jsonld$"
+    }
+  },
+  "required": [
+    "@type",
+    "creatiedatum",
+    "type",
+    "geometrie"
+  ]
+}

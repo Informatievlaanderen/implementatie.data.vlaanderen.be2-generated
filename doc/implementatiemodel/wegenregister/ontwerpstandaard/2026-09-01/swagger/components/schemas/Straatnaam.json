@@ -1,0 +1,28 @@
+{
+  "title": "Straatnaam",
+  "type": "object",
+  "description": "Adrescomponent met de naam die officieel werd toegekend aan een straat (baan, doorgang, plein) of aan een gehucht en waaraan adressen kunnen zijn gekoppeld.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Straatnaam)",
+      "pattern": "^Straatnaam$"
+    },
+    "straatnaam": {
+      "type": "array",
+      "description": "Naam vd straat. Lijst van LangString items.",
+      "items": {
+        "$ref": "#/components/schemas/Straatnaam.straatnaam"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "straatnaam"
+  ]
+}

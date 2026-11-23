@@ -1,0 +1,34 @@
+{
+  "title": "Persoon",
+  "type": "object",
+  "description": "Natuurlijk persoon.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Persoon)",
+      "pattern": "^Persoon$"
+    },
+    "achternaam": {
+      "$ref": "#/components/schemas/Persoon.achternaam"
+    },
+    "voornaam": {
+      "type": "array",
+      "description": "Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie. Lijst van String items.",
+      "items": {
+        "$ref": "#/components/schemas/Persoon.voornaam"
+      },
+      "minItems": 1
+    },
+    "volledigeNaam": {
+      "$ref": "#/components/schemas/Persoon.volledigeNaam"
+    }
+  },
+  "required": [
+    "@type",
+    "achternaam"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "title": "Netwerkreferentie",
+  "type": "object",
+  "description": "Verwijzing naar een Netwerkelement.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Netwerkreferentie)",
+      "pattern": "^Netwerkreferentie$"
+    },
+    "eigenschap": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Netwerkeigenschap"
+        },
+        {
+          "$ref": "#/components/schemas/Transporteigenschap"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Netwerkeigenschap": "#/components/schemas/Netwerkeigenschap",
+          "Transporteigenschap": "#/components/schemas/Transporteigenschap"
+        }
+      }
+    }
+  },
+  "required": [
+    "@type",
+    "eigenschap"
+  ]
+}
