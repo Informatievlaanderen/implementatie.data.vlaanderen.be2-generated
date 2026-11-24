@@ -601,6 +601,12 @@ components:
           $ref: '#/components/schemas/Problemdetail.detail'
         instance:
           $ref: '#/components/schemas/Problemdetail.instance'
+        errors:
+          type: array
+          description: Mogelijke validatie-fouten die de aanleiding geven voor het probleem. Lijst van Error items.
+          items:
+            $ref: '#/components/schemas/Error'
+          minItems: 1
       required:
         - '@type'
         - type
@@ -1503,6 +1509,61 @@ components:
       required:
         - '@type'
         - registratie
+    Error.detail:
+      title: Error.detail
+      type: object
+      description: Mensleesbare beschrijving van de fout.
+      properties:
+        '@value':
+          type: string
+      required:
+        - '@value'
+    Error.title:
+      title: Error.title
+      type: object
+      description: Korte mensleesbare beschrijving van de fout.
+      properties:
+        '@value':
+          type: string
+      required:
+        - '@value'
+    Error.type:
+      title: Error.type
+      type: object
+      description: Aard van de fout.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          pattern: ^AnyURI$
+      required:
+        - '@id'
+        - '@type'
+    Error:
+      title: Error
+      type: object
+      description: Beschrijving van de fout die is opgetreden.
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Error)
+          pattern: ^Error$
+        detail:
+          $ref: '#/components/schemas/Error.detail'
+        title:
+          $ref: '#/components/schemas/Error.title'
+        type:
+          $ref: '#/components/schemas/Error.type'
+      required:
+        - '@type'
+        - detail
+        - title
+        - type
     Locatie:
       title: Locatie
       type: object
