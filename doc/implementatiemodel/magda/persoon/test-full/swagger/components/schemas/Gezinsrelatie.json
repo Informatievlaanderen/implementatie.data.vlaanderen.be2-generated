@@ -15,15 +15,6 @@
     "gezinsrelatietype": {
       "$ref": "#/components/schemas/Gezinsrelatietype"
     },
-    "woonvorm": {
-      "$ref": "#/components/schemas/Woonvormtype"
-    },
-    "begindatum": {
-      "$ref": "#/components/schemas/Gezinsrelatie.begindatum"
-    },
-    "einddatum": {
-      "$ref": "#/components/schemas/Gezinsrelatie.einddatum"
-    },
     "vanPersoon": {
       "oneOf": [
         {
@@ -44,24 +35,23 @@
     "metPersoon": {
       "oneOf": [
         {
-          "$ref": "#/components/schemas/Persoon"
+          "$ref": "#/components/schemas/PersoonReferentie"
         },
         {
-          "$ref": "#/components/schemas/GeregistreerdPersoon"
+          "$ref": "#/components/schemas/GeregistreerdPersoonReferentie"
         }
       ],
       "discriminator": {
         "propertyName": "@type",
         "mapping": {
-          "Persoon": "#/components/schemas/Persoon",
-          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+          "PersoonReferentie": "#/components/schemas/PersoonReferentie",
+          "GeregistreerdPersoonReferentie": "#/components/schemas/GeregistreerdPersoonReferentie"
         }
       }
     }
   },
   "required": [
     "@type",
-    "begindatum",
     "vanPersoon",
     "metPersoon"
   ]

@@ -12,29 +12,8 @@
       "description": "Object type (klasse Samenwonen)",
       "pattern": "^Samenwonen$"
     },
-    "datum": {
-      "$ref": "#/components/schemas/Samenwonen.datum"
-    },
     "plaats": {
       "$ref": "#/components/schemas/Plaats"
-    },
-    "uitspraak": {
-      "$ref": "#/components/schemas/JuridischeUitspraakDocument"
-    },
-    "verklaring": {
-      "$ref": "#/components/schemas/Verklaring"
-    },
-    "verklaringBeëIndiging": {
-      "$ref": "#/components/schemas/Verklaring"
-    },
-    "contract": {
-      "$ref": "#/components/schemas/Samenlevingscontract"
-    },
-    "begindatum": {
-      "$ref": "#/components/schemas/Samenwonen.begindatum"
-    },
-    "einddatum": {
-      "$ref": "#/components/schemas/Samenwonen.einddatum"
     },
     "vanPersoon": {
       "oneOf": [
@@ -56,24 +35,23 @@
     "metPersoon": {
       "oneOf": [
         {
-          "$ref": "#/components/schemas/Persoon"
+          "$ref": "#/components/schemas/PersoonReferentie"
         },
         {
-          "$ref": "#/components/schemas/GeregistreerdPersoon"
+          "$ref": "#/components/schemas/GeregistreerdPersoonReferentie"
         }
       ],
       "discriminator": {
         "propertyName": "@type",
         "mapping": {
-          "Persoon": "#/components/schemas/Persoon",
-          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+          "PersoonReferentie": "#/components/schemas/PersoonReferentie",
+          "GeregistreerdPersoonReferentie": "#/components/schemas/GeregistreerdPersoonReferentie"
         }
       }
     }
   },
   "required": [
     "@type",
-    "begindatum",
     "vanPersoon",
     "metPersoon"
   ]

@@ -12,26 +12,8 @@
       "description": "Object type (klasse Huwelijk)",
       "pattern": "^Huwelijk$"
     },
-    "datum": {
-      "$ref": "#/components/schemas/Huwelijk.datum"
-    },
     "plaats": {
       "$ref": "#/components/schemas/Plaats"
-    },
-    "akte": {
-      "$ref": "#/components/schemas/Akte"
-    },
-    "uitspraak": {
-      "$ref": "#/components/schemas/JuridischeUitspraakDocument"
-    },
-    "overschrijving": {
-      "$ref": "#/components/schemas/Overschrijving"
-    },
-    "begindatum": {
-      "$ref": "#/components/schemas/Huwelijk.begindatum"
-    },
-    "einddatum": {
-      "$ref": "#/components/schemas/Huwelijk.einddatum"
     },
     "vanPersoon": {
       "oneOf": [
@@ -53,24 +35,23 @@
     "metPersoon": {
       "oneOf": [
         {
-          "$ref": "#/components/schemas/Persoon"
+          "$ref": "#/components/schemas/PersoonReferentie"
         },
         {
-          "$ref": "#/components/schemas/GeregistreerdPersoon"
+          "$ref": "#/components/schemas/GeregistreerdPersoonReferentie"
         }
       ],
       "discriminator": {
         "propertyName": "@type",
         "mapping": {
-          "Persoon": "#/components/schemas/Persoon",
-          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+          "PersoonReferentie": "#/components/schemas/PersoonReferentie",
+          "GeregistreerdPersoonReferentie": "#/components/schemas/GeregistreerdPersoonReferentie"
         }
       }
     }
   },
   "required": [
     "@type",
-    "begindatum",
     "vanPersoon",
     "metPersoon"
   ]

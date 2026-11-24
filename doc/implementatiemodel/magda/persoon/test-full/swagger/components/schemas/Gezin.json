@@ -12,12 +12,6 @@
       "description": "Object type (klasse Gezin)",
       "pattern": "^Gezin$"
     },
-    "begindatum": {
-      "$ref": "#/components/schemas/Gezin.begindatum"
-    },
-    "einddatum": {
-      "$ref": "#/components/schemas/Gezin.einddatum"
-    },
     "gezinsadres": {
       "$ref": "#/components/schemas/Adresvoorstelling"
     },
@@ -25,26 +19,21 @@
       "$ref": "#/components/schemas/Woonvormtype"
     },
     "gezinshoofd": {
-      "type": "array",
-      "description": "De standaard vertegenwoordiger van het Gezin. Lijst van Persoon items.",
-      "items": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/Persoon"
-          },
-          {
-            "$ref": "#/components/schemas/GeregistreerdPersoon"
-          }
-        ],
-        "discriminator": {
-          "propertyName": "@type",
-          "mapping": {
-            "Persoon": "#/components/schemas/Persoon",
-            "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
-          }
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/GeregistreerdPersoon"
         }
-      },
-      "minItems": 1
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Persoon": "#/components/schemas/Persoon",
+          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+        }
+      }
     },
     "gezinslid": {
       "type": "array",
@@ -70,7 +59,6 @@
     }
   },
   "required": [
-    "@type",
-    "begindatum"
+    "@type"
   ]
 }

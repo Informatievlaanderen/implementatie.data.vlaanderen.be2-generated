@@ -13,16 +13,25 @@
       "pattern": "^AfstammingOpgaandeLijn$"
     },
     "afstammingstype": {
-      "$ref": "#/components/schemas/Afstammingstype"
-    },
-    "datumVanAfstamming": {
-      "$ref": "#/components/schemas/AfstammingOpgaandeLijn.datumVanAfstamming"
-    },
-    "begindatum": {
-      "$ref": "#/components/schemas/AfstammingOpgaandeLijn.begindatum"
-    },
-    "einddatum": {
-      "$ref": "#/components/schemas/AfstammingOpgaandeLijn.einddatum"
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Afstammingstype"
+        },
+        {
+          "$ref": "#/components/schemas/AfstammingDalendelijnstype"
+        },
+        {
+          "$ref": "#/components/schemas/AfstammingOpgaandelijntype"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Afstammingstype": "#/components/schemas/Afstammingstype",
+          "AfstammingDalendelijnstype": "#/components/schemas/AfstammingDalendelijnstype",
+          "AfstammingOpgaandelijntype": "#/components/schemas/AfstammingOpgaandelijntype"
+        }
+      }
     },
     "vanPersoon": {
       "oneOf": [
@@ -44,24 +53,26 @@
     "metPersoon": {
       "oneOf": [
         {
-          "$ref": "#/components/schemas/Persoon"
+          "$ref": "#/components/schemas/PersoonReferentie"
         },
         {
-          "$ref": "#/components/schemas/GeregistreerdPersoon"
+          "$ref": "#/components/schemas/GeregistreerdPersoonReferentie"
         }
       ],
       "discriminator": {
         "propertyName": "@type",
         "mapping": {
-          "Persoon": "#/components/schemas/Persoon",
-          "GeregistreerdPersoon": "#/components/schemas/GeregistreerdPersoon"
+          "PersoonReferentie": "#/components/schemas/PersoonReferentie",
+          "GeregistreerdPersoonReferentie": "#/components/schemas/GeregistreerdPersoonReferentie"
         }
       }
+    },
+    "datumVanAfstamming": {
+      "$ref": "#/components/schemas/AfstammingOpgaandeLijn.datumVanAfstamming"
     }
   },
   "required": [
     "@type",
-    "begindatum",
     "vanPersoon",
     "metPersoon"
   ]

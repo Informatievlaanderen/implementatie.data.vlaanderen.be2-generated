@@ -20,9 +20,6 @@
       },
       "minItems": 1
     },
-    "gebruikteVoornaam": {
-      "$ref": "#/components/schemas/Persoon.gebruikteVoornaam"
-    },
     "achternaam": {
       "type": "array",
       "description": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt. Lijst van String items.",
@@ -31,56 +28,23 @@
       },
       "minItems": 1
     },
-    "alternatieveNaam": {
-      "type": "array",
-      "description": "Andere naam waarmee de Persoon wordt aangeduid. Lijst van AlternatieveNaam items.",
-      "items": {
-        "$ref": "#/components/schemas/AlternatieveNaam"
-      },
-      "minItems": 1
-    },
     "contactinfo": {
       "$ref": "#/components/schemas/Contactinfo"
     },
     "geslacht": {
-      "type": "array",
-      "description": "Verwijzing naar het geslacht van de Persoon. Lijst van Geslacht items.",
-      "items": {
-        "$ref": "#/components/schemas/Geslacht"
-      },
-      "minItems": 1
+      "$ref": "#/components/schemas/Geslacht"
     },
     "isHoofdVan": {
-      "type": "array",
-      "description": "Persoon die standaard het Gezin vertegenwoordigt. Lijst van Gezin items.",
-      "items": {
-        "$ref": "#/components/schemas/Gezin"
-      },
-      "minItems": 1
+      "$ref": "#/components/schemas/Gezin"
     },
     "heeftBurgerlijkeStaat": {
-      "type": "array",
-      "description": "Burgerlijke Staat van de Persoon. Lijst van BurgerlijkeStaat items.",
-      "items": {
-        "$ref": "#/components/schemas/BurgerlijkeStaat"
-      },
-      "minItems": 1
+      "$ref": "#/components/schemas/BurgerlijkeStaat"
+    },
+    "heeftGeboorte": {
+      "$ref": "#/components/schemas/Geboorte"
     },
     "heeftOverlijden": {
-      "type": "array",
-      "description": "Verwijst naar de overlijdensgebeurtenis van de Persoon. Bevat vaak de overlijdensgegevens van de Persoon. Lijst van Overlijden items.",
-      "items": {
-        "$ref": "#/components/schemas/Overlijden"
-      },
-      "minItems": 1
-    },
-    "heeftNationaliteit": {
-      "type": "array",
-      "description": "Natioinaliteit van de persoon. Lijst van Nationaliteit items.",
-      "items": {
-        "$ref": "#/components/schemas/Nationaliteit"
-      },
-      "minItems": 1
+      "$ref": "#/components/schemas/Overlijden"
     },
     "heeftInwonerschap": {
       "type": "array",
@@ -108,13 +72,10 @@
             "$ref": "#/components/schemas/Afstamming"
           },
           {
-            "$ref": "#/components/schemas/Bewindvoering"
+            "$ref": "#/components/schemas/AfstammingDalendeLijn"
           },
           {
-            "$ref": "#/components/schemas/Huisvestingsrelatie"
-          },
-          {
-            "$ref": "#/components/schemas/Voogdij"
+            "$ref": "#/components/schemas/AfstammingOpgaandeLijn"
           }
         ],
         "discriminator": {
@@ -124,9 +85,8 @@
             "Huwelijk": "#/components/schemas/Huwelijk",
             "Samenwonen": "#/components/schemas/Samenwonen",
             "Afstamming": "#/components/schemas/Afstamming",
-            "Bewindvoering": "#/components/schemas/Bewindvoering",
-            "Huisvestingsrelatie": "#/components/schemas/Huisvestingsrelatie",
-            "Voogdij": "#/components/schemas/Voogdij"
+            "AfstammingDalendeLijn": "#/components/schemas/AfstammingDalendeLijn",
+            "AfstammingOpgaandeLijn": "#/components/schemas/AfstammingOpgaandeLijn"
           }
         }
       },
@@ -140,99 +100,14 @@
       },
       "minItems": 1
     },
-    "juridischStatuut": {
-      "type": "array",
-      "description": "JuridischStatuut van de persoon. Lijst van JuridischStatuut items.",
-      "items": {
-        "$ref": "#/components/schemas/JuridischStatuut"
-      },
-      "minItems": 1
+    "creatiedatum": {
+      "$ref": "#/components/schemas/Persoon.creatiedatum"
     },
-    "heeftNaamsverandering": {
-      "type": "array",
-      "description": "Verwijzing naar een Naamsverandering van de Persoon. Lijst van Naamsverandering items.",
-      "items": {
-        "$ref": "#/components/schemas/Naamsverandering"
-      },
-      "minItems": 1
+    "modificatiedatum": {
+      "$ref": "#/components/schemas/Persoon.modificatiedatum"
     },
-    "heeftGeboorte": {
-      "type": "array",
-      "description": "Verwijst naar de geboortegebeurtenis van de Persoon. Bevat vaak de geboortegevens van de Persoon. Lijst van Geboorte items.",
-      "items": {
-        "$ref": "#/components/schemas/Geboorte"
-      },
-      "minItems": 1
-    },
-    "titel": {
-      "type": "array",
-      "description": "Verwijzing naar de Titel van een Persoon. Lijst van Titel items.",
-      "items": {
-        "$ref": "#/components/schemas/Titel"
-      },
-      "minItems": 1
-    },
-    "ouders": {
-      "type": "array",
-      "description": "Verwijzing naar de ouders van de Persoon. Lijst van Ouders items.",
-      "items": {
-        "$ref": "#/components/schemas/Ouders"
-      },
-      "minItems": 1
-    },
-    "naam": {
-      "type": "array",
-      "description": "Verwijzing naar de naam van de Persoon. Lijst van Naam items.",
-      "items": {
-        "$ref": "#/components/schemas/Naam"
-      },
-      "minItems": 1
-    },
-    "heeftGeslachtsverandering": {
-      "type": "array",
-      "description": "Verwijst naar de Geslachtsverandering van een Persoon. Lijst van Geslachtsverandering items.",
-      "items": {
-        "$ref": "#/components/schemas/Geslachtsverandering"
-      },
-      "minItems": 1
-    },
-    "heeftVerhuis": {
-      "type": "array",
-      "description": "Verwijzing naar de Verhuis die een Persoon heeft gehad. Lijst van Verhuis items.",
-      "items": {
-        "$ref": "#/components/schemas/Verhuis"
-      },
-      "minItems": 1
-    },
-    "heeftHerkomst": {
-      "type": "array",
-      "description": "Verwijzing naar de Herkomst van de Persoon. Lijst van Herkomst items.",
-      "items": {
-        "$ref": "#/components/schemas/Herkomst"
-      },
-      "minItems": 1
-    },
-    "heeftWilsuiting": {
-      "type": "array",
-      "description": "Verwijzing naar de Wilsuiting van de Persoon. Lijst van Wilsuiting items.",
-      "items": {
-        "oneOf": [
-          {
-            "$ref": "#/components/schemas/Wilsuiting"
-          },
-          {
-            "$ref": "#/components/schemas/Uitvaartwijze"
-          }
-        ],
-        "discriminator": {
-          "propertyName": "@type",
-          "mapping": {
-            "Wilsuiting": "#/components/schemas/Wilsuiting",
-            "Uitvaartwijze": "#/components/schemas/Uitvaartwijze"
-          }
-        }
-      },
-      "minItems": 1
+    "bron": {
+      "$ref": "#/components/schemas/Organisatie"
     }
   },
   "required": [

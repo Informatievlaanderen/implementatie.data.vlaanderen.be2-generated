@@ -12,12 +12,6 @@
       "description": "Object type (klasse Inwonerschap)",
       "pattern": "^Inwonerschap$"
     },
-    "begindatum": {
-      "$ref": "#/components/schemas/Inwonerschap.begindatum"
-    },
-    "einddatum": {
-      "$ref": "#/components/schemas/Inwonerschap.einddatum"
-    },
     "persoon": {
       "oneOf": [
         {
@@ -47,10 +41,22 @@
             "$ref": "#/components/schemas/Domicilie"
           },
           {
-            "$ref": "#/components/schemas/Afwezig"
+            "$ref": "#/components/schemas/AangegevenAdres"
+          },
+          {
+            "$ref": "#/components/schemas/VoorlopigeInschrijving"
+          },
+          {
+            "$ref": "#/components/schemas/Contactadres"
           },
           {
             "$ref": "#/components/schemas/Postadres"
+          },
+          {
+            "$ref": "#/components/schemas/Referentieadres"
+          },
+          {
+            "$ref": "#/components/schemas/VerblijfplaatsBuitenlandDomicilie"
           },
           {
             "$ref": "#/components/schemas/VerblijfplaatsBuitenland"
@@ -63,27 +69,22 @@
           "propertyName": "@type",
           "mapping": {
             "Domicilie": "#/components/schemas/Domicilie",
-            "Afwezig": "#/components/schemas/Afwezig",
+            "AangegevenAdres": "#/components/schemas/AangegevenAdres",
+            "VoorlopigeInschrijving": "#/components/schemas/VoorlopigeInschrijving",
+            "Contactadres": "#/components/schemas/Contactadres",
             "Postadres": "#/components/schemas/Postadres",
+            "Referentieadres": "#/components/schemas/Referentieadres",
+            "VerblijfplaatsBuitenlandDomicilie": "#/components/schemas/VerblijfplaatsBuitenlandDomicilie",
             "VerblijfplaatsBuitenland": "#/components/schemas/VerblijfplaatsBuitenland",
             "WettelijkVerblijf": "#/components/schemas/WettelijkVerblijf"
           }
         }
       },
       "minItems": 1
-    },
-    "status": {
-      "type": "array",
-      "description": "Status van het Inwonerschap. Lijst van Inwonerschapstatus items.",
-      "items": {
-        "$ref": "#/components/schemas/Inwonerschapstatus"
-      },
-      "minItems": 1
     }
   },
   "required": [
     "@type",
-    "begindatum",
     "persoon",
     "jurisdictie"
   ]
