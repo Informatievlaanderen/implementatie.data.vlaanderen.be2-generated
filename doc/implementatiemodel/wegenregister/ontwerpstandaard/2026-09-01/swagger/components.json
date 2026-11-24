@@ -163,6 +163,9 @@
           "type": {
             "$ref": "#/components/schemas/OngelijkgrondseKruisingtype"
           },
+          "identificator": {
+            "$ref": "#/components/schemas/Identificator"
+          },
           "kruisingVan": {
             "type": "array",
             "description": "Links die ongelijkgronds kruisen. De set van kruisend Links is geordend met de laagst gelegen Link eerst. Lijst van Wegsegment items.",
@@ -421,6 +424,9 @@
           },
           "versiedatum": {
             "$ref": "#/components/schemas/GelijkgrondseKruising.versiedatum"
+          },
+          "identificator": {
+            "$ref": "#/components/schemas/Identificator"
           },
           "kruisingVan": {
             "type": "array",
@@ -1316,6 +1322,13 @@
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `OngelijkgrondseKruisingtype` op te halen."
       },
+      "OngelijkgrondseKruising.identificator": {
+        "operationId": "OngelijkgrondseKruisingGET",
+        "parameters": {
+          "id": "$response.body#/OngelijkgrondseKruising.identificator/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
       "OngelijkgrondseKruising.kruisingVan": {
         "operationId": "OngelijkgrondseKruisingGET",
         "parameters": {
@@ -1350,6 +1363,13 @@
           "id": "$response.body#/Toestand.huidigeToestand/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Toestandtype` op te halen."
+      },
+      "GelijkgrondseKruising.identificator": {
+        "operationId": "GelijkgrondseKruisingGET",
+        "parameters": {
+          "id": "$response.body#/GelijkgrondseKruising.identificator/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
       },
       "GelijkgrondseKruising.kruisingVan": {
         "operationId": "GelijkgrondseKruisingGET",
