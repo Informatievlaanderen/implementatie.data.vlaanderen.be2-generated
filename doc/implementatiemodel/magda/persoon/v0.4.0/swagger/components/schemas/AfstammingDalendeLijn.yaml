@@ -22,13 +22,13 @@ properties:
         AfstammingOpgaandelijntype: '#/components/schemas/AfstammingOpgaandelijntype'
   metPersoon:
     oneOf:
-      - $ref: '#/components/schemas/Persoon'
-      - $ref: '#/components/schemas/GeregistreerdPersoon'
+      - $ref: '#/components/schemas/PersoonReferentie'
+      - $ref: '#/components/schemas/GeregistreerdPersoonReferentie'
     discriminator:
       propertyName: '@type'
       mapping:
-        Persoon: '#/components/schemas/Persoon'
-        GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
+        PersoonReferentie: '#/components/schemas/PersoonReferentie'
+        GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
   datumVanAfstamming:
     $ref: '#/components/schemas/AfstammingDalendeLijn.datumVanAfstamming'
 required:

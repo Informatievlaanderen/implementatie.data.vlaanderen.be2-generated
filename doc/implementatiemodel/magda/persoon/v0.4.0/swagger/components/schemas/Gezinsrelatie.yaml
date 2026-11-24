@@ -13,13 +13,13 @@ properties:
     $ref: '#/components/schemas/Gezinsrelatietype'
   metPersoon:
     oneOf:
-      - $ref: '#/components/schemas/Persoon'
-      - $ref: '#/components/schemas/GeregistreerdPersoon'
+      - $ref: '#/components/schemas/PersoonReferentie'
+      - $ref: '#/components/schemas/GeregistreerdPersoonReferentie'
     discriminator:
       propertyName: '@type'
       mapping:
-        Persoon: '#/components/schemas/Persoon'
-        GeregistreerdPersoon: '#/components/schemas/GeregistreerdPersoon'
+        PersoonReferentie: '#/components/schemas/PersoonReferentie'
+        GeregistreerdPersoonReferentie: '#/components/schemas/GeregistreerdPersoonReferentie'
 required:
   - '@type'
   - metPersoon

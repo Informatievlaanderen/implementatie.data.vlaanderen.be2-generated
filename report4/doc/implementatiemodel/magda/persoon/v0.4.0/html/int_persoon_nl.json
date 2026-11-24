@@ -1047,6 +1047,68 @@
       ]
     },
     {
+      "id": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+      "vocabularyLabel": {
+        "nl": "GeregistreerdPersoonReferentie"
+      },
+      "applicationProfileLabel": {
+        "nl": "GeregistreerdPersoonReferentie"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Persoon waarvan de gegevens zijn ingeschreven in een register."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Gelijkaardig aan de klasse GeregistreerdPersoon maar met een beperkte set aantal velden."
+      },
+      "parents": [
+        {
+          "id": "http://www.w3.org/ns/person#Person",
+          "vocabularyLabel": {
+            "nl": "PersoonReferentie"
+          },
+          "applicationProfileLabel": {
+            "nl": "PersoonReferentie"
+          }
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "https://data.vlaanderen.be/ns/persoon#registratie",
+          "vocabularyLabel": {
+            "nl": "registratie"
+          },
+          "applicationProfileLabel": {
+            "nl": "registratie"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Identificatiecode van de persoon in het register."
+          },
+          "parents": [
+            {
+              "id": "http://www.w3.org/ns/adms#identifier"
+            }
+          ],
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+          "range": {
+            "id": "http://www.w3.org/ns/adms#Identifier",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Identificator"
+            },
+            "applicationProfileLabel": {
+              "nl": "Identificator"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
       "id": "http://www.w3.org/2004/02/skos/core#Concept",
       "vocabularyLabel": {
         "nl": "IT000-Geslacht-v1"
@@ -2143,6 +2205,173 @@
       ]
     },
     {
+      "id": "http://www.w3.org/ns/person#Person",
+      "vocabularyLabel": {
+        "nl": "PersoonReferentie"
+      },
+      "applicationProfileLabel": {
+        "nl": "PersoonReferentie"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Natuurlijk persoon."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Gelijkaardig aan de klasse Persoon maar met een beperkte set aantal velden."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "http://xmlns.com/foaf/0.1/familyName",
+          "vocabularyLabel": {
+            "nl": "achternaam"
+          },
+          "applicationProfileLabel": {
+            "nl": "achternaam"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/person#Person",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        },
+        {
+          "id": "http://data.europa.eu/m8g/gender",
+          "vocabularyLabel": {
+            "nl": "geslacht"
+          },
+          "applicationProfileLabel": {
+            "nl": "geslacht"
+          },
+          "applicationProfileDefinition": {
+            "nl": "De uiting van een Persoon's indentiteit, expressie en sociale rol."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Het geslacht van een Persoon is sterk afhankelijk van de manier waarop dit gedefinieerd is, dit kan op basis van de biologische kenmerken maar ook op basis van gender, genderindentiteit, genderexpressie, etc. Voor meer informatie zie <a href=\"https://www.vlaanderen.be/dienst-diversiteitsbeleid/begrippen-rond-gender-en-seksuele-diversiteit\">Begrippen rond gender- en seksuele diversiteit</a>."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/person#Person",
+          "range": {
+            "id": "http://www.w3.org/2004/02/skos/core#Concept",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "IT000-Geslacht-v1"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geslacht"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1",
+          "codelist": "https://data.vlaanderen.be/id/conceptscheme/IT000/Geslacht/v1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/persoon#heeftGeboorte",
+          "vocabularyLabel": {
+            "nl": "heeftGeboorte"
+          },
+          "applicationProfileLabel": {
+            "nl": "heeftGeboorte"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijst naar de geboortegebeurtenis van de Persoon."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Bevat vaak de geboortegevens van de Persoon."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/person#Person",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/persoon#Geboorte",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Geboorte"
+            },
+            "applicationProfileLabel": {
+              "nl": "Geboorte"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://data.vlaanderen.be/ns/persoon#heeftOverlijden",
+          "vocabularyLabel": {
+            "nl": "heeftOverlijden"
+          },
+          "applicationProfileLabel": {
+            "nl": "heeftOverlijden"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Verwijst naar de overlijdensgebeurtenis van de Persoon."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Bevat vaak de overlijdensgegevens van de Persoon."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/person#Person",
+          "range": {
+            "id": "https://data.vlaanderen.be/ns/persoon#Overlijden",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Overlijden"
+            },
+            "applicationProfileLabel": {
+              "nl": "Overlijden"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "http://xmlns.com/foaf/0.1/givenName",
+          "vocabularyLabel": {
+            "nl": "voornaam"
+          },
+          "applicationProfileLabel": {
+            "nl": "voornaam"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "http://www.w3.org/ns/person#Person",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "*"
+        }
+      ]
+    },
+    {
       "id": "https://data.vlaanderen.be/ns/persoon#Persoonsgebeurtenis",
       "vocabularyLabel": {
         "nl": "Persoonsgebeurtenis"
@@ -2232,7 +2461,7 @@
         {
           "id": "https://data.vlaanderen.be/ns/persoon#isRelatieMet",
           "vocabularyLabel": {
-            "nl": "Persoon (target)"
+            "nl": "Persoonsrelatie.PersoonReferentie"
           },
           "applicationProfileLabel": {
             "nl": "metPersoon"
@@ -2247,10 +2476,10 @@
             "id": "http://www.w3.org/ns/person#Person",
             "listedInDocument": true,
             "vocabularyLabel": {
-              "nl": "Persoon"
+              "nl": "PersoonReferentie"
             },
             "applicationProfileLabel": {
-              "nl": "Persoon"
+              "nl": "PersoonReferentie"
             }
           },
           "minCount": "1",
@@ -2259,7 +2488,7 @@
         {
           "id": "https://data.vlaanderen.be/ns/persoon#Persoonsrelatie.persoon",
           "vocabularyLabel": {
-            "nl": "Persoon (source)"
+            "nl": "Persoonsrelatie.Persoon"
           },
           "applicationProfileLabel": {
             "nl": "vanPersoon"

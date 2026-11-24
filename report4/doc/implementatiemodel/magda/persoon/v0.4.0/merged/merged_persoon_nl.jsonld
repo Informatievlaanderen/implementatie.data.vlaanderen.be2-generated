@@ -141,7 +141,7 @@
     }
   },
   "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/v0.4.0",
-  "generatedAtTime": "2026-11-24T09:29:11.320Z",
+  "generatedAtTime": "2026-11-24T10:05:27.422Z",
   "packages": [
     {
       "@id": "urn:oslo-toolchain:3e3274344655bc1a68f11ce246e669616c15e1573f3d450f64ec93eba24316a4",
@@ -1739,6 +1739,71 @@
       ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:d36b4a4ddfb6634f4722a9ce5dee204bee80d024130aea23a116368ba76ff76a",
+      "@type": "Class",
+      "assignedURI": "http://www.w3.org/ns/person#Person",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "PersoonReferentie"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "PersoonReferentie"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Natuurlijk persoon."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gelijkaardig aan de klasse Persoon maar met een beperkte set aantal velden."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:defc6146756160d1be59b8d32ebcfac484ea96e1c1901b7168aa5493e7ac76fb",
+      "@type": "Class",
+      "assignedURI": "https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "GeregistreerdPersoonReferentie"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "GeregistreerdPersoonReferentie"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Persoon waarvan de gegevens zijn ingeschreven in een register."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gelijkaardig aan de klasse GeregistreerdPersoon maar met een beperkte set aantal velden."
+        }
+      ],
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "parent": [
+        {
+          "@id": "urn:oslo-toolchain:d36b4a4ddfb6634f4722a9ce5dee204bee80d024130aea23a116368ba76ff76a"
+        }
+      ],
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     }
   ],
   "attributes": [
@@ -3285,6 +3350,88 @@
       },
       "maxCount": {
         "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:21f1b2c1dbd29c24bdcee8978f49edec736726a1947c66f5827c16491ebde230",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://xmlns.com/foaf/0.1/familyName",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "achternaam"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "achternaam"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:d36b4a4ddfb6634f4722a9ce5dee204bee80d024130aea23a116368ba76ff76a"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:487667944"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "*",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:98e51f8d406be6a8773ccc6c1bc584b2abb0a0854a904cdd6488de1f9ab728e6",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "http://xmlns.com/foaf/0.1/givenName",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "voornaam"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "voornaam"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:d36b4a4ddfb6634f4722a9ce5dee204bee80d024130aea23a116368ba76ff76a"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:487667944"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "*",
         "@type": "http://www.w3.org/2001/XMLSchema#integer"
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/External",
@@ -4888,6 +5035,136 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     },
     {
+      "@id": "urn:oslo-toolchain:283fd9dbece48ceb45a49cf01855651d9f8fc0e7e70fe3130999e017e01a9ba7",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "http://data.europa.eu/m8g/gender",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "geslacht"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "geslacht"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "De uiting van een Persoon's indentiteit, expressie en sociale rol."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Het geslacht van een Persoon is sterk afhankelijk van de manier waarop dit gedefinieerd is, dit kan op basis van de biologische kenmerken maar ook op basis van gender, genderindentiteit, genderexpressie, etc. Voor meer informatie zie <a href=\"https://www.vlaanderen.be/dienst-diversiteitsbeleid/begrippen-rond-gender-en-seksuele-diversiteit\">Begrippen rond gender- en seksuele diversiteit</a>."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:d36b4a4ddfb6634f4722a9ce5dee204bee80d024130aea23a116368ba76ff76a"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:02d9953c8a5d3705da0ee0c8194f015086005b0e9f647d5ddf18c454d0b98bc1"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "codelist": "https://data.vlaanderen.be/id/conceptscheme/IT000/Geslacht/v1",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:7e32399decdaea3db4ab51ae50b41eb83d0477298aa4110bbfcba253ff65cf9f",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "https://data.vlaanderen.be/ns/persoon#registratie",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "registratie"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "registratie"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Identificatiecode van de persoon in het register."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:defc6146756160d1be59b8d32ebcfac484ea96e1c1901b7168aa5493e7ac76fb"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:f85a3c25f6c860235dacfdfef8633eaa0ad5e80954371a85d354d87b9377d270"
+      },
+      "parent": {
+        "@id": "http://www.w3.org/ns/adms#identifier"
+      },
+      "minCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:17c4e03e5d2ee6b5f3a271f2c14a0086a25e37831a87a8c48d210308cb610cd8",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "https://data.vlaanderen.be/ns/persoon#heeftGeboorte",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "heeftGeboorte"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "heeftGeboorte"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Verwijst naar de geboortegebeurtenis van de Persoon."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Bevat vaak de geboortegevens van de Persoon."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:d36b4a4ddfb6634f4722a9ce5dee204bee80d024130aea23a116368ba76ff76a"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:d0e98f3b1efce84110c08468c1a1b016862350a68eee2d17dd3f27430166ecf1"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
       "@id": "urn:oslo-toolchain:181887de696f4b943d476412609f86a53df7235535ee7e3ed9c09a0f1906a533",
       "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
       "assignedURI": "https://data.vlaanderen.be/ns/persoon#gezinsadres",
@@ -4996,6 +5273,50 @@
       },
       "range": {
         "@id": "urn:oslo-toolchain:748aadfe3fd82072e14a20e0c8dab5ac0779deba62cf6ca9ea6493fbcf60e9b0"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:163b3e4f7fdc9ba0f11ee4ab4aacf292f6b038d2a308574767995dfa2e4b3e5c",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "https://data.vlaanderen.be/ns/persoon#heeftOverlijden",
+      "apLabel": [
+        {
+          "@language": "nl",
+          "@value": "heeftOverlijden"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "heeftOverlijden"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Verwijst naar de overlijdensgebeurtenis van de Persoon."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Bevat vaak de overlijdensgegevens van de Persoon."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:d36b4a4ddfb6634f4722a9ce5dee204bee80d024130aea23a116368ba76ff76a"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:8805337bb30c86b61138caadc2889af21ac5bb391f0a90d87421c007bdec7dcc"
       },
       "minCount": {
         "@value": "0",
@@ -5579,7 +5900,7 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     },
     {
-      "@id": "urn:oslo-toolchain:918f683ef01cecc7125c48890816b3c057500102fffbaaaa30976427aa778e2b",
+      "@id": "urn:oslo-toolchain:536607fbec19da277ccd13095fd86036123dd4c0b05f4d7c2348cbe7b3f48de1",
       "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
       "assignedURI": "https://data.vlaanderen.be/ns/persoon#Persoonsrelatie.persoon",
       "apLabel": [
@@ -5590,7 +5911,7 @@
       ],
       "diagramLabel": [
         {
-          "@value": "Persoon (source)"
+          "@value": "Persoonsrelatie.Persoon"
         }
       ],
       "apDefinition": [
@@ -5617,7 +5938,7 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     },
     {
-      "@id": "urn:oslo-toolchain:42aadb210a1c973f5e6ab4f57878c808148b2439bdcc50fe40b39e10439f3847",
+      "@id": "urn:oslo-toolchain:9c4046fb73696a9bf765d8c0003232e2fffc86b0ab14050b903fa27c4dd2fa88",
       "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
       "assignedURI": "https://data.vlaanderen.be/ns/persoon#isRelatieMet",
       "apLabel": [
@@ -5628,7 +5949,7 @@
       ],
       "diagramLabel": [
         {
-          "@value": "Persoon (target)"
+          "@value": "Persoonsrelatie.PersoonReferentie"
         }
       ],
       "apDefinition": [
@@ -5641,7 +5962,7 @@
         "@id": "urn:oslo-toolchain:99072ac6ed2bdb4341e8ac9959c89778951d9da2fa460562d9e632c1c2926bb6"
       },
       "range": {
-        "@id": "urn:oslo-toolchain:edfcac56a241620ce740b3a0aa12e8c908fbbfcfe4d1e98aa813227f3f19c862"
+        "@id": "urn:oslo-toolchain:d36b4a4ddfb6634f4722a9ce5dee204bee80d024130aea23a116368ba76ff76a"
       },
       "minCount": {
         "@value": "1",
@@ -6608,14 +6929,14 @@
     }
   ],
   "config": "config/config-impl.json",
-  "branchtag": "a1dcc0a6ec9040b7430755b978c983d75c0ad5b7",
+  "branchtag": "3349de6af85a442d9d70bcd770e1aaa0203ee939",
   "bundle": false,
   "bundleDirectory": "/resources/OSLO-Persoon-MAGDA-IM/artefacts",
   "contextgenerator": {
     "parameters": "--scopedContext true --enablePolymorphism false"
   },
   "disabled": false,
-  "dummy": "170",
+  "dummy": "171",
   "filename": "config/persoon-magda-im.json",
   "navigation": {
     "prev": "/doc/implementatiemodel/magda/persoon/v0.3.0"
@@ -6625,7 +6946,7 @@
     "parameters": "--title 'MAGDA persoon.personen REST' --description 'MAGDA OSLO-conforme REST API voor persoon.personen (MVP)' --versionAPI 0.4.0 --versionSwagger 3.1.0 --disableLinks --language nl --excludeProperties Inwonerschap.persoon Gezinsrelatie.vanPersoon Huwelijk.vanPersoon Samenwonen.vanPersoon Afstamming.vanPersoon AfstammingDalendeLijn.vanPersoon AfstammingOpgaandeLijn.vanPersoon --licenseURL https://vlaamseoverheid.atlassian.net/wiki/spaces/MG/pages/9056387121/persoon.personen+-+v1#Gebruiksvoorwaarden --licenseName Gebruiksvoorwaarden --outputFormat application/yaml --contactURL https://vlaamseoverheid.atlassian.net/servicedesk/customer/portal/2038 --contactName MAGDA Service Desk --expanded true"
   },
   "urlref": "/doc/implementatiemodel/magda/persoon/v0.4.0",
-  "documentcommit": "a1dcc0a6ec9040b7430755b978c983d75c0ad5b7",
-  "toolchaincommit": "bd0ca6468efb259dba7e87e88175f13e46185da4",
+  "documentcommit": "3349de6af85a442d9d70bcd770e1aaa0203ee939",
+  "toolchaincommit": "98cbe8003a27659537e342bcebc5f670def7f824",
   "hostname": "https://implementatie.data.test-vlaanderen.be"
 }
