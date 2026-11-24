@@ -2,7 +2,7 @@
 
 #||# -------------------------------------  
 
-2026-11-24T12:42:12.892Z warn: Unable to find the description for subject "[urn:oslo-toolchain:4e33a2f8e33ad17f88eda18ce126d513e28c224f638bbf194b8e9377d510d905](all-persoon.jsonld#L3331)".
+2026-11-24T13:28:54.311Z warn: Unable to find the description for subject "[urn:oslo-toolchain:4e33a2f8e33ad17f88eda18ce126d513e28c224f638bbf194b8e9377d510d905](all-persoon.jsonld#L3331)".
 
-2026-11-24T12:42:12.898Z warn: Unable to find the description for subject "[urn:oslo-toolchain:d5c95f81739443139678f5cb408c12e3bbb5bdcb5bebb366d25ea92fda55bd27](all-persoon.jsonld#L3483)".
+2026-11-24T13:28:54.313Z warn: Unable to find the description for subject "[urn:oslo-toolchain:d5c95f81739443139678f5cb408c12e3bbb5bdcb5bebb366d25ea92fda55bd27](all-persoon.jsonld#L3483)".
 
