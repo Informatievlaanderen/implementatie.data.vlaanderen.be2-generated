@@ -1,0 +1,34 @@
+title: GeregistreerdPersoonReferentie
+type: object
+description: Persoon waarvan de gegevens zijn ingeschreven in een register.
+properties:
+  '@id':
+    type: string
+    format: uri
+  '@type':
+    type: string
+    description: Object type (klasse GeregistreerdPersoonReferentie)
+    pattern: ^GeregistreerdPersoonReferentie$
+  registratie:
+    $ref: '#/components/schemas/Identificator'
+  achternaam:
+    type: array
+    description: Gedeelte van de volledige naam van de Persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt. Lijst van String items.
+    items:
+      $ref: '#/components/schemas/GeregistreerdPersoonReferentie.achternaam'
+    minItems: 1
+  voornaam:
+    type: array
+    description: Naam die een Persoon bij geboorte wordt gegeven. Onderscheidt de Persoon van de andere personen in de familie. Lijst van String items.
+    items:
+      $ref: '#/components/schemas/GeregistreerdPersoonReferentie.voornaam'
+    minItems: 1
+  geslacht:
+    $ref: '#/components/schemas/Geslacht'
+  heeftGeboorte:
+    $ref: '#/components/schemas/Geboorte'
+  heeftOverlijden:
+    $ref: '#/components/schemas/Overlijden'
+required:
+  - '@type'
+  - registratie
