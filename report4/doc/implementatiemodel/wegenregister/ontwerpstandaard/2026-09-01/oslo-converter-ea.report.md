@@ -2,55 +2,55 @@
 
 #||# -------------------------------------
 
-2026-11-24T09:03:18.675Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:model - Copy:INSPIRE-TransportNetwork:Transporteigenschap:(Transporteigenschap -> Netwerkreferentie))
+2026-11-24T09:37:53.147Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:model - Copy:INSPIRE-TransportNetwork:Transporteigenschap:(Transporteigenschap -> Netwerkreferentie))
 
-2026-11-24T09:03:18.676Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Generiek:FormeelKader:isGerelateerdAan)
+2026-11-24T09:37:53.148Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Generiek:FormeelKader:isGerelateerdAan)
 
-2026-11-24T09:03:18.676Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Dienst:PubliekeDienstverlening:wordtUitgevoerdDoor)
+2026-11-24T09:37:53.149Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Dienst:PubliekeDienstverlening:wordtUitgevoerdDoor)
 
-2026-11-24T09:03:18.676Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Dienst:PubliekeDienstverlening:produceert)
+2026-11-24T09:37:53.149Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Dienst:PubliekeDienstverlening:produceert)
 
-2026-11-24T09:03:18.676Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Dienst:PubliekeDienstverlening:heeftParticiperende)
+2026-11-24T09:37:53.149Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Dienst:PubliekeDienstverlening:heeftParticiperende)
 
-2026-11-24T09:03:18.676Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Dienst:PubliekeDienstverlening:aangebodenBinnen)
+2026-11-24T09:37:53.149Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Dienst:PubliekeDienstverlening:aangebodenBinnen)
 
-2026-11-24T09:03:18.676Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Dienst:PubliekeDienstverlening:vereist)
+2026-11-24T09:37:53.149Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Dienst:PubliekeDienstverlening:vereist)
 
-2026-11-24T09:03:18.676Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Dienst:PubliekeDienstverlening:isGerelateerdMet)
+2026-11-24T09:37:53.149Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Dienst:PubliekeDienstverlening:isGerelateerdMet)
 
-2026-11-24T09:03:18.676Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Adres:Adres:heeftGemeentenaam)
+2026-11-24T09:37:53.149Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Adres:Adres:heeftGemeentenaam)
 
-2026-11-24T09:03:18.677Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Adres:Adres:heeftPostinfo)
+2026-11-24T09:37:53.149Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Adres:Adres:heeftPostinfo)
 
-2026-11-24T09:03:18.677Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Adres:Adres:heeftStraatnaam)
+2026-11-24T09:37:53.149Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO²:OSLO²_vocabularium:OSLO-Adres:Adres:heeftStraatnaam)
 
-2026-11-24T09:03:18.682Z info: Connector Model:OSLO-Weg:INSPIRE-Road:Wegcategorie:(Wegcategorie -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
+2026-11-24T09:37:53.156Z info: Connector Model:OSLO-Weg:INSPIRE-Road:Wegcategorie:(Wegcategorie -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
 
-2026-11-24T09:03:18.682Z info: Connector Model:OSLO-Weg:INSPIRE-Netwerk:Linkreferentie:(Linkreferentie -> Netwerkreferentie) is not an association with a source role. Ignoring this connector.
+2026-11-24T09:37:53.156Z info: Connector Model:OSLO-Weg:INSPIRE-Netwerk:Linkreferentie:(Linkreferentie -> Netwerkreferentie) is not an association with a source role. Ignoring this connector.
 
-2026-11-24T09:03:18.682Z info: Connector Model:OSLO-Weg:INSPIRE-Netwerk:LineaireReferentie:(LineaireReferentie -> Linkreferentie) is not an association with a source role. Ignoring this connector.
+2026-11-24T09:37:53.156Z info: Connector Model:OSLO-Weg:INSPIRE-Netwerk:LineaireReferentie:(LineaireReferentie -> Linkreferentie) is not an association with a source role. Ignoring this connector.
 
-2026-11-24T09:03:18.682Z info: Connector Model:OSLO-Weg:INSPIRE-TransportNetwork:Beheerder:(Beheerder -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
+2026-11-24T09:37:53.156Z info: Connector Model:OSLO-Weg:INSPIRE-TransportNetwork:Beheerder:(Beheerder -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
 
-2026-11-24T09:03:18.682Z info: Connector Model:OSLO-Weg:INSPIRE-TransportNetwork:RichtingVerkeer:(RichtingVerkeer -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
+2026-11-24T09:37:53.156Z info: Connector Model:OSLO-Weg:INSPIRE-TransportNetwork:RichtingVerkeer:(RichtingVerkeer -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
 
-2026-11-24T09:03:18.682Z info: Connector Model:OSLO-Weg:INSPIRE-TransportNetwork:Status:(Status -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
+2026-11-24T09:37:53.156Z info: Connector Model:OSLO-Weg:INSPIRE-TransportNetwork:Status:(Status -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
 
-2026-11-24T09:03:18.682Z info: Connector Model:OSLO-Weg:INSPIRE-Road:Morfologie:(Morfologie -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
+2026-11-24T09:37:53.156Z info: Connector Model:OSLO-Weg:INSPIRE-Road:Morfologie:(Morfologie -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
 
-2026-11-24T09:03:18.682Z info: Connector Model:OSLO-Weg:INSPIRE-Road:Wegverharding:(Wegverharding -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
+2026-11-24T09:37:53.156Z info: Connector Model:OSLO-Weg:INSPIRE-Road:Wegverharding:(Wegverharding -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
 
-2026-11-24T09:03:18.682Z info: Connector Model:OSLO-Weg:INSPIRE-TransportNetwork:Toegang:(Toegang -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
+2026-11-24T09:37:53.156Z info: Connector Model:OSLO-Weg:INSPIRE-TransportNetwork:Toegang:(Toegang -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
 
-2026-11-24T09:03:18.683Z info: Connector Model:OSLO-Weg:sf:Punt:(Punt -> Geometrie) is not an association with a source role. Ignoring this connector.
+2026-11-24T09:37:53.156Z info: Connector Model:OSLO-Weg:sf:Punt:(Punt -> Geometrie) is not an association with a source role. Ignoring this connector.
 
-2026-11-24T09:03:18.683Z info: Connector Model:OSLO-Weg:sf:Curve:(Curve -> Geometrie) is not an association with a source role. Ignoring this connector.
+2026-11-24T09:37:53.156Z info: Connector Model:OSLO-Weg:sf:Curve:(Curve -> Geometrie) is not an association with a source role. Ignoring this connector.
 
-2026-11-24T09:03:18.683Z info: Connector Model:OSLO-Weg:OSLO-Persoon:Persoon:(Persoon -> Agent) is not an association with a source role. Ignoring this connector.
+2026-11-24T09:37:53.156Z info: Connector Model:OSLO-Weg:OSLO-Persoon:Persoon:(Persoon -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-11-24T09:03:18.683Z info: Connector Model:OSLO-Weg:OSLO-Organisatie:Organisatie:(Organisatie -> Agent) is not an association with a source role. Ignoring this connector.
+2026-11-24T09:37:53.156Z info: Connector Model:OSLO-Weg:OSLO-Organisatie:Organisatie:(Organisatie -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-11-24T09:03:18.683Z info: Connector Model:OSLO-Weg:OSLO-Adres:Straatnaam:(Straatnaam -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
+2026-11-24T09:37:53.156Z info: Connector Model:OSLO-Weg:OSLO-Adres:Straatnaam:(Straatnaam -> Transporteigenschap) is not an association with a source role. Ignoring this connector.
 
 Error: [PackageConverterHandler]: Unable to create URL from package URI (http:://example.com) for package (OSLO-Weg-basis:Schema.org2).
 
