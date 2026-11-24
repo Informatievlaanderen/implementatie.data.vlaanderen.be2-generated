@@ -1,8 +1,8 @@
-#||# oslo-converter-ea for diagram OSLO-Wegenregister
+#||# oslo-converter-ea for diagram OSLO-Persoon-IM-metEnumeraties
 
 #||# -------------------------------------
 
-Error: Path does not refer to a valid file: OSLO-Weg2-IM.eap
+Error: Path does not refer to a valid file: OSLO-Persoon-MAGDA-IM-MVP.eap
 
     at fetchFileOrUrl (/usr/local/lib/node_modules/@oslo-flanders/ea-converter/node_modules/@oslo-flanders/core/lib/utils/fetchFileOrUrl.js:18:15)
 

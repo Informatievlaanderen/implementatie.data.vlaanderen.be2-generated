@@ -2,7 +2,7 @@
 
 #||# -------------------------------------
 
-Error: Path does not refer to a valid file: stakeholders2.csv
+Error: Path does not refer to a valid file: stakeholders-MAGDA.csv
 
     at fetchFileOrUrl (/usr/local/lib/node_modules/@oslo-flanders/stakeholders-converter/node_modules/@oslo-flanders/core/lib/utils/fetchFileOrUrl.js:18:15)
 
