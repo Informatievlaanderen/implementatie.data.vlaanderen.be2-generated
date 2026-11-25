@@ -1,16 +1,57 @@
 {
   "@context": {
+    "Annotatie": {
+      "@context": {
+        "naam": {
+          "@id": "http://purl.org/dc/terms/title",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "waarde": {
+          "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#value",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Annotatie"
+    },
+    "DateTime": {
+      "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
     "Envelop": {
-      "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Envelope"
+      "@id": "http://todo.com/Envelope"
+    },
+    "Error": {
+      "@context": {
+        "detail": {
+          "@id": "http://purl.org/dc/terms/description",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "title": {
+          "@id": "http://purl.org/dc/terms/title",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "type": {
+          "@id": "http://purl.org/dc/terms/type",
+          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+        }
+      },
+      "@id": "http://todo.com/Error"
     },
     "Integer": {
       "@id": "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "Omstandigheid": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
     "Problemdetail": {
       "@context": {
         "detail": {
           "@id": "http://purl.org/dc/terms/description",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "errors": {
+          "@container": "@set",
+          "@id": "http://todo.com/errors",
+          "@type": "http://todo.com/Error"
         },
         "instance": {
           "@id": "http://purl.org/dc/terms/references",
@@ -29,10 +70,46 @@
           "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
         }
       },
-      "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail"
+      "@id": "http://todo.com/Problemdetail"
     },
     "String": {
       "@id": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "Uitzondering": {
+      "@context": {
+        "annotatie": {
+          "@container": "@set",
+          "@id": "http://purl.org/dc/terms/hasPart",
+          "@type": "https://implementatie.data.vlaanderen.be/ns/generiek#Annotatie"
+        },
+        "datum": {
+          "@id": "http://purl.org/dc/terms/issued",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "diagnose": {
+          "@id": "http://purl.org/dc/terms/description",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "omstandigheid": {
+          "@id": "http://purl.org/dc/terms/references",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "oorsprong": {
+          "@id": "http://purl.org/dc/terms/source",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
+        "type": {
+          "@id": "http://purl.org/dc/terms/type",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        }
+      },
+      "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering"
+    },
+    "UitzonderingOorsprong": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+    },
+    "UitzonderingType": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
     "Uri": {
       "@id": "http://www.w3.org/2001/XMLSchema#anyURI"

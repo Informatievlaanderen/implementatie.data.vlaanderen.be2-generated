@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-23
+
+### Added
+- MAGDA Uitzondering klasse
+- MAGDA Annotatie klasse
+- error veld voorzien voor Problemdetail
+
+### Changed
+- Subpackages voorzien voor VDIP, RFC9457, en MAGDA
+
 ## [0.1.1] - 2026-07-30
 
 ### Fixed
