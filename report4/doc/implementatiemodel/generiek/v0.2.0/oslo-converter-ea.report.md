@@ -2,13 +2,7 @@
 
 #||# -------------------------------------
 
-2026-11-25T08:27:01.607Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
-
-2026-11-25T08:27:01.608Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Generiek-IM:MAGDA). Using fallback URI (http://todo.com/) instead.
-
-2026-11-25T08:27:01.608Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Generiek-IM:RFC9457). Using fallback URI (http://todo.com/) instead.
-
-2026-11-25T08:27:01.608Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:OSLO-Generiek-IM:VIDP-REST). Using fallback URI (http://todo.com/) instead.
+2026-11-25T08:38:38.995Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
 #||# -------------------------------------
 
