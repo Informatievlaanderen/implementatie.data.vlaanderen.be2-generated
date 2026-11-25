@@ -1,0 +1,92 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Components of OpenAPI",
+    "description": "This",
+    "version": "1.0.0"
+  },
+  "components": {
+    "schemas": {
+      "CloudEvent.id": {
+        "title": "CloudEvent.id",
+        "description": "undefined Herpublicatie van een duplicaat mag dezelfde source en id gebruiken, de waarde zelf is niet een globale unieke event IRI.",
+        "type": "string"
+      },
+      "CloudEvent.specversion": {
+        "title": "CloudEvent.specversion",
+        "description": "undefined Voor CloudEvents core 1.0.2 is de waarde '1.0' en niet '1.0.2'.",
+        "type": "string"
+      },
+      "CloudEvent.type": {
+        "title": "CloudEvent.type",
+        "description": "Soort event benaming gekozen door de dataproducent. Reverse-DNS prefixes zijn aangeraden. Dit is geen rdf:type omdat een CloudEvents type string niet automatisch een RDF klasse aangeeft.",
+        "type": "string"
+      },
+      "CloudEvent.datacontenttype": {
+        "title": "CloudEvent.datacontenttype",
+        "description": "Mediatype van de inhoud van het event in het attribuut 'data' volgens RFC 2046. Bijvoorbeeld: application/json",
+        "type": "string"
+      },
+      "CloudEvent.subject": {
+        "title": "CloudEvent.subject",
+        "description": "undefined Dit is niet altijd een URI en mag dus niet zomaar gebruikt worden als dcterms:subject of een RDF resource zonder mapping.",
+        "type": "string"
+      },
+      "CloudEvent.time": {
+        "title": "CloudEvent.time",
+        "description": "Tijdstip waarop het event gebeurde. Tijdstip van het event op het terrein, niet het tijdstip waarop het event was aangemaakt of afgeleverd in de data.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "CloudEvent": {
+        "title": "CloudEvent",
+        "type": "object",
+        "description": "Een neerslag van een event dat plaatsvond in een bepaalde context.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse CloudEvent)",
+            "pattern": "^CloudEvent$"
+          },
+          "id": {
+            "$ref": "#/components/schemas/CloudEvent.id"
+          },
+          "specversion": {
+            "$ref": "#/components/schemas/CloudEvent.specversion"
+          },
+          "type": {
+            "$ref": "#/components/schemas/CloudEvent.type"
+          },
+          "datacontenttype": {
+            "$ref": "#/components/schemas/CloudEvent.datacontenttype"
+          },
+          "subject": {
+            "$ref": "#/components/schemas/CloudEvent.subject"
+          },
+          "time": {
+            "$ref": "#/components/schemas/CloudEvent.time"
+          }
+        },
+        "required": [
+          "@type",
+          "id",
+          "specversion",
+          "type"
+        ]
+      }
+    },
+    "links": {
+      "CloudEvent.data": {
+        "operationId": "CloudEventGET",
+        "parameters": {
+          "id": "$response.body#/CloudEvent.data/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Inhoud` op te halen."
+      }
+    }
+  }
+}

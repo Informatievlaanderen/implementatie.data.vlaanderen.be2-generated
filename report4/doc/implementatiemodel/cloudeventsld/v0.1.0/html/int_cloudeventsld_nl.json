@@ -1,0 +1,434 @@
+{
+  "baseURI": "https://w3id.org/cloudevents#",
+  "classes": [
+    {
+      "id": "https://w3id.org/cloudevents#CloudEvent",
+      "vocabularyLabel": {
+        "nl": "CloudEvent"
+      },
+      "applicationProfileLabel": {
+        "nl": "CloudEvent"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Een neerslag van een event dat plaatsvond in een bepaalde context."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Het RDF subject is een combinatie van het attribuut 'id' en zijn attribuut 'source'."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "properties": [
+        {
+          "id": "https://w3id.org/cloudevents#data",
+          "vocabularyLabel": {
+            "nl": "data"
+          },
+          "applicationProfileLabel": {
+            "nl": "data"
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Beschouwd als een abstracte klasse omdat de inhoud alles kan zijn, beschreven door datacontenttype."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://w3id.org/cloudevents#CloudEvent",
+          "range": {
+            "id": "https://w3id.org/cloudevents#Payload",
+            "listedInDocument": true,
+            "vocabularyLabel": {
+              "nl": "Payload"
+            },
+            "applicationProfileLabel": {
+              "nl": "Inhoud"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://w3id.org/cloudevents#datacontenttype",
+          "vocabularyLabel": {
+            "nl": "datacontenttype"
+          },
+          "applicationProfileLabel": {
+            "nl": "datacontenttype"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Mediatype van de inhoud van het event in het attribuut 'data' volgens RFC 2046."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Bijvoorbeeld: application/json"
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://w3id.org/cloudevents#CloudEvent",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://w3id.org/cloudevents#id",
+          "vocabularyLabel": {
+            "nl": "id"
+          },
+          "applicationProfileLabel": {
+            "nl": "id"
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Herpublicatie van een duplicaat mag dezelfde source en id gebruiken, de waarde zelf is niet een globale unieke event IRI."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://w3id.org/cloudevents#CloudEvent",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://w3id.org/cloudevents#specversion",
+          "vocabularyLabel": {
+            "nl": "specversion"
+          },
+          "applicationProfileLabel": {
+            "nl": "specversion"
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Voor CloudEvents core 1.0.2 is de waarde '1.0' en niet '1.0.2'."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://w3id.org/cloudevents#CloudEvent",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://w3id.org/cloudevents#subject",
+          "vocabularyLabel": {
+            "nl": "subject"
+          },
+          "applicationProfileLabel": {
+            "nl": "subject"
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Dit is niet altijd een URI en mag dus niet zomaar gebruikt worden als dcterms:subject of een RDF resource zonder mapping."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://w3id.org/cloudevents#CloudEvent",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://w3id.org/cloudevents#time",
+          "vocabularyLabel": {
+            "nl": "time"
+          },
+          "applicationProfileLabel": {
+            "nl": "time"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Tijdstip waarop het event gebeurde."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Tijdstip van het event op het terrein, niet het tijdstip waarop het event was aangemaakt of afgeleverd in de data."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://w3id.org/cloudevents#CloudEvent",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#dateTime",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "DateTime"
+            },
+            "applicationProfileLabel": {
+              "nl": "DateTime"
+            }
+          },
+          "minCount": "0",
+          "maxCount": "1"
+        },
+        {
+          "id": "https://w3id.org/cloudevents#type",
+          "vocabularyLabel": {
+            "nl": "type"
+          },
+          "applicationProfileLabel": {
+            "nl": "type"
+          },
+          "applicationProfileDefinition": {
+            "nl": "Soort event benaming gekozen door de dataproducent."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Reverse-DNS prefixes zijn aangeraden. Dit is geen rdf:type omdat een CloudEvents type string niet automatisch een RDF klasse aangeeft."
+          },
+          "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+          "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+          "domain": "https://w3id.org/cloudevents#CloudEvent",
+          "range": {
+            "id": "http://www.w3.org/2001/XMLSchema#string",
+            "listedInDocument": false,
+            "vocabularyLabel": {
+              "nl": "String"
+            },
+            "applicationProfileLabel": {
+              "nl": "String"
+            }
+          },
+          "minCount": "1",
+          "maxCount": "1"
+        }
+      ]
+    },
+    {
+      "id": "https://w3id.org/cloudevents#Payload",
+      "vocabularyLabel": {
+        "nl": "Payload"
+      },
+      "applicationProfileLabel": {
+        "nl": "Inhoud"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    }
+  ],
+  "dataTypes": [],
+  "properties": [
+    {
+      "id": "https://w3id.org/cloudevents#data",
+      "vocabularyLabel": {
+        "nl": "data"
+      },
+      "applicationProfileLabel": {
+        "nl": "data"
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Beschouwd als een abstracte klasse omdat de inhoud alles kan zijn, beschreven door datacontenttype."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "domain": "https://w3id.org/cloudevents#CloudEvent",
+      "range": {
+        "id": "https://w3id.org/cloudevents#Payload",
+        "listedInDocument": true,
+        "vocabularyLabel": {
+          "nl": "Payload"
+        },
+        "applicationProfileLabel": {
+          "nl": "Inhoud"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://w3id.org/cloudevents#datacontenttype",
+      "vocabularyLabel": {
+        "nl": "datacontenttype"
+      },
+      "applicationProfileLabel": {
+        "nl": "datacontenttype"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Mediatype van de inhoud van het event in het attribuut 'data' volgens RFC 2046."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Bijvoorbeeld: application/json"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "domain": "https://w3id.org/cloudevents#CloudEvent",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#string",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "String"
+        },
+        "applicationProfileLabel": {
+          "nl": "String"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://w3id.org/cloudevents#id",
+      "vocabularyLabel": {
+        "nl": "id"
+      },
+      "applicationProfileLabel": {
+        "nl": "id"
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Herpublicatie van een duplicaat mag dezelfde source en id gebruiken, de waarde zelf is niet een globale unieke event IRI."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "domain": "https://w3id.org/cloudevents#CloudEvent",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#string",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "String"
+        },
+        "applicationProfileLabel": {
+          "nl": "String"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://w3id.org/cloudevents#specversion",
+      "vocabularyLabel": {
+        "nl": "specversion"
+      },
+      "applicationProfileLabel": {
+        "nl": "specversion"
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Voor CloudEvents core 1.0.2 is de waarde '1.0' en niet '1.0.2'."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "domain": "https://w3id.org/cloudevents#CloudEvent",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#string",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "String"
+        },
+        "applicationProfileLabel": {
+          "nl": "String"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://w3id.org/cloudevents#subject",
+      "vocabularyLabel": {
+        "nl": "subject"
+      },
+      "applicationProfileLabel": {
+        "nl": "subject"
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Dit is niet altijd een URI en mag dus niet zomaar gebruikt worden als dcterms:subject of een RDF resource zonder mapping."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "domain": "https://w3id.org/cloudevents#CloudEvent",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#string",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "String"
+        },
+        "applicationProfileLabel": {
+          "nl": "String"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://w3id.org/cloudevents#time",
+      "vocabularyLabel": {
+        "nl": "time"
+      },
+      "applicationProfileLabel": {
+        "nl": "time"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Tijdstip waarop het event gebeurde."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Tijdstip van het event op het terrein, niet het tijdstip waarop het event was aangemaakt of afgeleverd in de data."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "domain": "https://w3id.org/cloudevents#CloudEvent",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#dateTime",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "DateTime"
+        },
+        "applicationProfileLabel": {
+          "nl": "DateTime"
+        }
+      },
+      "minCount": "0",
+      "maxCount": "1"
+    },
+    {
+      "id": "https://w3id.org/cloudevents#type",
+      "vocabularyLabel": {
+        "nl": "type"
+      },
+      "applicationProfileLabel": {
+        "nl": "type"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Soort event benaming gekozen door de dataproducent."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Reverse-DNS prefixes zijn aangeraden. Dit is geen rdf:type omdat een CloudEvents type string niet automatisch een RDF klasse aangeeft."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
+      "domain": "https://w3id.org/cloudevents#CloudEvent",
+      "range": {
+        "id": "http://www.w3.org/2001/XMLSchema#string",
+        "listedInDocument": false,
+        "vocabularyLabel": {
+          "nl": "String"
+        },
+        "applicationProfileLabel": {
+          "nl": "String"
+        }
+      },
+      "minCount": "1",
+      "maxCount": "1"
+    }
+  ]
+}

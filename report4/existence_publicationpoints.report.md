@@ -3,12 +3,9 @@
 #||#    + checking /home/circleci/project/config/test/cloudeventsld-im.publication.json
 #||# 
 #||# Directory check
-error: missing '/tmp/generated/doc/implementatiemodel/cloudeventsld'
-error: missing '/tmp/generated/doc/implementatiemodel/cloudeventsld/v0.1.0'
 #||# 
 #||# index.html check
 error: missing '/tmp/generated/doc/implementatiemodel/cloudeventsld/index.html'
-error: missing '/tmp/generated/doc/implementatiemodel/cloudeventsld/v0.1.0/index.html'
 
 #||#    + checking /home/circleci/project/config/test/generiek-im.publication.json
 #||# 
