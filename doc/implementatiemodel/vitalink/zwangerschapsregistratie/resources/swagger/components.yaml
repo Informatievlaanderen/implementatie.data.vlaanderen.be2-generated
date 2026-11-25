@@ -69,20 +69,21 @@ components:
           minItems: 1
         volledigeNaam:
           $ref: '#/components/schemas/Persoon.volledigeNaam'
-        isLidVan:
-          type: array
-          description: Niet nader bepaald lidmaatschap van een agent van een organisatie. Dekt elk type aansluiting of betrokkenheid van een agent bij een organisatie, niet enkel formeel lidmaatschap. Kan eventueel verder gespecialiseerd worden. Lijst van Organisatie items.
-          items:
-            $ref: '#/components/schemas/Organisatie'
-          minItems: 1
         identificator:
           type: array
           description: Identificator van het object. Bij implementatie in RDF is de uri van het object de identificator. Lijst van Identificator items.
           items:
             $ref: '#/components/schemas/Identificator'
           minItems: 1
+        isLidVan:
+          type: array
+          description: Niet nader bepaald lidmaatschap van een agent van een organisatie. Dekt elk type aansluiting of betrokkenheid van een agent bij een organisatie, niet enkel formeel lidmaatschap. Kan eventueel verder gespecialiseerd worden. Lijst van Organisatie items.
+          items:
+            $ref: '#/components/schemas/Organisatie'
+          minItems: 1
       required:
         - '@type'
+        - identificator
     Organisatie.voorkeursnaam:
       title: Organisatie.voorkeursnaam
       description: Naam waarmee de Organisatie bij voorkeur wordt aangeduid.
@@ -140,7 +141,14 @@ components:
         toestand:
           $ref: '#/components/schemas/Zwangerschapstoestand'
         heeftPersoon:
-          $ref: '#/components/schemas/Persoon'
+          oneOf:
+            - $ref: '#/components/schemas/Persoon'
+            - $ref: '#/components/schemas/Zorgverlener'
+          discriminator:
+            propertyName: '@type'
+            mapping:
+              Persoon: '#/components/schemas/Persoon'
+              Zorgverlener: '#/components/schemas/Zorgverlener'
         heeftFoetus:
           type: array
           description: Een Zwangerschap heeft een of meerdere Foetussen. Lijst van Foetus items.
@@ -227,6 +235,7 @@ components:
           minItems: 1
       required:
         - '@type'
+        - identificator
     MedischeObservatie.effectiefTijdstip:
       title: MedischeObservatie.effectiefTijdstip
       description: De tijd of tijdsperiode waarin de waargenomen waarde als waar wordt beschouwd.

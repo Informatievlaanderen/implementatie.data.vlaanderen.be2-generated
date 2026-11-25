@@ -18,7 +18,14 @@ properties:
   toestand:
     $ref: '#/components/schemas/Zwangerschapstoestand'
   heeftPersoon:
-    $ref: '#/components/schemas/Persoon'
+    oneOf:
+      - $ref: '#/components/schemas/Persoon'
+      - $ref: '#/components/schemas/Zorgverlener'
+    discriminator:
+      propertyName: '@type'
+      mapping:
+        Persoon: '#/components/schemas/Persoon'
+        Zorgverlener: '#/components/schemas/Zorgverlener'
   heeftFoetus:
     type: array
     description: Een Zwangerschap heeft een of meerdere Foetussen. Lijst van Foetus items.

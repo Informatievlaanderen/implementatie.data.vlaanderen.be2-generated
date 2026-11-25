@@ -42,16 +42,6 @@
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
-    rdfs:label "identificator"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Bij implementatie in RDF is de uri van het object de identificator."@nl;
-    rdfs:comment "Identificator van het object."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.8#Agent.Identificator>;
-    shacl:class <http://www.w3.org/ns/adms#Identifier>;
-    shacl:description "Identificator van het object."@nl;
-    shacl:name "identificator"@nl;
-    shacl:path <http://www.w3.org/ns/adms#identifier>
-  ], [
-    a shacl:PropertyShape;
     rdfs:label "stelt op"@nl;
     rdfs:comment "De Agent stelt een Medisch Verslag op."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.8#Agent.SteltOp>;
@@ -61,9 +51,24 @@
     shacl:path <https://data.vlaanderen.be/ns/gezondheidstoestand#steltOp>
   ];
   shacl:targetClass <http://www.w3.org/ns/person#Person>,
+    <https://hl7.org/fhir/practitioner-definitions.html#Practitioner>,
     dc:Agent,
-    org:Organization,
-    <https://hl7.org/fhir/practitioner-definitions.html#Practitioner> .
+    org:Organization;
+  shacl:xone ([
+      shacl:not _:df_2_51;
+      shacl:property [
+        a shacl:PropertyShape;
+        rdfs:label "identificator"@nl;
+        <http://purl.org/vocab/vann/usageNote> "Bij implementatie in RDF is de uri van het object de identificator."@nl;
+        rdfs:comment "Identificator van het object."@nl;
+        rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.8#Agent.Identificator>;
+        shacl:class <http://www.w3.org/ns/adms#Identifier>;
+        shacl:description "Identificator van het object."@nl;
+        shacl:name "identificator"@nl;
+        shacl:path <http://www.w3.org/ns/adms#identifier>
+      ]
+    ] [shacl:property _:df_2_25,
+        _:df_2_51]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.8#AnnotatieShape> a shacl:NodeShape;
   rdfs:label "Annotatie"@nl;
@@ -114,7 +119,7 @@
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Envelope>,
     <https://implementatie.data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#PregnancyListEnvelope>;
   shacl:xone ([
-      shacl:not _:df_2_44;
+      shacl:not _:df_2_46;
       shacl:property [
         a shacl:PropertyShape;
         rdfs:label "data"@nl;
@@ -126,7 +131,7 @@
         shacl:path <https://implementatie.data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#data>
       ]
     ] [shacl:property _:df_2_24,
-        _:df_2_44]) .
+        _:df_2_46]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.8#DateTimeShape> a shacl:NodeShape;
   rdfs:label "DateTime";
@@ -186,7 +191,7 @@
     shacl:description "Link naar de agent die de identificator heeft uitgegeven."@nl;
     shacl:maxCount 1;
     shacl:name "toegekendDoor"@nl;
-    shacl:or ([shacl:class dc:Agent] [shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class org:Organization] [shacl:class <https://hl7.org/fhir/practitioner-definitions.html#Practitioner>]);
+    shacl:or ([shacl:class dc:Agent] [shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class <https://hl7.org/fhir/practitioner-definitions.html#Practitioner>] [shacl:class org:Organization]);
     shacl:path dc:creator
   ];
   shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
@@ -215,7 +220,7 @@
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.8#MedischVerslag.OpgesteldDoor>;
     shacl:description "Het Medisch Verslag wordt opgesteld door een Agent."@nl;
     shacl:name "opgesteld door"@nl;
-    shacl:or ([shacl:class dc:Agent] [shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class org:Organization] [shacl:class <https://hl7.org/fhir/practitioner-definitions.html#Practitioner>]);
+    shacl:or ([shacl:class dc:Agent] [shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class <https://hl7.org/fhir/practitioner-definitions.html#Practitioner>] [shacl:class org:Organization]);
     shacl:path <https://data.vlaanderen.be/ns/gezondheidstoestand#MedischVerslag.opgesteldDoor>
   ], [
     a shacl:PropertyShape;
@@ -398,7 +403,13 @@
     shacl:name "heeft zwangerschap"@nl;
     shacl:path <https://data.vlaanderen.be/ns/gezondheidstoestand#Persoon.heeftZwangerschap>
   ];
-  shacl:targetClass <http://www.w3.org/ns/person#Person> .
+  shacl:targetClass <http://www.w3.org/ns/person#Person>,
+    <https://hl7.org/fhir/practitioner-definitions.html#Practitioner>;
+  shacl:xone ([
+      shacl:not _:df_2_56;
+      shacl:property _:df_2_25
+    ] [shacl:property _:df_2_33,
+        _:df_2_56]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.8#PregnancyListEnvelopeShape> a shacl:NodeShape;
   rdfs:label "PregnancyListEnvelope"@nl;
@@ -569,6 +580,7 @@
   rdfs:comment "Een persoon met een formele verantwoordelijkheid bij het verlenen van gezondheidszorg of aanverwante diensten."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.8#Zorgverlener>;
   shacl:closed false;
+  shacl:property _:df_2_33;
   shacl:targetClass <https://hl7.org/fhir/practitioner-definitions.html#Practitioner> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.8#ZwangerschapShape> a shacl:NodeShape;
@@ -656,5 +668,26 @@ _:df_2_24 a shacl:PropertyShape;
   shacl:name "data"@nl;
   shacl:path <https://implementatie.data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#data> .
 
-_:df_2_44 a shacl:PropertyShape;
+_:df_2_25 a shacl:PropertyShape;
+  rdfs:label "identificator";
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.8#Persoon.Identificator>;
+  shacl:class <http://www.w3.org/ns/adms#Identifier>;
+  shacl:minCount 1;
+  shacl:name "identificator";
+  shacl:path <https://data.vlaanderen.be/ns/persoon#identificator> .
+
+_:df_2_33 a shacl:PropertyShape;
+  rdfs:label "identificator";
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.8#Zorgverlener.Identificator>;
+  shacl:class <http://www.w3.org/ns/adms#Identifier>;
+  shacl:name "identificator";
+  shacl:path <https://data.vlaanderen.be/ns/gezondheidstoestand#identificator> .
+
+_:df_2_46 a shacl:PropertyShape;
   shacl:class <https://implementatie.data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#PregnancyListEnvelope> .
+
+_:df_2_51 a shacl:PropertyShape;
+  shacl:class <http://www.w3.org/ns/person#Person> .
+
+_:df_2_56 a shacl:PropertyShape;
+  shacl:class <https://hl7.org/fhir/practitioner-definitions.html#Practitioner> .
