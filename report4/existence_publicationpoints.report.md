@@ -1,5 +1,23 @@
 #||# checking publication points in directory /home/circleci/project/config/test
 #||# 
+#||#    + checking /home/circleci/project/config/test/cloudeventsld-im.publication.json
+#||# 
+#||# Directory check
+error: missing '/tmp/generated/doc/implementatiemodel/cloudeventsld'
+error: missing '/tmp/generated/doc/implementatiemodel/cloudeventsld/v0.1.0'
+error: missing '/tmp/generated/ns/cloudeventsld'
+error: missing '/tmp/generated/doc/vocabularium/cloudeventsld'
+error: missing '/tmp/generated/ns/cloudeventsld/v0.1.0'
+error: missing '/tmp/generated/doc/vocabularium/cloudeventsld/v0.1.0'
+#||# 
+#||# index.html check
+error: missing '/tmp/generated/doc/implementatiemodel/cloudeventsld/index.html'
+error: missing '/tmp/generated/doc/implementatiemodel/cloudeventsld/v0.1.0/index.html'
+error: missing '/tmp/generated/ns/cloudeventsld/index.html'
+error: missing '/tmp/generated/doc/vocabularium/cloudeventsld/index.html'
+error: missing '/tmp/generated/ns/cloudeventsld/v0.1.0/index.html'
+error: missing '/tmp/generated/doc/vocabularium/cloudeventsld/v0.1.0/index.html'
+
 #||#    + checking /home/circleci/project/config/test/generiek-im.publication.json
 #||# 
 #||# Directory check
