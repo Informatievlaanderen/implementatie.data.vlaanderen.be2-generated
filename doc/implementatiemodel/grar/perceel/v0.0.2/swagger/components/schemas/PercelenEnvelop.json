@@ -14,9 +14,23 @@
     },
     "data": {
       "type": "array",
-      "description": "De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van KadastraalPlanperceel items.",
+      "description": "De collectie data die de envelop bevat. Lijst van Object items.",
       "items": {
-        "$ref": "#/components/schemas/KadastraalPlanperceel"
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BelgischAdres"
+          },
+          {
+            "$ref": "#/components/schemas/RuimtelijkeEenheid"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "BelgischAdres": "#/components/schemas/BelgischAdres",
+            "RuimtelijkeEenheid": "#/components/schemas/RuimtelijkeEenheid"
+          }
+        }
       },
       "minItems": 1
     },

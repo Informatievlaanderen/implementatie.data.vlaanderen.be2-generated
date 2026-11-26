@@ -45,6 +45,13 @@
                   "id": "$response.body#/BelgischAdres.detail/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AnyURI` op te halen."
+              },
+              "BelgischAdres.identificator": {
+                "operationId": "BelgischAdresGET",
+                "parameters": {
+                  "id": "$response.body#/BelgischAdres.identificator/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
               }
             }
           },
@@ -1811,6 +1818,22 @@
           "@id"
         ]
       },
+      "BelgischAdres.objectId": {
+        "title": "BelgischAdres.objectId",
+        "description": "Een identificator van het object.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
       "BelgischAdres": {
         "title": "BelgischAdres",
         "type": "object",
@@ -1827,10 +1850,32 @@
           },
           "detail": {
             "$ref": "#/components/schemas/AnyURI"
+          },
+          "objectId": {
+            "$ref": "#/components/schemas/BelgischAdres.objectId"
+          },
+          "identificator": {
+            "$ref": "#/components/schemas/Identificator"
           }
         },
         "required": [
           "@type"
+        ]
+      },
+      "RuimtelijkeEenheid.objectId": {
+        "title": "RuimtelijkeEenheid.objectId",
+        "description": "Een identificator van het object.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
         ]
       },
       "RuimtelijkeEenheid": {
@@ -1848,13 +1893,7 @@
             "pattern": "^RuimtelijkeEenheid$"
           },
           "identificator": {
-            "type": "array",
-            "description": "De identificator van de Ruimtelijke Eenheid. Lijst van Identificator items.",
-            "items": {
-              "$ref": "#/components/schemas/Identificator"
-            },
-            "minItems": 1,
-            "maxItems": 2
+            "$ref": "#/components/schemas/Identificator"
           },
           "detail": {
             "$ref": "#/components/schemas/AnyURI"
@@ -1869,11 +1908,30 @@
               "$ref": "#/components/schemas/BelgischAdres"
             },
             "minItems": 1
+          },
+          "objectId": {
+            "$ref": "#/components/schemas/RuimtelijkeEenheid.objectId"
           }
         },
         "required": [
           "@type",
           "status"
+        ]
+      },
+      "KadastraalPlanperceel.objectId": {
+        "title": "KadastraalPlanperceel.objectId",
+        "description": "Een identificator van het object.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
         ]
       },
       "KadastraalPlanperceel": {
@@ -1891,13 +1949,7 @@
             "pattern": "^KadastraalPlanperceel$"
           },
           "identificator": {
-            "type": "array",
-            "description": "De identificator van de Ruimtelijke Eenheid. Lijst van Identificator items.",
-            "items": {
-              "$ref": "#/components/schemas/Identificator"
-            },
-            "minItems": 1,
-            "maxItems": 2
+            "$ref": "#/components/schemas/Identificator"
           },
           "detail": {
             "$ref": "#/components/schemas/AnyURI"
@@ -1912,6 +1964,9 @@
               "$ref": "#/components/schemas/BelgischAdres"
             },
             "minItems": 1
+          },
+          "objectId": {
+            "$ref": "#/components/schemas/KadastraalPlanperceel.objectId"
           }
         },
         "required": [
@@ -1968,6 +2023,28 @@
             "description": "Object type (klasse DataEnvelop)",
             "pattern": "^DataEnvelop$"
           },
+          "data": {
+            "type": "array",
+            "description": "De collectie data die de envelop bevat. Lijst van Object items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/BelgischAdres"
+                },
+                {
+                  "$ref": "#/components/schemas/RuimtelijkeEenheid"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "BelgischAdres": "#/components/schemas/BelgischAdres",
+                  "RuimtelijkeEenheid": "#/components/schemas/RuimtelijkeEenheid"
+                }
+              }
+            },
+            "minItems": 1
+          },
           "volgende": {
             "$ref": "#/components/schemas/Link"
           },
@@ -1994,7 +2071,26 @@
             "pattern": "^PerceelEnvelop$"
           },
           "data": {
-            "$ref": "#/components/schemas/KadastraalPlanperceel"
+            "type": "array",
+            "description": "De collectie data die de envelop bevat. Lijst van Object items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/BelgischAdres"
+                },
+                {
+                  "$ref": "#/components/schemas/RuimtelijkeEenheid"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "BelgischAdres": "#/components/schemas/BelgischAdres",
+                  "RuimtelijkeEenheid": "#/components/schemas/RuimtelijkeEenheid"
+                }
+              }
+            },
+            "minItems": 1
           },
           "volgende": {
             "$ref": "#/components/schemas/Link"
@@ -2024,9 +2120,23 @@
           },
           "data": {
             "type": "array",
-            "description": "De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van KadastraalPlanperceel items.",
+            "description": "De collectie data die de envelop bevat. Lijst van Object items.",
             "items": {
-              "$ref": "#/components/schemas/KadastraalPlanperceel"
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/BelgischAdres"
+                },
+                {
+                  "$ref": "#/components/schemas/RuimtelijkeEenheid"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "BelgischAdres": "#/components/schemas/BelgischAdres",
+                  "RuimtelijkeEenheid": "#/components/schemas/RuimtelijkeEenheid"
+                }
+              }
             },
             "minItems": 1
           },

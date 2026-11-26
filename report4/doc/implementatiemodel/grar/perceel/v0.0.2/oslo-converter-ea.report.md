@@ -2,25 +2,25 @@
 
 #||# -------------------------------------
 
-2026-11-26T16:01:58.248Z info: [ConnectorConverterHandler]: Ignoring hidden connector (OSLO-Perceel:OSLO-GeneriekVoc!!!:FormeelKader:(FormeelKader -> Object))
+2026-11-26T18:03:27.500Z info: [ConnectorConverterHandler]: Ignoring hidden connector (OSLO-Perceel:OSLO-GeneriekVoc!!!:FormeelKader:(FormeelKader -> Object))
 
-2026-11-26T16:01:58.250Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO-Perceel:RuimtelijkeEenheid:(RuimtelijkeEenheid -> RuimtelijkeEenheid))
+2026-11-26T18:03:27.502Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO-Perceel:RuimtelijkeEenheid:(RuimtelijkeEenheid -> RuimtelijkeEenheid))
 
-2026-11-26T16:01:58.250Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO-Perceel:OSLO-Generiek:Gemeente:(Gemeente -> Object))
+2026-11-26T18:03:27.502Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO-Perceel:OSLO-Generiek:Gemeente:(Gemeente -> Object))
 
-2026-11-26T16:01:58.250Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO-Perceel:OSLO-Generiek:FormeelKader:(FormeelKader -> Object))
+2026-11-26T18:03:27.502Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:OSLO-Perceel:OSLO-Generiek:FormeelKader:(FormeelKader -> Object))
 
-2026-11-26T16:01:58.252Z info: Connector Model:OSLO-Perceel:RuimtelijkeEenheid:(RuimtelijkeEenheid -> Adres) is not an association with a source role. Ignoring this connector.
+2026-11-26T18:03:27.504Z info: Connector Model:OSLO-Perceel:RuimtelijkeEenheid:(RuimtelijkeEenheid -> Adres) is not an association with a source role. Ignoring this connector.
 
-2026-11-26T16:01:58.253Z info: Connector Model:OSLO-Perceel:OSLO-GRAR-IM:DataEnvelop:(DataEnvelop -> Links) is not an association with a source role. Ignoring this connector.
+2026-11-26T18:03:27.505Z info: Connector Model:OSLO-Perceel:OSLO-GRAR-IM:DataEnvelop:(DataEnvelop -> Links) is not an association with a source role. Ignoring this connector.
 
-2026-11-26T16:01:58.253Z info: Connector Model:OSLO-Perceel:OSLO-GRAR-IM:PerceelEnvelop:(PerceelEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-11-26T18:03:27.506Z info: Connector Model:OSLO-Perceel:OSLO-GRAR-IM:PerceelEnvelop:(PerceelEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-11-26T16:01:58.253Z info: Connector Model:OSLO-Perceel:OSLO-GRAR-IM:PercelenEnvelop:(PercelenEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-11-26T18:03:27.506Z info: Connector Model:OSLO-Perceel:OSLO-GRAR-IM:PercelenEnvelop:(PercelenEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-11-26T16:01:58.253Z info: Connector Model:OSLO-Perceel:KadastraalPlanperceel:(KadastraalPlanperceel -> RuimtelijkeEenheid) is not an association with a source role. Ignoring this connector.
+2026-11-26T18:03:27.506Z info: Connector Model:OSLO-Perceel:KadastraalPlanperceel:(KadastraalPlanperceel -> RuimtelijkeEenheid) is not an association with a source role. Ignoring this connector.
 
-2026-11-26T16:01:58.254Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+2026-11-26T18:03:27.507Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
 #||# -------------------------------------
 

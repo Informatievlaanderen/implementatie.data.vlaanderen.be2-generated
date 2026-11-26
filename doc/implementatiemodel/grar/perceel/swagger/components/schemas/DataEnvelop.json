@@ -12,6 +12,28 @@
       "description": "Object type (klasse DataEnvelop)",
       "pattern": "^DataEnvelop$"
     },
+    "data": {
+      "type": "array",
+      "description": "De collectie data die de envelop bevat. Lijst van Object items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/BelgischAdres"
+          },
+          {
+            "$ref": "#/components/schemas/RuimtelijkeEenheid"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "BelgischAdres": "#/components/schemas/BelgischAdres",
+            "RuimtelijkeEenheid": "#/components/schemas/RuimtelijkeEenheid"
+          }
+        }
+      },
+      "minItems": 1
+    },
     "volgende": {
       "$ref": "#/components/schemas/Link"
     },
