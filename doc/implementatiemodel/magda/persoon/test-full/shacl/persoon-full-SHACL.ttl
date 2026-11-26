@@ -636,7 +636,7 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#ArbeidskaartShape> a shacl:NodeShape;
   rdfs:label "Arbeidskaart"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "In deze context bedoeld voor personen uit het buitenland."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Arbeidskaart>;
   shacl:closed false;
   shacl:property _:df_2_232;
@@ -652,7 +652,7 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#BeroepskaartShape> a shacl:NodeShape;
   rdfs:label "Beroepskaart"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "In deze context bedoeld voor personen uit het buitenland."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Beroepskaart>;
   shacl:closed false;
   shacl:property _:df_2_231;
@@ -748,17 +748,17 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#CertificaatShape> a shacl:NodeShape;
   rdfs:label "Certificaat"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "In deze context de formele bevestiging dat een persoon zich elektronisch mag authenticeren of een elektronische handtekening mag plaatsen."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Certificaat>;
   shacl:closed false;
   shacl:property _:df_2_229,
     _:df_2_230, [
     a shacl:PropertyShape;
     rdfs:label "identiteitsbewijs"@nl;
-    rdfs:comment "TODO"@nl;
+    rdfs:comment "Verwijzing naar het Identiteitsbewijs waarop het Certificaat voorkomt."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Certificaat.Identiteitsbewijs>;
     shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/persoon#Identiteitsbewijs>;
-    shacl:description "TODO"@nl;
+    shacl:description "Verwijzing naar het Identiteitsbewijs waarop het Certificaat voorkomt."@nl;
     shacl:maxCount 1;
     shacl:name "identiteitsbewijs"@nl;
     shacl:path <https://implementatie.data.vlaanderen.be/ns/magda/persoon#identiteitsbewijs>
@@ -915,58 +915,58 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#CredentialShape> a shacl:NodeShape;
   rdfs:label "Credential"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "Een geheel van claims over een subject die door een uitgever worden verstrekt."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Credential>;
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
     rdfs:label "uitgereiktOp"@nl;
-    rdfs:comment "TODO"@nl;
+    rdfs:comment "Moment waarop de Credential is verstrekt."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Credential.UitgereiktOp>;
     shacl:datatype xsd:dateTime;
-    shacl:description "TODO"@nl;
+    shacl:description "Moment waarop de Credential is verstrekt."@nl;
     shacl:maxCount 1;
     shacl:name "uitgereiktOp"@nl;
     shacl:path <https://www.w3.org/2018/credentials#issuanceDate>
   ], [
     a shacl:PropertyShape;
     rdfs:label "geldigVan"@nl;
-    rdfs:comment "TODO"@nl;
+    rdfs:comment "Moment vanaf wanneer de Credential geldig is."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Credential.GeldigVan>;
     shacl:datatype xsd:dateTime;
-    shacl:description "TODO"@nl;
+    shacl:description "Moment vanaf wanneer de Credential geldig is."@nl;
     shacl:maxCount 1;
     shacl:name "geldigVan"@nl;
     shacl:path <https://www.w3.org/2018/credentials#validFrom>
   ], [
     a shacl:PropertyShape;
     rdfs:label "geldigTot"@nl;
-    rdfs:comment "TODO"@nl;
+    rdfs:comment "Moment tot wanneer de Credential geldig is."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Credential.GeldigTot>;
     shacl:datatype xsd:dateTime;
-    shacl:description "TODO"@nl;
+    shacl:description "Moment tot wanneer de Credential geldig is."@nl;
     shacl:maxCount 1;
     shacl:name "geldigTot"@nl;
     shacl:path <https://www.w3.org/2018/credentials#validUntil>
   ], [
     a shacl:PropertyShape;
     rdfs:label "uitgereiktDoor"@nl;
-    rdfs:comment "TODO"@nl;
+    rdfs:comment "De entiteit die de Credential verstrekt en verantwoordelijkheid draagt voor de claims die daarin worden gedaan."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Credential.UitgereiktDoor>;
-    shacl:description "TODO"@nl;
+    shacl:description "De entiteit die de Credential verstrekt en verantwoordelijkheid draagt voor de claims die daarin worden gedaan."@nl;
     shacl:maxCount 1;
     shacl:name "uitgereiktDoor"@nl;
     shacl:or ([shacl:class foaf:Agent] [shacl:class <http://www.w3.org/ns/person#Person>] [shacl:class <https://data.vlaanderen.be/ns/persoon#GeregistreerdPersoon>] [shacl:class org:Organization]);
     shacl:path <https://www.w3.org/2018/credentials#issuer>
   ], [
     a shacl:PropertyShape;
-    rdfs:label "CredentialSubject"@nl;
-    rdfs:comment "TODO"@nl;
+    rdfs:label "credentialSubject"@nl;
+    rdfs:comment "Verwijzing naar het subject van de Credential en de claims die erover worden gedaan."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Credential.CredentialSubject>;
     shacl:class <https://implementatie.data.vlaanderen.be/ns/magda/persoon#CredentialSubject>;
-    shacl:description "TODO"@nl;
+    shacl:description "Verwijzing naar het subject van de Credential en de claims die erover worden gedaan."@nl;
     shacl:minCount 1;
-    shacl:name "CredentialSubject"@nl;
+    shacl:name "credentialSubject"@nl;
     shacl:path <https://www.w3.org/2018/credentials#credentialSubject>
   ];
   shacl:targetClass <https://www.w3.org/2018/credentials#VerifiableCredential>,
@@ -1018,23 +1018,29 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#CredentialSubjectShape> a shacl:NodeShape;
   rdfs:label "CredentialSubject"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld de Persoon aan wie een diploma is uitgereikt, inclusief de claims zoals de behaalde graad en in welke discipline."@nl;
+  rdfs:comment "Het subject waarover één of meer claims in de Credential worden gedaan."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#CredentialSubject>;
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
     rdfs:label "identificator"@nl;
-    rdfs:comment "TODO"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld de Persoon die claimt het diploma te hebben behaald."@nl;
+    rdfs:comment "De identificator van het object waarop de claims betrekking hebben."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#CredentialSubject.Identificator>;
     shacl:class <http://www.w3.org/ns/adms#Identifier>;
-    shacl:description "TODO"@nl;
+    shacl:description "De identificator van het object waarop de claims betrekking hebben."@nl;
     shacl:maxCount 1;
     shacl:name "identificator"@nl;
     shacl:path <http://www.w3.org/ns/adms#identifier>
   ], [
     a shacl:PropertyShape;
     rdfs:label "heeftClaim"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Onder claim verstaan we een bepaalde uitspraak over het subject, bijvoorbeeld de bewering dat deze een bepaald graad in een bepaalde discipline heeft behaald. De claims worden zwak getypeerd beschreven dooreen benoemdeWaarde, bijvoorbeeld naam van de claim is \"graad\", waarde is \"master\" of respectievelijk \"discipline\" en \"informaticus\"."@nl;
+    rdfs:comment "Verwijzing naar de claim."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#CredentialSubject.HeeftClaim>;
     shacl:class schemas:StructuredValue;
+    shacl:description "Verwijzing naar de claim."@nl;
     shacl:name "heeftClaim"@nl;
     shacl:path <https://implementatie.data.vlaanderen.be/ns/magda/persoon#heeftClaim>
   ];
@@ -1522,36 +1528,36 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#IdentiteitsbewijsShape> a shacl:NodeShape;
   rdfs:label "Identiteitsbewijs"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "Bewijsstuk, uitgegeven door een bevoegde instantie, waarmee de identiteit van een Persoon kan worden aangetoond."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Identiteitsbewijs>;
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
     rdfs:label "duplicaatnummer"@nl;
-    rdfs:comment "TODO"@nl;
+    rdfs:comment "Nummer dat wordt verhoogd telkens van het Identiteitsbewijs een vervangend exemplaar wordt aangemaakt."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Identiteitsbewijs.Duplicaatnummer>;
     shacl:datatype xsd:string;
-    shacl:description "TODO"@nl;
+    shacl:description "Nummer dat wordt verhoogd telkens van het Identiteitsbewijs een vervangend exemplaar wordt aangemaakt."@nl;
     shacl:maxCount 1;
     shacl:name "duplicaatnummer"@nl;
     shacl:path <https://implementatie.data.vlaanderen.be/ns/magda/persoon#duplicaatnummer>
   ], [
     a shacl:PropertyShape;
     rdfs:label "verlengingsnummer"@nl;
-    rdfs:comment "TODO"@nl;
+    rdfs:comment "Nummer dat wordt verhoogd telkens de geldigheid van het Identiteitsbewijs wordt verlengd."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Identiteitsbewijs.Verlengingsnummer>;
     shacl:datatype xsd:string;
-    shacl:description "TODO"@nl;
+    shacl:description "Nummer dat wordt verhoogd telkens de geldigheid van het Identiteitsbewijs wordt verlengd."@nl;
     shacl:maxCount 1;
     shacl:name "verlengingsnummer"@nl;
     shacl:path <https://implementatie.data.vlaanderen.be/ns/magda/persoon#verlengingsnummer>
   ], [
     a shacl:PropertyShape;
     rdfs:label "geldigheidsduur"@nl;
-    rdfs:comment "TODO"@nl;
+    rdfs:comment "Geeft aan hoe lang het Identiteitsbewijs geldig is."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Identiteitsbewijs.Geldigheidsduur>;
     shacl:datatype xsd:duration;
-    shacl:description "TODO"@nl;
+    shacl:description "Geeft aan hoe lang het Identiteitsbewijs geldig is."@nl;
     shacl:maxCount 1;
     shacl:name "geldigheidsduur"@nl;
     shacl:path <https://implementatie.data.vlaanderen.be/ns/magda/persoon#geldigheidsDuur>
@@ -2277,16 +2283,16 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#PaspoortShape> a shacl:NodeShape;
   rdfs:label "Paspoort"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "Een door een bevoegde overheid uitgegeven Identiteitsbewijs waarmee een persoon zijn identiteit en nationaliteit kan aantonen, in het bijzonder bij internationaal reizen."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Paspoort>;
   shacl:closed false;
   shacl:property [
     a shacl:PropertyShape;
     rdfs:label "verlengingsnummer"@nl;
-    rdfs:comment "TODO"@nl;
+    rdfs:comment "Nummer dat wordt verhoogd telkens de geldigheid van het Paspoort wordt verlengd."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Paspoort.Verlengingsnummer>;
     shacl:datatype xsd:string;
-    shacl:description "TODO"@nl;
+    shacl:description "Nummer dat wordt verhoogd telkens de geldigheid van het Paspoort wordt verlengd."@nl;
     shacl:maxCount 1;
     shacl:name "verlengingsnummer"@nl;
     shacl:path <https://implementatie.data.vlaanderen.be/ns/magda/persoon#verlengingsnummer>
@@ -2295,7 +2301,9 @@
     _:df_2_227, [
     a shacl:PropertyShape;
     rdfs:label "status"@nl;
+    rdfs:comment "De toestand van een Paspoort op een bepaald moment in zijn levenscyclus."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Paspoort.Status>;
+    shacl:description "De toestand van een Paspoort op een bepaald moment in zijn levenscyclus."@nl;
     shacl:maxCount 1;
     shacl:name "status"@nl;
     shacl:nodeKind shacl:BlankNodeOrIRI;
@@ -3576,9 +3584,9 @@ _:df_2_215 a shacl:PropertyShape;
 
 _:df_2_221 a shacl:PropertyShape;
   rdfs:label "type"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "Soort Identiteitsbewijs."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Identiteitsbewijs.Type>;
-  shacl:description "TODO"@nl;
+  shacl:description "Soort Identiteitsbewijs."@nl;
   shacl:maxCount 1;
   shacl:name "type"@nl;
   shacl:nodeKind shacl:BlankNodeOrIRI;
@@ -3586,29 +3594,29 @@ _:df_2_221 a shacl:PropertyShape;
 
 _:df_2_224 a shacl:PropertyShape;
   rdfs:label "kaartnummer"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "Identificator van het Identiteitsbewijs."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Identiteitsbewijs.Kaartnummer>;
   shacl:class <http://www.w3.org/ns/adms#Identifier>;
-  shacl:description "TODO"@nl;
+  shacl:description "Identificator van het Identiteitsbewijs."@nl;
   shacl:maxCount 1;
   shacl:name "kaartnummer"@nl;
   shacl:path <http://www.w3.org/ns/adms#identifier> .
 
 _:df_2_226 a shacl:PropertyShape;
   rdfs:label "paspoortnummer"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "Identificator van het Paspoort."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Paspoort.Paspoortnummer>;
   shacl:class <http://www.w3.org/ns/adms#Identifier>;
-  shacl:description "TODO"@nl;
+  shacl:description "Identificator van het Paspoort."@nl;
   shacl:maxCount 1;
   shacl:name "paspoortnummer"@nl;
   shacl:path <http://www.w3.org/ns/adms#identifier> .
 
 _:df_2_227 a shacl:PropertyShape;
   rdfs:label "type"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "Soort Paspoort."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Paspoort.Type>;
-  shacl:description "TODO"@nl;
+  shacl:description "Soort Paspoort."@nl;
   shacl:maxCount 1;
   shacl:name "type"@nl;
   shacl:nodeKind shacl:BlankNodeOrIRI;
@@ -3616,9 +3624,9 @@ _:df_2_227 a shacl:PropertyShape;
 
 _:df_2_229 a shacl:PropertyShape;
   rdfs:label "type"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "Soort Certificaat."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Certificaat.Type>;
-  shacl:description "TODO"@nl;
+  shacl:description "Soort Certificaat."@nl;
   shacl:maxCount 1;
   shacl:name "type"@nl;
   shacl:nodeKind shacl:BlankNodeOrIRI;
@@ -3626,30 +3634,30 @@ _:df_2_229 a shacl:PropertyShape;
 
 _:df_2_230 a shacl:PropertyShape;
   rdfs:label "certificaatnummer"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "Identificator van het Certificaat."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Certificaat.Certificaatnummer>;
   shacl:class <http://www.w3.org/ns/adms#Identifier>;
-  shacl:description "TODO"@nl;
+  shacl:description "Identificator van het Certificaat."@nl;
   shacl:maxCount 1;
   shacl:name "certificaatnummer"@nl;
   shacl:path <http://www.w3.org/ns/adms#identifier> .
 
 _:df_2_231 a shacl:PropertyShape;
   rdfs:label "kaartnummer"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "Identificator van de Beroepskaart."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Beroepskaart.Kaartnummer>;
   shacl:class <http://www.w3.org/ns/adms#Identifier>;
-  shacl:description "TODO"@nl;
+  shacl:description "Identificator van de Beroepskaart."@nl;
   shacl:maxCount 1;
   shacl:name "kaartnummer"@nl;
   shacl:path <http://www.w3.org/ns/adms#identifier> .
 
 _:df_2_232 a shacl:PropertyShape;
   rdfs:label "kaartnummer"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "Identificator van de Arbeidskaart."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Arbeidskaart.Kaartnummer>;
   shacl:class <http://www.w3.org/ns/adms#Identifier>;
-  shacl:description "TODO"@nl;
+  shacl:description "Identificator van de Arbeidskaart."@nl;
   shacl:maxCount 1;
   shacl:name "kaartnummer"@nl;
   shacl:path <http://www.w3.org/ns/adms#identifier> .
@@ -3698,9 +3706,9 @@ _:df_2_332 a shacl:PropertyShape;
 
 _:df_2_218 a shacl:PropertyShape;
   rdfs:label "type"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "Soort Credential."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Credential.Type>;
-  shacl:description "TODO"@nl;
+  shacl:description "Soort Credential."@nl;
   shacl:maxCount 1;
   shacl:name "type"@nl;
   shacl:nodeKind shacl:BlankNodeOrIRI;
@@ -3708,10 +3716,10 @@ _:df_2_218 a shacl:PropertyShape;
 
 _:df_2_219 a shacl:PropertyShape;
   rdfs:label "identificator"@nl;
-  rdfs:comment "TODO"@nl;
+  rdfs:comment "Identificator van de Credential."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/magda/persoon/test-full#Credential.Identificator>;
   shacl:class <http://www.w3.org/ns/adms#Identifier>;
-  shacl:description "TODO"@nl;
+  shacl:description "Identificator van de Credential."@nl;
   shacl:maxCount 1;
   shacl:name "identificator"@nl;
   shacl:path <http://www.w3.org/ns/adms#identifier> .
