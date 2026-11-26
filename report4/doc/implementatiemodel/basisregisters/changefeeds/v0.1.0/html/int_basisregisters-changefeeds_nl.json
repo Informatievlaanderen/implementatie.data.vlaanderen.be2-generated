@@ -15,6 +15,12 @@
       "applicationProfileDefinition": {
         "nl": "Het veld met zijn oude en nieuwe waarde die gewijzigd werd."
       },
+      "vocabularyUsageNote": {
+        "nl": "Enkel effectieve attribuutwijzigingen worden doorgegeven, niet alle attributen van het object."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Enkel effectieve attribuutwijzigingen worden doorgegeven, niet alle attributen van het object."
+      },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
       "properties": [
@@ -25,6 +31,18 @@
           },
           "applicationProfileLabel": {
             "nl": "naam"
+          },
+          "vocabularyDefinition": {
+            "nl": "De naam van het attribuut in het gewijzigde object."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De naam van het attribuut in het gewijzigde object."
+          },
+          "vocabularyUsageNote": {
+            "nl": "De naam komt steeds overeen met het OSLO implementatiemodel, waarbij een punt de niveaus aangeeft. Bijvoorbeeld: positie.geometrie komt uit de klasse Positie met attribuut geometrie."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "De naam komt steeds overeen met het OSLO implementatiemodel, waarbij een punt de niveaus aangeeft. Bijvoorbeeld: positie.geometrie komt uit de klasse Positie met attribuut geometrie."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
@@ -50,6 +68,12 @@
           "applicationProfileLabel": {
             "nl": "nieuweWaarde"
           },
+          "vocabularyDefinition": {
+            "nl": "De nieuwe waarde die het attribuut heeft gekregen na de wijziging."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De nieuwe waarde die het attribuut heeft gekregen na de wijziging."
+          },
           "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
           "domain": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Attribuutswijziging",
@@ -73,6 +97,18 @@
           },
           "applicationProfileLabel": {
             "nl": "oudeWaarde"
+          },
+          "vocabularyDefinition": {
+            "nl": "De oorspronkelijke waarde die het attribuut had voor de wijziging."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De oorspronkelijke waarde die het attribuut had voor de wijziging."
+          },
+          "vocabularyUsageNote": {
+            "nl": "Indien er geen waarde gekend was, is de waarde steeds NULL."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Indien er geen waarde gekend was, is de waarde steeds NULL."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
@@ -124,6 +160,12 @@
           },
           "applicationProfileLabel": {
             "nl": "attributen"
+          },
+          "vocabularyDefinition": {
+            "nl": "Attributen die gewijzigd werden binnen de authentieke bron."
+          },
+          "applicationProfileDefinition": {
+            "nl": "Attributen die gewijzigd werden binnen de authentieke bron."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
@@ -178,6 +220,18 @@
           },
           "applicationProfileLabel": {
             "nl": "nisCodes"
+          },
+          "vocabularyDefinition": {
+            "nl": "De gemeente NIS codes die relevant zijn voor het event."
+          },
+          "applicationProfileDefinition": {
+            "nl": "De gemeente NIS codes die relevant zijn voor het event."
+          },
+          "vocabularyUsageNote": {
+            "nl": "Gebruikers kunnen deze codes gebruiken om events te filteren op basis van NIS code."
+          },
+          "applicationProfileUsageNote": {
+            "nl": "Gebruikers kunnen deze codes gebruiken om events te filteren op basis van NIS code."
           },
           "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
           "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
@@ -269,7 +323,7 @@
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
       "properties": [
         {
-          "id": "http://todo.com/data",
+          "id": "https://w3id.org/cloudevents#data",
           "vocabularyLabel": {
             "nl": "data"
           },
@@ -541,12 +595,29 @@
       ]
     },
     {
+      "id": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "vocabularyLabel": {
+        "nl": "Literal"
+      },
+      "applicationProfileLabel": {
+        "nl": "Inhoud"
+      },
+      "applicationProfileDefinition": {
+        "nl": "Informatie over het event."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Abstracte klasse die steeds voor elk gebruik vervangen moet worden door de effectieve inhoud, bijvoorbeeld: een andere klasse of een primitief datatype. Gebruikers moeten de inhoud steeds parsen volgens de waarde van het datacontenttype veld en valideren volgens het schema voorzien in het dataschema veld."
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
       "id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Wijzigingsevent",
       "vocabularyLabel": {
         "nl": "Wijzigingsevent"
       },
       "applicationProfileLabel": {
-        "nl": "CloudEvent"
+        "nl": "Wijzigingsevent"
       },
       "parents": [
         {
@@ -617,23 +688,6 @@
           "maxCount": "1"
         }
       ]
-    },
-    {
-      "id": "http://www.w3.org/2000/01/rdf-schema#Literal",
-      "vocabularyLabel": {
-        "nl": "Literal"
-      },
-      "applicationProfileLabel": {
-        "nl": "Inhoud"
-      },
-      "applicationProfileDefinition": {
-        "nl": "Informatie over het event."
-      },
-      "applicationProfileUsageNote": {
-        "nl": "Abstracte klasse die steeds voor elk gebruik vervangen moet worden door de effectieve inhoud, bijvoorbeeld: een andere klasse of een primitief datatype. Gebruikers moeten de inhoud steeds parsen volgens de waarde van het datacontenttype veld en valideren volgens het schema voorzien in het dataschema veld."
-      },
-      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     }
   ],
   "dataTypes": [],
@@ -645,6 +699,12 @@
       },
       "applicationProfileLabel": {
         "nl": "attributen"
+      },
+      "vocabularyDefinition": {
+        "nl": "Attributen die gewijzigd werden binnen de authentieke bron."
+      },
+      "applicationProfileDefinition": {
+        "nl": "Attributen die gewijzigd werden binnen de authentieke bron."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
@@ -724,6 +784,18 @@
       "applicationProfileLabel": {
         "nl": "naam"
       },
+      "vocabularyDefinition": {
+        "nl": "De naam van het attribuut in het gewijzigde object."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De naam van het attribuut in het gewijzigde object."
+      },
+      "vocabularyUsageNote": {
+        "nl": "De naam komt steeds overeen met het OSLO implementatiemodel, waarbij een punt de niveaus aangeeft. Bijvoorbeeld: positie.geometrie komt uit de klasse Positie met attribuut geometrie."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "De naam komt steeds overeen met het OSLO implementatiemodel, waarbij een punt de niveaus aangeeft. Bijvoorbeeld: positie.geometrie komt uit de klasse Positie met attribuut geometrie."
+      },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
       "domain": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Attribuutswijziging",
@@ -747,6 +819,12 @@
       },
       "applicationProfileLabel": {
         "nl": "nieuweWaarde"
+      },
+      "vocabularyDefinition": {
+        "nl": "De nieuwe waarde die het attribuut heeft gekregen na de wijziging."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De nieuwe waarde die het attribuut heeft gekregen na de wijziging."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
@@ -772,6 +850,18 @@
       "applicationProfileLabel": {
         "nl": "nisCodes"
       },
+      "vocabularyDefinition": {
+        "nl": "De gemeente NIS codes die relevant zijn voor het event."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De gemeente NIS codes die relevant zijn voor het event."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Gebruikers kunnen deze codes gebruiken om events te filteren op basis van NIS code."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Gebruikers kunnen deze codes gebruiken om events te filteren op basis van NIS code."
+      },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
       "domain": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#GRARWijziging",
@@ -795,6 +885,18 @@
       },
       "applicationProfileLabel": {
         "nl": "oudeWaarde"
+      },
+      "vocabularyDefinition": {
+        "nl": "De oorspronkelijke waarde die het attribuut had voor de wijziging."
+      },
+      "applicationProfileDefinition": {
+        "nl": "De oorspronkelijke waarde die het attribuut had voor de wijziging."
+      },
+      "vocabularyUsageNote": {
+        "nl": "Indien er geen waarde gekend was, is de waarde steeds NULL."
+      },
+      "applicationProfileUsageNote": {
+        "nl": "Indien er geen waarde gekend was, is de waarde steeds NULL."
       },
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",

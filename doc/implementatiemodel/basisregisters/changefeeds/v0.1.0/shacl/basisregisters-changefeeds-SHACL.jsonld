@@ -6,6 +6,9 @@
         "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#CloudEventShape"
       },
       {
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#WijzigingseventShape"
+      },
+      {
         "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#BasisregisterWijzigingShape"
       },
       {
@@ -29,6 +32,12 @@
     "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#AttribuutswijzigingShape",
     "@type": [
       "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://purl.org/vocab/vann/usageNote": [
+      {
+        "@language": "nl",
+        "@value": "Enkel effectieve attribuutwijzigingen worden doorgegeven, niet alle attributen van het object."
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
@@ -181,12 +190,6 @@
         "@id": "_:df_2_7"
       },
       {
-        "@id": "_:df_2_8"
-      },
-      {
-        "@id": "_:df_2_9"
-      },
-      {
         "@id": "_:df_2_17"
       }
     ],
@@ -277,6 +280,42 @@
     "http://www.w3.org/ns/shacl#targetClass": [
       {
         "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
+      }
+    ]
+  },
+  {
+    "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#WijzigingseventShape",
+    "@type": [
+      "http://www.w3.org/ns/shacl#NodeShape"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "nl",
+        "@value": "Wijzigingsevent"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#Wijzigingsevent"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#closed": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean",
+        "@value": "false"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#property": [
+      {
+        "@id": "_:df_2_8"
+      },
+      {
+        "@id": "_:df_2_9"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#targetClass": [
+      {
+        "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Wijzigingsevent"
       }
     ]
   },
@@ -588,8 +627,21 @@
     "@type": [
       "http://www.w3.org/ns/shacl#PropertyShape"
     ],
+    "http://purl.org/vocab/vann/usageNote": [
+      {
+        "@language": "nl",
+        "@value": "Gebruikers kunnen deze codes gebruiken om events te filteren op basis van NIS code."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "nl",
+        "@value": "De gemeente NIS codes die relevant zijn voor het event."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
+        "@language": "nl",
         "@value": "nisCodes"
       }
     ],
@@ -603,8 +655,15 @@
         "@id": "http://www.w3.org/2001/XMLSchema#string"
       }
     ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@language": "nl",
+        "@value": "De gemeente NIS codes die relevant zijn voor het event."
+      }
+    ],
     "http://www.w3.org/ns/shacl#name": [
       {
+        "@language": "nl",
         "@value": "nisCodes"
       }
     ],
@@ -618,6 +677,18 @@
     "@id": "_:df_2_14",
     "@type": [
       "http://www.w3.org/ns/shacl#PropertyShape"
+    ],
+    "http://purl.org/vocab/vann/usageNote": [
+      {
+        "@language": "nl",
+        "@value": "De naam komt steeds overeen met het OSLO implementatiemodel, waarbij een punt de niveaus aangeeft. Bijvoorbeeld: positie.geometrie komt uit de klasse Positie met attribuut geometrie."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "nl",
+        "@value": "De naam van het attribuut in het gewijzigde object."
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
@@ -633,6 +704,12 @@
     "http://www.w3.org/ns/shacl#datatype": [
       {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@language": "nl",
+        "@value": "De naam van het attribuut in het gewijzigde object."
       }
     ],
     "http://www.w3.org/ns/shacl#maxCount": [
@@ -664,8 +741,21 @@
     "@type": [
       "http://www.w3.org/ns/shacl#PropertyShape"
     ],
+    "http://purl.org/vocab/vann/usageNote": [
+      {
+        "@language": "nl",
+        "@value": "Indien er geen waarde gekend was, is de waarde steeds NULL."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "nl",
+        "@value": "De oorspronkelijke waarde die het attribuut had voor de wijziging."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
+        "@language": "nl",
         "@value": "oudeWaarde"
       }
     ],
@@ -677,6 +767,12 @@
     "http://www.w3.org/ns/shacl#datatype": [
       {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@language": "nl",
+        "@value": "De oorspronkelijke waarde die het attribuut had voor de wijziging."
       }
     ],
     "http://www.w3.org/ns/shacl#maxCount": [
@@ -693,6 +789,7 @@
     ],
     "http://www.w3.org/ns/shacl#name": [
       {
+        "@language": "nl",
         "@value": "oudeWaarde"
       }
     ],
@@ -707,8 +804,15 @@
     "@type": [
       "http://www.w3.org/ns/shacl#PropertyShape"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "nl",
+        "@value": "De nieuwe waarde die het attribuut heeft gekregen na de wijziging."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
+        "@language": "nl",
         "@value": "nieuweWaarde"
       }
     ],
@@ -720,6 +824,12 @@
     "http://www.w3.org/ns/shacl#datatype": [
       {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@language": "nl",
+        "@value": "De nieuwe waarde die het attribuut heeft gekregen na de wijziging."
       }
     ],
     "http://www.w3.org/ns/shacl#maxCount": [
@@ -736,6 +846,7 @@
     ],
     "http://www.w3.org/ns/shacl#name": [
       {
+        "@language": "nl",
         "@value": "nieuweWaarde"
       }
     ],
@@ -798,7 +909,7 @@
     ],
     "http://www.w3.org/ns/shacl#path": [
       {
-        "@id": "http://todo.com/data"
+        "@id": "https://w3id.org/cloudevents#data"
       }
     ]
   },
@@ -807,8 +918,15 @@
     "@type": [
       "http://www.w3.org/ns/shacl#PropertyShape"
     ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "nl",
+        "@value": "Attributen die gewijzigd werden binnen de authentieke bron."
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
+        "@language": "nl",
         "@value": "attributen"
       }
     ],
@@ -822,8 +940,15 @@
         "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Attribuutswijziging"
       }
     ],
+    "http://www.w3.org/ns/shacl#description": [
+      {
+        "@language": "nl",
+        "@value": "Attributen die gewijzigd werden binnen de authentieke bron."
+      }
+    ],
     "http://www.w3.org/ns/shacl#name": [
       {
+        "@language": "nl",
         "@value": "attributen"
       }
     ],
@@ -1206,7 +1331,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#CloudEvent.Basisregisterseventtype"
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#Wijzigingsevent.Basisregisterseventtype"
       }
     ],
     "http://www.w3.org/ns/shacl#datatype": [
@@ -1263,7 +1388,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#CloudEvent.Basisregisterscausationid"
+        "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#Wijzigingsevent.Basisregisterscausationid"
       }
     ],
     "http://www.w3.org/ns/shacl#datatype": [

@@ -141,10 +141,10 @@
     }
   },
   "@id": "https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0",
-  "generatedAtTime": "2026-11-26T09:39:38.622Z",
+  "generatedAtTime": "2026-11-26T09:58:09.374Z",
   "packages": [
     {
-      "@id": "urn:oslo-toolchain:991b99c3b0d4791f5e49840832c394413395fe9edbb4e44a2029e188c512d0b8",
+      "@id": "urn:oslo-toolchain:8d81b496b5cdf7c41dcb4d4d54a01ac02b992de53b50726dc95d67f0f8b51902",
       "@type": "Package",
       "assignedURI": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds",
       "baseURI": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#",
@@ -242,12 +242,12 @@
       "assignedURI": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Wijzigingsevent",
       "apLabel": [
         {
-          "@language": "en",
-          "@value": "CloudEvent"
+          "@language": "nl",
+          "@value": "Wijzigingsevent"
         },
         {
-          "@language": "nl",
-          "@value": "CloudEvent"
+          "@language": "en",
+          "@value": "ChangeEvent"
         }
       ],
       "diagramLabel": [
@@ -317,6 +317,12 @@
         {
           "@language": "nl",
           "@value": "Het veld met zijn oude en nieuwe waarde die gewijzigd werd."
+        }
+      ],
+      "vocUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Enkel effectieve attribuutwijzigingen worden doorgegeven, niet alle attributen van het object."
         }
       ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
@@ -984,9 +990,27 @@
       "@id": "urn:oslo-toolchain:b8b29f93bb6d8d081d04c46b041541d27fcacbfcdea7b1c94df6d9c8f4524895",
       "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
       "assignedURI": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#nisCodes",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "nisCodes"
+        }
+      ],
       "diagramLabel": [
         {
           "@value": "nisCodes"
+        }
+      ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "De gemeente NIS codes die relevant zijn voor het event."
+        }
+      ],
+      "vocUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Gebruikers kunnen deze codes gebruiken om events te filteren op basis van NIS code."
         }
       ],
       "domain": {
@@ -1021,6 +1045,18 @@
           "@value": "naam"
         }
       ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "De naam van het attribuut in het gewijzigde object."
+        }
+      ],
+      "vocUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "De naam komt steeds overeen met het OSLO implementatiemodel, waarbij een punt de niveaus aangeeft. Bijvoorbeeld: positie.geometrie komt uit de klasse Positie met attribuut geometrie."
+        }
+      ],
       "domain": {
         "@id": "urn:oslo-toolchain:2494fdf41487fc3c428b2351df629d3530bcc579bde83bca997bd6d45eb41e5d"
       },
@@ -1042,9 +1078,27 @@
       "@id": "urn:oslo-toolchain:17c367b9b4c6fd298cca73974716602ef3246ec42c38afb92cefdad5654450e4",
       "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
       "assignedURI": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#oudeWaarde",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "oudeWaarde"
+        }
+      ],
       "diagramLabel": [
         {
           "@value": "oudeWaarde"
+        }
+      ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "De oorspronkelijke waarde die het attribuut had voor de wijziging."
+        }
+      ],
+      "vocUsageNote": [
+        {
+          "@language": "nl",
+          "@value": "Indien er geen waarde gekend was, is de waarde steeds NULL."
         }
       ],
       "domain": {
@@ -1068,9 +1122,21 @@
       "@id": "urn:oslo-toolchain:57cc456ed203168389b5986edc4b274108cc3fe1109919c9df06bd583610b19b",
       "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
       "assignedURI": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#nieuweWaarde",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "nieuweWaarde"
+        }
+      ],
       "diagramLabel": [
         {
           "@value": "nieuweWaarde"
+        }
+      ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "De nieuwe waarde die het attribuut heeft gekregen na de wijziging."
         }
       ],
       "domain": {
@@ -1093,7 +1159,7 @@
     {
       "@id": "urn:oslo-toolchain:d46c99f77ee8b26b348ad36b0b8dc3251180b2a9cd10c147ed7906103c2eebdb",
       "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
-      "assignedURI": "http://todo.com/data",
+      "assignedURI": "https://w3id.org/cloudevents#data",
       "apLabel": [
         {
           "@language": "en",
@@ -1150,9 +1216,21 @@
       "@id": "urn:oslo-toolchain:db20b4f352be4f6a02d155ffa0905ffd3e54c7eedca38eb5f48d587cf779731c",
       "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
       "assignedURI": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#attributen",
+      "vocLabel": [
+        {
+          "@language": "nl",
+          "@value": "attributen"
+        }
+      ],
       "diagramLabel": [
         {
           "@value": "attributen"
+        }
+      ],
+      "vocDefinition": [
+        {
+          "@language": "nl",
+          "@value": "Attributen die gewijzigd werden binnen de authentieke bron."
         }
       ],
       "domain": {

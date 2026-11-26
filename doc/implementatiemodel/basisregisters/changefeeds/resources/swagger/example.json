@@ -14,6 +14,8 @@
   "paths": {
     "/id/CloudEvent/{id}": {
       "get": {
+        "summary": "Een neerslag van een event dat plaatsvond in een bepaalde context.",
+        "description": "Het RDF subject is een combinatie van het attribuut 'id' en zijn attribuut 'source'.",
         "operationId": "CloudEventGET",
         "parameters": [
           {
@@ -201,6 +203,205 @@
             "links": {
               "Problemdetail.type": {
                 "operationId": "CloudEventGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/id/Wijzigingsevent/{id}": {
+      "get": {
+        "operationId": "WijzigingseventGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een Wijzigingsevent object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Wijzigingsevent object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Wijzigingsevent"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "WijzigingseventGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "WijzigingseventGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "WijzigingseventGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "WijzigingseventGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "WijzigingseventGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "WijzigingseventGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "WijzigingseventGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "WijzigingseventGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "WijzigingseventGET",
                 "parameters": {
                   "type": "$response.body#/type"
                 },
@@ -423,6 +624,7 @@
     "/id/Attribuutswijziging/{id}": {
       "get": {
         "summary": "Het veld met zijn oude en nieuwe waarde die gewijzigd werd.",
+        "description": "Enkel effectieve attribuutwijzigingen worden doorgegeven, niet alle attributen van het object.",
         "operationId": "AttribuutswijzigingGET",
         "parameters": [
           {
@@ -710,6 +912,7 @@
       "CloudEvent": {
         "title": "CloudEvent",
         "type": "object",
+        "description": "Een neerslag van een event dat plaatsvond in een bepaalde context.",
         "properties": {
           "@id": {
             "type": "string",
@@ -719,12 +922,6 @@
             "type": "string",
             "description": "Object type (klasse CloudEvent)",
             "pattern": "^CloudEvent$"
-          },
-          "basisregisterseventtype": {
-            "$ref": "#/components/schemas/CloudEvent.basisregisterseventtype"
-          },
-          "basisregisterscausationid": {
-            "$ref": "#/components/schemas/CloudEvent.basisregisterscausationid"
           },
           "id": {
             "$ref": "#/components/schemas/CloudEvent.id"
@@ -756,6 +953,130 @@
         },
         "required": [
           "@type",
+          "id",
+          "source",
+          "specversion",
+          "type"
+        ]
+      },
+      "Wijzigingsevent.basisregisterseventtype": {
+        "title": "Wijzigingsevent.basisregisterseventtype",
+        "description": "Het soort wijzigingsevent.",
+        "type": "string"
+      },
+      "Wijzigingsevent.basisregisterscausationid": {
+        "title": "Wijzigingsevent.basisregisterscausationid",
+        "description": "Identifier of the reason why the change happened.",
+        "type": "string"
+      },
+      "Wijzigingsevent.id": {
+        "title": "Wijzigingsevent.id",
+        "description": "Identificator van het event om deze uniek te onderscheiden van andere events samen met de source. Herpublicatie van een duplicaat mag dezelfde source en id gebruiken, de waarde zelf is niet een globale unieke event IRI.",
+        "type": "string"
+      },
+      "Wijzigingsevent.source": {
+        "title": "Wijzigingsevent.source",
+        "description": "Identificieert de context waarin het event gebeurd. Een absolute IRI is aangeraden maar niet verplicht.",
+        "type": "string",
+        "format": "uri"
+      },
+      "Wijzigingsevent.specversion": {
+        "title": "Wijzigingsevent.specversion",
+        "description": "De versie van de CloudEvents specificatie dat het event volgt. Voor CloudEvents core 1.0.2 is de waarde '1.0' en niet '1.0.2'.",
+        "type": "string"
+      },
+      "Wijzigingsevent.type": {
+        "title": "Wijzigingsevent.type",
+        "description": "Soort event benaming gekozen door de dataproducent. Reverse-DNS prefixes zijn aangeraden. Dit is geen rdf:type omdat een CloudEvents type string niet automatisch een RDF klasse aangeeft.",
+        "type": "string"
+      },
+      "Wijzigingsevent.datacontenttype": {
+        "title": "Wijzigingsevent.datacontenttype",
+        "description": "Mediatype van de inhoud van het event in het attribuut 'data' volgens RFC 2046. Bijvoorbeeld: application/json.",
+        "type": "string"
+      },
+      "Wijzigingsevent.dataschema": {
+        "title": "Wijzigingsevent.dataschema",
+        "description": "Het schema dat de inhoud van het event volgt. Voorgesteld als een IRI zodat het schema steeds opgehaald kan worden. Het schema is geen equivalent van een RDF klasse of SHACL shape.",
+        "type": "string",
+        "format": "uri"
+      },
+      "Wijzigingsevent.subject": {
+        "title": "Wijzigingsevent.subject",
+        "description": "Identificatie van het onderwerp van het event binnen de context van de source. Dit is niet altijd een URI en mag dus niet zomaar gebruikt worden als dcterms:subject of een RDF resource zonder mapping.",
+        "type": "string"
+      },
+      "Wijzigingsevent.time": {
+        "title": "Wijzigingsevent.time",
+        "description": "Tijdstip waarop het event gebeurde. Tijdstip van het event op het terrein, niet het tijdstip waarop het event was aangemaakt of afgeleverd in de data.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "Wijzigingsevent.data": {
+        "title": "Wijzigingsevent.data",
+        "description": "Inhoud van het event. Beschouwd als een abstracte klasse omdat de inhoud alles kan zijn, beschreven door datacontenttype.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Wijzigingsevent": {
+        "title": "Wijzigingsevent",
+        "type": "object",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Wijzigingsevent)",
+            "pattern": "^Wijzigingsevent$"
+          },
+          "basisregisterseventtype": {
+            "$ref": "#/components/schemas/Wijzigingsevent.basisregisterseventtype"
+          },
+          "basisregisterscausationid": {
+            "$ref": "#/components/schemas/Wijzigingsevent.basisregisterscausationid"
+          },
+          "id": {
+            "$ref": "#/components/schemas/Wijzigingsevent.id"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Wijzigingsevent.source"
+          },
+          "specversion": {
+            "$ref": "#/components/schemas/Wijzigingsevent.specversion"
+          },
+          "type": {
+            "$ref": "#/components/schemas/Wijzigingsevent.type"
+          },
+          "datacontenttype": {
+            "$ref": "#/components/schemas/Wijzigingsevent.datacontenttype"
+          },
+          "dataschema": {
+            "$ref": "#/components/schemas/Wijzigingsevent.dataschema"
+          },
+          "subject": {
+            "$ref": "#/components/schemas/Wijzigingsevent.subject"
+          },
+          "time": {
+            "$ref": "#/components/schemas/Wijzigingsevent.time"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Wijzigingsevent.data"
+          }
+        },
+        "required": [
+          "@type",
           "basisregisterseventtype",
           "basisregisterscausationid",
           "id",
@@ -763,16 +1084,6 @@
           "specversion",
           "type"
         ]
-      },
-      "CloudEvent.basisregisterseventtype": {
-        "title": "CloudEvent.basisregisterseventtype",
-        "description": "Het soort wijzigingsevent.",
-        "type": "string"
-      },
-      "CloudEvent.basisregisterscausationid": {
-        "title": "CloudEvent.basisregisterscausationid",
-        "description": "Identifier of the reason why the change happened.",
-        "type": "string"
       },
       "BasisregisterWijziging.objectid": {
         "title": "BasisregisterWijziging.objectid",
@@ -792,7 +1103,7 @@
       },
       "BasisregisterWijziging.nisCodes": {
         "title": "BasisregisterWijziging.nisCodes",
-        "description": "undefined",
+        "description": "De gemeente NIS codes die relevant zijn voor het event. Gebruikers kunnen deze codes gebruiken om events te filteren op basis van NIS code.",
         "type": "string"
       },
       "BasisregisterWijziging": {
@@ -820,7 +1131,7 @@
           },
           "nisCodes": {
             "type": "array",
-            "description": "undefined Lijst van String items.",
+            "description": "De gemeente NIS codes die relevant zijn voor het event. Gebruikers kunnen deze codes gebruiken om events te filteren op basis van NIS code. Lijst van String items.",
             "items": {
               "$ref": "#/components/schemas/BasisregisterWijziging.nisCodes"
             },
@@ -828,7 +1139,7 @@
           },
           "attributen": {
             "type": "array",
-            "description": "undefined Lijst van Attribuutswijziging items.",
+            "description": "Attributen die gewijzigd werden binnen de authentieke bron. Lijst van Attribuutswijziging items.",
             "items": {
               "$ref": "#/components/schemas/Attribuutswijziging"
             },
@@ -844,17 +1155,17 @@
       },
       "Attribuutswijziging.naam": {
         "title": "Attribuutswijziging.naam",
-        "description": "undefined",
+        "description": "De naam van het attribuut in het gewijzigde object. De naam komt steeds overeen met het OSLO implementatiemodel, waarbij een punt de niveaus aangeeft. Bijvoorbeeld: positie.geometrie komt uit de klasse Positie met attribuut geometrie.",
         "type": "string"
       },
       "Attribuutswijziging.oudeWaarde": {
         "title": "Attribuutswijziging.oudeWaarde",
-        "description": "undefined",
+        "description": "De oorspronkelijke waarde die het attribuut had voor de wijziging. Indien er geen waarde gekend was, is de waarde steeds NULL.",
         "type": "string"
       },
       "Attribuutswijziging.nieuweWaarde": {
         "title": "Attribuutswijziging.nieuweWaarde",
-        "description": "undefined",
+        "description": "De nieuwe waarde die het attribuut heeft gekregen na de wijziging.",
         "type": "string"
       },
       "Attribuutswijziging": {

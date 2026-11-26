@@ -8,5 +8,3 @@ WARN: failed to fetch external source https://implementatie.data.vlaanderen.be/n
 
 WARN: failed to fetch external source https://w3id.org/cloudevents
 
-WARN: failed to fetch external source http://todo.com/
-
