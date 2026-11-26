@@ -1,0 +1,67 @@
+{
+  "title": "Beroepskaart",
+  "type": "object",
+  "description": "TODO",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Beroepskaart)",
+      "pattern": "^Beroepskaart$"
+    },
+    "kaartnummer": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "uitgereiktOp": {
+      "$ref": "#/components/schemas/Beroepskaart.uitgereiktOp"
+    },
+    "geldigVan": {
+      "$ref": "#/components/schemas/Beroepskaart.geldigVan"
+    },
+    "geldigTot": {
+      "$ref": "#/components/schemas/Beroepskaart.geldigTot"
+    },
+    "type": {
+      "$ref": "#/components/schemas/Bewijsstuktype"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "uitgereiktDoor": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Agent"
+        },
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Agent": "#/components/schemas/Agent",
+          "Persoon": "#/components/schemas/Persoon",
+          "Organisatie": "#/components/schemas/Organisatie"
+        }
+      }
+    },
+    "credentialSubject": {
+      "type": "array",
+      "description": "TODO Lijst van CredentialSubject items.",
+      "items": {
+        "$ref": "#/components/schemas/CredentialSubject"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "credentialSubject"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "title": "Certificaat",
+  "type": "object",
+  "description": "TODO",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Certificaat)",
+      "pattern": "^Certificaat$"
+    },
+    "type": {
+      "$ref": "#/components/schemas/Bewijsstuktype"
+    },
+    "certificaatnummer": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "identiteitsbewijs": {
+      "$ref": "#/components/schemas/Identiteitsbewijs"
+    },
+    "uitgereiktOp": {
+      "$ref": "#/components/schemas/Certificaat.uitgereiktOp"
+    },
+    "geldigVan": {
+      "$ref": "#/components/schemas/Certificaat.geldigVan"
+    },
+    "geldigTot": {
+      "$ref": "#/components/schemas/Certificaat.geldigTot"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "uitgereiktDoor": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Agent"
+        },
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Agent": "#/components/schemas/Agent",
+          "Persoon": "#/components/schemas/Persoon",
+          "Organisatie": "#/components/schemas/Organisatie"
+        }
+      }
+    },
+    "credentialSubject": {
+      "type": "array",
+      "description": "TODO Lijst van CredentialSubject items.",
+      "items": {
+        "$ref": "#/components/schemas/CredentialSubject"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "credentialSubject"
+  ]
+}

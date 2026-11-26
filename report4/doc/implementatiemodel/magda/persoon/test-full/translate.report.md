@@ -1,8 +1,8 @@
-INPUTTRANSLATIONFILE: /tmp/workspace/src/doc/implementatiemodel/magda/persoon/test-full/translation/persoon_nl.json
+INPUTTRANSLATIONFILE: /tmp/workspace/src/doc/implementatiemodel/magda/persoon/test-full/translation/persoon-full_nl.json
 
-OUTPUTTRANSLATIONFILE: /tmp/workspace/report4/doc/implementatiemodel/magda/persoon/test-full/translation/persoon_nl.json
+OUTPUTTRANSLATIONFILE: /tmp/workspace/report4/doc/implementatiemodel/magda/persoon/test-full/translation/persoon-full_nl.json
 
-TRANSLATIONFILE: persoon_nl.json
+TRANSLATIONFILE: persoon-full_nl.json
 
 #||# translate for language nl  
 
@@ -18,5 +18,5 @@ WARNING The entered language values are the same!
 
 #||# Write complete  
 
-#||# the file was saved to: /tmp/workspace/report4/doc/implementatiemodel/magda/persoon/test-full/translation/persoon_nl.json  
+#||# the file was saved to: /tmp/workspace/report4/doc/implementatiemodel/magda/persoon/test-full/translation/persoon-full_nl.json  
 

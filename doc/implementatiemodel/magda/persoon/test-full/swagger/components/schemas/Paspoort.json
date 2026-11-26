@@ -1,0 +1,73 @@
+{
+  "title": "Paspoort",
+  "type": "object",
+  "description": "TODO",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Paspoort)",
+      "pattern": "^Paspoort$"
+    },
+    "verlengingsnummer": {
+      "$ref": "#/components/schemas/Paspoort.verlengingsnummer"
+    },
+    "paspoortnummer": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "type": {
+      "$ref": "#/components/schemas/Bewijsstuktype"
+    },
+    "status": {
+      "$ref": "#/components/schemas/Paspoortstatus"
+    },
+    "uitgereiktOp": {
+      "$ref": "#/components/schemas/Paspoort.uitgereiktOp"
+    },
+    "geldigVan": {
+      "$ref": "#/components/schemas/Paspoort.geldigVan"
+    },
+    "geldigTot": {
+      "$ref": "#/components/schemas/Paspoort.geldigTot"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "uitgereiktDoor": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Agent"
+        },
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Agent": "#/components/schemas/Agent",
+          "Persoon": "#/components/schemas/Persoon",
+          "Organisatie": "#/components/schemas/Organisatie"
+        }
+      }
+    },
+    "credentialSubject": {
+      "type": "array",
+      "description": "TODO Lijst van CredentialSubject items.",
+      "items": {
+        "$ref": "#/components/schemas/CredentialSubject"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "credentialSubject"
+  ]
+}

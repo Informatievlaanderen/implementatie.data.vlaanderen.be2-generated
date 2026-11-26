@@ -14,5 +14,5 @@
 
 #||# start writing  
 
-#||# The file has been saved to /tmp/workspace/report4/ns/magda/persoon/test-full/html/meta_persoon_nl.json  
+#||# The file has been saved to /tmp/workspace/report4/ns/magda/persoon/test-full/html/meta_persoon-full_nl.json  
 

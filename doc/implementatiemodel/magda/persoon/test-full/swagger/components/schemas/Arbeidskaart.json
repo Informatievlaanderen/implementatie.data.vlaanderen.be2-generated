@@ -1,0 +1,67 @@
+{
+  "title": "Arbeidskaart",
+  "type": "object",
+  "description": "TODO",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Arbeidskaart)",
+      "pattern": "^Arbeidskaart$"
+    },
+    "kaartnummer": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "uitgereiktOp": {
+      "$ref": "#/components/schemas/Arbeidskaart.uitgereiktOp"
+    },
+    "geldigVan": {
+      "$ref": "#/components/schemas/Arbeidskaart.geldigVan"
+    },
+    "geldigTot": {
+      "$ref": "#/components/schemas/Arbeidskaart.geldigTot"
+    },
+    "type": {
+      "$ref": "#/components/schemas/Bewijsstuktype"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "uitgereiktDoor": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Agent"
+        },
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Agent": "#/components/schemas/Agent",
+          "Persoon": "#/components/schemas/Persoon",
+          "Organisatie": "#/components/schemas/Organisatie"
+        }
+      }
+    },
+    "credentialSubject": {
+      "type": "array",
+      "description": "TODO Lijst van CredentialSubject items.",
+      "items": {
+        "$ref": "#/components/schemas/CredentialSubject"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "credentialSubject"
+  ]
+}

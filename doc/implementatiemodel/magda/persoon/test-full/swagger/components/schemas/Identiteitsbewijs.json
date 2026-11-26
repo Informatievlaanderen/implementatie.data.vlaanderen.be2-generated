@@ -1,0 +1,76 @@
+{
+  "title": "Identiteitsbewijs",
+  "type": "object",
+  "description": "TODO",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Identiteitsbewijs)",
+      "pattern": "^Identiteitsbewijs$"
+    },
+    "duplicaatnummer": {
+      "$ref": "#/components/schemas/Identiteitsbewijs.duplicaatnummer"
+    },
+    "verlengingsnummer": {
+      "$ref": "#/components/schemas/Identiteitsbewijs.verlengingsnummer"
+    },
+    "geldigheidsduur": {
+      "$ref": "#/components/schemas/Identiteitsbewijs.geldigheidsduur"
+    },
+    "type": {
+      "$ref": "#/components/schemas/Bewijsstuktype"
+    },
+    "kaartnummer": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "uitgereiktOp": {
+      "$ref": "#/components/schemas/Identiteitsbewijs.uitgereiktOp"
+    },
+    "geldigVan": {
+      "$ref": "#/components/schemas/Identiteitsbewijs.geldigVan"
+    },
+    "geldigTot": {
+      "$ref": "#/components/schemas/Identiteitsbewijs.geldigTot"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    },
+    "uitgereiktDoor": {
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/Agent"
+        },
+        {
+          "$ref": "#/components/schemas/Persoon"
+        },
+        {
+          "$ref": "#/components/schemas/Organisatie"
+        }
+      ],
+      "discriminator": {
+        "propertyName": "@type",
+        "mapping": {
+          "Agent": "#/components/schemas/Agent",
+          "Persoon": "#/components/schemas/Persoon",
+          "Organisatie": "#/components/schemas/Organisatie"
+        }
+      }
+    },
+    "credentialSubject": {
+      "type": "array",
+      "description": "TODO Lijst van CredentialSubject items.",
+      "items": {
+        "$ref": "#/components/schemas/CredentialSubject"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "credentialSubject"
+  ]
+}
