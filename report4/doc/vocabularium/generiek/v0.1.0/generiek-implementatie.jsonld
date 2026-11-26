@@ -141,106 +141,144 @@
     }
   },
   "@id": "https://implementatie.data.test-vlaanderen.be/doc/vocabularium/generiek/v0.1.0",
-  "generatedAtTime": "2026-11-25T10:11:55.194Z",
+  "generatedAtTime": "2026-11-26T10:15:29.501Z",
   "packages": [
     {
-      "@id": "urn:oslo-toolchain:85eb33188de521113944d55473476d756d0257e83b158ad7cf1cd35819c62b4d",
+      "@id": "urn:oslo-toolchain:38bf312d9131aea24790231c7b59d0d5f22ae724c5cd64c52e1e4f56ad47c0c6",
       "@type": "Package",
-      "assignedURI": "https://implementatie.data.vlaanderen.be/ns/generiek",
-      "baseURI": "https://implementatie.data.vlaanderen.be/ns/generiek#",
+      "assignedURI": "https://w3id.org/cloudevents",
+      "baseURI": "https://w3id.org/cloudevents#",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     }
   ],
   "classes": [
     {
-      "@id": "urn:oslo-toolchain:5b967ffac6f4016022fa7658c134c7ecf8e4d5f8f5535a4b968cb9175718ddcc",
+      "@id": "urn:oslo-toolchain:bb4f0e41290d00d169eebdde48c1ce6650d082cceab2e290a0e6da81361901b4",
       "@type": "Class",
-      "assignedURI": "https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail",
-      "vocLabel": [
+      "assignedURI": "https://w3id.org/cloudevents#CloudEvent",
+      "apLabel": [
+        {
+          "@language": "en",
+          "@value": "CloudEvent"
+        },
         {
           "@language": "nl",
-          "@value": "Problemdetail"
+          "@value": "CloudEvent"
         }
       ],
       "diagramLabel": [
         {
-          "@value": "Problemdetail"
+          "@value": "CloudEvent"
         }
       ],
-      "vocDefinition": [
+      "apDefinition": [
+        {
+          "@language": "en",
+          "@value": "An event record expressing an occurrence and its context."
+        },
         {
           "@language": "nl",
-          "@value": "Meer gedetailleerde beschrijving van de fout in een HTTP response."
+          "@value": "Een neerslag van een event dat plaatsvond in een bepaalde context."
         }
       ],
-      "vocUsageNote": [
+      "apUsageNote": [
+        {
+          "@language": "en",
+          "@value": "Its RDF subject is not determined by its id attribute alone: the CloudEvents identity of an event is the combination of source and id."
+        },
         {
           "@language": "nl",
-          "@value": "Dit ter aanvulling van een HTTP statuscode,bijvoorbeeld bij een 400 (Bad request) statuscode om aan te geven waarom de request slecht was. Gebaseerd op <a href=\"https://www.rfc-editor.org/rfc/rfc7807\">RFC7807</a>."
+          "@value": "Het RDF subject is een combinatie van het attribuut 'id' en zijn attribuut 'source'."
         }
       ],
       "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     },
     {
-      "@id": "urn:oslo-toolchain:04f941c22d4bf90aae8e3cd2e636a03e1cfb92979a03193fce1b91ded4d5f83f",
+      "@id": "urn:oslo-toolchain:a2725b298c58b8afc3f1d3142b44e503b51661ee36092fd93042a45cdbcc638e",
       "@type": "Class",
-      "assignedURI": "https://implementatie.data.vlaanderen.be/ns/generiek#Envelope",
-      "vocLabel": [
-        {
-          "@language": "nl",
-          "@value": "envelop"
-        },
+      "assignedURI": "http://www.w3.org/2000/01/rdf-schema#Literal",
+      "apLabel": [
         {
           "@language": "en",
-          "@value": "envelope"
+          "@value": "Payload"
+        },
+        {
+          "@language": "nl",
+          "@value": "Inhoud"
         }
       ],
       "diagramLabel": [
         {
-          "@value": "Envelope"
+          "@value": "Literal"
         }
       ],
-      "vocDefinition": [
+      "apDefinition": [
+        {
+          "@language": "en",
+          "@value": "Information about the event."
+        },
         {
           "@language": "nl",
-          "@value": "Envelop is het hoofdobject om data uit te wisselen."
+          "@value": "Informatie over het event."
         }
       ],
-      "vocUsageNote": [
+      "apUsageNote": [
         {
           "@language": "nl",
-          "@value": "Volg de REST richtlijnen van Digitaal Vlaanderen bij het gebruik van deze klasse binnen VDIP."
+          "@value": "Abstracte klasse die steeds voor elk gebruik vervangen moet worden door de effectieve inhoud, bijvoorbeeld: een andere klasse of een primitief datatype. Gebruikers moeten de inhoud steeds parsen volgens de waarde van het datacontenttype veld en valideren volgens het schema voorzien in het dataschema veld."
+        },
+        {
+          "@language": "en",
+          "@value": "Abstract class which always must be replaced by the actual content such as another class or primitive datatype. Clients must parse it according to the datacontenttype attribute and validatie it with schema provided by the dataschema attribute."
         }
       ],
-      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     }
   ],
   "attributes": [
     {
-      "@id": "urn:oslo-toolchain:4a41da9bfc395e6a197db5b544464bcd6433b093dc10deb57453471da613cec7",
+      "@id": "urn:oslo-toolchain:fbc12ecf89e1053dc6bf02300c48f3c58c34e98f90818ccd761fd890a4064a1b",
       "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
-      "assignedURI": "http://purl.org/dc/terms/description",
+      "assignedURI": "https://w3id.org/cloudevents#id",
       "apLabel": [
         {
+          "@language": "en",
+          "@value": "id"
+        },
+        {
           "@language": "nl",
-          "@value": "detail"
+          "@value": "id"
         }
       ],
       "diagramLabel": [
         {
-          "@value": "detail"
+          "@value": "id"
         }
       ],
       "apDefinition": [
         {
+          "@language": "en",
+          "@value": "Identifier of the event which uniquely distinct events in combination with source."
+        },
+        {
           "@language": "nl",
-          "@value": "Mensleesbare beschrijving van de fout."
+          "@value": "Identificator van het event om deze uniek te onderscheiden van andere events samen met de source."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "en",
+          "@value": "Retransmission of a duplicate may reuse the same source and id. The value is not a globally unique event IRI by itself."
+        },
+        {
+          "@language": "nl",
+          "@value": "Herpublicatie van een duplicaat mag dezelfde source en id gebruiken, de waarde zelf is niet een globale unieke event IRI."
         }
       ],
       "domain": {
-        "@id": "urn:oslo-toolchain:5b967ffac6f4016022fa7658c134c7ecf8e4d5f8f5535a4b968cb9175718ddcc"
+        "@id": "urn:oslo-toolchain:bb4f0e41290d00d169eebdde48c1ce6650d082cceab2e290a0e6da81361901b4"
       },
       "range": {
         "@id": "urn:oslo-toolchain:487667944"
@@ -253,120 +291,106 @@
         "@value": "1",
         "@type": "http://www.w3.org/2001/XMLSchema#integer"
       },
-      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     },
     {
-      "@id": "urn:oslo-toolchain:d8bb98052928801444a41ffce8dcb6a128c61dab360199a522f4ef88a2cc3795",
+      "@id": "urn:oslo-toolchain:0f13e5f982b0ec8f556a953941e6c723934074a2a141bec9e8be7de87fe1ed5f",
       "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
-      "assignedURI": "http://purl.org/dc/terms/references",
+      "assignedURI": "https://w3id.org/cloudevents#source",
       "apLabel": [
         {
+          "@language": "en",
+          "@value": "source"
+        },
+        {
           "@language": "nl",
-          "@value": "instance"
+          "@value": "source"
         }
       ],
       "diagramLabel": [
         {
-          "@value": "instance"
+          "@value": "source"
         }
       ],
       "apDefinition": [
         {
+          "@language": "en",
+          "@value": "Identifying the context where the occurrence happened."
+        },
+        {
           "@language": "nl",
-          "@value": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft."
+          "@value": "Identificieert de context waarin het event gebeurd."
         }
       ],
       "apUsageNote": [
         {
+          "@language": "en",
+          "@value": "An absolute URI is recommended but not required. Preserve the lexical value rather than resolving relative references against the RDF document base; this is a literal attribute, not an RDF relation to a ce:SourceContext resource."
+        },
+        {
           "@language": "nl",
-          "@value": "Bijvoorbeeld: de verwijzing naar de request."
+          "@value": "Een absolute IRI is aangeraden maar niet verplicht."
         }
       ],
       "domain": {
-        "@id": "urn:oslo-toolchain:5b967ffac6f4016022fa7658c134c7ecf8e4d5f8f5535a4b968cb9175718ddcc"
+        "@id": "urn:oslo-toolchain:bb4f0e41290d00d169eebdde48c1ce6650d082cceab2e290a0e6da81361901b4"
       },
       "range": {
         "@id": "urn:oslo-toolchain:1008345369"
       },
       "minCount": {
-        "@value": "0",
+        "@value": "1",
         "@type": "http://www.w3.org/2001/XMLSchema#integer"
       },
       "maxCount": {
         "@value": "1",
         "@type": "http://www.w3.org/2001/XMLSchema#integer"
       },
-      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     },
     {
-      "@id": "urn:oslo-toolchain:9d59af2a1cb03a7ff038d9ca798d8397154cfefcbaee22bc7d82b72f51cf0f16",
+      "@id": "urn:oslo-toolchain:54ae1c7b07a7889bf0a97229f20a43a76e14a8d99691b1e5c9d33b287e32e687",
       "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
-      "assignedURI": "http://www.w3.org/ns/adms#status",
+      "assignedURI": "https://w3id.org/cloudevents#specversion",
       "apLabel": [
         {
+          "@language": "en",
+          "@value": "specversion"
+        },
+        {
           "@language": "nl",
-          "@value": "status"
+          "@value": "specversion"
         }
       ],
       "diagramLabel": [
         {
-          "@value": "status"
+          "@value": "specversion"
         }
       ],
       "apDefinition": [
         {
+          "@language": "en",
+          "@value": "Version of the CloudEvents specification that defines the event's context."
+        },
+        {
           "@language": "nl",
-          "@value": "HTTP foutcode."
+          "@value": "De versie van de CloudEvents specificatie dat het event volgt."
         }
       ],
       "apUsageNote": [
         {
+          "@language": "en",
+          "@value": "For CloudEvents core 1.0.2 this has the literal value '1.0', not '1.0.2'."
+        },
+        {
           "@language": "nl",
-          "@value": "Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\"."
+          "@value": "Voor CloudEvents core 1.0.2 is de waarde '1.0' en niet '1.0.2'."
         }
       ],
       "domain": {
-        "@id": "urn:oslo-toolchain:5b967ffac6f4016022fa7658c134c7ecf8e4d5f8f5535a4b968cb9175718ddcc"
-      },
-      "range": {
-        "@id": "urn:oslo-toolchain:1607006999"
-      },
-      "minCount": {
-        "@value": "0",
-        "@type": "http://www.w3.org/2001/XMLSchema#integer"
-      },
-      "maxCount": {
-        "@value": "1",
-        "@type": "http://www.w3.org/2001/XMLSchema#integer"
-      },
-      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
-      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
-    },
-    {
-      "@id": "urn:oslo-toolchain:d874722cc8551a82eb4678dfa028f137f61a55bfe43af48f30d29b4f42656502",
-      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
-      "assignedURI": "http://purl.org/dc/terms/title",
-      "apLabel": [
-        {
-          "@language": "nl",
-          "@value": "title"
-        }
-      ],
-      "diagramLabel": [
-        {
-          "@value": "title"
-        }
-      ],
-      "apDefinition": [
-        {
-          "@language": "nl",
-          "@value": "Korte mensleesbare beschrijving van de fout."
-        }
-      ],
-      "domain": {
-        "@id": "urn:oslo-toolchain:5b967ffac6f4016022fa7658c134c7ecf8e4d5f8f5535a4b968cb9175718ddcc"
+        "@id": "urn:oslo-toolchain:bb4f0e41290d00d169eebdde48c1ce6650d082cceab2e290a0e6da81361901b4"
       },
       "range": {
         "@id": "urn:oslo-toolchain:487667944"
@@ -379,14 +403,18 @@
         "@value": "1",
         "@type": "http://www.w3.org/2001/XMLSchema#integer"
       },
-      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     },
     {
-      "@id": "urn:oslo-toolchain:924c62c40fd7e26839b8c5b6eead9347ba139cc0c39e668488b366b9c39208f9",
+      "@id": "urn:oslo-toolchain:8e7ce59b931741460a1c86403d07e41ace6e7fa1ff9b6c5383c1e74f9b14c9e7",
       "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
-      "assignedURI": "http://purl.org/dc/terms/type",
+      "assignedURI": "https://w3id.org/cloudevents#type",
       "apLabel": [
+        {
+          "@language": "en",
+          "@value": "type"
+        },
         {
           "@language": "nl",
           "@value": "type"
@@ -399,15 +427,29 @@
       ],
       "apDefinition": [
         {
+          "@language": "en",
+          "@value": "Producer-defined event type string."
+        },
+        {
           "@language": "nl",
-          "@value": "Aard van de fout."
+          "@value": "Soort event benaming gekozen door de dataproducent."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "en",
+          "@value": "Reverse-DNS prefixes are recommended. This is NOT rdf:type: a CloudEvents type string does not automatically identify an RDF class."
+        },
+        {
+          "@language": "nl",
+          "@value": "Reverse-DNS prefixes zijn aangeraden. Dit is geen rdf:type omdat een CloudEvents type string niet automatisch een RDF klasse aangeeft."
         }
       ],
       "domain": {
-        "@id": "urn:oslo-toolchain:5b967ffac6f4016022fa7658c134c7ecf8e4d5f8f5535a4b968cb9175718ddcc"
+        "@id": "urn:oslo-toolchain:bb4f0e41290d00d169eebdde48c1ce6650d082cceab2e290a0e6da81361901b4"
       },
       "range": {
-        "@id": "urn:oslo-toolchain:1008345369"
+        "@id": "urn:oslo-toolchain:487667944"
       },
       "minCount": {
         "@value": "1",
@@ -417,7 +459,287 @@
         "@value": "1",
         "@type": "http://www.w3.org/2001/XMLSchema#integer"
       },
-      "scope": "https://data.vlaanderen.be/id/concept/scope/External",
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:4a0fa9f51fcada299b7948b07210cf993f4775c9bb3daa9a970ca686cdc0e010",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "https://w3id.org/cloudevents#datacontenttype",
+      "apLabel": [
+        {
+          "@language": "en",
+          "@value": "datacontenttype"
+        },
+        {
+          "@language": "nl",
+          "@value": "datacontenttype"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "datacontenttype"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "en",
+          "@value": "Media type of the event data, as defined by RFC 2046. In certain event formats, absence may imply a media type."
+        },
+        {
+          "@language": "nl",
+          "@value": "Mediatype van de inhoud van het event in het attribuut 'data' volgens RFC 2046."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "en",
+          "@value": "For example: application/json"
+        },
+        {
+          "@language": "nl",
+          "@value": "Bijvoorbeeld: application/json."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:bb4f0e41290d00d169eebdde48c1ce6650d082cceab2e290a0e6da81361901b4"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:487667944"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:d9067aaa5227ad4d02fcb98284e3b573681ea34ea03be8549b894cbd29d6435b",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "https://w3id.org/cloudevents#dataschema",
+      "apLabel": [
+        {
+          "@language": "en",
+          "@value": "dataschema"
+        },
+        {
+          "@language": "nl",
+          "@value": "dataschema"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "dataschema"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "en",
+          "@value": "The schema to which the event data adheres."
+        },
+        {
+          "@language": "nl",
+          "@value": "Het schema dat de inhoud van het event volgt."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "en",
+          "@value": "Represented as an IRI (named node), so the schema can be dereferenced and linked; as the value is always absolute, no base IRI is involved. No equivalence to an RDF class or SHACL shape is implied."
+        },
+        {
+          "@language": "nl",
+          "@value": "Voorgesteld als een IRI zodat het schema steeds opgehaald kan worden. Het schema is geen equivalent van een RDF klasse of SHACL shape."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:bb4f0e41290d00d169eebdde48c1ce6650d082cceab2e290a0e6da81361901b4"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:1008345369"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:29d055c5c217ffd7b2aad96776b1c852791153688d9f77f05a180d0b8279ca89",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "https://w3id.org/cloudevents#subject",
+      "apLabel": [
+        {
+          "@language": "en",
+          "@value": "subject"
+        },
+        {
+          "@language": "nl",
+          "@value": "subject"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "subject"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "en",
+          "@value": "Identifier of the subject of the event within the context of source."
+        },
+        {
+          "@language": "nl",
+          "@value": "Identificatie van het onderwerp van het event binnen de context van de source."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "en",
+          "@value": "It is not necessarily a URI and should not be treated as dct:subject or an RDF resource without an explicit mapping."
+        },
+        {
+          "@language": "nl",
+          "@value": "Dit is niet altijd een URI en mag dus niet zomaar gebruikt worden als dcterms:subject of een RDF resource zonder mapping."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:bb4f0e41290d00d169eebdde48c1ce6650d082cceab2e290a0e6da81361901b4"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:487667944"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:2fa433538e4fd66721cf9c8d59ee0ac10d722dc831f57c2570bb23fcdebfe3c0",
+      "@type": "http://www.w3.org/2002/07/owl#DatatypeProperty",
+      "assignedURI": "https://w3id.org/cloudevents#time",
+      "apLabel": [
+        {
+          "@language": "en",
+          "@value": "time"
+        },
+        {
+          "@language": "nl",
+          "@value": "time"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "time"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "en",
+          "@value": "Timestamp of the occurrence, or a consistently selected substitute time if the actual occurrence time cannot be determined."
+        },
+        {
+          "@language": "nl",
+          "@value": "Tijdstip waarop het event gebeurde."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "en",
+          "@value": "Not the time the event record was created or delivered. See ce:Timestamp for normalising RFC 3339 values."
+        },
+        {
+          "@language": "nl",
+          "@value": "Tijdstip van het event op het terrein, niet het tijdstip waarop het event was aangemaakt of afgeleverd in de data."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:bb4f0e41290d00d169eebdde48c1ce6650d082cceab2e290a0e6da81361901b4"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:499715870"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
+      "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
+    },
+    {
+      "@id": "urn:oslo-toolchain:d46c99f77ee8b26b348ad36b0b8dc3251180b2a9cd10c147ed7906103c2eebdb",
+      "@type": "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "assignedURI": "https://w3id.org/cloudevents#data",
+      "apLabel": [
+        {
+          "@language": "en",
+          "@value": "data"
+        },
+        {
+          "@language": "nl",
+          "@value": "data"
+        }
+      ],
+      "diagramLabel": [
+        {
+          "@value": "data"
+        }
+      ],
+      "apDefinition": [
+        {
+          "@language": "en",
+          "@value": "Payload of the event."
+        },
+        {
+          "@language": "nl",
+          "@value": "Inhoud van het event."
+        }
+      ],
+      "apUsageNote": [
+        {
+          "@language": "en",
+          "@value": "Kept as an opaque literal: an rdf:JSON literal holding the JSON value of the data member of the JSON event format (for non-JSON content types, the JSON string that carries the data), or an xsd:base64Binary literal for binary data (the data_base64 member)."
+        },
+        {
+          "@language": "nl",
+          "@value": "Beschouwd als een abstracte klasse omdat de inhoud alles kan zijn, beschreven door datacontenttype."
+        }
+      ],
+      "domain": {
+        "@id": "urn:oslo-toolchain:bb4f0e41290d00d169eebdde48c1ce6650d082cceab2e290a0e6da81361901b4"
+      },
+      "range": {
+        "@id": "urn:oslo-toolchain:a2725b298c58b8afc3f1d3142b44e503b51661ee36092fd93042a45cdbcc638e"
+      },
+      "minCount": {
+        "@value": "0",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "maxCount": {
+        "@value": "1",
+        "@type": "http://www.w3.org/2001/XMLSchema#integer"
+      },
+      "scope": "https://data.vlaanderen.be/id/concept/scope/InPackage",
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     }
   ],
@@ -439,18 +761,18 @@
       "assignedURI": "http://www.w3.org/2001/XMLSchema#anyURI",
       "diagramLabel": [
         {
-          "@value": "Uri"
+          "@value": "URI"
         }
       ],
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
     },
     {
-      "@id": "urn:oslo-toolchain:1607006999",
+      "@id": "urn:oslo-toolchain:499715870",
       "@type": "Datatype",
-      "assignedURI": "http://www.w3.org/2001/XMLSchema#integer",
+      "assignedURI": "http://www.w3.org/2001/XMLSchema#dateTime",
       "diagramLabel": [
         {
-          "@value": "Integer"
+          "@value": "DateTime"
         }
       ],
       "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus"
@@ -461,7 +783,7 @@
   "subsettedAttributes": [],
   "abstractClasses": [
     {
-      "@id": "urn:oslo-toolchain:04f941c22d4bf90aae8e3cd2e636a03e1cfb92979a03193fce1b91ded4d5f83f",
+      "@id": "urn:oslo-toolchain:a2725b298c58b8afc3f1d3142b44e503b51661ee36092fd93042a45cdbcc638e",
       "@type": "AbstractClass"
     }
   ],
