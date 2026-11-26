@@ -1,0 +1,45 @@
+{
+  "title": "Postinfo",
+  "type": "object",
+  "description": "Adrescomponent die verwijst naar informatie toegekend door de aanbieder van de universele postdienst voor de identificatie van een groepering van adressen in een geografisch gebied voor postale doeleinden.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Postinfo)",
+      "pattern": "^Postinfo$"
+    },
+    "postcode": {
+      "$ref": "#/components/schemas/Postinfo.postcode"
+    },
+    "postnaam": {
+      "type": "array",
+      "description": "Naam waarmee het geografisch gebied dat de adressen voor postale doeleinden groepeert kan worden aangeduid. Typisch de namen van vroegere gemeenten waarmee het gebied samenvalt. Lijst van GeografischeNaam items.",
+      "items": {
+        "$ref": "#/components/schemas/Postinfo.postnaam"
+      },
+      "minItems": 1
+    },
+    "nuts3": {
+      "$ref": "#/components/schemas/Postinfo.nuts3"
+    },
+    "status": {
+      "$ref": "#/components/schemas/Statuswaarde"
+    },
+    "detail": {
+      "$ref": "#/components/schemas/AnyURI"
+    },
+    "isToegekendAan": {
+      "$ref": "#/components/schemas/Gemeente"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

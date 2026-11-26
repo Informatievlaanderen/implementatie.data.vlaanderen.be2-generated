@@ -1,0 +1,29 @@
+{
+  "title": "AdresEnvelop",
+  "type": "object",
+  "description": "De collectie van het uitgewisselde adres en zijn metadata elementen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse AdresEnvelop)",
+      "pattern": "^AdresEnvelop$"
+    },
+    "data": {
+      "$ref": "#/components/schemas/Adres"
+    },
+    "volgende": {
+      "$ref": "#/components/schemas/Link"
+    },
+    "_links": {
+      "$ref": "#/components/schemas/Links"
+    }
+  },
+  "required": [
+    "@type",
+    "data"
+  ]
+}

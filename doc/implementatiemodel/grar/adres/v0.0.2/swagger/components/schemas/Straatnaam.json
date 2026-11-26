@@ -1,0 +1,48 @@
+{
+  "title": "Straatnaam",
+  "type": "object",
+  "description": "Adrescomponent met de naam die officieel werd toegekend aan een straat (baan, doorgang, plein) of aan een gehucht en waaraan adressen kunnen zijn gekoppeld.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Straatnaam)",
+      "pattern": "^Straatnaam$"
+    },
+    "homoniemToevoeging": {
+      "type": "array",
+      "description": "Toevoeging om dubbele straatnamen (straatnamen met dezelfde naam maar andere ligging in de gemeente en eigen adressen) van elkaar te onderscheiden. Lijst van String items.",
+      "items": {
+        "$ref": "#/components/schemas/Straatnaam.homoniemToevoeging"
+      },
+      "minItems": 1
+    },
+    "straatnaam": {
+      "type": "array",
+      "description": "Naam van de straat. Lijst van GeografischeNaam items.",
+      "items": {
+        "$ref": "#/components/schemas/Straatnaam.straatnaam"
+      },
+      "minItems": 1
+    },
+    "status": {
+      "$ref": "#/components/schemas/Statuswaarde"
+    },
+    "detail": {
+      "$ref": "#/components/schemas/AnyURI"
+    },
+    "isToegekendDoor": {
+      "$ref": "#/components/schemas/Gemeente"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    }
+  },
+  "required": [
+    "@type",
+    "straatnaam"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "title": "StraatnaamEnvelop",
+  "type": "object",
+  "description": "De collectie van de uitgewisselde straatnaam en zijn metadata elementen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse StraatnaamEnvelop)",
+      "pattern": "^StraatnaamEnvelop$"
+    },
+    "data": {
+      "$ref": "#/components/schemas/Straatnaam"
+    },
+    "volgende": {
+      "$ref": "#/components/schemas/Link"
+    },
+    "_links": {
+      "$ref": "#/components/schemas/Links"
+    }
+  },
+  "required": [
+    "@type",
+    "data"
+  ]
+}

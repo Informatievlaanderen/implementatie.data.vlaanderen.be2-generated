@@ -1,0 +1,32 @@
+{
+  "title": "Locatienaam",
+  "type": "object",
+  "description": "Naam of omschrijving van het geografisch object dat een adreslocator aanduidt.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Locatienaam)",
+      "pattern": "^Locatienaam$"
+    },
+    "naam": {
+      "type": "array",
+      "description": "Naam van het geografisch object. Lijst van GeografischeNaam items.",
+      "items": {
+        "$ref": "#/components/schemas/Locatienaam.naam"
+      },
+      "minItems": 1
+    },
+    "type": {
+      "$ref": "#/components/schemas/Locatienaamtype"
+    }
+  },
+  "required": [
+    "@type",
+    "naam",
+    "type"
+  ]
+}

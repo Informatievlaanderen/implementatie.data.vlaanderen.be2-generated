@@ -1,0 +1,29 @@
+{
+  "title": "GemeenteEnvelop",
+  "type": "object",
+  "description": "De collectie van de uitgewisselde gemeente en zijn metadata elementen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse GemeenteEnvelop)",
+      "pattern": "^GemeenteEnvelop$"
+    },
+    "data": {
+      "$ref": "#/components/schemas/Gemeente"
+    },
+    "volgende": {
+      "$ref": "#/components/schemas/Link"
+    },
+    "_links": {
+      "$ref": "#/components/schemas/Links"
+    }
+  },
+  "required": [
+    "@type",
+    "data"
+  ]
+}

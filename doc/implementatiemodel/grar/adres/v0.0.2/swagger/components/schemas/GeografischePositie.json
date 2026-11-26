@@ -1,0 +1,35 @@
+{
+  "title": "GeografischePositie",
+  "type": "object",
+  "description": "Geografische positie aangegeven door middel van een punt.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse GeografischePositie)",
+      "pattern": "^GeografischePositie$"
+    },
+    "geometrie": {
+      "type": "array",
+      "description": "De cartografische coöordinaten van het punt. Lijst van Punt items.",
+      "items": {
+        "$ref": "#/components/schemas/Punt"
+      },
+      "minItems": 1,
+      "maxItems": 2
+    },
+    "methode": {
+      "$ref": "#/components/schemas/GeometrieMethodeWaarde"
+    },
+    "specificatie": {
+      "$ref": "#/components/schemas/GeometriSpecificatieWaarde"
+    }
+  },
+  "required": [
+    "@type",
+    "geometrie"
+  ]
+}

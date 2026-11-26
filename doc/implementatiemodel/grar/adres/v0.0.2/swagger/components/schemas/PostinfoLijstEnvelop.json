@@ -1,0 +1,33 @@
+{
+  "title": "PostinfoLijstEnvelop",
+  "type": "object",
+  "description": "De collectie van de uitgewisselde postinfo en zijn metadata elementen.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse PostinfoLijstEnvelop)",
+      "pattern": "^PostinfoLijstEnvelop$"
+    },
+    "data": {
+      "type": "array",
+      "description": "De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van Postinfo items.",
+      "items": {
+        "$ref": "#/components/schemas/Postinfo"
+      },
+      "minItems": 1
+    },
+    "volgende": {
+      "$ref": "#/components/schemas/Link"
+    },
+    "_links": {
+      "$ref": "#/components/schemas/Links"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}

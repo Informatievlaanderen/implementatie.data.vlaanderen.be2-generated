@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://implementatie.data.test-vlaanderen.be/",
+      "url": "https://implementatie.data.test-vlaanderen.be",
       "description": "Basis URL"
     }
   ],
@@ -5770,7 +5770,20 @@
       "Postinfo.postnaam": {
         "title": "Postinfo.postnaam",
         "description": "Naam waarmee het geografisch gebied dat de adressen voor postale doeleinden groepeert kan worden aangeduid. Typisch de namen van vroegere gemeenten waarmee het gebied samenvalt.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
       },
       "Postinfo.nuts3": {
         "title": "Postinfo.nuts3",
@@ -5892,7 +5905,20 @@
       "Straatnaam.straatnaam": {
         "title": "Straatnaam.straatnaam",
         "description": "Naam van de straat.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
       },
       "Straatnaam": {
         "title": "Straatnaam",
@@ -5945,7 +5971,20 @@
       "Gemeentenaam.gemeentenaam": {
         "title": "Gemeentenaam.gemeentenaam",
         "description": "Naam van de gemeente.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
       },
       "Gemeentenaam": {
         "title": "Gemeentenaam",
@@ -5981,7 +6020,20 @@
       "Adresuitbreiding.volledigAdres": {
         "title": "Adresuitbreiding.volledigAdres",
         "description": "Het complete adres in één string, al dan niet geformatteerd. Vermijdt fouten ten gevolgen van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
       },
       "Adresuitbreiding": {
         "title": "Adresuitbreiding",
@@ -6013,12 +6065,34 @@
       "Gemeente.officieleTaal": {
         "title": "Gemeente.officieleTaal",
         "description": "De officiële talen van de gemeente.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
       },
       "Gemeente.faciliteitenTaal": {
         "title": "Gemeente.faciliteitenTaal",
         "description": "De faciliteiten talen van de gemeente.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
       },
       "Gemeente": {
         "title": "Gemeente",
@@ -6188,7 +6262,7 @@
       "Problemdetail.status": {
         "title": "Problemdetail.status",
         "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\".",
-        "type": "number",
+        "type": "integer",
         "format": "int64"
       },
       "Problemdetail.title": {
@@ -6295,12 +6369,38 @@
       "Concept.voorkeursnaam": {
         "title": "Concept.voorkeursnaam",
         "description": "De naam van het Concept.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
       },
       "Concept.alternatieveNaam": {
         "title": "Concept.alternatieveNaam",
         "description": "Andere naam voor het concept.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
       },
       "Concept.code": {
         "title": "Concept.code",
@@ -6339,7 +6439,18 @@
       "Locatieaanduiding.aanduiding": {
         "title": "Locatieaanduiding.aanduiding",
         "description": "Alfanumerieke code waarmee het identificerend deel van een adreslocator wordt aangeduid.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
       },
       "Locatieaanduiding": {
         "title": "Locatieaanduiding",
@@ -6371,7 +6482,20 @@
       "Locatienaam.naam": {
         "title": "Locatienaam.naam",
         "description": "Naam van het geografisch object.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
       },
       "Locatienaam": {
         "title": "Locatienaam",
@@ -6408,7 +6532,18 @@
       "Identificator.identificator": {
         "title": "Identificator.identificator",
         "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
       },
       "Identificator.toegekendDoor": {
         "title": "Identificator.toegekendDoor",
@@ -6500,12 +6635,34 @@
       "Geometrie.gml": {
         "title": "Geometrie.gml",
         "description": "Geometrie uitgedrukt in GML-formaat. Gebruik http://www.opengis.net/ont/geosparql#gmlLiteral als datatype.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
       },
       "Geometrie.wkt": {
         "title": "Geometrie.wkt",
         "description": "Geometrie uitgedrukt in WKT-formaat. Gebruik http://www.opengis.net/ont/geosparql#wktLiteral als datatype.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
       },
       "Geometrie": {
         "title": "Geometrie",
@@ -6611,12 +6768,34 @@
       "Punt.gml": {
         "title": "Punt.gml",
         "description": "Geometrie uitgedrukt in GML-formaat. Gebruik http://www.opengis.net/ont/geosparql#gmlLiteral als datatype.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
       },
       "Punt.wkt": {
         "title": "Punt.wkt",
         "description": "Geometrie uitgedrukt in WKT-formaat. Gebruik http://www.opengis.net/ont/geosparql#wktLiteral als datatype.",
-        "type": "string"
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
       },
       "Punt": {
         "title": "Punt",

@@ -1,0 +1,58 @@
+{
+  "title": "Adres",
+  "type": "object",
+  "description": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Adres)",
+      "pattern": "^Adres$"
+    },
+    "busnummer": {
+      "$ref": "#/components/schemas/Adres.busnummer"
+    },
+    "huisnummer": {
+      "$ref": "#/components/schemas/Adres.huisnummer"
+    },
+    "officieelToegekend": {
+      "$ref": "#/components/schemas/Adres.officieelToegekend"
+    },
+    "detail": {
+      "$ref": "#/components/schemas/AnyURI"
+    },
+    "positie": {
+      "$ref": "#/components/schemas/GeografischePositie"
+    },
+    "status": {
+      "$ref": "#/components/schemas/Statuswaarde"
+    },
+    "isVerrijktMet": {
+      "$ref": "#/components/schemas/Adresuitbreiding"
+    },
+    "heeftGemeentenaam": {
+      "$ref": "#/components/schemas/Gemeentenaam"
+    },
+    "isToegekendDoor": {
+      "$ref": "#/components/schemas/Gemeente"
+    },
+    "heeftStraatnaam": {
+      "$ref": "#/components/schemas/Straatnaam"
+    },
+    "heeftPostinfo": {
+      "$ref": "#/components/schemas/Postinfo"
+    },
+    "heeftReferentie": {
+      "$ref": "#/components/schemas/Referentie"
+    },
+    "identificator": {
+      "$ref": "#/components/schemas/Identificator"
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}
