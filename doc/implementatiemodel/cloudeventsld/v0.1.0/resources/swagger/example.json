@@ -246,6 +246,12 @@
         "description": "Identificator van het event om deze uniek te onderscheiden van andere events samen met de source. Herpublicatie van een duplicaat mag dezelfde source en id gebruiken, de waarde zelf is niet een globale unieke event IRI.",
         "type": "string"
       },
+      "CloudEvent.source": {
+        "title": "CloudEvent.source",
+        "description": "Identificieert de context waarin het event gebeurd. Een absolute IRI is aangeraden maar niet verplicht.",
+        "type": "string",
+        "format": "uri"
+      },
       "CloudEvent.specversion": {
         "title": "CloudEvent.specversion",
         "description": "De versie van de CloudEvents specificatie dat het event volgt. Voor CloudEvents core 1.0.2 is de waarde '1.0' en niet '1.0.2'.",
@@ -260,6 +266,12 @@
         "title": "CloudEvent.datacontenttype",
         "description": "Mediatype van de inhoud van het event in het attribuut 'data' volgens RFC 2046. Bijvoorbeeld: application/json.",
         "type": "string"
+      },
+      "CloudEvent.dataschema": {
+        "title": "CloudEvent.dataschema",
+        "description": "Het schema dat de inhoud van het event volgt. Voorgesteld als een IRI zodat het schema steeds opgehaald kan worden. Het schema is geen equivalent van een RDF klasse of SHACL shape.",
+        "type": "string",
+        "format": "uri"
       },
       "CloudEvent.subject": {
         "title": "CloudEvent.subject",
@@ -305,6 +317,9 @@
           "id": {
             "$ref": "#/components/schemas/CloudEvent.id"
           },
+          "source": {
+            "$ref": "#/components/schemas/CloudEvent.source"
+          },
           "specversion": {
             "$ref": "#/components/schemas/CloudEvent.specversion"
           },
@@ -313,6 +328,9 @@
           },
           "datacontenttype": {
             "$ref": "#/components/schemas/CloudEvent.datacontenttype"
+          },
+          "dataschema": {
+            "$ref": "#/components/schemas/CloudEvent.dataschema"
           },
           "subject": {
             "$ref": "#/components/schemas/CloudEvent.subject"
@@ -327,6 +345,7 @@
         "required": [
           "@type",
           "id",
+          "source",
           "specversion",
           "type"
         ]

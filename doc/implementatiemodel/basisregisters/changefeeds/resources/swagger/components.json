@@ -6,6 +6,256 @@
     "version": "1.0.0"
   },
   "components": {
-    "schemas": {}
+    "schemas": {
+      "CloudEvent.id": {
+        "title": "CloudEvent.id",
+        "description": "Identificator van het event om deze uniek te onderscheiden van andere events samen met de source. Herpublicatie van een duplicaat mag dezelfde source en id gebruiken, de waarde zelf is niet een globale unieke event IRI.",
+        "type": "string"
+      },
+      "CloudEvent.source": {
+        "title": "CloudEvent.source",
+        "description": "Identificieert de context waarin het event gebeurd. Een absolute IRI is aangeraden maar niet verplicht.",
+        "type": "string",
+        "format": "uri"
+      },
+      "CloudEvent.specversion": {
+        "title": "CloudEvent.specversion",
+        "description": "De versie van de CloudEvents specificatie dat het event volgt. Voor CloudEvents core 1.0.2 is de waarde '1.0' en niet '1.0.2'.",
+        "type": "string"
+      },
+      "CloudEvent.type": {
+        "title": "CloudEvent.type",
+        "description": "Soort event benaming gekozen door de dataproducent. Reverse-DNS prefixes zijn aangeraden. Dit is geen rdf:type omdat een CloudEvents type string niet automatisch een RDF klasse aangeeft.",
+        "type": "string"
+      },
+      "CloudEvent.datacontenttype": {
+        "title": "CloudEvent.datacontenttype",
+        "description": "Mediatype van de inhoud van het event in het attribuut 'data' volgens RFC 2046. Bijvoorbeeld: application/json.",
+        "type": "string"
+      },
+      "CloudEvent.dataschema": {
+        "title": "CloudEvent.dataschema",
+        "description": "Het schema dat de inhoud van het event volgt. Voorgesteld als een IRI zodat het schema steeds opgehaald kan worden. Het schema is geen equivalent van een RDF klasse of SHACL shape.",
+        "type": "string",
+        "format": "uri"
+      },
+      "CloudEvent.subject": {
+        "title": "CloudEvent.subject",
+        "description": "Identificatie van het onderwerp van het event binnen de context van de source. Dit is niet altijd een URI en mag dus niet zomaar gebruikt worden als dcterms:subject of een RDF resource zonder mapping.",
+        "type": "string"
+      },
+      "CloudEvent.time": {
+        "title": "CloudEvent.time",
+        "description": "Tijdstip waarop het event gebeurde. Tijdstip van het event op het terrein, niet het tijdstip waarop het event was aangemaakt of afgeleverd in de data.",
+        "type": "string",
+        "format": "date-time"
+      },
+      "CloudEvent.data": {
+        "title": "CloudEvent.data",
+        "description": "Inhoud van het event. Beschouwd als een abstracte klasse omdat de inhoud alles kan zijn, beschreven door datacontenttype.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "CloudEvent": {
+        "title": "CloudEvent",
+        "type": "object",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse CloudEvent)",
+            "pattern": "^CloudEvent$"
+          },
+          "basisregisterseventtype": {
+            "$ref": "#/components/schemas/CloudEvent.basisregisterseventtype"
+          },
+          "basisregisterscausationid": {
+            "$ref": "#/components/schemas/CloudEvent.basisregisterscausationid"
+          },
+          "id": {
+            "$ref": "#/components/schemas/CloudEvent.id"
+          },
+          "source": {
+            "$ref": "#/components/schemas/CloudEvent.source"
+          },
+          "specversion": {
+            "$ref": "#/components/schemas/CloudEvent.specversion"
+          },
+          "type": {
+            "$ref": "#/components/schemas/CloudEvent.type"
+          },
+          "datacontenttype": {
+            "$ref": "#/components/schemas/CloudEvent.datacontenttype"
+          },
+          "dataschema": {
+            "$ref": "#/components/schemas/CloudEvent.dataschema"
+          },
+          "subject": {
+            "$ref": "#/components/schemas/CloudEvent.subject"
+          },
+          "time": {
+            "$ref": "#/components/schemas/CloudEvent.time"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CloudEvent.data"
+          }
+        },
+        "required": [
+          "@type",
+          "basisregisterseventtype",
+          "basisregisterscausationid",
+          "id",
+          "source",
+          "specversion",
+          "type"
+        ]
+      },
+      "CloudEvent.basisregisterseventtype": {
+        "title": "CloudEvent.basisregisterseventtype",
+        "description": "Het soort wijzigingsevent.",
+        "type": "string"
+      },
+      "CloudEvent.basisregisterscausationid": {
+        "title": "CloudEvent.basisregisterscausationid",
+        "description": "Identifier of the reason why the change happened.",
+        "type": "string"
+      },
+      "BasisregisterWijziging.objectid": {
+        "title": "BasisregisterWijziging.objectid",
+        "description": "String gebruikt om het object uniek te identificeren binnen de naamruimte.",
+        "type": "string"
+      },
+      "BasisregisterWijziging.naamruimte": {
+        "title": "BasisregisterWijziging.naamruimte",
+        "description": "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken. Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bijvoorbeeld een URI samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bijvoorbeeld: https://data.vlaanderen.be/id/adres/).",
+        "type": "string",
+        "format": "uri"
+      },
+      "BasisregisterWijziging.versieId": {
+        "title": "BasisregisterWijziging.versieId",
+        "description": "Identificator van de specifieke versie van een object.",
+        "type": "string"
+      },
+      "BasisregisterWijziging.nisCodes": {
+        "title": "BasisregisterWijziging.nisCodes",
+        "description": "undefined",
+        "type": "string"
+      },
+      "BasisregisterWijziging": {
+        "title": "BasisregisterWijziging",
+        "type": "object",
+        "description": "De inhoud van de wijziging van een data element uit een basisregister.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse BasisregisterWijziging)",
+            "pattern": "^BasisregisterWijziging$"
+          },
+          "objectid": {
+            "$ref": "#/components/schemas/BasisregisterWijziging.objectid"
+          },
+          "naamruimte": {
+            "$ref": "#/components/schemas/BasisregisterWijziging.naamruimte"
+          },
+          "versieId": {
+            "$ref": "#/components/schemas/BasisregisterWijziging.versieId"
+          },
+          "nisCodes": {
+            "type": "array",
+            "description": "undefined Lijst van String items.",
+            "items": {
+              "$ref": "#/components/schemas/BasisregisterWijziging.nisCodes"
+            },
+            "minItems": 1
+          },
+          "attributen": {
+            "type": "array",
+            "description": "undefined Lijst van Attribuutswijziging items.",
+            "items": {
+              "$ref": "#/components/schemas/Attribuutswijziging"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type",
+          "objectid",
+          "naamruimte",
+          "versieId"
+        ]
+      },
+      "Attribuutswijziging.naam": {
+        "title": "Attribuutswijziging.naam",
+        "description": "undefined",
+        "type": "string"
+      },
+      "Attribuutswijziging.oudeWaarde": {
+        "title": "Attribuutswijziging.oudeWaarde",
+        "description": "undefined",
+        "type": "string"
+      },
+      "Attribuutswijziging.nieuweWaarde": {
+        "title": "Attribuutswijziging.nieuweWaarde",
+        "description": "undefined",
+        "type": "string"
+      },
+      "Attribuutswijziging": {
+        "title": "Attribuutswijziging",
+        "type": "object",
+        "description": "Het veld met zijn oude en nieuwe waarde die gewijzigd werd.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Attribuutswijziging)",
+            "pattern": "^Attribuutswijziging$"
+          },
+          "naam": {
+            "$ref": "#/components/schemas/Attribuutswijziging.naam"
+          },
+          "oudeWaarde": {
+            "$ref": "#/components/schemas/Attribuutswijziging.oudeWaarde"
+          },
+          "nieuweWaarde": {
+            "$ref": "#/components/schemas/Attribuutswijziging.nieuweWaarde"
+          }
+        },
+        "required": [
+          "@type",
+          "naam",
+          "oudeWaarde",
+          "nieuweWaarde"
+        ]
+      }
+    },
+    "links": {
+      "BasisregisterWijziging.attributen": {
+        "operationId": "BasisregisterWijzigingGET",
+        "parameters": {
+          "id": "$response.body#/BasisregisterWijziging.attributen/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Attribuutswijziging` op te halen."
+      }
+    }
   }
 }
