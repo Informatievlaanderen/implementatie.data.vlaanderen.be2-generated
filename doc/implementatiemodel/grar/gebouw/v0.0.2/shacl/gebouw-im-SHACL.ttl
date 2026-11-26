@@ -4,6 +4,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix shacl: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xhv: <http://www.w3.org/1999/xhtml/vocab#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#AdresseerbaarObjectShape>,
@@ -17,6 +18,7 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#EnvelopShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#GebouwenEnvelopShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#ProblemdetailShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#LinksShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#GebouweenhedenEnvelopShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#GebouweenheidEnvelopShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#StringShape>,
@@ -29,6 +31,7 @@
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#GeografischePositieShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#PuntShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#2DGebouwgeometrieShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#LinkShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#PolygoonShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#PerceelstatusShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#FunctieWaardeShape>,
@@ -115,21 +118,32 @@
   rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#DataEnvelop>;
   shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "_links"@nl;
+    rdfs:comment "Een verzameling van URIs wijzende naar locaties waar info kan gevonden worden over gerelateerde objecten."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#DataEnvelop._links>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/generiek#Links>;
+    shacl:description "Een verzameling van URIs wijzende naar locaties waar info kan gevonden worden over gerelateerde objecten."@nl;
+    shacl:maxCount 1;
+    shacl:name "_links"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/grar/gebouw#links>
+  ];
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/grar/gebouw#GebouwEnvelop>,
     <https://implementatie.data.vlaanderen.be/ns/grar/gebouw#DataEnvelop>,
     <https://implementatie.data.vlaanderen.be/ns/grar/gebouw#GebouwenEnvelop>,
     <https://implementatie.data.vlaanderen.be/ns/grar/gebouw#GebouweenhedenEnvelop>,
     <https://implementatie.data.vlaanderen.be/ns/grar/gebouw#GebouweenheidEnvelop>;
   shacl:xone ([
-      shacl:not _:df_2_29;
-      shacl:property _:df_2_13
-    ] [shacl:property _:df_2_11,
-        _:df_2_29]),
-    ([
-      shacl:not _:df_2_34;
-      shacl:property _:df_2_13
+      shacl:not _:df_2_37;
+      shacl:property _:df_2_14
     ] [shacl:property _:df_2_12,
-        _:df_2_34]) .
+        _:df_2_37]),
+    ([
+      shacl:not _:df_2_42;
+      shacl:property _:df_2_14
+    ] [shacl:property _:df_2_13,
+        _:df_2_42]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#EnvelopShape> a shacl:NodeShape;
   rdfs:label "envelop"@nl;
@@ -149,7 +163,7 @@
   rdfs:comment "De collectie van het uitgewisselde gebouw en zijn metadata elementen."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#GebouwEnvelop>;
   shacl:closed false;
-  shacl:property _:df_2_11;
+  shacl:property _:df_2_12;
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/grar/gebouw#GebouwEnvelop> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#GebouwShape> a shacl:NodeShape;
@@ -257,7 +271,7 @@
   rdfs:comment "De collectie van de uitgewisselde gebouwen en hun metadata elementen."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#GebouwenEnvelop>;
   shacl:closed false;
-  shacl:property _:df_2_12;
+  shacl:property _:df_2_13;
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/grar/gebouw#GebouwenEnvelop> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#GeografischePositieShape> a shacl:NodeShape;
@@ -398,12 +412,91 @@
   shacl:closed false;
   shacl:targetClass xsd:integer .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#LinkShape> a shacl:NodeShape;
+  rdfs:label "Link"@nl;
+  rdfs:comment "Link beschrijft een hyperlink naar een andere resource volgens HAL."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#Link>;
+  shacl:closed false;
+  shacl:targetClass xhv:link .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#LinksShape> a shacl:NodeShape;
+  rdfs:label "Links"@nl;
+  rdfs:comment "Een verzameling van URIs wijzende naar locaties waar info kan gevonden worden over gerelateerde objecten."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#Links>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "postinfo"@nl;
+    rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde postinfo."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#Links.Postinfo>;
+    shacl:class xhv:link;
+    shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde postinfo."@nl;
+    shacl:name "postinfo"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/generiek#postinfo>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "self"@nl;
+    rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over zichzelf."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#Links.Self>;
+    shacl:class xhv:link;
+    shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over zichzelf."@nl;
+    shacl:name "self"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/generiek#self>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "gebouweenheden"@nl;
+    rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouweenheden."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#Links.Gebouweenheden>;
+    shacl:class xhv:link;
+    shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouweenheden."@nl;
+    shacl:name "gebouweenheden"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/generiek#gebouweenheden>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "percelen"@nl;
+    rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde percelen."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#Links.Percelen>;
+    shacl:class xhv:link;
+    shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde percelen."@nl;
+    shacl:name "percelen"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/generiek#percelen>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "straatnamen"@nl;
+    rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde straatnamen."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#Links.Straatnamen>;
+    shacl:class xhv:link;
+    shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde straatnamen."@nl;
+    shacl:name "straatnamen"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/generiek#straatnamen>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "adressen"@nl;
+    rdfs:comment "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde adressen."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#Links.Adressen>;
+    shacl:class xhv:link;
+    shacl:description "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde adressen."@nl;
+    shacl:name "adressen"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/generiek#adressen>
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Links> .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#ObjectShape> a shacl:NodeShape;
   rdfs:label "Object"@nl;
   rdfs:comment "Entiteit waarvan alle entiteiten zijn afgeleid."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#Object>;
   shacl:closed false;
   shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "objectId"@nl;
+    rdfs:comment "Een identificator van het object."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#Object.ObjectId>;
+    shacl:description "Een identificator van het object."@nl;
+    shacl:maxCount 1;
+    shacl:name "objectId"@nl;
+    shacl:nodeKind shacl:Literal;
+    shacl:path dc:identifier
+  ], [
     a shacl:PropertyShape;
     rdfs:label "identificator"@nl;
     <http://purl.org/vocab/vann/usageNote> "Bij implementatie in RDF is de uri van het object de identificator."@nl;
@@ -514,9 +607,9 @@
   shacl:closed false;
   shacl:targetClass xsd:anyURI .
 
-_:df_4_18 .
+_:df_4_19 .
 
-_:df_2_11 a shacl:PropertyShape;
+_:df_2_12 a shacl:PropertyShape;
   rdfs:label "data"@nl;
   rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#GebouwEnvelop.Data>;
@@ -527,7 +620,7 @@ _:df_2_11 a shacl:PropertyShape;
   shacl:name "data"@nl;
   shacl:path <https://implementatie.data.vlaanderen.be/ns/grar/gebouw#data> .
 
-_:df_2_12 a shacl:PropertyShape;
+_:df_2_13 a shacl:PropertyShape;
   rdfs:label "data"@nl;
   rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#GebouwenEnvelop.Data>;
@@ -536,7 +629,7 @@ _:df_2_12 a shacl:PropertyShape;
   shacl:name "data"@nl;
   shacl:path <https://implementatie.data.vlaanderen.be/ns/grar/gebouw#data> .
 
-_:df_2_13 a shacl:PropertyShape;
+_:df_2_14 a shacl:PropertyShape;
   rdfs:label "data"@nl;
   rdfs:comment "De collectie data die de envelop bevat."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/grar/gebouw/v0.0.2#DataEnvelop.Data>;
@@ -545,8 +638,8 @@ _:df_2_13 a shacl:PropertyShape;
   shacl:or ([shacl:class prov:Entity] [shacl:class <https://data.vlaanderen.be/ns/adres#Adres>] [shacl:class <https://data.vlaanderen.be/ns/gebouw#Gebouw>] [shacl:class <https://data.vlaanderen.be/ns/gebouw#Gebouweenheid>] [shacl:class <https://data.vlaanderen.be/ns/perceel#RuimtelijkeEenheid>]);
   shacl:path <https://implementatie.data.vlaanderen.be/ns/grar/gebouw#data> .
 
-_:df_2_29 a shacl:PropertyShape;
+_:df_2_37 a shacl:PropertyShape;
   shacl:class <https://implementatie.data.vlaanderen.be/ns/grar/gebouw#GebouwEnvelop> .
 
-_:df_2_34 a shacl:PropertyShape;
+_:df_2_42 a shacl:PropertyShape;
   shacl:class <https://implementatie.data.vlaanderen.be/ns/grar/gebouw#GebouwenEnvelop> .

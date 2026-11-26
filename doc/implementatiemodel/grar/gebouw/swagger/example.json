@@ -1930,6 +1930,13 @@
                   "id": "$response.body#/GebouwEnvelop.data/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
+              },
+              "GebouwEnvelop._links": {
+                "operationId": "GebouwEnvelopGET",
+                "parameters": {
+                  "id": "$response.body#/GebouwEnvelop._links/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Links` op te halen."
               }
             }
           },
@@ -2139,6 +2146,13 @@
                   "id": "$response.body#/DataEnvelop.data/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
+              },
+              "DataEnvelop._links": {
+                "operationId": "DataEnvelopGET",
+                "parameters": {
+                  "id": "$response.body#/DataEnvelop._links/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Links` op te halen."
               }
             }
           },
@@ -2348,6 +2362,13 @@
                   "id": "$response.body#/GebouwenEnvelop.data/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
+              },
+              "GebouwenEnvelop._links": {
+                "operationId": "GebouwenEnvelopGET",
+                "parameters": {
+                  "id": "$response.body#/GebouwenEnvelop._links/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Links` op te halen."
               }
             }
           },
@@ -2726,6 +2747,250 @@
         }
       }
     },
+    "/id/Links/{id}": {
+      "get": {
+        "summary": "Een verzameling van URIs wijzende naar locaties waar info kan gevonden worden over gerelateerde objecten.",
+        "operationId": "LinksGET",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Identificator van een Links object.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Links object gevonden.",
+            "content": {
+              "application/ld+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Links"
+                }
+              }
+            },
+            "links": {
+              "Links.postinfo": {
+                "operationId": "LinksGET",
+                "parameters": {
+                  "id": "$response.body#/Links.postinfo/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Link` op te halen."
+              },
+              "Links.self": {
+                "operationId": "LinksGET",
+                "parameters": {
+                  "id": "$response.body#/Links.self/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Link` op te halen."
+              },
+              "Links.gebouweenheden": {
+                "operationId": "LinksGET",
+                "parameters": {
+                  "id": "$response.body#/Links.gebouweenheden/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Link` op te halen."
+              },
+              "Links.percelen": {
+                "operationId": "LinksGET",
+                "parameters": {
+                  "id": "$response.body#/Links.percelen/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Link` op te halen."
+              },
+              "Links.straatnamen": {
+                "operationId": "LinksGET",
+                "parameters": {
+                  "id": "$response.body#/Links.straatnamen/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Link` op te halen."
+              },
+              "Links.adressen": {
+                "operationId": "LinksGET",
+                "parameters": {
+                  "id": "$response.body#/Links.adressen/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Link` op te halen."
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid data supplied.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "LinksGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid authorization.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "LinksGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "403": {
+            "description": "Authentication failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "LinksGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "LinksGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "412": {
+            "description": "Pre-condition failed.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "LinksGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected Server Error.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "LinksGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "LinksGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "503": {
+            "description": "Service unavailable.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "LinksGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout.",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problemdetail"
+                }
+              }
+            },
+            "links": {
+              "Problemdetail.type": {
+                "operationId": "LinksGET",
+                "parameters": {
+                  "type": "$response.body#/type"
+                },
+                "description": "De waarde van het attribuut `type` kan gebruikt worden om het gerefereerde object van het type `Problemdetail` op te halen."
+              }
+            }
+          }
+        }
+      }
+    },
     "/id/GebouweenhedenEnvelop/{id}": {
       "get": {
         "summary": "De collectie van de uitgewisselde gebouweenheden en hun metadata elementen.",
@@ -2758,6 +3023,13 @@
                   "id": "$response.body#/GebouweenhedenEnvelop.data/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
+              },
+              "GebouweenhedenEnvelop._links": {
+                "operationId": "GebouweenhedenEnvelopGET",
+                "parameters": {
+                  "id": "$response.body#/GebouweenhedenEnvelop._links/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Links` op te halen."
               }
             }
           },
@@ -2967,6 +3239,13 @@
                   "id": "$response.body#/GebouweenheidEnvelop.data/@id"
                 },
                 "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
+              },
+              "GebouweenheidEnvelop._links": {
+                "operationId": "GebouweenheidEnvelopGET",
+                "parameters": {
+                  "id": "$response.body#/GebouweenheidEnvelop._links/@id"
+                },
+                "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Links` op te halen."
               }
             }
           },
@@ -3254,6 +3533,22 @@
           "@id"
         ]
       },
+      "Adres.objectId": {
+        "title": "Adres.objectId",
+        "description": "Een identificator van het object.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
       "Adres": {
         "title": "Adres",
         "type": "object",
@@ -3290,12 +3585,31 @@
             },
             "minItems": 1
           },
+          "objectId": {
+            "$ref": "#/components/schemas/Adres.objectId"
+          },
           "identificator": {
             "$ref": "#/components/schemas/Identificator"
           }
         },
         "required": [
           "@type"
+        ]
+      },
+      "Gebouw.objectId": {
+        "title": "Gebouw.objectId",
+        "description": "Een identificator van het object.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
         ]
       },
       "Gebouw": {
@@ -3328,6 +3642,9 @@
             },
             "minItems": 1
           },
+          "objectId": {
+            "$ref": "#/components/schemas/Gebouw.objectId"
+          },
           "identificator": {
             "$ref": "#/components/schemas/Identificator"
           }
@@ -3340,6 +3657,22 @@
         "title": "Gebouweenheid.afwijkingVastgesteld",
         "description": "Wanneer de definitie van een gebouweenheid niet werd gevolgd en dus 'afwijkend' is.",
         "type": "boolean"
+      },
+      "Gebouweenheid.objectId": {
+        "title": "Gebouweenheid.objectId",
+        "description": "Een identificator van het object.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
       },
       "Gebouweenheid": {
         "title": "Gebouweenheid",
@@ -3372,12 +3705,31 @@
             },
             "minItems": 1
           },
+          "objectId": {
+            "$ref": "#/components/schemas/Gebouweenheid.objectId"
+          },
           "identificator": {
             "$ref": "#/components/schemas/Identificator"
           }
         },
         "required": [
           "@type"
+        ]
+      },
+      "RuimtelijkeEenheid.objectId": {
+        "title": "RuimtelijkeEenheid.objectId",
+        "description": "Een identificator van het object.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
         ]
       },
       "RuimtelijkeEenheid": {
@@ -3401,6 +3753,9 @@
               "$ref": "#/components/schemas/Adres"
             },
             "minItems": 1
+          },
+          "objectId": {
+            "$ref": "#/components/schemas/RuimtelijkeEenheid.objectId"
           },
           "identificator": {
             "$ref": "#/components/schemas/Identificator"
@@ -3426,6 +3781,9 @@
           },
           "data": {
             "$ref": "#/components/schemas/Gebouw"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/Links"
           }
         },
         "required": [
@@ -3446,6 +3804,9 @@
             "type": "string",
             "description": "Object type (klasse DataEnvelop)",
             "pattern": "^DataEnvelop$"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/Links"
           }
         },
         "required": [
@@ -3473,6 +3834,9 @@
               "$ref": "#/components/schemas/Gebouw"
             },
             "minItems": 1
+          },
+          "_links": {
+            "$ref": "#/components/schemas/Links"
           }
         },
         "required": [
@@ -3507,6 +3871,73 @@
         "type": "string",
         "format": "uri"
       },
+      "Links": {
+        "title": "Links",
+        "type": "object",
+        "description": "Een verzameling van URIs wijzende naar locaties waar info kan gevonden worden over gerelateerde objecten.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Links)",
+            "pattern": "^Links$"
+          },
+          "postinfo": {
+            "type": "array",
+            "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde postinfo. Lijst van Link items.",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "minItems": 1
+          },
+          "self": {
+            "type": "array",
+            "description": "Een verwijzing naar een locatie waar info kan gevonden worden over zichzelf. Lijst van Link items.",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "minItems": 1
+          },
+          "gebouweenheden": {
+            "type": "array",
+            "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouweenheden. Lijst van Link items.",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "minItems": 1
+          },
+          "percelen": {
+            "type": "array",
+            "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde percelen. Lijst van Link items.",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "minItems": 1
+          },
+          "straatnamen": {
+            "type": "array",
+            "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde straatnamen. Lijst van Link items.",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "minItems": 1
+          },
+          "adressen": {
+            "type": "array",
+            "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde adressen. Lijst van Link items.",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
       "GebouweenhedenEnvelop": {
         "title": "GebouweenhedenEnvelop",
         "type": "object",
@@ -3528,6 +3959,9 @@
               "$ref": "#/components/schemas/Gebouweenheid"
             },
             "minItems": 1
+          },
+          "_links": {
+            "$ref": "#/components/schemas/Links"
           }
         },
         "required": [
@@ -3550,6 +3984,9 @@
           },
           "data": {
             "$ref": "#/components/schemas/Gebouweenheid"
+          },
+          "_links": {
+            "$ref": "#/components/schemas/Links"
           }
         },
         "required": [
@@ -3803,6 +4240,25 @@
           "@type",
           "geometrie",
           "methode"
+        ]
+      },
+      "Link": {
+        "title": "Link",
+        "type": "object",
+        "description": "Link beschrijft een hyperlink naar een andere resource volgens HAL.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Link)",
+            "pattern": "^Link$"
+          }
+        },
+        "required": [
+          "@type"
         ]
       },
       "Polygoon.gml": {

@@ -1,0 +1,67 @@
+{
+  "title": "Links",
+  "type": "object",
+  "description": "Een verzameling van URIs wijzende naar locaties waar info kan gevonden worden over gerelateerde objecten.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse Links)",
+      "pattern": "^Links$"
+    },
+    "postinfo": {
+      "type": "array",
+      "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde postinfo. Lijst van Link items.",
+      "items": {
+        "$ref": "#/components/schemas/Link"
+      },
+      "minItems": 1
+    },
+    "self": {
+      "type": "array",
+      "description": "Een verwijzing naar een locatie waar info kan gevonden worden over zichzelf. Lijst van Link items.",
+      "items": {
+        "$ref": "#/components/schemas/Link"
+      },
+      "minItems": 1
+    },
+    "gebouweenheden": {
+      "type": "array",
+      "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde gebouweenheden. Lijst van Link items.",
+      "items": {
+        "$ref": "#/components/schemas/Link"
+      },
+      "minItems": 1
+    },
+    "percelen": {
+      "type": "array",
+      "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde percelen. Lijst van Link items.",
+      "items": {
+        "$ref": "#/components/schemas/Link"
+      },
+      "minItems": 1
+    },
+    "straatnamen": {
+      "type": "array",
+      "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde straatnamen. Lijst van Link items.",
+      "items": {
+        "$ref": "#/components/schemas/Link"
+      },
+      "minItems": 1
+    },
+    "adressen": {
+      "type": "array",
+      "description": "Een verwijzing naar een locatie waar info kan gevonden worden over gerelateerde adressen. Lijst van Link items.",
+      "items": {
+        "$ref": "#/components/schemas/Link"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type"
+  ]
+}
