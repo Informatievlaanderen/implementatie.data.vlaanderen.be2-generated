@@ -123,7 +123,7 @@
       },
       "Wijzigingsevent.basisregisterscausationid": {
         "title": "Wijzigingsevent.basisregisterscausationid",
-        "description": "Identifier of the reason why the change happened.",
+        "description": "Identificator van de oorzaak van de wijziging.",
         "type": "string"
       },
       "Wijzigingsevent.id": {
@@ -243,29 +243,29 @@
           "type"
         ]
       },
-      "BasisregisterWijziging.objectid": {
-        "title": "BasisregisterWijziging.objectid",
+      "GRARWijziging.objectid": {
+        "title": "GRARWijziging.objectid",
         "description": "String gebruikt om het object uniek te identificeren binnen de naamruimte.",
         "type": "string"
       },
-      "BasisregisterWijziging.naamruimte": {
-        "title": "BasisregisterWijziging.naamruimte",
+      "GRARWijziging.naamruimte": {
+        "title": "GRARWijziging.naamruimte",
         "description": "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken. Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bijvoorbeeld een URI samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bijvoorbeeld: https://data.vlaanderen.be/id/adres/).",
         "type": "string",
         "format": "uri"
       },
-      "BasisregisterWijziging.versieId": {
-        "title": "BasisregisterWijziging.versieId",
+      "GRARWijziging.versieId": {
+        "title": "GRARWijziging.versieId",
         "description": "Identificator van de specifieke versie van een object.",
         "type": "string"
       },
-      "BasisregisterWijziging.nisCodes": {
-        "title": "BasisregisterWijziging.nisCodes",
+      "GRARWijziging.nisCodes": {
+        "title": "GRARWijziging.nisCodes",
         "description": "De gemeente NIS codes die relevant zijn voor het event. Gebruikers kunnen deze codes gebruiken om events te filteren op basis van NIS code.",
         "type": "string"
       },
-      "BasisregisterWijziging": {
-        "title": "BasisregisterWijziging",
+      "GRARWijziging": {
+        "title": "GRARWijziging",
         "type": "object",
         "description": "De inhoud van de wijziging van een data element uit een basisregister.",
         "properties": {
@@ -275,23 +275,23 @@
           },
           "@type": {
             "type": "string",
-            "description": "Object type (klasse BasisregisterWijziging)",
-            "pattern": "^BasisregisterWijziging$"
+            "description": "Object type (klasse GRARWijziging)",
+            "pattern": "^GRARWijziging$"
           },
           "objectid": {
-            "$ref": "#/components/schemas/BasisregisterWijziging.objectid"
+            "$ref": "#/components/schemas/GRARWijziging.objectid"
           },
           "naamruimte": {
-            "$ref": "#/components/schemas/BasisregisterWijziging.naamruimte"
+            "$ref": "#/components/schemas/GRARWijziging.naamruimte"
           },
           "versieId": {
-            "$ref": "#/components/schemas/BasisregisterWijziging.versieId"
+            "$ref": "#/components/schemas/GRARWijziging.versieId"
           },
           "nisCodes": {
             "type": "array",
             "description": "De gemeente NIS codes die relevant zijn voor het event. Gebruikers kunnen deze codes gebruiken om events te filteren op basis van NIS code. Lijst van String items.",
             "items": {
-              "$ref": "#/components/schemas/BasisregisterWijziging.nisCodes"
+              "$ref": "#/components/schemas/GRARWijziging.nisCodes"
             },
             "minItems": 1
           },
@@ -359,10 +359,10 @@
       }
     },
     "links": {
-      "BasisregisterWijziging.attributen": {
-        "operationId": "BasisregisterWijzigingGET",
+      "GRARWijziging.attributen": {
+        "operationId": "GRARWijzigingGET",
         "parameters": {
-          "id": "$response.body#/BasisregisterWijziging.attributen/@id"
+          "id": "$response.body#/GRARWijziging.attributen/@id"
         },
         "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Attribuutswijziging` op te halen."
       }

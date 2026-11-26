@@ -5,7 +5,7 @@
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#CloudEventShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#WijzigingseventShape>,
-    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#BasisregisterWijzigingShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#GRARWijzigingShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#AttribuutswijzigingShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#StringShape>,
     <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#URIShape>,
@@ -55,67 +55,6 @@
     shacl:path <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#nieuweWaarde>
   ];
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Attribuutswijziging> .
-
-<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#BasisregisterWijzigingShape> a shacl:NodeShape;
-  rdfs:label "BasisregisterWijziging"@nl;
-  rdfs:comment "De inhoud van de wijziging van een data element uit een basisregister."@nl;
-  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#BasisregisterWijziging>;
-  shacl:closed false;
-  shacl:property [
-    a shacl:PropertyShape;
-    rdfs:label "objectid"@nl;
-    rdfs:comment "String gebruikt om het object uniek te identificeren binnen de naamruimte."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#BasisregisterWijziging.Objectid>;
-    shacl:datatype xsd:string;
-    shacl:description "String gebruikt om het object uniek te identificeren binnen de naamruimte."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "objectid"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/generiek#lokaleIdentificator>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "naamruimte"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bijvoorbeeld een URI samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bijvoorbeeld: https://data.vlaanderen.be/id/adres/)."@nl;
-    rdfs:comment "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#BasisregisterWijziging.Naamruimte>;
-    shacl:datatype xsd:anyURI;
-    shacl:description "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "naamruimte"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/generiek#naamruimte>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "versieId"@nl;
-    rdfs:comment "Identificator van de specifieke versie van een object."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#BasisregisterWijziging.VersieId>;
-    shacl:datatype xsd:string;
-    shacl:description "Identificator van de specifieke versie van een object."@nl;
-    shacl:maxCount 1;
-    shacl:minCount 1;
-    shacl:name "versieId"@nl;
-    shacl:path <https://data.vlaanderen.be/ns/generiek#versieIdentificator>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "nisCodes"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Gebruikers kunnen deze codes gebruiken om events te filteren op basis van NIS code."@nl;
-    rdfs:comment "De gemeente NIS codes die relevant zijn voor het event."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#BasisregisterWijziging.NisCodes>;
-    shacl:datatype xsd:string;
-    shacl:description "De gemeente NIS codes die relevant zijn voor het event."@nl;
-    shacl:name "nisCodes"@nl;
-    shacl:path <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#nisCodes>
-  ], [
-    a shacl:PropertyShape;
-    rdfs:label "attributen"@nl;
-    rdfs:comment "Attributen die gewijzigd werden binnen de authentieke bron."@nl;
-    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#BasisregisterWijziging.Attributen>;
-    shacl:class <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Attribuutswijziging>;
-    shacl:description "Attributen die gewijzigd werden binnen de authentieke bron."@nl;
-    shacl:name "attributen"@nl;
-    shacl:path <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#attributen>
-  ];
-  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#GRARWijziging> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#CloudEventShape> a shacl:NodeShape;
   rdfs:label "CloudEvent"@nl;
@@ -236,6 +175,67 @@
   shacl:closed false;
   shacl:targetClass xsd:dateTime .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#GRARWijzigingShape> a shacl:NodeShape;
+  rdfs:label "GRARWijziging"@nl;
+  rdfs:comment "De inhoud van de wijziging van een data element uit een basisregister."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#GRARWijziging>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "objectid"@nl;
+    rdfs:comment "String gebruikt om het object uniek te identificeren binnen de naamruimte."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#GRARWijziging.Objectid>;
+    shacl:datatype xsd:string;
+    shacl:description "String gebruikt om het object uniek te identificeren binnen de naamruimte."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "objectid"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#lokaleIdentificator>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "naamruimte"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bijvoorbeeld een URI samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bijvoorbeeld: https://data.vlaanderen.be/id/adres/)."@nl;
+    rdfs:comment "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#GRARWijziging.Naamruimte>;
+    shacl:datatype xsd:anyURI;
+    shacl:description "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "naamruimte"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#naamruimte>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "versieId"@nl;
+    rdfs:comment "Identificator van de specifieke versie van een object."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#GRARWijziging.VersieId>;
+    shacl:datatype xsd:string;
+    shacl:description "Identificator van de specifieke versie van een object."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "versieId"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#versieIdentificator>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "nisCodes"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Gebruikers kunnen deze codes gebruiken om events te filteren op basis van NIS code."@nl;
+    rdfs:comment "De gemeente NIS codes die relevant zijn voor het event."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#GRARWijziging.NisCodes>;
+    shacl:datatype xsd:string;
+    shacl:description "De gemeente NIS codes die relevant zijn voor het event."@nl;
+    shacl:name "nisCodes"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#nisCodes>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "attributen"@nl;
+    rdfs:comment "Attributen die gewijzigd werden binnen de authentieke bron."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#GRARWijziging.Attributen>;
+    shacl:class <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Attribuutswijziging>;
+    shacl:description "Attributen die gewijzigd werden binnen de authentieke bron."@nl;
+    shacl:name "attributen"@nl;
+    shacl:path <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#attributen>
+  ];
+  shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#GRARWijziging> .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#StringShape> a shacl:NodeShape;
   rdfs:label "String";
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#String>;
@@ -267,10 +267,10 @@
   ], [
     a shacl:PropertyShape;
     rdfs:label "basisregisterscausationid"@nl;
-    rdfs:comment "Identifier of the reason why the change happened."@nl;
+    rdfs:comment "Identificator van de oorzaak van de wijziging."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/basisregisters/changefeeds/v0.1.0#Wijzigingsevent.Basisregisterscausationid>;
     shacl:datatype xsd:string;
-    shacl:description "Identifier of the reason why the change happened."@nl;
+    shacl:description "Identificator van de oorzaak van de wijziging."@nl;
     shacl:maxCount 1;
     shacl:minCount 1;
     shacl:name "basisregisterscausationid"@nl;

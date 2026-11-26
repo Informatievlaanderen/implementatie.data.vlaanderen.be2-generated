@@ -1,0 +1,47 @@
+{
+  "title": "GRARWijziging",
+  "type": "object",
+  "description": "De inhoud van de wijziging van een data element uit een basisregister.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse GRARWijziging)",
+      "pattern": "^GRARWijziging$"
+    },
+    "objectid": {
+      "$ref": "#/components/schemas/GRARWijziging.objectid"
+    },
+    "naamruimte": {
+      "$ref": "#/components/schemas/GRARWijziging.naamruimte"
+    },
+    "versieId": {
+      "$ref": "#/components/schemas/GRARWijziging.versieId"
+    },
+    "nisCodes": {
+      "type": "array",
+      "description": "De gemeente NIS codes die relevant zijn voor het event. Gebruikers kunnen deze codes gebruiken om events te filteren op basis van NIS code. Lijst van String items.",
+      "items": {
+        "$ref": "#/components/schemas/GRARWijziging.nisCodes"
+      },
+      "minItems": 1
+    },
+    "attributen": {
+      "type": "array",
+      "description": "Attributen die gewijzigd werden binnen de authentieke bron. Lijst van Attribuutswijziging items.",
+      "items": {
+        "$ref": "#/components/schemas/Attribuutswijziging"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "objectid",
+    "naamruimte",
+    "versieId"
+  ]
+}
