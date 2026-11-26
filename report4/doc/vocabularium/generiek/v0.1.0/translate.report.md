@@ -1,8 +1,8 @@
-INPUTTRANSLATIONFILE: /tmp/workspace/src/doc/vocabularium/generiek/v0.1.0/translation/generiek-implementatie_nl.json
+INPUTTRANSLATIONFILE: /tmp/workspace/src/doc/vocabularium/generiek/v0.1.0/translation/basisregisters-changefeeds_nl.json
 
-OUTPUTTRANSLATIONFILE: /tmp/workspace/report4/doc/vocabularium/generiek/v0.1.0/translation/generiek-implementatie_nl.json
+OUTPUTTRANSLATIONFILE: /tmp/workspace/report4/doc/vocabularium/generiek/v0.1.0/translation/basisregisters-changefeeds_nl.json
 
-TRANSLATIONFILE: generiek-implementatie_nl.json
+TRANSLATIONFILE: basisregisters-changefeeds_nl.json
 
 #||# translate for language nl  
 
@@ -18,5 +18,5 @@ WARNING The entered language values are the same!
 
 #||# Write complete  
 
-#||# the file was saved to: /tmp/workspace/report4/doc/vocabularium/generiek/v0.1.0/translation/generiek-implementatie_nl.json  
+#||# the file was saved to: /tmp/workspace/report4/doc/vocabularium/generiek/v0.1.0/translation/basisregisters-changefeeds_nl.json  
 

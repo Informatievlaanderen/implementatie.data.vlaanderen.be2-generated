@@ -14,5 +14,5 @@
 
 #||# start writing  
 
-#||# The file has been saved to /tmp/workspace/report4/doc/vocabularium/generiek/v0.1.0/html/meta_generiek-implementatie_nl.json  
+#||# The file has been saved to /tmp/workspace/report4/doc/vocabularium/generiek/v0.1.0/html/meta_basisregisters-changefeeds_nl.json  
 

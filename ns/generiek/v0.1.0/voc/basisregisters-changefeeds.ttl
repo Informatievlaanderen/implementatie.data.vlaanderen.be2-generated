@@ -1,0 +1,58 @@
+<https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds> a <http://www.w3.org/2002/07/owl#Ontology>.
+<https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Wijzigingsevent> a <http://www.w3.org/2002/07/owl#Class>;
+    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds>;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Een neerslag van het plaatsvinden van een event."@nl;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cloudevents#CloudEvent>;
+    <http://www.w3.org/ns/adms#status> <https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus>.
+<https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#GRARWijziging> a <http://www.w3.org/2002/07/owl#Class>;
+    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds>;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2000/01/rdf-schema#Literal>;
+    <http://www.w3.org/ns/adms#status> <https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus>.
+<https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Attribuutswijziging> a <http://www.w3.org/2002/07/owl#Class>;
+    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds>;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Het veld met zijn oude en nieuwe waarde die gewijzigd werd."@nl;
+    <http://purl.org/vocab/vann/usageNote> "Enkel effectieve attribuutwijzigingen worden doorgegeven, niet alle attributen van het object."@nl;
+    <http://www.w3.org/ns/adms#status> <https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus>.
+<https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#basisregisterseventtype> a <http://www.w3.org/2002/07/owl#DatatypeProperty>;
+    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds>;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Wijzigingsevent>;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>;
+    <http://www.w3.org/ns/adms#status> <https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus>.
+<https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#basisregisterscausationid> a <http://www.w3.org/2002/07/owl#DatatypeProperty>;
+    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds>;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Wijzigingsevent>;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>;
+    <http://www.w3.org/ns/adms#status> <https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus>.
+<https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#nisCodes> a <http://www.w3.org/2002/07/owl#DatatypeProperty>;
+    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds>;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#GRARWijziging>;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "De gemeente NIS codes die relevant zijn voor het event."@nl;
+    <http://purl.org/vocab/vann/usageNote> "Gebruikers kunnen deze codes gebruiken om events te filteren op basis van NIS code."@nl;
+    <http://www.w3.org/ns/adms#status> <https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus>.
+<https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#naam> a <http://www.w3.org/2002/07/owl#DatatypeProperty>;
+    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds>;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Attribuutswijziging>;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "De naam van het attribuut in het gewijzigde object."@nl;
+    <http://purl.org/vocab/vann/usageNote> "De naam komt steeds overeen met het OSLO implementatiemodel, waarbij een punt de niveaus aangeeft. Bijvoorbeeld: positie.geometrie komt uit de klasse Positie met attribuut geometrie."@nl;
+    <http://www.w3.org/ns/adms#status> <https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus>.
+<https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#oudeWaarde> a <http://www.w3.org/2002/07/owl#DatatypeProperty>;
+    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds>;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Attribuutswijziging>;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "De oorspronkelijke waarde die het attribuut had voor de wijziging."@nl;
+    <http://purl.org/vocab/vann/usageNote> "Indien er geen waarde gekend was, is de waarde steeds NULL."@nl;
+    <http://www.w3.org/ns/adms#status> <https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus>.
+<https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#nieuweWaarde> a <http://www.w3.org/2002/07/owl#DatatypeProperty>;
+    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds>;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Attribuutswijziging>;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string>;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "De nieuwe waarde die het attribuut heeft gekregen na de wijziging."@nl;
+    <http://www.w3.org/ns/adms#status> <https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus>.
+<https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#attributen> a <http://www.w3.org/2002/07/owl#ObjectProperty>;
+    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds>;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#GRARWijziging>;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Attribuutswijziging>;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Attributen die gewijzigd werden binnen de authentieke bron."@nl;
+    <http://www.w3.org/ns/adms#status> <https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus>.
