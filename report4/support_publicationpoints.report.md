@@ -1,5 +1,7 @@
 #||# checking publication points in directory /home/circleci/project/config/test
 #||# 
+#||#   + adding supporting /home/circleci/project/config/test/basisregisters-changefeeds-im.publication.json
+#||#  
 #||#   + adding supporting /home/circleci/project/config/test/cloudeventsld-im.publication.json
 #||#  
 #||#   + adding supporting /home/circleci/project/config/test/generiek-im.publication.json

@@ -115,11 +115,11 @@
                                  <dl>
                                     <dt>Brondata</dt>
                                     <dd>
-                                       <a href="https://github.com/Informatievlaanderen/OSLOthema-basisregisters-changefeeds//tree/7aa733289e954cd83b7500836c520cbd15e00814">https://github.com/Informatievlaanderen/OSLOthema-basisregisters-changefeeds//tree/7aa733289e954cd83b7500836c520cbd15e00814</a>
+                                       <a href="https://github.com/Informatievlaanderen/OSLOthema-basisregisters-changefeeds//tree/cea3c4617235f0edf854cb7b16eaf28f7b377cef">https://github.com/Informatievlaanderen/OSLOthema-basisregisters-changefeeds//tree/cea3c4617235f0edf854cb7b16eaf28f7b377cef</a>
                                     </dd>
                                     <dt>Changelog</dt>
                                     <dd>
-                                       <a href="https://github.com/Informatievlaanderen/OSLOthema-basisregisters-changefeeds//blob/7aa733289e954cd83b7500836c520cbd15e00814/CHANGELOG">https://github.com/Informatievlaanderen/OSLOthema-basisregisters-changefeeds//blob/7aa733289e954cd83b7500836c520cbd15e00814/CHANGELOG</a>
+                                       <a href="https://github.com/Informatievlaanderen/OSLOthema-basisregisters-changefeeds//blob/cea3c4617235f0edf854cb7b16eaf28f7b377cef/CHANGELOG">https://github.com/Informatievlaanderen/OSLOthema-basisregisters-changefeeds//blob/cea3c4617235f0edf854cb7b16eaf28f7b377cef/CHANGELOG</a>
                                     </dd>
                                     <dt>Opmerkingen en feedback</dt>
                                     <dd>
@@ -271,8 +271,20 @@
                                                    ,
                                                    
                                                    
+                                                      <a href="#CloudEvent%3Adataschema">
+                                                         dataschema</a>
+                                                   
+                                                   ,
+                                                   
+                                                   
                                                       <a href="#CloudEvent%3Aid">
                                                          id</a>
+                                                   
+                                                   ,
+                                                   
+                                                   
+                                                      <a href="#CloudEvent%3Asource">
+                                                         source</a>
                                                    
                                                    ,
                                                    
@@ -323,7 +335,7 @@
                                                       <tr id="CloudEvent%3Adata" typeof="rdfs:Property" resource="">
                                                          <td>
                                                             <code property="rdfs:label">
-                                                               <a href="https://w3id.org/cloudevents#data" class="js-vl-tooltip" data-vl-tooltip-content="https://w3id.org/cloudevents#data" data-vl-tooltip-placement="right">
+                                                               <a href="http://todo.com/data" class="js-vl-tooltip" data-vl-tooltip-content="http://todo.com/data" data-vl-tooltip-placement="right">
                                                                   data</a>
                                                             </code>
                                                          </td>
@@ -331,7 +343,7 @@
                                                             
                                                                
                                                                   
-                                                                     <a href="#Inhoud" class="js-vl-tooltip" data-vl-tooltip-content="Inhoud" data-vl-tooltip-placement="right">
+                                                                     <a href="http://www.w3.org/2000/01/rdf-schema#Literal" class="js-vl-tooltip" data-vl-tooltip-content="http://www.w3.org/2000/01/rdf-schema#Literal" data-vl-tooltip-placement="right">
                                                                         Inhoud</a>
                                                                   
                                                                
@@ -344,6 +356,8 @@
                                                             0..1
                                                          </td>
                                                          <td property="rdfs:comment">
+                                                            
+                                                               Inhoud van het event.
                                                             
                                                          </td>
                                                          <td property="vann:usageNote">
@@ -389,7 +403,48 @@
                                                          </td>
                                                          <td property="vann:usageNote">
                                                             
-                                                               Bijvoorbeeld: application/json
+                                                               Bijvoorbeeld: application/json.
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                         </td>
+                                                      </tr>
+                                                   
+                                                      
+                                                         
+                                                      
+                                                      <tr id="CloudEvent%3Adataschema" typeof="rdfs:Property" resource="">
+                                                         <td>
+                                                            <code property="rdfs:label">
+                                                               <a href="https://w3id.org/cloudevents#dataschema" class="js-vl-tooltip" data-vl-tooltip-content="https://w3id.org/cloudevents#dataschema" data-vl-tooltip-placement="right">
+                                                                  dataschema</a>
+                                                            </code>
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                                  
+                                                                     <a href="http://www.w3.org/2001/XMLSchema#anyURI" class="js-vl-tooltip" data-vl-tooltip-content="http://www.w3.org/2001/XMLSchema#anyURI" data-vl-tooltip-placement="right">
+                                                                        URI</a>
+                                                                  
+                                                               
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                            
+                                                            0..1
+                                                         </td>
+                                                         <td property="rdfs:comment">
+                                                            
+                                                               Het schema dat de inhoud van het event volgt.
+                                                            
+                                                         </td>
+                                                         <td property="vann:usageNote">
+                                                            
+                                                               Voorgesteld als een IRI zodat het schema steeds opgehaald kan worden. Het schema is geen equivalent van een RDF klasse of SHACL shape.
                                                             
                                                          </td>
                                                          <td>
@@ -425,10 +480,53 @@
                                                          </td>
                                                          <td property="rdfs:comment">
                                                             
+                                                               Identificator van het event om deze uniek te onderscheiden van andere events samen met de source.
+                                                            
                                                          </td>
                                                          <td property="vann:usageNote">
                                                             
                                                                Herpublicatie van een duplicaat mag dezelfde source en id gebruiken, de waarde zelf is niet een globale unieke event IRI.
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                         </td>
+                                                      </tr>
+                                                   
+                                                      
+                                                         
+                                                      
+                                                      <tr id="CloudEvent%3Asource" typeof="rdfs:Property" resource="">
+                                                         <td>
+                                                            <code property="rdfs:label">
+                                                               <a href="https://w3id.org/cloudevents#source" class="js-vl-tooltip" data-vl-tooltip-content="https://w3id.org/cloudevents#source" data-vl-tooltip-placement="right">
+                                                                  source</a>
+                                                            </code>
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                                  
+                                                                     <a href="http://www.w3.org/2001/XMLSchema#anyURI" class="js-vl-tooltip" data-vl-tooltip-content="http://www.w3.org/2001/XMLSchema#anyURI" data-vl-tooltip-placement="right">
+                                                                        URI</a>
+                                                                  
+                                                               
+                                                            
+                                                         </td>
+                                                         <td>
+                                                            
+                                                               
+                                                            
+                                                            1
+                                                         </td>
+                                                         <td property="rdfs:comment">
+                                                            
+                                                               Identificieert de context waarin het event gebeurd.
+                                                            
+                                                         </td>
+                                                         <td property="vann:usageNote">
+                                                            
+                                                               Een absolute IRI is aangeraden maar niet verplicht.
                                                             
                                                          </td>
                                                          <td>
@@ -463,6 +561,8 @@
                                                             1
                                                          </td>
                                                          <td property="rdfs:comment">
+                                                            
+                                                               De versie van de CloudEvents specificatie dat het event volgt.
                                                             
                                                          </td>
                                                          <td property="vann:usageNote">
@@ -502,6 +602,8 @@
                                                             0..1
                                                          </td>
                                                          <td property="rdfs:comment">
+                                                            
+                                                               Identificatie van het onderwerp van het event binnen de context van de source.
                                                             
                                                          </td>
                                                          <td property="vann:usageNote">
@@ -607,8 +709,8 @@
                                     
                                  
                                  <div class="vl-region vl-region--no-space-top">
-                                    <h3 class="vl-title--h3" id="https://w3id.org/cloudevents#Payload">
-                                       <a href="https://w3id.org/cloudevents#Payload" class="js-vl-tooltip" data-vl-tooltip-content="https://w3id.org/cloudevents#Payload" id="Inhoud" data-vl-tooltip-placement="right">
+                                    <h3 class="vl-title--h3" id="http://www.w3.org/2000/01/rdf-schema#Literal">
+                                       <a href="http://www.w3.org/2000/01/rdf-schema#Literal" class="js-vl-tooltip" data-vl-tooltip-content="http://www.w3.org/2000/01/rdf-schema#Literal" id="Inhoud" data-vl-tooltip-placement="right">
                                           Inhoud</a>
                                     </h3>
                                     <div class="vl-region vl-region--no-space-top">
@@ -616,7 +718,14 @@
                                           <dt>Beschrijving</dt>
                                           <dd>
                                              
+                                                Informatie over het event.
+                                             
                                           </dd>
+                                          
+                                             <dt>Gebruik</dt>
+                                             <dd>
+                                                Abstracte klasse die steeds voor elk gebruik vervangen moet worden door de effectieve inhoud, bijvoorbeeld: een andere klasse of een primitief datatype. Gebruikers moeten de inhoud steeds parsen volgens de waarde van het datacontenttype veld en valideren volgens het schema voorzien in het dataschema veld.
+                                             </dd>
                                           
                                           
                                           <dt>Eigenschappen</dt>
@@ -695,6 +804,21 @@
                                        
                                        
                                           
+                                             
+                                                <tr>
+                                                   <td>
+                                                      <a href="#CloudEvent%3Adata">CloudEvent.data</a>
+                                                   </td>
+                                                   <td>
+                                                      <code>http://todo.com/data</code>
+                                                   </td>
+                                                </tr>
+                                             
+                                          
+                                       
+                                          
+                                       
+                                          
                                        
                                           
                                        
@@ -711,6 +835,17 @@
                                     
                                  
                                     
+                                       
+                                          <tr>
+                                             <td>
+                                                <a href="#Inhoud">Inhoud</a>
+                                             </td>
+                                             <td>
+                                                <b>
+                                                   <code>http://www.w3.org/2000/01/rdf-schema#Literal</code>
+                                                </b>
+                                             </td>
+                                          </tr>
                                        
                                        
                                     

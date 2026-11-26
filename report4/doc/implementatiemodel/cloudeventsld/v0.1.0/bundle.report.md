@@ -6,3 +6,5 @@ INFO: resources copied to /tmp/workspace/target/doc/implementatiemodel/cloudeven
 
 WARN: failed to fetch external source https://w3id.org/cloudevents
 
+WARN: failed to fetch external source http://todo.com/
+

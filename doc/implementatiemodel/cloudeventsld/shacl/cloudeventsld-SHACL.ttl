@@ -1,0 +1,140 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shacl: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#> rdfs:member <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#CloudEventShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#StringShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#URIShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#DateTimeShape>,
+    <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#InhoudShape> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#CloudEventShape> a shacl:NodeShape;
+  rdfs:label "CloudEvent"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Het RDF subject is een combinatie van het attribuut 'id' en zijn attribuut 'source'."@nl;
+  rdfs:comment "Een neerslag van een event dat plaatsvond in een bepaalde context."@nl;
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#CloudEvent>;
+  shacl:closed false;
+  shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "id"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Herpublicatie van een duplicaat mag dezelfde source en id gebruiken, de waarde zelf is niet een globale unieke event IRI."@nl;
+    rdfs:comment "Identificator van het event om deze uniek te onderscheiden van andere events samen met de source."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#CloudEvent.Id>;
+    shacl:datatype xsd:string;
+    shacl:description "Identificator van het event om deze uniek te onderscheiden van andere events samen met de source."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "id"@nl;
+    shacl:path <https://w3id.org/cloudevents#id>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "source"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Een absolute IRI is aangeraden maar niet verplicht."@nl;
+    rdfs:comment "Identificieert de context waarin het event gebeurd."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#CloudEvent.Source>;
+    shacl:datatype xsd:anyURI;
+    shacl:description "Identificieert de context waarin het event gebeurd."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "source"@nl;
+    shacl:path <https://w3id.org/cloudevents#source>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "specversion"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Voor CloudEvents core 1.0.2 is de waarde '1.0' en niet '1.0.2'."@nl;
+    rdfs:comment "De versie van de CloudEvents specificatie dat het event volgt."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#CloudEvent.Specversion>;
+    shacl:datatype xsd:string;
+    shacl:description "De versie van de CloudEvents specificatie dat het event volgt."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "specversion"@nl;
+    shacl:path <https://w3id.org/cloudevents#specversion>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "type"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Reverse-DNS prefixes zijn aangeraden. Dit is geen rdf:type omdat een CloudEvents type string niet automatisch een RDF klasse aangeeft."@nl;
+    rdfs:comment "Soort event benaming gekozen door de dataproducent."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#CloudEvent.Type>;
+    shacl:datatype xsd:string;
+    shacl:description "Soort event benaming gekozen door de dataproducent."@nl;
+    shacl:maxCount 1;
+    shacl:minCount 1;
+    shacl:name "type"@nl;
+    shacl:path <https://w3id.org/cloudevents#type>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "datacontenttype"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Bijvoorbeeld: application/json."@nl;
+    rdfs:comment "Mediatype van de inhoud van het event in het attribuut 'data' volgens RFC 2046."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#CloudEvent.Datacontenttype>;
+    shacl:datatype xsd:string;
+    shacl:description "Mediatype van de inhoud van het event in het attribuut 'data' volgens RFC 2046."@nl;
+    shacl:maxCount 1;
+    shacl:name "datacontenttype"@nl;
+    shacl:path <https://w3id.org/cloudevents#datacontenttype>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "dataschema"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Voorgesteld als een IRI zodat het schema steeds opgehaald kan worden. Het schema is geen equivalent van een RDF klasse of SHACL shape."@nl;
+    rdfs:comment "Het schema dat de inhoud van het event volgt."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#CloudEvent.Dataschema>;
+    shacl:datatype xsd:anyURI;
+    shacl:description "Het schema dat de inhoud van het event volgt."@nl;
+    shacl:maxCount 1;
+    shacl:name "dataschema"@nl;
+    shacl:path <https://w3id.org/cloudevents#dataschema>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "subject"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Dit is niet altijd een URI en mag dus niet zomaar gebruikt worden als dcterms:subject of een RDF resource zonder mapping."@nl;
+    rdfs:comment "Identificatie van het onderwerp van het event binnen de context van de source."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#CloudEvent.Subject>;
+    shacl:datatype xsd:string;
+    shacl:description "Identificatie van het onderwerp van het event binnen de context van de source."@nl;
+    shacl:maxCount 1;
+    shacl:name "subject"@nl;
+    shacl:path <https://w3id.org/cloudevents#subject>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "time"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Tijdstip van het event op het terrein, niet het tijdstip waarop het event was aangemaakt of afgeleverd in de data."@nl;
+    rdfs:comment "Tijdstip waarop het event gebeurde."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#CloudEvent.Time>;
+    shacl:datatype xsd:dateTime;
+    shacl:description "Tijdstip waarop het event gebeurde."@nl;
+    shacl:maxCount 1;
+    shacl:name "time"@nl;
+    shacl:path <https://w3id.org/cloudevents#time>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "data"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Beschouwd als een abstracte klasse omdat de inhoud alles kan zijn, beschreven door datacontenttype."@nl;
+    rdfs:comment "Inhoud van het event."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#CloudEvent.Data>;
+    shacl:description "Inhoud van het event."@nl;
+    shacl:maxCount 1;
+    shacl:name "data"@nl;
+    shacl:nodeKind shacl:Literal;
+    shacl:path <http://todo.com/data>
+  ];
+  shacl:targetClass <https://w3id.org/cloudevents#CloudEvent> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#DateTimeShape> a shacl:NodeShape;
+  rdfs:label "DateTime";
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#DateTime>;
+  shacl:closed false;
+  shacl:targetClass xsd:dateTime .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#StringShape> a shacl:NodeShape;
+  rdfs:label "String";
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#String>;
+  shacl:closed false;
+  shacl:targetClass xsd:string .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#URIShape> a shacl:NodeShape;
+  rdfs:label "URI";
+  rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/cloudeventsld/v0.1.0#URI>;
+  shacl:closed false;
+  shacl:targetClass xsd:anyURI .

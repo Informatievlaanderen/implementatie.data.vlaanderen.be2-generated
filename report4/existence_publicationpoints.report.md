@@ -1,11 +1,16 @@
 #||# checking publication points in directory /home/circleci/project/config/test
 #||# 
+#||#    + checking /home/circleci/project/config/test/basisregisters-changefeeds-im.publication.json
+#||# 
+#||# Directory check
+#||# 
+#||# index.html check
+
 #||#    + checking /home/circleci/project/config/test/cloudeventsld-im.publication.json
 #||# 
 #||# Directory check
 #||# 
 #||# index.html check
-error: missing '/tmp/generated/doc/implementatiemodel/cloudeventsld/index.html'
 
 #||#    + checking /home/circleci/project/config/test/generiek-im.publication.json
 #||# 

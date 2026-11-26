@@ -1,0 +1,43 @@
+{
+  "title": "BasisregisterWijziging",
+  "type": "object",
+  "description": "De inhoud van de wijziging van een data element uit een basisregister.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse BasisregisterWijziging)",
+      "pattern": "^BasisregisterWijziging$"
+    },
+    "objectid": {
+      "$ref": "#/components/schemas/BasisregisterWijziging.objectid"
+    },
+    "versieId": {
+      "$ref": "#/components/schemas/BasisregisterWijziging.versieId"
+    },
+    "nisCodes": {
+      "type": "array",
+      "description": "undefined Lijst van String items.",
+      "items": {
+        "$ref": "#/components/schemas/BasisregisterWijziging.nisCodes"
+      },
+      "minItems": 1
+    },
+    "attributen": {
+      "type": "array",
+      "description": "undefined Lijst van Attribuutswijziging items.",
+      "items": {
+        "$ref": "#/components/schemas/Attribuutswijziging"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "@type",
+    "objectid",
+    "versieId"
+  ]
+}
