@@ -2,39 +2,39 @@
 
 #||# -------------------------------------
 
-2026-09-29T11:05:53.147Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Gebouw:Gebouw:(Gebouw -> RuimtelijkeEenheid) is not an association with a source role. Ignoring this connector.
+2026-11-26T15:48:18.648Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Gebouw:Gebouw:(Gebouw -> RuimtelijkeEenheid) is not an association with a source role. Ignoring this connector.
 
-2026-09-29T11:05:53.149Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Perceel:RuimtelijkeEenheid:(RuimtelijkeEenheid -> AdresseerbaarObject) is not an association with a source role. Ignoring this connector.
+2026-11-26T15:48:18.650Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Perceel:RuimtelijkeEenheid:(RuimtelijkeEenheid -> AdresseerbaarObject) is not an association with a source role. Ignoring this connector.
 
-2026-09-29T11:05:53.149Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Gebouw:Gebouweenheid:(Gebouweenheid -> AdresseerbaarObject) is not an association with a source role. Ignoring this connector.
+2026-11-26T15:48:18.650Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-Gebouw:Gebouweenheid:(Gebouweenheid -> AdresseerbaarObject) is not an association with a source role. Ignoring this connector.
 
-2026-09-29T11:05:53.149Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:DataEnvelop:(DataEnvelop -> Envelope) is not an association with a source role. Ignoring this connector.
+2026-11-26T15:48:18.651Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:DataEnvelop:(DataEnvelop -> Envelope) is not an association with a source role. Ignoring this connector.
 
-2026-09-29T11:05:53.149Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:GebouwenEnvelop:(GebouwenEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-11-26T15:48:18.651Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:GebouwenEnvelop:(GebouwenEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-09-29T11:05:53.149Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:GebouwEnvelop:(GebouwEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-11-26T15:48:18.651Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:GebouwEnvelop:(GebouwEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-09-29T11:05:53.149Z info: Connector Model:Implementatiemodel-GRAR-Adres:SF:Punt:(Punt -> Geometrie) is not an association with a source role. Ignoring this connector.
+2026-11-26T15:48:18.651Z info: Connector Model:Implementatiemodel-GRAR-Adres:SF:Punt:(Punt -> Geometrie) is not an association with a source role. Ignoring this connector.
 
-2026-09-29T11:05:53.149Z info: Connector Model:Implementatiemodel-GRAR-Adres:SF:Polygoon:(Polygoon -> Geometrie) is not an association with a source role. Ignoring this connector.
+2026-11-26T15:48:18.651Z info: Connector Model:Implementatiemodel-GRAR-Adres:SF:Polygoon:(Polygoon -> Geometrie) is not an association with a source role. Ignoring this connector.
 
-2026-09-29T11:05:53.149Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:GebouweenhedenEnvelop:(GebouweenhedenEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-11-26T15:48:18.651Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:GebouweenhedenEnvelop:(GebouweenhedenEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-09-29T11:05:53.149Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:GebouweenheidEnvelop:(GebouweenheidEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
+2026-11-26T15:48:18.651Z info: Connector Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:GebouweenheidEnvelop:(GebouweenheidEnvelop -> DataEnvelop) is not an association with a source role. Ignoring this connector.
 
-2026-09-29T11:05:53.150Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+2026-11-26T15:48:18.652Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
-2026-09-29T11:05:53.150Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Implementatiemodel-GRAR-Adres:PROV). Using fallback URI (http://todo.com/) instead.
+2026-11-26T15:48:18.653Z warn: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model:Implementatiemodel-GRAR-Adres:PROV). Using fallback URI (http://todo.com/) instead.
 
-2026-09-29T11:05:53.160Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:DataEnvelop:volgende).
+2026-11-26T15:48:18.664Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:Implementatiemodel-GRAR-Adres:OSLO-GRAR-IM:DataEnvelop:volgende).
 
-2026-09-29T11:05:53.160Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Adres:detail).
+2026-11-26T15:48:18.665Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:Implementatiemodel-GRAR-Adres:OSLO-Adres:Adres:detail).
 
-2026-09-29T11:05:53.163Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:Implementatiemodel-GRAR-Adres:OSLO-Gebouw:Gebouw:detail).
+2026-11-26T15:48:18.673Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:Implementatiemodel-GRAR-Adres:OSLO-Gebouw:Gebouw:detail).
 
-2026-09-29T11:05:53.163Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:Implementatiemodel-GRAR-Adres:OSLO-Perceel:RuimtelijkeEenheid:detail).
+2026-11-26T15:48:18.673Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:Implementatiemodel-GRAR-Adres:OSLO-Perceel:RuimtelijkeEenheid:detail).
 
-2026-09-29T11:05:53.163Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:Implementatiemodel-GRAR-Adres:OSLO-Gebouw:Gebouweenheid:detail).
+2026-11-26T15:48:18.673Z error: [AttributeConverterHandler]: Unable to determine the range for attribute (Model:Implementatiemodel-GRAR-Adres:OSLO-Gebouw:Gebouweenheid:detail).
 
 #||# -------------------------------------
 

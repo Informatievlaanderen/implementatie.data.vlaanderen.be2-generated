@@ -1,0 +1,51 @@
+{
+  "title": "2DGebouwgeometrie",
+  "type": "object",
+  "description": "Geometrie van het gebouw en metadata over welk deel van het gebouw door de geometrie wordt voorgesteld en hoe deze werd bepaald.",
+  "properties": {
+    "@id": {
+      "type": "string",
+      "format": "uri"
+    },
+    "@type": {
+      "type": "string",
+      "description": "Object type (klasse 2DGebouwgeometrie)",
+      "pattern": "^2DGebouwgeometrie$"
+    },
+    "geometrie": {
+      "type": "array",
+      "description": "2D- of 2.5D-geometrische voorstelling van het gebouw. Lijst van Geometrie items.",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Geometrie"
+          },
+          {
+            "$ref": "#/components/schemas/Punt"
+          },
+          {
+            "$ref": "#/components/schemas/Polygoon"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "@type",
+          "mapping": {
+            "Geometrie": "#/components/schemas/Geometrie",
+            "Punt": "#/components/schemas/Punt",
+            "Polygoon": "#/components/schemas/Polygoon"
+          }
+        }
+      },
+      "minItems": 1,
+      "maxItems": 2
+    },
+    "methode": {
+      "$ref": "#/components/schemas/GeometrieMethodeWaarde"
+    }
+  },
+  "required": [
+    "@type",
+    "geometrie",
+    "methode"
+  ]
+}

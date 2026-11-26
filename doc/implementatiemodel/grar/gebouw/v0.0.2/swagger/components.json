@@ -1,0 +1,822 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Components of GRAR Gebouw REST",
+    "description": "GRAR OSLO-conforme REST API voor gebouwen",
+    "version": "3.0.0"
+  },
+  "components": {
+    "schemas": {
+      "Perceelstatus": {
+        "title": "Perceelstatus",
+        "type": "object",
+        "description": "Enumeratie van Perceelstatus",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "FunctieWaarde": {
+        "title": "FunctieWaarde",
+        "type": "object",
+        "description": "Enumeratie van FunctieWaarde",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "GebouwstatusWaarde": {
+        "title": "GebouwstatusWaarde",
+        "type": "object",
+        "description": "Enumeratie van GebouwstatusWaarde",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "2DGeometrieMethodeWaarde": {
+        "title": "2DGeometrieMethodeWaarde",
+        "type": "object",
+        "description": "Enumeratie van 2DGeometrieMethodeWaarde",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "GebouweenheidstatusWaarde": {
+        "title": "GebouweenheidstatusWaarde",
+        "type": "object",
+        "description": "Enumeratie van GebouweenheidstatusWaarde",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "@id"
+        ]
+      },
+      "Adres": {
+        "title": "Adres",
+        "type": "object",
+        "description": "Informatie die toelaat om op een gestructureerde en unieke manier te verwijzen naar een gebouweenheid, een ligplaats, een standplaats of een perceel op basis van een gemeentenaam, een straatnaam, een huisnummer en eventueel een busnummer en een postcode.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Adres)",
+            "pattern": "^Adres$"
+          },
+          "isToegekendAan": {
+            "type": "array",
+            "description": "Adresseerbaar object waaraan het adres is toegekend. Lijst van AdresseerbaarObject items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Gebouweenheid"
+                },
+                {
+                  "$ref": "#/components/schemas/RuimtelijkeEenheid"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Gebouweenheid": "#/components/schemas/Gebouweenheid",
+                  "RuimtelijkeEenheid": "#/components/schemas/RuimtelijkeEenheid"
+                }
+              }
+            },
+            "minItems": 1
+          },
+          "identificator": {
+            "$ref": "#/components/schemas/Identificator"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Gebouw": {
+        "title": "Gebouw",
+        "type": "object",
+        "description": "Een gesloten en/of overdekt, bovengronds of ondergronds bouwwerk, dat dient of bestemd is, ofwel om mensen, dieren en voorwerpen onder te brengen, ofwel om economische goederen te vervaardigen of diensten te verstrekken. Een gebouw verwijst naar gelijk welke structuur die op blijvende wijze op een terrein opgetrokken of gebouwd wordt.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Gebouw)",
+            "pattern": "^Gebouw$"
+          },
+          "bestaatUit": {
+            "type": "array",
+            "description": "Gebouweenheid die deel uitmaakt van het gebouw. Lijst van Gebouweenheid items.",
+            "items": {
+              "$ref": "#/components/schemas/Gebouweenheid"
+            },
+            "minItems": 1
+          },
+          "ligtOp": {
+            "type": "array",
+            "description": "Perceel waarop het gebouw gelegen is. Lijst van RuimtelijkeEenheid items.",
+            "items": {
+              "$ref": "#/components/schemas/RuimtelijkeEenheid"
+            },
+            "minItems": 1
+          },
+          "identificator": {
+            "$ref": "#/components/schemas/Identificator"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Gebouweenheid.afwijkingVastgesteld": {
+        "title": "Gebouweenheid.afwijkingVastgesteld",
+        "description": "Wanneer de definitie van een gebouweenheid niet werd gevolgd en dus 'afwijkend' is.",
+        "type": "boolean"
+      },
+      "Gebouweenheid": {
+        "title": "Gebouweenheid",
+        "type": "object",
+        "description": "De kleinste eenheid binnen een gebouw die geschikt is voor woon-, bedrijfsmatige, of recreatieve doeleinden en die ontsloten wordt via een eigen afsluitbare toegang vanaf de openbare weg, een erf of een gedeelde circulatieruimte. Een gebouweenheid is in functioneel opzicht zelfstandig. Daarnaast kan een gebouweenheid ook een gemeenschappelijk deel zijn.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Gebouweenheid)",
+            "pattern": "^Gebouweenheid$"
+          },
+          "afwijkingVastgesteld": {
+            "$ref": "#/components/schemas/Gebouweenheid.afwijkingVastgesteld"
+          },
+          "positie": {
+            "$ref": "#/components/schemas/GeografischePositie"
+          },
+          "isDeelVan": {
+            "$ref": "#/components/schemas/Gebouw"
+          },
+          "toegekendAdres": {
+            "type": "array",
+            "description": "Het adres toegekend aan het adresseerbaar object. Lijst van Adres items.",
+            "items": {
+              "$ref": "#/components/schemas/Adres"
+            },
+            "minItems": 1
+          },
+          "identificator": {
+            "$ref": "#/components/schemas/Identificator"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "RuimtelijkeEenheid": {
+        "title": "RuimtelijkeEenheid",
+        "type": "object",
+        "description": "Eén gebied (of meerdere gebieden) van land en/of water, of één enkel volume (of meerdere volumes) ruimte, afgebakend voor een bepaald doel.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse RuimtelijkeEenheid)",
+            "pattern": "^RuimtelijkeEenheid$"
+          },
+          "toegekendAdres": {
+            "type": "array",
+            "description": "Het adres toegekend aan het adresseerbaar object. Lijst van Adres items.",
+            "items": {
+              "$ref": "#/components/schemas/Adres"
+            },
+            "minItems": 1
+          },
+          "identificator": {
+            "$ref": "#/components/schemas/Identificator"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "GebouwEnvelop": {
+        "title": "GebouwEnvelop",
+        "type": "object",
+        "description": "De collectie van het uitgewisselde gebouw en zijn metadata elementen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse GebouwEnvelop)",
+            "pattern": "^GebouwEnvelop$"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Gebouw"
+          }
+        },
+        "required": [
+          "@type",
+          "data"
+        ]
+      },
+      "DataEnvelop": {
+        "title": "DataEnvelop",
+        "type": "object",
+        "description": "De collectie van de uitgewisselde data en zijn metadata elementen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse DataEnvelop)",
+            "pattern": "^DataEnvelop$"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "GebouwenEnvelop": {
+        "title": "GebouwenEnvelop",
+        "type": "object",
+        "description": "De collectie van de uitgewisselde gebouwen en hun metadata elementen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse GebouwenEnvelop)",
+            "pattern": "^GebouwenEnvelop$"
+          },
+          "data": {
+            "type": "array",
+            "description": "De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van Gebouw items.",
+            "items": {
+              "$ref": "#/components/schemas/Gebouw"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "Problemdetail.detail": {
+        "title": "Problemdetail.detail",
+        "description": "Mensleesbare beschrijving van de fout.",
+        "type": "string"
+      },
+      "Problemdetail.instance": {
+        "title": "Problemdetail.instance",
+        "description": "Verwijzing naar de instantie van het object waarop de fout betrekking heeft. Bijvoorbeeld: de verwijzing naar de request.",
+        "type": "string",
+        "format": "uri"
+      },
+      "Problemdetail.status": {
+        "title": "Problemdetail.status",
+        "description": "HTTP foutcode. Zoals beschreven in <a href=\"https://www.rfc-editor.org/rfc/rfc7231\">RFC7231</a>. Bijvoorbeeld: 404 voor \"Not Found\".",
+        "type": "integer",
+        "format": "int64"
+      },
+      "Problemdetail.title": {
+        "title": "Problemdetail.title",
+        "description": "Korte mensleesbare beschrijving van de fout.",
+        "type": "string"
+      },
+      "Problemdetail.type": {
+        "title": "Problemdetail.type",
+        "description": "Aard van de fout.",
+        "type": "string",
+        "format": "uri"
+      },
+      "Problemdetail": {
+        "title": "Problemdetail",
+        "type": "object",
+        "description": "Meer gedetailleerde beschrijving van de fout in een HTTP response.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Problemdetail)",
+            "pattern": "^Problemdetail$"
+          },
+          "detail": {
+            "$ref": "#/components/schemas/Problemdetail.detail"
+          },
+          "instance": {
+            "$ref": "#/components/schemas/Problemdetail.instance"
+          },
+          "status": {
+            "$ref": "#/components/schemas/Problemdetail.status"
+          },
+          "title": {
+            "$ref": "#/components/schemas/Problemdetail.title"
+          },
+          "type": {
+            "$ref": "#/components/schemas/Problemdetail.type"
+          }
+        },
+        "required": [
+          "@type",
+          "detail",
+          "title",
+          "type"
+        ]
+      },
+      "GebouweenhedenEnvelop": {
+        "title": "GebouweenhedenEnvelop",
+        "type": "object",
+        "description": "De collectie van de uitgewisselde gebouweenheden en hun metadata elementen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse GebouweenhedenEnvelop)",
+            "pattern": "^GebouweenhedenEnvelop$"
+          },
+          "data": {
+            "type": "array",
+            "description": "De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van Gebouweenheid items.",
+            "items": {
+              "$ref": "#/components/schemas/Gebouweenheid"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "GebouweenheidEnvelop": {
+        "title": "GebouweenheidEnvelop",
+        "type": "object",
+        "description": "De collectie van de uitgewisselde gebouweneenheid zijn metadata elementen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse GebouweenheidEnvelop)",
+            "pattern": "^GebouweenheidEnvelop$"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Gebouweenheid"
+          }
+        },
+        "required": [
+          "@type",
+          "data"
+        ]
+      },
+      "Identificator.identificator": {
+        "title": "Identificator.identificator",
+        "description": "String gebruikt om het object uniek te identificeren. Type van de string slaat op het identificatiesysteem (inclusief de versie ervan), de string zelf op de eigenlijke identificator.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Identificator": {
+        "title": "Identificator",
+        "type": "object",
+        "description": "Informatie gebruikt om een object uniek te identificeren.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Identificator)",
+            "pattern": "^Identificator$"
+          },
+          "identificator": {
+            "$ref": "#/components/schemas/Identificator.identificator"
+          },
+          "gestructureerdeIdentificator": {
+            "$ref": "#/components/schemas/GestructureerdeIdentificator"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "GestructureerdeIdentificator.lokaleIdentificator": {
+        "title": "GestructureerdeIdentificator.lokaleIdentificator",
+        "description": "String gebruikt om het object uniek te identificeren binnen de naamruimte.",
+        "type": "string"
+      },
+      "GestructureerdeIdentificator.naamruimte": {
+        "title": "GestructureerdeIdentificator.naamruimte",
+        "description": "String die toegvoegd wordt aan de lokaleidentificator om deze globaal uniek te maken. Laat toe om objecten met dezelfde identificator maar van verschillend type en/of afkomstig uit verschillende domeinen uiteen te houden. In praktijk bijvoorbeeld een uri samengesteld uit betekenisvolle elementen zoals een domeinnaam, type en concept (bijvoorbeeld https://data.vlaanderen.be/id/adres/).",
+        "type": "string"
+      },
+      "GestructureerdeIdentificator.versieIdentificator": {
+        "title": "GestructureerdeIdentificator.versieIdentificator",
+        "description": "Identificator van de specifieke versie van een object.",
+        "type": "string"
+      },
+      "GestructureerdeIdentificator": {
+        "title": "GestructureerdeIdentificator",
+        "type": "object",
+        "description": "Identificator van een object opgesplitst in zijn onderdelen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse GestructureerdeIdentificator)",
+            "pattern": "^GestructureerdeIdentificator$"
+          },
+          "lokaleIdentificator": {
+            "$ref": "#/components/schemas/GestructureerdeIdentificator.lokaleIdentificator"
+          },
+          "naamruimte": {
+            "$ref": "#/components/schemas/GestructureerdeIdentificator.naamruimte"
+          },
+          "versieIdentificator": {
+            "$ref": "#/components/schemas/GestructureerdeIdentificator.versieIdentificator"
+          }
+        },
+        "required": [
+          "@type",
+          "lokaleIdentificator",
+          "naamruimte"
+        ]
+      },
+      "Geometrie.gml": {
+        "title": "Geometrie.gml",
+        "description": "Geometrie uitgedrukt in GML-formaat.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Geometrie": {
+        "title": "Geometrie",
+        "type": "object",
+        "description": "Vorm- en positiekenmerken van een object.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Geometrie)",
+            "pattern": "^Geometrie$"
+          },
+          "gml": {
+            "$ref": "#/components/schemas/Geometrie.gml"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "GeografischePositie": {
+        "title": "GeografischePositie",
+        "type": "object",
+        "description": "Geografische positie aangegeven door middel van een punt.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse GeografischePositie)",
+            "pattern": "^GeografischePositie$"
+          },
+          "geometrie": {
+            "type": "array",
+            "description": "De cartografische coöordinaten van het punt. Lijst van Punt items.",
+            "items": {
+              "$ref": "#/components/schemas/Punt"
+            },
+            "minItems": 1,
+            "maxItems": 2
+          },
+          "methode": {
+            "$ref": "#/components/schemas/GeometrieMethodeWaarde"
+          },
+          "specificatie": {
+            "$ref": "#/components/schemas/GeometrieSpecificatieWaarde"
+          }
+        },
+        "required": [
+          "@type",
+          "geometrie"
+        ]
+      },
+      "Punt.gml": {
+        "title": "Punt.gml",
+        "description": "Geometrie uitgedrukt in GML-formaat.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Punt": {
+        "title": "Punt",
+        "type": "object",
+        "description": "Een 0-dimensioneel geometrisch object dat een bepaalde locatie in een coördinaatruimte voorstelt. Heeft een x-coördinaat en een y-coördinaat. Kan ook een z-coördinaat (hoogte) en een m-coördinaat (afstand langs een curve) hebben.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Punt)",
+            "pattern": "^Punt$"
+          },
+          "gml": {
+            "$ref": "#/components/schemas/Punt.gml"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      },
+      "2DGebouwgeometrie": {
+        "title": "2DGebouwgeometrie",
+        "type": "object",
+        "description": "Geometrie van het gebouw en metadata over welk deel van het gebouw door de geometrie wordt voorgesteld en hoe deze werd bepaald.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse 2DGebouwgeometrie)",
+            "pattern": "^2DGebouwgeometrie$"
+          },
+          "geometrie": {
+            "type": "array",
+            "description": "2D- of 2.5D-geometrische voorstelling van het gebouw. Lijst van Geometrie items.",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Geometrie"
+                },
+                {
+                  "$ref": "#/components/schemas/Punt"
+                },
+                {
+                  "$ref": "#/components/schemas/Polygoon"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "@type",
+                "mapping": {
+                  "Geometrie": "#/components/schemas/Geometrie",
+                  "Punt": "#/components/schemas/Punt",
+                  "Polygoon": "#/components/schemas/Polygoon"
+                }
+              }
+            },
+            "minItems": 1,
+            "maxItems": 2
+          },
+          "methode": {
+            "$ref": "#/components/schemas/GeometrieMethodeWaarde"
+          }
+        },
+        "required": [
+          "@type",
+          "geometrie",
+          "methode"
+        ]
+      },
+      "Polygoon.gml": {
+        "title": "Polygoon.gml",
+        "description": "Geometrie uitgedrukt in GML-formaat.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "@value"
+        ]
+      },
+      "Polygoon": {
+        "title": "Polygoon",
+        "type": "object",
+        "description": "Een poligoon is een vlak oppervlak dat wordt begrensd door 1 buitengrens en 0 of meer binnengrenzen.",
+        "properties": {
+          "@id": {
+            "type": "string",
+            "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Polygoon)",
+            "pattern": "^Polygoon$"
+          },
+          "gml": {
+            "$ref": "#/components/schemas/Polygoon.gml"
+          }
+        },
+        "required": [
+          "@type"
+        ]
+      }
+    },
+    "links": {
+      "Adres.isToegekendAan": {
+        "operationId": "AdresGET",
+        "parameters": {
+          "id": "$response.body#/Adres.isToegekendAan/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `AdresseerbaarObject` op te halen."
+      },
+      "Adres.identificator": {
+        "operationId": "AdresGET",
+        "parameters": {
+          "id": "$response.body#/Adres.identificator/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "Gebouw.bestaatUit": {
+        "operationId": "GebouwGET",
+        "parameters": {
+          "id": "$response.body#/Gebouw.bestaatUit/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gebouweenheid` op te halen."
+      },
+      "Gebouw.ligtOp": {
+        "operationId": "GebouwGET",
+        "parameters": {
+          "id": "$response.body#/Gebouw.ligtOp/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `RuimtelijkeEenheid` op te halen."
+      },
+      "Gebouw.identificator": {
+        "operationId": "GebouwGET",
+        "parameters": {
+          "id": "$response.body#/Gebouw.identificator/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "Gebouweenheid.positie": {
+        "operationId": "GebouweenheidGET",
+        "parameters": {
+          "id": "$response.body#/Gebouweenheid.positie/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `GeografischePositie` op te halen."
+      },
+      "Gebouweenheid.isDeelVan": {
+        "operationId": "GebouweenheidGET",
+        "parameters": {
+          "id": "$response.body#/Gebouweenheid.isDeelVan/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Gebouw` op te halen."
+      },
+      "Gebouweenheid.toegekendAdres": {
+        "operationId": "GebouweenheidGET",
+        "parameters": {
+          "id": "$response.body#/Gebouweenheid.toegekendAdres/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adres` op te halen."
+      },
+      "Gebouweenheid.identificator": {
+        "operationId": "GebouweenheidGET",
+        "parameters": {
+          "id": "$response.body#/Gebouweenheid.identificator/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "RuimtelijkeEenheid.toegekendAdres": {
+        "operationId": "RuimtelijkeEenheidGET",
+        "parameters": {
+          "id": "$response.body#/RuimtelijkeEenheid.toegekendAdres/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Adres` op te halen."
+      },
+      "RuimtelijkeEenheid.identificator": {
+        "operationId": "RuimtelijkeEenheidGET",
+        "parameters": {
+          "id": "$response.body#/RuimtelijkeEenheid.identificator/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Identificator` op te halen."
+      },
+      "GebouwEnvelop.data": {
+        "operationId": "GebouwEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/GebouwEnvelop.data/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
+      },
+      "DataEnvelop.data": {
+        "operationId": "DataEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/DataEnvelop.data/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
+      },
+      "GebouwenEnvelop.data": {
+        "operationId": "GebouwenEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/GebouwenEnvelop.data/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
+      },
+      "GebouweenhedenEnvelop.data": {
+        "operationId": "GebouweenhedenEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/GebouweenhedenEnvelop.data/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
+      },
+      "GebouweenheidEnvelop.data": {
+        "operationId": "GebouweenheidEnvelopGET",
+        "parameters": {
+          "id": "$response.body#/GebouweenheidEnvelop.data/@id"
+        },
+        "description": "De waarde van het attribuut `@id` kan gebruikt worden om het gerefereerde object van het type `Object` op te halen."
+      }
+    }
+  }
+}
