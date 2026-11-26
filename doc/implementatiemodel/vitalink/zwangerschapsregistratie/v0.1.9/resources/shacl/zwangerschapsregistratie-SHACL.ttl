@@ -57,7 +57,7 @@
     org:Organization,
     <https://hl7.org/fhir/practitioner-definitions.html#Practitioner>;
   shacl:xone ([
-      shacl:not _:df_2_57;
+      shacl:not _:df_2_58;
       shacl:property [
         a shacl:PropertyShape;
         rdfs:label "identificator"@nl;
@@ -70,7 +70,7 @@
         shacl:path <http://www.w3.org/ns/adms#identifier>
       ]
     ] [shacl:property _:df_2_29,
-        _:df_2_57]) .
+        _:df_2_58]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#AnnotatieShape> a shacl:NodeShape;
   rdfs:label "Annotatie"@nl;
@@ -121,7 +121,7 @@
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Envelope>,
     <https://implementatie.data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#PregnancyListEnvelope>;
   shacl:xone ([
-      shacl:not _:df_2_52;
+      shacl:not _:df_2_53;
       shacl:property [
         a shacl:PropertyShape;
         rdfs:label "data"@nl;
@@ -133,7 +133,7 @@
         shacl:path <https://implementatie.data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#data>
       ]
     ] [shacl:property _:df_2_28,
-        _:df_2_52]) .
+        _:df_2_53]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#DateTimeShape> a shacl:NodeShape;
   rdfs:label "DateTime";
@@ -629,6 +629,16 @@
     shacl:description "Identificator van het object."@nl;
     shacl:name "identificator"@nl;
     shacl:path <http://www.w3.org/ns/adms#identifier>
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "is lid van"@nl;
+    <http://purl.org/vocab/vann/usageNote> "Dekt elk type aansluiting of betrokkenheid van een agent bij een organisatie, niet enkel formeel lidmaatschap. Kan eventueel verder gespecialiseerd worden."@nl;
+    rdfs:comment "Niet nader bepaald lidmaatschap van een agent van een organisatie."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#Zorgverlener.IsLidVan>;
+    shacl:class org:Organization;
+    shacl:description "Niet nader bepaald lidmaatschap van een agent van een organisatie."@nl;
+    shacl:name "is lid van"@nl;
+    shacl:path org:memberOf
   ];
   shacl:targetClass <https://hl7.org/fhir/practitioner-definitions.html#Practitioner> .
 
@@ -752,8 +762,8 @@ _:df_2_29 a shacl:PropertyShape;
   shacl:name "identificator"@nl;
   shacl:path <http://www.w3.org/ns/adms#identifier> .
 
-_:df_2_52 a shacl:PropertyShape;
+_:df_2_53 a shacl:PropertyShape;
   shacl:class <https://implementatie.data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#PregnancyListEnvelope> .
 
-_:df_2_57 a shacl:PropertyShape;
+_:df_2_58 a shacl:PropertyShape;
   shacl:class <http://www.w3.org/ns/person#Person> .

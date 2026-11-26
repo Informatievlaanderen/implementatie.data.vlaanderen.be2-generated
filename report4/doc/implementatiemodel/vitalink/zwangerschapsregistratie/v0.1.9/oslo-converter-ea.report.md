@@ -2,23 +2,25 @@
 
 #||# -------------------------------------
 
-2026-11-26T22:32:34.996Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:implementatiemodel_zwangerschapsregistratie:OSLO-Generiek:Gemeente:(Gemeente -> Object))
+2026-11-26T22:53:34.783Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:implementatiemodel_zwangerschapsregistratie:OSLO-Generiek:Gemeente:(Gemeente -> Object))
 
-2026-11-26T22:32:34.997Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:implementatiemodel_zwangerschapsregistratie:OSLO-Generiek:FormeelKader:(FormeelKader -> Object))
+2026-11-26T22:53:34.784Z info: [ConnectorConverterHandler]: Ignoring hidden connector (Model:implementatiemodel_zwangerschapsregistratie:OSLO-Generiek:FormeelKader:(FormeelKader -> Object))
 
-2026-11-26T22:32:34.999Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Gezondheidstoestand:Zwangerschap:(Zwangerschap -> Zwangerschapstoestand) is not an association with a source role. Ignoring this connector.
+2026-11-26T22:53:34.786Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Gezondheidstoestand:Zwangerschap:(Zwangerschap -> Zwangerschapstoestand) is not an association with a source role. Ignoring this connector.
 
-2026-11-26T22:32:35.000Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Persoon:Persoon:(Persoon -> Organisatie) is not an association with a source role. Ignoring this connector.
+2026-11-26T22:53:34.787Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Persoon:Persoon:(Persoon -> Organisatie) is not an association with a source role. Ignoring this connector.
 
-2026-11-26T22:32:35.001Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Persoon:Persoon:(Persoon -> Agent) is not an association with a source role. Ignoring this connector.
+2026-11-26T22:53:34.788Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Persoon:Persoon:(Persoon -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-11-26T22:32:35.001Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Organisatie:Organisatie:(Organisatie -> Agent) is not an association with a source role. Ignoring this connector.
+2026-11-26T22:53:34.788Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Organisatie:Organisatie:(Organisatie -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-11-26T22:32:35.001Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Gezondheidstoestand:Zorgverlener:(Zorgverlener -> Agent) is not an association with a source role. Ignoring this connector.
+2026-11-26T22:53:34.788Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Gezondheidstoestand:Zorgverlener:(Zorgverlener -> Agent) is not an association with a source role. Ignoring this connector.
 
-2026-11-26T22:32:35.001Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:Zwangerschapsregistratie:PregnancyListEnvelope:(PregnancyListEnvelope -> DataEnvelope) is not an association with a source role. Ignoring this connector.
+2026-11-26T22:53:34.788Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:OSLO-Gezondheidstoestand:Zorgverlener:(Zorgverlener -> Organisatie) is not an association with a source role. Ignoring this connector.
 
-2026-11-26T22:32:35.002Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
+2026-11-26T22:53:34.788Z info: Connector Model:implementatiemodel_zwangerschapsregistratie:Zwangerschapsregistratie:PregnancyListEnvelope:(PregnancyListEnvelope -> DataEnvelope) is not an association with a source role. Ignoring this connector.
+
+2026-11-26T22:53:34.789Z info: [PackageConverterHandler]: No value found for tag "baseURI" in package (Model). Using fallback URI (http://todo.com/) instead.
 
 #||# -------------------------------------
 
