@@ -3,7 +3,7 @@
   "info": {
     "title": "VITALINK zwangerschapsregistratie REST",
     "description": "OSLO-conforme REST API voor informatie over zwangerschapsregistratie",
-    "version": "0.1.8"
+    "version": "0.1.9"
   },
   "servers": [
     {
@@ -252,6 +252,29 @@
           "type"
         ]
       },
+      "Observatiestatus.code": {
+        "title": "Observatiestatus.code",
+        "description": "Code waarmee het concept binnen de codelijst wordt aangeduid.",
+        "type": "string"
+      },
+      "Observatiestatus.voorkeursnaam": {
+        "title": "Observatiestatus.voorkeursnaam",
+        "description": "Naam waarmee het concept bij voorkeur wordt aangeduid.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
+        ]
+      },
       "Observatiestatus": {
         "title": "Observatiestatus",
         "type": "object",
@@ -260,10 +283,44 @@
           "@id": {
             "type": "string",
             "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Observatiestatus)",
+            "pattern": "^Observatiestatus$"
+          },
+          "code": {
+            "$ref": "#/components/schemas/Observatiestatus.code"
+          },
+          "voorkeursnaam": {
+            "$ref": "#/components/schemas/Observatiestatus.voorkeursnaam"
           }
         },
         "required": [
-          "@id"
+          "@type"
+        ]
+      },
+      "Omstandigheid.code": {
+        "title": "Omstandigheid.code",
+        "description": "Code waarmee het concept binnen de codelijst wordt aangeduid.",
+        "type": "string"
+      },
+      "Omstandigheid.voorkeursnaam": {
+        "title": "Omstandigheid.voorkeursnaam",
+        "description": "Naam waarmee het concept bij voorkeur wordt aangeduid.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
         ]
       },
       "Omstandigheid": {
@@ -274,10 +331,44 @@
           "@id": {
             "type": "string",
             "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse Omstandigheid)",
+            "pattern": "^Omstandigheid$"
+          },
+          "code": {
+            "$ref": "#/components/schemas/Omstandigheid.code"
+          },
+          "voorkeursnaam": {
+            "$ref": "#/components/schemas/Omstandigheid.voorkeursnaam"
           }
         },
         "required": [
-          "@id"
+          "@type"
+        ]
+      },
+      "UitzonderingOorsprong.code": {
+        "title": "UitzonderingOorsprong.code",
+        "description": "Code waarmee het concept binnen de codelijst wordt aangeduid.",
+        "type": "string"
+      },
+      "UitzonderingOorsprong.voorkeursnaam": {
+        "title": "UitzonderingOorsprong.voorkeursnaam",
+        "description": "Naam waarmee het concept bij voorkeur wordt aangeduid.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
         ]
       },
       "UitzonderingOorsprong": {
@@ -288,10 +379,44 @@
           "@id": {
             "type": "string",
             "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse UitzonderingOorsprong)",
+            "pattern": "^UitzonderingOorsprong$"
+          },
+          "code": {
+            "$ref": "#/components/schemas/UitzonderingOorsprong.code"
+          },
+          "voorkeursnaam": {
+            "$ref": "#/components/schemas/UitzonderingOorsprong.voorkeursnaam"
           }
         },
         "required": [
-          "@id"
+          "@type"
+        ]
+      },
+      "UitzonderingType.code": {
+        "title": "UitzonderingType.code",
+        "description": "Code waarmee het concept binnen de codelijst wordt aangeduid.",
+        "type": "string"
+      },
+      "UitzonderingType.voorkeursnaam": {
+        "title": "UitzonderingType.voorkeursnaam",
+        "description": "Naam waarmee het concept bij voorkeur wordt aangeduid.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
         ]
       },
       "UitzonderingType": {
@@ -302,10 +427,44 @@
           "@id": {
             "type": "string",
             "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse UitzonderingType)",
+            "pattern": "^UitzonderingType$"
+          },
+          "code": {
+            "$ref": "#/components/schemas/UitzonderingType.code"
+          },
+          "voorkeursnaam": {
+            "$ref": "#/components/schemas/UitzonderingType.voorkeursnaam"
           }
         },
         "required": [
-          "@id"
+          "@type"
+        ]
+      },
+      "StatusZwangerschap.code": {
+        "title": "StatusZwangerschap.code",
+        "description": "Code waarmee het concept binnen de codelijst wordt aangeduid.",
+        "type": "string"
+      },
+      "StatusZwangerschap.voorkeursnaam": {
+        "title": "StatusZwangerschap.voorkeursnaam",
+        "description": "Naam waarmee het concept bij voorkeur wordt aangeduid.",
+        "type": "object",
+        "properties": {
+          "@value": {
+            "type": "string"
+          },
+          "@language": {
+            "type": "string",
+            "pattern": "^nl$"
+          }
+        },
+        "required": [
+          "@value",
+          "@language"
         ]
       },
       "StatusZwangerschap": {
@@ -316,10 +475,21 @@
           "@id": {
             "type": "string",
             "format": "uri"
+          },
+          "@type": {
+            "type": "string",
+            "description": "Object type (klasse StatusZwangerschap)",
+            "pattern": "^StatusZwangerschap$"
+          },
+          "code": {
+            "$ref": "#/components/schemas/StatusZwangerschap.code"
+          },
+          "voorkeursnaam": {
+            "$ref": "#/components/schemas/StatusZwangerschap.voorkeursnaam"
           }
         },
         "required": [
-          "@id"
+          "@type"
         ]
       },
       "Persoon.familienaam": {
@@ -679,7 +849,7 @@
           },
           "data": {
             "type": "array",
-            "description": "De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van Zwangerschap items.",
+            "description": "De collectie van de uitgewisselde data en zijn metadata elementen. Als er niets af te leveren is, wordt data weggelaten (HTTP 200) Lijst van Zwangerschap items.",
             "items": {
               "$ref": "#/components/schemas/Zwangerschap"
             },

@@ -57,7 +57,7 @@
     org:Organization,
     <https://hl7.org/fhir/practitioner-definitions.html#Practitioner>;
   shacl:xone ([
-      shacl:not _:df_2_58;
+      shacl:not _:df_2_68;
       shacl:property [
         a shacl:PropertyShape;
         rdfs:label "identificator"@nl;
@@ -69,8 +69,8 @@
         shacl:name "identificator"@nl;
         shacl:path <http://www.w3.org/ns/adms#identifier>
       ]
-    ] [shacl:property _:df_2_29,
-        _:df_2_58]) .
+    ] [shacl:property _:df_2_39,
+        _:df_2_68]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#AnnotatieShape> a shacl:NodeShape;
   rdfs:label "Annotatie"@nl;
@@ -121,7 +121,7 @@
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Envelope>,
     <https://implementatie.data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#PregnancyListEnvelope>;
   shacl:xone ([
-      shacl:not _:df_2_53;
+      shacl:not _:df_2_63;
       shacl:property [
         a shacl:PropertyShape;
         rdfs:label "data"@nl;
@@ -132,8 +132,8 @@
         shacl:name "data"@nl;
         shacl:path <https://implementatie.data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#data>
       ]
-    ] [shacl:property _:df_2_28,
-        _:df_2_53]) .
+    ] [shacl:property _:df_2_38,
+        _:df_2_63]) .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#DateTimeShape> a shacl:NodeShape;
   rdfs:label "DateTime";
@@ -266,7 +266,7 @@
   ], [
     a shacl:PropertyShape;
     rdfs:label "status"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Mogelijke waarden kunnen zijn: geregistreerd, voorlopig, definitief, gewijzigd, etcetera."@nl;
+    <http://purl.org/vocab/vann/usageNote> "Code uit de FHIR-codelijst observation-status, in code, bijvoorbeeld final. Het label mag in voorkeursnaam. Een @id is niet verplicht."@nl;
     rdfs:comment "De status van de resultaatwaarde."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#MedischeObservatie.Status>;
     shacl:description "De status van de resultaatwaarde."@nl;
@@ -313,6 +313,48 @@
     shacl:path <http://www.w3.org/ns/adms#identifier>
   ];
   shacl:targetClass prov:Entity .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#ObservatiestatusShape> shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "code"@nl;
+    rdfs:comment "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#Observatiestatus.Code>;
+    shacl:description "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "code"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#Observatiestatus.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ] .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#OmstandigheidShape> shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "code"@nl;
+    rdfs:comment "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#Omstandigheid.Code>;
+    shacl:description "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "code"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#Omstandigheid.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ] .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#OrganisatieShape> a shacl:NodeShape;
   rdfs:label "Organisatie"@nl;
@@ -398,7 +440,7 @@
     shacl:name "volledigeNaam"@nl;
     shacl:path <https://data.vlaanderen.be/ns/persoon#volledigeNaam>
   ],
-    _:df_2_29, [
+    _:df_2_39, [
     a shacl:PropertyShape;
     rdfs:label "is lid van"@nl;
     <http://purl.org/vocab/vann/usageNote> "Dekt elk type aansluiting of betrokkenheid van een agent bij een organisatie, niet enkel formeel lidmaatschap. Kan eventueel verder gespecialiseerd worden."@nl;
@@ -436,7 +478,7 @@
     shacl:name "ontvangstReferte"@nl;
     shacl:path <https://implementatie.data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#ontvangstReferte>
   ],
-    _:df_2_28;
+    _:df_2_38;
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#PregnancyListEnvelope> .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#ProblemdetailShape> a shacl:NodeShape;
@@ -503,11 +545,53 @@
   ];
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail> .
 
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#StatusZwangerschapShape> shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "code"@nl;
+    rdfs:comment "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#StatusZwangerschap.Code>;
+    shacl:description "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "code"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#StatusZwangerschap.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ] .
+
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#StringShape> a shacl:NodeShape;
   rdfs:label "String";
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#String>;
   shacl:closed false;
   shacl:targetClass xsd:string .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#UitzonderingOorsprongShape> shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "code"@nl;
+    rdfs:comment "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#UitzonderingOorsprong.Code>;
+    shacl:description "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "code"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#UitzonderingOorsprong.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ] .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#UitzonderingShape> a shacl:NodeShape;
   rdfs:label "Uitzondering"@nl;
@@ -577,6 +661,27 @@
     shacl:path dc:hasPart
   ];
   shacl:targetClass <https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering> .
+
+<https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#UitzonderingTypeShape> shacl:property [
+    a shacl:PropertyShape;
+    rdfs:label "code"@nl;
+    rdfs:comment "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#UitzonderingType.Code>;
+    shacl:description "Code waarmee het concept binnen de codelijst wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "code"@nl;
+    shacl:path skos:notation
+  ], [
+    a shacl:PropertyShape;
+    rdfs:label "voorkeursnaam"@nl;
+    rdfs:comment "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#UitzonderingType.Voorkeursnaam>;
+    shacl:datatype rdf:langString;
+    shacl:description "Naam waarmee het concept bij voorkeur wordt aangeduid."@nl;
+    shacl:maxCount 1;
+    shacl:name "voorkeursnaam"@nl;
+    shacl:path skos:prefLabel
+  ] .
 
 <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#UriShape> a shacl:NodeShape;
   rdfs:label "Uri";
@@ -721,7 +826,7 @@
   ], [
     a shacl:PropertyShape;
     rdfs:label "status zwangerschap"@nl;
-    <http://purl.org/vocab/vann/usageNote> "Te gebruiken om te voldoen indien niet gemakkelijk kan voldaan worden aan de niet-digitale manier van informatieverwerking via papieren logica."@nl;
+    <http://purl.org/vocab/vann/usageNote> "SNOMED CT-code uit de Belgische codelijst be-pregnancy-status-vs, in code, bijvoorbeeld 77386006 (zwanger) of 60001007 (niet zwanger). Het label mag in voorkeursnaam. Een @id is niet verplicht."@nl;
     rdfs:comment "Gesimplificeerde informatie rond de status van de Zwangerschapstoestand."@nl;
     rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#Zwangerschapstoestand.StatusZwangerschap>;
     shacl:description "Gesimplificeerde informatie rond de status van de Zwangerschapstoestand."@nl;
@@ -742,8 +847,9 @@
   ];
   shacl:targetClass <https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschapstoestand> .
 
-_:df_2_28 a shacl:PropertyShape;
+_:df_2_38 a shacl:PropertyShape;
   rdfs:label "data"@nl;
+  <http://purl.org/vocab/vann/usageNote> "Als er niets af te leveren is, wordt data weggelaten (HTTP 200)"@nl;
   rdfs:comment "De collectie van de uitgewisselde data en zijn metadata elementen."@nl;
   rdfs:seeAlso <https://implementatie.data.test-vlaanderen.be/doc/implementatiemodel/vitalink/zwangerschapsregistratie/v0.1.9#PregnancyListEnvelope.Data>;
   shacl:class <https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap>;
@@ -751,7 +857,7 @@ _:df_2_28 a shacl:PropertyShape;
   shacl:name "data"@nl;
   shacl:path <https://implementatie.data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#data> .
 
-_:df_2_29 a shacl:PropertyShape;
+_:df_2_39 a shacl:PropertyShape;
   rdfs:label "identificator"@nl;
   <http://purl.org/vocab/vann/usageNote> "Bij implementatie in RDF is de uri van het object de identificator."@nl;
   rdfs:comment "Identificator van het object."@nl;
@@ -762,8 +868,8 @@ _:df_2_29 a shacl:PropertyShape;
   shacl:name "identificator"@nl;
   shacl:path <http://www.w3.org/ns/adms#identifier> .
 
-_:df_2_53 a shacl:PropertyShape;
+_:df_2_63 a shacl:PropertyShape;
   shacl:class <https://implementatie.data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#PregnancyListEnvelope> .
 
-_:df_2_58 a shacl:PropertyShape;
+_:df_2_68 a shacl:PropertyShape;
   shacl:class <http://www.w3.org/ns/person#Person> .
