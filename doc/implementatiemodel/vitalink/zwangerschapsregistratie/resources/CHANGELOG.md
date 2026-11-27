@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+### [0.1.9] - 2026-11-27
+
+### Added
+- Attribuut Zwangerschapstoestand.statusZwangerschap (StatusZwangerschap [0..1]), URI https://data.vlaanderen.be/ns/gezondheidstoestand#statusZwangerschap. Waarden uit de Belgische SNOMED CT-codelijst be-pregnancy-status-vs.
+- Attribuut Zwangerschapstoestand.einddatum (DateTime [0..1]), URI https://implementatie.data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#einddatum. Werkelijke einddatum van de Zwangerschap.
+- Attribuut MedischeObservatie.status (Observatiestatus [0..1]), URI https://hl7.org/fhir/observation-definitions.html#Observation.status. Waarden uit de FHIR-codelijst observation-status.
+- Enumeraties StatusZwangerschap en Observatiestatus, elk met een verwijzing naar de externe codelijst (ap-codelist).
+- Elke enumeratie heeft in het implementatiemodel de eigenschappen code (skos:notation) en voorkeursnaam (skos:prefLabel), waarmee een waarde uit een codelijst doorgegeven wordt.
+
+### Changed
+- Verplicht gemaakt: Zwangerschap.heeftPersoon en Zwangerschap.toestand [0..1] -> [1..1], Zwangerschapstoestand.duur [0..1] -> [1..1], Zwangerschapstoestand.vastgesteldDoor [0..*] -> [1..*], MedischeObservatie.identificator [0..*] -> [1..*], MedischeObservatie.effectiefTijdstip [0..1] -> [1..1].
+- Persoon.identificator [0..*] -> [1..*] (herdefinitie van Agent.identificator). Zorgverlener.identificator blijft [0..*].
+- Optioneel gemaakt: Zwangerschap.identificator [1..*] -> [0..*], Organisatie.voorkeursnaam [1..1] -> [0..1].
+- In de OpenAPI-specificatie hebben waarden van enumeraties (Observatiestatus, StatusZwangerschap, Omstandigheid, UitzonderingOorsprong, UitzonderingType) een verplicht @type en een optionele @id, code en voorkeursnaam. Voorheen was @id verplicht.
+- Gebruiksnota bij PregnancyListEnvelope.data: als er niets af te leveren is, wordt data weggelaten (HTTP 200).
+- zwangerschapsstatussen_api.yaml bijgewerkt naar versie 0.1.9.
+
 ### [0.1.8] - 2026-10-23
 
 ### Added

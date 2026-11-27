@@ -9,8 +9,12 @@ properties:
     type: string
     description: Object type (klasse Zwangerschapstoestand)
     pattern: ^Zwangerschapstoestand$
+  einddatum:
+    $ref: '#/components/schemas/Zwangerschapstoestand.einddatum'
   duur:
     $ref: '#/components/schemas/Periode'
+  statusZwangerschap:
+    $ref: '#/components/schemas/StatusZwangerschap'
   vastgesteldDoor:
     type: array
     description: De Medische Observatie stelt een Gezondheidstoestand vast. Lijst van MedischeObservatie items.
@@ -19,3 +23,5 @@ properties:
     minItems: 1
 required:
   - '@type'
+  - duur
+  - vastgesteldDoor

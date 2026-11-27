@@ -112,6 +112,10 @@
           "@id": "http://www.w3.org/ns/adms#identifier",
           "@type": "http://www.w3.org/ns/adms#Identifier"
         },
+        "status": {
+          "@id": "https://hl7.org/fhir/observation-definitions.html#Observation.status",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
+        },
         "vastgesteld": {
           "@container": "@set",
           "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#vastgesteld",
@@ -130,7 +134,30 @@
       },
       "@id": "http://www.w3.org/ns/prov#Entity"
     },
+    "Observatiestatus": {
+      "@context": {
+        "code": {
+          "@id": "http://www.w3.org/2004/02/skos/core#notation",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "voorkeursnaam": {
+          "@id": "http://www.w3.org/2004/02/skos/core#prefLabel",
+          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        }
+      },
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+    },
     "Omstandigheid": {
+      "@context": {
+        "code": {
+          "@id": "http://www.w3.org/2004/02/skos/core#notation",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "voorkeursnaam": {
+          "@id": "http://www.w3.org/2004/02/skos/core#prefLabel",
+          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        }
+      },
       "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
     "Organisatie": {
@@ -247,6 +274,19 @@
       },
       "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Problemdetail"
     },
+    "StatusZwangerschap": {
+      "@context": {
+        "code": {
+          "@id": "http://www.w3.org/2004/02/skos/core#notation",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "voorkeursnaam": {
+          "@id": "http://www.w3.org/2004/02/skos/core#prefLabel",
+          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        }
+      },
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+    },
     "String": {
       "@id": "http://www.w3.org/2001/XMLSchema#string"
     },
@@ -281,9 +321,29 @@
       "@id": "https://implementatie.data.vlaanderen.be/ns/generiek#Uitzondering"
     },
     "UitzonderingOorsprong": {
+      "@context": {
+        "code": {
+          "@id": "http://www.w3.org/2004/02/skos/core#notation",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "voorkeursnaam": {
+          "@id": "http://www.w3.org/2004/02/skos/core#prefLabel",
+          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        }
+      },
       "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
     "UitzonderingType": {
+      "@context": {
+        "code": {
+          "@id": "http://www.w3.org/2004/02/skos/core#notation",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "voorkeursnaam": {
+          "@id": "http://www.w3.org/2004/02/skos/core#prefLabel",
+          "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+        }
+      },
       "@id": "http://www.w3.org/2004/02/skos/core#Concept"
     },
     "Uri": {
@@ -294,11 +354,6 @@
         "familienaam": {
           "@id": "http://xmlns.com/foaf/0.1/familyName",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "heeftZwangerschap": {
-          "@container": "@set",
-          "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#Persoon.heeftZwangerschap",
-          "@type": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschap"
         },
         "identificator": {
           "@container": "@set",
@@ -355,6 +410,14 @@
         "duur": {
           "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#Zwangerschapstoestand.duur",
           "@type": "http://data.europa.eu/m8g/PeriodOfTime"
+        },
+        "einddatum": {
+          "@id": "https://implementatie.data.vlaanderen.be/ns/vitalink/zwangerschapsregistratie#einddatum",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "statusZwangerschap": {
+          "@id": "https://data.vlaanderen.be/ns/gezondheidstoestand#statusZwangerschap",
+          "@type": "http://www.w3.org/2004/02/skos/core#Concept"
         },
         "vastgesteldDoor": {
           "@container": "@set",

@@ -2,9 +2,61 @@ openapi: 3.1.0
 info:
   title: Components of VITALINK zwangerschapsregistratie REST
   description: OSLO-conforme REST API voor informatie over zwangerschapsregistratie
-  version: 0.1.8
+  version: 0.1.9
 components:
   schemas:
+    Observatiestatus.code:
+      title: Observatiestatus.code
+      description: Code waarmee het concept binnen de codelijst wordt aangeduid.
+      type: string
+    Observatiestatus.voorkeursnaam:
+      title: Observatiestatus.voorkeursnaam
+      description: Naam waarmee het concept bij voorkeur wordt aangeduid.
+      type: object
+      properties:
+        '@value':
+          type: string
+        '@language':
+          type: string
+          pattern: ^nl$
+      required:
+        - '@value'
+        - '@language'
+    Observatiestatus:
+      title: Observatiestatus
+      type: object
+      description: Enumeratie van Observatiestatus
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Observatiestatus)
+          pattern: ^Observatiestatus$
+        code:
+          $ref: '#/components/schemas/Observatiestatus.code'
+        voorkeursnaam:
+          $ref: '#/components/schemas/Observatiestatus.voorkeursnaam'
+      required:
+        - '@type'
+    Omstandigheid.code:
+      title: Omstandigheid.code
+      description: Code waarmee het concept binnen de codelijst wordt aangeduid.
+      type: string
+    Omstandigheid.voorkeursnaam:
+      title: Omstandigheid.voorkeursnaam
+      description: Naam waarmee het concept bij voorkeur wordt aangeduid.
+      type: object
+      properties:
+        '@value':
+          type: string
+        '@language':
+          type: string
+          pattern: ^nl$
+      required:
+        - '@value'
+        - '@language'
     Omstandigheid:
       title: Omstandigheid
       type: object
@@ -13,8 +65,33 @@ components:
         '@id':
           type: string
           format: uri
+        '@type':
+          type: string
+          description: Object type (klasse Omstandigheid)
+          pattern: ^Omstandigheid$
+        code:
+          $ref: '#/components/schemas/Omstandigheid.code'
+        voorkeursnaam:
+          $ref: '#/components/schemas/Omstandigheid.voorkeursnaam'
       required:
-        - '@id'
+        - '@type'
+    UitzonderingOorsprong.code:
+      title: UitzonderingOorsprong.code
+      description: Code waarmee het concept binnen de codelijst wordt aangeduid.
+      type: string
+    UitzonderingOorsprong.voorkeursnaam:
+      title: UitzonderingOorsprong.voorkeursnaam
+      description: Naam waarmee het concept bij voorkeur wordt aangeduid.
+      type: object
+      properties:
+        '@value':
+          type: string
+        '@language':
+          type: string
+          pattern: ^nl$
+      required:
+        - '@value'
+        - '@language'
     UitzonderingOorsprong:
       title: UitzonderingOorsprong
       type: object
@@ -23,8 +100,33 @@ components:
         '@id':
           type: string
           format: uri
+        '@type':
+          type: string
+          description: Object type (klasse UitzonderingOorsprong)
+          pattern: ^UitzonderingOorsprong$
+        code:
+          $ref: '#/components/schemas/UitzonderingOorsprong.code'
+        voorkeursnaam:
+          $ref: '#/components/schemas/UitzonderingOorsprong.voorkeursnaam'
       required:
-        - '@id'
+        - '@type'
+    UitzonderingType.code:
+      title: UitzonderingType.code
+      description: Code waarmee het concept binnen de codelijst wordt aangeduid.
+      type: string
+    UitzonderingType.voorkeursnaam:
+      title: UitzonderingType.voorkeursnaam
+      description: Naam waarmee het concept bij voorkeur wordt aangeduid.
+      type: object
+      properties:
+        '@value':
+          type: string
+        '@language':
+          type: string
+          pattern: ^nl$
+      required:
+        - '@value'
+        - '@language'
     UitzonderingType:
       title: UitzonderingType
       type: object
@@ -33,8 +135,51 @@ components:
         '@id':
           type: string
           format: uri
+        '@type':
+          type: string
+          description: Object type (klasse UitzonderingType)
+          pattern: ^UitzonderingType$
+        code:
+          $ref: '#/components/schemas/UitzonderingType.code'
+        voorkeursnaam:
+          $ref: '#/components/schemas/UitzonderingType.voorkeursnaam'
       required:
-        - '@id'
+        - '@type'
+    StatusZwangerschap.code:
+      title: StatusZwangerschap.code
+      description: Code waarmee het concept binnen de codelijst wordt aangeduid.
+      type: string
+    StatusZwangerschap.voorkeursnaam:
+      title: StatusZwangerschap.voorkeursnaam
+      description: Naam waarmee het concept bij voorkeur wordt aangeduid.
+      type: object
+      properties:
+        '@value':
+          type: string
+        '@language':
+          type: string
+          pattern: ^nl$
+      required:
+        - '@value'
+        - '@language'
+    StatusZwangerschap:
+      title: StatusZwangerschap
+      type: object
+      description: Enumeratie van StatusZwangerschap
+      properties:
+        '@id':
+          type: string
+          format: uri
+        '@type':
+          type: string
+          description: Object type (klasse StatusZwangerschap)
+          pattern: ^StatusZwangerschap$
+        code:
+          $ref: '#/components/schemas/StatusZwangerschap.code'
+        voorkeursnaam:
+          $ref: '#/components/schemas/StatusZwangerschap.voorkeursnaam'
+      required:
+        - '@type'
     Persoon.familienaam:
       title: Persoon.familienaam
       description: Gedeelte van de volledige naam van de persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.
@@ -69,20 +214,21 @@ components:
           minItems: 1
         volledigeNaam:
           $ref: '#/components/schemas/Persoon.volledigeNaam'
-        isLidVan:
-          type: array
-          description: Niet nader bepaald lidmaatschap van een agent van een organisatie. Dekt elk type aansluiting of betrokkenheid van een agent bij een organisatie, niet enkel formeel lidmaatschap. Kan eventueel verder gespecialiseerd worden. Lijst van Organisatie items.
-          items:
-            $ref: '#/components/schemas/Organisatie'
-          minItems: 1
         identificator:
           type: array
           description: Identificator van het object. Bij implementatie in RDF is de uri van het object de identificator. Lijst van Identificator items.
           items:
             $ref: '#/components/schemas/Identificator'
           minItems: 1
+        isLidVan:
+          type: array
+          description: Niet nader bepaald lidmaatschap van een agent van een organisatie. Dekt elk type aansluiting of betrokkenheid van een agent bij een organisatie, niet enkel formeel lidmaatschap. Kan eventueel verder gespecialiseerd worden. Lijst van Organisatie items.
+          items:
+            $ref: '#/components/schemas/Organisatie'
+          minItems: 1
       required:
         - '@type'
+        - identificator
     Organisatie.voorkeursnaam:
       title: Organisatie.voorkeursnaam
       description: Naam waarmee de Organisatie bij voorkeur wordt aangeduid.
@@ -118,7 +264,6 @@ components:
           minItems: 1
       required:
         - '@type'
-        - voorkeursnaam
     Zwangerschap:
       title: Zwangerschap
       type: object
@@ -149,7 +294,8 @@ components:
           minItems: 1
       required:
         - '@type'
-        - identificator
+        - toestand
+        - heeftPersoon
     MedischVerslag:
       title: MedischVerslag
       type: object
@@ -183,13 +329,13 @@ components:
       title: Zorgverlener.familienaam
       description: Gedeelte van de volledige naam van de persoon ontvangen van de vorige generatie. Ook wel familienaam genoemd omdat de achternaam een familiale verwantschap aanduidt.
       type: string
-    Zorgverlener.voornaam:
-      title: Zorgverlener.voornaam
-      description: Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie.
-      type: string
     Zorgverlener.volledigeNaam:
       title: Zorgverlener.volledigeNaam
       description: De volledige naam van de persoon, doorgaans de combinatie van voornamen en achternaam.
+      type: string
+    Zorgverlener.voornaam:
+      title: Zorgverlener.voornaam
+      description: Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie.
       type: string
     Zorgverlener:
       title: Zorgverlener
@@ -203,22 +349,22 @@ components:
           type: string
           description: Object type (klasse Zorgverlener)
           pattern: ^Zorgverlener$
-        identificator:
-          type: array
-          description: Identificator van het object. Bij implementatie in RDF is de uri van het object de identificator. Lijst van Identificator items.
-          items:
-            $ref: '#/components/schemas/Identificator'
-          minItems: 1
         familienaam:
           $ref: '#/components/schemas/Zorgverlener.familienaam'
+        volledigeNaam:
+          $ref: '#/components/schemas/Zorgverlener.volledigeNaam'
         voornaam:
           type: array
           description: Naam die een kind bij geboorte wordt gegeven. Onderscheidt het kind van de andere kinderen in de familie. Lijst van String items.
           items:
             $ref: '#/components/schemas/Zorgverlener.voornaam'
           minItems: 1
-        volledigeNaam:
-          $ref: '#/components/schemas/Zorgverlener.volledigeNaam'
+        identificator:
+          type: array
+          description: Identificator van het object. Bij implementatie in RDF is de uri van het object de identificator. Lijst van Identificator items.
+          items:
+            $ref: '#/components/schemas/Identificator'
+          minItems: 1
         isLidVan:
           type: array
           description: Niet nader bepaald lidmaatschap van een agent van een organisatie. Dekt elk type aansluiting of betrokkenheid van een agent bij een organisatie, niet enkel formeel lidmaatschap. Kan eventueel verder gespecialiseerd worden. Lijst van Organisatie items.
@@ -252,6 +398,8 @@ components:
           items:
             $ref: '#/components/schemas/Identificator'
           minItems: 1
+        status:
+          $ref: '#/components/schemas/Observatiestatus'
         gedocumenteerdDoor:
           type: array
           description: Een Medisch Verslag documenteert één of meerdere Mediche Observaties. Lijst van MedischVerslag items.
@@ -260,6 +408,8 @@ components:
           minItems: 1
       required:
         - '@type'
+        - effectiefTijdstip
+        - identificator
     Foetus:
       title: Foetus
       type: object
@@ -294,7 +444,7 @@ components:
           $ref: '#/components/schemas/PregnancyListEnvelope.ontvangstReferte'
         data:
           type: array
-          description: De collectie van de uitgewisselde data en zijn metadata elementen. Lijst van Zwangerschap items.
+          description: De collectie van de uitgewisselde data en zijn metadata elementen. Als er niets af te leveren is, wordt data weggelaten (HTTP 200). Lijst van Zwangerschap items.
           items:
             $ref: '#/components/schemas/Zwangerschap'
           minItems: 1
@@ -307,7 +457,7 @@ components:
         '@context':
           type: string
           description: URI of the JSON-LD versioned context file for this response.
-          pattern: ^https:\/\/implementatie.data.vlaanderen.be\/doc\/implementatiemodel\/vitalink\/zwangerschapsregistratie\/v0.1.8\/context\/zwangerschapsregistratie.jsonld$
+          pattern: ^https:\/\/implementatie.data.vlaanderen.be\/doc\/implementatiemodel\/vitalink\/zwangerschapsregistratie\/v0.1.9\/context\/zwangerschapsregistratie.jsonld$
       required:
         - '@type'
     Uitzondering.datum:
@@ -427,6 +577,11 @@ components:
         - detail
         - title
         - type
+    Zwangerschapstoestand.einddatum:
+      title: Zwangerschapstoestand.einddatum
+      description: Werkelijke einddatum van de Zwangerschap, naast de geschatte bevallingsdatum in duur.einde.
+      type: string
+      format: date-time
     Zwangerschapstoestand:
       title: Zwangerschapstoestand
       type: object
@@ -439,8 +594,12 @@ components:
           type: string
           description: Object type (klasse Zwangerschapstoestand)
           pattern: ^Zwangerschapstoestand$
+        einddatum:
+          $ref: '#/components/schemas/Zwangerschapstoestand.einddatum'
         duur:
           $ref: '#/components/schemas/Periode'
+        statusZwangerschap:
+          $ref: '#/components/schemas/StatusZwangerschap'
         vastgesteldDoor:
           type: array
           description: De Medische Observatie stelt een Gezondheidstoestand vast. Lijst van MedischeObservatie items.
@@ -449,6 +608,8 @@ components:
           minItems: 1
       required:
         - '@type'
+        - duur
+        - vastgesteldDoor
     Periode.begin:
       title: Periode.begin
       description: Aanvang van de tijdsduur.
