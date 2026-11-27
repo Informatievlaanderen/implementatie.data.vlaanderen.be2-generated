@@ -1,150 +1,90 @@
 {
   "@context": {
-    "Attribuutswijziging": {
-      "@context": {
-        "naam": {
-          "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#naam",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "nieuweWaarde": {
-          "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#nieuweWaarde",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "oudeWaarde": {
-          "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#oudeWaarde",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        }
-      },
-      "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Attribuutswijziging"
+    "Attribuutswijziging": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Attribuutswijziging",
+    "CloudEvent": "https://w3id.org/cloudevents#CloudEvent",
+    "DateTime": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "GRARWijziging": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#GRARWijziging",
+    "Inhoud": "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "String": "http://www.w3.org/2001/XMLSchema#string",
+    "URI": "http://www.w3.org/2001/XMLSchema#anyURI",
+    "Wijzigingsevent": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Wijzigingsevent",
+    "attributen": {
+      "@container": "@set",
+      "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#attributen",
+      "@type": "@id"
     },
-    "CloudEvent": {
-      "@context": {
-        "data": {
-          "@id": "https://w3id.org/cloudevents#data",
-          "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
-        },
-        "datacontenttype": {
-          "@id": "https://w3id.org/cloudevents#datacontenttype",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "dataschema": {
-          "@id": "https://w3id.org/cloudevents#dataschema",
-          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
-        },
-        "id": {
-          "@id": "https://w3id.org/cloudevents#id",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "source": {
-          "@id": "https://w3id.org/cloudevents#source",
-          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
-        },
-        "specversion": {
-          "@id": "https://w3id.org/cloudevents#specversion",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "subject": {
-          "@id": "https://w3id.org/cloudevents#subject",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "time": {
-          "@id": "https://w3id.org/cloudevents#time",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        },
-        "type": {
-          "@id": "https://w3id.org/cloudevents#type",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        }
-      },
-      "@id": "https://w3id.org/cloudevents#CloudEvent"
+    "basisregisterscausationid": {
+      "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#basisregisterscausationid",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
-    "DateTime": {
-      "@id": "http://www.w3.org/2001/XMLSchema#dateTime"
+    "basisregisterseventtype": {
+      "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#basisregisterseventtype",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
-    "GRARWijziging": {
-      "@context": {
-        "attributen": {
-          "@container": "@set",
-          "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#attributen",
-          "@type": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Attribuutswijziging"
-        },
-        "naamruimte": {
-          "@id": "https://data.vlaanderen.be/ns/generiek#naamruimte",
-          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
-        },
-        "nisCodes": {
-          "@container": "@set",
-          "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#nisCodes",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "objectid": {
-          "@id": "https://data.vlaanderen.be/ns/generiek#lokaleIdentificator",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "versieId": {
-          "@id": "https://data.vlaanderen.be/ns/generiek#versieIdentificator",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        }
-      },
-      "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#GRARWijziging"
+    "data": {
+      "@id": "https://w3id.org/cloudevents#data",
+      "@type": "@id"
     },
-    "Inhoud": {
-      "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
+    "datacontenttype": {
+      "@id": "https://w3id.org/cloudevents#datacontenttype",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
-    "String": {
-      "@id": "http://www.w3.org/2001/XMLSchema#string"
+    "dataschema": {
+      "@id": "https://w3id.org/cloudevents#dataschema",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
     },
-    "URI": {
-      "@id": "http://www.w3.org/2001/XMLSchema#anyURI"
+    "id": {
+      "@id": "https://w3id.org/cloudevents#id",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
-    "Wijzigingsevent": {
-      "@context": {
-        "basisregisterscausationid": {
-          "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#basisregisterscausationid",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "basisregisterseventtype": {
-          "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#basisregisterseventtype",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "data": {
-          "@id": "https://w3id.org/cloudevents#data",
-          "@type": "http://www.w3.org/2000/01/rdf-schema#Literal"
-        },
-        "datacontenttype": {
-          "@id": "https://w3id.org/cloudevents#datacontenttype",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "dataschema": {
-          "@id": "https://w3id.org/cloudevents#dataschema",
-          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
-        },
-        "id": {
-          "@id": "https://w3id.org/cloudevents#id",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "source": {
-          "@id": "https://w3id.org/cloudevents#source",
-          "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
-        },
-        "specversion": {
-          "@id": "https://w3id.org/cloudevents#specversion",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "subject": {
-          "@id": "https://w3id.org/cloudevents#subject",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "time": {
-          "@id": "https://w3id.org/cloudevents#time",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        },
-        "type": {
-          "@id": "https://w3id.org/cloudevents#type",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        }
-      },
-      "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#Wijzigingsevent"
+    "naam": {
+      "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#naam",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "naamruimte": {
+      "@id": "https://data.vlaanderen.be/ns/generiek#naamruimte",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+    },
+    "nieuweWaarde": {
+      "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#nieuweWaarde",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "nisCodes": {
+      "@container": "@set",
+      "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#nisCodes",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "objectid": {
+      "@id": "https://data.vlaanderen.be/ns/generiek#lokaleIdentificator",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "oudeWaarde": {
+      "@id": "https://implementatie.data.vlaanderen.be/ns/basisregisters/changefeeds#oudeWaarde",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "source": {
+      "@id": "https://w3id.org/cloudevents#source",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+    },
+    "specversion": {
+      "@id": "https://w3id.org/cloudevents#specversion",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "subject": {
+      "@id": "https://w3id.org/cloudevents#subject",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "time": {
+      "@id": "https://w3id.org/cloudevents#time",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "type": {
+      "@id": "https://w3id.org/cloudevents#type",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "versieId": {
+      "@id": "https://data.vlaanderen.be/ns/generiek#versieIdentificator",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
     }
   }
 }
